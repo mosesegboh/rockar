@@ -1,0 +1,151 @@
+.tooltip-item-extended {
+    border: 1px solid $tooltip-color;
+    padding: .5em 1em;
+    border-radius: $tooltip-border-radius;
+    position: relative;
+    display: inline-block;
+}
+
+/* If you're using the icon option, use this next selector to style them */
+.tooltipster-icon {
+    cursor: help;
+    margin-left: 4px;
+}
+
+/* This is the base styling required to make all Tooltipsters work */
+.tooltipster-base {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: $tooltip-background;
+    color: $tooltip-color;
+    font-size: $tooltip-font-size;
+    text-align: center;
+    min-width: $tooltip-width;
+    z-index: 9999999;
+    border: 1px solid $tooltip-border-color;
+
+    .popupActive & {
+        z-index: $popup-z-index + 1;
+    }
+
+    p {
+        margin: 0;
+    }
+}
+
+.tooltipster-base {
+    .tooltipster-content {
+        overflow: visible;
+        padding: 10px;
+    }
+}
+
+/* These next classes handle the styles for the little arrow attached to the tooltip. By default, the arrow will inherit the same colors and border as what is set on the main tooltip itself. */
+.tooltipster-arrow {
+    border: none;
+    color: $tooltip-background;
+    content: '';
+    text-shadow: none;
+    font-size: $tooltip-arrow-size;
+    pointer-events: none;
+}
+
+.tooltipster-arrow-top-left {
+    @include position(absolute, 100% 0 0 0);
+    @include sprite($sprite-tooltip-corner-bottom);
+    border: none;
+    margin-left: -1px;
+    color: $tooltip-background;
+    content: '';
+    text-shadow: none;
+    font-size: $tooltip-arrow-size;
+    pointer-events: none;
+    bottom: 0;
+}
+
+.tooltipster-arrow-bottom-left {
+    @include position(absolute, -16px 0 0 0);
+    @include sprite($sprite-tooltip-corner-top);
+    border: none;
+    color: $tooltip-background;
+    content: '';
+    margin-left: -1px;
+    text-shadow: none;
+    font-size: 1.4em;
+    pointer-events: none;
+    bottom: 0;
+}
+
+/* Some CSS magic for the awesome animations - feel free to make your own custom animations and reference it in your Tooltipster settings! */
+
+.tooltipster-fade {
+    opacity: 0;
+    @include transition-property(opacity);
+}
+
+.tooltipster-fade-show {
+    opacity: 1;
+    z-index: 9999999;
+}
+
+.tooltipster-grow {
+    @include transform(scale(0, 0));
+    @include transition-property(transform);
+    -webkit-backface-visibility: hidden;
+}
+
+.tooltipster-grow-show {
+    @include transform(scale(1, 1));
+    @include transition-timing-function(cubic-bezier(0.175, 0.885, 0.320, 1.15));
+}
+
+.tooltipster-swing {
+    opacity: 0;
+    @include transform(rotateZ(4deg));
+    @include transition-property(transform);
+}
+
+.tooltipster-swing-show {
+    opacity: 1;
+    @include transform(rotateZ(0deg));
+    @include transition-timing-function(cubic-bezier(0.230, 0.635, 0.495, 2.4));
+}
+
+.tooltipster-fall {
+    top: 0;
+    @include transition-property(top);
+    @include transition-timing-function(cubic-bezier(0.175, 0.885, 0.320, 1.15))
+}
+
+.tooltipster-fall.tooltipster-dying {
+    @include transition-property(all);
+    top: 0 !important;
+    opacity: 0;
+}
+
+.tooltipster-slide {
+    left: -40px;
+    @include transition-property(left);
+    @include transition-timing-function(cubic-bezier(0.175, 0.885, 0.320, 1.15))
+
+}
+
+.tooltipster-slide.tooltipster-dying {
+    @include transition-property(all);
+    left: 0 !important;
+    opacity: 0;
+}
+
+/* CSS transition for when contenting is changing in a tooltip that is still open. The only properties that will NOT transition are: width, height, top, and left */
+.tooltipster-content-changing {
+    opacity: 0.5;
+    @include transform(scale(1.1, 1.1));
+}
+
+// Custom styles
+.catalog-category-view {
+    .tooltipster-fade-show {
+        z-index: 9998;
+    }
+}

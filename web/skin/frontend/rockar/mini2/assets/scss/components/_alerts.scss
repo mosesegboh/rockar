@@ -1,0 +1,42 @@
+.warning-msg {
+    font-family: $mini-sans-serif-regular;
+}
+
+.error-msg,
+.success-msg {
+    font-family: $mini-sans-serif-regular;
+}
+
+.error-msg {
+    color: $c-mini-red-1;
+}
+
+.global-warning {
+    .error-msg,
+    .success-msg {
+        @include media($dsp2-medium-screen-up) {
+            padding: 1.5em 4em 1.3em 4em;
+        }
+
+        .icon-info {
+            &-red,
+            &-green {
+                padding: 0 12px 0 0;
+
+                &::after {
+                    @include size(21px 21px);
+                }
+            }
+        }
+
+        .close-icon-warning {
+            @include media($medium-screen-down) {
+                top: 50%;
+            }
+
+            &::after {
+                @include size(13px 11px);
+            }
+        }
+    }
+}

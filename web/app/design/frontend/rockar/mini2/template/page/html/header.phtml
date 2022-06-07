@@ -1,0 +1,204 @@
+<?php
+/**
+ * @category  design
+ * @package   rockar\mini2
+ * @author    Andrian Kogoshvili <techteam@rockar.com>
+ * @copyright Copyright (c) 2021 Rockar Ltd (http://rockar.com)
+ *
+ * @var $this Mage_Page_Block_Html_Header
+ */
+
+/** @var Rockar_Cms_Helper_Data $cmsHelper */
+$cmsHelper = Mage::helper('rockar_cms');
+
+$switcherData = $cmsHelper->getWebsiteSwitcherData();
+$allHelper = Mage::helper('rockar_all');
+$isInStore = $allHelper->checkIsInStore();
+$storeCode = $allHelper->getInStoreCode();
+$store = $storeCode ? Mage::helper('peppermint_localstores/data')->getStoreFromCode($storeCode) : '';
+$storeName = $store ? preg_replace('/.\(.+\)/', '', $store->getName()) : '';
+$customerFirstName = Mage::getSingleton('customer/session')->getCustomer()->getData('firstname') ?: '';
+$customerLastName = Mage::getSingleton('customer/session')->getCustomer()->getData('lastname') ?: '';
+$orderCount = (int) Mage::helper('checkout/cart')->getSummaryCount();
+$isTestDrivePage = Mage::app()->getRequest()->getRouteName() === 'rockar_youdrive';
+?>
+
+<div class="page-loader"><div class="show-loading"></div></div>
+
+<div class="nav-wrap on-light">
+    <div class="nav-hero-image-wrapper desktop-only">
+        <?php echo $isTestDrivePage
+            ? $this->getLayout()->createBlock('cms/block')->setBlockId('hero_image_block_test_drives')->toHtml()
+            : $this->getLayout()->createBlock('cms/block')->setBlockId('hero_image_block')->toHtml(); ?>
+    </div>
+    <header class="navigation-bar" role="banner">
+        <div class="navigation-bar-wrapper inner-container">
+            <div class="logotype brand-logo">
+                 <a href="<?php echo $this->getUrl(''); ?>" class="logo">
+                     <img class="logo-on-dark" src="<?php echo Mage::helper('peppermint_all/newJourney')->getLandingPageLogoUrl(); ?>" alt="<?php echo $this->getLogoAlt(); ?>"/>
+                     <img class="logo-on-light" src="<?php echo Mage::helper('peppermint_all/newJourney')->getOtherPagesLogoUrl(); ?>" alt="<?php echo $this->getLogoAlt(); ?>"/>
+                 </a>
+            </div>
+            <nav class="navigation-menu <?php echo $isInStore ? 'instore' : ''; ?>">
+                <div class="navigations-list">
+                    <div class="custom-nav-wrapper">
+                        <ul class="custom-nav">
+                            <?php if ($isInStore): ?>
+                                <div class="in-store-indicator"><?php echo 'In-Store  |  '. $storeName . '  |  ' . $storeCode; ?></div>
+                            <?php endif; ?>
+                            <?php $notificationCount = (int) Mage::helper('rockar_sales/messages')->getNotificationCount(); ?>
+                            <li class="account-toggle <?php echo $notificationCount ? "badge-notification" : ""; ?>">
+                                <?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+                                    <a href="<?php echo Mage::helper('customer')->getDashboardUrl(); ?>">
+                                        <span class="icon icon-account"></span>
+                                        <span class="navigation-customer"><?php echo $customerFirstName . ' ' . $customerLastName; ?></span>
+                                    </a>
+                                    <span class="badge" <?php echo !$notificationCount ? 'style="display:none;"' : ''; ?>><?php echo $notificationCount; ?></span>
+                                <?php else: ?>
+                                    <a href="<?php echo Mage::helper('customer')->getDashboardUrl(); ?>"><span class="icon icon-account no-after">&nbsp;</span></a>
+                                <?php endif; ?>
+
+                                <?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+                                    <ul class="account-dropdown">
+                                        <li>
+                                            <a href="<?php echo Mage::helper('customer')->getDashboardUrl(); ?>">
+                                                <?php echo $this->__('My Account'); ?>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="<?php echo Mage::helper('customer')->getLogoutUrl(); ?>">
+                                                <?php echo $this->__('Logout'); ?>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                <?php else: ?>
+                                    <ul>
+                                        <li>
+                                            <a href="<?php echo Mage::helper('customer')->getDashboardUrl(); ?>">
+                                                <?php echo $this->__('Login/Register'); ?>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                <?php endif; ?>
+                            </li>
+                            <li class="account-toggle">
+                                <a href="<?php echo Mage::helper('checkout/url')->getCheckoutUrl(); ?>">
+                                    <span class="icon icon-cart">&nbsp;</span>
+                                    <?php if (!Mage::helper('rockar_all')->checkIsInStore()): ?>
+                                        <span id="cart-amount" class="badge"><?php echo $orderCount; ?></span>
+                                    <?php endif; ?>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <?php if ($orderCount > 0): ?>
+                                        <a href="<?php echo Mage::helper('checkout/url')->getCheckoutUrl(); ?>">
+                                            <?php echo $this->__('Cart'); ?>
+                                        </a>
+                                        <?php else: ?>
+                                        <a id="cart-amount-tooltip" href="<?php echo Mage::helper('checkout/url')->getCheckoutUrl(); ?>">
+                                            <?php echo $this->__('Your Shopping Cart Is Empty'); ?>
+                                        </a>
+                                        <?php endif; ?>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <?php echo $this->getChildHtml('navigation'); ?>
+                </div>
+            </nav>
+        </div>
+        <?php echo $isTestDrivePage
+            ? $this->getLayout()->createBlock('cms/block')->setBlockId('navigation_heading_test_drives')->toHtml()
+            : $this->getLayout()->createBlock('cms/block')->setBlockId('navigation_heading')->toHtml(); ?>
+        <div class="store-switcher">
+            <a href="#">
+                <!-- @todo: Replace with Jlr_Cms_Helper_Data::getWebsiteSwitcherData when migrating to JLR -->
+                <span><?php echo $this->__('Store switcher'); ?></span>
+            </a>
+        </div>
+    </header>
+    <header class="navigation-bar-mobile" role="banner">
+        <div class="main-nav">
+            <div class="mobile-nav-wrapper">
+                <div class="nav-hero-image-wrapper mobile-only">
+                    <?php echo $isTestDrivePage
+                        ? $this->getLayout()->createBlock('cms/block')->setBlockId('hero_image_block_test_drives-mobile')->toHtml()
+                        : $this->getLayout()->createBlock('cms/block')->setBlockId('hero_image_block')->toHtml(); ?>
+                </div>
+                <div class="mobile-top-section">
+                    <div class="logotype brand-logo">
+                        <a href="<?php echo $this->getUrl(''); ?>" class="logo">
+                            <img class="logo-on-dark" src="<?php echo Mage::helper('peppermint_all/newJourney')->getLandingPageLogoUrl(); ?>" alt="<?php echo $this->getLogoAlt(); ?>"/>
+                            <img class="logo-on-light" src="<?php echo Mage::helper('peppermint_all/newJourney')->getOtherPagesLogoUrl(); ?>" alt="<?php echo $this->getLogoAlt(); ?>"/>
+                        </a>
+                    </div>
+                    <div class="right-nav-wrapper">
+                        <nav class="navigation-bar-menu">
+                            <a href="#" class="navbar-toggle hamburger hamburger-cancel"><span class="icon"></span></a>
+                            <div class="nav-bar-wrapper">
+                                <?php echo $this->getChildHtml('navigation'); ?>
+                                <ul class="custom-nav">
+                                    <?php if ($isInStore): ?>
+                                        <div class="in-store-indicator"><?php echo 'In-Store  |  '. $storeName . '  |  ' . $storeCode; ?></div>
+                                    <?php endif; ?>
+                                    <?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+                                        <?php $notificationCount = (int) Mage::helper('rockar_sales/messages')->getNotificationCount(); ?>
+                                        <li class="toggle-account-mob">
+                                            <span class="icon icon-account"></span>
+                                            <span><?php echo $customerFirstName . ' ' . $customerLastName; ?></span>
+                                            <span class="badge" <?php echo !$notificationCount ? 'style="display:none;"' : ''; ?>><?php echo $notificationCount; ?></span>
+                                        </li>
+                                        <li class="mob-account-info">
+                                            <a href="<?php echo Mage::helper('customer')->getDashboardUrl(); ?>">
+                                                <?php echo $this->__('My Account'); ?>
+                                            </a>
+                                        </li>
+                                        <li class="mob-account-info mb-36">
+                                            <a href="<?php echo Mage::helper('customer')->getLogoutUrl(); ?>">
+                                                <?php echo $this->__('Logout'); ?>
+                                            </a>
+                                        </li>
+                                    <?php else: ?>
+                                        <li>
+                                            <a href="<?php echo Mage::helper('customer')->getDashboardUrl(); ?>">
+                                                <span class="icon icon-account"></span>
+                                                <span><?php echo $this->__('Login/Register'); ?></span>
+                                            </a>
+                                        </li>
+                                    <?php endif; ?>
+                                    <li>
+                                        <a href="<?php echo Mage::helper('peppermint_all/newJourney')->getLocationIconUrl(); ?>">
+                                            <span class="icon icon-location"></span>
+                                            <span><?php echo $this->__('Locate a Dealer'); ?></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo Mage::helper('checkout/url')->getCheckoutUrl(); ?>">
+                                            <span class="icon icon-cart">&nbsp;</span>
+                                            <?php if (!Mage::helper('rockar_all')->checkIsInStore()): ?>
+                                                <span><?php echo __('Cart(%s)', $orderCount); ?></span>
+                                            <?php endif; ?>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+                <div class="mobile-bottom-section">
+                    <?php echo $isTestDrivePage
+                        ? $this->getLayout()->createBlock('cms/block')->setBlockId('navigation_heading_test_drives')->toHtml()
+                        : $this->getLayout()->createBlock('cms/block')->setBlockId('navigation_heading')->toHtml(); ?>
+            </div>
+        </div>
+        <?php if ($switcherData): ?>
+            <div class="store-switcher">
+                <a href="<?php echo isset($switcherData['url']) ? $switcherData['url'] : '#'; ?>">
+                    <span><?php echo isset($switcherData['label']) ? $switcherData['label'] : $this->__('Switch store'); ?></span>
+                </a>
+            </div>
+        <?php endif; ?>
+    </header>
+</div>
+<app-notification></app-notification>

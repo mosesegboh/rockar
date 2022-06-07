@@ -1,0 +1,400 @@
+.dealers {
+    margin: 0;
+    width: 46%;
+    order: 2;
+    margin-right: 50px;
+
+    @include media($small-screen-down) {
+        width: 100%;
+        margin-right: unset;
+    }
+
+    .dealer-box {
+        .details {
+            .name {
+                font-family: $bmw-light;
+                font-size: $dsp2-f-size-xl;
+                text-transform: uppercase;
+                margin: -10px 0 .5em;
+            }
+
+            .row {
+                font-family: $bmw-light;
+                font-size: $dsp2-f-size;
+                color: $c-grey;
+
+                .heading {
+                    font-family: $bmw-bold;
+                    margin-bottom: 4px;
+                }
+
+                .heading-hours {
+                    font-family: $bmw;
+
+                    @include media($small-screen-down) {
+                        font-size: $dsp2-f-size-xs;
+                    }
+                }
+
+                .main-phone {
+                    display: flex;
+                    border-bottom: 1px solid $c-grey-5;
+                    border-top: 1px solid $c-grey-5;
+                    margin: 10px 0 20px;
+                    justify-content: space-between;
+                    padding: 13px 0;
+
+                    p {
+                        margin: 0;
+                        line-height: $dsp2-line-h-20;
+                        font-size: $dsp2-f-size-s;
+                    }
+
+                    .phone {
+                        font-family: $bmw-bold;
+                        height: 20px;
+                        font-size: $dsp2-f-size-s;
+                    }
+                }
+
+                .hours {
+                    p {
+                        font-family: $bmw-light;
+                        margin: 0;
+                        border-bottom: 1px solid $c-grey-5;
+                        padding: 12px 0 13px;
+                        font-size: $dsp2-f-size-s;
+
+                        .day {
+                            display: inline-block;
+                        }
+
+                        .hour {
+                            font-family: $bmw-bold;
+                            float: right;
+                        }
+                    }
+                }
+
+                .col-6 {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .delivery-method {
+        &.home-delivery {
+            font-size: $dsp2-f-size;
+            color: $black;
+
+            .info {
+                .address-details {
+                    .choose-address {
+                        margin-top: 20px;
+                        display: block;
+                        color: $bmw-blue;
+                    }
+                }
+
+                p {
+                    font-family: $bmw-light;
+                    margin: 0;
+                }
+
+                .delivery-row {
+                    display: flex;
+                    justify-content: space-between;
+                    border-bottom: 1px solid $c-grey-5;
+                    padding: 13px 0;
+
+                    p {
+                        font-size: $dsp2-f-size-s;
+                        line-height: $dsp2-line-h-20;
+                        margin-right: 10px;
+                    }
+
+                    span {
+                        font-family: $bmw-bold;
+                        font-size: $dsp2-f-size-s;
+                        line-height: $dsp2-line-h-20;
+                        height: 20px;
+
+                        &.address {
+                            height: max-content;
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+
+            .row {
+                margin-bottom: 0;
+            }
+        }
+
+        .delivery-heading {
+            font-family: $bmw;
+            margin: 30px 0 10px;
+            font-size: $dsp2-f-size;
+
+            @include media($small-screen-down) {
+                font-size: $dsp2-f-size-xs;
+                line-height: $dsp2-line-h-20;
+                margin: 20px 0;
+            }
+        }
+
+        &.collection_free {
+            padding-bottom: 1px;
+
+            @include media($small-screen-down) {
+                padding-bottom: 20px;
+            }
+        }
+    }
+
+    .button-set {
+        margin-top: 30px;
+
+        &.button-set-mobile {
+            display: none;
+
+            @include media($small-screen-down) {
+                display: block;
+            }
+        }
+
+        .button {
+            &.f-right {
+                margin-top: 0;
+                float: right;
+            }
+        }
+    }
+
+    &.actions {
+        .dealer-list {
+            overflow: unset;
+            max-height: unset;
+            border-bottom: none;
+
+            .dealer-preview-wrapper {
+                display: none;
+
+                &.active {
+                    display: block;
+                    padding-bottom: 0;
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+}
+
+.dealer-list {
+    border-color: $c-grey-5;
+    border-style: solid;
+    border-width: 1px 0;
+    display: flex;
+    flex-direction: row;
+    max-height: 800px;
+    position: relative;
+
+    @include media($small-screen-down) {
+        flex-direction: column;
+        margin-bottom: 20px;
+        max-height: 207px;
+    }
+
+    .dealer-preview-wrapper {
+        flex: 1 1 50%;
+        height: 50%;
+        border: none;
+        border-bottom: 1px solid $c-grey-5;
+        color: $c-grey;
+        cursor: pointer;
+        padding: 20px 0;
+
+        &:last-child {
+            border: unset;
+        }
+
+        .dealer-preview {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+
+            &.active {
+                background: $white;
+                color: $c-grey-5;
+                padding-bottom: 0;
+            }
+
+            .dealer-details {
+                display: block;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                background: transparent;
+                width: 100%;
+                height: 100%;
+                border: 0;
+                color: $black;
+                border-left: 4px solid $white;
+
+                @include media($small-screen-down) {
+                    width: 100%;
+                }
+
+                .number {
+                    flex: 1 1 10%;
+                    width: auto;
+                    height: auto;
+                    float: none;
+                    line-height: inherit;
+                }
+
+                .details {
+                    flex: 1 1 90%;
+                    float: none;
+                    padding: 0;
+                    width: auto;
+                    height: auto;
+                    font-family: $bmw-light;
+
+                    .details-top-row {
+                        display: flex;
+                        justify-content: space-between;
+
+                        .distance {
+                            white-space: nowrap;
+                            font-size: $dsp2-f-size-xs;
+                            font-family: $bmw-bold;
+                            line-height: $dsp2-line-h-16;
+                            color: $white;
+                            padding: 5px;
+                            text-transform: uppercase;
+
+                            @include oval();
+                        }
+
+                        .store-details {
+                            display: block;
+
+                            .state {
+                                font-family: $bmw;
+                                font-size: $dsp2-f-size-xs;
+                                line-height: $dsp2-line-h-16;
+                                color: $c-grey-3;
+                                margin-bottom: 12px;
+                            }
+                        }
+                    }
+
+                    .name {
+                        font-family: $bmw-bold;
+                        font-size: $dsp2-f-size;
+                        line-height: $dsp2-line-h-24;
+                    }
+
+                    .address {
+                        font-family: $bmw-light;
+                        font-size: $dsp2-f-size;
+                        line-height: $dsp2-line-h-24;
+
+                        @include media($small-screen-down) {
+                            font-size: $dsp2-f-size-xs;
+                        }
+                    }
+
+                    .title {
+                        font-size: $dsp2-f-size-xs;
+                        text-align: right;
+                        line-height: $dsp2-line-h-16;
+                        color: $c-grey-3;
+                        margin: 10px 0;
+                    }
+                }
+
+                &.recommended {
+                    .title {
+                        text-transform: none;
+                        padding: .6em;
+                        font-size: $dsp2-f-size-s;
+                        text-align: center;
+                    }
+                }
+
+                &.active {
+                    background: $white;
+                    color: $c-grey;
+                    border-left: 4px solid $bmw-blue;
+                }
+
+                &.hover {
+                    background: $white;
+                    color: $c-grey;
+                    border-left: 4px solid $bmw-blue;
+                }
+            }
+        }
+
+        .col-7 {
+            width: 100%;
+        }
+
+        &.active {
+            background: $white;
+        }
+
+        &:hover {
+            .dealer-details {
+                .details {
+                    .name {
+                        font-size: $dsp2-f-size-sl;
+                    }
+                }
+            }
+        }
+    }
+
+    .another-dealer-wrapper {
+        font-size: $dsp2-f-size;
+        margin: 1.5em 0 .5em;
+    }
+}
+
+.row {
+    .col-5 {
+        &.dealer-list {
+            padding-right: 15px;
+            width: 100%;
+            overflow: auto;
+
+            @include media($small-screen-down) {
+                max-height: unset;
+            }
+        }
+    }
+}
+
+.dealer-list-border {
+    border-color: $base-background-color;
+}
+
+.rockar-youdrive-index-index {
+    .dealer-preview-wrapper:not(:last-of-type) {
+        @include media($medium-screen-up) {
+            border-right: 0;
+        }
+    }
+}
+
+.step-header {
+    &.delivery {
+        hr {
+            margin: 10px 0 20px;
+        }
+    }
+}

@@ -1,0 +1,76 @@
+<?php
+
+$greyColors = array(
+    '$white' => '#FFFFFF',
+    '$c-grey' => '#686868',
+    '$c-grey2' => '#AFB6BE',
+    '$c-grey3' => 'rgba(234,232,233,0.4)',
+    '$c-grey4' => '#E4E8E9',
+    '$c-grey5' => '#0C121C',
+    '$black' => '#000000'
+);
+
+$yellowColors = array(
+    '$yellow' => '#FFE600'
+);
+
+$redColors = array(
+    '$red' => '#9F0C0C',
+    '$red-2' => '#CF2B2C',
+    '$red-3' => '#F84C4C',
+    '$red-4' => '#D95353',
+    '$red-5' => '#C34342',
+    '$red-6' => '#9D3C50',
+    '$red-7' => '#AF6775',
+    '$light-red' => '#FBE3E4',
+    '$light-red-2' => '#FFF7F8',
+    '$light-red-3' => '#FFE5E5',
+    '$light-red-4' => '#F6D5D5',
+    '$light-red-5' => '#F7F1F3',
+    '$light-red-6' => '#C6A3A9',
+    '$light-red-7' => '#D2C2C5'
+);
+
+$mainColors = array(
+    '$jaguar-red' => '#9E1B32',
+);
+
+?>
+<?php foreach ($mainColors as $key => $value): ?>
+    <div class="palette">
+        <h3><?php echo str_replace(array('$', '-'), array('', ' '), $key) ?></h3>
+        <p class="palette-color" style="background-color: <?php echo $value ?>; color: #000"><?php echo $value ?></p>
+        <p><strong><?php echo $key ?></strong></p>
+    </div>
+<?php endforeach ?>
+
+<hr>
+
+<?php foreach ($greyColors as $key => $value): ?>
+    <div class="palette">
+        <h3><?php echo str_replace(array('$', '-'), array('', ' '), $key) ?></h3>
+        <p class="palette-color" style="background-color: <?php echo $value ?>; color: #000"><?php echo $value ?></p>
+        <p><strong><?php echo $key ?></strong></p>
+    </div>
+<?php endforeach ?>
+
+
+<hr>
+
+<?php foreach ($yellowColors as $key => $value): ?>
+    <div class="palette">
+        <h3><?php echo str_replace(array('$', '-'), array('', ' '), $key) ?></h3>
+        <p class="palette-color" style="background-color: <?php echo $value ?>; color: #000"><?php echo $value ?></p>
+        <p><strong><?php echo $key ?></strong></p>
+    </div>
+<?php endforeach ?>
+
+<hr>
+
+<?php foreach ($redColors as $key => $value): ?>
+    <div class="palette">
+        <h3><?php echo str_replace(array('$', '-'), array('', ' '), $key) ?></h3>
+        <p class="palette-color" style="background-color: <?php echo $value ?>; color: #000"><?php echo $value ?></p>
+        <p><strong><?php echo $key ?></strong></p>
+    </div>
+<?php endforeach ?>

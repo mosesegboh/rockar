@@ -1,0 +1,241 @@
+.checkout-delivery {
+    margin-top: 0;
+
+    p {
+        font-family: $bmw-light;
+
+        @include media($small-screen-down) {
+            font-size: $dsp2-f-size-xs;
+        }
+    }
+
+    .timepicker {
+        .timepicker-hour {
+            text-transform: lowercase;
+        }
+
+        .timepicker-title {
+            display: none;
+        }
+    }
+
+    .map-wrapper {
+        width: 100%;
+        height: 446px;
+    }
+
+    .button-set {
+        margin-top: $padding-spacing;
+
+        button {
+            @include media($small-screen-down) {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    }
+
+    .delivery-actions {
+        margin: 20px 0;
+        @include display(block);
+
+        @include media($small-screen-down) {
+            @include flex-direction(row);
+            @include flex-wrap(wrap);
+        }
+
+        button {
+            margin: 0;
+
+            @include media($small-screen-down) {
+                @include flex(1 0);
+                margin: 0 0 .5em 0;
+            }
+
+            &:first-child {
+                margin-bottom: 15px;
+
+                @include media($small-screen-down) {
+                    margin-right: 0;
+                }
+            }
+
+            &:last-child {
+                @include media($small-screen-down) {
+                    margin-right: 0;
+                }
+            }
+
+            &.dsp2-outline {
+                &:hover {
+                    background-color: $bmw-blue;
+                    color: $white;
+                    border: none;
+                }
+            }
+        }
+
+        p {
+            color: $c-grey;
+            margin: 20px 0 0 0;
+        }
+    }
+
+    .delivery-opening {
+        @include media($small-screen-down) {
+            @include display(flex);
+            @include flex-direction(row);
+            @include flex-wrap(wrap);
+        }
+
+        > p {
+            @include media($small-screen-down) {
+                @include flex(1 0 100%);
+            }
+        }
+
+        .inner-content {
+            margin-top: 0;
+
+            .right-col {
+                margin-top: 15px;
+
+                .cost {
+                    margin-top: 20px;
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .row {
+            @include media($small-screen-down) {
+                @include flex(1 0 50%);
+                min-width: 14.5em;
+            }
+        }
+    }
+
+    .main-content-wrapper {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+
+        @include media($small-screen-down) {
+            flex-direction: column;
+        }
+
+        .main-content {
+            .delivery-method {
+                &.collection_free {
+                    .day {
+                        text-transform: capitalize;
+                    }
+                }
+            }
+
+            .save-button {
+                width: 100%;
+            }
+        }
+    }
+
+    .info {
+        .address-details {
+            margin: 0 0 20px 0;
+        }
+
+        .chosed-date {
+            margin: 0 0 20px 0;
+        }
+
+        .delivery {
+            margin: 0 0 20px 0;
+        }
+
+        span {
+            display: block;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    .dealer-preview-wrapper {
+        &.recommended {
+            border: 0;
+        }
+
+        .dealer-preview {
+            &.recommended {
+                border: none;
+
+                .title {
+                    text-transform: none;
+                }
+            }
+        }
+    }
+
+    .delivery-info {
+        margin-bottom: 30px;
+    }
+
+    .retailers-heading {
+        @include media($small-screen-down) {
+            display: none;
+        }
+    }
+
+    .retailers-heading-mobile {
+        display: none;
+        margin-top: 30px;
+
+        @include media($small-screen-down) {
+            display: block;
+        }
+    }
+
+    .delivery-map-wrapper {
+        width: 100%;
+        max-width: 446px;
+
+        @include media($small-screen-down) {
+            max-width: unset;
+        }
+
+        .delivery-map {
+            .map-wrapper {
+                height: 446px;
+            }
+
+            @include media($small-screen-down) {
+                display: block;
+
+                .map-wrapper {
+                    height: 200px;
+                }
+            }
+        }
+    }
+
+    .right-content-wrapper {
+        position: relative;
+        width: 53%;
+
+        @include media($small-screen-down) {
+            width: 100%;
+        }
+
+        .button-set-desktop {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+
+            @include media($small-screen-down) {
+                display: none;
+            }
+        }
+    }
+}

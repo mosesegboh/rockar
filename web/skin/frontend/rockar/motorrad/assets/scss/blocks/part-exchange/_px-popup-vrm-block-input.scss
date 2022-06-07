@@ -1,0 +1,32 @@
+.px-vrm-block-input {
+
+    input.px-input {
+
+        @include media($small-screen-down) {
+            width: 100%;
+            margin-bottom: 1em;
+        }
+    }
+
+    .button-wrap {
+        @include media($large-screen-up) {
+            float: right;
+        }
+
+        @include media($small-screen-down) {
+            font-size: initial;
+            margin-bottom: 1em;
+        }
+    }
+
+    .button-default {
+        @include media($large-screen-up) {
+            min-width: 5.5em;
+            width: auto;
+        }
+
+        @include media($small-screen-down) {
+            width: 100% !important;
+        }
+    }
+}

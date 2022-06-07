@@ -1,0 +1,18 @@
+.shared-homepage {
+    .homepage-card-wrapper {
+        .homepage-card_title {
+            &.font-jaguar-heading {
+                font-family: $motorrad;
+            }
+        }
+
+        .homepage-card_body {
+            a.button {
+                &.button-jaguar {
+                    background-color: $jaguar-red;
+                    border: 1px solid $jaguar-red;
+                }
+            }
+        }
+    }
+}

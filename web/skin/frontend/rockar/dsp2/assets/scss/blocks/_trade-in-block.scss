@@ -1,0 +1,16 @@
+.trade-in {
+    &-block-wrapper {
+        background-color: $white;
+        padding: 25px 25px 14px;
+
+        .px-saved {
+            border: 0;
+            margin-bottom: 0;
+            padding: 0;
+        }
+
+        @include media($small-screen-down) {
+            border-top: 1px solid $c-grey-5;
+        }
+    }
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_ShippingHandling
+ * @author    Aleksejs Oboruns <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_ShippingHandling>
+            <version>0.1.0</version>
+        </Peppermint_ShippingHandling>
+    </modules>
+    <global>
+        <blocks>
+            <peppermint_shippinghandling>
+                <class>Peppermint_ShippingHandling_Block</class>
+            </peppermint_shippinghandling>
+        </blocks>
+        <helpers>
+            <peppermint_shippinghandling>
+                <class>Peppermint_Shippinghandling_Helper</class>
+            </peppermint_shippinghandling>
+            <rockar_shippinghandling>
+                <rewrite>
+                    <data>Peppermint_ShippingHandling_Helper_Data</data>
+                    <quote>Peppermint_ShippingHandling_Helper_Quote</quote>
+                </rewrite>
+            </rockar_shippinghandling>
+        </helpers>
+    </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <peppermint_shippinghandling>
+                    <file>peppermint/shippinghandling.xml</file>
+                </peppermint_shippinghandling>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint\AschroderEmail
+ * @author       Catalin Lungu <catalin.lungu@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_AschroderEmail>
+            <version>0.1.1</version>
+        </Peppermint_AschroderEmail>
+    </modules>
+    <global>        
+        <resources>
+            <peppermint_aschroderemail_setup>
+                <setup>
+                    <module>Peppermint_AschroderEmail</module>
+                </setup>
+            </peppermint_aschroderemail_setup>
+        </resources>
+        <blocks>
+            <peppermint_aschroderemail>
+                <class>Peppermint_AschroderEmail_Block</class>
+            </peppermint_aschroderemail>
+            <aschroder_email>
+                <rewrite>
+                    <log_grid>Peppermint_AschroderEmail_Block_Log_Grid</log_grid>
+                </rewrite>
+            </aschroder_email>
+        </blocks>
+        <helpers>
+            <peppermint_aschroderemail>
+                <class>Peppermint_AschroderEmail_Helper</class>
+            </peppermint_aschroderemail>
+            <aschroder_email>
+                <rewrite>
+                    <data>Peppermint_AschroderEmail_Helper_Data</data>
+                </rewrite>
+            </aschroder_email>
+        </helpers>
+        <models>
+            <peppermint_aschroderemail>
+                <class>Peppermint_AschroderEmail_Model</class>
+            </peppermint_aschroderemail>
+            <core>
+                <rewrite>
+                    <email_template>Peppermint_AschroderEmail_Model_Email_Template</email_template>
+                </rewrite>
+            </core>
+            <aschroder_email>
+               <rewrite>
+                   <observer>Peppermint_AschroderEmail_Model_Observer</observer>
+               </rewrite>
+           </aschroder_email>
+        </models>           
+        <events>
+            <peppermint_aschroderemail_move_attachment>
+                <observers>
+                    <peppermint_aschroderemail_move_attachment_observer>
+                        <type>singleton</type>
+                        <class>peppermint_aschroderemail/observer</class>
+                        <method>moveAttachment</method>
+                    </peppermint_aschroderemail_move_attachment_observer>
+                </observers>
+            </peppermint_aschroderemail_move_attachment>                        
+        </events>
+    </global>
+</config>

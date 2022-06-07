@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<ruleset name="Rockar Standards" namespace="Rockar\PHP\Standard">
+    <description>The Rockar PHP Standards to be implemented via PHPCS</description>
+    <file>./web/app/code/local/Peppermint</file>
+    <exclude-pattern>*.xml</exclude-pattern>
+    <exclude-pattern>*.md</exclude-pattern>
+    <rule ref="PEAR">
+        <exclude name="PEAR.Commenting.FileComment.IncompleteCopyright"/>
+        <exclude name="PEAR.Commenting.FileComment.Missing"/>
+        <exclude name="PEAR.Commenting.FileComment.MissingLicenseTag"/>
+        <exclude name="PEAR.Commenting.FileComment.MissingLinkTag"/>
+        <exclude name="PEAR.Commenting.FileComment.MissingSubpackageTag"/>
+        <exclude name="PEAR.Commenting.ClassComment"/>
+        <exclude name="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+        <exclude name="PEAR.Commenting.FunctionComment.MissingParamTag"/>
+        <exclude name="PEAR.Commenting.FunctionComment.MissingParamName"/>
+        <exclude name="PEAR.Commenting.FunctionComment.SpacingAfterParamType"/>
+        <exclude name="PEAR.Commenting.FunctionComment.SpacingAfterParamName"/>
+        <exclude name="PEAR.Commenting.FunctionComment.NotCapital"/>
+        <exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket"/>
+        <exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine"/>
+        <exclude name="PEAR.NamingConventions.ValidVariableName.PublicUnderscore"/>
+        <exclude name="PEAR.NamingConventions.ValidFunctionName.PublicUnderscore"/>
+        <exclude name="PEAR.Commenting.FileComment.MissingVersion"/>
+        <exclude name="PEAR.ControlStructures.MultiLineCondition.StartWithBoolean"/>
+        <exclude name="PEAR.Formatting.MultiLineAssignment.EqualSignLine"/>
+        <exclude name="PEAR.WhiteSpace.ScopeIndent.IncorrectExact"/>
+    </rule>
+    <rule ref="./rockar/src/Sniffs"/>
+    <!-- <rule ref="./vendor/magento-ecg/coding-standard/Ecg"/> -->
+    <rule ref="PSR1">
+        <exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace"/>
+        <exclude name="PSR1.Files.SideEffects.FoundWithSymbols"/>
+    </rule>
+    <rule ref="PSR2">
+        <exclude name="PSR2.Classes.PropertyDeclaration.Underscore"/>
+        <exclude name="PSR2.Methods.MethodDeclaration.Underscore"/>
+    </rule>
+    <rule ref="Squiz">
+        <exclude name="Squiz.Classes.ValidClassName.NotCamelCaps"/>
+        <exclude name="Squiz.Files.FileExtension.ClassFound"/>
+        <exclude name="Squiz.Commenting.FileComment.Missing"/>
+        <exclude name="Squiz.Commenting.ClassComment"/>
+        <exclude name="General.Commenting.DocComment.MissingShort"/>
+        <exclude name="General.Commenting.DocComment.TagValueIndent"/>
+        <exclude name="Squiz.Classes.ClassFileName.NoMatch"/>
+        <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/>
+        <exclude name="Squiz.Commenting.FunctionComment.TypeHintMissing"/>
+        <exclude name="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing"/>
+        <exclude name="Generic.Formatting.MultipleStatementAlignment.NotSame"/>
+        <exclude name="Squiz.Operators.ComparisonOperatorUsage.NotAllowed"/>
+        <exclude name="Squiz.Strings.ConcatenationSpacing.PaddingFound"/>
+        <exclude name="Squiz.WhiteSpace.FunctionClosingBraceSpace.SpacingBeforeClose"/>
+        <exclude name="Generic.Commenting.DocComment.MissingShort"/>
+        <exclude name="Generic.Commenting.DocComment.TagValueIndent"/>
+        <exclude name="Squiz.Commenting.ClosingDeclarationComment.Missing"/>
+        <exclude name="Squiz.Commenting.FunctionComment.MissingParamTag"/>
+        <exclude name="Squiz.Commenting.FunctionComment.MissingParamName"/>
+        <exclude name="Squiz.WhiteSpace.FunctionSpacing.Before"/>
+        <exclude name="Squiz.WhiteSpace.FunctionSpacing.BeforeFirst"/>
+        <exclude name="Squiz.WhiteSpace.FunctionSpacing.After"/>
+        <exclude name="Squiz.WhiteSpace.FunctionSpacing.AfterLast"/>
+        <exclude name="Squiz.Commenting.FunctionComment.SpacingAfterParamType"/>
+        <exclude name="Squiz.Commenting.FunctionComment.SpacingAfterParamName"/>
+        <exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop"/>
+        <exclude name="Squiz.Commenting.FunctionComment.ParamCommentNotCapital"/>
+        <exclude name="Squiz.Commenting.InlineComment.NotCapital"/>
+        <exclude name="Squiz.Commenting.InlineComment.InvalidEndChar"/>
+        <exclude name="Generic.Commenting.DocComment.NonParamGroup"/>
+        <exclude name="Squiz.Commenting.PostStatementComment.Found"/>
+        <exclude name="Squiz.ControlStructures.SwitchDeclaration.BreakIndent"/>
+        <exclude name="Squiz.ControlStructures.SwitchDeclaration.SpacingAfterBreak"/>
+        <exclude name="Squiz.Operators.ComparisonOperatorUsage.ImplicitTrue"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.DoubleArrowNotAligned"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.NoComma"/>
+        <exclude name="Squiz.Commenting.FileComment.MissingSubpackageTag"/>
+        <exclude name="Squiz.PHP.DisallowComparisonAssignment.AssignedBool"/>
+        <exclude name="Squiz.Commenting.LongConditionClosingComment.Missing"/>
+        <exclude name="Squiz.WhiteSpace.ObjectOperatorSpacing.Before"/>
+        <exclude name="Squiz.CSS"/>
+        <exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine"/>
+        <exclude name="Squiz.PHP.DisallowInlineIf.Found"/>
+        <exclude name="Squiz.ControlStructures.InlineIfDeclaration.NoBrackets"/>
+        <exclude name="Squiz.Commenting.FileComment.PackageTagOrder"/>
+        <exclude name="Squiz.Commenting.FileComment.SubpackageTagOrder"/>
+        <exclude name="Generic.Commenting.DocComment.ShortNotCapital"/>
+        <exclude name="Generic.Commenting.DocComment.SpacingBeforeShort"/>
+        <exclude name="Generic.Commenting.DocComment.SpacingBeforeTags"/>
+        <exclude name="Generic.PHP.LowerCaseConstant.Found"/>
+        <exclude name="Squiz.Arrays.ArrayDeclaration.NoCommaAfterLast"/>
+        <exclude name="Squiz.Commenting.FunctionComment.EmptyThrows"/>
+        <exclude name="Squiz.Commenting.FunctionComment.IncorrectTypeHint"/>
+        <exclude name="Squiz.Commenting.VariableComment.Missing"/>
+        <exclude name="Squiz.Commenting.VariableComment.TagNotAllowed"/>
+        <exclude name="Squiz.ControlStructures.InlineIfDeclaration.NotSingleLine"/>
+        <exclude name="Squiz.ControlStructures.SwitchDeclaration.MissingDefault"/>
+        <exclude name="Squiz.Formatting.OperatorBracket.MissingBrackets"/>
+        <exclude name="Squiz.NamingConventions.ValidVariableName.PublicHasUnderscore"/>
+        <exclude name="Squiz.PHP.DisallowBooleanStatement.Found"/>
+        <exclude name="Squiz.PHP.DisallowComparisonAssignment.AssignedComparison"/>
+        <exclude name="Squiz.PHP.DisallowMultipleAssignments.FoundInControlStructure"/>
+        <exclude name="Squiz.PHP.DisallowMultipleAssignments.Found"/>
+        <exclude name="Squiz.Strings.DoubleQuoteUsage.ContainsVar"/>
+        <exclude name="Squiz.Strings.DoubleQuoteUsage.NotRequired"/>
+        <exclude name="Squiz.WhiteSpace.MemberVarSpacing.Incorrect"/>
+        <exclude name="Squiz.Commenting.InlineComment.DocBlock"/>
+        <exclude name="Squiz.Commenting.BlockComment.WrongStart"/>
+    </rule>
+    <rule ref="Squiz.Objects.ObjectInstantiation.NotAssigned">
+        <severity>3</severity>
+    </rule>
+    <rule ref="Generic.Commenting.DocComment.ContentAfterOpen">
+        <severity>3</severity>
+    </rule>
+    <rule ref="Generic.Commenting.DocComment.ContentBeforeClose">
+        <severity>3</severity>
+    </rule>
+    <rule ref="Generic.PHP.ForbiddenFunctions.Found">
+        <severity>3</severity>
+    </rule>
+    <rule ref="PSR2.Classes.PropertyDeclaration.Underscore">
+        <severity>0</severity>
+    </rule>
+    <rule ref="PSR2.Methods.MethodDeclaration.Underscore">
+        <severity>0</severity>
+    </rule>
+    <rule ref="Squiz.NamingConventions.ValidFunctionName.PublicUnderscore">
+        <severity>3</severity>
+    </rule>
+    <rule ref="Squiz.Commenting.FileComment.IncorrectAuthor">
+        <severity>3</severity>
+    </rule>
+    <rule ref="Squiz.Commenting.FileComment.IncorrectCopyright">
+        <severity>3</severity>
+    </rule>
+    <rule ref="PEAR.ControlStructures.MultiLineCondition.SpacingAfterOpenBrace">
+        <severity>3</severity>
+    </rule>
+    <rule ref="PSR2.ControlStructures.ControlStructureSpacing.SpacingAfterOpenBrace">
+        <severity>3</severity>
+    </rule>
+    <rule ref="Generic.Arrays.ArrayIndent.CloseBraceNotNewLine">
+        <severity>3</severity>
+    </rule>
+    <rule ref="Squiz.Arrays.ArrayDeclaration.KeySpecified">
+        <severity>3</severity>
+    </rule>
+    <rule ref="Squiz.WhiteSpace.OperatorSpacing.SpacingAfter">
+        <severity>3</severity>
+    </rule>
+    <rule ref="Squiz.WhiteSpace.OperatorSpacing.SpacingBefore">
+        <severity>3</severity>
+    </rule>
+</ruleset>

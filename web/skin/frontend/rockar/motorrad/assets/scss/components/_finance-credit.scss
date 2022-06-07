@@ -1,0 +1,109 @@
+.finance-credit {
+    button {
+        max-width: 285px;
+        font-size: $motorrad-button-font-size;
+        font-weight: $fw-black;
+        letter-spacing: 0;
+        height: $input-field-height;
+
+        @include media($medium-screen-down) {
+            font-size: $motorrad-button-font-size;
+            height: $input-field-height;
+            max-width: 100%;
+        }
+
+        &.button-disabled {
+            opacity: 0.5 !important; //Used to override inline styling
+
+            ~ .button-empty {
+                opacity: 1;
+            }
+        }
+
+        &:hover {
+            // background-color: $button-hover-color;
+        }
+    }
+
+    .button-empty {
+        background: $grey-3;
+        color: $white;
+        border: 0;
+
+        &:hover {
+            // background-color: $grey-button-hover-color;
+        }
+    }
+
+    input[type='checkbox'] {
+
+        + label {
+
+            * {
+                display: initial;
+                vertical-align: baseline;
+            }
+        }
+    }
+
+    label {
+        font-size: $f-size-xl;
+    }
+
+    p {
+        font-size: $f-size-xl;
+        color: $base-font-color;
+        font-family: $primary-font-family;
+        letter-spacing: $base-letter-spacing;
+
+        &.required {
+            font-size: $f-size-xs;
+        }
+    }
+
+    .h5,
+    h5 {
+        font-family: $helper-font-family;
+        font-size: $checkout-details-font-size;
+    }
+
+    ol,
+    .confirm {
+        // padding-left: $bmw-left;
+        font-size: $base-font-size;
+
+        li {
+            list-style: decimal;
+        }
+    }
+
+    .accept-terms {
+        padding-top: 25px;
+    }
+
+    .field-title {
+        font-family: $motorrad;
+        font-size: $f-size;
+    }
+
+    .px-regular-heading {
+        font-size: $motorrad-button-font-size;
+        font-weight: $fw-normal;
+        font-family: $motorrad;
+    }
+
+    .final-valuation {
+        font-size: $f-size-9xl;
+        line-height: $motorrad-line-height-45;
+        font-weight: $fw-bold;
+        font-family: $brand-specific-font;
+    }
+}
+
+.finance-credit-preferences {
+    .row {
+        .col-1, .col-2 {
+            padding: 1.5em 0;
+        }
+    }
+}

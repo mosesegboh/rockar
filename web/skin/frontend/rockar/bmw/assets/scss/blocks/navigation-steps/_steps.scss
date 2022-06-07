@@ -1,0 +1,20 @@
+&-steps {
+    @include display(flex);
+    counter-reset: navigation-steps 5;
+    flex-direction: row-reverse;
+    width: 100%;
+
+    &.summary {
+        pointer-events: none;
+
+        .navigation-step {
+            .number {
+                background-color: $ns-summary-step-number-c;
+            }
+
+            .description {
+                color: $ns-summary-step-description-c;
+            }
+        }
+    }
+}

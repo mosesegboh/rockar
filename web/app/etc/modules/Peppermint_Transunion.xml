@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint\Transunion
+ * @author       Dumitru Mocanu <dumitru.mocanu@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_Transunion>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Rockar2_PartExchange/>
+            </depends>
+        </Peppermint_Transunion>
+    </modules>
+</config>

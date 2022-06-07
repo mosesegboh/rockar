@@ -1,0 +1,23 @@
+.mobile-choose-button {
+    @include position(sticky);
+    bottom: -1px;
+    height: 50px;
+    width: 100%;
+    display: none;
+
+    @include media($medium-screen-down) {
+        display: block;
+    }
+
+    button {
+        color: $white;
+        width: 100%;
+        font: {
+            size: $f-size-xs;
+            font-family: $bmw-bold;
+        };
+        letter-spacing: unset;
+        height: 5em;
+        margin-top: 0;
+    }
+}

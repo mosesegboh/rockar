@@ -1,0 +1,150 @@
+.page-title-wrapper {
+    .car-hero {
+        margin: -15px -25px 0;
+
+        @include media($medium-screen-up) {
+            max-height: 600px;
+        }
+
+        .cloudimage-360 {
+            @include media($medium-screen-up) {
+                margin-top: -110px;
+            }
+        }
+
+        .slide360 {
+            @include media($medium-screen-up) {
+                max-height: 600px;
+            }
+        }
+
+        .carousel-image {
+            @include media($medium-screen-up) {
+                max-height: 600px;
+            }
+        }
+
+        .image-type-switcher {
+            bottom: auto;
+            top: 22px;
+
+            @include media($medium-screen-up) {
+                left: auto;
+                top: 24px;
+                right: 200px;
+            }
+
+            .actions-wrapper {
+                .switcher {
+                    &.active {
+                        background-color: $c-mini-blue;
+                        border: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .heading-container {
+        @include media($medium-screen-down) {
+            margin: 35px 0 0;
+        }
+
+        .product-detailed-view {
+            @include media($large-screen-up) {
+                margin-right: -6em;
+            }
+
+            .col-8 {
+                @include media($medium-screen-down) {
+                    min-height: auto;
+                }
+            }
+        }
+
+        .product-mileage-attribute {
+            border-bottom: none;
+
+            @include media($medium-screen-up) {
+                padding: 0;
+            }
+        }
+
+        .product-color-attribute {
+            .product-color-title {
+                @include media($medium-screen-down) {
+                    font-size: $dsp2-f-size-xs;
+                    line-height: $dsp2-line-h-14;
+                }
+            }
+        }
+
+        .cosy-background {
+            @include media($medium-screen-up) {
+                max-height: 600px;
+            }
+        }
+
+        .product-headings {
+            .main-heading {
+                font-family: $mini-serif-bold;
+                font-size: $dsp2-f-size-xxl;
+                line-height: $mini-line-h-38;
+            }
+
+            .sub-heading {
+                font-family: $mini-sans-serif-bold;
+                font-size: $dsp2-f-size;
+                line-height: $mini-line-h-22;
+
+                @include media($medium-screen-down) {
+                    margin-top: 5px;
+                    position: relative;
+                    z-index: 10;
+                }
+            }
+
+            &.vehicle-heading-mobile {
+                margin: 0;
+
+                .main-heading {
+                    font-family: $mini-serif-bold;
+                    font-size: $dsp2-f-size-l;
+                    line-height: $mini-line-h-22;
+                }
+
+                .sub-heading {
+                    font-family: $mini-sans-serif-bold;
+                    font-size: $dsp2-f-size-xs;
+                    line-height: $dsp2-line-h-14;
+                }
+            }
+
+            .attributes-container {
+                .attributes {
+                    min-height: auto;
+                    padding: 13px 25px;
+
+                    @include media($medium-screen-up) {
+                        padding: 15px 40px 15px 30px;
+                    }
+                }
+
+                .information-attribute {
+                    .title {
+                        font-family: $mini-sans-serif-bold;
+                        font-size: $dsp2-f-size-xs;
+                        line-height: $dsp2-line-h-14;
+                        text-transform: uppercase;
+
+                        @include media($medium-screen-up) {
+                            text-transform: none;
+                            font-size: $dsp2-f-size;
+                            line-height: $mini-line-h-22;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

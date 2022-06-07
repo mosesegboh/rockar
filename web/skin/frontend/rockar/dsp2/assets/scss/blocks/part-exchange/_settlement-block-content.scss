@@ -1,0 +1,135 @@
+.settlement-block-content {
+    display: block;
+    width: 100%;
+
+    .settlement-content-header {
+        text-align: center;
+        margin-bottom: 16px;
+
+        @include media($medium-screen-down) {
+            margin-bottom: 30px;
+
+            .header {
+                font-size: $dsp2-f-size-s;
+            }
+        }
+
+        .terms-conditions {
+            font-family: inherit;
+            font-size: $dsp2-f-size-xs;
+            color: $c-grey;
+        }
+
+        .header {
+            margin: 0;
+        }
+    }
+
+    .settlement-quote-item {
+        display: flex;
+        min-height: 70px;
+        height: max-content;
+        border: 1px solid $c-grey-5;
+        box-shadow: 0 15px 20px -12px rgba(0, 0, 0, .15);
+        margin-bottom: 10px;
+
+        &.selected {
+            border: 2px solid $bmw-blue;
+            box-shadow: none;
+        }
+
+        @include media($medium-screen-down) {
+            display: block;
+            height: max-content;
+            margin-bottom: 20px;
+        }
+
+        .settlement-line-title {
+            font-size: $dsp2-f-size-xl;
+            line-height: $dsp2-line-h-32;
+            text-transform: uppercase;
+
+            @include media($medium-screen-down) {
+                font-size: $dsp2-f-size-l;
+                line-height: $dsp2-line-h-28;
+            }
+        }
+
+        .settlement-line-reference {
+            font-size: $dsp2-f-size-xs;
+            line-height: $dsp2-line-h-16;
+        }
+
+        .settlement-quote-item-description {
+            display: flex;
+            padding-right: 1.5em;
+            width: 50%;
+
+            @include media($medium-screen-down) {
+                width: 100%;
+            }
+
+            span {
+                margin: 20px 23px;
+
+                @include media($medium-screen-down) {
+                    margin: 20px 20px;
+                }
+            }
+
+            .data-block {
+                margin-left: 20px;
+                margin-top: 12px;
+                display: grid;
+            }
+        }
+
+        .settlement-quote-item-amount {
+            width: 50%;
+            margin-right: 10px;
+
+            @include media($medium-screen-down) {
+                width: 100%;
+                margin: 20px 0;
+                padding: 0 20px;
+            }
+
+            hr {
+                margin: 11px 0;
+            }
+
+            .settlement-line-outstanding-finance {
+                display: flex;
+                justify-content: space-between;
+                font-size: $dsp2-f-size-s;
+            }
+
+            .outstanding-finance-value {
+                font-family: $bmw-bold;
+            }
+        }
+    }
+
+    .settlement-quote-notification {
+        text-align: center;
+        margin-top: 0;
+
+        @include media($medium-screen-down) {
+            margin-top: -10px;
+            font-size: $dsp2-f-size-s;
+        }
+    }
+
+    .settlement-no-results-found {
+        width: 100%;
+
+        p {
+            text-align: center;
+
+            @include media($medium-screen-down) {
+                text-align: left;
+                font-size: $dsp2-f-size-s;
+            }
+        }
+    }
+}

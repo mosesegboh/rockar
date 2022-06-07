@@ -1,0 +1,66 @@
+////// Footer //////
+$footer-background-color: $grey-1;
+$footer-background-color-top: $grey-1;
+$footer-link-color: $black;
+$footer-link-font-size: $f-size-xxxxs;
+$footer-font: $mini;
+$footer-font-size: $f-size-xxxs;
+$footer-newsletter-label-color: $black;
+$footer-heading-font: $mini;
+$footer-heading-color: $black;
+$footer-heading-transform: none;
+$footer-validation-failed: $grey-1;
+$footer-subscribe-header-label-color: $black;
+$footer-menu-bg-color: $grey-1;
+$footer-menu-border-color: $grey-1;
+
+////// Configurator //////
+$configurator-sub-nav-buttons-height: 3em;
+
+////// Select Boxes //////
+$selectbox-label-background-color: $white;
+$selectbox-label-hover-background-color: $grey-2;
+$selectbox-label-opened-background-color: $black;
+$selectbox-label-border-color: $black;
+$selectbox-label-color: $black;
+
+$selectbox-caret-background: $white;
+$selectbox-font: $mini;
+$selectbox-list-background: $white;
+
+$selectbox-item-text-color: $black;
+$selectbox-item-selected-background-color: $white;
+$selectbox-item-selected-border-color: $black;
+$selectbox-item-hover-color: $grey-2;
+$selectbox-item-background: $white;
+$selectbox-item-background2: rgba($selectbox-item-background, .5);
+$selectbox-item-background3: rgba($selectbox-item-background, .25);
+$selectbox-item-border-color: $white;
+$selectbox-item-highlighted-border-color: $primary-color;
+
+$selectbox-scrollbar-thumb-color: $black;
+$selectbox-disabled-border: $grey-2;
+
+$selectbox-grey-dropdown-caret-background: $grey-2;
+$selectbox-grey-dropdown-caret-border-color: $white;
+
+////// Buttons //////
+$call-to-action-color: $white;
+$call-to-action-background-color: $call-to-action-btn-color;
+
+////// Fonts //////
+$primary-font-family: $mini;
+
+///// Calendar /////
+$calendar-day-not-available-background: $white;
+
+////// Color //////
+$finance-overlay-border-color: $grey-3;
+$payment-methods-row-bg: $grey-3;
+$finance-overlay-tabs-active-bg: $grey-3;
+
+////// Pdp ////////
+$configurator-sub-nav-back-btn-width: 126px;
+
+////// Pop Up ////////
+$message-success-color: #006800;

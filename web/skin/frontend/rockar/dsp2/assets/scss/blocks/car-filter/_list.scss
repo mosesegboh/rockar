@@ -1,0 +1,41 @@
+&-list {
+    background: $white;
+    @include media($small-screen-down) {
+        max-height: calc(100vh - 224px);
+    }
+
+    @include media($small-screen-down) {
+        overflow: auto;
+    }
+
+    @include media($medium-screen-up) {
+        margin-top: 10px;
+        top: 130px;
+        zoom: 1;
+        padding-bottom: 0;
+    }
+
+    .car-filter-buttons {
+        a {
+            &.step-back {
+                line-height: initial;
+                padding-top: 7%;
+                height: 2.667em;
+
+                &::before {
+                    top: 10px;
+                }
+
+                &.ie-11 {
+                    padding-top: 5%;
+                }
+            }
+        }
+    }
+
+    .filters-list-inner-container {
+        @include media($medium-screen-up) {
+            height: inherit;
+        }
+    }
+}

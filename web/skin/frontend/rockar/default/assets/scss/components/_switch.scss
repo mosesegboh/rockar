@@ -1,0 +1,42 @@
+.label-switch {
+    border-radius: $switch-radius;
+    height: $switch-height;
+    width: $switch-width;
+
+    input[type="checkbox"] {
+        display: none;
+
+        + .checkbox {
+            background: $switch-background-disabled;
+            height: $switch-height;
+            width: $switch-width;
+
+            &:before {
+                background: $switch-background-disabled;
+                border-radius: $switch-radius;
+                height: $knob-radius;
+                width: $switch-width - ($switch-padding * 2);
+            }
+
+            &:after {
+                background: $switch-button-background-disabled;
+                border-radius: $knob-radius;
+                box-shadow: none;
+                @include sprite($sprite-switch-disabled);
+                @include transition(all 0s);
+            }
+        }
+
+        &:checked {
+            + .checkbox {
+                background: $switch-background-enabled;
+
+                &:after {
+                    background: $switch-button-background-enabled;
+                    left: $switch-width - $knob-width - ($switch-padding);
+                    @include sprite($sprite-switch-enabled);
+                }
+            }
+        }
+    }
+}

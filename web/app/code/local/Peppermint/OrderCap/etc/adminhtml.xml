@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_OrderCap
+ * @author    Lika Sikharulia <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <menu>
+        <report>
+            <children>
+                <salesroot>
+                    <children>
+                        <peppermint_ordercap translate="title" module="peppermint_ordercap">
+                            <title>Order Cap Report</title>
+                            <sort_order>1</sort_order>
+                            <action>adminhtml/orderCap</action>
+                        </peppermint_ordercap>
+                    </children>
+                </salesroot>
+            </children>
+        </report>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <report>
+                        <children>
+                            <salesroot>
+                                <children>
+                                    <peppermint_ordercap translate="title" module="peppermint_ordercap">
+                                        <title translate="title">Order Cap Report</title>
+                                        <sort_order>10</sort_order>
+                                    </peppermint_ordercap>
+                                </children>
+                            </salesroot>
+                        </children>
+                    </report>
+                </children>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <Peppermint_OrderCap translate="title">
+                                        <title>Order Cap</title>
+                                        <sort_order>0</sort_order>
+                                    </Peppermint_OrderCap>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

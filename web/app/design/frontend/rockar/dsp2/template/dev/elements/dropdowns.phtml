@@ -1,0 +1,98 @@
+<div>
+    <h3>Dropdown</h3>
+
+    <div>
+        <app-select title="Master"
+                    label="This is a label"
+                    :options="[{title:'Option 1'},{title:'Option 2'},{title:'Option 3'},{title:'Option 4'},{title:'Option 5'},{title:'Option 6'},{title:'Option 7'},{title:'Option 8'},{title:'Option 9'},{title:'Option 10'}]"></app-select>
+    </div>
+    <br>
+
+    <h3>Disabled</h3>
+
+    <app-select :disabled="true" title="-- Please Select --" :options="[{title:'Option 1'},{title:'Option 2'},{title:'Option 3'},{title:'Option 4'},{title:'Option 5'},{title:'Option 6'},{title:'Option 7'},{title:'Option 8'},{title:'Option 9'},{title:'Option 10'}]"></app-select>
+
+    <hr>
+
+    <h3>Yes / No sliders</h3>
+
+    <div style="margin-bottom:10px;">
+        <p>Enabled</p>
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div style="margin-bottom:10px;">
+        <p>Disabled</p>
+        <label class="switch">
+            <input type="checkbox" disabled>
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <hr>
+
+    <h3>Checkboxes</h3>
+
+    <hr>
+
+    <div style="margin-bottom:10px;">
+        <input type="radio" class="radio-checkbox" id="r0" name="grp" checked>
+        <label for="r0"><span></span> Radio-Checkbox Checked</label>
+    </div>
+
+    <div style="margin-bottom:10px;">
+        <input type="radio" class="radio-checkbox" id="r1" name="grp">
+        <label for="r1"><span></span> Radio-Checkbox</label>
+    </div>
+
+    <div style="margin-bottom:10px;">
+        <input type="radio" class="radio-checkbox" id="r2" name="grp-dis" checked disabled>
+        <label for="r2"><span></span> Radio-Checkbox Disabled Checked</label>
+    </div>
+
+    <div style="margin-bottom:10px;">
+        <input type="radio" class="radio-checkbox" id="r3" name="grp-dis" disabled>
+        <label for="r3"><span></span> Radio-Checkbox Disabled</label>
+    </div>
+
+    <hr>
+
+    <div style="margin-bottom:10px;">
+        <input type="checkbox" id="c0" checked>
+        <label for="c0"><span></span> Checked</label>
+    </div>
+
+    <div style="margin-bottom:10px;">
+        <input type="checkbox" id="c1" />
+        <label for="c1"><span></span> Unchecked</label>
+    </div>
+
+
+    <div style="margin-bottom:10px;">
+        <input type="checkbox" id="c3" disabled="disabled" checked="checked" />
+        <label for="c3"><span></span> Disabled Checked</label>
+    </div>
+
+    <div style="margin-bottom:10px;">
+        <input type="checkbox" id="c2" disabled="disabled" />
+        <label for="c2"><span></span> Disabled</label>
+    </div>
+
+    <div style="margin-bottom:10px;">
+        <input type="checkbox" id="c4">
+        <label for="c4" class="validation-error"><span></span> Validation error</label>
+    </div>
+
+    <div style="margin-bottom:10px;">
+        <input type="checkbox" id="c5" disabled>
+        <label for="c5" class="validation-error"><span></span> Validation error disabled</label>
+    </div>
+
+    <div>
+        <input type="checkbox" id="c6" checked disabled>
+        <label for="c6" class="validation-error"><span></span> Validation error checked disabled</label>
+    </div>
+</div>

@@ -1,0 +1,244 @@
+#car-finder {
+    @include clearfix;
+
+    .car-finder-container {
+        @include media($medium-screen-up) {
+            height: 200px;
+            margin-left: calc(50% - 50vw);
+            width: 100vw;
+            background: $c-grey-6;
+            box-shadow: inset 1px 11px 20px -6px rgba(0, 0, 0, .15);
+        }
+    }
+
+    > .car-finder-filters {
+        @include clearfix;
+        margin-top: 30px;
+
+        .category-car-finder.on-light & {
+            margin-top: 0;
+        }
+
+        @include media($small-screen-down) {
+            margin: 0;
+        }
+
+        .filters-wrapper {
+            .on-light & {
+                background: $white;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, .15);
+                padding: 5px 25px 0;
+
+                @include media($dsp2-l-screen-up) {
+                    padding: 1em 6em 0;
+                }
+
+                @include media($dsp2-xl-screen-up) {
+                    padding-left: 0;
+                }
+            }
+
+            @include media($desktop-carousel-breakpoint) {
+                @include display(flex);
+                @include flex-direction(row);
+
+                .finance-filters-wrapper {
+                    flex: 0 1 27%;
+                }
+
+                .model-filters-wrapper {
+                    flex: 1 1 auto;
+                }
+            }
+
+            .finance-filters-wrapper {
+                @include media($small-screen-down) {
+                    margin-top: 0;
+                }
+            }
+        }
+
+        .car-filter-step {
+            .car-compare {
+                .compare-content-link {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .substep-1 {
+            margin-bottom: 150px;
+
+            @include media($large-screen-up) {
+                margin-bottom: 95px;
+            }
+
+            @include media($small-screen-down) {
+                margin-bottom: initial;
+            }
+        }
+
+        div.substep-2-main {
+            margin-bottom: 32px;
+
+            @include media($small-screen-down) {
+                margin-bottom: initial;
+            }
+        }
+    }
+
+    .grid {
+        &.extra-small-window {
+            margin: 0;
+        }
+    }
+
+    #finance-filter {
+        @include media($medium-screen-up) {
+            @include display(flex);
+            @include justify-content(center);
+            padding: 0 0 69px 0;
+
+            @include media($large-screen-up) {
+                padding: 0 0 30px 0;
+                display: flex;
+                justify-content: left;
+            }
+
+            .finance-filter-wrapper {
+                width: 100%;
+
+                @include media($desktop-carousel-breakpoint) {
+                    max-width: 352px;
+                    min-width: 300px;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .navigation-outer-container {
+        @include media($medium-screen-up) {
+            .dsp2-money {
+                top: 25px;
+                max-width: 376px;
+                float: right;
+            }
+        }
+
+        @include media($small-screen-down) {
+            margin-top: 20px;
+        }
+    }
+
+    .navigation-buttons-wrapper {
+        width: 100vw;
+        position: relative;
+        margin-left: 0;
+        bottom: 0;
+        border-top: none;
+        background: $base-background-color;
+        z-index: 10;
+
+        &.footer-margin {
+            margin-top: 150px;
+        }
+
+        &.js-is-sticky {
+            left: calc(-50vw + 50%);
+        }
+
+        .navigation-outer-container {
+            max-width: 75em;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        &.px-second-step {
+            @include media($small-screen-down) {
+                bottom: auto;
+            }
+        }
+    }
+
+    .header-mobile,
+    .filters-header-mobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        font-family: $bmw-light;
+        font-size: $dsp2-f-size;
+        line-height: $dsp2-line-h-18;
+        border-bottom: 1px solid $c-grey-5;
+        height: 39px;
+        width: 100%;
+        position: fixed;
+        background: $white;
+        left: 0;
+        top: 60px;
+        z-index: 101;
+
+        @include media($dsp2-medium-screen-up) {
+            display: none;
+        }
+
+        .close {
+            position: fixed;
+            background-image: url('../images/svg/icon-arrow-left.svg');
+            top: 70px;
+            left: 20px;
+            z-index: 999;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 16px;
+            width: 16px;
+        }
+    }
+}
+
+.category-car-finder,
+.category-bike-finder {
+    &.on-light {
+        #car-finder {
+            .filters-wrapper {
+                box-shadow: none;
+
+                @include media($dsp2-l-screen-up){
+                    position: relative;
+
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        box-shadow: 0 8px 10px 0 rgba(0, 0, 0, .15);
+                        height: 119%;
+                        width: 100vw;
+                        margin-left: -50vw;
+                        left: 50%;
+                        z-index: -1;
+                        top: -60px;
+                        background: $white;
+                    }
+                }
+
+                @include media($dsp2-xl-screen-up) {
+                    padding: 1em 0 0;
+
+                    .model-navigation {
+                        margin: 0;
+                    }
+                }
+            }
+
+            .car-filter-step {
+                @include media($dsp2-xl-screen-up) {
+                    padding: 0;
+                }
+            }
+        }
+    }
+
+    .carfinder-px-modal {
+        z-index: 99999;
+    }
+}

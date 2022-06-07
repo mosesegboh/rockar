@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Reports
+ * @author    Igors Zhunins <techteam@rockar.com>
+ * @copyright Copyright (c) 2021 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_Reports>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Peppermint_CatalogRule/>
+                <Peppermint_YouDrive/>
+            </depends>
+        </Peppermint_Reports>
+    </modules>
+</config>

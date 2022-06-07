@@ -1,0 +1,30 @@
+<?php
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Checkout
+ * @author    Alexnder Metzgen <alexander.metzgen@rockar.com>
+ * @copyright Copyright (c) 2019 Rockar Ltd (http://rockar.com)
+ */
+
+$orderData = Mage::helper('rockar_checkout/confirmation')->getOrderData();
+$customerHelper = Mage::helper('customer');
+$rockarAllHelper = Mage::helper('rockar_all');
+$partExchangeValue = Mage::helper('rockar_partexchange')->loadPartExchangeFromSession(Rockar_PartExchange_Helper_Data::PART_EXCHANGE_SESSION_KEY)->getPartExchangeValue();
+?>
+<div id="checkout" class="row">
+    <div class="order-confirmation">
+        <app-checkout-order-confirmation
+            my-account-url='<?php echo $customerHelper->getAccountUrl(); ?>'
+            logout-url='<?php echo $customerHelper->getLogoutUrl(); ?>'
+            customer-support-email='<?php echo Mage::getStoreConfig('trans_email/ident_support/email'); ?>'
+            customer-support-phone='<?php echo Mage::getStoreConfig('general/store_information/phone'); ?>'
+            :order-data='<?php echo Mage::helper('rockar_checkout/confirmation')->getOrderDataJSON(); ?>'
+            :in-store='<?php echo (int)$rockarAllHelper->checkIsInStore(); ?>'
+            success-message='<?php echo $rockarAllHelper->jsonEncode($this->getChildHtml($orderData->getData('staticBlock'))); ?>'
+            part-exchange-value='<?php echo $partExchangeValue; ?>'
+        ></app-checkout-order-confirmation>
+    </div>
+</div>
+<script type="text/javascript">
+    const orderNumber = '<?php echo $orderData->getData('orderNumber'); ?>';
+</script>

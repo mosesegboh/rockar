@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @category     Peppermint
+ * @package      Peppermint\Dfe
+ * @author       Dumitru Mocanu <dumitru.mocanu@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+
+/**
+ * @var Peppermint_Dfe_Block_Adminhtml_System_Config_Form_Buttons_Refcode $this
+ */
+?>
+<script type="text/javascript">
+    //<![CDATA[
+    function pullRefcodes() {
+        new Ajax.Request('<?php echo $this->getAjaxUrl() ?>', {
+            onSuccess: (transport) => {
+                if (transport.responseJSON.success){
+                    alert('<?php echo $this->__('Pull completed') ?>');
+                } else {
+                    alert(transport.responseJSON.error);
+                }
+            },
+            onFailure: () => {
+                alert('<?php echo $this->__('Failure') ?>');
+            }
+        });
+    }
+    //]]>
+</script>
+
+<p>
+    <?php echo $this->getButtonHtml() ?>
+</p>

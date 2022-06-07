@@ -1,0 +1,19 @@
+#notifications {
+    @include position(relative, 70px null null null);
+    text-align: center;
+    width: 100%;
+    z-index: 90;
+
+    div {
+        margin: 0 auto;
+
+        p {
+            margin: 0 auto;
+            font-size: $f-size-l;
+
+            @include media($large-screen-down) {
+                text-align: left;
+            }
+        }
+    }
+}

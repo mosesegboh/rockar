@@ -1,0 +1,520 @@
+&-visible_in {
+    display: none;
+}
+
+&-item {
+    width: 100%;
+    margin: 1px 0 0;
+    position: relative;
+
+    @include media($small-screen-down) {
+        width: auto;
+        margin: 1px 0 0;
+        border-bottom: 1px solid $grey-3;
+    }
+
+    .car-filter-title {
+        width: 100%;
+        padding: 10px 40px 11px 19px;
+        background-color: $car-filter-background-color;
+        border: 1px solid $car-filter-background-color;
+        font-family: $car-filter-button-filter;
+        color: $black;
+        font-weight: $fw-bold;
+        margin-bottom: 0;
+        position: relative;
+        text-transform: uppercase;
+        font-size: $car-filter-button-filter-font-size;
+
+        @include media($small-screen-down) {
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+        }
+
+        &::after {
+            @include pseudo;
+            transition: transform 0.4s;
+            will-change: transform;
+            top: 0;
+            bottom: 0;
+            right: 20px;
+            margin: auto;
+            width: 10px;
+            height: 10px;
+            border: {
+                right: 2px solid $black;
+                bottom: 2px solid $black;
+            }
+            transform: rotate(45deg);
+
+            @include media($small-screen-down) {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
+    .car-filter-open {
+        &:checked {
+            ~ .car-filter-blocks {
+                border-color: $grey-2;
+                padding: 15px 20px;
+                opacity: 1;
+                display: block;
+                max-height: none;
+                pointer-events: all;
+                z-index: 2000;
+                width: 100%; // IE11 fix for broken styling
+
+                .scrollbox {
+                    width: 100% !important;
+                    height: auto !important; // Need !important to overwrite in line styling in enscroll plugin
+                    max-height: 275px;
+                }
+
+                .remove-scroll {
+                    overflow: inherit !important; // Need !important to overwrite in line styling in enscroll plugin
+                }
+
+                img { // IE11 fix for broken styling
+                    width: 100%;
+                }
+            }
+
+            ~ .car-filter-title {
+                background-color: $white;
+
+                &::after {
+                    transform: rotate(-45deg);
+
+                    @include media($small-screen-down) {
+                        transform: rotate(45deg);
+                    }
+                }
+            }
+        }
+    }
+
+    &.car-filter-model {
+        .car-filter-open {
+            &:checked {
+                ~ .car-filter-blocks {
+                    overflow-y: scroll;
+                    max-height: 250px;
+                }
+            }
+        }
+    }
+
+    .car-filter-blocks {
+        border: 1px solid transparent;
+        max-height: 0;
+        opacity: 0;
+        display: none;
+        padding: 0 10px;
+        transition: max-height 0.4s, padding 0.4s, opacity 0.4s;
+        will-change: max-height, padding, opacity;
+
+        @include media($small-screen-down) {
+            background-color: $white;
+            border: 0;
+        }
+
+        .scrollbox-content {
+            padding: 0;
+        }
+
+        label {
+            padding: 5px 0;
+            margin: 0;
+        }
+
+        .range-slider-wrapper {
+            .ui-slider {
+                .slider-label {
+                    padding: 0;
+                }
+            }
+        }
+
+        .maintenance-filter-wrapper {
+            label {
+                padding-left: 2.857em;
+                font-size: $f-size;
+                font-weight: $fw-book;
+            }
+        }
+
+        .car-filter-content {
+            height: calc(320px - 55px);
+            margin-bottom: 10px;
+        }
+    }
+
+    .car-filter-block {
+        padding: 0;
+
+        input {
+            + label {
+                display: block;
+                font-size: $f-size-s;
+                color: $grey-4;
+                margin-bottom: 5px;
+                padding-left: 2em;
+                padding-top: 0;
+
+                &.car-filter-model-label {
+                    padding: 5px 0;
+                }
+            }
+
+            &:disabled {
+                + label {
+                    display: none;
+                }
+            }
+        }
+
+        input[type='radio'],
+        input[type='radio']:checked {
+            + label {
+                span {
+                    background-image: none;
+                }
+            }
+        }
+
+        .model-wrapper {
+            @include display(flex);
+
+            .model-data {
+                width: 70%;
+                border-top: 1px solid $black;
+                border-bottom: 1px solid $black;
+                text-align: center;
+                padding: 17px 0;
+                font-size: $f-size-xxxs;
+                text-transform: uppercase;
+                color: $black;
+                margin-right: 20px;
+
+                span {
+                    position: inherit;
+                    float: left;
+                }
+
+                .title {
+                    font-weight: $fw-bold;
+                    display: initial;
+                }
+
+                .count {
+                    font-weight: $fw-normal;
+                }
+            }
+
+            .model-image {
+                @include display(flex);
+                @include align-items(center);
+                width: 30%;
+            }
+        }
+    }
+
+    &.finance-filter {
+        p {
+            font-size: $f-size;
+            margin-bottom: 0;
+            color: $grey-4;
+            font-weight: $fw-book;
+        }
+
+        .finance-filter-slider-input {
+            display: inline-block;
+
+            .finance-filter-slider-input-wrapper {
+                display: inline-block;
+
+                input {
+                    display: inline-block;
+                    width: 104px;
+                    height: 28px;
+                    font-size: $f-size-xs;
+                    padding-left: 7px;
+                    padding-right: 5px;
+                    padding-top: 5px;
+                    border: 0;
+                    margin-bottom: 14px;
+                    background: $selectbox-item-background;
+                    opacity: 1 !important; //Overwrite !important used for disabled styling
+                }
+            }
+        }
+
+        .range-slider-wrapper {
+            display: inline-block;
+            width: calc(100% - 108px);
+            margin-left: 10px;
+
+            @include media($small-screen-down) {
+                width: calc(100% - 120px);
+            }
+
+            .ui-slider {
+                height: 11px;
+                margin: 0;
+
+                .ui-slider-handle {
+                    width: 22px;
+                    height: 22px;
+                    margin-top: -8px;
+                    margin-left: -6px;
+                }
+
+                .ui-slider-range {
+                    background: $primary-color;
+                    outline: 4px solid $white;
+                }
+            }
+        }
+    }
+
+    &.px-filter,
+    &.px-filter-add {
+        input {
+            &[type='text'] {
+                display: block;
+                padding-top: 0;
+                color: $grey-4;
+
+                @include media($small-screen-down) {
+                    width: 100%;
+                    line-height: 3em;
+                    height: 3em;
+                }
+
+                @include media($medium-screen-up) {
+                    width: 70%;
+                    line-height: 1.7em;
+                    height: 48px;
+                    margin-bottom: 0.555em;
+                    padding-left: 1.125em;
+                    padding-top: 0.17em;
+                    font-size: 0.8em;
+                }
+            }
+
+            &::-ms-clear {
+                display: none;
+            }
+        }
+
+        p {
+            margin: 0;
+            color: $grey-4;
+            font-weight: $fw-book;
+            font-size: 0.9em;
+        }
+    }
+
+    &.px-filter {
+        .car-filter-blocks {
+            height: auto;
+            min-height: 420px;
+
+            .finance-header {
+                margin-bottom: 15px;
+            }
+
+            .px-car-info {
+                border: 1px solid $grey-3;
+                margin-bottom: 15px;
+                padding: 5px;
+            }
+        }
+
+        select {
+            margin-bottom: .5em;
+            background: $white;
+            border-color: $grey-4;
+            color: $grey-4;
+            font-weight: $fw-book;
+
+            @include media($small-screen-down) {
+                width: 100%;
+                line-height: 3em;
+                height: 3em;
+            }
+
+            @include media($medium-screen-up) {
+                width: auto;
+                line-height: 1.875em;
+                height: 28px;
+                font-size: .8em;
+            }
+        }
+
+        button {
+            line-height: 1.5em;
+            font-size: 0.7em;
+            padding: 2px 1em;
+            display: inline-block;
+            vertical-align: middle;
+            float: none;
+
+            &[disabled] {
+                background: $grey-4;
+                border: 0;
+            }
+
+            &.continue-px {
+                font-size: .7em;
+                width: 90%;
+                float: initial;
+                line-height: initial;
+                display: block;
+                margin-top: 10px;
+                position: absolute;
+                bottom: 20px;
+
+                @include media($small-screen-down) {
+                    line-height: 3em;
+                    position: relative;
+                    width: 100%;
+                    margin-top: 34px;
+                }
+            }
+        }
+
+        .px-filter-wrapper {
+            color: $grey-4;
+
+            &.final-value {
+                margin-top: 0;
+
+                button {
+                    display: block;
+                    height: 50px;
+                    margin: 10px 0 0;
+                    max-width: 285px;
+                    width: 100%;
+
+                    @include media($small-screen-down) {
+                        max-width: none;
+                    }
+                }
+            }
+
+            .selectbox {
+                position: absolute;
+                width: 63%;
+
+                @include media($small-screen-down) {
+                    width: 100%;
+                    max-width: 100%;
+                    position: relative;
+                }
+
+                &.open {
+                    .selectbox-select {
+                        background: $white;
+
+                        .dropdown-caret {
+                            &::after {
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+                }
+
+                .selectbox-select {
+                    padding: 16px 0 0 18px;
+                    font-size: $f-size-xxxs;
+
+                    .dropdown-caret {
+                        &::after {
+                            left: 50%;
+                            margin-left: -6.5px;
+                        }
+                    }
+                }
+
+                li {
+                    &.dropdown-item {
+                        font-size: $f-size-xxxs;
+                        padding: 8px 18px;
+                        height: 30px !important;
+                    }
+                }
+
+                .selectbox-dropdown {
+                    position: inherit;
+                }
+            }
+        }
+
+        .removed-px {
+            font-size: .55em;
+            padding-bottom: 1em;
+            color: $black;
+            display: block;
+            margin-top: 15px;
+        }
+
+        .px-final-value {
+            display: block;
+            margin-left: 6px;
+            margin-right: 4px;
+            font-size: .9em;
+            vertical-align: middle;
+        }
+
+        .error-message {
+            color: $red-1;
+
+            @include media($medium-screen-up) {
+                font-size: .6em;
+            }
+
+            a {
+                color: $grey-4;
+                font-weight: $fw-semibold;
+            }
+        }
+    }
+
+    &.px-filter-add {
+        button {
+            font-size: 0.7em;
+            width: 100%;
+            padding: 1em;
+        }
+
+        .px-filter-wrapper {
+            margin-bottom: 1em;
+        }
+
+        .car-filter-blocks {
+            overflow-y: auto !important;
+
+            @include media($medium-screen-up) {
+                min-height: 77px;
+            }
+        }
+    }
+}
+
+.car-filter-item .car-filter-title {
+    width: 100%;
+    padding: 10px 40px 11px 19px;
+    background-color: $grey-2;
+    border-top: 1px solid $off-white;
+    border-bottom: 1px solid $off-white;
+    font-family: $mini;
+    color: $black;
+    font-weight: $fw-bold;
+    margin-bottom: -2px;
+    position: relative;
+    text-transform: uppercase;
+    font-size: $f-size-xs;
+}

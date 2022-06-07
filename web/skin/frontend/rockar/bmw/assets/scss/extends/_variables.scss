@@ -1,0 +1,177 @@
+// bmw specific styling colors
+$bmw-blue: #1C69D4;
+$bmw-light-grey: #e6e6e6;
+$bmw-grey: #8e8e8e;
+$bmw-dark-grey: #262626;
+$bmw-button-grey: #4d4d4d;
+
+////// Badges //////
+$badge-bg-color: $bmw-blue;
+
+////// Buttons //////
+$call-to-action-color: $white;
+$call-to-action-background-color: $bmw-blue;
+$call-to-action-background-color2: $bmw-blue;
+
+$back-to-top-color: $grey-4;
+
+$button-font-mobile: $myriad;
+$button-font-size: $bmw-button;
+$button-fw: $fw-medium;
+$button-height-padding: 1.45em;
+$button-width-padding: 1.55em;
+
+$expand-collapse-border-color: 1px solid $grey-3;
+$expand-collapse-border-color-hover: 1px solid $grey-4;
+$expand-collapse-background-hover: $grey-4;
+$alternative-action-button-text-color: $white;
+
+$button-disabled-color: $grey-3;
+$button-disabled-background-color: $grey-2;
+
+$button-black-color: $white;
+$button-black-background-color: $black;
+
+$button-white-color: $black;
+$button-white-background-color: $white;
+
+$button-grey-color: $white;
+$button-grey-background-color: $bmw-button-grey;
+
+$button-grey-dark-color: $white;
+$button-grey-dark-background-color: $grey-4;
+
+$button-grey-light-color: $white;
+$button-grey-light-background-color: $grey-3;
+
+$button-grey-light-2-color: $grey-4;
+$button-grey-light-2-background-color: $grey-2;
+$button-grey-light-2-hover-color: $white;
+$button-grey-light-2-hover-background-color: $black;
+
+$button-silver-chalice-border-color: #b1b1b1;
+
+$button-empty-color: $cool-grey;
+$button-empty-light-color: $cool-grey;
+$button-empty-light-border-color: $grey-3;
+$button-empty-white-color: $white;
+
+$button-cancel-color: $red-2;
+$button-cancel-background-color: $red-3;
+
+$button-red-color: $white;
+$button-red-background-color: $red-2;
+
+$button-narrow-height-padding: .6625em;
+$button-narrow-bottom-height-padding: .5625em;
+$button-back-narrow-height-padding: 1.1em;
+$button-order-confirm-height-padding: 1.15em;
+
+$plus-sign-background: $white;
+$button-forgot-password-submit: $black;
+
+$button-login-background-color: $black;
+
+//////Paragraph variables //////
+$base-font-size: $bmw-p;
+$base-font-color: $bmw-dark-grey;
+$base-letter-spacing: 0;
+
+//////Font variables //////
+$order-confirmation-subtitle-color: $bmw-dark-grey;
+
+////// Select Boxes //////
+$selectbox-label-background-color: $grey-2;
+$selectbox-label-hover-background-color: $grey-2;
+$selectbox-label-opened-background-color: $grey-3;
+$selectbox-label-border-color: $cool-grey;
+$selectbox-label-color: $cool-grey;
+
+$selectbox-caret-background: $grey-5;
+$selectbox-font: $avenir;
+$selectbox-list-background: $white;
+
+$selectbox-item-text-color: $grey-4;
+$selectbox-item-selected-background-color: $primary-color-3;
+$selectbox-item-selected-border-color: $grey-2;
+$selectbox-item-hover-color: $grey-2;
+$selectbox-item-background: $grey-2;
+$selectbox-item-border: $grey-2;
+$selectbox-item-background2: rgba($selectbox-item-background, .5);
+$selectbox-item-background3: rgba($selectbox-item-background, .25);
+$selectbox-item-border-color: $white;
+$selectbox-item-highlighted-border-color: $primary-color;
+
+$selectbox-scrollbar-thumb-color: $grey-2;
+$selectbox-disabled-border: $grey-2;
+
+$selectbox-grey-dropdown-caret-background: $grey-2;
+$selectbox-grey-dropdown-caret-border-color: $white;
+
+////// Footer //////
+$footer-background-color: $grey-2;
+$footer-background-color-top: $grey-3;
+$footer-link-color: $bmw-grey;
+$footer-link-font-size: $f-size-xxxxs;
+$footer-font: $avenir-roman;
+$footer-font-size: $f-size-xxxs;
+$footer-newsletter-label-color: $grey-4;
+$footer-heading-font: $avenir-roman;
+$footer-heading-color: $bmw-grey;
+$footer-heading-transform: none;
+$footer-validation-failed: $grey-4;
+$footer-subscribe-header-label-color: $cool-grey-2;
+$footer-menu-bg-color: $grey-2;
+$footer-menu-border-color: $grey-3;
+
+////// Set Your Budget //////
+$input-field-height: 50px;
+$input-field-width: 200px;
+$max-input-field-width: 100%;
+
+////// Set Your Budget //////
+$max-button-width: 285px;
+
+$finance-selection-range-sliders-height: $input-field-height;
+
+$finance-selection-group-default-color: transparent;
+
+$finance-selection-group-active-color: transparent;
+$finance-selection-group-text-color-light: $bmw-dark-grey;
+
+$bmw-active-nav: solid 4px $bmw-blue;
+$bmw-nav: solid 4px $white;
+
+////// Popup //////
+$popup-overlay-background: $grey-overlay;
+$message-success-color: #006800;
+
+////// Steps //////
+$ns-active-navigation-steps-font-size-l-screen: $bmw-h1;
+
+////// Checkbox //////
+$checkbox-unchecked-background-color: $grey-3;
+$checkbox-checked-background-color: $primary-color;
+$checkbox-disabled-background-color: $grey-3;
+$checkbox-border-color: $bmw-light-grey;
+
+////// Trade in //////
+$px-regular-heading-color: $grey-3;
+$px-current-car-title-font-size: $bmw-h2;
+
+////// Forms //////
+$input-field-background-blur: $grey-2;
+
+// Calendar
+$calendar-background-color: $white;
+$calendar-color: $grey-4;
+
+// Checkout
+$checkout-step-status-color: $button-grey;
+$checkout-step-status-hover-color: $grey-button-hover-color;
+
+// Navigation //
+$navigation-desktop-height: 99px;
+
+////// My Current Car ///////
+$my-current-cars-table-mobile-bg: $white;

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint_All
+ * @author       Dominic Sutton <dominic.sutton@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_All>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Rockar_All/>
+                <Aschroder_SMTPPro />
+            </depends>
+        </Peppermint_All>
+    </modules>
+</config>

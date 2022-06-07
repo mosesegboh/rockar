@@ -1,0 +1,27 @@
+&-wrapper {
+    .reset-filters-row {
+        .reset-filter-title {
+            text-transform: uppercase;
+            font-family: $motorrad-bold;
+            font-size: $dsp2-f-size-sl;
+            line-height: $dsp2-line-h-24;
+            margin-bottom: 28px;
+
+            @include media($medium-screen-up) {
+                font-size: $dsp2-f-size-xxl;
+            }
+        }
+
+        p {
+            &:not([class]) {
+                font-size: $dsp2-f-size-s;
+                line-height: $dsp2-line-h-16;
+
+                @include media($medium-screen-up) {
+                    font-size: $dsp2-f-size;
+                    line-height: $dsp2-line-h-24;
+                }
+            }
+        }
+    }
+}

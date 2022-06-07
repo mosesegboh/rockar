@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_UcpConfig
+ * @copyright Copyright (c) 2021 Rockar Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_UcpConfig>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Peppermint_UcpConfig>
+    </modules>
+</config>

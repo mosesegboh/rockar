@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint_DealerEmail
+ * @author       Bogdan Gafitescu <bogdan.gafitescu@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_DealerEmail>
+            <version>0.1.0</version>
+        </Peppermint_DealerEmail>
+    </modules>
+    <global>
+        <models>
+            <peppermint_dealeremail>
+                <class>Peppermint_DealerEmail_Model</class>
+            </peppermint_dealeremail>
+            <rockar_youdrive>
+                <rewrite>
+                    <booking>Peppermint_DealerEmail_Model_Booking</booking>
+                </rewrite>
+            </rockar_youdrive>
+        </models>
+        <helpers>
+            <peppermint_dealeremail>
+                <class>Peppermint_DealerEmail_Helper</class>
+            </peppermint_dealeremail>
+            <rockar_sales>
+                <rewrite>
+                    <email>Peppermint_DealerEmail_Helper_Email</email>
+                </rewrite>
+            </rockar_sales>
+        </helpers>
+    </global>
+</config>

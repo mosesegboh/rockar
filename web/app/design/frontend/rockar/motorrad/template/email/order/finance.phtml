@@ -1,0 +1,112 @@
+<?php
+/**
+ * @category  Peppermint
+ * @package   Peppermint_FinancingOptions
+ * @author    Egboh Moses <osama.ahmed@rockar.com>
+ * @copyright Copyright (c) 2019 Rockar Ltd (http://rockar.com)
+ */
+?>
+
+<?php
+$variables = $this->getFinanceVariables();
+$isHire = isset($variables['is_hire']) && $variables['is_hire'] == 1;
+$removeRows = [
+    'Vehicle Excise Duty',
+    'Vehicle Registration Fee'
+];
+?>
+<img src="<?php echo $this->getImage() ?>" alt="car" width="100%" />
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+    <colgroup>
+        <col width="*">
+        <col width="20%">
+    </colgroup>
+    <?php foreach ($variables['car_data'] as $data): ?>
+        <?php if (isset($data['label']) && !in_array($data['label'], $removeRows)): ?>
+            <tr>
+                <td align="left" valign="top" style="font-size:12px; padding:6px 9px;">
+                    <span><?php echo $data['label']; ?></span>
+                </td>
+                <td align="right" valign="top" style="font-size:12px; padding:6px 9px;">
+                    <span class="table-right"><?php echo $this->getFormattedValue($data); ?></span>
+                </td>
+            </tr>
+        <?php else: ?>
+            <?php if (isset($data['group']) && isset($data['items']) && !empty($data['items'])): ?>
+                <tr>
+                    <td colspan="2" align="left" valign="top" style="font-size:12px; padding:6px 9px; background-color: #F6F6F6;">
+                        <?php echo $data['group']; ?>
+                    </td>
+                </tr>
+                <?php foreach ($data['items'] as $item): ?>
+                    <?php if (isset($item['label'])): ?>
+                        <tr>
+                            <td align="left" valign="top" style="font-size:12px; padding:6px 9px 6px 29px;">
+                                <?php echo $item['label']; ?>
+                            </td>
+                            <td align="right" valign="top" style="font-size:12px; padding:6px 9px;">
+                                <?php echo $this->getFormattedValue($item); ?>
+                            </td>
+                        </tr>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        <?php endif; ?>
+    <?php endforeach; ?>
+
+    <?php foreach ($variables['finance_variables'] as $index => $variable): ?>
+        <?php $isEven = ($index % 2 == 0); ?>
+        <tr>
+            <td align="left" valign="top" style="font-size:12px; padding:6px 9px; <?php echo $this->getVariableTitleStyle($variable); ?> <?php echo $isEven ? ' background-color: #F6F6F6;' : ''; ?>">
+                <?php echo $this->getFormattedTitle($variable['variable_title']); ?>
+            </td>
+            <td align="right" valign="top" style="font-size:12px; padding:6px 9px; <?php echo $isEven ? ' background-color: #F6F6F6;' : ''; ?>">
+                <?php echo $variable['value_formatted']; ?>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+<hr>
+<table cellspacing="0" cellpadding="0" border="0" width="100%" class="finance-payments" style="margin: 0.5em 0;">
+    <tr class="finance-delivery">
+        <td align="center" valign="top" style="font-size:18px; font-weight:bold; text-transform: uppercase; padding: 0;">
+            <p style="margin: 0;"><?php echo $variables['lead_time']; ?></p>
+        </td>
+    </tr>
+</table>
+<hr>
+<table cellspacing="0" cellpadding="0" border="0" width="100%" class="finance-payments">
+    <tr>
+        <td align="center" valign="top" style="padding:6px 9px;">
+            <?php if (!$isHire): ?>
+                <div class="payment">
+                    <h4 class="price"><?php echo $this->formatPriceBaseOnCurrencySetting($variables['rockar_price'], 0); ?></h4>
+                    <p class="label"><?php echo $this->__('Offer Price'); ?></p>
+                </div>
+                <?php if ($variables['save_off_rrp'] > 0): ?>
+                    <div class="payment">
+                        <h4 class="price"><?php echo $this->formatPriceBaseOnCurrencySetting($variables['save_off_rrp'], 0); ?></h4>
+                        <p class="label"><?php echo $this->__('off RRP'); ?></p>
+                    </div>
+                <?php endif; ?>
+            <?php else: ?>
+                <div class="payment">
+                    <h4 class="price"><?php echo $this->formatPriceBaseOnCurrencySetting($variables['cash_deposit'], 0); ?></h4>
+                    <p class="label"><?php echo $this->__('Initial Payment') ?></p>
+                </div>
+                <?php if ($variables['cashback'] > 0): ?>
+                    <div class="payment">
+                        <h4 class="price"><?php echo $this->formatPriceBaseOnCurrencySetting($variables['cashback'], 0); ?></h4>
+                        <p class="label"><?php echo $this->__('Cashback'); ?></p>
+                    </div>
+                <?php endif; ?>
+            <?php endif; ?>
+            <?php if ($variables['monthly_price'] > 0): ?>
+                <div class="payment">
+                    <h4 class="price"><?php echo $this->formatPriceBaseOnCurrencySetting($variables['monthly_price'], 0); ?></h4>
+                    <p class="label"><?php echo $this->__('A month'); ?></p>
+                </div>
+            <?php endif; ?>
+        </td>
+    </tr>
+</table>

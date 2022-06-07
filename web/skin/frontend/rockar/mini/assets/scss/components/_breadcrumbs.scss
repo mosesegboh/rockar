@@ -1,0 +1,45 @@
+.breadcrumbs {
+    margin: 0 0 1em;
+
+    ul {
+        li {
+            display: inline-block;
+            vertical-align: middle;
+            font-size: $breadcrumbs-font-size;
+            text-transform: uppercase;
+            font-weight: $fw-bold;
+            font-family: $secondary-font-family;
+            letter-spacing: $breadcrumbs-letter-spacing;
+
+            strong,
+            span,
+            a {
+                color: $breadcrumbs-text-color;
+            }
+
+            span {
+                padding: 0 .75em;
+            }
+        }
+    }
+}
+
+.store-switcher {
+    margin: 0 0 1em;
+
+    p {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: $breadcrumbs-font-size;
+        text-transform: uppercase;
+        font-weight: $fw-bold;
+        font-family: $secondary-font-family;
+        letter-spacing: $letter-spacing;
+        margin: 0;
+
+        a {
+            color: $breadcrumbs-text-color;
+            text-decoration: underline;
+        }
+    }
+}

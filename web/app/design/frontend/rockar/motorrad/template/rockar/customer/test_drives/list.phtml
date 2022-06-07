@@ -1,0 +1,37 @@
+<?php
+/**
+ * @category  Design
+ * @package   Peppermint
+ * @author    Ketevani Revazishvili <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ *
+ * @var $this Rockar_YouDrive_Block_Customer_List
+ */
+?>
+
+<?php
+    $activeTestDrives = $this->getActiveTestDrivesJson();
+    $completedTestDrives = $this->getCompletedTestDrivesJson();
+    $cancelledTestDrives = $this->getCancelledTestDrivesJson();
+    $testDriveRequests = $this->getTestDriveRequestsJson();
+?>
+<?php if ($completedTestDrives != '[]' || $activeTestDrives != '[]' || $cancelledTestDrives != '[]' || $testDriveRequests != '[]'): ?>
+    <div class="my-test-drives-section row">
+        <div class="col-12">
+            <app-accordion title="<?php echo $this->__('My Test Rides'); ?>" class-name="accordion-light" type="right-down">
+                <li>
+                    <div class="accordion-content">
+                        <app-my-test-drives
+                            map-api-key='<?php echo Mage::helper('rockar_all')->getGoogleMapsApiKey(); ?>'
+                            :active-test-drives='<?php echo $activeTestDrives ?>'
+                            :test-drive-requests='<?php echo $testDriveRequests ?>'
+                            :completed-test-drives='<?php echo $completedTestDrives ?>'
+                            :cancelled-test-drives='<?php echo $cancelledTestDrives ?>'
+                            :details='<?php echo $this->getDetailsJson() ?>'
+                        ></app-my-test-drives>
+                    </div>
+                </li>
+            </app-accordion>
+        </div>
+    </div>
+<?php endif; ?>

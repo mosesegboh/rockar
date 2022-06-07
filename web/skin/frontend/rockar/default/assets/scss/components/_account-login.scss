@@ -1,0 +1,98 @@
+.customer-account-login {
+    .store-switcher {
+        margin: 0;
+    }
+
+    .account-login-header {
+        h1 {
+            margin: 0;
+            text-transform: uppercase;
+            font-size: $f-size-xxxl;
+            font-weight: $fw-bold;
+        }
+
+        .h5 {
+            font-weight: $fw-normal;
+            color: #545960;
+        }
+    }
+
+    .accordion {
+        margin: 0 0 20px 0;
+
+        .js-accordion-trigger {
+            display: block;
+            padding: 15px 20% 15px 20px;
+            background: $account-login-header-trigger-background;
+            color: $account-login-header-trigger-color;
+            text-transform: uppercase;
+            font-size: $f-size-s;
+        }
+    }
+
+    .color-link {
+        font-size: $f-size-s;
+    }
+
+    .login-wrapper {
+        padding: 0 25px;
+
+        .section-title {
+            font-size: $f-size-l;
+            font-weight: bold;
+        }
+
+        form {
+            padding: 0 2em;
+
+            .row {
+                .action-badge {
+                    &.side-badge {
+                        @include media($small-screen-down) {
+                            margin: 0 0 .5em .5em;
+                        }
+                    }
+                }
+            }
+        }
+
+        input {
+            @include media($small-screen-down) {
+                width: 100%;
+            }
+        }
+
+        button {
+            @include media($small-screen-down) {
+                max-width: 100%;
+            }
+        }
+
+        .selectbox {
+            @include media($small-screen-down) {
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+.checkout-onepage-index {
+    .customer-account-login {
+        .login-wrapper {
+            padding: 0;
+        }
+    }
+}
+
+.customer-account-login {
+    .account-login {
+        .buttons-set {
+            button {
+                @include media($small-screen-down) {
+                    width: 100%;
+                    max-width: 100%; 
+                }
+            }
+        }
+    }   
+}

@@ -1,0 +1,48 @@
+/**
+Here we add variables that are unique to Motorrad. If a variable is not here but is on the Style guide,
+we can use the variable from Style guide - it is already included in the dsp2 theme
+ */
+
+////// Motorrad Colors //////
+$c-anthracite-1: #16171a;
+$c-anthracite-2: #212326;
+$c-anthracite-3: #2b2e33;
+
+$c-motorrad-blue: #0062ff;
+$c-motorrad-grey-1: #999999;
+$c-motorrad-grey-2: $c-grey-5;
+$c-motorrad-grey-3: $c-grey-6;
+$c-motorrad-grey-4: #919191;
+
+$c-motorrad-red: #cd3430;
+$c-motorrad-orange: $c-orange-2;
+$c-motorrad-green: $c-green-2;
+
+////// Class generator //////
+/*
+Generates 2 types of classes:
+.red (color: red)
+.bg-red (background-color: red)
+ */
+$color-list: (
+        'anthracite-1': $c-anthracite-1,
+        'anthracite-2': $c-anthracite-2,
+        'anthracite-3': $c-anthracite-3,
+        'motorrad-blue': $c-motorrad-blue,
+        'motorrad-grey-1': $c-motorrad-grey-1,
+        'motorrad-grey-2': $c-motorrad-grey-2,
+        'motorrad-grey-3': $c-motorrad-grey-3,
+        'motorrad-red': $c-motorrad-red,
+        'motorrad-orange': $c-motorrad-orange,
+        'motorrad-green': $c-motorrad-green,
+);
+
+@each $value in $color-list {
+    .#{nth($value, 1)} {
+        color: nth($value, 2);
+    }
+
+    .bg-#{nth($value, 1)} {
+        background-color: nth($value, 2);
+    }
+}

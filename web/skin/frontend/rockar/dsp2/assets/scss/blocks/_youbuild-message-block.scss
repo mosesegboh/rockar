@@ -1,0 +1,86 @@
+.you-build-action-wrapper {
+    border: 1px solid $c-grey-5;
+    background-color: $white;
+
+    .message {
+        text-transform: uppercase;
+
+        p {
+            font-family: $bmw-light;
+        }
+    }
+
+    .you-build-action-container {
+        @include display(flex);
+    }
+
+    .button {
+        font-family: $bmw-bold;
+        font-weight: normal;
+        letter-spacing: 0;
+        padding: $button-narrow-height-padding $button-width-padding $button-narrow-bottom-height-padding;
+        text-transform: none;
+        font-size: $dsp2-f-size-s;
+        color: $white;
+        background: $bmw-blue;
+        vertical-align: bottom;
+        line-height: 1;
+        height: 50px;
+        width: 285px;
+
+        &:hover {
+            background: $c-blue-1;
+        }
+    }
+
+    &.mobile-tablet {
+        cursor: pointer;
+        margin-top: 18px;
+
+        @include media($large-screen-up) {
+            display: none;
+        }
+
+        .you-build-action-container {
+            padding: .75em 1em;
+        }
+
+        .you-build-logo {
+            @include sprite($sprite-you-build-dark);
+            min-width: 28px; // need this due to sprite getting collapsed by neighbouring text
+            display: block;
+            margin-right: 20px;
+        }
+
+        .message {
+            p {
+                font-size: $dsp2-f-size-s;
+                font-weight: $fw-book;
+                letter-spacing: .21em;
+            }
+        }
+    }
+
+    &.desktop-only {
+        @include media($medium-screen-down) {
+            display: none;
+        }
+
+        .you-build-action-container {
+            @include justify-content(space-between);
+            padding: 17px 26px 18px 30px;
+        }
+
+        .message {
+            @include align-self(center);
+
+            p {
+                font-size: $dsp2-f-size-l;
+                line-height: 1.4;
+                margin: 0;
+                letter-spacing: 0;
+                vertical-align: center;
+            }
+        }
+    }
+}

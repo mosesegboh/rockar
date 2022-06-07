@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Transactional
+ * @author    Donald Mailula <mailula.donald@partner.bmw.co.za>
+ * @copyright Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <sections>
+        <peppermint_transactional translate="label" module="peppermint_transactional">
+            <label>CRM Transactional</label>
+            <tab>rockar</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general>
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled>
+                            <label>Enable Transactional Module Integration</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </enabled>
+                        <apigee_base_url translate="label">
+                            <label>Apigee Base URL</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>required-entry validate-url</validate>
+                            <comment>Mandatory field! Expected format: URL</comment>
+                        </apigee_base_url>
+                        <apigee_api_key translate="label">
+                            <label>Apigee API Key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>                            
+                            <comment>Apigee API Key</comment>
+                        </apigee_api_key>
+                    </fields>
+                </general>
+            </groups>
+        </peppermint_transactional>
+    </sections>
+</config>

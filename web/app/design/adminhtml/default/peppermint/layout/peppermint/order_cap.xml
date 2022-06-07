@@ -1,0 +1,14 @@
+<!-- /**
+ * @category  Peppermint
+ * @package   Peppermint_OrderCap
+ * @author    Lika Sikharulia <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */ -->
+
+<layout>
+    <adminhtml_ordercap_index>
+        <reference name="content">
+            <block type="peppermint_ordercap/adminhtml_orderCap"/>
+        </reference>
+    </adminhtml_ordercap_index>
+</layout>

@@ -1,0 +1,144 @@
+.hero-wrapper {
+    display: block;
+    width: 100%;
+
+    .hero {
+        position: relative;
+        background-image: none;
+        background-position: right center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-bottom: 0;
+        width: 100%;
+        display: block;
+        vertical-align: middle;
+
+        > img {
+            display: block;
+            width: 100%;
+        }
+
+        .hero-logo img {
+            vertical-align: top;
+            margin-left: 20px;
+            width: 50px;
+            height: auto;
+            margin-bottom: 0;
+        }
+
+        .hero-inner {
+            padding: 0;
+            text-align: justify;
+            margin: 0;
+
+            @include media($large-screen-down) {
+                margin: 0;
+            }
+
+            @include media($large-screen-up) {
+                max-width: 480px;
+                position: absolute;
+                top: 50%;
+                margin: 1em 3.5em;
+            }
+
+            @include media($x-large-screen-up) {
+                max-width: 500px;
+            }
+
+            .hero-copy {
+                text-align: left;
+                min-width: 160px;
+                padding: 1.56em 1.625em;
+
+                > * {
+                    color: $hero-color;
+                }
+
+                &.apply-box-bkg {
+                    background: $hero-bkg-color;
+
+                    > * {
+                        color: $hero-bkg-text-color;
+                    }
+                }
+
+                h1,
+                h2,
+                h3 {
+                    text-transform: uppercase;
+                }
+
+                h1,
+                .h1 {
+                    @include renderHeading($h1-mobile-font-size, $h1-font-size, $h1-mobile-brand-font-size, $h1-brand-font-size);
+                }
+
+                h2,
+                .h2 {
+                    @include renderHeading($h2-mobile-font-size, $h2-font-size, $h2-mobile-brand-font-size, $h2-brand-font-size);
+                }
+
+                h3,
+                .h3 {
+                    @include renderHeading($h3-mobile-font-size, $h3-font-size, $h3-mobile-brand-font-size, $h3-brand-font-size);
+                }
+
+                p {
+                    margin: 0 0 0.8em;
+                    max-width: 100%;
+                    line-height: $base-line-height;
+
+                    &.h1,
+                    &.h2,
+                    &.h3,
+                    &.h4,
+                    &.h5,
+                    &.h6 {
+                        line-height: $heading-line-height;
+                    }
+
+                    &:not(.h1):not(.h2):not(.h3):not(.h4):not(.h5):not(.h6) {
+                        display: inline-block;
+                        font-size: $hero-p-font;
+                        font-family: $primary-font-family;
+                    }
+
+                    &.cms-heading-small {
+                        font-family: $secondary-font-family;
+                        text-transform: uppercase;
+                        font-size: $f-size-l;
+                        font-weight: $fw-bold;
+                        color: $cms-small-heading-color;
+                    }
+                }
+
+                &.text-justify {
+                    text-align: justify;
+                }
+
+                .button {
+                    margin-top: 1.5em;
+                    line-height: $base-line-height;
+                    text-align: center;
+                }
+            }
+        }
+
+        &.hero-left {
+            .hero-inner {
+                @include media($large-screen-up) {
+                    left: 0;
+                }
+            }
+        }
+
+        &.hero-right {
+            .hero-inner {
+                @include media($large-screen-up) {
+                    right: 0;
+                }
+            }
+        }
+    }
+}

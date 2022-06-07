@@ -1,0 +1,40 @@
+.conditions-labels {
+    @include display(flex);
+
+    font: {
+        size: $bmw-button;
+        weight: $fw-bold;
+    }
+    letter-spacing: 0px;
+    width: 120%;
+    margin-left: -10%;
+    margin-bottom: 4em;
+
+    // Different positioning based on conditions count (default is for 6 conditions)
+    &.conditions-5 {
+        width: 125%;
+        margin-left: -12%;
+    }
+
+    li {
+        @include flex-grow(1);
+        @include flex-basis(0);
+
+        text-align: center;
+
+        span {
+            color: $black;
+            max-width: 50%;
+            width: 50%;
+            display: inline-block;
+        }
+
+        &:first-of-type {
+            text-align: right;
+
+            span {
+                text-align: left;
+            }
+        }
+    }
+}

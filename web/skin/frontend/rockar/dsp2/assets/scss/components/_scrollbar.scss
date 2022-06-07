@@ -1,0 +1,43 @@
+.ps > .ps__scrollbar-y-rail > .ps__scrollbar-y {
+    position: absolute;
+    /* please don't change 'position' */
+    background-color: $c-grey-4;
+    border-radius: 6px;
+    transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out;
+    right: 2px;
+    /* there must be 'right' for ps__scrollbar-y */
+    width: 6px;
+}
+
+.ps:hover.ps--in-scrolling.ps--x > .ps__scrollbar-x-rail > .ps__scrollbar-x {
+    background-color: $c-grey-3;
+}
+
+.ps:hover.ps--in-scrolling.ps--y > .ps__scrollbar-y-rail > .ps__scrollbar-y {
+    background-color: $c-grey-3;
+}
+
+.ps:hover > .ps__scrollbar-x-rail:hover > .ps__scrollbar-x {
+    background-color: $c-grey-3;
+}
+
+.ps:hover > .ps__scrollbar-y-rail:hover > .ps__scrollbar-y {
+    background-color: $c-grey-3;
+}
+
+.vertical-track {
+    background-color: $c-grey-6;
+    border-radius: 10px;
+    height: 100%;
+    left: 10px;
+    width: 5px;
+}
+
+.vertical-handle {
+    background-color: $c-grey-12;
+    background-image: none;
+    background-position: unset;
+    border-radius: 10px;
+    height: var(--scroll-height, auto) !important; // Important is used to override default styles which also use important
+    width: 5px !important; // Important is used to override default styles which also use important
+}

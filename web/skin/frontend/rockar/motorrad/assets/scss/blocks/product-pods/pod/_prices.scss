@@ -1,0 +1,128 @@
+.product-prices {
+    @include media($medium-screen-down) {
+        border: none;
+    }
+
+    .item-details-price-block {
+        @include media($medium-screen-down) {
+            @include display(flex);
+
+            // one price showing
+            .item-details-price:first-child:nth-last-child(1) {
+                width: 100%;
+            }
+
+            // two prices showing
+            .item-details-price:first-child:nth-last-child(2),
+            .item-details-price:first-child:nth-last-child(2) ~ .item-details-price {
+                width: 50%;
+            }
+
+            // three prices showing
+            .item-details-price:first-child:nth-last-child(3),
+            .item-details-price:first-child:nth-last-child(3) ~ .item-details-price {
+                width: 33.3%;
+            }
+        }
+
+        .item-details-price {
+            padding: .5em .5em .2em 1em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-top: 1px solid $pod-borders-color;
+
+            @include media($medium-screen-down) {
+                text-align: center;
+                border: {
+                    top: none;
+                    right: 1px solid $pod-borders-color;
+                }
+            }
+
+            &.monthly-price {
+                &.offertag-wrapper {
+                    height: 70%;
+
+                    @include media($medium-screen-down) {
+                        height: 100%;
+                    }
+                }
+
+                &.offertag-wrapper-icon {
+                    height: 90%;
+
+                    @include media($large-screen-down) {
+                        height: 85%;
+                    }
+
+                    @include media($medium-screen-down) {
+                        height: 100%;
+                    }
+                }
+            }
+
+            &.rockar-price {
+                &.offertag-wrapper {
+                    height: 70%;
+
+                    @include media($medium-screen-down) {
+                        height: 100%;
+                    }
+                }
+            }
+
+            &:last-of-type {
+                @include media($medium-screen-down) {
+                    border-right: 0;
+                }
+            }
+
+            &:nth-child(2) {
+                border-left: 0;
+            }
+
+            .price-wrapper {
+                display: inline-block;
+                text-align: left;
+
+                .price,
+                .label {
+                    display: block;
+                }
+
+                .price {
+                    line-height: 100%;
+                    padding-bottom: 8px;
+                    font: {
+                        family: $motorrad;
+                        size: 32px;
+                        weight: $motorrad-fw-bold;
+                        style: italic;
+                    }
+
+                    @include media($medium-screen-down) {
+                        font-size: $f-size;
+
+                    }
+                }
+
+                .label {
+                    letter-spacing: normal;
+                    font: {
+                        family: $motorrad-light;
+                        size: $f-size-xxxxs;
+
+                    }
+                }
+            }
+        }
+
+        .item-details {
+            padding: .5em .5em .2em 1em;
+
+            @include media($large-screen-down) {
+                padding-top: .35em;
+            }
+        }
+    }
+}

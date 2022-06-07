@@ -1,0 +1,48 @@
+<?php
+/**
+ * @category design
+ * @package rockar_default
+ * @author Brandon Ho <brandon.ho@partner.bmw.co.za>
+ * @copyright Copyright (c) 2019 Rockar Ltd (http://rockar.com)
+ *
+ * @var $this Mage_Page_Block_Html
+ */
+?>
+<!DOCTYPE html>
+<html class="loading">
+<head>
+    <?php echo $this->getChildHtml('head') ?>
+</head>
+<body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?> @mousedown="closeDropDowns">
+    <?php echo $this->getChildHtml('after_body_start') ?>
+    <?php echo $this->getChildHtml('header') ?>
+
+    <div class="outer-container">
+        <div class="inner-container">
+            <?php echo $this->getChildHtml('global_notices') ?>
+            <?php echo $this->getChildHtml('breadcrumbs') ?>
+            <?php echo $this->getChildHtml('page-title') ?>
+        </div>
+
+        <div class="grid inner-container no-padding-top-bottom">
+            <div class="messages-wrapper">
+                <?php echo $this->getChildHtml('global_messages') ?>
+            </div>
+        </div>
+
+        <div class="grid inner-container layout-2-cols">
+            <div class="main col-8 col-md-12">
+                <?php echo $this->getChildHtml('content') ?>
+            </div>
+            <div class="right col-4 col-md-12">
+                <?php echo $this->getChildHtml('right') ?>
+            </div>
+        </div>
+    </div>
+
+    <?php echo $this->getChildHtml('footer') ?>
+    <?php echo $this->getChildHtml('before_body_end') ?>
+    <?php echo $this->getAbsoluteFooter() ?>
+    <?php echo $this->getChildHtml('before_body_end_scripts') ?>
+</body>
+</html>

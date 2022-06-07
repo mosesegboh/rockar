@@ -1,0 +1,27 @@
+{
+    "name": "rockar/coding-standards",
+    "description": "Default set of code standards to be applied to the Peppermint project",
+    "type": "library",
+    "config": {
+        "bin-dir": "./../bin"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rockar\\": "./rockar/src"
+        }
+    },
+    "require": {
+        "phpro/grumphp": "^0.16.2",
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "squizlabs/php_codesniffer": "^3.5",
+        "magento-ecg/coding-standard": "^3.1",
+        "jakub-onderka/php-parallel-lint": "^1.0"
+    },
+    "authors": [
+        {
+            "name": "Dumitru Mocanu",
+            "email": "dumitru.mocanu@rockar.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}

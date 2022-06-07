@@ -1,0 +1,400 @@
+.finance-quote-configurator,
+.finance-quote-checkout {
+    background: $finance-quote-background;
+
+    .finance-quote {
+        word-break: keep-all;
+        padding: 1.1em;
+        font-family: $secondary-font-family;
+        transition: all .3s;
+
+        &.no-padding-bottom {
+            padding-bottom: 0.2em;
+        }
+        &.no-padding-top {
+            padding-top: 0.2em;
+        }
+
+        .group-title,
+        .fq-label-text .variable-title {
+            font-weight: $fw-bold;
+            color: $finance-quote-bold-color;
+            text-transform: uppercase;
+        }
+
+        .finance-quote-mobile-container & {
+            font-size: $f-size-xl;
+            padding: em(29) em(29) em(29) em(34);
+
+            &.no-padding-bottom {
+                padding-bottom: 0.2em;
+            }
+
+            &.no-padding-top {
+                padding-top: 0.2em;
+            }
+        }
+
+        .fq-heading {
+            font-size: $f-size;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0;
+            line-height: 34px;
+            height: 31px;
+        }
+
+        .fq-button-wrapper {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: right;
+            float: right;
+        }
+
+        .finance-quote-header {
+            margin-bottom: 1em;
+
+            p {
+                display: inline-block;
+            }
+
+            .fq-button-wrapper {
+                @include media($small-screen-down) {
+                    width: 100%;
+
+                    .button {
+                        width: 100%;
+                        text-align: center;
+                    }
+                }
+            }
+
+            .button {
+                @include media($medium-screen-up) {
+                    padding: 0.55em;
+                }
+            }
+        }
+
+        .finance-quote-content {
+            .fq-label-text {
+                font-weight: $fw-bold;
+                text-transform: uppercase;
+
+                .variable-title {
+                    font-family: $secondary-font-family;
+                }
+            }
+
+            .fq-padding-top {
+                padding-top: 1.5em;
+            }
+
+            .fq-padding-bottom {
+                padding-bottom: 1.5em;
+            }
+
+            > .table {
+                padding: 0.75em 0;
+                margin: 0;
+                &.table-one,
+                &.table-two {
+                    td {
+                        font-weight: $fw-normal;
+                    }
+                }
+
+                td {
+                    font-size: $f-size-xs;
+                    font-weight: $fw-light;
+                    font-family: $secondary-font-family;
+                    color: $finance-quote-base-color;
+                    background: none;
+                    padding: 0;
+
+                    &:first-child {
+                        width: 65%;
+                        padding: 0 .5em .5em 0;
+                    }
+
+                    &:last-child {
+                        width: 35%;
+                        padding: 0 0 .5em .5em;
+                        text-transform: none;
+                    }
+
+                    &.separator {
+                        padding-bottom: 1.5em;
+                    }
+                }
+
+                tr {
+                    border: none;
+                }
+
+                tr.fq-label-text {
+                    td {
+                        a {
+                            white-space: nowrap;
+                            text-transform: none;
+                        }
+                    }
+                }
+
+                tr.fq-padding-bottom {
+                    td {
+                        padding-bottom: 1.5em;
+                    }
+                }
+
+                tr.fq-padding-top {
+                    td {
+                        padding-top: 1.5em;
+                    }
+                }
+
+                .deposit-data {
+                    tr:first-child {
+                        td {
+                            padding-top: 1.5em;
+                        }
+                    }
+
+                    tr:last-child {
+                        td {
+                            padding-bottom: 1.5em;
+                        }
+                    }
+                }
+
+                .customer-deposit {
+                    padding-bottom: 1.5em;
+                }
+            }
+        }
+
+        span,
+        a {
+            word-break: keep-all;
+            display: inline-block;
+        }
+
+        &.group-block {
+            table {
+                td:first-child {
+                    @include display(flex);
+                    @include flex-direction(row);
+                    width: auto;
+
+                    span {
+                        padding-left: 10px;
+                        display: inline-block;
+                        max-width: 100%;
+                    }
+                }
+            }
+
+            // Add accessories group expand icon
+            .expand {
+                @include sprite($sprite-accessories-expand);
+                width: 10px;
+                height: 10px;
+                display: inline-block;
+                margin-top: 3px;
+                @include flex(0 0 10px);
+            }
+
+            // Add accessories group collapse icon
+            .collapse {
+                @include sprite($sprite-accessories-collapse);
+                width: 10px;
+                height: 10px;
+                display: inline-block;
+                margin-top: 3px;
+                @include flex(0 0 10px);
+            }
+
+            // Add accessories remove icon
+            a.remove {
+                @include sprite($sprite-accessories-remove);
+                width: 9px;
+                height: 9px;
+                display: inline-block;
+                margin-top: 4px;
+                @include flex(0 0 9px);
+            }
+
+            table {
+                tr:hover {
+                    a.remove {
+                        @include sprite($sprite-accessories-remove-hover);
+                    }
+
+                    span {
+                        color: $finance-quote-table-color-hover;
+                    }
+                }
+            }
+
+            .group-title {
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            span.no-icon {
+                padding-left: 19px;
+            }
+
+            &.block-expand {
+                background-color: $finance-quote-bg-hover;
+
+                .group-title {
+                    color: $finance-quote-table-one-color;
+                }
+            }
+        }
+    }
+
+    .finance-payments {
+        text-align: center;
+        margin: 0.8em 0;
+
+        .payment {
+            display: inline-block;
+            padding-right: 1.5em;
+            text-align: left;
+
+            &:last-child {
+                padding-right: 0;
+            }
+        }
+
+        .payment-amount {
+            @include media($small-screen-down) {
+                font-size: $f-size-xxxxl;
+            }
+
+        }
+
+        .payment-label {
+            @include media($small-screen-down) {
+                font-size: $f-size-xxl;
+                line-height: 16px;
+            }
+        }
+    }
+
+    .finance-delivery {
+        text-align: center;
+        border: 1px solid $finance-quote-border-color;
+        border-left: 0;
+        border-right: 0;
+        margin: 5px 1.1em 1em;
+        padding: 0.3em 0;
+
+        > p {
+            line-height: 42px;
+            height: 40px;
+        }
+    }
+
+    .finance-quote-buttons {
+        margin: 0 1.1em;
+
+        .btn-checkout {
+            width: 100%;
+        }
+
+        &.checkout-button {
+            margin: 0 1.1em 1.1em 1.1em;
+            padding: 1em;
+        }
+    }
+}
+
+.catalog-product-view {
+    .grid.inner-container.layout-2-cols {
+        position: relative;
+    }
+}
+
+.finance-quote-desktop-container {
+    z-index: 3;
+    display: none;
+
+    @include media($large-screen-up) {
+        display: block;
+    }
+
+    .finance-quote-configurator {
+        height: auto;
+
+        .finance-quote-scroll {
+            overflow: hidden;
+
+            .gm-scroll-view {
+                overflow-x: hidden;
+            }
+        }
+
+        .finance-quote-actions {
+            text-align: center;
+            padding: 0 1.1em 1.1em;
+
+            button.button.button-empty {
+                text-align: center;
+                margin: 5px 0;
+                width: 100%;
+            }
+        }
+
+        .finance-quote-mobile-container & {
+            position: static;
+            top: 0;
+        }
+
+        .coupon {
+            padding: 0 1.1em 1.1em 1.1em;
+        }
+    }
+
+    .link-edit-finance {
+        letter-spacing: 0.4px;
+        padding-top: 5px;
+    }
+}
+
+.finance-quote-checkout {
+    padding-bottom: 20px;
+
+    @include media($large-screen-up) {
+        margin-left: -15px;
+    }
+    .finance-quote-content {
+        .finance-delivery {
+
+            .fq-heading {
+                height: 40px;
+            }
+        }
+    }
+}
+
+.finance-quote-mobile-container {
+    padding: 10px 0 22px 0;
+    margin-bottom: 22px;
+
+    @include media($large-screen-up) {
+        border: none;
+        padding: 0;
+        margin-bottom: 0;
+    }
+
+    .finance-quote-actions {
+        button {
+            width: 100%;
+            margin: 10px 0;
+        }
+    }
+}

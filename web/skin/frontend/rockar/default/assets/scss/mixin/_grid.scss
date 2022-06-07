@@ -1,0 +1,48 @@
+@mixin item-grid($column-count, $container-width, $class-append:"") {
+    @if $class-append != "" {
+        $class-append: -#{$class-append};
+    }
+
+    $column-gutters: ($column-count) - 1;
+    $container: $container-width - (2 * $item-grid-trim);
+    $column-width: ($container - ($column-gutters * $item-grid-column-spacing)) / $column-count;
+
+    .item-grid#{$class-append} {
+        font-size: 0;
+    }
+
+    .item-grid#{$class-append} > li {
+        font-size: medium;
+        width: percentage($column-width / $container);
+        margin-right: percentage($item-grid-column-spacing / $container);
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .item-grid#{$class-append} > li:nth-child(odd),
+    .item-grid#{$class-append} > li:nth-child(3n+1) {
+        clear: none;
+    }
+
+    .item-grid#{$class-append} > li:nth-child(even),
+    .item-grid#{$class-append} > li:nth-child(3n) {
+        margin-right: percentage($item-grid-column-spacing / $container);
+    }
+
+    .item-grid#{$class-append} > li:nth-child(#{$column-count}n+1) {
+        clear: left;
+    }
+
+    @if $column-count > 1 {
+        .item-grid#{$class-append} > li:nth-child(#{$column-count}n) {
+            margin-right: 0;
+        }
+    }
+}
+
+.ig-preloader {
+    .show-loading {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

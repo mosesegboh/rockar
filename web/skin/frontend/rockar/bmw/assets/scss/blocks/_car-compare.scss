@@ -1,0 +1,29 @@
+.catalog-product-compare-index {
+    > .outer-container {
+        padding: {
+            left: 0;
+            right: 0;
+        };
+
+        > .inner-container {
+            padding: {
+                left: 0;
+                right: 0;
+            };
+        }
+    }
+}
+
+#car-compare-wrapper {
+    .car-compare {
+        padding: 0 $car-compare-outer-container-padding;
+    }
+
+    .mobile-wrapper {
+        @import 'car-compare/mobile-action-buttons';
+
+        .compare-item-data {
+            @import 'car-compare/compare-item-data';
+        }
+    }
+}

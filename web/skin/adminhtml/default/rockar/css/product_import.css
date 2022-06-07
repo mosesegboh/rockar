@@ -1,0 +1,21 @@
+.ajax-content {
+    margin: 20px;
+}
+.ajax-content div{
+    margin: 10px 0;
+}
+h5 {
+    display: inline-block;
+}
+ul li {
+    margin: 20px 0;
+}
+#rockar-import-console {
+    margin: 0;
+    padding: 10px;
+    background: black;
+    color: #2EC029;
+    font: normal 11px Lucida Console, Courier New, serif;
+    height: 80%;
+    overflow: scroll;
+}

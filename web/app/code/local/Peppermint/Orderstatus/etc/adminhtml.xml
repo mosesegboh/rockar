@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Orderstatus
+ * @author    Jiraphong witthayathanakit <jiraphong.witthayathanakit@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <menu>
+        <sales>
+            <children>
+                <peppermint_order_status translate="title" module="peppermint_orderstatus">
+                    <title>Peppermint Order Status Mapping</title>
+                    <sort_order>100</sort_order>
+                    <action>adminhtml/status_mapping</action>
+                </peppermint_order_status>
+            </children>
+        </sales>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <sales>
+                        <children>
+                            <peppermint_order_status translate="title" module="peppermint_orderstatus">
+                                <title>Peppermint Order Status Mapping</title>
+                                <sort_order>100</sort_order>
+                            </peppermint_order_status>
+                        </children>
+                    </sales>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

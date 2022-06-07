@@ -1,0 +1,72 @@
+.finance-quote-desktop-container {
+    .offertags-container {
+        @include display(inline-flex);
+        margin: 0 0 0 .3rem;
+
+        &.display-none {
+            display: none;
+        }
+
+        .offertags {
+            @include display(flex);
+            @include align-items(flex-start);
+            @include flex-direction(column);
+
+            .offertag-icon {
+                margin: .5rem 0;
+            }
+
+            .offertag-label {
+                letter-spacing: normal;
+                margin: .2rem;
+                text-transform: uppercase;
+                font: {
+                    size: $f-size-s;
+                    weight: bold;
+                }
+            }
+        }
+
+        &.offertags-background {
+            margin: .5rem 0 .9rem .3rem;
+            padding: 1px 0 0;
+
+            .offertag-label {
+                background-color: $mini_green;
+                color: $white;
+                padding: .57rem 1rem .4rem;
+                margin: 0;
+            }
+        }
+
+        &.offertags-blank {
+            margin: .9rem 0 .75rem .3rem;
+
+            .offertag-label {
+                margin: .2rem .2rem .2rem 0;
+                padding: unset;
+                font: {
+                    size: $f-size-xl;
+                    weight: unset;
+                }
+            }
+        }
+
+        &.offertags-it {
+            .offertags {
+                @include align-items(center);
+
+                .offertag-icon {
+                    align-self: flex-start;
+                }
+
+                .offertag-label {
+                    margin: 0 0 .5rem 0;
+                    font: {
+                        weight: unset;
+                    }
+                }
+            }
+        }
+    }
+}

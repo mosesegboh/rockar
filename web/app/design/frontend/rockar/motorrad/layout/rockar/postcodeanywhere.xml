@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Rockar
+ * @package   Rockar_PostcodeAnywhere
+ * @author    Ausma Smite <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar Ltd (http://rockar.com)
+ */
+-->
+<layout>
+    <checkout_cart_index>
+        <reference name="content">
+            <block type="rockar_postcodeanywhere/scriptinclude" name="rockar_postcodeanywhere_scriptinclude" template="rockar/postcodeanywhere/scriptinclude.phtml"/>
+        </reference>
+    </checkout_cart_index>
+
+    <checkout_onepage_index>
+        <reference name="content">
+            <block type="rockar_postcodeanywhere/scriptinclude" name="rockar_postcodeanywhere_scriptinclude" template="rockar/postcodeanywhere/scriptinclude.phtml"/>
+        </reference>
+    </checkout_onepage_index>
+
+    <checkout_multishipping_register>
+        <reference name="content">
+            <block type="rockar_postcodeanywhere/scriptinclude" name="rockar_postcodeanywhere_scriptinclude" template="rockar/postcodeanywhere/scriptinclude.phtml"/>
+        </reference>
+    </checkout_multishipping_register>
+
+    <checkout_multishipping_addresses>
+        <reference name="content">
+            <block type="rockar_postcodeanywhere/scriptinclude" name="rockar_postcodeanywhere_scriptinclude" template="rockar/postcodeanywhere/scriptinclude.phtml"/>
+        </reference>
+    </checkout_multishipping_addresses>
+
+    <customer_address_form>
+        <reference name="content">
+            <block type="rockar_postcodeanywhere/scriptinclude" name="rockar_postcodeanywhere_scriptinclude" template="rockar/postcodeanywhere/scriptinclude.phtml"/>
+        </reference>
+    </customer_address_form>
+
+    <customer_account_index>
+        <reference name="content">
+            <block type="rockar_postcodeanywhere/scriptinclude" name="rockar_postcodeanywhere_scriptinclude" template="rockar/postcodeanywhere/scriptinclude.phtml"/>
+        </reference>
+    </customer_account_index>
+
+    <rockar_youdrive_index_index>
+        <reference name="content">
+            <block type="rockar_postcodeanywhere/scriptinclude" name="rockar_postcodeanywhere_scriptinclude" template="rockar/postcodeanywhere/scriptinclude.phtml"/>
+        </reference>
+    </rockar_youdrive_index_index>
+</layout>

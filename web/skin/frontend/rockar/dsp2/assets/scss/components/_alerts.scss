@@ -1,0 +1,110 @@
+.warning-msg {
+    background-color: $c-orange-2;
+    border: none;
+    color: $c-orange-1;
+    font-family: $bmw-light;
+    font-size: $dsp2-f-size;
+}
+
+.error-msg {
+    background-color: $c-red-3;
+    border: none;
+    color: $c-red-1;
+    font-family: $bmw-light;
+    font-size: $dsp2-f-size-xs;
+
+    @include media($medium-screen-up) {
+        font-size: $dsp2-f-size;
+    }
+}
+
+.success-msg {
+    background-color: $c-green-3;
+    border: none;
+    color: $c-green-1;
+    font-family: $bmw-light;
+    font-size: $dsp2-f-size;
+}
+
+.global-warning {
+    .error-msg,
+    .success-msg {
+        width: 100%;
+        position: relative;
+        padding: 1em 3em;
+
+        @include media($dsp2-medium-screen-up) {
+            padding: 1em 4em;
+            text-align: left;
+        }
+
+        .icon-info {
+            &-red,
+            &-green {
+                &::after {
+                    content: '';
+                    @include size(19px 19px);
+                    display: inline-block;
+                    background-repeat: no-repeat;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    left: 1em;
+
+                    @include media($dsp2-medium-screen-up) {
+                        left: 2em;
+                    }
+                }
+            }
+
+            &-red {
+                &::after {
+                    background-image: url('../images/svg/icon-info-red.svg');
+                }
+            }
+
+            &-green {
+                &::after {
+                    background-image: url('../images/svg/icon-info-green.svg');
+                }
+            }
+        }
+
+        .close-icon-warning {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+
+            &::after {
+                content: '';
+                @include size(13px 14px);
+                display: inline-block;
+                background-repeat: no-repeat;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            @include media($dsp2-medium-screen-up) {
+                top: 50%;
+                transform: translateY(-50%) translateX(-1.5em);
+            }
+        }
+    }
+
+    .error-msg {
+        .close-icon-warning {
+            &::after {
+                background-image: url('../images/svg/icon-close-red.svg');
+            }
+        }
+    }
+
+    .success-msg {
+        .close-icon-warning {
+            &::after {
+                background-image: url('../images/svg/icon-close-green.svg');
+            }
+        }
+    }
+}

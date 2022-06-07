@@ -1,0 +1,9 @@
+// Neat Breakpoints
+$dsp2-medium-screen: em(600);
+$dsp2-l-screen: em(1024);
+$dsp2-xl-screen: em(1760);
+
+$dsp2-medium-screen-up: new-breakpoint(min-width $dsp2-medium-screen 12);
+$dsp2-l-screen-up: new-breakpoint(min-width $dsp2-l-screen 12);
+$dsp2-xl-screen-up: new-breakpoint(min-width $dsp2-xl-screen 12);
+$dsp2-l-screen-down: new-breakpoint(max-width $dsp2-l-screen 12);

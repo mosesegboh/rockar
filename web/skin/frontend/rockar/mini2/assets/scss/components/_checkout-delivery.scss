@@ -1,0 +1,52 @@
+.checkout-delivery {
+    p {
+        font-family: $mini-sans-serif-regular;
+    }
+
+    .delivery-info {
+        p {
+            color: $black;
+            font-size: $dsp2-f-size-xs;
+            line-height: $dsp2-line-h-14;
+
+            @include media($medium-screen-up) {
+                font-size: $dsp2-f-size;
+                line-height: $dsp2-line-h-24;
+            }
+        }
+    }
+
+    .retailers-heading {
+        p {
+            color: $black;
+
+            @include media($medium-screen-down) {
+                font-size: $dsp2-f-size-xs;
+            }
+        }
+    }
+
+    .retailers-heading-mobile {
+        p {
+            color: $black;
+            font-size: $dsp2-f-size-s;
+            font-family: $mini-sans-serif-bold;
+            text-transform: none;
+
+            &.actions {
+                font-family: $mini-sans-serif-regular;
+                text-transform: none;
+            }
+        }
+    }
+
+    .delivery-actions {
+        button {
+            &.dsp2-outline {
+                &:hover {
+                    background-color: $c-mini-blue;
+                }
+            }
+        }
+    }
+}

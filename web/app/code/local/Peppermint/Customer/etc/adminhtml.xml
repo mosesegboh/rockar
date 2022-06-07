@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Customer
+ * @author    Igors Zhunins <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <menu>
+        <customer translate="title" module="customer">
+            <children>
+                <assign_customer_group translate="title" module="peppermint_customer">
+                    <title>Assign a Customer Group</title>
+                    <action>adminhtml/customersGrid/</action>
+                    <sort_order>5</sort_order>
+                </assign_customer_group>
+            </children>
+        </customer>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <customer translate="title" module="customer">
+                        <children>
+                            <assign_customer_group translate="title">
+                                <title>Assign a Customer Group</title>
+                                <sort_order>0</sort_order>
+                            </assign_customer_group>
+                        </children>
+                    </customer>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

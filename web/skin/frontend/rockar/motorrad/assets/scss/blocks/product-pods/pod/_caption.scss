@@ -1,0 +1,90 @@
+// Title & subtitle
+.caption {
+    font-family: $motorrad;
+    font-weight: $motorrad-fw-normal;
+    text-transform: none;
+    max-width: 70%;
+
+    @include media($small-screen-down) {
+        max-width: 62%;
+    }
+
+    .title {
+        @include media($small-screen-down) {
+            line-height: $f-size-xxxs;
+        }
+
+        a {
+            font-size: $f-size-xxl;
+            letter-spacing: normal;
+
+            @include media($small-screen-down) {
+                font-size: $f-size-xxxs;
+            }
+        }
+    }
+
+    .subtitle {
+        p {
+            font-size: $f-size-xxxs;
+            letter-spacing: normal;
+        }
+    }
+}
+
+// Finance overlay trigger
+.pod-finance-overlay {
+    text-transform: none;
+    font-weight: $motorrad-fw-bold;
+    letter-spacing: normal;
+    max-width: 50px;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &::before {
+        @include pseudo();
+        @include size(25px 28px);
+        background-image: url('../images/svg/finance-calculator.svg');
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    p {
+        font-size: $f-size-5xs;
+        text-align: center;
+        margin-top: 1em;
+        line-height: initial;
+    }
+}
+
+.pod-overlay-wrap {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    
+    .pod-overlay {
+        text-transform: none;
+        
+        &.save-overlay {
+            &::before {
+                @include sprite($sprite-wishlist-icon-non-selected);
+                @include media($small-screen-down) {
+                    margin-top: 8px;
+                }
+            }
+
+            @include media($small-screen-down) {
+                margin-right: 20px;
+            }
+
+            &.added-to-wishlist {
+                &::before {
+                    @include sprite($sprite-wishlist-icon-selected);
+                }
+            }
+        }
+    }
+}

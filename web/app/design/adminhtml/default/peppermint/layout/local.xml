@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint_Setup
+ * @author       Razvan Zofota <razvan.zofota@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<layout>
+    <default>
+        <reference name="head">
+            <action method="addJs"><script>peppermint/adminhtml/product.js</script></action>
+        </reference>
+    </default>
+</layout>

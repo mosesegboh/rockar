@@ -1,0 +1,102 @@
+// Title & subtitle
+.caption {
+    font-family: $primary-font-family;
+    font-weight: $fw-bold;
+    text-transform: none;
+    max-width: 70%;
+
+    @include media($small-screen-down) {
+        max-width: 62%;
+    }
+
+    .title {
+        @include media($small-screen-down) {
+            line-height: $f-size-xxxs;
+        }
+
+        a {
+            font-size: $bmw-h3;
+            letter-spacing: 0px;
+            color: $grey-4;
+            font-family: $primary-font-family;
+
+            @include media($small-screen-down) {
+                font-size: $f-size-xxxs;
+            }
+        }
+    }
+
+    .subtitle {
+        p {
+            font-size: $bmw-p;
+            letter-spacing: 0px;
+        }
+    }
+
+    @include media($medium-screen-down) {
+        width: 55%;
+    }
+}
+
+// Finance overlay trigger
+.pod-finance-overlay {
+    text-transform: none;
+    font-weight: $fw-black;
+    letter-spacing: 1px;
+    max-width: 64px;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &::before {
+        @include pseudo();
+        @include size(25px 28px);
+        background-image: url('../images/svg/finance-calculator.svg');
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 3px;
+    }
+
+    p {
+        font-size: $f-size-5xs;
+        text-align: center;
+        margin-top: 8px;
+        line-height: initial;
+        letter-spacing: 1px;
+    }
+}
+
+.pod-overlay-wrap {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    @include media($small-screen-down) {
+        margin-bottom: 20px;
+    }
+
+     .pod-overlay {
+        text-transform: none;
+        
+        &.save-overlay {
+            &::before {
+                @include sprite($sprite-wishlist-icon-non-selected);
+                @include media($small-screen-down) {
+                    margin-top: 8px;
+                }
+            }
+
+            @include media($small-screen-down) {
+                margin-right: 15px;
+            }
+
+            &.added-to-wishlist {
+                &::before {
+                    @include sprite($sprite-wishlist-icon-selected);
+                }
+            }
+        }
+    }
+}

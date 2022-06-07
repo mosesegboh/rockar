@@ -1,0 +1,183 @@
+@font-face {
+    font-family: "MINI Sans Serif";
+    src: url("fonts/mini_sans_serif-regular-webfont.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "MINI Serif";
+    src: url("fonts/mini_serif-regular-web.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "MINI Serif";
+    src: url("fonts/mini_serif-bold-web.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+.container {
+    margin-bottom: 100px;
+}
+
+.container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.navbar-default {
+    border-color: #bbb;
+    color: #fff;
+    height: 80px;
+}
+
+.navbar-header {
+    position: relative;
+    width: 100%;
+}
+
+#id-module {
+    margin-top: 0px;
+    z-index: 1000;
+    position: relative;
+    width: 150px;
+    margin-left: -7%;
+}
+
+.bg-img {
+    width: 100%;
+    position: relative;
+    height: 700px;
+    background-repeat: no-repeat;
+    background-size: cover
+}
+
+.img-01 {
+    background-image: url("../imgs/MINIMaintenance.jpg");
+}
+
+body,
+p {
+    font-family: "MINI Sans Serif";
+    text-transform: uppercase;
+    color: #000000;
+    font-size: 14px;
+    width: 100%;
+}
+
+.header-p {
+    font-family: "MINI Sans Serif";
+    color: #ffffff;
+    font-size: 12px;
+    width: 100%;
+}
+
+a {
+    font-family: "MINI Sans Serif";
+    color: #000000;
+    text-decoration: none;
+    padding-left: 15px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.btn {
+    border: 1px solid #000000;
+    padding-right: 25px;
+}
+
+.title {
+    font-family: "MINI Serif";
+    font-size: 100%;
+}
+
+.bannercopy {
+    margin-top: 140px;
+}
+
+.width {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 992px) {
+    .bg-img {
+	    height: 700px;
+	}
+}
+
+@media only screen and (max-width: 575px) {
+    .row {
+	    padding: 15px 15px;
+	    margin-top: -25px;
+	}
+    .bg-img {
+	    background-position-x: center;
+	}
+}
+
+.col-sm-12 {
+    margin-left: 1%;
+    margin-top: 45px;
+    box-sizing: border-box;
+    padding-top: 20px;
+    padding-left: 20px;
+    border-collapse: separate;
+}
+
+@media only screen and (min-width: 768px) {
+    .col-md-6 {
+	    max-width: 48%;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+    .col-lg-3 {
+	    max-width: 24%;
+	}
+}
+
+.aligntest {
+    margin-top: -10px;
+}
+
+.image {
+    width: 100%;
+    display: block;
+}
+
+h0 {
+    font-size: 4.625rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+@media only screen and (max-width: 992px) {
+    h0 {
+	    font-size: 2.625rem;
+	}
+}
+
+h5 {
+    font-family: "MINI Serif";
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.underline_white {
+    border: 3px solid #ffffff;
+    width: 20%;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+.underline {
+    border: 3px solid #000000;
+    width: 20%;
+    margin-bottom: 60px;
+}

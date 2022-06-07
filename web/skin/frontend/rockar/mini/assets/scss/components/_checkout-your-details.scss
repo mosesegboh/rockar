@@ -1,0 +1,208 @@
+.checkout-your-details {
+    .enter-manually.color-link {
+        color: $call-to-action-background-color;
+        font-weight: $fw-bold;
+        display: block;
+        @include media($medium-screen-up) {
+            margin-bottom: 10px;
+        }
+
+        &:hover {
+            color: $call-to-action-background-color;
+        }
+    }
+
+    .top-text {
+        font-weight: $fw-light;
+        line-height: 25px;
+    }
+
+    .input-box.with-tooltip input {
+        display: inline-block;
+        margin-right: 7px;
+    }
+}
+
+.your-details-section {
+    .h5 {
+        font-family: $helper-font-family;
+        font-size: $checkout-details-font-size;
+    }
+
+    a {
+        font-family: $helper-font-family;
+        font-size: $checkout-details-anchor-size;
+        color: $checkout-details-anchor-color;
+    }
+
+    #number_of_dependencies,
+    #number_of_credit_cards {
+        max-width: 120px;
+    }
+
+    .selectbox {
+        @include media($small-screen-down) {
+            max-width: 100%;
+        }
+    }
+
+    .row-elements.form-elements {
+        @include media($small-screen-down) {
+            max-width: 100%;
+        }
+    }
+
+    button {
+        @include media($small-screen-down) {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    input {
+        @include media($small-screen-down) {
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+    }
+
+    .address-label {
+        height: auto;
+        line-height: 1.75em;
+
+        &:after {
+            content: "";
+        }
+
+        @include media($small-screen-down) {
+            text-align: center;
+
+            br {
+                display: none;
+            }
+        }
+    }
+
+    .your-details-street {
+        @include media($small-screen-down) {
+            padding: 0 !important;
+        }
+    }
+
+    #your-current-address-notification {
+        position: relative;
+        padding: $checkout-details-current-address-padding;
+        margin: $checkout-details-current-address-margin;
+        background: $checkout-details-current-address-bg;
+        font-size: 0.75em;
+        width: $checkout-details-current-address-width;
+
+        @include media($small-screen-down) {
+            width: auto;
+            text-align: center;
+        }
+
+        .arrow {
+            position: absolute;
+            left: -16px;
+            @include triangle(32px, $checkout-details-current-address-bg, left);
+
+            @include media($small-screen-down) {
+                left: 50%;
+                top: -32px;
+                margin-left: -16px;
+                @include triangle(32px, $checkout-details-current-address-bg, up);
+            }
+        }
+
+        a {
+            font-size: inherit;
+            color: $checkout-details-anchor-color;
+        }
+    }
+}
+
+#your-details-form {
+    button {
+        @include media($small-screen-down) {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    .checkbox-row {
+        @include media($small-screen-down) {
+            @include display(flex);
+            @include flex-direction(row);
+            padding: 1em 0;
+        }
+
+        .col-3 {
+            @include media($small-screen-down) {
+                @include flex(1 0 calc(100% - 27px));
+                padding: 0;
+                margin: 0;
+                @include order(2);
+            }
+        }
+
+        .col-9 {
+            @include media($small-screen-down) {
+                position: relative;
+                top: -20px;
+                @include flex(1 0 27px);
+                @include order(1);
+                padding: 0;
+            }
+        }
+    }
+}
+
+.your-details-section {
+    margin-bottom: 20px;
+
+    .your-details-address {
+        input {
+            float: left;
+        }
+
+        button {
+            margin: 0 0 10px 0;
+            padding: 1.25em 1.55em;
+
+            @include media($medium-screen-up) {
+                margin: 0 0 0 10px;
+            }
+        }
+
+        a {
+            float: left;
+            width: 100%;
+        }
+
+        div.validation-advice {
+            float: left;
+            width: 100%;
+        }
+    }
+}
+
+.your-details-section, #your-details-form {
+    .section-action-buttons {
+        margin-top: 10px;
+
+        div {
+            min-height: 1px;
+        }
+
+        button {
+            max-width: 100%;
+            width: 100%;
+            margin-bottom: 10px;
+
+            @include media($medium-screen-up) {
+                width: $input-max-width
+            }
+        }
+    }
+}

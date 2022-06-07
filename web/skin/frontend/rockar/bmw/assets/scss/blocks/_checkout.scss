@@ -1,0 +1,56 @@
+#checkout {
+    .checkout-steps {
+        
+        @include media($small-screen-down) {
+            padding-top: $bmw-padding-35;
+        }
+
+        .confirmation-text {
+            p {
+                font-size: $f-size-s;
+            }
+        }
+    }
+
+    .register-block {
+        p {
+            font-size: $bmw-button;
+        }
+
+        .checkout-address-disclaimer {
+            display: contents;
+        }
+    }
+
+    .checkout-quote {
+        @import 'shared/quotation';
+
+        .apply-voucher {
+            padding: .5em;
+            margin-bottom: 20px;
+
+            .coupon-label {
+                @include display(flex);
+                @include justify-content(center);
+
+                .coupon-label-text {
+                    font-size: $bmw-voucher;
+                    letter-spacing: 0;
+                }
+            }
+
+            .tooltip-wrapper {
+                margin-left: 5px;
+                margin-top: 0;
+            }
+
+            .button-default {
+                font-size: 1em;
+
+                &:hover {
+                    color: $white;
+                }
+            }
+        }
+    }
+}

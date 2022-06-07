@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Peppermint_FutureValue>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Rockar_FutureValue />
+            </depends>
+        </Peppermint_FutureValue>
+    </modules>
+</config>

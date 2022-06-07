@@ -1,0 +1,245 @@
+.my-services {
+    .service-car-header {
+
+        .service-car-name {
+            text-transform: none;
+            padding: 1em 0.5em;
+        }
+
+        .book-a-service {
+            max-width: 90%;
+            width: auto;
+        }
+    }
+
+    .js-accordion-trigger {
+        
+        @include media($small-screen-down) {
+            padding: 0 !important;
+        }
+
+        span {
+            display: inline-block;
+            color: $my-services-plate-color;
+            background: $my-services-location-picker-background;
+            padding: 15px 30px;
+            margin: 0 0 0 20px;
+            text-align: center;
+            font-family: $secondary-font-family;
+            font-weight: $fw-bold;
+            text-transform: uppercase;
+            font-size: $f-size-xxxl;
+            @include word-wrap();
+            width: 150px;
+        }
+
+        h4 {
+            display: inline-block;
+            text-transform: none;
+            margin-left: 20px;
+            font-size: $f-size-xxxl;
+        }
+
+        .use-button {
+            display: inline-block;
+            vertical-align: middle;
+            float: right;
+            margin: 0 15px 0 0;
+
+            @include media($small-screen-down) {
+                margin: 0;
+            }
+
+            button {
+                max-width: 100%;
+                font-size: inherit;
+                margin-top: 10px;
+            }
+        }
+    }
+
+    .my-services-wrapper {
+        display: none;
+        @include media($large-screen-up) {
+            display: block;
+        }
+
+        .service-car-header {
+            padding: 0 2em;
+        }
+    }
+
+    .my-services-mobile {
+        @include media($large-screen-up) {
+            display: none;
+        }
+    }
+
+    .upcoming-services {
+        padding: 0 0 1.9em;
+        margin-bottom: 1.9em;
+        border-bottom: 1px solid $my-account-horizontal-break-color;
+
+        .upcoming-service {
+            padding: 0 2em 1em 2em;
+
+            &:first-of-type {
+                padding-top: 0;
+                border: none;
+            }
+
+            &:last-child {
+                padding-bottom: 0;
+                border-bottom: 0;
+            }
+        }
+
+        .car-detail {
+            h4 {
+                margin-bottom: 0.25em;
+            }
+        }
+    }
+
+    .cancelled-services {
+        padding: 0 0 1.9em;
+        margin-bottom: 1.9em;
+        border-bottom: 1px solid $my-account-horizontal-break-color;
+    }
+
+    .service-location {
+        margin-bottom: 1.9em;
+        padding: 0 2em 1.9em;
+        border-bottom: 1px solid $my-account-horizontal-break-color;
+
+        .location-col-left {
+            @include media($medium-screen-up) {
+                padding-right: 4em;
+            }
+        }
+    }
+
+    .service-location-picker {
+        border: 2px solid $my-services-location-picker-border-color;
+        padding: 0.75em 0.6em 0.75em 2.1em;
+        margin-top: 0;
+        background: $my-services-location-picker-background;
+
+        p {
+            color: $my-services-location-picker-color;
+            margin: 0;
+            padding-top: 0.3em;
+            font-weight: $fw-light;
+        }
+    }
+
+    .completed-services {
+        padding: 0 0 1.9em;
+        margin-bottom: 1.9em;
+        border-bottom: 1px solid $my-account-horizontal-break-color;
+
+        .completed-service {
+            padding: 0 2em 1em 2em;
+
+            &:first-of-type {
+                padding-top: 0;
+                border: none;
+            }
+        }
+    }
+
+    .cancelled-services {
+        margin-bottom: 1.9em;
+
+        .cancelled-service {
+            padding: 0 2em 1em 2em;
+
+            &:first-of-type {
+                padding-top: 0;
+                border: none;
+            }
+        }
+    }
+
+    button {
+        width: 100%;
+
+        @include media($large-screen-up) {
+            max-width: $my-services-button-width;
+            font-weight: $fw-light;
+        }
+    }
+
+    .two-buttons {
+        button {
+            width: 49%;
+        }
+    }
+
+    .block-title {
+        letter-spacing: 0.05em;
+    }
+
+    .my-services-mobile {
+
+        .hero-car {
+            margin: 0 0 1em 0;
+
+            .hero-content {
+                background: $my-services-mobile-hero-content-bg;
+
+                .hero-image {
+                    padding: 0.5em;
+
+                    img {
+                        display: block;
+                        width: 100%;
+                    }
+                }
+
+                .hero-info {
+                    padding: 1.5em;
+
+                    .hero-date {
+                        .h4 {
+                            font-size: $f-size-xl;
+                            color: $my-services-brand-accent-color;
+                            text-transform: uppercase;
+                            font-weight: $fw-bold;
+                            margin: 0;
+                        }
+
+                        .h5 {
+                            font-size: $f-size-l;
+                            color: $my-services-mobile-greyed-out-color;
+                        }
+                    }
+
+                    .hero-title {
+                        .h4 {
+                            font-size: $f-size-xl;
+                            font-weight: $fw-bold;
+                            text-transform: none;
+                            margin: 0;
+                        }
+
+                        .h5 {
+                            font-size: $f-size-l;
+                            color: $my-services-mobile-greyed-out-color
+                        }
+                    }
+                }
+            }
+
+            .hero-buttons {
+                button {
+                    display: block;
+                }
+            }
+        }
+
+        .services-title {
+            text-transform: none;
+        }
+    }
+}

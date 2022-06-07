@@ -1,0 +1,272 @@
+&-buttons-wrapper {
+    @include clearfix();
+    border-top: 1px solid $nv-bc;
+    padding: 10px 15px 10px 20px;
+
+    @include media($small-screen-down) {
+        border: 0;
+        margin: 0;
+        padding-bottom: 32px;
+    }
+
+    .navigation-outer-container {
+        justify-content: space-between;
+
+        @include media($small-screen-down) {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row-reverse;
+            justify-content: center;
+        }
+
+        @include media($small-screen-down) {
+            text-align: center;
+            display: block;
+        }
+
+
+        .button {
+            font-weight: $fw-normal;
+            width: 240px;
+            height: $primary-input-height;
+
+            @include media($small-screen-down) {
+                padding: 1em;
+                margin: 0 auto 1em;
+                text-align: center;
+                width: 200px;
+                height: 48px;
+            }
+
+            &:hover,
+            &:focus {
+                background-color: $white;
+                color: $black;
+                border: 1px solid $black;
+            }
+
+            &.disabled {
+                cursor: not-allowed;
+                background-color: #e1e1e1 !important; // Needed to overwrite in-line styling
+                border-color: #e1e1e1;
+                color: #b9b9b9;
+
+
+                @include media($small-screen-down) {
+                    border-color: $grey-3;
+                    opacity: 1;
+                }
+            }
+
+            &.next-step {
+                @include media($small-screen-down) {
+                    float: none;
+                    position: fixed;
+                    bottom: 0;
+                    right: 0;
+                    margin: 0;
+                    height: $car-finder-sub-nav-buttons-height-mobile;
+                    width: calc(100% - 55px);
+                    box-sizing: border-box;
+                    z-index: 2;
+
+                    &.full-width {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        .step-back {
+            @include media($small-screen-down) {
+                float: none;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                margin: 0;
+                height: $car-finder-sub-nav-buttons-height-mobile;
+                width: 55px;
+                background-color: $black;
+                z-index: 2;
+                border: 0;
+                border-top: 1px solid $black;
+                box-sizing: border-box;
+
+                &::before {
+                    @include pseudo();
+                    @include sprite($sprite-nav-actions-back-dark);
+                    margin: auto;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                }
+            }
+        }
+
+        .get-valuation {
+            float: right;
+            margin-top: 10px;
+
+            @include media($small-screen-down) {
+                float: none;
+                position: fixed;
+                bottom: 0;
+                right: 0;
+                margin: 0;
+                height: 54px;
+                width: calc(100% - 55px);
+                z-index: 2;
+            }
+       }
+
+       .continue-px {
+            padding-left: 2em;
+            padding-right: 2em;
+
+            @include media($small-screen-down) {
+                float: none;
+                white-space: nowrap;
+            }
+       }
+    }
+
+        .px-buttons {
+            @include media($large-screen-up) {
+                display: inline-block;
+                vertical-align: bottom;
+                position: relative;
+                left: 13%;
+            }
+
+            @include media($small-screen-down) {
+                float: none;
+                margin: 0 auto;
+                display: block;
+                margin-bottom: 1em;
+                white-space: initial;
+            }
+        }
+
+
+        .with-px {
+            margin-left: 1em;
+
+            @include media($small-screen-down) {
+                font-weight: $fw-bold;
+                width: calc(100vw - 55px);
+                margin-left: 0;
+            }
+        }
+
+        .without-px {
+            background-color: $white;
+            border: 1px solid $black;
+
+            &:hover,
+            &:focus {
+                background-color: $black;
+                color: $white;
+                border: 1px solid $black;
+            }
+        }
+
+        .skip-px {
+            @include media($medium-screen-up) {
+                float: right;
+                margin-right: 14px;
+                position: relative;
+                margin-top: 10px;
+            }
+
+            @include media($small-screen-down) {
+                width: 200px;
+            }
+        }
+
+        .long-button {
+            @include media($small-screen-down) {
+                width: 80%;
+                max-width: 320px;
+            }
+
+            @include media($small-screen-down) {
+                width: 100%;
+                margin: {
+                    left: auto;
+                    right: auto;
+                }
+                padding: 0;
+                text-align: center;
+            }
+        }
+
+        .button-empty {
+            @include media($small-screen-down) {
+                border-width: 1px;
+            }
+        }
+    }
+
+
+    .validation-advice {
+        margin: 2em 0 0;
+        text-align: center;
+        padding: 1em 0;
+        color: $error-color;
+
+        @include media($small-screen-down) {
+            display: block;
+            margin: 0 auto;
+            text-align: left;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        a {
+            color: $error-color;
+        }
+    }
+
+    .invisible {
+        visibility: hidden;
+    }
+
+    .mobile-only {
+        display: none;
+
+        @include media($small-screen-down) {
+            display: block;
+        }
+    }
+
+    .mobile-tablet-only {
+        display: none;
+
+        @include media($small-screen-down) {
+            display: block;
+        }
+    }
+
+    .desktop-tablet-only {
+        @include media($small-screen-down) {
+            display: none;
+        }
+    }
+
+
+    .desktop-only {
+        @include media($small-screen-down) {
+            display: none;
+        }
+    }
+
+.navigation-buttons-wrapper .navigation-outer-container .without-px {
+    background-color: $white;
+    border: 1px solid $black;
+}
+
+.navigation-buttons-wrapper .navigation-outer-container .without-px:hover {
+    background-color: $black;
+    border: 1px solid $black;
+}

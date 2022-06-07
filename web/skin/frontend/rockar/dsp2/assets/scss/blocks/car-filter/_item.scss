@@ -1,0 +1,616 @@
+&-visible_in {
+    display: none;
+}
+
+&-item {
+    border-bottom: 2px solid $c-grey-5;
+    margin: 0;
+    position: relative;
+    width: 100%;
+
+    &:first-of-type {
+        border-top: 2px solid $c-grey-5;
+
+        @include media($dsp2-l-screen-up) {
+            border-top: 0;
+        }
+    }
+
+    @include media($small-screen-down) {
+        width: auto;
+        margin: 1px 0 0;
+        border-bottom: 2px solid $c-grey-5;
+    }
+
+    .car-filter-title {
+        width: 100%;
+        padding: 25px 50px 25px 20px;
+        background-color: $white;
+        border: 0;
+        font-family: $bmw;
+        color: $c-grey;
+        margin-bottom: 0;
+        position: relative;
+        text-transform: uppercase;
+        font-size: $dsp2-f-size;
+        cursor: pointer;
+
+        @include media($small-screen-down) {
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+        }
+
+        &::after {
+            @include pseudo;
+            transition: transform .4s;
+            will-change: transform;
+            top: 0;
+            bottom: 0;
+            right: 20px;
+            margin: auto;
+            width: 10px;
+            height: 10px;
+            border: {
+                right: 2px solid $c-grey;
+                bottom: 2px solid $c-grey;
+            }
+            transform: rotate(45deg);
+
+            @include media($small-screen-down) {
+                transform: rotate(45deg);
+            }
+        }
+    }
+
+    .car-filter-open {
+        &:checked {
+            ~ .car-filter-blocks {
+                border-color: $c-grey-5;
+                display: block;
+                left: 0;
+                max-height: none;
+                opacity: 1;
+                padding: 5px 30px 30px 20px;
+                pointer-events: all;
+                position: relative;
+                width: 100%; // IE11 fix for broken styling
+                z-index: 1;
+
+                .scrollbox {
+                    width: 100% !important;
+                    height: auto !important; // Need !important to overwrite in line styling in enscroll plugin
+                    max-height: 275px;
+                }
+
+                .remove-scroll {
+                    overflow: inherit !important; // Need !important to overwrite in line styling in enscroll plugin
+                }
+
+                img { // IE11 fix for broken styling
+                    width: 100%;
+                    height: 100%;
+                }
+
+                &.car-filter-swatch {
+                    .scrollbox {
+                        max-height: 345px;
+                    }
+                }
+            }
+
+            ~ .car-filter-title {
+                background-color: $white;
+
+                &::after {
+                    transform: rotate(-135deg);
+
+                    @include media($small-screen-down) {
+                        transform: rotate(-135deg);
+                    }
+                }
+            }
+        }
+    }
+
+    &.car-filter-model {
+        .car-filter-open {
+            &:checked {
+                ~ .car-filter-blocks {
+                    overflow-y: scroll;
+                    max-height: 250px;
+                }
+            }
+        }
+    }
+
+    .car-filter-blocks {
+        border: 0;
+        box-shadow: none;
+        max-height: 0;
+        min-width: unset;
+        opacity: 0;
+        display: none;
+        padding: 0 10px;
+        transition: max-height .4s, padding .4s, opacity .4s;
+        will-change: max-height, padding, opacity;
+        position: static;
+
+        @include media($small-screen-down) {
+            background-color: $white;
+            border: 0;
+        }
+
+        &::after {
+            content: unset;
+        }
+
+        .scrollbox-content {
+            padding: 0;
+        }
+
+        label {
+            padding: 5px 0;
+            margin: 0;
+        }
+
+        .range-slider-wrapper {
+            .ui-slider {
+                .slider-label {
+                    padding: 0;
+                }
+            }
+        }
+
+        .maintenance-filter-wrapper {
+            label {
+                padding: 0 0 0 2.857em;
+                font-size: $dsp2-f-size-s;
+                font-weight: $fw-book;
+            }
+        }
+
+        .car-filter-content {
+            height: calc(320px - 55px);
+            margin-bottom: 10px;
+        }
+    }
+
+    .car-filter-block {
+        padding: 0;
+
+        &:not(:last-of-type) {
+            margin-bottom: 25px;
+        }
+
+        input {
+            + label {
+                display: block;
+                font-size: $dsp2-f-size;
+                color: $c-grey;
+                margin-bottom: 0;
+                padding-bottom: 0;
+                padding-left: 3em;
+                padding-top: 0;
+
+                &.car-filter-model-label {
+                    padding: 5px 0;
+                }
+
+                &.car-filter-swatch-label {
+                    margin-bottom: 0;
+                    padding-left: 0;
+                }
+            }
+
+            &:disabled {
+                + label {
+                    display: none;
+                }
+            }
+        }
+
+        input[type='radio'],
+        input[type='radio']:checked {
+            + label {
+                span {
+                    background-image: none;
+                }
+            }
+        }
+
+        .model-wrapper {
+            @include display(flex);
+
+            .model-data {
+                align-items: center;
+                border: none;
+                color: $c-grey;
+                display: flex;
+                font-size: $dsp2-f-size;
+                line-height: 1.5em;
+                margin-right: 20px;
+                padding: 0 0 15px;
+                text-align: center;
+                text-transform: none;
+                width: 100%;
+
+                span {
+                    position: inherit;
+                    float: left;
+                }
+
+                .title {
+                    display: -webkit-box;
+                    max-height: 50px;
+                    overflow: hidden;
+                    text-align: left;
+                    text-overflow: ellipsis;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                }
+
+                .count {
+                    font-weight: $fw-normal;
+                }
+            }
+
+            .model-image {
+                @include display(flex);
+                @include align-items(center);
+                display: block;
+                flex-grow: 0;
+                flex-shrink: 0;
+                height: 50px;
+                margin-right: 1.25em;
+                outline: 1px solid $c-grey-6;
+                position: relative;
+                width: 50px !important;
+
+                span {
+                    border: none;
+                    bottom: 0;
+                    float: none;
+                    height: 24px;
+                    left: 0;
+                    position: absolute;
+                    top: auto;
+                    width: 24px;
+                }
+            }
+        }
+    }
+
+    .car-filter-switcher-block {
+        display: flex;
+        align-items: center;
+        padding: 10px 0;
+
+        p {
+            font-family: $bmw-light;
+            padding-left: 15px;
+            margin: 2px 0 0;
+        }
+
+        .switch {
+            min-width: 52px;
+        }
+    }
+
+    &.finance-filter {
+        p {
+            font-size: 14px;
+            margin-bottom: 0;
+            color: $c-grey;
+            font-weight: $fw-book;
+        }
+
+        .cash-slider-hide {
+            display: none;
+        }
+
+        .finance-filter-slider-input {
+            display: inline-block;
+
+            .finance-filter-slider-input-wrapper {
+                display: inline-block;
+
+                input {
+                    display: inline-block;
+                    width: 104px;
+                    height: 50px;
+                    font-size: $dsp2-f-size-s;
+                    padding-left: 7px;
+                    padding-right: 5px;
+                    padding-top: 5px;
+                    border: 0;
+                    margin-bottom: 14px;
+                    background: transparent;
+                    opacity: 1 !important; //Overwrite !important used for disabled styling
+                    border: 1px solid #e6e6e6;
+                }
+            }
+        }
+
+        .range-slider-wrapper {
+            display: inline-block;
+            width: calc(100% - 108px);
+            margin-left: 5px;
+            margin-right: 15px;
+
+            @include media($small-screen-down) {
+                width: calc(100% - 120px);
+            }
+
+            .ui-slider {
+                height: 11px;
+                margin: 0;
+
+                .ui-slider-handle {
+                    width: 11px;
+                    height: 11px;
+                    margin: {
+                        left: -4px;
+                        top: -3px;
+                    }
+
+                    &:hover {
+                        opacity: 1;
+                        cursor: pointer;
+                        height: 19px;
+                        width: 19px;
+                        margin: {
+                            left: -9px;
+                            top: -7px;
+                        }
+                    }
+                }
+
+                .ui-slider-range {
+                    background: $bmw-blue;
+                    outline: 4px solid $white;
+                }
+            }
+        }
+    }
+
+    &.px-filter,
+    &.px-filter-add {
+        input {
+            &[type='text'] {
+                display: block;
+                padding-top: 0;
+                color: $c-grey;
+
+                @include media($small-screen-down) {
+                    width: 100%;
+                    line-height: 3em;
+                    height: 3em;
+                }
+
+                @include media($medium-screen-up) {
+                    width: 70%;
+                    line-height: 1.7em;
+                    height: 50px;
+                    margin-bottom: .555em;
+                    padding-left: 1.125em;
+                    padding-top: .17em;
+                    font-size: .8em;
+                    margin-top: 5px;
+                }
+            }
+
+            &::-ms-clear {
+                display: none;
+            }
+        }
+
+        p {
+            margin: 0;
+            color: $c-grey;
+            font-weight: $fw-book;
+            font-size: .9$bmw-bold;
+        }
+    }
+
+    &.px-filter {
+        .car-filter-blocks {
+            height: auto;
+            min-height: 420px;
+
+            .finance-header {
+                margin-bottom: 15px;
+            }
+
+            .px-car-info {
+                border: none;
+                margin-bottom: 15px;
+                padding: 0px;
+            }
+        }
+
+        select {
+            margin-bottom: .5em;
+            background: $white;
+            border-color: $c-grey;
+            color: $c-grey;
+            font-weight: $fw-book;
+
+            @include media($small-screen-down) {
+                width: 100%;
+                line-height: 3em;
+                height: 3em;
+            }
+
+            @include media($medium-screen-up) {
+                width: auto;
+                line-height: 1.875em;
+                height: 28px;
+                font-size: .8em;
+            }
+        }
+
+        button {
+            line-height: 1.5em;
+            font-size: $dsp2-f-size-s;
+            padding: 2px 1em;
+            display: inline-block;
+            vertical-align: middle;
+            float: left;
+            color: $white;
+
+            &[disabled] {
+                background: $c-grey;
+                border: 0;
+            }
+
+            &.continue-px {
+                font-size: $dsp2-f-size-s;
+                width: 90%;
+                float: left;
+                line-height: initial;
+                display: block;
+                margin-top: 10px;
+                position: initial;
+                bottom: 20px;
+
+                @include media($small-screen-down) {
+                    line-height: $dsp2-f-size-s;
+                    position: relative;
+                    width: 100%;
+                    margin-top: 34px;
+                }
+            }
+        }
+
+        .px-filter-wrapper {
+            color: $c-grey;
+
+            &.final-value {
+                margin-top: 10px;
+            }
+
+            .selectbox {
+                position: absolute;
+                width: 63%;
+
+                @include media($small-screen-down) {
+                    width: 100%;
+                    max-width: 100%;
+                    position: relative;
+                }
+
+                &.open {
+                    .selectbox-select {
+                        background: $white;
+
+                        .dropdown-caret {
+                            &::after {
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+                }
+
+                .selectbox-select {
+                    padding: 16px 0 0 18px;
+                    font-size: $dsp2-f-size-s;
+
+                    .dropdown-caret {
+                        &::after {
+                            left: 50%;
+                            margin-left: -6.5px;
+                        }
+                    }
+                }
+
+                li {
+                    &.dropdown-item {
+                        font-size: $dsp2-f-size-s;
+                        padding: 15px 18px;
+                        height: 30px !important;
+                        text-transform: none;
+                    }
+                }
+
+                .selectbox-dropdown {
+                    position: relative;
+                }
+            }
+        }
+
+        .removed-px {
+            font-family: $bmw-bold;
+            font-size: $dsp2-f-size-s;
+            padding-bottom: 1em;
+            color: $c-grey-1;
+            display: block;
+            margin-top: 75px;
+            text-align: right;
+
+            &::before {
+                @include sprite($sprite-bmw-link);
+                content: '';
+                display: inline-block;
+                transform: scale(1.2);
+                position: relative;
+                left: -5px;
+                top: 0;
+            }
+        }
+
+        .px-final-value {
+            margin-left: 6px;
+            margin-right: 4px;
+            font-size: .9em;
+            vertical-align: middle;
+            display: block;
+        }
+
+        .error-message {
+            color: $red-1;
+            margin-top: 80px;
+
+            @include media($medium-screen-up) {
+                font-size: .6em;
+            }
+
+            a {
+                color: $c-grey;
+                font-weight: $fw-semibold;
+            }
+        }
+    }
+
+    &.px-filter-add {
+        button {
+            font-size: $dsp2-f-size-s;
+            width: 100%;
+            padding: 1em;
+        }
+
+        .px-filter-wrapper {
+            margin-bottom: 1em;
+        }
+
+        .car-filter-blocks {
+            overflow-y: auto !important;
+
+            @include media($medium-screen-up) {
+                min-height: 77px;
+            }
+        }
+    }
+
+    &.car-filter-offer_tag_id {
+        .car-filter-open {
+            &:checked {
+                ~ .car-filter-blocks {
+                    .scrollbox {
+                        max-height: 138px;
+                    }
+                }
+            }
+        }
+    }
+}

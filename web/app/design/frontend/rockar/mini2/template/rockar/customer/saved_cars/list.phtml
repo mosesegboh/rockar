@@ -1,0 +1,84 @@
+<?php
+/**
+ * @category  Design
+ * @package   Peppermint
+ * @author    Andrian Kogoshvili <techteam@rockar.com>
+ * @copyright Copyright (c) 2021 Rockar Ltd (http://rockar.com)
+ *
+ * @var $this Rockar_MySavedCars_Block_SavedCars
+ */
+
+$financeHelper = Mage::helper('financing_options');
+$rockarAllHelper = Mage::helper('rockar_all');
+$carouselSettings = Mage::helper('rockar_all')->jsonEncode([
+    'slidesToShow' => 1,
+    'initialSlide' => 0,
+    'prevArrow' => '<span class="slick-prev">Previous</span>',
+    'nextArrow' => '<span class="slick-next">Next</span>',
+    'dots' => false,
+    'lazyload' => 'ondemand',
+    'infinite' => false,
+    'mobileFirst' => true,
+    'responsive' => [
+        [
+            'breakpoint' => 1024,
+            'settings' => [
+                'slidesToShow' => 2
+            ]
+        ]
+    ],
+    'speed' => 300
+]);
+?>
+<?php if ($count = $this->getWishlistItems()->count()): ?>
+    <div class="my-saved-cars-section row" id="my-saved-cars">
+        <app-accordion
+            title='<?php echo $this->__('My Wishlist (%s)', $count); ?>'
+            class-name="accordion-light"
+            type="right-down"
+            :scroll-on-show="false"
+        >
+            <li>
+                <div class="accordion-content">
+                    <div class="my-account-wrapper my-part-exchange">
+                        <div class="my-account-content my-saved-cars-wrapper">
+                            <app-universal-carousel class-name="wishlist-carousel" :settings='<?php echo $carouselSettings; ?>'>
+                                <?php foreach ($this->getWishlistItems() as $wishlistItem): ?>
+                                    <?php $product = $this->getSavedProduct($wishlistItem); ?>
+                                    <app-my-saved-cars
+                                        :car-extras='<?php echo $this->getExtrasJson($wishlistItem); ?>'
+                                        :is-full-configurator='<?php echo $this->getIsFullConfigurator($wishlistItem); ?>'
+                                        user-title="<?php echo htmlentities($wishlistItem->getDescription()); ?>"
+                                        car-title="<?php echo $product->getTitle() ?: ''; ?>"
+                                        car-description="<?php echo $product->getShortDescription(); ?>"
+                                        :car-images='<?php echo $this->getProductMedia($product); ?>'
+                                        car-cover-exterior='<?php echo $this->getExteriorImage($product); ?>'
+                                        car-cover-interior='<?php echo $this->getInteriorImage($product); ?>'
+                                        :car-extras='<?php echo $this->getExtrasJson($wishlistItem); ?>'
+                                        :view-urls='<?php echo $this->getViewUrls($wishlistItem); ?>'
+                                        :car-stock='<?php echo ($wishlistItem->getProduct()->isAvailable()) ? 1 : 0; ?>'
+                                        car-redirect-url='<?php echo $this->getChooseUrl($wishlistItem); ?>'
+                                        car-finder-url='<?php echo $this->getCarFinderUrl(); ?>'
+                                        car-remove-url='<?php echo Mage::helper('rockar_mysavedcars')->getRemoveUrl($wishlistItem); ?>'
+                                        car-added-date='<?php echo $wishlistItem->getAddedAt(); ?>'
+                                        :is-full-configurator='<?php echo $this->getIsFullConfigurator($wishlistItem); ?>'
+                                        :finance-data='<?php echo $this->getFinanceQuoteData($wishlistItem); ?>'
+                                        :price-available='<?php echo $this->checkPriceAvailable($wishlistItem) ? 'true' : 'false'; ?>'
+                                        :wishlist-item-price='<?php echo $this->getSavedWishlistItemPrice($wishlistItem); ?>'
+                                        :finance-options='<?php echo $rockarAllHelper->jsonEncode($financeHelper->getOptionsGroups()->toArray()); ?>'
+                                        :compare='<?php echo Mage::helper('rockar_compare')->getCompareData(); ?>'
+                                        :is-in-compare-list='<?php echo Mage::helper('peppermint_compare')->getIsInCompareList($product); ?>'
+                                        compare-add-url='<?php echo Mage::helper('peppermint_compare')->getCompareAddUrl($product); ?>'
+                                        compare-remove-url='<?php echo Mage::helper('peppermint_compare')->getCompareRemoveUrl($product); ?>'
+                                        base-url='<?php echo $this->getUrl(); ?>'
+                                        configurator-url='<?php echo Mage::getStoreConfig('rockar_all/configurator_link/url'); ?>'
+                                    ></app-my-saved-cars>
+                                <?php endforeach; ?>
+                            </app-universal-carousel>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </app-accordion>
+    </div>
+<?php endif; ?>

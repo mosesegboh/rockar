@@ -1,0 +1,120 @@
+.my-orders {
+    .order-images-actions {
+
+        button {
+            background-color: $white;
+            border: 1px solid $bmw-light-grey;
+            color: $bmw-dark-grey;
+
+            &:hover {
+                background-color: $white;
+                color: $bmw-dark-grey;
+            }
+        }
+    }
+
+    .my-orders-block {
+
+        @include media($large-screen-up) {
+            border-bottom: 1px solid $bmw-light-grey;
+        }
+
+        @include media($small-screen-down) {
+            border-bottom: 1px solid $bmw-light-grey;
+            padding-top: $bmw-padding-20;
+        }
+
+        .my-orders-heading {
+            text-transform: none;
+        }
+
+        .my-orders-status {
+            .my-orders-progress-bar-block {
+                .my-orders-progress-bar-list {
+                    .my-orders-progress-point {
+
+                        &::before {
+                            border: none;
+                            background-color: $bmw-blue;
+
+                            @include media($medium-screen-up) {
+                                border-bottom: none;
+                                border-top: none;
+                            }
+                        }
+
+                        .my-orders-progress-point-square {
+                            @include size(27px);
+                            background-color: $white;
+                        }
+                    }
+                }
+            }
+        }
+
+        .my-orders-bolded {
+            text-transform: none;
+        }
+    }
+
+    .my-orders-tabs-section{
+        .my-orders-tabs-list {
+            .my-orders-tab-title {
+                text-transform: none;
+            }
+        }
+
+        .my-orders-tabs-content {
+            padding: $bmw-padding-20;
+
+            .table-borderless {
+                td {
+                    background: $white;
+                    border-top: 1px solid $bmw-light-grey;
+                }
+            }
+        }
+    }
+
+    .my-orders-table {
+
+        @include media($small-screen-down) {
+            padding-top: $bmw-padding-20;
+        }
+    }
+
+    .my-orders-mobile {
+        .hero-section {
+            .hero-info {
+                .hero-padding {
+                    .hero-title {
+
+                        @include media($small-screen-down) {
+                            margin-top: $bmw-margin-45;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &-section {
+        .my-orders-mobile {
+            .my-orders-block {
+                .my-orders-status {
+                    .my-orders-progress-bar-block {
+                        .my-orders-progress-bar-list {
+                            .my-orders-progress-point {
+                                .my-orders-progress-text {
+                                    @include media($small-screen-down) {
+                                        top: -25px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

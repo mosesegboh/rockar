@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    Peppermint
+ * @package     Peppermint\Orderamend
+ * @author      Sergejs Plisko <techteam@rockar.com>
+ * @copyright   Copyright (c) 2020 Rockar, Ltd (https://rockar.com)
+ */
+-->
+<layout version="0.1.0">
+    <adminhtml_amend_index>
+        <reference name="content">
+            <block type="peppermint_orderamend/adminhtml_amend" name="amend"/>
+        </reference>
+    </adminhtml_amend_index>
+</layout>

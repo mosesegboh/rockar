@@ -1,0 +1,18 @@
+.homepage-card {
+    vertical-align: top;
+    margin: $padding-spacing 0;
+    padding: 0 $padding-spacing 0 0;
+
+    .homepage-card_title {
+        text-transform: uppercase;
+        letter-spacing: $letter-spacing;
+        margin: 1.6em 0 1em;
+    }
+
+    .homepage-card_body {
+        font-weight: $fw-light;
+        letter-spacing: 1px;
+        color: $homepage-card-body-color;
+        margin-bottom: 1em;
+    }
+}

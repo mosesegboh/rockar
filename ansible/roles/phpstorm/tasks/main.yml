@@ -1,0 +1,13 @@
+---
+  - name: Install phpstorm on Mac
+    homebrew_cask:
+      name: phpstorm
+      state: present
+      accept_external_apps: yes
+    when: ansible_os_family == 'Darwin'
+
+  - name: Install phpstorm on Windows
+    win_chocolatey:
+      name: phpstorm
+      state: present
+    when: ansible_os_family == 'Windows'

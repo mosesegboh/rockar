@@ -1,0 +1,67 @@
+.documents-upload {
+    .groups-wrapper {
+        input[type='radio'] {
+            &.radio-checkbox {
+                &:checked {
+                    & + label {
+                        span {
+                            background-color: $black;
+                            border: $black;
+
+                            &::after {
+                                border-width: 0 2px 2px 0;
+                                width: 8px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .selectbox-select {
+            @include media($medium-screen-down) {
+                font-size: $dsp2-f-size;
+            }
+        }
+    }
+
+    .documents-table {
+        td {
+            &:first-child {
+                font-family: $mini-sans-serif-regular;
+                vertical-align: middle;
+                padding-top: 0;
+
+                @include media($medium-screen-down) {
+                    padding-top: 18px;
+                }
+            }
+
+            a {
+                color: $black;
+                font-family: $mini-sans-serif-bold;
+                padding: 0 0 0 17px;
+                position: relative;
+
+                &::before {
+                    content: '';
+                    background: url('../images/svg/icon-document.svg') no-repeat center;
+                    position: absolute;
+                    height: 13px;
+                    width: 9px;
+                    left: 0;
+                }
+            }
+
+            .a-center {
+                &.mobile {
+                    color: $black;
+                }
+            }
+        }
+
+        @include media($medium-screen-down) {
+            padding-top: 18px;
+        }
+    }
+}

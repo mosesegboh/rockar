@@ -1,0 +1,51 @@
+.range-slider-wrapper {
+    .ui-slider {
+        .slider-label {
+            background: $black;
+            border-color: $black;
+            margin: {
+                top: 0;
+            }
+        }
+
+        .ui-slider-range {
+            background: $black;
+            height: 6px;
+            border-radius: 0;
+        }
+
+        .ui-slider-handle {
+            border-color: $black;
+            background-color: $black;
+            height: 21px;
+            width: 21px;
+            margin: {
+                top: -5px;
+            };
+
+            &:hover {
+                height: 23px;
+                width: 23px;
+                margin: {
+                    left: -5px;
+                    top: -6px;
+                }
+            }
+            
+            &:active {
+                height: 23px;
+                width: 23px;
+                margin: {
+                    left: -5px;
+                    top: -6px;
+                }
+            }
+        }
+
+        &:after {
+            background: $white;
+            border: 1px solid $black;
+            height: 6px;
+        }
+    }
+}

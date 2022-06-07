@@ -1,0 +1,37 @@
+<?php
+/**
+ * @category  design
+ * @package   rockar_default
+ * @author    Ketevani Revazishvili <techteam@rockar.com>
+ * @copyright Copyright (c) 2021 Rockar, Ltd (https://rockar.com)
+ *
+ * @var $this Mage_Page_Block_Html_Footer
+ */
+
+?>
+<footer>
+    <div class="footer-wrapper">
+        <div class="top">
+            <div class="top-wrapper">
+                <?php echo $this->getChildHtml('newsletter-footer'); ?>
+            </div>
+        </div>
+
+        <div class="bottom">
+            <div class="social-block-wrapper">
+                <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_social_media')->toHtml(); ?>
+            </div>
+        </div>
+
+        <div class="additional-section-wrapper">
+            <div class="additional">
+                <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_bottom_links')->toHtml(); ?>
+                <div class="footer-copyright">
+                    <h6><?php echo $this->__('&copy; MINI SA %s', date('Y')); ?></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <?php if (Mage::getIsDeveloperMode()) echo Mage::app()->getLayout()->createBlock('core/template')->setTemplate('dev/menu.phtml')->toHtml(); ?>
+</footer>

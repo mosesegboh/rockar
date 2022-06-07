@@ -1,0 +1,283 @@
+// Radio & Checkboxes
+label {
+    color: $black;
+}
+
+input[type='radio'] {
+    &.radio-checkbox {
+        &:checked {
+            + label span {
+                background-color: $black;
+                border: none;
+
+                &::after {
+                    background-color: transparent;
+                    @include size(11px);
+                    content: '';
+                    transform: none;
+                    @include sprite($sprite-bmw-check-icon-white);
+                    position: absolute;
+                    left: 28%;
+                    top: 31%;
+                }
+
+                &:hover {
+                    border: none;
+                }
+            }
+        }
+
+        + label span {
+            border: 2px solid $black;
+
+            &:hover {
+                border: 2px solid $black;
+            }
+        }
+
+        &:disabled {
+            + label span {
+                border: 2px solid $c-motorrad-grey-1;
+            }
+
+            + label {
+                color: $c-motorrad-grey-1;
+            }
+
+            &:checked {
+                + label span {
+                    background-color: $c-motorrad-grey-1;
+                    border: none;
+                }
+            }
+
+            &:hover {
+                border: 2px solid $c-motorrad-grey-1;
+            }
+        }
+    }
+}
+
+input[type='checkbox'] {
+    + label span {
+        background-color: transparent;
+        border: 2px solid $black;
+        border-radius: 12px;
+
+        &:hover {
+            border: 2px solid $black;
+        }
+    }
+
+    + label {
+        &.validation-error {
+            border: none;
+
+            span {
+                border: 2px solid $c-motorrad-red;
+            }
+        }
+    }
+
+    &:disabled {
+        + label {
+            color: $c-motorrad-grey-1;
+
+            span {
+                border: 2px solid $c-motorrad-grey-1;
+            }
+        }
+
+        + label span {
+            &:hover {
+                border: 2px solid $c-motorrad-grey-1;
+            }
+        }
+    }
+
+    &:checked {
+        + label span {
+            background-color: $black;
+            border: 2px solid $black;
+
+            &::after {
+                left: 25%;
+                top: 29%;
+            }
+
+            &:hover {
+                background-color: $black;
+            }
+        }
+
+        + label {
+            &.validation-error {
+                span {
+                    background-color: $c-motorrad-red;
+                    border: 2px solid $c-motorrad-red;
+                }
+            }
+        }
+
+        &:disabled {
+            + label span {
+                border: 2px solid $c-motorrad-grey-1;
+                background-color: $c-motorrad-grey-1;
+            }
+        }
+    }
+}
+
+input[type=email],
+input[type=search],
+input[type=number],
+input[type=password],
+input[type=tel],
+input[type=text] {
+    font-family: $motorrad-bold;
+
+    &:disabled {
+        opacity: 1 !important; // Override default2 theme
+    }
+}
+
+.category-car-finder,
+.category-bike-finder,
+.checkout-cart-index,
+.customer-account-index,
+.checkout-onepage-index,
+.styleguide-page {
+    input[type=email],
+    input[type=search],
+    input[type=number],
+    input[type=password],
+    input[type=tel],
+    input[type=text] {
+        border: 2px solid $c-motorrad-grey-2;
+        color: $black;
+        height: 50px;
+        font-family: $motorrad-regular;
+        font-size: $dsp2-f-size-sl;
+
+        &.keyboard-numbers {
+            &:hover:not(:focus) {
+                border: 2px solid $black;
+            }
+
+            &:disabled {
+                border: 2px solid $c-motorrad-grey-2;
+                background: $c-motorrad-grey-3;
+
+                &:hover {
+                    border: 2px solid $c-motorrad-grey-2;
+                }
+            }
+
+            &:read-only {
+                background: $c-motorrad-grey-3;
+
+                &:hover {
+                    border: 2px solid $c-motorrad-grey-2;
+                }
+
+                &:focus {
+                    border: 2px solid $c-motorrad-grey-2;
+                }
+            }
+        }
+
+        &:disabled {
+            border: 2px solid $c-motorrad-grey-2;
+            background: $c-motorrad-grey-3;
+            color: $c-motorrad-grey-1;
+
+            & ~ label {
+                color: $c-motorrad-grey-1;
+            }
+
+            &:hover {
+                border: 2px solid $c-motorrad-grey-2;
+                color: $c-motorrad-grey-1;
+                padding: .5em 1.2em;
+
+                & ~ label {
+                    color: $c-motorrad-grey-1;
+                }
+            }
+        }
+
+        &:hover {
+            border: 2px solid $black;
+            padding: .5em 1.2em;
+
+            & ~ label {
+                color: $c-motorrad-grey-1;
+            }
+        }
+
+        &:focus {
+            border: 2px solid $black;
+            padding: .5em 1.2em;
+
+            & ~ label {
+                color: $c-motorrad-grey-1;
+            }
+        }
+
+        &::placeholder {
+            color: $c-motorrad-grey-1;
+            font-family: $motorrad-regular;
+        }
+    }
+
+    input {
+        &.validation-advice {
+            color: $c-motorrad-red;
+        }
+    }
+
+    .input-label-wrapper {
+        input[type=email],
+        input[type=search],
+        input[type=number],
+        input[type=password],
+        input[type=tel],
+        input[type=text] {
+            height: 50px;
+            font-family: $motorrad-regular;
+        }
+
+        .input-label {
+            color: $c-motorrad-grey-1;
+            font-family: $motorrad-regular;
+            line-height: $dsp2-line-h-14;
+            text-transform: uppercase;
+        }
+
+        .validation-advice + label {
+            color: $c-motorrad-red;
+        }
+
+        .valid ~ label {
+            color: $c-motorrad-grey-1;
+        }
+    }
+}
+
+.error-email-exists {
+    p {
+        font-family: $motorrad-regular;
+    }
+}
+
+.side-label {
+    font-family: $motorrad-bold;
+}
+
+// Validation message
+label.error,
+div.validation-advice,
+div.custom-validation-advice,
+.validation-error-msg {
+    color: $c-motorrad-red;
+}

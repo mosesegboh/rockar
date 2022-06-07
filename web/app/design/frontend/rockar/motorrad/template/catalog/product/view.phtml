@@ -1,0 +1,45 @@
+<?php
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Design
+ * @author    Ketevani Revazishvili <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+?>
+
+<?php
+/** @var Rockar2_Catalog_Block_Product_View $this */
+$data = $this->getFinanceQuoteData();
+$catalogHelper = Mage::helper('rockar_catalog');
+?>
+
+<div class="messages-wrapper">
+    <div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
+</div>
+
+<app-configurator
+    product-type='<?php echo $this->getProduct()->getTypeId(); ?>'
+    :car-data='<?php echo $data['car_data'] ?>'
+    :product='<?php echo $this->getProductJson(); ?>'
+    :vehicles='<?php echo $this->getVehicleJson(); ?>'
+    :ext-carousel='<?php echo $this->getImagesAsJson(); ?>'
+    :int-carousel='<?php echo $this->getImagesAsJson(Rockar_Catalog_Helper_Images::IMAGE_TYPE_INTERIOR); ?>'
+    int-image='<?php echo $this->getFirstImage(Rockar_Catalog_Helper_Images::IMAGE_TYPE_INTERIOR) ?>'
+    ext-image='<?php echo $this->getFirstImage(); ?>'
+    :options='<?php echo $this->getConfiguratorOptions(); ?>'
+    :compare='<?php echo Mage::helper('rockar_compare')->getCompareData() ?>'
+    :technical-spec-items='<?php echo $this->getTechnicalSpecificationsJson(); ?>'
+    :standard-features='<?php echo $this->getStandardFeatures(); ?>'
+    :car-attributes='<?php echo $this->getCarAttributes(); ?>'
+    :colors='<?php echo $this->getColorJson() ?>'
+    :accessories='<?php echo $this->getAccessoriesJson() ?>'
+    add-accessories-url='<?php echo $this->getUrl('rockar_catalog/ajax/chooseVehicle') ?>'
+    part-exchange-notification='<?php echo Mage::getStoreConfig('extendedrules/future_value/pdp_notification')?>'
+    button-label='<?php echo Mage::helper('rockar_catalog')->getButtonLabel(); ?>'
+    :apr-value='<?php echo (float)$data['apr'] ?>'
+    :apr-config-enabled='<?php echo $catalogHelper->getAprConfigEnabled() ? 'true' : 'false' ?>'
+    :experience-popup-data='<?php echo Mage::helper('peppermint_experiences/experiencePopup')->getExperiencePopupData($this->getProduct()->getId()) ?>'
+    v-ref:configurator
+>
+    <?php echo $this->getBlockHtml('get_quote_cta'); ?>
+</app-configurator>

@@ -1,0 +1,132 @@
+.car-filter-step {
+    float: left;
+    width: 100%;
+
+    .filtering-sort {
+        @import './car-filter/applied-filters';
+        @import './car-filter/sort';
+
+        display: inline-block;
+        width: 100%;
+        margin: 1em 0 0;
+    }
+
+    .category-products {
+        @include media($small-screen-down) {
+            overflow-x: unset;
+        }
+    }
+}
+
+.car-filter {
+    @import './car-filter/item';
+    @import './car-filter/model';
+    @import './car-filter/wrapper';
+    @import './car-filter/promotions';
+    @import './car-filter/list';
+    @import './car-filter/buttons';
+    @import './car-filter/blocks';
+
+    &-mobile {
+        @include display(flex);
+        @include justify-content(space-between);
+        font-size: 18px;
+        height: 3em;
+        line-height: 3em;
+        padding: 0 1em;
+        background-color: $white;
+        z-index: 80;
+
+        @include media($medium-screen-up) {
+            display: none !important;
+        }
+
+        .cancel,
+        .reset-all-filters {
+            color: $motorrad-text-color;
+            display: inline-block;
+            font-size: $f-size-xxxxs;
+            letter-spacing: $base-letter-spacing;
+            font-family: $motorrad;
+            font-weight: $motorrad-fw-normal;
+            text-transform: uppercase;
+        }
+
+        .reset-all-filters {
+            position: relative;
+
+            &::before {
+                @include pseudo();
+                @include sprite($sprite-reset-icon);
+                top: 20px;
+                right: calc(100% + 8px);
+            }
+        }
+
+        .count {
+            font-size: .7em;
+            width: 100%;
+        }
+
+        .apply {
+            display: inline-block;
+            font-size: $f-size-xl;
+        }
+    }
+
+    &-desktop {
+        width: 100%;
+        margin-top: 10px;
+
+        @include media($small-screen-down) {
+            display: none;
+        }
+
+        .reset-all-filters {
+            padding-left: 24px;
+            padding-right: 2px;
+            margin-bottom: 2px;
+            height: 20px;
+            line-height: 20px;
+            white-space: nowrap;
+            float: right;
+            z-index: 1;
+            background: $car-filter-background-color;
+            color: $black;
+            font-size: $f-size-xxxxs;
+            letter-spacing: 2.5px;
+            font-family: $basic-store-font;
+            font-weight: $fw-bold;
+            text-transform: uppercase;
+            position: relative;
+            cursor: pointer;
+
+            @include media($medium-screen-only) {
+                margin-left: 58%;
+            }
+
+            &::before {
+                @include pseudo();
+                @include sprite($sprite-reset-icon);
+                top: 50%;
+                transform: translateY(-50%);
+                left: 4px;
+                cursor: pointer;
+            }
+
+            &::after {
+                clear: right;
+            }
+        }
+    }
+
+    .general-preloader {
+        z-index: 8;
+    }
+}
+
+.category-car-finder {
+    .breadcrumbs-wrapper {
+        display: none;
+    }
+}

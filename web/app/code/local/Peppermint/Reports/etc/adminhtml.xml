@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Reports
+ * @author    Igors Zhunins <techteam@rockar.com>
+ * @copyright Copyright (c) 2021 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <menu>
+        <report>
+            <children>
+                <pricing>
+                    <children>
+                        <vin_product_pricing translate="title">
+                            <title>Product VIN Pricing Report</title>
+                            <sort_order>30</sort_order>
+                            <action>adminhtml/report_vinProductPricing/</action>
+                        </vin_product_pricing>
+                    </children>
+                </pricing>
+            </children>
+        </report>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <report>
+                        <children>
+                            <pricing>
+                                <children>
+                                    <vin_product_pricing translate="title">
+                                        <title>Product VIN Pricing Report</title>
+                                    </vin_product_pricing>
+                                </children>
+                            </pricing>
+                        </children>
+                    </report>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <peppermint_reports translate="title">
+                                        <title>Reports</title>
+                                        <sort_order>0</sort_order>
+                                    </peppermint_reports>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

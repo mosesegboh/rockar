@@ -1,0 +1,455 @@
+#choose-payment {
+    font-family: $primary-font-family;
+    font-weight: 200;
+
+    iframe {
+        @include media($medium-screen-down) {
+            width: 100%;
+        }
+    }
+
+    h5 {
+        letter-spacing: initial;
+    }
+
+    .button-disabled {
+        border: 1px solid $white;
+        background-color: $bmw-blue;
+        opacity: 0.3;
+        color: $white;
+    }
+
+    .px-preloader {
+        @include position(absolute, 0 null null 0);
+        @include size(100%);
+        background: $payment-methods-preloader-color;
+        z-index: 9999;
+
+        .show-loading {
+            @include position(absolute, 50% null null 50%);
+            margin: -25px 0 0 -25px;
+        }
+    }
+
+    .payment-title {
+        font-family: $secondary-font-family;
+    }
+
+    .payment-subtitle {
+        font-size: $f-size-s;
+        color: $payment-methods-subtitle-color;
+    }
+
+    .payment-settings {
+        @include display(flex);
+        @include flex-direction(row);
+        padding-top: 20px;
+
+        @include media($small-screen-down) {
+            @include flex-direction(column);
+        }
+
+        .payment-settings-block {
+            @include flex(1 0 30%);
+            float: none;
+
+            @include media($small-screen-down) {
+                @include flex-basis(auto);
+                padding: 0;
+                margin: 10px 0;
+            }
+
+            @include media($medium-screen-up) {
+                margin: 0;
+
+                &.settings-block-middle {
+                    padding: 0 12px;
+                }
+
+                &.settings-block-left {
+                    padding-right: 12px;
+                }
+
+                &.settings-block-right {
+                    padding-left: 12px;
+                }
+            }
+
+            &.settings-block-middle {
+                @include media($small-screen-down) {
+                    padding: 0;
+                }
+            }
+
+            &.settings-block-left {
+                &.flb {
+                    @include display(flex);
+                    @include flex-direction(row);
+                    @include flex-wrap(wrap);
+
+                    .payment-settings-block-title {
+                        @include flex(1 0 20%);
+                    }
+
+                    .range-slider-wrapper {
+                        @include flex(1 0 75%);
+                        padding: 0 0 0 10px;
+                        margin-top: 29px;
+                    }
+                }
+
+                .range-slider-wrapper {
+                    .ui-slider {
+                        &.show-steps {
+                            .ui-slider-range {
+                                outline: 4px solid $grey-1;
+                            }
+                        }
+                    }
+                }
+
+                strong {
+                    margin: 8px 5px 0 0;
+                }
+
+                input[type=text],
+                input {
+                    margin: 0;
+                    width: 100%;
+                    background: $white;
+                    height: 50px;
+                    text-align: left;
+                    font-weight: 400;
+                    font-family: $primary-font-family;
+                    font-size: 1em;
+                    padding: .5em;
+                    color: inherit;
+                    line-height: 1;
+                    margin-top: -8px;
+                    min-width: 6em;
+                }
+            }
+
+            .payment-settings-block-title-input {
+                margin-top: -6px;
+
+                strong {
+                    margin: 6px 5px 0 0;
+                }
+
+                input {
+                    padding: .5em .5em .3em;
+                }
+            }
+
+            .payment-settings-block-title {
+                > div {
+                    font-size: $f-size-l;
+
+                    span {
+                        @include display(flex);
+                        float: right;
+                        font-weight: $fw-normal;
+                    }
+                }
+            }
+
+            .range-slider-wrapper {
+                .ui-slider {
+                    &::after {
+                        background-color: $grey-2;
+                    }
+                }
+            }
+        }
+    }
+
+    .vertical-tabs-container {
+        @include display(flex);
+        border: 0;
+
+        @include media($small-screen-down) {
+            @include display(flex);
+            @include flex-direction(row);
+            @include flex-wrap(wrap);
+            width: 100%;
+        }
+
+        .table {
+            td {
+                padding: 21px 10px;
+            }
+        }
+
+        .vertical-tab-content-container {
+            @include size(100% 100%);
+            position: relative;
+            margin: 0 auto;
+            z-index: 9;
+            background-color: $white;
+
+            @include media($medium-screen-up) {
+                @include size(70% 100%);
+                display: table-cell;
+                vertical-align: top;
+                overflow: hidden;
+            }
+
+            table {
+                font-family: $primary-font-family;
+                margin: 0;
+                border: 1px solid $grey-2;
+
+                @include media($small-screen-down) {
+                    display: table;
+                }
+
+                tr {
+                    @include display(flex);
+                    @include justify-content(space-between);
+                    width: 100%;
+                    border-bottom: 1px solid $grey-2;
+
+                    @include media($small-screen-down) {
+                        @include clearfix;
+                        border-top: none;
+                    }
+
+                    &:nth-child(even) {
+                        background: $white;
+                        border-bottom: 1px solid $grey-2;
+
+                        @include media($small-screen-down) {
+                            border-top: none;
+                        }
+                    }
+
+                    td {
+                        word-break: keep-all;
+                        background: transparent;
+
+                        @include media($small-screen-down) {
+                            width: 50%;
+                            float: left;
+                        }
+
+                        &:nth-child(2) {
+                            text-align: right;
+                            float: right;
+
+                            @include media($small-screen-down) {
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .payment-methods-title-block {
+        @include clearfix;
+        margin: 10px 0;
+
+        .option-header-block {
+            font-family: $secondary-font-family;
+        }
+
+        button {
+            color: $white;
+        }
+
+        .text-block {
+            width: 100%;
+            border: 0;
+            float: left;
+            margin: 0;
+
+            @include media($small-screen-down) {
+                text-align: center;
+            }
+
+            h3 {
+                font-weight: $fw-bold;
+                font-size: $f-size-xxl;
+                font-family: $secondary-font-family;
+                letter-spacing: initial;
+            }
+        }
+
+        .payment-methods-body-continue {
+            border: 0;
+            width: 100%;
+            text-align: right;
+            float: right;
+
+            @include media($small-screen-down) {
+                button {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .payment-methods {
+        position: relative;
+        width: 100%;
+        display: block;
+        float: left;
+        border-right: 0;
+        height: 100%;
+        z-index: 2;
+
+        @include media($medium-screen-up) {
+            display: table-cell;
+            float: none;
+            vertical-align: top;
+            width: 30%;
+        }
+
+        .payment-methods-tabs {
+            display: block;
+            font-weight: $fw-bold;
+            margin-right: -1px;
+            overflow: hidden;
+
+            @include media($small-screen-down) {
+                margin-right: 0;
+            }
+
+            .payment-methods-tabs-block {
+                @include transition (opacity .2s ease-in-out);
+                display: block;
+                background: $finance-overlay-tabs-bg;
+                margin-bottom: 2px;
+                border-right: 1px solid $finance-overlay-border-color;
+                border-left: $bmw-nav;
+                border-bottom: 1px solid $grey-2;
+                width: 90%;
+
+                @include media($small-screen-down) {
+                    border-right: 1px solid transparent;
+                }
+
+                @include media($medium-screen-up) {
+                    width: 100%;
+                    float: left;
+                }
+
+                .h-common {
+                    opacity: .8;
+                    color: $finance-overlay-color;
+
+                    &.h-heavy {
+                        opacity: .7;
+                        color: $finance-overlay-color;
+                    }
+                }
+
+                &.active {
+                    background: $white;
+                    border: none;
+                    border-left: $bmw-active-nav;
+                    border-right-color: $finance-overlay-tabs-active-bg;
+                    border-bottom: 1px solid $grey-2;
+
+                    @include media($small-screen-down) {
+                        border-right-color: $px-input-color;
+                    }
+
+                    .payment-methods-tabs-block-body {
+                        @include media($small-screen-down) {
+                            width: 100%;
+                        }
+
+                        .h-common {
+                            opacity: 1;
+                        }
+                    }
+                }
+
+                &:hover {
+                    border-left: $bmw-active-nav;
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+
+                    @include media($small-screen-down) {
+                        border-bottom: 0;
+                    }
+                }
+
+                .payment-methods-tabs-block-body {
+                    border-bottom: 0;
+                    padding: 5px 10px;
+                    cursor: pointer;
+                    min-height: 120px;
+                    height: auto;
+
+                    p {
+                        font-size: $f-size-s;
+                        font-weight: $fw-normal;
+                    }
+
+                    @include media ($small-screen-down) {
+                        min-height: auto;
+                    }
+                }
+            }
+        }
+    }
+
+    .payment-methods-body {
+        ul,
+        p {
+            font-size: $f-size;
+            margin: 0 0 2em;
+        }
+
+        ul li {
+            list-style: disc inside;
+        }
+
+        .payment-methods-body-continue {
+            margin-top: 30px;
+            width: 100%;
+            text-align: right;
+
+            @include media($small-screen-down) {
+                text-align: center;
+            }
+
+            button {
+                margin: 10px 20px 10px 0;
+                color: $white;
+
+                @include media($small-screen-down) {
+                    display: block;
+                    width: 100%;
+                }
+            }
+        }
+
+        .h5 {
+            font-weight: $fw-bold;
+            padding: 0 10px;
+        }
+
+        table {
+            margin-bottom: 0;
+
+            tr {
+                td {
+                    &:last-child {
+                        width: auto;
+
+                        @include media($medium-screen-up) {
+                            width: 130px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

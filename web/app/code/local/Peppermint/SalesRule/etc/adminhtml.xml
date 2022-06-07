@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_SalesRule
+ * @author    Jevgenijs Goreliks <techteam@rockar.com>
+ * @copyright Copyright (c) 2021 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <promo>
+                        <children>
+                            <quote>
+                                <children>
+                                    <actions translate="title">
+                                        <title>Actions</title>
+                                        <children>
+                                            <add_new_rule translate="title">
+                                                <title>Add new rule</title>
+                                            </add_new_rule>
+                                            <reset translate="title">
+                                                <title>Reset</title>
+                                            </reset>
+                                            <delete translate="title">
+                                                <title>Delete</title>
+                                            </delete>
+                                            <save translate="title">
+                                                <title>Save</title>
+                                            </save>
+                                            <save_and_continue translate="title">
+                                                <title>Save and Continue Edit</title>
+                                            </save_and_continue>
+                                            <approve translate="title">
+                                                <title>Approve</title>
+                                            </approve>
+                                            <coupons translate="title">
+                                                <title>Coupons</title>
+                                            </coupons>
+                                        </children>
+                                    </actions>
+                                </children>
+                            </quote>
+                        </children>
+                    </promo>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

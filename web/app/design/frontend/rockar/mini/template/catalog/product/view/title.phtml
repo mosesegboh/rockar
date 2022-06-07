@@ -1,0 +1,20 @@
+<?php
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Design
+ * @author    Sykander Gul <sykander.gul@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar Ltd (http://rockar.com)
+ */
+/** @var Peppermint_Catalog_Block_Product_View $this */
+?>
+
+<app-product-top-container
+    :product='<?php echo $this->getProductJson(); ?>'
+    :vehicles='<?php echo $this->getVehicleJson(); ?>'
+    :options='<?php echo $this->getConfiguratorOptions(); ?>'
+    :car-attributes='<?php echo $this->getCarAttributes(); ?>'
+    :offer-tag-data='<?php echo Mage::helper('peppermint_catalog')->getOfferTagData($this->getProduct()); ?>'
+    v-ref:product-top-container
+>
+   <?php echo $this->getBlockHtml('get_quote_cta'); ?>
+</app-product-top-container>

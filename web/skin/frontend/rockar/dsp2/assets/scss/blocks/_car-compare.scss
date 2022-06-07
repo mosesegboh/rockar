@@ -1,0 +1,245 @@
+.catalog-product-compare-index {
+    > .outer-container {
+        padding: {
+            left: 0;
+            right: 0;
+        };
+
+        > .inner-container {
+            padding: {
+                left: 0;
+                right: 0;
+            };
+        }
+    }
+}
+
+.popup {
+    &.car-compare-modal {
+        .popup-overlay {
+            background: rgba(38, 38, 38, .8);
+        }
+
+        .popup-content {
+            min-height: 270px;
+            max-width: 1056px;
+
+            .compare-add {
+                .compare-content {
+                    .h1 {
+                        margin: 0;
+                        line-height: 40px;
+                        color: $c-grey;
+                        font-size: $f-size-6xl;
+                        font-family: $bmw;
+                        padding: 0;
+
+                        @include media($small-screen-down) {
+                            font-size: $f-size-xxxl;
+                            line-height: 28px;
+                        }
+                    }
+
+                    p {
+                        font-size: $f-size-xl;
+                        line-height: 24px;
+                        padding-top: 10px;
+                        color: $c-grey;
+
+                        @include media($small-screen-down) {
+                            font-size: $f-size-xs;
+                            line-height: 16px;
+                            padding-top: 20px;
+                        }
+                    }
+
+                    .dsp2-money {
+                        max-width: 480px;
+                        width: 50%;
+                        height: 50px;
+                        position: absolute;
+                        bottom: 50px;
+                        right: 30px;
+
+                        @include media($small-screen-down) {
+                            width: 100%;
+                            position: relative;
+                            bottom: -35px;
+                            left: 0;
+                            right: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.car-compare-clear {
+        .popup-content {
+            max-width: 1056px;
+            padding: 30px 32px 40px;
+
+            @include media($small-screen-down) {
+                padding: 30px 20px 40px;
+            }
+        }
+
+        .modal-header {
+            font-family: $bmw;
+            letter-spacing: normal;
+
+            .desktop {
+                @include media($small-screen-down) {
+                    display: none;
+                }
+            }
+
+            .mobile {
+                @include media($medium-screen-up) {
+                    display: none;
+                }
+            }
+        }
+
+        .cta {
+            display: flex;
+            justify-content: flex-end;
+            flex-direction: column;
+            font-family: $bmw;
+
+            @include media($medium-screen-up) {
+                flex-direction: row;
+                margin-top: 52px;
+            }
+
+            button {
+                margin: 0;
+
+                @include media($medium-screen-up) {
+                    max-width: 480px;
+                }
+
+                &.dsp2-outline {
+                    margin-bottom: 15px;
+
+                    @include media($medium-screen-up) {
+                        margin-right: 32px;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#car-compare-wrapper {
+    .car-compare {
+        padding: 0 $car-compare-outer-container-padding;
+    }
+
+    .mobile-wrapper {
+        @import 'car-compare/mobile-action-buttons';
+
+        .compare-item-data {
+            @import 'car-compare/compare-item-data';
+        }
+    }
+}
+
+.catalog-category-view {
+    &.modal-open {
+        .filters-header-mobile,
+        .main-nav {
+            filter: brightness(.4);
+            pointer-events: none;
+        }
+
+        .car-finder-filters {
+            .applied-filters {
+                filter: brightness(.4);
+                pointer-events: none;
+            }
+        }
+    }
+
+    .product-pod {
+        .car-compare {
+            .popup {
+                .popup-overlay {
+                    opacity: .37;
+                    background: rgba(0, 0, 0, .37);
+
+                    @include media($medium-screen-up) {
+                        opacity: .23;
+                        background: rgba(0, 0, 0, .23);
+                    }
+                }
+
+                .popup-content {
+                    @include media($medium-screen-up) {
+                        max-width: 1056px;
+                    }
+
+                    .content-wrapper {
+                        .compare-content {
+                            p {
+                                font-size: $dsp2-f-size-xs;
+                                line-height: $dsp2-line-h-16;
+
+                                @include media($medium-screen-up) {
+                                    font-size: $dsp2-f-size;
+                                    line-height: $dsp2-f-size-xl;
+                                }
+
+                                &.h1 {
+                                    font-size: $dsp2-f-size-l;
+                                    line-height: $dsp2-line-h-28;
+                                    font-family: $bmw;
+
+                                    @include media($medium-screen-up) {
+                                        font-size: $dsp2-f-size-xxl;
+                                        line-height: $dsp2-line-h-40;
+                                        margin-bottom: 10px;
+                                    }
+                                }
+                            }
+
+                            button {
+                                margin-top: 30px;
+
+                                @include media($medium-screen-up) {
+                                    max-width: 480px;
+                                    width: 50%;
+                                    float: right;
+                                    margin-top: 55px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.catalog-category-view,
+.catalog-product-view {
+    &.modal-open {
+        #car-compare-component {
+            #car-compare-wrapper {
+                pointer-events: none;
+
+                .simple-popup {
+                    .popup-content {
+                        pointer-events: all;
+                    }
+                }
+            }
+
+            .toggle {
+                pointer-events: none;
+                filter: brightness(.4);
+            }
+        }
+    }
+}

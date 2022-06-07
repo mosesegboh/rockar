@@ -1,0 +1,128 @@
+.selectbox {
+    .selectbox-dropdown {
+        border: solid 2px $c-grey-5;
+    }
+}
+
+.category-car-finder,
+.checkout-cart-index,
+.customer-account-index,
+.checkout-onepage-index,
+.styleguide-page {
+    .selectbox-wrapper {
+        .selectbox-label {
+            color: $c-grey-14;
+            font-family: $mini-sans-serif-regular;
+            font-size: $dsp2-f-size-s;
+        }
+    }
+
+    .selectbox {
+        &.open {
+            .selectbox-select {
+                .dropdown-caret {
+                    &::after {
+                        border-right: 1px solid $black;
+                        border-top: 1px solid $black;
+                    }
+                }
+            }
+        }
+
+        &.disabled {
+            pointer-events: none;
+
+            .selectbox-select {
+                &:hover {
+                    border: solid 2px $c-grey-13;
+                }
+
+                &:focus {
+                    padding: 18px 59px 14px 19px;
+
+                    .dropdown-caret {
+                        width: 40px;
+                    }
+                }
+            }
+        }
+
+        .selectbox-select {
+            color: $black;
+            font-size: $dsp2-f-size-sl;
+            font-family: $mini-sans-serif-regular;
+            padding: 18px 59px 14px 19px;
+            border: 2px solid $c-mini-grey-1;
+
+            &.selectbox-title {
+                color: $c-grey-13;
+                font-family: $mini-sans-serif-regular;
+                border: solid 2px $c-mini-grey-1;
+                font-size: $dsp2-f-size-sl;
+            }
+
+            &:hover {
+                padding: 19px 59px 14px 19px;
+                border: solid 2px $c-grey-13;
+
+                .dropdown-caret {
+                    width: 40px;
+                }
+            }
+
+            &:active {
+                padding: 18px 59px 14px 19px;
+
+                .dropdown-caret {
+                    width: 40px;
+                }
+            }
+
+            &:focus {
+                padding: 19px 59px 14px 19px;
+
+                .dropdown-caret {
+                    width: 40px;
+                }
+            }
+
+            .dropdown-caret {
+                &::after {
+                    border-right: 1px solid $black;
+                    border-top: 1px solid $black;
+
+                    &:hover {
+                        border-right: 1px solid $black;
+                        border-top: 1px solid $black;
+                    }
+
+                    &:focus {
+                        border-right: 1px solid $black;
+                        border-top: 1px solid $black;
+                    }
+                }
+            }
+        }
+
+        .selectbox-dropdown {
+            font-family: $mini-sans-serif-regular;
+            font-size: $dsp2-f-size-sl;
+
+            li {
+                line-height: $dsp2-line-h-30 !important; // Overrides js applied element style
+            }
+
+            .dropdown-item {
+                &.selected {
+                    &:after {
+                        background-image: url('../images/svg/icon-checkmark.svg');
+                    }
+                }
+
+                &:hover {
+                    background: $c-mini-grey-1;
+                }
+            }
+        }
+    }
+}

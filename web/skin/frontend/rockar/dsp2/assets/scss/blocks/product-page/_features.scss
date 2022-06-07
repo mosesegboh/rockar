@@ -1,0 +1,75 @@
+.my-build {
+    .specification-title {
+        padding-left: 1em;
+        color: $c-grey;
+        text-transform: uppercase;
+        letter-spacing: 1.1px;
+        font: {
+            family: $bmw-bold;
+            size: $dsp2-f-size-l;
+        };
+    }
+
+    .accordion {
+        .js-accordion-trigger {
+            color: $c-grey;
+            font-family: $bmw-bold;
+        }
+
+        .submenu {
+            margin: 0;
+
+            .accordion-list {
+                padding: 0;
+                border: {
+                    left: none;
+                    right: none;
+                };
+
+                .features-item {
+                    padding: 1em 3em 1em 1.5rem;
+                    font-size: $dsp2-f-size;
+                    color: $c-grey;
+                    font-weight: $fw-book;
+                    letter-spacing: 1.1px;
+
+                    &:not(:last-of-type) {
+                        border-bottom: 1px solid $configurator-features-border-color;
+                    }
+                }
+            }
+        }
+
+        &:last-of-type {
+            .submenu {
+                border-bottom: 1px solid $configurator-features-border-color;
+            }
+        }
+    }
+
+    &.technical-features {
+        .submenu {
+            .accordion-list {
+                .features-item {
+                    @include display(flex);
+
+                    .label {
+                        @include flex(2);
+                    }
+
+                    .value {
+                        min-width: 6em;
+                    }
+
+                    &.section-subtitle {
+                        text-transform: uppercase;
+                        font: {
+                            size: $dsp2-f-size-s;
+                            weight: $fw-black;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

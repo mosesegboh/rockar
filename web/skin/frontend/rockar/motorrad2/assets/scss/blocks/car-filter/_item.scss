@@ -1,0 +1,53 @@
+&-item {
+    .car-filter-block {
+        .model-wrapper {
+            .model-image {
+                span {
+                    left: unset;
+                    right: 5px;
+                    bottom: 2px;
+                    width: 18px;
+                    height: 18px;
+
+                    &:after {
+                        transform: scale(.8);
+                    }
+                }
+            }
+        }
+
+        input {
+            + label {
+                padding-left: 40px;
+                color: $black;
+            }
+        }
+
+        input[type='checkbox'] {
+            &:checked {
+                + label {
+                    &.car-filter-swatch-label {
+                        span {
+                            background-color: $c-motorrad-blue;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .car-filter-title {
+        font-size: $dsp2-f-size-l;
+        font-family: $motorrad-bold;
+
+        &:after {
+            right: 27px;
+        }
+    }
+
+    .car-filter-switcher-block {
+        p {
+            font-family: $motorrad-regular;
+        }
+    }
+}

@@ -1,0 +1,45 @@
+.you-drive-confirmation {
+    .drive-confirmation-header {
+        margin-bottom: 1.5em;
+
+        .drive-confirmation-heading {
+            color: $brand-heading-color;
+        }
+    }
+
+    .car-model {
+        .car-details-wrapper {
+            margin-top: 2em;
+        }
+    }
+
+    .add-car {
+        margin-bottom: 2em;
+
+        button {
+            width: 100%;
+        }
+    }
+
+    .drive-confirmed {
+        p {
+            font-size: $f-size;
+            font-weight: $fw-medium;
+            margin: 0;
+            color: $you-drive-drive-confirmed-color;
+
+            &.confirmed-text {
+                font-weight: $fw-bold;
+                color: $you-drive-confirmation-confirmed-text-color;
+            }
+        }
+
+        a {
+            @include media($small-screen-down) {
+                width: 100%;
+                max-width: 100%;
+                text-align: center;
+            }
+        }
+    }
+}

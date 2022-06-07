@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Rockar
+ * @package   Rockar_FinancingOptions
+ * @author    Igors Zhunins <techteam@rockar.com>
+ * @copyright Copyright (c) 2021 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<layout version="0.1.0">
+    <catalog_product_view>
+        <reference name="right">
+            <block type="financing_options/financeQuote" name="finance_overlay" template="rockar/catalog/product/view/finance_quote.phtml"/>
+        </reference>
+    </catalog_product_view>
+
+    <checkout_onepage_index>
+        <reference name="checkout.onepage">
+            <block type="financing_options/checkout_financeQuote" name="checkout.finance.quote" as="checkout_finance_quote" template="rockar/checkout/finance_quote.phtml"/>
+
+            <block type="financing_options/checkout_steps_finance" name="checkout.step.finance"
+                   as="checkout_step_finance" template="rockar/checkout/step/finance.phtml" before="checkout_step_details">
+                <block type="cms/block" name="checkout_finance_confirmation">
+                    <action method="setBlockId">
+                        <block_id>checkout_finance_confirmation</block_id>
+                    </action>
+                </block>
+                <block type="cms/block" name="checkout_finance_confirmation_full">
+                    <action method="setBlockId">
+                        <block_id>checkout_finance_confirmation_full</block_id>
+                    </action>
+                </block>
+                <block type="cms/block" name="checkout_finance_step_disagree">
+                    <action method="setBlockId">
+                        <block_id>checkout_finance_step_disagree</block_id>
+                    </action>
+                </block>
+            </block>
+        </reference>
+    </checkout_onepage_index>
+
+    <sales_email_order_finance>
+        <block type="financing_options/order_email_finance" name="finance" template="email/order/finance.phtml" />
+    </sales_email_order_finance>
+
+    <checkout_onepage_success translate="label">
+        <reference name="checkout.success">
+            <block type="cms/block" name="checkout_success_pch_not_in_store">
+                <action method="setBlockId">
+                    <block_id>checkout_success_pch_not_in_store</block_id>>
+                </action>
+            </block>
+            <block type="cms/block" name="checkout_success_pch_in_store">
+                <action method="setBlockId">
+                    <block_id>checkout_success_pch_in_store</block_id>>
+                </action>
+            </block>
+            <block type="cms/block" name="checkout_success_bch_not_in_store">
+                <action method="setBlockId">
+                    <block_id>checkout_success_bch_not_in_store</block_id>>
+                </action>
+            </block>
+            <block type="cms/block" name="checkout_success_bch_in_store">
+                <action method="setBlockId">
+                    <block_id>checkout_success_bch_in_store</block_id>>
+                </action>
+            </block>
+        </reference>
+    </checkout_onepage_success>
+</layout>

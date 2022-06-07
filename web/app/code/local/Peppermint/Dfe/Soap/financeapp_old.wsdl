@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:types>
+        <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+            <s:element name="SubmitApplication">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="InputApp" type="tns:FinanceApplication" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="FinanceApplication">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="RequestId" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="ApplicationId" nillable="true" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="ApplicationDate" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="OutletID" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="DealerID" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="UserID" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="FnIemailAddress" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="ServiceProvider" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="SettleExistingInstallment" type="s:boolean" />
+                    <s:element minOccurs="0" maxOccurs="1" name="SettlementBankName" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="SettlementAccountNumber" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="SettlementAmount" nillable="true" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="MonthlyInstallment" nillable="true" type="s:decimal" />
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="IndividualCustomerList" nillable="true" type="tns:IndividualCustomerDetails" />
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="CorporateCustomerList" nillable="true" type="tns:CorporateCustomer" />
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="QuoteList" nillable="true" type="tns:QuoteDetails" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="IndividualCustomerDetails">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="Applicant" type="tns:Applicant" />
+                    <s:element minOccurs="0" maxOccurs="1" name="ResidentialAddress" type="tns:Address" />
+                    <s:element minOccurs="0" maxOccurs="1" name="NextOfKinAddress" type="tns:Address" />
+                    <s:element minOccurs="0" maxOccurs="1" name="EmployerAddress" type="tns:Address" />
+                    <s:element minOccurs="1" maxOccurs="1" name="PostalAddress" nillable="true" type="tns:Address" />
+                    <s:element minOccurs="1" maxOccurs="1" name="PreviousAddress" nillable="true" type="tns:Address" />
+                    <s:element minOccurs="0" maxOccurs="1" name="BasicDetails" type="tns:BasicDetails" />
+                    <s:element minOccurs="0" maxOccurs="1" name="EmploymentDetails" type="tns:EmploymentDetails" />
+                    <s:element minOccurs="0" maxOccurs="1" name="IncomeDetails" type="tns:IncomeDetails" />
+                    <s:element minOccurs="0" maxOccurs="1" name="ResidentialInformationDetails" type="tns:ResidentialInformationDetails" />
+                    <s:element minOccurs="0" maxOccurs="1" name="BankDetails" type="tns:BankDetails" />
+                    <s:element minOccurs="0" maxOccurs="1" name="ContactDetails" type="tns:ContactDetails" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="Applicant">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="ApplicantReferenceId" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="ApplicantType" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="MarketOptionsCommunication" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="MarketOptionsConsent" type="s:string" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="Address">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="AddressLine1" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="AddressLine2" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="AddressLine3" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="Suburb" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="TimeAtAddressInYears" nillable="true" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="TimeAtAddressInMonths" nillable="true" type="s:int" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="BasicDetails">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="UniqueID" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="UniqueIDType" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="DateOfBirth" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="Gender" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="MaritalStatus" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="MarriageType" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="CountryOfResidence" nillable="true" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="PreferredLanguage" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="Race" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="MO_EXCLUSIVE_DEALS_BMW" nillable="true" type="s:boolean" />
+                    <s:element minOccurs="1" maxOccurs="1" name="MO_SHARE_DETAILS_BMW" nillable="true" type="s:boolean" />
+                    <s:element minOccurs="1" maxOccurs="1" name="MO_TELEMARKETING_BMW" nillable="true" type="s:boolean" />
+                    <s:element minOccurs="0" maxOccurs="1" name="HomeTel" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="Cellphone" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="OfficeNumber" nillable="true" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="KinName" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="KinTel" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="RelationWithKin" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="SpouseFirstName" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="SpouseLastName" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="SpouseIDNo" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="SpouseIDType" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="SpouseCellNumber" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="SpouseEmail" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="LiableAsSurety" type="s:boolean" />
+                    <s:element minOccurs="1" maxOccurs="1" name="LiableAsGaurantor" type="s:boolean" />
+                    <s:element minOccurs="1" maxOccurs="1" name="LiableAsCoDebtor" type="s:boolean" />
+                    <s:element minOccurs="0" maxOccurs="1" name="LiableAsComments" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="SpouseConsent" type="s:boolean" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="EmploymentDetails">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="EmploymentStatusCode" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="PresentEmployerName" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="IndustryTypeCode" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="TimeAtPresentEmployerInYears" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="TimeAtPresentEmployerInMonths" type="s:int" />
+                    <s:element minOccurs="0" maxOccurs="1" name="Occupation" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="PresentEmployerPhoneNumber" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="PreviousEmployerName" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="TimeAtPreviousEmployerInYears" nillable="true" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="TimeAtPreviousEmployerInMonths" nillable="true" type="s:int" />
+                    <s:element minOccurs="0" maxOccurs="1" name="SpouseEmployerName" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="SpouseEmploymentStatusCode" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="SpouseEmploymentDurationInYears" nillable="true" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="SpouseEmploymentDurationInMonths" nillable="true" type="s:int" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="IncomeDetails">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="MonthlyGrossSalary" type="s:float" />
+                    <s:element minOccurs="1" maxOccurs="1" name="CarAllowance" type="s:float" />
+                    <s:element minOccurs="1" maxOccurs="1" name="TakeHomeSalary" type="s:float" />
+                    <s:element minOccurs="1" maxOccurs="1" name="AdditionalIncome" type="s:float" />
+                    <s:element minOccurs="0" maxOccurs="1" name="SouceOfAdditionalIncome" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="SpouseGrossSalary" type="s:float" />
+                    <s:element minOccurs="1" maxOccurs="1" name="BondRentPayment" type="s:float" />
+                    <s:element minOccurs="1" maxOccurs="1" name="VehicleInstallments" type="s:float" />
+                    <s:element minOccurs="1" maxOccurs="1" name="CreditCardRepayments" type="s:float" />
+                    <s:element minOccurs="1" maxOccurs="1" name="ClothingAccounts" type="s:float" />
+                    <s:element minOccurs="1" maxOccurs="1" name="PolicyRepayments" type="s:float" />
+                    <s:element minOccurs="1" maxOccurs="1" name="TransportCost" type="s:float" />
+                    <s:element minOccurs="1" maxOccurs="1" name="EducationCost" type="s:float" />
+                    <s:element minOccurs="1" maxOccurs="1" name="HouseholdExpenses" type="s:float" />
+                    <s:element minOccurs="1" maxOccurs="1" name="WaterElectricityExpenses" type="s:float" />
+                    <s:element minOccurs="1" maxOccurs="1" name="PersonalLoanRepayment" type="s:float" />
+                    <s:element minOccurs="1" maxOccurs="1" name="FurnitureAccounts" type="s:float" />
+                    <s:element minOccurs="1" maxOccurs="1" name="OverDraftRepayments" type="s:float" />
+                    <s:element minOccurs="1" maxOccurs="1" name="TelephonePayments" type="s:float" />
+                    <s:element minOccurs="1" maxOccurs="1" name="FoodAndEntertainment" type="s:float" />
+                    <s:element minOccurs="1" maxOccurs="1" name="MaintenancExpenses" type="s:float" />
+                    <s:element minOccurs="1" maxOccurs="1" name="OtherExpenses" type="s:float" />
+                    <s:element minOccurs="1" maxOccurs="1" name="RentAmount" type="s:float" />
+                    <s:element minOccurs="1" maxOccurs="1" name="MedicalAid" type="s:float" />
+                    <s:element minOccurs="1" maxOccurs="1" name="Commission" type="s:float" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="ResidentialInformationDetails">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="TypeOfHouse" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="ResidentialStatusCode" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="ResidentialOwner" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="HomeStatusCode" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="BalanceOwing" nillable="true" type="s:float" />
+                    <s:element minOccurs="0" maxOccurs="1" name="AccessFacilityFlag" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="FaciltyValue" nillable="true" type="s:float" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="BankDetails">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="AccountHolderName" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="AccountTypeCode" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="BankName" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="BranchName" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="BranchCode" type="s:string" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="ContactDetails">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="PrefMethodContactEmail" nillable="true" type="s:boolean" />
+                    <s:element minOccurs="1" maxOccurs="1" name="PrefMethodContactSMS" nillable="true" type="s:boolean" />
+                    <s:element minOccurs="1" maxOccurs="1" name="PrefMethodContactNormal" nillable="true" type="s:boolean" />
+                    <s:element minOccurs="0" maxOccurs="1" name="ContractDoc" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="StatementFreq" type="s:string" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="CorporateCustomer">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="Applicant" type="tns:Applicant" />
+                    <s:element minOccurs="0" maxOccurs="1" name="BusinessAddress" type="tns:Address" />
+                    <s:element minOccurs="0" maxOccurs="1" name="PostalAddress" type="tns:Address" />
+                    <s:element minOccurs="0" maxOccurs="1" name="CustomerDetails" type="tns:CustomerDetails" />
+                    <s:element minOccurs="0" maxOccurs="1" name="BankDetails" type="tns:BankDetails" />
+                    <s:element minOccurs="0" maxOccurs="1" name="ContactDetails" type="tns:ContactDetails" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="CustomerDetails">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="CompanyName" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="CompanyType" nillable="true" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="BusinessCategory" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="FinanceCategory" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="RegistrationNumber" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="VatNumber" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="RepresentativeContactName" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="RepresentativeDesignation" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="RepresentativeCellularNumber" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="Telephone" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="YearEndDate" nillable="true" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="Premises" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="RegisteredOwner" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="HoldingCompanyName" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="HoldingCompanyRegNo" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="RepresentativeEmailAddress" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="MO_EXCLUSIVE_DEALS_BMW" nillable="true" type="s:boolean" />
+                    <s:element minOccurs="1" maxOccurs="1" name="MO_SHARE_DETAILS_BMW" nillable="true" type="s:boolean" />
+                    <s:element minOccurs="1" maxOccurs="1" name="MO_TELEMARKETING_BMW" nillable="true" type="s:boolean" />
+                    <s:element minOccurs="1" maxOccurs="1" name="MO_MASS_DISTRIBUTION_BMW" nillable="true" type="s:boolean" />
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="AssociatedCompanies" nillable="true" type="tns:AssociatedCompanies" />
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="PersonalInformation" nillable="true" type="tns:PersonnelInformation" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="AssociatedCompanies">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="AssociatedCompany" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="RegistrationNumber" type="s:string" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="PersonnelInformation">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="NameOfShareHolder" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="TelephoneNumber" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="IDNumber" nillable="true" type="s:string" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="QuoteDetails">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="QuoteReferenceId" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="FinanceDetails" type="tns:FinanceDetails" />
+                    <s:element minOccurs="0" maxOccurs="1" name="AssetDetails" type="tns:AssetDetails" />
+                    <s:element minOccurs="1" maxOccurs="1" name="FeeList" nillable="true" type="tns:ArrayOfFeeDetails" />
+                    <s:element minOccurs="1" maxOccurs="1" name="NEFList" nillable="true" type="tns:ArrayOfNEFDetails" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="FinanceDetails">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="QuoteDate" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="SubProductID" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="Deposit" nillable="true" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="ClientInterestRate" nillable="true" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="DealerContributionAmount" nillable="true" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="ResidualValue" nillable="true" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="TenureMonths" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="Kilometer" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="RetailPrice" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="DiscountAmount" nillable="true" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="CashDepositSourceCode" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="CashDepositOtherDetails" nillable="true" type="s:string" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="AssetDetails">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="AssetId" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="ChassisNo" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="EngineNumber" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="CurrentMileage" nillable="true" type="s:int" />
+                    <s:element minOccurs="0" maxOccurs="1" name="AssetStatus" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="AssetOptionsList" type="tns:ArrayOfAssetOptionsDetails" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="ArrayOfAssetOptionsDetails">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="AssetOptionsDetails" nillable="true" type="tns:AssetOptionsDetails" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="AssetOptionsDetails">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="OptionDescription" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="Price" type="s:decimal" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="ArrayOfFeeDetails">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="FeeDetails" nillable="true" type="tns:FeeDetails" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="FeeDetails">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="FeeName" nillable="true" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="FeeAmount" type="s:decimal" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="ArrayOfNEFDetails">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="NEFDetails" nillable="true" type="tns:NEFDetails" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="NEFDetails">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="SettlementValue" nillable="true" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="TradeInValue" nillable="true" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="ShortfallAllowance" nillable="true" type="s:decimal" />
+                    <s:element minOccurs="1" maxOccurs="1" name="NEFAmt" nillable="true" type="s:decimal" />
+                    <s:element minOccurs="0" maxOccurs="1" name="Make" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="Model" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="Year" nillable="true" type="s:int" />
+                    <s:element minOccurs="0" maxOccurs="1" name="ChassisNo" type="s:string" />
+                </s:sequence>
+            </s:complexType>
+            <s:element name="SubmitApplicationResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="SubmitApplicationResult" type="tns:FinanceApplicationResponse" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="FinanceApplicationResponse">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+                    <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfString" />
+                    <s:element minOccurs="0" maxOccurs="1" name="ValidationMessages" type="tns:ValidationMessages" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="ArrayOfString">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="ValidationMessages">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="PropertyName" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfString" />
+                    <s:element minOccurs="0" maxOccurs="1" name="ValidationMessageList" type="tns:ArrayOfValidationMessages" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="ArrayOfValidationMessages">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="ValidationMessages" nillable="true" type="tns:ValidationMessages" />
+                </s:sequence>
+            </s:complexType>
+            <s:element name="Authentication" type="tns:Authentication" />
+            <s:complexType name="Authentication">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="APP_USERNAME" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="APP_PASSWORD" type="s:string" />
+                </s:sequence>
+                <s:anyAttribute />
+            </s:complexType>
+            <s:element name="SubmitDocument">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="referenceNumber" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="referenceType" type="s:int" />
+                        <s:element minOccurs="1" maxOccurs="1" name="documentID" type="s:int" />
+                        <s:element minOccurs="1" maxOccurs="1" name="folderID" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="documentDescription" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="fileBase64" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="fileExtension" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="SubmitDocumentResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="SubmitDocumentResult" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetReferenceCodes">
+                <s:complexType />
+            </s:element>
+            <s:element name="GetReferenceCodesResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GetReferenceCodesResult" type="tns:ArrayOfReferenceCode" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfReferenceCode">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="ReferenceCode" nillable="true" type="tns:ReferenceCode" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="ReferenceCode">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="System" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="Category" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="RefCode" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+                </s:sequence>
+            </s:complexType>
+            <s:element name="GetPostalCodes">
+                <s:complexType />
+            </s:element>
+            <s:element name="GetPostalCodesResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GetPostalCodesResult" type="tns:ArrayOfPostal" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfPostal">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="Postal" nillable="true" type="tns:Postal" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="Postal">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="Suburb" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+                </s:sequence>
+            </s:complexType>
+            <s:element name="GetBankBranchList">
+                <s:complexType />
+            </s:element>
+            <s:element name="GetBankBranchListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GetBankBranchListResult" type="tns:ArrayOfBankBranchCode" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfBankBranchCode">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="BankBranchCode" nillable="true" type="tns:BankBranchCode" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="BankBranchCode">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="BankName" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="BranchName" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="BranchCode" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="BankCode" type="s:string" />
+                </s:sequence>
+            </s:complexType>
+            <s:element name="GetBankList">
+                <s:complexType />
+            </s:element>
+            <s:element name="GetBankListResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GetBankListResult" type="tns:ArrayOfBank" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfBank">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="Bank" nillable="true" type="tns:Bank" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="Bank">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="BankName" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="BankCode" type="s:string" />
+                </s:sequence>
+            </s:complexType>
+        </s:schema>
+    </wsdl:types>
+    <wsdl:message name="SubmitApplicationSoapIn">
+        <wsdl:part name="parameters" element="tns:SubmitApplication" />
+    </wsdl:message>
+    <wsdl:message name="SubmitApplicationSoapOut">
+        <wsdl:part name="parameters" element="tns:SubmitApplicationResponse" />
+    </wsdl:message>
+    <wsdl:message name="SubmitApplicationAuthentication">
+        <wsdl:part name="Authentication" element="tns:Authentication" />
+    </wsdl:message>
+    <wsdl:message name="SubmitDocumentSoapIn">
+        <wsdl:part name="parameters" element="tns:SubmitDocument" />
+    </wsdl:message>
+    <wsdl:message name="SubmitDocumentSoapOut">
+        <wsdl:part name="parameters" element="tns:SubmitDocumentResponse" />
+    </wsdl:message>
+    <wsdl:message name="SubmitDocumentAuthentication">
+        <wsdl:part name="Authentication" element="tns:Authentication" />
+    </wsdl:message>
+    <wsdl:message name="GetReferenceCodesSoapIn">
+        <wsdl:part name="parameters" element="tns:GetReferenceCodes" />
+    </wsdl:message>
+    <wsdl:message name="GetReferenceCodesSoapOut">
+        <wsdl:part name="parameters" element="tns:GetReferenceCodesResponse" />
+    </wsdl:message>
+    <wsdl:message name="GetReferenceCodesAuthentication">
+        <wsdl:part name="Authentication" element="tns:Authentication" />
+    </wsdl:message>
+    <wsdl:message name="GetPostalCodesSoapIn">
+        <wsdl:part name="parameters" element="tns:GetPostalCodes" />
+    </wsdl:message>
+    <wsdl:message name="GetPostalCodesSoapOut">
+        <wsdl:part name="parameters" element="tns:GetPostalCodesResponse" />
+    </wsdl:message>
+    <wsdl:message name="GetPostalCodesAuthentication">
+        <wsdl:part name="Authentication" element="tns:Authentication" />
+    </wsdl:message>
+    <wsdl:message name="GetBankBranchListSoapIn">
+        <wsdl:part name="parameters" element="tns:GetBankBranchList" />
+    </wsdl:message>
+    <wsdl:message name="GetBankBranchListSoapOut">
+        <wsdl:part name="parameters" element="tns:GetBankBranchListResponse" />
+    </wsdl:message>
+    <wsdl:message name="GetBankBranchListAuthentication">
+        <wsdl:part name="Authentication" element="tns:Authentication" />
+    </wsdl:message>
+    <wsdl:message name="GetBankListSoapIn">
+        <wsdl:part name="parameters" element="tns:GetBankList" />
+    </wsdl:message>
+    <wsdl:message name="GetBankListSoapOut">
+        <wsdl:part name="parameters" element="tns:GetBankListResponse" />
+    </wsdl:message>
+    <wsdl:message name="GetBankListAuthentication">
+        <wsdl:part name="Authentication" element="tns:Authentication" />
+    </wsdl:message>
+    <wsdl:portType name="FinanceApplicationServiceSoap">
+        <wsdl:operation name="SubmitApplication">
+            <wsdl:input message="tns:SubmitApplicationSoapIn" />
+            <wsdl:output message="tns:SubmitApplicationSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="SubmitDocument">
+            <wsdl:input message="tns:SubmitDocumentSoapIn" />
+            <wsdl:output message="tns:SubmitDocumentSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetReferenceCodes">
+            <wsdl:input message="tns:GetReferenceCodesSoapIn" />
+            <wsdl:output message="tns:GetReferenceCodesSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetPostalCodes">
+            <wsdl:input message="tns:GetPostalCodesSoapIn" />
+            <wsdl:output message="tns:GetPostalCodesSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetBankBranchList">
+            <wsdl:input message="tns:GetBankBranchListSoapIn" />
+            <wsdl:output message="tns:GetBankBranchListSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetBankList">
+            <wsdl:input message="tns:GetBankListSoapIn" />
+            <wsdl:output message="tns:GetBankListSoapOut" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="FinanceApplicationServiceSoap" type="tns:FinanceApplicationServiceSoap">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="SubmitApplication">
+            <soap:operation soapAction="http://tempuri.org/SubmitApplication" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:SubmitApplicationAuthentication" part="Authentication" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SubmitDocument">
+            <soap:operation soapAction="http://tempuri.org/SubmitDocument" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:SubmitDocumentAuthentication" part="Authentication" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetReferenceCodes">
+            <soap:operation soapAction="http://tempuri.org/GetReferenceCodes" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:GetReferenceCodesAuthentication" part="Authentication" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetPostalCodes">
+            <soap:operation soapAction="http://tempuri.org/GetPostalCodes" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:GetPostalCodesAuthentication" part="Authentication" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetBankBranchList">
+            <soap:operation soapAction="http://tempuri.org/GetBankBranchList" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:GetBankBranchListAuthentication" part="Authentication" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetBankList">
+            <soap:operation soapAction="http://tempuri.org/GetBankList" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+                <soap:header message="tns:GetBankListAuthentication" part="Authentication" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="FinanceApplicationServiceSoap12" type="tns:FinanceApplicationServiceSoap">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="SubmitApplication">
+            <soap12:operation soapAction="http://tempuri.org/SubmitApplication" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+                <soap12:header message="tns:SubmitApplicationAuthentication" part="Authentication" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SubmitDocument">
+            <soap12:operation soapAction="http://tempuri.org/SubmitDocument" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+                <soap12:header message="tns:SubmitDocumentAuthentication" part="Authentication" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetReferenceCodes">
+            <soap12:operation soapAction="http://tempuri.org/GetReferenceCodes" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+                <soap12:header message="tns:GetReferenceCodesAuthentication" part="Authentication" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetPostalCodes">
+            <soap12:operation soapAction="http://tempuri.org/GetPostalCodes" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+                <soap12:header message="tns:GetPostalCodesAuthentication" part="Authentication" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetBankBranchList">
+            <soap12:operation soapAction="http://tempuri.org/GetBankBranchList" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+                <soap12:header message="tns:GetBankBranchListAuthentication" part="Authentication" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetBankList">
+            <soap12:operation soapAction="http://tempuri.org/GetBankList" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+                <soap12:header message="tns:GetBankListAuthentication" part="Authentication" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="FinanceApplicationService">
+        <wsdl:port name="FinanceApplicationServiceSoap" binding="tns:FinanceApplicationServiceSoap">
+            <soap:address location="https://sw090419.bmwgroup.net/DSPTestv7/financeapplicationservice.asmx" />
+        </wsdl:port>
+        <wsdl:port name="FinanceApplicationServiceSoap12" binding="tns:FinanceApplicationServiceSoap12">
+            <soap12:address location="https://sw090419.bmwgroup.net/DSPTestv7/financeapplicationservice.asmx" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

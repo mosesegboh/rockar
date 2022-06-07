@@ -1,0 +1,261 @@
+input[type='radio'] {
+    &.radio-checkbox {
+        &:checked {
+            + label {
+                span {
+                    height: 20px;
+                    width: 20px;
+                    background-color: $black;
+                    border: 5px solid $white;
+                    box-shadow: 0 0 0 2px $black;
+                    margin: 2px 0 0 2px;
+
+                    &:hover {
+                        background-color: $black;
+                        border: 5px solid $white;
+                        box-shadow: 0 0 0 2px $black;
+                    }
+                }
+            }
+
+            &:disabled {
+                + label {
+                    span {
+                        border: 5px solid $white;
+                        background-color: $c-grey-14;
+                        box-shadow: 0 0 0 2px $c-grey-14;
+
+                        &:hover {
+                            border: 5px solid $white;
+                            background-color: $c-grey-14;
+                            box-shadow: 0 0 0 2px $c-grey-14;
+                        }
+                    }
+                }
+            }
+        }
+
+        + label {
+            span {
+                border: 2px solid $black;
+
+                &:hover {
+                    border: 2px solid $black;
+                }
+            }
+        }
+
+        &:disabled {
+            + label {
+                span {
+                    border: 2px solid $c-grey-14;
+
+                    &:hover {
+                        border: 2px solid $c-grey-14;
+                    }
+                }
+            }
+
+            + label {
+                color: $c-grey-14;
+            }
+        }
+    }
+}
+
+input[type='checkbox'] {
+    display: none;
+    border: 2px solid $c-grey-14;
+
+    + label {
+        span {
+            border: 2px solid $black;
+
+            &:hover {
+                border: 2px solid $black;
+            }
+        }
+    }
+
+    &:disabled {
+        + label {
+            color: $c-grey-14;
+
+            span {
+                border: 2px solid $c-grey-14;
+            }
+        }
+
+        + label {
+            span {
+                background-color: $white;
+
+                &:hover {
+                    border: 2px solid $c-grey-14;
+                }
+            }
+        }
+    }
+
+    &:checked {
+        + label {
+            span {
+                background-color: $black;
+                border: 1px solid $black;
+
+                &::after {
+                    @include sprite($sprite-bmw-check-icon-white);
+                }
+
+                &:hover {
+                    background-color: $black;
+                }
+            }
+        }
+
+        &:disabled {
+            + label {
+                span {
+                    border: 1px solid $c-grey-14;
+                    background-color: $c-grey-14;
+                }
+            }
+        }
+    }
+}
+
+.category-car-finder,
+.checkout-cart-index,
+.customer-account-index,
+.checkout-onepage-index,
+.styleguide-page {
+    input[type=email],
+    input[type=search],
+    input[type=number],
+    input[type=password],
+    input[type=tel],
+    input[type=text] {
+        border: solid 2px $c-mini-grey-1;
+        color: $black;
+        font-family: $mini-sans-serif-regular;
+        font-size: $dsp2-f-size;
+        padding: .5em 1.14em;
+
+        &.keyboard-numbers {
+            padding: 10px 5px 5px;
+
+            &:hover:not(:focus) {
+                border: solid 2px $c-grey-13;
+                padding: 10px 5px 5px;
+            }
+
+            &:focus {
+                padding: 10px 5px 5px;
+            }
+
+            &:disabled {
+                border: 2px solid $c-mini-grey-1;
+                padding: 10px 5px 5px;
+
+                &:hover {
+                    border: solid 2px $c-grey-13;
+                    padding: 10px 5px 5px;
+                }
+            }
+
+            &:read-only {
+                cursor: auto;
+                background-color: $white;
+                border: solid 2px $white;
+
+                &:hover {
+                    border: solid 2px $white;
+                }
+
+                &:focus {
+                    border: solid 2px $white;
+                }
+            }
+        }
+
+        &:disabled {
+            border: 2px solid $c-mini-grey-1;
+
+            & ~ label {
+                color: $c-mini-grey-1;
+            }
+
+            &:hover {
+                border: solid 2px $c-mini-grey-1;
+                padding: .5em 1.14em;
+
+                & ~ label {
+                    color: $c-mini-grey-1;
+                }
+            }
+        }
+
+        &:hover {
+            border: solid 2px $c-grey-13;
+
+            & ~ label {
+                color: $c-grey-14;
+            }
+        }
+
+        &:focus {
+            & ~ label {
+                color: $c-grey-14;
+            }
+        }
+
+        &::placeholder {
+            color: $c-grey-14;
+            font-family: $mini-sans-serif-regular;
+        }
+    }
+
+    input {
+        &.validation-advice {
+            border: 2px solid $c-mini-red-1;
+        }
+    }
+
+    .input-label-wrapper {
+        input[type=email],
+        input[type=search],
+        input[type=number],
+        input[type=password],
+        input[type=tel],
+        input[type=text] {
+            font-family: $mini-sans-serif-regular;
+            padding: .5em 1.14em;
+        }
+
+        .input-label {
+            color: $c-grey-14;
+            font-family: $mini-sans-serif-regular;
+            font-size: $dsp2-f-size-s;
+        }
+
+        .validation-advice + label {
+            color: $c-mini-red-1;
+        }
+
+        .valid ~ label {
+            color: $c-grey-14;
+        }
+    }
+}
+
+.side-label {
+    font-family: $mini-sans-serif-regular;
+}
+
+// Validation message
+label.error,
+div.validation-advice,
+div.custom-validation-advice,
+.validation-error-msg {
+    color: $c-mini-red-1;
+}

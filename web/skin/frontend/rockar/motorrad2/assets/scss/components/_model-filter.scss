@@ -1,0 +1,183 @@
+#model-filter {
+    .model-filter-title {
+        font-family: $motorrad-bold;
+        font-size: $dsp2-f-size-xxl;
+        line-height: $dsp2-line-h-28;
+        text-transform: uppercase;
+        color: $black;
+        margin-bottom: 44px;
+
+        @include media($medium-screen-down) {
+            margin-bottom: -10px;
+        }
+    }
+
+    .model-navigation {
+        &-desktop {
+            border: none;
+        }
+
+        @include media($desktop-carousel-breakpoint) {
+            margin: 0 0 40px;
+        }
+
+        @include media($medium-screen-down) {
+            display: none;
+        }
+    }
+
+    .model-list {
+        display: block;
+        flex: 0 1 auto;
+
+        .model-link {
+            color: $black;
+            font-family: $motorrad-regular;
+            font-size: $dsp2-f-size;
+            line-height: $motorrad-line-h-22;
+            padding: 0;
+            position: relative;
+
+            &.active {
+                color: $black;
+                font-family: $motorrad-bold;
+
+                &::after {
+                    display: block;
+                    content: '';
+                    background: url('../images/svg/icon-arrow.svg') no-repeat center;
+                    width: 10px;
+                    height: 16px;
+                    position: absolute;
+                    bottom: -20px;
+                    left: 35%;
+                    transform: rotate(90deg);
+                }
+            }
+        }
+    }
+
+    .carousel-wrapper {
+        margin: 0;
+        width: auto;
+        max-width: none;
+
+        .carousel-block {
+            position: relative;
+
+            &.selected {
+                &::after {
+                    display: block;
+                    content: '';
+                    width: calc(100% - 10px);
+                    height: 4px;
+                    background-color: $c-motorrad-blue;
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translate(-50%);
+                }
+            }
+
+            .checkbox-values {
+                .carousel-checkbox-wrapper {
+                    label {
+                        font-family: $motorrad-bold;
+                        font-size: $dsp2-f-size;
+                        line-height: $motorrad-line-h-22;
+                    }
+
+                    .checkbox-info {
+                        p {
+                            color: $c-motorrad-grey-1;
+                            font-family: $motorrad-bold;
+                            font-size: $dsp2-f-size-xs;
+                            line-height: $dsp2-line-h-14;
+                        }
+                    }
+                }
+            }
+
+            .carousel-image-wrapper {
+                ~ p {
+                    font-family: $motorrad-bold;
+                    font-size: $dsp2-f-size;
+                    line-height: $motorrad-line-h-22;
+                }
+
+                .carousel-vertical-image-wrapper {
+                    > label {
+                        margin-bottom: -20px;
+                    }
+                }
+            }
+
+            &.disabled {
+                border: 2px solid $c-grey-6;
+
+                label {
+                    cursor: default;
+                }
+            }
+
+            .carousel-out-of-stock {
+                margin-top: 7px;
+                visibility: hidden;
+
+                p {
+                    font-family: $motorrad-regular;
+                    font-size: $dsp2-f-size-s;
+                    line-height: $motorrad-line-h-22;
+                    color: $black;
+                }
+
+                &.active {
+                    visibility: visible;
+                }
+            }
+        }
+    }
+
+    .slick-track {
+        margin: 0;
+    }
+
+    .slick-next {
+        @include media($medium-screen-down) {
+            width: 30px;
+            right: -20px;
+
+            &::before {
+                background-image: url('../images/svg/next-arrow.svg');
+                background-position: center;
+                width: 30px;
+                height: 30px;
+                border: none;
+                transform: rotate(0);
+                top: 65%;
+            }
+        }
+    }
+
+    .slick-prev {
+        @include media($medium-screen-down) {
+            width: 30px;
+            left: -20px;
+
+            &::before {
+                margin-top: 28px;
+                background-image: url('../images/svg/next-arrow.svg');
+                background-position: center;
+                width: 30px;
+                height: 30px;
+                border: none;
+                transform: rotate(180deg);
+                top: 65%;
+            }
+        }
+    }
+}
+
+.model-filters-wrapper {
+    margin-top: 40px;
+}

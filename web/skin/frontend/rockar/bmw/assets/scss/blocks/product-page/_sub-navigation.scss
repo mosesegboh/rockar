@@ -1,0 +1,204 @@
+.sub-navigation {
+    &.desktop {
+        @include display(flex);
+
+        @include media($small-screen-down) {
+            display: none;
+        }
+
+        button {
+            @include flex(1 1);
+            height: $configurator-sub-nav-buttons-height;
+            font: {
+                family: $primary-font-bold;
+                weight: $fw-bold;
+            }
+
+            &.btn-back {
+                @include flex(0 0 $configurator-sub-nav-back-btn-width);
+                display: flex;
+                flex-direction: row;
+                padding: 0;
+                align-items: center;
+                text-align: center;
+                position: relative;
+                font-size: $configurator-sub-nav-back-btn-font-size;
+                letter-spacing: 0px;
+                background-color: $button-grey;
+                height: 50px;
+                color: $white;
+
+                &::before {
+                    @include pseudo();
+                    background-image: none;
+                    top: 0;
+                    left: 0;
+                    position: relative;
+                }
+
+                &:hover {
+                    background-color: $grey-button-hover-color;
+                }
+            }
+
+            &.btn-sub-navigation {
+                padding: 1em;
+                font-size: $configurator-sub-nav-font-size;
+                color: $grey-4;
+                letter-spacing: 1.1px;
+                height: 50px;
+                max-width: inherit;
+
+                &:hover {
+                    color: $grey-4;
+                    background-color: $white;
+                }
+
+                @include media($medium-screen-down) {
+                    border-top: none;
+
+                    &:hover {
+                        border-top: none;
+                    }
+                }
+            }
+
+            &.btn-features {
+                @include flex(2 1);
+
+                &:not(:last-of-type) {
+                    border-right: 1px solid $white;
+                }
+            }
+        }
+    }
+
+    &.mobile {
+        display: none;
+        position: fixed;
+        z-index: 25;
+        left: 0;
+        bottom: 0;
+        height: $configurator-sub-nav-buttons-height-mobile;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 0;
+
+        @include media($small-screen-down) {
+            display: block;
+        }
+
+        .btn-back {
+            float: none;
+            position: relative;
+            bottom: 0;
+            left: 0;
+            margin: 0;
+            height: $car-finder-sub-nav-buttons-height-mobile;
+            width: 55px;
+            background-color: $button-grey;
+            z-index: 2;
+            border: 0;
+            border-top: none;
+            box-sizing: border-box;
+
+            &::before {
+                background-position: unset;
+                border-right: 3px solid $white;
+                border-top: 3px solid $white;
+                transform: rotate(225deg) translateY(0%);
+                margin: auto;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                width: 15px;
+                height: 15px;
+                color: transparent;
+            }
+        }
+
+        .btn-continue {
+            width: calc(100% - 55px);
+            height: 100%;
+            float: right;
+            margin-top: 0;
+
+            .title {
+                font-family: $bmw-bold;
+                font-size: $f-size;
+                letter-spacing: unset;
+                color: $white;
+                padding-top: 0;
+            }
+        }
+
+        button {
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.configurator-mobile-actions-wrapper {
+    @include display(flex);
+    @include justify-content(space-between);
+    margin-bottom: $configurator-element-spacing;
+
+    @include media($medium-screen-up) {
+        display: none;
+    }
+
+    button {
+        @include flex(1 1);
+        letter-spacing: 1px;
+        color: $grey-4;
+        font: {
+            size: $f-size-xxxs;
+            weight: $fw-black;
+        }
+
+        &.finance-edit-button {
+            border: 1px solid $finance-quote-border-color;
+            margin-right: 1em;
+
+            &:hover {
+                border-color: $grey-4;
+            }
+        }
+    }
+}
+
+.section {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}
+
+#configurator {
+    .configurator-nav .configurator-actions .nav-buttons {
+        display: flex;
+
+        .button {
+            height: 50px;
+            line-height: 30px;
+        }
+
+        @include media($small-screen-down) {
+            display: none;
+        }
+        .configurator-actions-desktop {
+            height: 100%;
+
+            &.col-3 {
+                .nav-arrow {
+                    position: absolute;
+                }
+            }
+
+        }
+    }
+}

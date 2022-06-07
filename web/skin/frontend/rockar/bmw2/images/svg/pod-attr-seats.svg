@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24.21 21.27">
+    <defs>
+        <style>
+            .cls-1 {
+                fill: none;
+                stroke: #5F6163;
+                stroke-linecap: round;
+                stroke-miterlimit: 10;
+                stroke-width: 1.28px;
+            }
+
+            .cls-2 {
+                fill: #5F6163;
+            }
+        </style>
+    </defs>
+    <title>seats_1</title>
+    <g id="Layer_2" data-name="Layer 2">
+        <g id="Layer_1-2" data-name="Layer 1">
+            <circle class="cls-1" cx="7.84" cy="5.48" r="4.84" />
+            <polyline class="cls-1" points="13.04 18.8 0.71 18.8 1.32 13.35 4.34 12.14" />
+            <line class="cls-1" x1="11.61" y1="12.14" x2="12.69" y2="12.57" />
+            <path class="cls-2" d="M17.95,9.74A5.26,5.26,0,1,1,12.69,15a5.26,5.26,0,0,1,5.26-5.26m0-1A6.26,6.26,0,1,0,24.21,15a6.27,6.27,0,0,0-6.26-6.26Z"
+            />
+        </g>
+    </g>
+</svg>

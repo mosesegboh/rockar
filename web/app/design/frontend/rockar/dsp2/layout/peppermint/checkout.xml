@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Bmw2
+ * @package   Bmw2\Checkout
+ * @author    Moses Egboh <techteam@rockar.com>
+ * @copyright Copyright (c) 2021 Rockar Ltd (http://rockar.com)
+ */
+-->
+
+<layout version="0.1.0">
+    <checkout_onepage_success>
+        <reference name="root">
+            <action method="addBodyClass"><class>on-light</class></action>
+        </reference>
+    </checkout_onepage_success>
+
+    <checkout_cart_index>
+        <reference name="root">
+            <action method="addBodyClass"><class>on-light</class></action>
+        </reference>
+    </checkout_cart_index>
+</layout>

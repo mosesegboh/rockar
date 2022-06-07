@@ -1,0 +1,801 @@
+.page-title-wrapper {
+    > .preloader {
+        @include position(absolute, 0 null null 0);
+        @include size(100%);
+        background: $page-loader-bg;
+        z-index: 99999;
+
+        .show-loading {
+            @include position(absolute, 50% null null 50%);
+            margin: -25px 0 0 -25px;
+        }
+    }
+
+    .product-pod {
+        .car-compare {
+            .popup {
+                z-index: 99999;
+            }
+        }
+    }
+
+    .on-light & {
+        background: $white;
+        box-shadow: none;
+        padding: 5px 25px 0;
+
+        @include media($dsp2-l-screen-up) {
+            padding: 0 6em;
+        }
+
+        @include media($dsp2-xl-screen-up) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        @include media($small-screen-down) {
+            padding: 0;
+        }
+    }
+
+    @include media($desktop-carousel-breakpoint) {
+        @include display(flex);
+        @include flex-direction(row);
+
+        .finance-filters-wrapper {
+            flex: 0 1 30%;
+        }
+
+        .model-filters-wrapper {
+            flex: 1 1 auto;
+        }
+    }
+
+    .page-title-content {
+        @include display(flex);
+
+        @include media($small-screen-down) {
+            flex-direction: column;
+        }
+
+        @include justify-content(space-between);
+        padding: 2.25em 3.06em 2.25em 1.81em;
+        max-width: $max-width;
+        margin: 0 auto;
+
+        @include media($medium-screen-down) {
+            padding: 1.25em 10px;
+        }
+
+        &.new-car-actions {
+            .heading-container {
+                max-width: 70%;
+
+                @include media($medium-screen-down) {
+                    max-width: unset;
+                }
+
+                .product-headings {
+                    @include media($medium-screen-down) {
+                        margin-bottom: 10px;
+                    }
+                }
+
+                .main-heading,
+                .sub-heading {
+                    text-transform: none;
+                    font-weight: $fw-bold;
+                    color: $c-grey;
+                }
+
+                .main-heading {
+                    font-size: $dsp2-f-size-xl;
+                    text-transform: uppercase;
+                    font-family: $bmw-light;
+                    letter-spacing: 3px;
+                    line-height: 40px;
+                }
+
+                .sub-heading {
+                    font-size: $dsp2-f-size;
+                    font-family: $bmw-light;
+                    letter-spacing: .9px;
+
+                    @include media($small-screen-down) {
+                        font-size: $f-size-xs;
+                        line-height: 16px;
+                    }
+                }
+            }
+        }
+
+        .product-actions {
+            @import 'product-top-container/actions';
+            @include display(flex);
+            max-height: 100px;
+
+            @include media($small-screen-down) {
+                display: none;
+            }
+        }
+    }
+
+    .heading-container {
+        width: 100%;
+        position: relative;
+
+        .previous {
+            @include media($medium-screen-down) {
+                width: 20%;
+                float: left;
+            }
+
+            .arrow-back {
+                float: left;
+
+                @include media($medium-screen-down) {
+                    margin-top: -4px;
+                }
+            }
+        }
+
+        .details {
+            @include media($medium-screen-down) {
+                width: 80%;
+            }
+        }
+
+        .vehicle-details {
+            font-size: $dsp2-f-size-xxl;
+            font-family: $bmw-light;
+            text-align: center;
+            text-transform: uppercase;
+            margin: 0;
+            padding: 10px;
+
+            @include media($medium-screen-down) {
+                font-size: $dsp2-f-size;
+                line-height: 18px;
+            }
+        }
+
+        a {
+            color: $c-grey;
+
+            .previous-link-button {
+                font-family: $bmw-bold;
+                border-bottom: 1px solid;
+
+                @include media($medium-screen-down) {
+                    display: none;
+                }
+            }
+        }
+
+        .product-headings {
+            margin-top: 15px;
+            margin-bottom: 150px;
+
+            @include media($medium-screen-down) {
+                margin-bottom: 20px;
+                margin-top: 0;
+            }
+
+            .main-heading {
+                color: $c-grey;
+                line-height: $dsp2-line-h-40;
+                font-family: $bmw;
+                font-size: $dsp2-f-size-xxl;
+
+                @include media($medium-screen-down) {
+                    line-height: 18px;
+                }
+            }
+
+            .sub-heading {
+                color: $c-grey;
+                text-transform: uppercase;
+
+                @include media($medium-screen-down) {
+                    line-height: 16px;
+                    font-size: $f-size-xs;
+                }
+            }
+
+            .attributes-container {
+                padding: 15px 0;
+            }
+
+            .pod-specs-container {
+                padding: 0;
+                margin-top: 20px;
+
+                .pod-spec-item {
+                    &:last-child {
+                        padding-left: 15px;
+                    }
+
+                    @include media($medium-screen-up) {
+                        &:first-child {
+                            .pod-spec-item-data {
+                                .pod-spec-item-label {
+                                    height: calc(#{$dsp2-line-h-12} * 2);
+                                }
+                            }
+                        }
+
+                        &:nth-child(2) {
+                            .pod-spec-item-data {
+                                width: 60px;
+                            }
+                        }
+                    }
+                }
+
+                @include media($medium-screen-down) {
+                    display: block;
+                    margin-top: 0;
+
+                    .pod-spec-item {
+                        &:last-child {
+                            padding-left: 0;
+                        }
+
+                        .pod-spec-item-data {
+                            padding: 15px 0;
+                            height: 50px;
+                            border-bottom: 1px solid $c-grey-5;
+                            font-size: $dsp2-f-size-s;
+
+                            .pod-spec-item-value {
+                                float: right;
+                                font-family: $bmw-bold;
+
+                                @include media($small-screen-down) {
+                                    line-height: 24px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .vehicle-heading-desktop {
+                display: block;
+
+                @include media($medium-screen-down) {
+                    display: none;
+                }
+            }
+        }
+
+        .compare-button,
+        .test-drive-button {
+            line-height: 24px;
+            max-width: none;
+        }
+
+        .compare-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .action-compare {
+            background: $c-grey-1;
+            border: 0;
+            padding: 15px 20px 15px 35px;
+            position: relative;
+
+            &.remove {
+                &::before {
+                    background-image: url('../images/svg/icon-minus.svg');
+                }
+            }
+
+            &::before {
+                background-image: url('../images/svg/icon-plus.svg');
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                content: '';
+                height: 13px;
+                left: calc(50% - 50px);
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 13px;
+            }
+        }
+
+        .test-drive-button {
+            margin-top: 20px;
+
+            span {
+                position: relative;
+
+                &::before {
+                    content: '';
+                    background-image: url('../images/test_drive.png');
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    width: 16px;
+                    height: 16px;
+                    position: absolute;
+                    text-align: center;
+                    left: -25px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+
+        .product-color {
+            &-attribute {
+                @include align-items(center);
+                @include display(flex);
+                border-bottom: 1px solid $c-grey-5;
+                border-top: 1px solid $c-grey-5;
+                padding: 10px 0;
+            }
+
+            &-image {
+                height: 35px;
+                margin-right: 10px;
+                width: 35px;
+
+                @include media($dsp2-l-screen-up) {
+                    height: 50px;
+                    width: 50px;
+                }
+            }
+
+            &-title {
+                color: $c-grey;
+                font-size: $dsp2-f-size-s;
+
+                @include media($dsp2-l-screen-up) {
+                    font-size: $dsp2-f-size;
+                }
+            }
+        }
+
+        .product-mileage-attribute {
+            border-bottom: 1px solid $c-grey-5;
+            padding: 0 0 15px;
+            margin-bottom: 20px;
+            font-size: $f-size;
+            line-height: 20px;
+            color: $c-grey;
+
+            @include media($dsp2-l-screen-down) {
+                border-bottom: 0;
+                margin-bottom: 0;
+            }
+
+            .km {
+                font-family: $bmw-bold;
+                float: right;
+            }
+        }
+
+        .vehicle-heading-mobile {
+            display: none;
+
+            @include media($medium-screen-down) {
+                display: block;
+                margin-top: 20px;
+
+                .main-heading {
+                    font-size: $dsp2-f-size-xl;
+                    line-height: 24px;
+                }
+            }
+        }
+
+        .title-section-row {
+            .previous {
+                @include media($medium-screen-down) {
+                    padding: 10px 25px 0;
+                }
+            }
+
+            .details {
+                padding: 0;
+            }
+        }
+
+        .mobile-line-bottom {
+            display: none;
+
+            @include media($medium-screen-down) {
+                display: block;
+                width: 100%;
+                margin: 0;
+            }
+        }
+
+        .product-detailed-view {
+            padding: 5px 0 0;
+
+            @include media($medium-screen-down) {
+                display: flex;
+                flex-flow: column;
+            }
+
+            @include media($medium-screen-up) {
+                padding: 0;
+            }
+
+            @include media($large-screen-up) {
+                position: relative;
+            }
+
+            &.product-new-view {
+                @include media($large-screen-up) {
+                    margin-right: -6em;
+                }
+            }
+
+            .col-4 {
+                @include media($small-screen-down) {
+                    margin-top: -20px;
+                }
+
+                @include media($large-screen-up) {
+                    max-width: 355px;
+                }
+
+                @include media($medium-screen-down) {
+                    order: 2;
+                    width: 100%;
+                }
+            }
+
+            .col-8 {
+                @include media($medium-screen-down) {
+                    order: 1;
+                    min-height: 360px;
+                    width: 100%;
+                }
+            }
+        }
+
+        .wishlist-button {
+            background-color: $white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .15);
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            top: 22px;
+            right: 25px;
+            z-index: 1;
+
+            @include media($large-screen-up) {
+                display: none;
+            }
+
+            &.desktop {
+                display: none;
+
+                @include media($large-screen-up) {
+                    display: flex;
+                    top: 20px;
+                    right: 20px;
+                    height: 50px;
+                    width: 50px;
+                }
+            }
+
+            .icon-wishlist {
+                display: block;
+                background-image: url('../images/svg/wishlist-icon.svg');
+                height: 16px;
+                width: 16px;
+                background-size: 16px;
+                background-repeat: no-repeat;
+                cursor: pointer;
+
+                @include media($large-screen-up) {
+                    height: 24px;
+                    width: 24px;
+                    background-size: 24px;
+                }
+
+                &.added-to-wishlist {
+                    background-image: url('../images/svg/wishlist-added-icon.svg');
+                }
+            }
+        }
+    }
+
+    .pdp-data-container {
+        .offertags-container {
+            display: none;
+        }
+
+        @include media($medium-screen-down) {
+            @include display(flex);
+            @include flex-direction(column);
+
+            .attributes-container {
+                width: 100%;
+            }
+
+            .offertags-container {
+                @include media($medium-screen-down) {
+                    @include display(inline-flex);
+                    @include align-items(center);
+
+                    .offertags {
+                        @include display(flex);
+                        @include align-items(flex-start);
+                        @include flex-direction(column);
+
+                        .offertag-icon {
+                            margin: .5rem 0;
+                        }
+
+                        .offertag-label {
+                            letter-spacing: normal;
+                            margin: 0 0 .2rem .5rem;
+                            font: {
+                                size: $dsp2-f-size;
+                            }
+                        }
+                    }
+
+                    &.offertags-background {
+                        margin: .5rem 0;
+
+                        .offertag-label {
+                            background-color: $bmw-blue;
+                            color: $white;
+                            padding: .5rem 1rem .47rem;
+                            margin: 0;
+                        }
+                    }
+
+                    &.offertags-blank {
+                        .offertag-label {
+                            margin: 0;
+                            padding: .5rem 1rem;
+                            font: {
+                                weight: unset;
+                            }
+                        }
+                    }
+
+                    &.offertags-it {
+                        .offertags {
+                            @include align-items(center);
+
+                            .offertag-icon {
+                                align-self: flex-start;
+                            }
+
+                            .offertag-label {
+                                margin: 0 0 .2rem 0;
+                                font: {
+                                    size: $dsp2-f-size;
+                                    weight: unset;
+                                }
+
+                                @include media($medium-screen-down) {
+                                    margin: 0 .5rem .2rem .5rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .attributes-container {
+        @include display(flex);
+        @include justify-content(space-between);
+        padding: 0 3.06em 2.25em 1.81em;
+
+        @include media($medium-screen-down) {
+            padding: 0 10px 1.25em 10px;
+        }
+
+        .attributes {
+            @include display(flex);
+            padding-top: 15px;
+            color: $c-grey;
+            min-height: 50px;
+            line-height: 24px;
+
+            .information-attribute {
+                @include align-items(flex-end);
+                @include display(flex);
+                margin-right: 1em;
+
+                .attribute-icon {
+                    width: 30px;
+                    vertical-align: bottom;
+                }
+
+                @include media($small-screen-down) {
+                    @include align-items(center);
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+
+    .cosy-background {
+        display: none;
+
+        @include media($large-screen-up) {
+            display: block;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 60%;
+
+            @include media($x-large-screen-up) {
+                left: 40%;
+                width: 70%;
+            }
+
+            @include media($xxx-large-screen-up) {
+                width: 75%;
+            }
+        }
+    }
+
+    .cosy-background-mob {
+        @include media($medium-screen-down) {
+            background-image: url('../images/exterior-bg-pdp-mob.png');
+            background-size: 100% auto;
+            background-position: top center;
+            background-repeat: no-repeat;
+            background-position-y: 23px;
+        }
+    }
+
+    .car-hero {
+        position: relative;
+        max-width: 1040px;
+        margin: 0 -25px;
+
+        @include media($large-screen-up) {
+            position: static;
+            margin: 0;
+        }
+
+        &.interior {
+            @include media($large-screen-up) {
+                max-width: 1104px;
+            }
+        }
+
+        .image-type-switcher {
+            position: absolute;
+            top: 22px;
+            left: 25px;
+            right: initial;
+            bottom: initial;
+
+            @include media($large-screen-up) {
+                bottom: 20px;
+                left: calc(40% + 25px);
+                top: unset;
+            }
+
+            .actions-wrapper {
+                background-color: $c-grey-5;
+                text-align: right;
+                filter: drop-shadow(0 4px 10px rgba(0, 0, 0, .15));
+                padding: 0;
+                display: flex;
+
+                .switcher {
+                    cursor: pointer;
+                    display: inline-block;
+                    width: 30px;
+                    height: 30px;
+                    background-repeat: no-repeat;
+                    background-position: center;
+
+                    @include media($large-screen-up) {
+                        width: 40px;
+                        height: 40px;
+                        background-size: 35px;
+                    }
+
+                    &.active {
+                        border-bottom: $bmw-blue solid 2px;
+
+                        &.interior-switch {
+                            background-image: url('../images/svg/icon_interior_image_on.svg');
+                        }
+
+                        &.exterior-switch {
+                            background-image: url('../images/svg/icon_exterior_image_on.svg');
+                        }
+                    }
+
+                    &:not(.active) {
+                        opacity: .5;
+
+                        &.interior-switch {
+                            background-image: url('../images/svg/icon_interior_image_off.svg');
+                        }
+
+                        &.exterior-switch {
+                            background-image: url('../images/svg/icon_exterior_image_off.svg');
+                        }
+                    }
+                }
+
+                &.actions-wrapper-mobile {
+                    .switcher {
+                        letter-spacing: 1.7px;
+                        margin-right: 0;
+                        padding: {
+                            left: 1em;
+                            right: 1em;
+                        };
+                    }
+                }
+            }
+        }
+
+        .carousel-wrapper {
+            z-index: 1;
+        }
+
+        .cloudimage-360 {
+            .cloudimage-inner-box {
+                overflow: hidden;
+
+                canvas {
+                    @include media($large-screen-up) {
+                        transform: scale(1.075);
+                    }
+                }
+            }
+        }
+
+        .slide360 {
+            .carousel-image {
+                width: 100%;
+            }
+
+            &.interior {
+                .carousel-image {
+                    margin: 0 auto;
+                    width: auto;
+
+                    @include media($large-screen-up) {
+                        width: 100%;
+                    }
+                }
+
+                .slick-slide {
+                    padding-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+.grid {
+    &.inner-container {
+        &.layout-2-cols {
+            margin-top: 20px;
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,48 @@
+<?php
+/**
+ * @category design
+ * @package rockar_default
+ * @author Dmitrijs Sitovs <techteam@rockar.com>
+* @copyright Copyright (c) 2016 Rockar Ltd (http://rockar.com)
+ *
+ * @var $this Mage_Page_Block_Html_Breadcrumbs
+ */
+?>
+<?php
+$_helper = Mage::helper('rockar_catalog');
+$_product = Mage::registry('product');
+
+$hasCrumbs = ($crumbs && is_array($crumbs));
+if ($_product && count($crumbs) <= 3) {
+    $crumbs = $_helper->getCarFinderProductCrumb($_product);
+}
+?>
+<div class="grid">
+    <div class="row">
+        <div class="col-12">
+            <div class="bread-switch">
+                <?php if($crumbs && is_array($crumbs)): ?>
+                    <div class="breadcrumbs">
+                        <ul>
+                            <?php foreach ($crumbs as $_crumbName => $_crumbInfo): ?>
+                                <li class="<?php echo $_crumbName ?>">
+                                    <?php if ($_crumbInfo['link']): ?>
+                                        <a href="<?php echo $_crumbInfo['link'] ?>" title="<?php echo $this->escapeHtml($_crumbInfo['title']) ?>"><?php echo $this->escapeHtml($_crumbInfo['label']) ?></a>
+                                    <?php elseif ($_crumbInfo['last']): ?>
+                                        <strong><?php echo ($_crumbInfo['title']) ? $this->escapeHtml($_crumbInfo['title']) : $this->escapeHtml($_crumbInfo['label']) ?></strong>
+                                    <?php else: ?>
+                                        <?php echo $this->escapeHtml($_crumbInfo['label']) ?>
+                                    <?php endif; ?>
+                                    <?php if (!$_crumbInfo['last']): ?>
+                                        <span>> </span>
+                                    <?php endif; ?>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+
+    </div>
+</div>

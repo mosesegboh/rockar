@@ -1,0 +1,439 @@
+.catalog-product-compare-index {
+    .main.col-6 {
+        width: 100%;
+    }
+}
+.car-compare {
+    .car-compare-title {
+        text-align: center;
+        width: 100%;
+        text-transform: uppercase;
+        font-size: $car-compare-title-font-size-mobile;
+        font-family: $mini_heading;
+        font-weight: $car-compare-title-fw-mobile;
+        margin: 20px 0 5px;
+
+        @include media($compare-desktop-mode) {
+            text-align: left;
+            font-weight: $car-compare-title-fw;
+            font-size: $car-compare-title-font-size;
+            margin: 0 0 0.8em 0;
+        }
+    }
+
+    .row {
+        @include flex-wrap(wrap);
+        @include flex-direction(row);
+
+        &.flex-row {
+            @include display(flex);
+        }
+    }
+
+    .car-compare-subtitle {
+        font-weight: $car-compare-stubtitle-fw;
+        color: $car-compare-subtitle-color;
+        font-size: $f-size-s;
+        text-align: center;
+        width: 100%;
+        border-bottom: 1px solid $car-compare-subtitle-underline-color;
+        padding-bottom: 30px;
+        margin: 0;
+
+        @include media($compare-desktop-mode) {
+            text-align: left;
+            border: none;
+            font-size: $f-size-l;
+            padding-bottom: 0;
+        }
+    }
+
+    .compare-col-left {
+        width: 100%;
+        @include flex(1 0 auto);
+
+        @include media($compare-desktop-mode) {
+            width: 30%;
+            border-right: 1px solid $compare-border-color;
+
+            .left-col-inner {
+                padding-right: 2.5em;
+            }
+        }
+    }
+
+    .compare-col-right {
+        @include flex(1 0 auto);
+        margin: 0;
+        padding: 0;
+        width: 100%;
+
+        @include media($compare-desktop-mode) {
+            width: 70%;
+        }
+    }
+
+    .compare-car {
+        width: 30%;
+        display: inline-block;
+        position: relative;
+
+        &.add-car {
+            position: relative;
+            min-height: 185px;
+
+            .add-car-inner {
+                min-height: inherit;
+                padding-top: 100px;
+
+                @include media($compare-desktop-mode) {
+                    padding-top: 0;
+                    position: absolute;
+                    width: 95%;
+                    bottom: 0;
+                }
+
+                img {
+                    margin: 0 auto;
+                }
+
+                button {
+                    margin-top: 5em;
+                }
+            }
+        }
+
+        .car-block {
+            padding: 0 2.5px;
+
+            @include media($compare-desktop-mode) {
+                padding: 0 2px 0 3%;
+            }
+
+            .car-fixed-height-data {
+                min-height: 1px;
+            }
+        }
+
+        .car-name {
+            font-size: $f-size-xxxl;
+            font-family: $secondary-font-family;
+            font-weight: $car-compare-car-name-fw;
+            margin: 0.35em 0 0.25em;
+            color: $car-compare-car-color;
+            padding: 0 35px 0 0;
+
+            @include media($compare-desktop-mode) {
+                margin-top: 0;
+            }
+        }
+
+        .car-description {
+            font-family: $secondary-font-family;
+            font-weight: $car-compare-car-description-fw;
+            font-size: $f-size;
+            margin-bottom: 1em;
+            color: $car-compare-car-color;
+            padding-right: 35px;
+        }
+
+        .remove-car {
+            text-align: right;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+
+            @include media($compare-desktop-mode) {
+                top: 2px;
+            }
+        }
+
+        .car-cover {
+            margin: 0.5em 0;
+        }
+
+        .button-wrapper {
+            margin-bottom: 15px;
+            @include clearfix;
+
+            button, .button {
+                text-align: center;
+                width: 49%;
+                float: left;
+                padding: 1em 0;
+
+                &:first-child {
+                    margin-right: 2%;
+                }
+            }
+        }
+
+        .car-price {
+            text-align: center;
+
+            span {
+                color: $car-compare-price-color;
+                font-size: $f-size-xs;
+                font-weight: $car-compare-price-fw;
+
+                &.price-amount {
+                    color: $car-compare-price-amount-color;
+                    font-size: $f-size-xxl;
+                    font-weight: $fw-semibold;
+                    font-family: $secondary-font-family;
+                    margin-left: 0.3em;
+                }
+            }
+        }
+
+        button {
+            width: 100%;
+        }
+
+        .my-saved-cars-content {
+            button {
+                padding: 9px 0 5px;
+                width: 100%;
+                float: none;
+            }
+        }
+    }
+
+    .details-block {
+        margin-top: 1em;
+        text-align: center;
+    }
+
+    .details-headings {
+        margin-top: 0;
+    }
+
+    .accordion-transparent {
+        .submenu {
+            @include clearfix;
+        }
+
+        .js-accordion-trigger {
+            @include transition(none);
+            padding: 18px 17px 15px 10px;
+            width: 100%;
+            text-transform: uppercase;
+
+            @include media($compare-desktop-mode) {
+                width: 30%;
+                padding-left: 23px;
+            }
+        }
+
+        @include media($compare-desktop-mode) {
+            &:first-child {
+                .is-expanded {
+                    .js-accordion-trigger {
+                        border-right: 1px solid $compare-border-color;
+                    }
+                }
+            }
+        }
+    }
+
+    .car-details {
+        @include clearfix;
+        display: none !important;
+
+        &.mobile-view {
+            display: block !important;
+        }
+
+        @include media($compare-desktop-mode) {
+            display: block !important;
+
+            &.mobile-view {
+                display: none !important;
+            }
+        }
+
+        .details-categories {
+            width: 100%;
+            border: none;
+
+            @include media($compare-desktop-mode) {
+                float: left;
+                width: 30%;
+                border-right: 1px solid $compare-border-color;
+            }
+        }
+
+        .details-values {
+            float: left;
+            width: calc((100% - 30%) / 3);
+            border-right: 1px solid $compare-border-color;
+
+            .details-item {
+                text-align: center;
+            }
+        }
+
+        .details-item {
+            display: block;
+            width: 100%;
+            font-weight: $car-compare-list-item-fw;
+            font-family: $primary-font-family;
+            color: $car-compare-list-item-color;
+            list-style-type: none;
+            padding: 0.75em 3% 0.75em 0.75em;
+            font-size: $f-size-s;
+            @include clearfix;
+
+            @include media($compare-desktop-mode) {
+                font-size: $f-size-l;
+            }
+
+            &:nth-child(odd) {
+                background: $grey-1;
+            }
+        }
+    }
+
+    .carousel-wrapper {
+        margin: 0;
+    }
+
+    .accordion {
+        &.accordion-light {
+            margin-bottom: 0;
+
+            .accordionSlide-transition {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    @include media($compare-desktop-mode) {
+        .slick-track {
+            margin: 0;
+            @include display(flex);
+
+            .slick-slide {
+                @include flex(1);
+                @include display(flex);
+                height: auto;
+
+                .car-block {
+                    width: 100%;
+                    @include flex(1);
+                    @include display(flex);
+                    @include flex-direction(column);
+                    @include justify-content(space-between);
+                }
+            }
+        }
+    }
+
+    .slick-dots {
+        bottom: auto;
+        top: -33px;
+
+        li button:before {
+            font-size: 16px;
+        }
+    }
+}
+
+.compare-add {
+    position: relative;
+
+    .preloader {
+        @include position(absolute, 0 null null 0);
+        @include size(100%);
+        background: transparent;
+        z-index: 9999;
+
+        .show-loading {
+            @include position(absolute, 50% null null 50%);
+            margin: -25px 0 0 -25px;
+        }
+    }
+
+    .compare-content-link {
+        text-decoration: underline;
+    }
+}
+
+.compare-link-content {
+    float: left;
+}
+
+#car-compare-wrapper .car-compare .choices .choice {
+    height: 40px;
+    overflow: hidden;
+    letter-spacing: 2.7px;
+    padding: 5%;
+    font-family: $mini;
+    text-align: center;
+    font-size: 8px;
+    font-weight: $fw-bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    background: $mini-green;
+    color: $white;
+}
+
+.car-compare .input[type=button].button-empty, button.button-empty, .button.button-empty, .call-to-action.button-empty {
+    color: $white;
+    background: $mini-green;
+    border: 1px solid $mini-green;
+
+    &:hover {
+      color: $black;
+      background: $white;
+      border: 1px solid $black;
+    }
+}
+
+#car-compare-wrapper .car-compare .details .attribute-wrapper p {
+    white-space: -o-pre-wrap;
+    white-space: -moz-pre-wrap;
+    word-wrap: break-word;
+    letter-spacing: 2.7px;
+    font-family: $avenir;
+    text-align: left;
+    font-size: 8px;
+    font-weight: $fw-black;
+    white-space: nowrap;
+    padding-left: 10px;
+}
+
+#car-compare-wrapper .car-compare .details .attribute-wrapper:nth-of-type(2n-1) {
+    background: $grey-3;
+}
+
+
+#car-compare-wrapper .car-compare .selector .selector-column .title p {
+    font-family: $mini;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-align: left;
+    text-transform: uppercase;
+    background: $white;
+}
+
+
+#car-compare-wrapper .car-compare .header .title {
+    font-family: $mini_heading;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 0.28;
+    letter-spacing: 6.1px;
+    text-align: center;
+    color: $black;
+    text-transform: uppercase;
+}
+
+.selectbox .selectbox-select:hover {
+    background: $grey-3;
+}
+
+.selectbox.open .selectbox-select {
+    background: $white;
+}

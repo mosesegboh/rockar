@@ -1,0 +1,170 @@
+.px-popup-content {
+    .accordion {
+        &.accordion-light {
+            margin: 0 0 30px;
+
+            .condition-wrapper {
+                &.active {
+                    @include media($small-screen-down) {
+                        margin: 0;
+                    }
+                }
+            }
+
+            @include media($small-screen-down) {
+                position: relative;
+                margin: 0 0 15px;
+
+                &:after,
+                &:before {
+                    content: '';
+                    width: 100vw;
+                    margin-left: calc(-50vw + 50%);
+                    border-bottom: 1px solid $c-grey-5;
+                    position: absolute;
+                }
+
+                &:after {
+                    bottom: 0;
+                }
+
+                &:before {
+                    top: -1px;
+                }
+            }
+
+            li {
+                list-style: none;
+
+                &.closed {
+                    border: 1px solid $c-grey-5;
+
+                    @include media($small-screen-down) {
+                        border: none;
+                    }
+                }
+
+                @include media($small-screen-down) {
+                    .condition-wrapper {
+                        margin: 0;
+
+                        .px-mileage {
+                            margin: 20px 0 30px;
+                        }
+
+                        .select-condition {
+                            display: flex;
+                            flex-direction: column;
+                        }
+                    }
+                }
+
+                &.is-expanded {
+                    border: 1px solid $c-grey-5;
+
+                    @include media($small-screen-down) {
+                        border: none;
+
+                        .js-accordion-trigger {
+                            padding: 22px 0 21px;
+                        }
+
+                        .condition-wrapper {
+                            margin: 0;
+
+                            .px-mileage {
+                                margin: 20px 0 30px;
+                            }
+
+                            .select-condition {
+                                display: flex;
+                                flex-direction: column;
+                            }
+                        }
+                    }
+
+                    .js-accordion-trigger {
+                        border-bottom: none;
+                        display: flex;
+
+                        &:after {
+                            opacity: 1;
+                            height: 11px;
+                            width: 12px;
+                            transform: rotate(317deg);
+                            border-right: 3px solid $c-grey;
+                            border-top: 3px solid $c-grey;
+                            right: 22px;
+                            top: 30px;
+
+                            @include media($small-screen-down) {
+                                right: 2px;
+                            }
+                        }
+
+                        &:before {
+                            content: '';
+                        }
+
+                        .px-edit {
+                            display: none;
+                        }
+                    }
+                }
+
+                a {
+                    &.js-accordion-trigger {
+                        padding: 22px 20px 21px 21px;
+                        letter-spacing: unset;
+                        border-bottom: none;
+                        font-size: inherit;
+
+                        @include media($small-screen-down) {
+                            padding: 22px 0 21px;
+                            border: none;
+                        }
+
+                        &:after {
+                            opacity: 0;
+                        }
+
+                        .accordion-px-title {
+                            @include display(flex);
+                            @include justify-content(space-between);
+
+                            @include media($small-screen-down) {
+                                span {
+                                    flex: 3;
+                                    max-width: 205px;
+                                }
+                            }
+
+                            .px-edit {
+                                .icon-edit {
+                                    &-text {
+                                        font-size: $dsp2-f-size-s;
+                                        font-family: $bmw-bold;
+                                        line-height: $dsp2-line-h-20;
+                                        border-bottom: 1px solid $c-grey-3;
+                                    }
+
+                                    &:after {
+                                        margin: 0 2px -3px 0;
+                                    }
+                                }
+
+                                @include media($small-screen-down) {
+                                    margin: 0 0 0 10px;
+
+                                    span {
+                                        flex: 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_SalesRule
+ * @author    Jevgenijs Goreliks <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_SalesRule>
+            <version>1.0.0</version>
+        </Peppermint_SalesRule>
+    </modules>
+    <global>
+        <helpers>
+            <peppermint_salesrule>
+                <class>Peppermint_SalesRule_Helper</class>
+            </peppermint_salesrule>
+            <rockar_salesrule>
+                <rewrite>
+                    <data>Peppermint_SalesRule_Helper_Data</data>
+                </rewrite>
+            </rockar_salesrule>
+        </helpers>
+        <blocks>
+            <peppermint_salesrule>
+                <class>Peppermint_SalesRule_Block</class>
+            </peppermint_salesrule>
+            <adminhtml>
+                <rewrite>
+                    <promo_quote_grid>Peppermint_SalesRule_Block_Adminhtml_Promo_Quote_Grid</promo_quote_grid>
+                    <promo_quote_edit_tab_coupons_grid>Peppermint_SalesRule_Block_Adminhtml_Promo_Quote_Edit_Tab_Coupons_Grid</promo_quote_edit_tab_coupons_grid>
+                    <promo_quote>Peppermint_SalesRule_Block_Adminhtml_Promo_Quote</promo_quote>
+                    <promo_quote_edit>Peppermint_SalesRule_Block_Adminhtml_Promo_Quote_Edit</promo_quote_edit>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+        <models>
+            <peppermint_salesrule>
+                <class>Peppermint_SalesRule_Model</class>
+                <resourceModel>peppermint_salesrule_resource</resourceModel>
+            </peppermint_salesrule>
+            <salesrule_resource>
+                <rewrite>
+                    <rule>Peppermint_SalesRule_Model_Resource_Rule</rule>
+                    <coupon>Peppermint_SalesRule_Model_Resource_Coupon</coupon>
+                    <coupon_usage>Peppermint_SalesRule_Model_Resource_Coupon_Usage</coupon_usage>
+                </rewrite>
+            </salesrule_resource>
+            <peppermint_salesrule_resource>
+                <class>Peppermint_SalesRule_Model_Resource</class>
+                <entities>
+                    <rule_pending>
+                        <table>peppermint_salesrule_pending</table>
+                    </rule_pending>
+                    <coupon_pending>
+                        <table>peppermint_salesrule_coupon_pending</table>
+                    </coupon_pending>
+                </entities>
+            </peppermint_salesrule_resource>
+        </models>
+        <events>
+            <adminhtml_promo_quote_edit_tab_coupons_form_prepare_form>
+                <observers>
+                    <peppermint_salesrule_coupon_form>
+                        <type>singleton</type>
+                        <class>peppermint_salesrule/observer</class>
+                        <method>updateCouponFormWithAcl</method>
+                    </peppermint_salesrule_coupon_form>
+                </observers>
+            </adminhtml_promo_quote_edit_tab_coupons_form_prepare_form>
+        </events>
+        <resources>
+            <peppermint_salesrule_setup>
+                <setup>
+                    <module>Peppermint_SalesRule</module>
+                </setup>
+            </peppermint_salesrule_setup>
+        </resources>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <peppermint_salesrule before="Mage_Adminhtml">Peppermint_SalesRule_Adminhtml</peppermint_salesrule>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>

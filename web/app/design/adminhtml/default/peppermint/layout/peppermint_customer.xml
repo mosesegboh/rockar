@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Customer
+ * @author    Moses Egboh <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<layout>
+    <adminhtml_customersgrid_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="peppermint_customer/adminhtml_customer_grid" name="customers.grid"/>
+        </block>
+    </adminhtml_customersgrid_grid>
+    <default>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/order_cap.css</stylesheet></action>
+        </reference>
+    </default>
+</layout>

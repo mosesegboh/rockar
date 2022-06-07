@@ -1,0 +1,26 @@
+<?php
+/**
+ * @category  design
+ * @package   rockar_mini
+ * @author    Lika Sikharulia <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar Ltd (http://rockar.com)
+ */
+?>
+<?php
+/**
+ * @var $this Peppermint_Gcdm_Block_Popup
+ */
+?>
+
+<?php if ($this->isShowMissingDetailsPopup() && !$this->isShowPolicyPopup()): ?>
+    <?php $details = $this->getCustomerDetails(); ?>
+    <div class-name="account-missing-popup">
+        <app-account-missing-details-popup :show='true'
+            surname="<?php echo htmlentities($details['surname'] ?? ''); ?>"
+            given-name="<?php echo htmlentities($details['givenName'] ?? ''); ?>"
+            salutation="<?php echo htmlentities($details['salutation'] ?? ''); ?>"
+            submit-url="<?php echo Mage::getUrl('gcdm/popup/submitMissingDetails', ['_secure' => true]); ?>"
+        >
+        </app-account-missing-details-popup>
+    </div>
+<?php endif; ?>

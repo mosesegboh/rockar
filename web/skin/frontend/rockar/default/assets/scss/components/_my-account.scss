@@ -1,0 +1,112 @@
+.dashboard {
+    .welcome-msg {
+        .col-5 {
+            text-align: right;
+
+            span {
+                font-size: $f-size;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.my-account {
+    .my-account-header {
+        margin: 0 0 20px;
+    }
+
+    .my-account-footer {
+        margin: 20px 0 0;
+    }
+
+    .my-account-subheading,
+    .my-account-heading {
+        display: inline-block;
+        vertical-align: bottom;
+        margin-bottom: 0;
+        line-height: 1;
+    }
+
+    .my-account-subheading {
+        font-size: $f-size-s;
+        margin-left: 1em;
+        color: $my-account-subheading-color;
+
+        @include media($small-screen-down) {
+            margin: .5em 0;
+        }
+    }
+
+    .car-extras {
+        .options-item {
+            list-style: disc inside none;
+            font-weight: $fw-light;
+            padding: 0;
+            font-size: $f-size-l;
+            color: $my-account-car-extras-color;
+        }
+        .car-extra-group {
+            margin-bottom: 0.5em;
+
+            .block-title {
+                margin-bottom: 0.5em;
+            }
+
+            .car-extras-list {
+                font-size: 0.9em;
+                padding-left: 1em;
+            }
+        }
+    }
+
+    .block-title {
+        font-family: $secondary-font-family;
+        font-weight: $my-account-block-title-fw;
+        text-transform: uppercase;
+        margin-bottom: 0.5em;
+    }
+
+    .car-cover {
+        @include media($medium-screen-up) {
+            padding-right: 0.25em;
+        }
+    }
+
+    .car-plate {
+        background: $my-account-car-plate-background;
+        padding: 0.725em;
+        margin-bottom: 0.5em;
+        text-align: center;
+        color: $my-account-car-plate-color;
+        font-family: $secondary-font-family;
+        font-weight: $fw-bold;
+        text-transform: uppercase;
+        font-size: $f-size-xxxl;
+        width: 100%;
+        @include word-wrap();
+    }
+
+    .car-extras {
+        float: left;
+        clear: both;
+
+        .accordion-group {
+            padding-left: 20px;
+
+            .extras-price {
+                float: right;
+            }
+        }
+    }
+
+}
+
+.accordion {
+    .accordion-content {
+        @include media($small-screen-down) {
+            padding: 1em;
+        }
+    }
+}

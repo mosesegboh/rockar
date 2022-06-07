@@ -1,0 +1,47 @@
+.cosy-view {
+    > .carousel-wrapper {
+        .slick-arrow {
+            &.slick-disabled {
+                display: none !important; // Overwrite slick inline styling
+            }
+        }
+    }
+
+    .slick-next,
+    .slick-prev {
+        @include media($dsp2-medium-screen-up) {
+            background-color: transparentize($c-grey-9, .8);
+            height: 40px;
+            width: 40px;
+            border-radius: 25px;
+        }
+
+        &::before {
+            @include media($dsp2-medium-screen-up) {
+                background-image: url('../images/svg/icon-arrow-slider.svg');
+                height: 15px;
+                width: 20px;
+                right: 10px;
+            }
+        }
+    }
+
+    .slick-prev {
+        @include media($dsp2-medium-screen-up) {
+            left: 15px;
+        }
+
+        &::before {
+            @include media($dsp2-medium-screen-up) {
+                background-image: url('../images/svg/icon-arrow-left-slider.svg');
+                left: 10px;
+            }
+        }
+    }
+
+    .slick-next {
+        @include media($dsp2-medium-screen-up) {
+            right: 15px;
+        }
+    }
+}

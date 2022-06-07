@@ -1,0 +1,33 @@
+<?php
+/**
+  * @category  BMW
+  * @package   BMW\Checkout
+  * @author    Brandon Ho <brandon.ho@partner.bmw.co.za>
+ */
+/**
+ * @var $this Rockar_Checkout_Block_Checkout_Steps_Delivery
+ */
+?>
+<app-checkout-accordion title="<?php echo $this->__('Collection'); ?>" type="right-down" class-name="accordion-light" step-code="<?php echo Rockar_Checkout_Helper_Data::DELIVERY_STEP_CODE; ?>">
+    <li>
+        <div class="accordion-content">
+            <app-checkout-delivery
+                save-url="<?php echo $this->getSaveDeliveryAction() ?>"
+                active-delivery="<?php echo $this->getActiveDelivery() ?>"
+                delivery-price="<?php echo $this->getDeliveryPrice(); ?>"
+                :delivery-address='<?php echo $this->getAddressJson(); ?>'
+                delivery-info-block-content='<?php echo Mage::helper('rockar_all')->jsonEncode($this->getChildHtml('checkout_delivery_step_home_delivery')) ?>'
+                collection-info-block-content='<?php echo Mage::helper('rockar_all')->jsonEncode($this->getChildHtml('checkout_delivery_step_free_collection')) ?>'
+                :home-delivery-countries='<?php echo Mage::helper('rockar_checkout')->getHomeDeliveryCountries(); ?>'
+                delivery-range="<?php echo $this->getDeliveryRange(); ?>"
+                lead-time="<?php echo $this->getDeliveryTime(); ?>"
+                delivery-out-of-range-content='<?php echo Mage::helper('rockar_all')->jsonEncode($this->getChildHtml('checkout_delivery_step_delivery_range_notification')) ?>'
+                :stores='<?php echo $this->getStoresJson(); ?>'
+                :carriers='<?php echo $this->getCarrierCodesJson(); ?>'
+                map-api-key='<?php echo Mage::helper('rockar_all')->getGoogleMapsApiKey(); ?>'
+                vehicle-brand-name='BMW'
+                :show-dealers-in-list='<?php echo (int) Mage::getStoreConfig('rockar_localstores/rockar_general/show_dealer_amount'); ?>'
+            ></app-checkout-delivery>
+        </div>
+    </li>
+</app-checkout-accordion>

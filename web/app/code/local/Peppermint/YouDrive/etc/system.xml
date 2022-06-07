@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <rockar_youdrive translate="label">
+            <groups>
+                <youdrive_general translate="label">
+                    <fields>
+                        <test_drive_title translate="label">
+                            <label>Test Drive Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </test_drive_title>
+                        <email_change_info translate="label">
+                            <label>Email Change Contact Info</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </email_change_info>
+                    </fields>
+                </youdrive_general>
+            </groups>
+        </rockar_youdrive>
+        <trans_email>
+            <groups>
+                <ident_youdrive_request translate="label">
+                    <label>YouDrive Request</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>90</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <name translate="label">
+                            <label>Sender Name</label>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </name>
+                        <email translate="label">
+                            <label>Sender Email</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-email</validate>
+                            <backend_model>adminhtml/system_config_backend_email_address</backend_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </email>
+                    </fields>
+                </ident_youdrive_request>
+            </groups>
+        </trans_email>
+        <sales_email translate="label">
+            <groups>
+                <youdrive_booking translate="label">
+                    <fields>
+                        <send_copy_to_dealer translate="label">
+                            <label>Send Copy to Dealer (Bcc)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </send_copy_to_dealer>
+                    </fields>
+                </youdrive_booking>
+                <youdrive_request translate="label">
+                    <label>You Drive Request</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>600</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <identity translate="label">
+                            <label>Sender</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_identity</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </identity>
+                        <copy_to translate="label">
+                            <label>Send Email Copy To</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Comma-separated.</comment>
+                        </copy_to>
+                        <copy_method translate="label">
+                            <label>Send Email Copy Method</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_method</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </copy_method>
+                        <confirmation_template translate="label">
+                            <label>You Drive Request Confirmation Template</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </confirmation_template>
+                        <send_copy_to_dealer translate="label">
+                            <label>Send Copy to Dealer (Bcc)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </send_copy_to_dealer>
+                    </fields>
+                </youdrive_request>
+                <youdrive_notification translate="label">
+                    <label>You Drive Cancellation</label>
+                    <fields>
+                        <complete_template translate="label">
+                            <label>You Drive - Thank You template</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </complete_template>
+                        <reminder_template translate="label">
+                            <label>You Drive - Reminder template</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </reminder_template>
+                        <missed_template translate="label">
+                            <label>You Drive - We are sorry you didn't make it template</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </missed_template>
+                    </fields>
+                </youdrive_notification>
+            </groups>
+        </sales_email>
+    </sections>
+</config>

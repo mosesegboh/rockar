@@ -1,0 +1,326 @@
+.choose_vehicle {
+    background-color: $white;
+    border: 1px solid $grey-2;
+    padding: 10px 28px 23px 30px;
+    margin-bottom: 13px;
+
+    @include media($large-screen-up) {
+        padding: 14px 10px 10px 16px;
+
+        .choose-vehicle-head {
+            display: inline-block;
+            width: 40%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .choose-vehicle-info {
+            display: inline-block;
+            width: 59%;
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    &.active {
+        border: 2px solid $grey-3;
+    }
+
+    .vehicle-options-wrapper {
+        @include media($large-screen-up) {
+            padding-right: 55px;
+        }
+    }
+
+    .carousel-vertical-image-wrapper {
+        img {
+            margin: auto;
+        }
+    }
+
+    .slick-slider {
+        @include media($large-screen-up) {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.choose-vehicle-prices {
+    padding: 0 17px 0 27px;
+
+    @include media($medium-screen-down) {
+        padding: 0 20px 0 26px;
+    }
+}
+
+.finance-payments {
+    @include display(flex);
+    @include flex-direction(row);
+    margin: auto;
+
+    .payment {
+        @include flex(1);
+        margin-right: 7px;
+        padding-right: 7px;
+
+        &:not(:last-child) {
+            border-right: 1px solid $finance-quote-border-color;
+        }
+    }
+
+    .payment-amount {
+        color: $black;
+        font: {
+            size: $bmw-h5;
+            weight: $fw-bold;
+            family: $finance-quote-payment-amount-font;
+        }
+    }
+
+    .payment-label {
+        text-transform: none;
+        font-size: 12px;
+        letter-spacing: 0px;
+    }
+}
+
+.choose-vehicle-head {
+    @include media($large-screen-up) {
+        width: 40%;
+        padding-right: 23px;
+    }
+}
+
+.choose-vehicle-bottom {
+    font-weight: $fw-bold;
+
+    .h-common {
+        text-align: center;
+        border-bottom: 1px solid $grey-2;
+        margin-bottom: 11px;
+        padding-bottom: 9px;
+        margin-top: 10px;
+        font: {
+            weight: $fw-bold;
+            size: $finance-quote-lead-time-font-size;
+            family: $finance-quote-lead-time-font;
+        }
+
+        @include media($large-screen-up) {
+            border-bottom: 0;
+            margin-top: 13px;
+        }
+    }
+}
+
+.carousel-wrapper {
+    .slick-dots {
+        bottom: .5em;
+
+        li {
+            margin: 0;
+
+            button {
+                &::before {
+                    color: $white;
+                    font-size: $f-size-xxxxs;
+                    opacity: 1;
+                }
+            }
+
+            &.slick-active {
+                button {
+                    &::before {
+                        font-size: $f-size-5xs;
+                    }
+                }
+            }
+        }
+    }
+
+    .slider-arrow {
+        @include size(7px);
+        top: 50%;
+        background: none;
+        border: {
+            top: 2px solid $white;
+            right: 2px solid $white;
+        }
+        z-index: 1;
+        position: absolute;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &.slider-next {
+            right: 2rem;
+            transform: rotate(45deg);
+        }
+
+        &.slider-prev {
+            left: 2rem;
+            transform: rotate(225deg);
+        }
+    }
+}
+
+.share-actions {
+    display: none;
+
+    @include media($large-screen-up) {
+        display: block;
+        width: 20%;
+    }
+}
+
+.choose-vehicle-info {
+    .base-model {
+        @include display(flex);
+        @include flex-direction(row);
+        @include justify-content(space-between);
+        margin-bottom: 30px;
+
+        @include media($large-screen-up) {
+            margin-bottom: 0;
+        }
+
+        .model-info {
+            @include display(flex);
+            margin: auto;
+
+            @include media($large-screen-up) {
+                margin: 0;
+            }
+        }
+
+        .h-common,
+        .vista-order-number {
+            font-size: $bmw-h5;
+            letter-spacing: 0px;
+        }
+
+        .h-common {
+            font-weight: $fw-black;
+            margin-right: 10px;
+        }
+
+        .share-button {
+            @include media($large-screen-up) {
+                margin-top: -10px;
+            }
+
+            .button-empty-light {
+                background: none;
+                border: 0;
+                font-size: $f-size-5xs;
+                height: 8px;
+                color: $black;
+                font-weight: $fw-black;
+                letter-spacing: 0px;
+                padding: 33px 0 0;
+                position: relative;
+
+                &::before {
+                    @include pseudo();
+                    @include sprite($sprite-share-button);
+                    top: 0;
+                    left: 16px;
+                }
+            }
+        }
+    }
+
+    .vista-order-number {
+        font-weight: $fw-light;
+    }
+
+    .vehicle-options-wrap {
+        height: 150px;
+        overflow-y: scroll;
+        position: relative;
+        padding-right: em(30);
+
+        @include media($large-screen-up) {
+            height: 80px;
+            padding-right: 1em;
+            margin-right: 3em;
+        }
+
+        table,
+        th,
+        td {
+            font-size: 12px;
+            letter-spacing: 0px;
+            line-height: 15px;
+        }
+
+        .choose-vehicle-list {
+            text-align: right;
+        }
+
+        thead {
+            th {
+                font-weight: $fw-black;
+                text-transform: none;
+            }
+        }
+    }
+}
+
+.choose-vehicle-actions {
+    text-align: center;
+    margin-top: 15px;
+
+    @include media($large-screen-up) {
+        @include display(flex);
+    }
+
+    button {
+        font-weight: $fw-bold;
+        font-size: $bmw-button;
+        width: 164px;
+    }
+
+    .features-button {
+        display: none;
+
+        @include media($large-screen-up) {
+            display: block;
+            margin: 0;
+        }
+    }
+
+    .checkout-button {
+        font-size: $bmw-button;
+        font-weight: $fw-black;
+
+        @include media($large-screen-up) {
+            margin: 0;
+            margin-left: 10px;
+        }
+    }
+}
+
+.choose-vehicle-options-subtotal {
+    @include display(flex);
+    @include justify-content(space-between);
+    font-size: $bmw-h5;
+    border-top: 1px solid $grey-2;
+    margin-top: 10px;
+    padding-top: 15px;
+    padding-right: 4.6em;
+
+    @include media($large-screen-up) {
+        border-top: 0;
+        padding-top: 0;
+        margin-top: 25px;
+        padding-right: 13.5em;
+    }
+
+    .h-common,
+    .subtotal-price {
+        font-size: $bmw-button;
+        font-weight: $fw-bold;
+    }
+}

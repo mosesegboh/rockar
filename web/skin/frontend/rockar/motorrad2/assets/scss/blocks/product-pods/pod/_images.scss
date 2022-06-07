@@ -1,0 +1,14 @@
+.carousel {
+    &.exterior {
+        background-image: none;
+
+        .images-content {
+            width: 100%;
+            transform: translate(-2%, -10%);
+
+            @include media($medium-screen-down) {
+                transform: translate(-2%, -15%);
+            }
+        }
+    }
+}

@@ -1,0 +1,35 @@
+<?php
+/**
+ * @category  MINI
+ * @package   MINI\Checkout
+ * @author    Brandon Ho <brandon.ho@partner.bmw.co.za>
+ *
+ * @var $this Rockar_Checkout_Block_Checkout_Steps_Login
+ */
+?>
+<app-checkout-accordion title="<?php echo $this->__('Login/Register'); ?>" :open="true" type="right-down" class-name="accordion-light" step-code="<?php echo Rockar_Checkout_Helper_Data::LOGIN_STEP_CODE; ?>">
+    <li>
+        <div class="accordion-content">
+            <?php echo $this->getMessagesBlock()->toHtml() ?>
+            <div class="section customer-account-login">
+                <div class="row">
+                    <div class="col-12 login-wrapper">
+                        <div class="col-6 col-md-12">
+                            <?php echo $this->getChildHtml('login') ?>
+                        </div>
+                        <div class="col-6 col-md-12">
+                            <?php echo $this->getChildHtml('register') ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</app-checkout-accordion>
+<?php foreach ($this->getFakeStepsInfo() as $title): ?>
+<ul class="accordion type-right-down accordion-light disabled">
+    <li>
+        <a href="#" class="js-accordion-trigger"><?php echo $title ?></a>
+    </li>
+</ul>
+<?php endforeach; ?>

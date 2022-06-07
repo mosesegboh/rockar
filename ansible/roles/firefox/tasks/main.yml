@@ -1,0 +1,13 @@
+---
+  - name: Install Mozilla Firefox on Mac
+    homebrew_cask:
+      name: firefox
+      state: present
+      accept_external_apps: yes
+    when: ansible_os_family == 'Darwin'
+
+  - name: Install Mozilla Firefox on Windows
+    win_chocolatey:
+      name: firefox
+      state: present
+    when: ansible_os_family == 'Windows'

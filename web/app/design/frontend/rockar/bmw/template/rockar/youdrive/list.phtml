@@ -1,0 +1,47 @@
+<?php
+/**
+ * @category  design
+ * @package   peppermint_bmw
+ * @author    Taras Kapushchak <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+?>
+<?php
+/**
+ * @var $this Rockar_YouDrive_Block_List
+ */
+?>
+<?php
+    $_collection = $this->getYoudriveProducts();
+?>
+
+<?php echo $this->getChildHtml('logged_out_overlay'); ?>
+
+<app-you-drive
+    map-api-key='<?php echo Mage::helper('rockar_all')->getGoogleMapsApiKey(); ?>'
+    :youdrive-cars='<?php echo $this->collectJsonModels($_collection); ?>'
+    :driving-license-types='<?php echo $this->getDrivingLicenseTypesJson(); ?>'
+    :prefixes='<?php echo Mage::helper('rockar_checkout')->getPrefixOptionsJson(); ?>'
+    :initial-slide='<?php echo $this->getInitialSlideIndex(); ?>'
+    :customer='<?php echo $this->getCustomerData(); ?>'
+    :selected-model-data='<?php echo $this->getSelectedModelData(); ?>'
+    :models='<?php echo $this->getModels(); ?>'
+    form-key='<?php echo Mage::getSingleton('core/session')->getFormKey(); ?>'
+    :is-rebooking='<?php echo $this->getIsRebooking() ? 'true' : 'false'; ?>'
+    gdpr-disclaimer="<?php echo htmlspecialchars($this->getChildHtml('youdrive_your_details_statement')); ?>"
+    description-block="<?php echo htmlspecialchars($this->getChildHtml('youdrive_description')); ?>"
+    personal-details-block="<?php echo $this->getPersonalDetailsStatementBlock(); ?>"
+    preselect-step='<?php echo $this->getStepFromUrl(); ?>'
+    :options='<?php echo $this->getYouDriveOptions(); ?>'
+    howitworks-block="<?php echo $this->getHowItWorksBlock(); ?>"
+    tncs-block="<?php echo $this->getTermsBlock(); ?>"
+    getintouch-block="<?php echo $this->getInTouchBlock(); ?>"
+    bookanother-block="<?php echo $this->getBookAnotherBlock(); ?>"
+    next-step-statement-block="<?php echo $this->getNextStepStatementBlock(); ?>"
+    v-ref:you-drive>
+    <div slot="youdrive-online-booking-disclaimer"><?php echo $this->getOnlineBookingDisclaimerBlock(); ?></div>
+    <div slot="youdrive-login-form"><?php echo $this->getChildHtml('login'); ?></div>
+    <div slot="youdrive-register-form"><?php echo $this->getChildHtml('register'); ?></div>
+    <div slot="global-messages"><?php echo $this->getChildHtml('global_messages'); ?></div>
+    <div slot="messages"><?php echo $this->getChildHtml('messages'); ?></div>
+</app-you-drive>

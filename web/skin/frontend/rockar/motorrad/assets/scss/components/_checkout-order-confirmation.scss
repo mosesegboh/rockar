@@ -1,0 +1,49 @@
+.order-confirmation {
+    text-align: left;
+
+    @include media($medium-screen-up) {
+        text-align: left;
+    }
+
+    .row {
+        div {
+            &:last-child {
+                @include media($medium-screen-up) {
+                    transform: none;
+                    left: 0;
+                    top: 0;
+                    position: inherit;
+                }
+            }
+        }
+    }
+
+    p.order-confirm-subtitle {
+        color: $motorrad-text-color;
+        font-size: $f-size-l;
+        font-family: $motorrad;
+    }
+
+    .order-confirmation-body {
+        p {
+            font-size: $f-size-xl;
+            font-weight: $motorrad-fw-normal;
+        }
+
+        a:not(.button) {
+            font-weight: $motorrad-fw-bold;
+        }
+
+        .button {
+            @include media($small-screen-down) {
+                padding: 1.15em 1.55em 0.5625em;
+            }
+
+            @include media($medium-screen-up) {
+                text-align: center;
+                padding: 1.15em 1.55em 0.5625em;
+
+            }
+        }
+    }
+}

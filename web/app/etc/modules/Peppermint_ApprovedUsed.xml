@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_ApprovedUsed
+ * @author    Krists Dadzitis <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_ApprovedUsed>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Rockar_ApprovedUsed/>
+            </depends>
+        </Peppermint_ApprovedUsed>
+    </modules>
+</config>

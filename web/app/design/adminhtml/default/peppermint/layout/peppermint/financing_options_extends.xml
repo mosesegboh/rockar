@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!-- /**
+ * @category  Peppermint
+ * @package   Peppermint_FinancingOptions
+ * @author    Sykander Gul <Sykander.Gul@rockar.com>
+ * @copyright Copyright (c) 2019 Rockar Ltd, (http://rockar.com)
+ */ -->
+
+<layout>
+    <adminhtml_financing_options_edit>
+        <update handle="editor"/>
+    </adminhtml_financing_options_edit>
+</layout>

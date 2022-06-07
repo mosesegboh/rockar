@@ -1,0 +1,8 @@
+&-steps-wrapper {
+  @include flex(1 1 0);
+  width: 100%;
+
+  .rockar-youdrive-index-index & {
+    margin-top: 30px;
+  }
+}

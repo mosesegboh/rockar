@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_ProductPods
+ * @author    Taras Kapushchak <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_ProductPods>
+            <version>0.1.0</version>
+        </Peppermint_ProductPods>
+    </modules>
+    <global>
+        <models>
+            <peppermint_product_pods>
+                <class>Peppermint_ProductPods_Model</class>
+            </peppermint_product_pods>
+            <rockar_product_pods>
+                <rewrite>
+                    <adminhtml_system_config_source_attributes>Peppermint_ProductPods_Model_Adminhtml_System_Config_Source_Attributes</adminhtml_system_config_source_attributes>
+                </rewrite>
+            </rockar_product_pods>
+            <rockar_product_pods_resource>
+                <rewrite>
+                    <item_collection>Peppermint_ProductPods_Model_Resource_Item_Collection</item_collection>
+                </rewrite>
+            </rockar_product_pods_resource>
+        </models>
+        <helpers>
+            <peppermint_product_pods>
+                <class>Peppermint_ProductPods_Helper</class>
+            </peppermint_product_pods>
+            <rockar_product_pods>
+                <rewrite>
+                    <data>Peppermint_ProductPods_Helper_Data</data>
+                </rewrite>
+            </rockar_product_pods>
+        </helpers>
+        <resources>
+            <peppermint_product_pods_setup>
+                <setup>
+                    <module>Peppermint_ProductPods</module>
+                </setup>
+            </peppermint_product_pods_setup>
+        </resources>
+        <blocks>
+            <peppermint_product_pods>
+                <class>Peppermint_ProductPods_Block</class>
+            </peppermint_product_pods>
+            <rockar_product_pods>
+                <rewrite>
+                    <adminhtml_items_edit_form>Peppermint_ProductPods_Block_Adminhtml_Items_Edit_Form</adminhtml_items_edit_form>
+                </rewrite>
+            </rockar_product_pods>
+        </blocks>
+    </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <rockar_product_pods>
+                    <file>rockar/productpods.xml</file>
+                </rockar_product_pods>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

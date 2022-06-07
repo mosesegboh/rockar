@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint_Customer
+ * @author       Mihai Chezan <mihai.chezan@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_Customer>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Rockar_Customer/>
+                <Rockar_Localstores/>
+            </depends>
+        </Peppermint_Customer>
+    </modules>
+</config>

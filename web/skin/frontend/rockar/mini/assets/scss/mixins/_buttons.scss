@@ -1,0 +1,17 @@
+@mixin confirmation-modal-btn {
+    background-color: $mini-green;
+    border: 1px solid $mini-green;
+
+    &:hover {
+        background-color: $white;
+        border: 1px solid $black;
+
+        span span {
+            color: $black;
+        }
+    }
+
+    span span {
+        color: $white;
+    }
+}

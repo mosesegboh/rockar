@@ -1,0 +1,142 @@
+html.popupActive {
+    overflow: hidden;
+}
+
+.popup {
+    @include position(fixed, 0 null null 0);
+    @include size(100%);
+    position: fixed;
+    outline: 0 !important;
+    -webkit-backface-visibility: hidden;
+    font-size: 0;
+    z-index: $popup-z-index;
+
+    &.confirmation-popup {
+        .popup-content {
+            height: auto;
+            min-height: inherit;
+
+            .content-wrapper div {
+                button.button-narrow {
+                    width: 100%;
+                    margin-bottom: 5px;
+
+                    @include media($large-screen-down) {
+                        padding: 1.45em 1.55em;
+                    }
+
+                    span {
+                        padding-left: 0;
+                        span {
+                            color: $white;
+                        }
+                    }
+
+                    &.button-empty-light span span {
+                        color: $popup-button-empty-color;
+                    }
+                }
+
+                p {
+                    color: $black;
+                    font-weight: normal;
+                    padding-top: 0;
+                    margin: 0 0 0.75em;
+                }
+            }
+        }
+    }
+
+    &.popup-hide {
+        display: none;
+    }
+
+    .popup-button-close {
+        @include sprite($sprite-close);
+        @include position(absolute, 20px 20px null null);
+        text-decoration: none;
+        text-align: center;
+        font-weight: $fw-normal;
+        line-height: 1;
+        float: right;
+        display: block;
+        cursor: pointer;
+        z-index: 100;
+    }
+
+    .popup-button-close2 {
+        @include position(absolute, 20px null null null);
+        padding-left: 20px;
+        cursor: pointer;
+
+        &:after {
+            @include sprite($sprite-nav-actions-back-light);
+            @include position(absolute, -2px null null -6px);
+            display: inline-block;
+        }
+    }
+
+    .popup-overlay {
+        @include position(fixed, 0 null null 0);
+        @include size(100%);
+        background: $popup-overlay-background;
+        opacity: 0.67;
+    }
+
+    .popup-loader {
+        @include position(absolute, 0 0 0 0);
+        background: url(../images/loader.gif) no-repeat center center;
+    }
+
+    .popup-container {
+        @include size(100%);
+        @include position(absolute, 0 null null 0);
+        overflow-y: auto;
+        overflow-x: hidden;
+        text-align: center;
+        padding: 0 16px;
+        box-sizing: border-box;
+
+        > div {
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 auto;
+            text-align: left;
+            width: 100%;
+        }
+
+        &:before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+        }
+    }
+
+    .popup-content {
+        background: $popup-background-color;
+        padding: 25px;
+        text-align: left;
+        margin: 40px auto;
+        min-height: 200px;
+        position: relative;
+        font-size: 16px;
+        box-sizing: border-box;
+        width: 100%;
+        line-height: $base-line-height;
+
+        @include media($large-screen-up) {
+            width: 50%;
+        }
+
+        @include media($large-screen-down) {
+            width: 100%;
+        }
+
+        .modal-header {
+            padding-right: 25px;
+            word-break: break-word;
+        }
+    }
+}

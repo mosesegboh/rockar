@@ -1,0 +1,355 @@
+.finance-quote-wrapper {
+    padding: 0 4px;
+
+    @include media($medium-screen-down) {
+        padding: 0;
+    }
+
+    .popup {
+        letter-spacing: initial;
+    }
+
+    .finance-quote-sticky {
+        position: relative;
+        top: -10px;
+    }
+
+    .finance-delivery {
+        margin: 0;
+
+        .lead-time {
+            text-transform: uppercase;
+            margin: 6px 6px 0;
+            text-align: center;
+            letter-spacing: $base-letter-spacing;
+            font: {
+                size: $motorrad-finance-quote-lead-time-font-size;
+                weight: $motorrad-fw-normal;
+                family: $motorrad;
+                style: italic;
+            }
+
+            @include media($large-screen-up) {
+                margin: 0;
+            }
+        }
+    }
+
+    .payment-amount {
+        font: {
+            size: $f-size-xl;
+            weight: normal;
+            family: $finance-quote-payment-amount-font;
+        }
+    }
+
+    .payment-label {
+        text-transform: uppercase;
+
+        @include media($medium-screen-down) {
+            font-size: $f-size-xxxxs;
+            letter-spacing: $base-letter-spacing;
+        }
+    }
+
+    &:not(.mobile-only) {
+        @include media($large-screen-up) {
+            display: block;
+        }
+
+        .fq-button-wrapper {
+            &:first-of-type {
+                @include media($large-screen-up) {
+                    max-width: 241px;
+                }
+            }
+        }
+    }
+
+    &.mobile-only {
+        display: none;
+        margin: {
+            top: 15px;
+            bottom: 15px;
+        };
+
+        @include media($medium-screen-down) {
+            display: block;
+        }
+
+        .payment-amount {
+            color: $motorrad-text-color;
+        }
+
+        .finance-quote-actions-wrapper {
+            margin-top: 6px;
+            border-top: 1px solid $finance-quote-border-color;
+
+            button {
+                border: 1px solid $finance-quote-border-color;
+                color: $motorrad-text-color;
+                margin: 12px 0;
+                font-weight: $fw-bold;
+            }
+        }
+
+        .finance-payments {
+            @include display(flex);
+            @include justify-content(center);
+            padding: 0 13px;
+
+            @include media($medium-screen-up) {
+                width: 35%;
+                margin: auto;
+            }
+
+            .payment {
+                &:not(:last-child) {
+                    padding-right: 13px;
+                    border-right: 1px solid $finance-quote-border-color;
+                }
+
+                &:not(:first-child) {
+                    padding-left: 13px;
+                }
+            }
+        }
+    }
+
+    .finance-overlay {
+        td {
+            font-size: $f-size;
+        }
+    }
+}
+
+.finance-quote-configurator {
+    border: 1px solid $finance-quote-border-color;
+    width: auto;
+    font-size: $finance-quote-font-size;
+    color: $motorrad-text-color;
+    padding: 0 4px;
+
+    @include media($large-screen-down) {
+        width: 100%;
+        padding: 0 11px;
+    }
+
+    .finance-quote-header {
+        @include display(flex);
+    }
+
+    .fq-button-wrapper {
+        display: none;
+
+        @include media($medium-screen-down) {
+            display: block;
+        }
+
+        @include media($large-screen-down) {
+            width: 50%;
+        }
+    }
+
+    .fq-heading {
+        font-weight: $motorrad-fw-normal;
+        letter-spacing: $base-letter-spacing;
+        font-size: $f-size-xxxs;
+        text-transform: none;
+
+        @include media($medium-screen-down) {
+            width: 100%;
+        }
+
+        @include media($large-screen-up) {
+            margin: 0px;
+        }
+    }
+
+    .variable-title {
+        text-transform: none;
+        font-size: 10px;
+    }
+
+    .car-data-label {
+        border-bottom: 1px solid $finance-quote-border-color;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        font-weight: $motorrad-fw-normal;
+        letter-spacing: $base-letter-spacing;
+    }
+
+    .car-road-value {
+        text-transform: none;
+        letter-spacing: normal;
+    }
+
+    td {
+        font-size: $f-size-xxxs;
+    }
+
+    .fq-edit {
+        text-transform: lowercase;
+        font-weight: $fw-black;
+        font-size: $f-size-xxxxs;
+
+        .fq-edit-delimitor {
+            padding: 0 em(2.5);
+        }
+    }
+
+    .car-data-value {
+        @include display(flex);
+        @include justify-content(space-between);
+        font-weight: $fw-bold;
+        font-size: 10px;
+        letter-spacing: normal;
+
+        .car-data-price {
+            font-style: normal;
+        }
+    }
+
+    .minor-car-data {
+        @include display(flex);
+        @include justify-content(space-between);
+        font-weight: $motorrad-fw-normal;
+        font-size: $finance-quote-font-size;
+        letter-spacing: $base-letter-spacing;
+
+        .right {
+            font-weight: $motorrad-fw-normal;
+            font-style: italic;
+        }
+    }
+
+    .finance-quote-scroll {
+        position: relative;
+
+        .table-right {
+            font-weight: $fw-bold;
+            text-align: right;
+            font-style: normal;
+            font-size: 10px;
+        }
+
+        td {
+            letter-spacing: normal;
+        }
+
+        a {
+            transition: none;
+            margin-right:5px;
+        }
+    }
+
+    .overview {
+        .finance-quote-content {
+            border-top: 1px solid $finance-quote-border-color;
+            border-bottom: 1px solid $finance-quote-border-color;
+            padding-top: 10px;
+            letter-spacing: .175em;
+            font-size: $f-size-xxxxs;
+
+            @include media($large-screen-down) {
+                border-bottom: 0;
+            }
+
+            tr {
+                &:not(:last-child) {
+                    border-bottom: 1px solid $grey-1;
+                }
+            }
+        }
+    }
+
+    .group-block {
+        .collapse,
+        .expand {
+            margin-left: 10px;
+        }
+    }
+
+    .group-title {
+        font-weight: normal;
+        letter-spacing: normal;
+        text-transform: none;
+    }
+
+    .finance-payments {
+        @include display(flex);
+
+        .payment {
+            @include flex(1);
+            padding: 0 10px;
+
+            &:not(:last-child) {
+                border-right: 1px solid $finance-quote-border-color;
+            }
+
+            .payment-label {
+                font-size: $f-size-5xs;
+            }
+
+            .payment-amount {
+                font-size: 20px;
+                color: $motorrad-text-color;
+                font-style: normal;
+            }
+        }
+    }
+
+    .finance-quote-buttons {
+        @include media($small-screen-down) {
+            display: none;
+            padding-top: 0;
+        }
+
+        .btn-checkout {
+            font-size: $f-size-xxxs;
+            font-weight: normal;
+            height: 3.2em;
+            padding: $button-narrow-height-padding $button-width-padding;
+            background: $motorrad-blue;
+            border: 0;
+            letter-spacing: normal;
+
+            &:hover {
+                background-color: $motorrad-hover-blue;
+            }
+        }
+    }
+}
+
+.link-edit-finance {
+    text-transform: uppercase;
+    font-size: $f-size-5xs;
+    font-weight: $fw-black;
+    letter-spacing: 1px;
+    max-width: 62px;
+
+    @include media($large-screen-down) {
+        max-width: 80px;
+    }
+
+    &.bottom {
+        @include media($large-screen-down) {
+            @include display(flex);
+            @include flex-direction(column);
+            @include align-items(center);
+            float: right;
+        }
+
+        @include media($large-screen-up) {
+            display: none;
+        }
+    }
+
+    .finance-calculator-icon {
+        @include size(25px 29px);
+        display: block;
+        background-image: url('../images/svg/finance-calculator.svg');
+        margin: 0 auto 3px;
+    }
+}

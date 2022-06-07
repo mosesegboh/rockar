@@ -1,0 +1,331 @@
+.accordion-group {
+    .accordion {
+        margin: 0;
+        border-bottom: 0;
+
+        &.accordion-blank {
+            border-bottom: 1px solid $accordion-last-child-border-color;
+        }
+
+        &:last-child {
+            border-bottom: 1px solid $accordion-last-child-border-color;
+        }
+
+        .js-accordion-trigger {
+            font-size: $f-size-s;
+            padding: 18px 20% 18px 20px;
+        }
+    }
+}
+
+.accordion {
+    background-color: $accordion-menu-background;
+    font-family: $helper-font-family;
+    position: relative;
+
+    &.disabled {
+        opacity: .3;
+        cursor: not-allowed;
+    }
+
+    li {
+        > a {
+            color: $accordion-menu-color;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            position: relative;
+            padding-right: 20px;
+            padding-left: 25px;
+
+            @include media($small-screen-down) {
+                font-size: $accordion-a-font-size;
+            }
+
+            &:after {
+                @include position(absolute, 25% 5% null null);
+            }
+        }
+
+        &:focus,
+        &:hover {
+            background-color: $accordion-menu-hover;
+        }
+    }
+
+    ul.submenu {
+        li,
+        li:first-child,
+        li:hover {
+            box-shadow: none;
+            border-bottom: 0;
+            border-top: 0;
+            background-color: transparent;
+        }
+
+        > li,
+        > li:first-child {
+            background-color: $accordion-menu-sub-background;
+
+            &:focus,
+            &:hover {
+                background-color: $accordion-menu-sub-hover;
+            }
+        }
+    }
+
+    .submenu {
+        a:after {
+            content: "";
+        }
+    }
+
+    /* Right/Down expander type */
+    &.type-right-down {
+        > li {
+            > a {
+                &:after {
+                    @include size(8px);
+                    content: '';
+                    display: block;
+                    border-right: 1px solid $white;
+                    border-top: 1px solid $white;
+                    transform: rotate(45deg);
+                    transform-origin: 50% 50%;
+                    background-image: none;
+                    margin-top: 0;
+                    right: 20px;
+                    top: 20px;
+                }
+            }
+
+            &.is-expanded {
+                > a {
+                    &:after {
+                        transform: rotate(135deg);
+                    }
+                }
+            }
+        }
+    }
+
+    &.type-left-down {
+        > li {
+            > a {
+                &::after {
+                    display: none;
+                }
+
+                &::before {
+                    content: '';
+                    display: block;
+                    float: left;
+                    border-right: 1px solid $black;
+                    border-top: 1px solid $black;
+                    transform: rotate(45deg);
+                    width: 8px;
+                    height: 8px;
+                    transform-origin: 50% 50%;
+                    background-image: none;
+                    margin-top: 0;
+                    position: relative;
+                    top: 23px;
+                }
+            }
+
+            &.is-expanded {
+                > a {
+                    &:before {
+                        transform: rotate(135deg);
+                    }
+                }
+            }
+        }
+    }
+
+    /* Edit/Close expander type */
+    &.type-edit-close {
+        .js-accordion-trigger {
+            @include media($small-screen-down) {
+                padding-right: 50px;
+            }
+        }
+
+        > li > a:before {
+            @include position(absolute, 13px 10px null null);
+            width: 112px;
+            height: 30px;
+            content: 'EDIT';
+            border: 1px solid $white;
+            text-align: center;
+            padding-right: 0.85em;
+            font-size: $f-size-s;
+            line-height: 30px;
+            @include media($small-screen-down) {
+                top: 10px;
+                width: 30px;
+                content: '';
+            }
+        }
+
+        > li > a:after {
+            @include sprite($sprite-pencil-icon-white);
+            content: "";
+            right: 42px;
+            top: 22px;
+            @include media($small-screen-down) {
+                top: 20px;
+                right: 20px;
+            }
+        }
+
+        .is-expanded {
+            display: block;
+            padding-bottom: 0;
+
+            > ul.submenu {
+                display: block;
+            }
+
+            > a:before {
+                content: "CLOSE";
+                @include media($small-screen-down) {
+                    content: '';
+                }
+            }
+
+            > a:after {
+                @include sprite($sprite-close-light-small);
+                right: 34px;
+                @include media($small-screen-down) {
+                    right: 20px;
+                }
+            }
+        }
+    }
+
+    /* Blank accordion with content */
+    &.accordion-blank {
+        background-color: transparent;
+        border: 0;
+
+        .is-expanded {
+            .js-accordion-trigger {
+                background: $accordion-blank-title-expanded-background;
+            }
+
+            ul.submenu {
+                display: block;
+            }
+        }
+
+        .js-accordion-trigger {
+            background: $accordion-blank-title-background;
+        }
+
+        li:hover {
+            background-color: transparent;
+        }
+
+        ul.submenu {
+            background-color: transparent;
+
+            &:hover {
+                background-color: transparent;
+            }
+
+            > li {
+                box-shadow: none;
+                border: 0;
+            }
+        }
+    }
+
+    /* Light accordion with content */
+    &.accordion-light {
+        background-color: transparent;
+        border: none;
+        margin-bottom: 1px;
+
+        &.scroll .accordionSlide-transition {
+            height: 200px;
+        }
+
+        .accordionSlide-transition {
+            margin-bottom: 10px;
+            box-sizing: border-box;
+
+            .gm-scrollbar.-vertical {
+                width: 10px;
+            }
+
+            .gm-scroll-view {
+                overflow-x: hidden;
+            }
+        }
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        li {
+            & > a.js-accordion-trigger {
+                padding: 18px 17px 15px 23px;
+                background-color: $accordion-blank-title-background;
+            }
+
+            &:hover {
+                background-color: transparent;
+
+                & > a.js-accordion-trigger {
+                    background-color: $accordion-blank-title-expanded-background;
+                }
+            }
+        }
+
+        .is-expanded {
+            a.js-accordion-trigger {
+                background-color: $accordion-blank-title-expanded-background;
+            }
+        }
+
+        ul.submenu {
+            > li {
+                background-color: transparent;
+                box-shadow: none;
+                border: none;
+            }
+        }
+
+        &.accordion-transparent {
+            li {
+                > a.js-accordion-trigger {
+                    color: $accordion-transparent-color;
+                    background: transparent;
+
+                    &::after {
+                        border-right: 1px solid $accordion-transparent-color;
+                        border-top: 1px solid $accordion-transparent-color;
+                    }
+                }
+
+                &:hover {
+                    > a.js-accordion-trigger {
+                        background: transparent;
+                    }
+                }
+
+                &.is-expanded {
+                    > a.js-accordion-trigger {
+                        background: transparent;
+                    }
+                }
+            }
+        }
+    }
+
+    .accordion-content {
+        position: relative;
+        padding: 1.5em;
+        background: $accordion-content-background;
+    }
+}

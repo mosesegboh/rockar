@@ -1,0 +1,90 @@
+&-step {
+    font-family: $mini-sans-serif-bold;
+
+    &::after {
+        border-top: {
+            color: $black;
+        }
+
+        @include media($small-screen-down) {
+            right: calc(50% + #{($ns-step-number-size-s-screen * 1.5) / 2});
+            width: calc(100% - #{$ns-step-number-size-s-screen * 1.5});
+            top: $ns-step-number-size-s-screen / 2;
+        }
+    }
+
+    &.current {
+        .number {
+            color: $white;
+            font-size: 40px;
+            background-color: $black;
+
+            @include media($small-screen-down) {
+                font-size: $f-size-xxxxl;
+                width: 36px;
+                height: 36px;
+                margin-top: 0;
+                padding-top: 0;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    &.current ~ .navigation-step,
+    &.checked {
+        .number {
+            background-color: $c-mini-blue;
+            border: 0;
+
+            &::before {
+                top: 17px;
+                width: 12px;
+                height: 26px;
+
+                @include media($small-screen-down) {
+                    top: 5px;
+                    border-width: 0 2px 2px 0;
+                    width: 7px;
+                    height: 12px;
+                }
+            }
+
+            @include media($small-screen-down) {
+                width: $ns-passed-step-number-size-s-screen;
+                height: $ns-passed-step-number-size-s-screen;
+            }
+        }
+    }
+
+    .number {
+        border-radius: 50%;
+        border: 1px solid $black;
+        height: 70px;
+        width: 70px;
+        padding-top: 20px;
+        margin-top: -20px;
+
+        @include media($small-screen-down) {
+            height: $ns-step-number-size-s-screen;
+            width: $ns-step-number-size-s-screen;
+            font-size: $ns-inactive-navigation-steps-font-size-s-screen;
+            line-height: $ns-step-number-size-s-screen;
+            padding-top: 0;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+    }
+
+    .description {
+        margin: 10px -2px 25px 10px;
+        font-size: $dsp2-f-size-xs;
+        text-transform: uppercase;
+        letter-spacing: .075em;
+
+        @include media($small-screen-down) {
+            margin: 2px 3px 0;
+            letter-spacing: $ns-description-letter-spacing-s-screen;
+            font-size: $f-size-5xs;
+        }
+    }
+}

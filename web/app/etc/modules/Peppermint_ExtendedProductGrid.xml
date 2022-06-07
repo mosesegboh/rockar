@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint_ExtendedProductGrid
+ * @author       Razvan Zofota <razvan.zofota@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_ExtendedProductGrid>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Rockar_ExtendedProductGrid />
+            </depends>
+        </Peppermint_ExtendedProductGrid>
+    </modules>
+</config>

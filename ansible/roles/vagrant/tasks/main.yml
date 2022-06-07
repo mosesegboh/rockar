@@ -1,0 +1,12 @@
+  - name: Install vagrant on mac
+    homebrew_cask:
+      name: vagrant
+      state: present
+      accept_external_apps: yes
+    when: ansible_os_family == 'Darwin'
+
+  - name: Install vagrant on Windows
+    win_chocolatey:
+      name: vagrant
+      state: present
+    when: ansible_os_family == 'Windows'

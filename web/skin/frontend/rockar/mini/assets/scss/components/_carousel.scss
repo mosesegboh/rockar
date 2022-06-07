@@ -1,0 +1,201 @@
+//
+// Carousel
+// --------------------------------------------------
+
+// Wrapper for the slide container and indicators
+.carousel {
+  position: relative;
+}
+
+.carousel-inner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  > .item {
+    display: none;
+    position: relative;
+    @include transition(.6s ease-in-out left);
+
+    // Account for jankitude on images
+    > img,
+    > a > img {
+      line-height: 1;
+      display: block;
+    }
+
+    // WebKit CSS3 transforms for supported devices
+    @media all and (transform-3d), (-webkit-transform-3d) {
+      @include transition-transform(0.6s ease-in-out);
+      @include backface-visibility(hidden);
+      @include perspective(1000px);
+
+      &.next,
+      &.active.right {
+        @include translate3d(100%, 0, 0);
+        left: 0;
+      }
+      &.prev,
+      &.active.left {
+        @include translate3d(-100%, 0, 0);
+        left: 0;
+      }
+      &.next.left,
+      &.prev.right,
+      &.active {
+        @include translate3d(0, 0, 0);
+        left: 0;
+      }
+    }
+  }
+
+  > .active,
+  > .next,
+  > .prev {
+    display: block;
+  }
+
+  > .active {
+    left: 0;
+  }
+
+  > .next,
+  > .prev {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  > .next {
+    left: 100%;
+  }
+  > .prev {
+    left: -100%;
+  }
+  > .next.left,
+  > .prev.right {
+    left: 0;
+  }
+
+  > .active.left {
+    left: -100%;
+  }
+  > .active.right {
+    left: 100%;
+  }
+
+}
+
+// Left/right controls for nav
+// ---------------------------
+
+.carousel-control {
+  @include position(absolute, 0 null 0 0);
+  width: $carousel-control-width;
+  @include opacity($carousel-control-opacity);
+  font-size: $carousel-control-font-size;
+  color: $carousel-control-color;
+  text-align: center;
+  text-shadow: $carousel-text-shadow;
+  background-color: rgba(0, 0, 0, 0); // Fix IE9 click-thru bug
+  cursor: pointer; 
+  // We can't have this transition here because WebKit cancels the carousel
+  // animation if you trip this while in the middle of another animation.
+
+  // Set gradients for backgrounds
+  &.left {
+    @include gradient-horizontal($start-color: rgba(0,0,0,.5), $end-color: rgba(0,0,0,.0001));
+    text-indent: -9999px;
+    &:after {
+      @include position(absolute, 50% null null 0);
+      content: '\2190';
+      width: 100%;
+      font-size: 50px;
+      text-indent: 0;
+      line-height: 0;
+    }
+  }
+  &.right {
+    left: auto;
+    right: 0;
+    text-indent: -9999px;
+    @include gradient-horizontal($start-color: rgba(0,0,0,.0001), $end-color: rgba(0,0,0,.5));
+    &:after {
+      @include position(absolute, 50% null null 0);
+      content: '\2192';
+      width: 100%;
+      font-size: 50px;
+      text-indent: 0;
+      line-height: 0;
+    }
+  }
+
+  // Hover/focus state
+  &:hover,
+  &:focus {
+    outline: 0;
+    color: $carousel-control-color;
+    text-decoration: none;
+    @include opacity(.9);
+  }
+
+}
+
+// Optional indicator pips
+//
+// Add an unordered list with the following class and add a list item for each
+// slide your carousel holds.
+
+.carousel-indicators {
+  @include position(absolute, null null 10px 50%);
+  z-index: 15;
+  width: 60%;
+  margin-left: -30%;
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
+
+  li {
+    @include size(10px);
+    display: inline-block;
+    margin: 1px;
+    text-indent: -999px;
+    border: 1px solid $carousel-indicator-border-color;
+    border-radius: 10px;
+    cursor: pointer;
+
+    // IE8-9 hack for event handling
+    //
+    // Internet Explorer 8-9 does not support clicks on elements without a set
+    // `background-color`. We cannot use `filter` since that's not viewed as a
+    // background color by the browser. Thus, a hack is needed.
+    // See https://developer.mozilla.org/en-US/docs/Web/Events/click#Internet_Explorer
+    //
+    // For IE8, we set solid black as it doesn't support `rgba()`. For IE9, we
+    // set alpha transparency for the best results possible.
+    background-color: #000 \9; // IE8
+    background-color: rgba(0,0,0,0); // IE9
+  }
+  .active {
+    margin: 0;
+    width:  12px;
+    height: 12px;
+    background-color: $carousel-indicator-active-bg;
+  }
+}
+
+// Optional captions
+// -----------------------------
+// Hidden by default for smaller viewports
+.carousel-caption {
+  @include position(absolute, null 15% 20px 15%);
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: $carousel-caption-color;
+  text-align: center;
+  text-shadow: $carousel-text-shadow;
+  & .btn {
+    text-shadow: none; // No shadow for button elements in carousel-caption
+  }
+}

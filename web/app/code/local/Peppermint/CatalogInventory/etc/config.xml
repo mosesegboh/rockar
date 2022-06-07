@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint_CatalogInventory
+ * @author       Dominic Sutton <dominic.sutton@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_CatalogInventory>
+            <version>0.1.0</version>
+        </Peppermint_CatalogInventory>
+    </modules>
+    <global>
+        <models>
+            <peppermint_cataloginventory>
+                <class>Peppermint_CatalogInventory_Model</class>
+            </peppermint_cataloginventory>
+            <cataloginventory>
+                <rewrite>
+                    <stock_status>Peppermint_CatalogInventory_Model_Stock_Status</stock_status>
+                </rewrite>
+            </cataloginventory>
+        </models>
+    </global>
+</config>

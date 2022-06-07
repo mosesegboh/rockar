@@ -1,0 +1,47 @@
+.gallery-pagination {
+    .gallery-pagination-circle {
+        @include size(17px);
+        display: inline-block;
+        border: 1px solid $pagination-gallery-color;
+        background: $white;
+        border-radius: 17px;
+        text-indent: -9999px;
+
+        &.active, &:hover {
+            background: $pagination-gallery-color;
+        }
+    }
+}
+
+.numbered-pagination {
+    .numbered-pagination-button {
+        display: inline-block;
+        vertical-align: top;
+        font-family: $primary-font-family;
+        font-weight: $fw-heavy;
+        font-size: 11px;
+        width: 29px;
+        height: 29px;
+        background: $pagination-numbered-bg-color;
+        color: $white;
+
+        &.prev {
+            text-indent: -9999px;
+            @include sprite($sprite-numbered-navigation-prev);
+        }
+
+        &.next {
+            text-indent: -9999px;
+            @include sprite($sprite-numbered-navigation-next);
+        }
+
+        &.page {
+            text-align: center;
+            line-height: 31px;
+        }
+
+        &.active, &:hover {
+            background-color: $pagination-numbered-active;
+        }
+    }
+}

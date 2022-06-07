@@ -1,0 +1,20 @@
+// Bourbon framework
+@import "../../framework/scss/framework";
+
+// Extended Mixins
+@import "../../assets/scss/mixin/extends";
+
+// Fonts
+@import "../../assets/scss/utils/fonts";
+
+// Sprites
+@import "../../assets/scss/utils/sprites";
+
+// Framework variables
+@import "../../assets/scss/extends/variables";
+
+// Email styles
+@import "../../assets/emails/global";
+@import "../../assets/emails/grid";
+@import "../../assets/emails/header";
+@import "../../assets/emails/footer";

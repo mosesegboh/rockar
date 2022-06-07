@@ -1,0 +1,25 @@
+<?php
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Sales
+ * @author    Sykander Gul <sykander.gul@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+/** @var Peppermint_Sales_Block_Catalog_Product_View_GetQuoteCta $this */
+?>
+
+<?php if($this->shouldShow()): ?>
+    <app-get-quote-cta
+        slot="<?php echo $this->getSlotName(); ?>"
+        product-id='<?php echo $this->getProductId(); ?>'
+        quote-name="<?php echo $this->getSalesQuoteName(); ?>"
+        get-quote-url="<?php echo $this->getQuoteUrl(); ?>"
+        my-account-url="<?php echo $this->myAccountUrl(); ?>"
+        continue-shopping-url="<?php echo $this->getContinueShoppingUrl(); ?>"
+        customer-login-url="<?php echo $this->getCustomerLoginUrl(); ?>"
+        customer-email="<?php echo $this->getCustomerEmail(); ?>"
+        <?php if($this->getShowContinueShoppingCta()) echo 'show-continue-shopping-cta'; ?>
+        <?php if($this->getCustomerIsLoggedIn()) echo 'customer-is-logged-in'; ?>
+        <?php if($this->getRedirectToContinueShopping()) echo 'redirect-to-continue-shopping'; ?>
+    ></app-get-quote-cta>
+<?php endif; ?>

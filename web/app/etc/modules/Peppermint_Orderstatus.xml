@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint_Orderstatus
+ * @author       Aleksejs Oboruns <techteam@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_Orderstatus>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Rockar_Orderstatus />
+            </depends>
+        </Peppermint_Orderstatus>
+    </modules>
+</config>

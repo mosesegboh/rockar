@@ -1,0 +1,28 @@
+.category-products {
+    &-list {
+        @import './product-pods/product-pod';
+
+        .product-pod {
+            .pod-specs-container {
+                .pod-specs {
+                    .pod-spec-item {
+                        max-width: calc(600px / 3);
+                        display: flex;
+                    }
+                }
+            }
+
+            .attributes-container {
+                .attributes {
+                    .information-attribute {
+                        .title {
+                            @include media($medium-screen-down) {
+                                font-size: $dsp2-f-size-xs;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

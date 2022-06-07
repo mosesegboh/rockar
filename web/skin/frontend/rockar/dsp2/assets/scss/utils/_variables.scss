@@ -1,0 +1,78 @@
+////////// Line height //////////
+$dsp2-line-standard: 1.5;
+$dsp2-line-16: 16px;
+$dsp2-line-21: 21px;
+$dsp2-line-25: 25px;
+$dsp2-line-30: 30px;
+$dsp2-line-39: 39px;
+$dsp2-line-46: 46px;
+$dsp2-line-60: 60px;
+
+////// Breakpoints //////
+$mobile-min-breakpoint: 320;
+$mobile-carousel-breakpoint: 430px;
+$mobile-max-breakpoint: 599;
+$tablet-min-breakpoint: $mobile-max-breakpoint + 1;
+$tablet-min-carousel-breakpoint: 630px;
+$tablet-max-finance-overlay-breakpoint: 750px;
+$tablet-max-carousel-breakpoint: 920px;
+$desktop-min-breakpoint: 1024;
+$desktop-carousel-breakpoint: 1200px;
+$desktop-px-breakpoint: 1500px;
+$tablet-max-breakpoint: $desktop-min-breakpoint - 1;
+$big-desktop-min-breakpoint: 1760;
+$desktop-max-breakpoint: $big-desktop-min-breakpoint - 1;
+$x-big-desktop-min-breakpoint: 1760;
+$xx-big-desktop-min-breakpoint: 1920;
+
+$small-screen-down: em($mobile-max-breakpoint); // 599
+$small-screen-up: em($mobile-min-breakpoint); // 320
+$small-screen-up-carousel: em($mobile-carousel-breakpoint); // 430
+$medium-screen-down: em($tablet-max-breakpoint); // 1023
+$medium-screen-up: em($tablet-min-breakpoint); // 600
+$large-screen-down: em($desktop-max-breakpoint); // 1759
+$large-screen-up: em($desktop-min-breakpoint); // 1024
+$x-large-screen-up: em($big-desktop-min-breakpoint); // 1760
+$xx-large-screen-up: em($x-big-desktop-min-breakpoint); // 1760
+$xxx-large-screen-up: em($xx-big-desktop-min-breakpoint); // 1920
+
+$small-screen-up: new-breakpoint(min-width $small-screen-up 4);
+$small-screen-down: new-breakpoint(max-width $small-screen-down 4);
+$medium-screen-up: new-breakpoint(min-width $medium-screen-up 8);
+$medium-screen-down: new-breakpoint(max-width $medium-screen-down 8);
+$medium-screen-only: new-breakpoint(min-width em($tablet-min-breakpoint) max-width em($tablet-max-breakpoint), 12);
+$large-screen-up: new-breakpoint(min-width $large-screen-up 12);
+$large-screen-down: new-breakpoint(max-width $large-screen-down 12);
+$x-large-screen-up: new-breakpoint(min-width $x-large-screen-up 12);
+$desktop-px-down: new-breakpoint(max-width $desktop-px-breakpoint 8);
+
+////////// List spacing //////////
+$dsp2-left: 20px;
+
+////////// Column spacing //////////
+$dsp2-right: 50px;
+
+////////// Padding //////////
+$dsp2-padding-15: 15px;
+$dsp2-padding-17: 17px;
+$dsp2-padding-45: 45px;
+$dsp2-padding-35: 35px;
+$dsp2-footer-7: 7px;
+$dsp2-footer-60: 60px;
+$dsp2-padding-10: 10px;
+$dsp2-padding-20: 20px;
+$dsp2-padding-mobile: 17px;
+
+//////////BMW ID Module//////////
+$dsp2-id-width: 60px;
+$dsp2-id-height: 60px;
+
+//////////BMW Button//////////
+$dsp2-f-size-s-height: 50px;
+$dsp2-table-tab-height: 50px;
+$dsp2-f-size-s-back-width: 55px;
+$dsp2-f-size-s-mobile-back: 40px;
+
+////////// Padding //////////
+$bmw-margin-45: 45px;
+$bmw-p-margin-bottom: 0.75em;

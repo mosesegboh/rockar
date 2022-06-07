@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Catalog
+ * @author    Igors Zhunins <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar Ltd (http://rockar.com)
+ */
+-->
+
+<layout version="0.1.0">
+    <catalog_product_view>
+        <reference name="head">
+            <action method="removeItem">
+                <type>js</type>
+                <name>varien/product.js</name>
+            </action>
+
+            <action method="removeItem">
+                <type>js</type>
+                <name>varien/product_options.js</name>
+            </action>
+
+            <action method="removeItem">
+                <type>js</type>
+                <name>varien/configurable.js</name>
+            </action>
+        </reference>
+
+        <reference name="right">
+            <remove name="wishlist_sidebar"/>
+
+            <action method="unsetChild">
+                <name>catalog.product.related</name>
+            </action>
+        </reference>
+
+        <reference name="root">
+            <block name="page-title" type="catalog/product_view" template="catalog/product/view/title.phtml"/>
+            <action method="unsetChild"><name>breadcrumbs</name></action>
+        </reference>
+
+        <reference name="product.info">
+            <remove name="product_tag_list"/>
+            <remove name="product.description"/>
+            <remove name="product.attributes"/>
+            <remove name="product.info.upsell"/>
+            <remove name="product.info.options.wrapper"/>
+            <remove name="product.info.options.wrapper.bottom"/>
+            <remove name="product.info.container2"/>
+            <remove name="product.info.container2"/>
+            <remove name="product.info.extrahint"/>
+            <remove name="product.info.addtocart"/>
+            <remove name="product.info.addto"/>
+            <remove name="product.attributes"/>
+            <remove name="product.description"/>
+            <remove name="product.info.additional"/>
+            <remove name="product.info.media"/>
+        </reference>
+    </catalog_product_view>
+</layout>

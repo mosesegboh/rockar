@@ -1,0 +1,504 @@
+.timepicker {
+    max-width: $calendar-max-width;
+}
+
+.calendar {
+    background: $white;
+    color: $c-grey;
+    text-align: center;
+    border: 0;
+    font-family: $bmw-bold;
+    margin-right: 1%;
+
+    .ui-datepicker-header {
+        background: $white;
+        color: $c-grey;
+        padding: 1px;
+
+        .ui-datepicker-prev {
+            .ui-icon {
+                @include sprite($sprite-nav-actions-back-light);
+                @include transform(scale(.5));
+                float: left;
+                display: block;
+                position: relative;
+                top: 7px;
+                left: 4%;
+            }
+        }
+
+        .ui-datepicker-next {
+            .ui-icon {
+                @include sprite($sprite-nav-actions-next-light);
+                @include transform(scale(.5));
+                position: relative;
+                top: 7px;
+                right: 4%;
+                float: right;
+                display: block;
+            }
+        }
+
+        .ui-datepicker-title {
+            font-size: $dsp2-f-size-xl;
+            text-transform: none;
+        }
+    }
+
+    .ui-datepicker-calendar {
+        margin: auto;
+
+        @include media($large-screen-up) {
+            width: 90%;
+        }
+
+        thead {
+            position: relative;
+            background: $white;
+            color: $c-grey-1;
+            border-bottom: 1px solid $c-grey-5;
+
+            span {
+                text-transform: none;
+            }
+        }
+
+        th {
+            text-align: center;
+            padding: 0;
+        }
+
+        td {
+            padding: 0;
+            border: 0 solid $white;
+
+            .ui-state-default {
+                color: $c-grey;
+                background-color: $white;
+                padding: 0;
+            }
+
+            &.highlight {
+
+                a {
+                    background: $bmw-blue;
+                }
+            }
+
+            span,
+            a {
+                border: 2px solid transparent;
+            }
+        }
+
+        .ui-state-disabled,
+        .not-available {
+            pointer-events: none;
+
+            span,
+            a {
+                color: $calendar-day-not-available-color;
+                opacity: $calendar-not-available-opacity;
+            }
+
+            &.ui-datepicker-other-month {
+                background-color: transparent;
+
+                span,
+                a {
+                    color: $calendar-color-disabled;
+                }
+            }
+        }
+
+        a,
+        span {
+            width: 100%;
+            height: 40px;
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 35px;
+            text-decoration: none;
+            font-weight: 700;
+            border: 2px solid transparent;
+            margin: 0 2px;
+            max-width: calc(100% - 4px);
+        }
+
+        .ui-datepicker-current-day {
+            a {
+                border: 2px solid $bmw-blue;
+                background: $bmw-blue;
+                color: $white;
+            }
+        }
+    }
+}
+
+#timepicker {
+    @include display(flex);
+    @include flex-direction(column);
+
+    .timepicker-time {
+        padding: .25em 0;
+
+        .timepicker-title {
+            font-family: $timepicker-title-font;
+            font-weight: $timepicker-title-fw;
+            margin-top: 1em;
+            font-size: $dsp2-f-size-l;
+            clear: left;
+        }
+
+        .timepicker-body {
+            @include clearfix;
+
+            &.mobile-table {
+                .selectbox {
+                    margin: auto;
+
+                    .selectbox-select {
+                        color: $black;
+                    }
+                }
+            }
+
+            .timepicker-hour {
+                float: left;
+                margin: 0 1% 1% 0;
+                width: 19%;
+                box-sizing: border-box;
+                color: $c-grey;
+                background: $white;
+                text-align: center;
+                padding: .70em 0;
+                cursor: pointer;
+                font-family: $bmw-bold;
+
+                &.selected {
+                    color: $c-grey;
+                    background: $white;
+                    border: 2px solid $bmw-blue;
+                }
+
+                &.hover {
+                    color: $c-grey;
+                    background: $white;
+                    border: 2px solid $bmw-blue;
+                }
+
+                &.not-available {
+                    opacity: $timepicker-timeslot-not-available-opacity;
+                    color: $timepicker-timeslot-not-available-text-color;
+                    background: $timepicker-timeslot-not-available-background;
+                }
+
+                &:nth-child(5n) {
+                    width: 20%;
+                    margin-right: 2%;
+                }
+            }
+        }
+    }
+}
+
+.category-car-finder,
+.category-bike-finder,
+.checkout-cart-index,
+.customer-account-index,
+.checkout-onepage-index,
+.styleguide-page {
+    .calendar-timeslots {
+        display: none;
+
+        .slots-list {
+            display: none;
+        }
+    }
+
+    .timepicker {
+        max-width: $calendar-max-width;
+    }
+
+    .calendar-wrap {
+        max-width: 446px;
+    }
+
+    .calendar {
+        background: $white;
+        color: $c-grey;
+        text-align: center;
+        border: 1px solid $c-grey-6;
+        font-family: $bmw-bold;
+        margin-right: 0;
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0.24), 0 2px 8px rgba(0, 0, 0, 0.08);
+
+        .ui-datepicker-header {
+            background: $white;
+            color: $c-grey;
+            padding: 1px;
+            height: 64px;
+            font-family: $bmw-light;
+
+            .ui-datepicker-prev {
+                .ui-icon {
+                    @include size(16px 16px);
+                    display: block;
+                    background-image: url('../images/svg/icon-arrow.svg');
+                    background-repeat: no-repeat;
+                    color: transparent;
+                    background-position: inherit;
+                    transform: rotate(180deg);
+                    left: 80%;
+                    top: 19px;
+                    opacity: .7;
+                }
+            }
+
+            .ui-datepicker-next {
+                .ui-icon {
+                    @include size(16px 16px);
+                    display: block;
+                    background-image: url('../images/svg/icon-arrow.svg');
+                    background-repeat: no-repeat;
+                    color: transparent;
+                    background-position: inherit;
+                    transform: unset;
+                    top: 19px;
+                    opacity: .7;
+                }
+            }
+
+            .ui-datepicker-title {
+                font-size: $dsp2-f-size;
+                text-transform: none;
+                float: left;
+                margin: 17px 0 0 0;
+            }
+        }
+
+        .ui-datepicker-calendar {
+            margin: auto;
+
+            @include media($large-screen-up) {
+                width: 100%;
+            }
+
+            thead {
+                position: relative;
+                background: $c-grey-6;
+                color: $c-grey-1;
+                border-bottom: 1px solid $c-grey-5;
+                font-family: $bmw-bold;
+                font-size: $dsp2-f-size-xs;
+
+                span {
+                    text-transform: uppercase;
+                    height: 32px;
+                    line-height: 32px;
+                }
+            }
+
+            th {
+                text-align: center;
+                padding: 0;
+            }
+
+            td {
+                padding: 0;
+                border-width: 4px 0;
+
+                .ui-state-default {
+                    color: $c-grey;
+                    background-color: $white;
+                    padding: 0;
+                }
+
+                &.highlight {
+
+                    a {
+                        background: $bmw-blue;
+                    }
+                }
+
+                span,
+                a {
+                    border: 2px solid transparent;
+                }
+            }
+
+            .ui-state-disabled,
+            .not-available {
+                pointer-events: none;
+
+                span,
+                a {
+                    color: $calendar-day-not-available-color;
+                    opacity: $calendar-not-available-opacity;
+                }
+
+                &.ui-datepicker-other-month {
+                    background-color: transparent;
+
+                    span,
+                    a {
+                        color: $calendar-color-disabled;
+                    }
+                }
+            }
+
+            a,
+            span {
+                width: 100%;
+                height: 56px;
+                display: inline-block;
+                vertical-align: middle;
+                line-height: 54px;
+                text-decoration: none;
+                border: 2px solid transparent;
+                margin: 0 2px;
+                max-width: calc(100% - 4px);
+                font-family: $bmw;
+                font-size: $dsp2-f-size;
+            }
+
+            .ui-datepicker-unselectable {
+                &.ui-state-disabled {
+                    span {
+                        font-family: $bmw-light;
+                        font-size: $dsp2-f-size;
+                    }
+                }
+            }
+
+            .ui-datepicker-current-day {
+                a {
+                    color: $white;
+                    position: relative;
+                    z-index: 1;
+
+                    &:before {
+                        content: '';
+                        width: 40px;
+                        height: 40px;
+                        border: 2px solid $bmw-blue;
+                        background: $bmw-blue;
+                        position: absolute;
+                        display: inline-block;
+                        top: 13%;
+                        left: 50%;
+                        transform: translate(-50%, 0);
+                        z-index: -1;
+                    }
+                }
+            }
+        }
+    }
+
+    #timepicker {
+        @include display(flex);
+        @include flex-direction(column);
+        box-shadow: 0 0 1px rgba(0, 0, 0, .24), 0 2px 8px rgba(0, 0, 0, .08);
+        margin-left: 2px;
+        overflow: hidden;
+
+        .timepicker-time {
+            padding: .25em 0;
+
+            .timepicker-title {
+                font-family: $timepicker-title-font;
+                font-weight: $timepicker-title-fw;
+                margin-top: 1em;
+                font-size: $dsp2-f-size-l;
+                clear: left;
+            }
+
+            .timepicker-body {
+                @include clearfix;
+                display: grid;
+                grid-template-columns: minmax(20%, 25%) minmax(20%, 25%) minmax(20%, 25%) minmax(20%, 25%);
+                grid-template-rows: auto;
+                padding: 0;
+                justify-items: center;
+                align-items: center;
+
+                &.mobile-table {
+                    .selectbox {
+                        margin: auto;
+
+                        .selectbox-select {
+                            color: $black;
+                        }
+                    }
+                }
+
+                .timepicker-hour {
+                    float: left;
+                    margin: 10px;
+                    width: 59px;
+                    box-sizing: border-box;
+                    color: $c-grey;
+                    background: $white;
+                    text-align: center;
+                    padding: .70em 0;
+                    cursor: pointer;
+                    font-family: $bmw;
+                    height: 50px;
+                    flex: 1;
+                    flex-basis: 25%;
+                    position: relative;
+                    z-index: 1;
+                    border: 1px solid $white;
+                    text-transform: uppercase;
+
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        height: 50px;
+                        width: 59px;
+                        left: 50%;
+                        transform: translate(-50%, 0);
+                        z-index: -1;
+                        top: 0;
+                        border: 1px solid $c-grey-6;
+                    }
+
+                    &.selected {
+                        color: $white;
+                        background: $white;
+                        border: 1px solid $white;
+
+                        &:after {
+                            content: '';
+                            position: absolute;
+                            height: 50px;
+                            width: 59px;
+                            left: 50%;
+                            transform: translate(-50%, 0);
+                            z-index: -1;
+                            top: 0;
+                            background: $bmw-blue;
+                            border: 1px solid $bmw-blue;
+                        }
+                    }
+
+                    &.hover {
+                        color: $c-grey;
+                        background: $white;
+                        border: 2px solid $bmw-blue;
+                    }
+
+                    &.not-available {
+                        opacity: $timepicker-timeslot-not-available-opacity;
+                        color: $timepicker-timeslot-not-available-text-color;
+                        background: $timepicker-timeslot-not-available-background;
+                    }
+
+                    &:nth-child(3n) {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,8 @@
+&-steps-wrapper {
+    @include flex(1 1 0);
+    width: 100%;
+
+    @include media($medium-screen-up) {
+        margin-top: 30px;
+    }
+}

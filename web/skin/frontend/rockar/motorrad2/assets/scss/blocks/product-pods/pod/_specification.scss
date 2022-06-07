@@ -1,0 +1,53 @@
+.product-pod-attributes-overlay {
+    .attribute-close-mobile {
+        font-family: $motorrad-bold;
+        font-size: $dsp2-f-size-l;
+        color: $black;
+    }
+
+    .attribute-section {
+        font-size: $dsp2-f-size;
+
+        .row {
+            font-size: initial;
+            padding: 14px 10px;
+
+            .option-title {
+                font-family: $motorrad-regular;
+                font-size: $dsp2-f-size-s;
+            }
+
+            .option-price {
+                font-family: $motorrad-bold;
+
+                @include media($medium-screen-down) {
+                    font-size: $dsp2-f-size-s;
+                }
+            }
+        }
+
+        .option-total-price {
+            .option-title {
+                font-family: $motorrad-bold;
+            }
+        }
+    }
+
+    .attribute-view-switcher {
+        .view-switch {
+            font-family: $motorrad-regular;
+            font-size: $dsp2-f-size-s;
+            color: $black;
+            text-transform: capitalize;
+
+            &.active {
+                font-family: $motorrad-bold;
+                box-shadow: inset 0 3px 0 0 $black;
+            }
+        }
+    }
+
+    .pod-specs-button {
+        top: 5px;
+    }
+}

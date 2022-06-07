@@ -1,0 +1,47 @@
+<?php
+/**
+ * @category    design
+ * @package     rockar_motorrad
+ * @author      Adam Abubakari <adam.abubakari@rockar.com>
+ * @copyright   Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+
+/** @var $this Rockar_PartExchange_Block_Checkout */
+?>
+<app-checkout-accordion title="<?php echo $this->__('Trade in'); ?>" type="right-down"
+    class-name="accordion-light" step-code="<?php echo Rockar_PartExchange_Helper_Filters::PX_STEP_CODE; ?>">
+    <li>
+        <div class="accordion-content">
+            <app-checkout-part-exchange-cap :pe-id="<?php echo $this->getPartExchangeId(); ?>"
+                valuation-url="<?php echo $this->getUrl('partexchange/valuation'); ?>"
+                car-details-url="<?php echo $this->getUrl('partexchange/details'); ?>"
+                reset-url="<?php echo $this->getUrl('checkout/onepage_partexchange/reset', ['_secure' => true, 'form_key' => Mage::getSingleton('core/session')->getFormKey()]); ?>"
+                soft-reset-url="<?php echo $this->getUrl('partexchange/crud/softReset'); ?>"
+                :additional-info='<?php echo $this->getCheckboxes(); ?>'
+                explanatory-text="<?php echo $this->getExplanatoryText(); ?>"
+                :active-condition="<?php echo $this->getActiveCondition(); ?>"
+                :car-conditions="<?php echo $this->getCarConditions(); ?>"
+                car-alternative-details-url="<?php echo $this->getUrl('partexchange/alternatives'); ?>"
+                save-valuation-url="<?php echo $this->getUrl('checkout/onepage_partexchange/save', ['_secure' => true, 'form_key' => Mage::getSingleton('core/session')->getFormKey()]); ?>"
+                save-to-session-url="<?php echo $this->getUrl('partexchange/crud/saveToSession'); ?>"
+                :saved="<?php echo $this->getSavedStatus(); ?>"
+                :saved-px-list="<?php echo $this->getAllPartExchanges(); ?>"
+                vehicle-type-url="<?php echo $this->getUrl('partexchange/details/getType'); ?>"
+                year-url="<?php echo $this->getUrl('partexchange/details/getYear'); ?>"
+                make-url="<?php echo $this->getUrl('partexchange/details/getMake'); ?>"
+                model-url="<?php echo $this->getUrl('partexchange/details/getModel'); ?>"
+                fuel-type-url="<?php echo $this->getUrl('partexchange/details/getFuelType'); ?>"
+                transmission-url="<?php echo $this->getUrl('partexchange/details/getTransmission'); ?>"
+                variant-url="<?php echo $this->getUrl('partexchange/details/getVariant'); ?>"
+                custom-car-url="<?php echo $this->getUrl('partexchange/details/customCar'); ?>"
+                active-px-url="<?php echo $this->getUrl('partexchange/switch/'); ?>"
+                :saved-px="<?php echo $this->getCustomerPartExchange(); ?>" :can-open-custom="false"
+                :product-id="<?php echo $this->getProductId(); ?>"
+                error-message="<?php echo Mage::getStoreConfig('extendedrules/future_value/checkout_error_message'); ?>"
+                settlement-quotes-url="<?php echo $this->getUrl('partexchange/autoSettlement/getSettlementQuotes'); ?>"
+                settlement-terms-url="<?php echo Mage::helper('peppermint_partexchange/autoSettlement')->getSettlementTermsUrl(); ?>"
+                v-ref:part-exchange-filter>
+            </app-checkout-part-exchange-cap>
+        </div>
+    </li>
+</app-checkout-accordion>

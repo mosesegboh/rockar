@@ -1,0 +1,36 @@
+.product-prices {
+    .item-details-price-block {
+        .item-details-price {
+            &.rockar-price {
+                .price-wrapper {
+                    .price {
+                        font-family: $motorrad-bold;
+
+                        @include media($medium-screen-down) {
+                            font-family: $motorrad-regular;
+                        }
+                    }
+                }
+            }
+
+            .price-wrapper {
+                .price {
+                    .price-value {
+                        font-family: $motorrad-bold;
+                        font-size: $dsp2-f-size-xxxl;
+                        line-height: $dsp2-line-h-36;
+
+                        @include media($medium-screen-down) {
+                            font-size: $dsp2-f-size-xl;
+                            line-height: $dsp2-line-h-20;
+                        }
+                    }
+                }
+
+                .label {
+                    font-family: $motorrad-regular;
+                }
+            }
+        }
+    }
+}

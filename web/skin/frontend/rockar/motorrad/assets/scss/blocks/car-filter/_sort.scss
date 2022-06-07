@@ -1,0 +1,20 @@
+.products-sort {
+    display: inline-block;
+    float: right;
+
+    .sort-button {
+        button {
+            font: {
+                family: $pod-sort-button-font;
+                weight: $fw-bold;
+                size: $f-size-xxxxs;
+            };
+            text-transform: uppercase;
+            color: $black;
+            letter-spacing: 1.2px;
+            padding: .75em 2em;
+            border: 1px solid $grey-2;
+            background: $white;
+        }
+    }
+}

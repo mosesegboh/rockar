@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_NewJourneyMotorrad
+ * @author    Kalvis Ostrovskis <techteam@rockar.com>
+ * @copyright Copyright (c) 2021 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_NewJourneyMotorrad>
+            <version>0.1.2</version>
+        </Peppermint_NewJourneyMotorrad>
+    </modules>
+    <global>
+        <resources>
+            <peppermint_newjourneymotorrad_setup>
+                <setup>
+                    <module>Peppermint_NewJourneyMotorrad</module>
+                </setup>
+            </peppermint_newjourneymotorrad_setup>
+        </resources>
+    </global>
+</config>

@@ -1,0 +1,151 @@
+@font-face {
+    font-family: 'BMW_Bold';
+    src: url("fonts/BMWTypeNextLatinTT-Bold.ttf");
+}
+
+@font-face {
+    font-family: 'BMW_Light';
+    src: url("fonts/BMWTypeNextLatinTT-Light.ttf");
+}
+
+@font-face {
+    font-family: 'BMW_Type';
+    src: url("fonts/BMWTypeNextLatinTT-Bold.ttf");
+}
+
+.container {
+    margin-bottom: 100px;
+}
+
+.container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.navbar-default {
+    border-color: #bbb;
+    color: #fff;
+    height: 80px;
+}
+
+.navbar-header {
+    position: relative;
+    width: 100%;
+}
+
+#id-module {
+    margin-top: 120px;
+    z-index: 1000;
+    position: absolute;
+    width: 150px;
+}
+
+.bg-img {
+    width: 100%;
+    position: relative;
+    height: 650px;
+    background-repeat: no-repeat;
+    background-size: cover
+}
+
+.img-01 {
+    background-image: url("../imgs/BMW_Buy-maintenance-XXL_Banner.jpg");
+}
+
+body,
+p {
+    font-family: "BMW_Light";
+    color: #262626;
+    font-size: 14px;
+    width: 100%;
+}
+
+.header-p {
+    font-family: "BMW_Light";
+    color: #fff;
+    font-size: 12px;
+    width: 100%;
+}
+
+a {
+    font-family: "BMW_Bold";
+    color: #262626;
+    font-weight: bolder;
+    text-decoration: none;
+    padding-left: 15px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.linkicon {
+    background-image: url("../imgs/linkicon.png");
+    background-repeat: repeat-y;
+}
+
+.title {
+    font-family: "BMW_Light";
+    font-size: 33px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    padding-left: 0px;
+    letter-spacing: .525px;
+    line-height: 1;
+}
+
+.bannercopy {
+    margin-top: 300px;
+}
+
+.width {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 992px) {
+    .bg-img {
+	    height: 550px;
+	}
+}
+
+@media only screen and (max-width: 575px) {
+    .row {
+	    padding: 0px 15px;
+	    margin-top: -25px;
+	}
+    .bg-img {
+	    background-position-x: center;
+	}
+}
+
+.col-sm-12 {
+    margin-left: 1%;
+    margin-top: 45px;
+    border: 1px solid #e6e6e6;
+    box-sizing: border-box;
+    padding-top: 20px;
+    padding-left: 20px;
+    border-collapse: separate;
+}
+
+@media only screen and (min-width: 768px) {
+    .col-md-6 {
+	    max-width: 48%;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+    .col-lg-3 {
+	    max-width: 24%;
+	}
+}
+
+.aligntest {
+    margin-top: -10px;
+}
+
+.image {
+    width: 100%;
+    display: block;
+}

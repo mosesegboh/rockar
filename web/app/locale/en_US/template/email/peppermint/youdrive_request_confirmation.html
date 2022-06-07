@@ -1,0 +1,175 @@
+<!--@subject Test Drive Requested @-->
+<!--@styles
+@-->
+
+{{template config_path="design/email/header"}}
+{{inlinecss file="email-inline.css"}}
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="98%"
+       style="border-collapse:collapse; background-color:#e6e6e6;">
+    <tr>
+        <td style="padding-top:1px; padding-bottom:1px;">
+            <table class="letter" align="center" border="0" cellpadding="0" cellspacing="0"
+                   style="width:600px; border-collapse: collapse; background-color:#fff; color:#262626;">
+                <tr>
+                    <td class="social" align="right"
+                        style="font-family:Arial, Helvetica, sans-serif; font-size:11px; height: 40px; color:#616161; background-color:#fff; padding-top:0px; padding-bottom:10px; padding-right: 30px;">
+                        <span style="color: #ffffff; font-size: 1px;">Your BMW test drive request is confirmed.</span>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color:#eeefea;">
+                        <img
+                            src="http://www.bmwgroup-media.co.za/campaigns/images/2019/DSP/Test-Drive/Confirm/BMW_Header_600.jpg"
+                            width="100%" alt=""/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table class="coltab" align="center" border="0" cellpadding="0" cellspacing="0" width="530">
+                            <tr>
+                                <td class="caption"
+                                    style="font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:21px; color:#262626; padding-top:35px; padding-bottom:20px;"
+                                    valign="top">
+                                    Dear <strong>{{var customer.getName() }}</strong>,<br/><br/>
+                                    Thank you for requesting a BMW test drive experience, we look forward to welcoming
+                                    you to {{var localStore.getName() }}. Please find the details of your request below:
+                                    <br/><br/>
+                                    <strong>BMW model:</strong> {{var vehicles.getData('vehicle0').getVehicleTitle() }}
+                                    <br/>
+                                    <strong>Retailer:</strong> {{var localStore.getName() }}
+                                    <br/><br/>
+                                    To edit or cancel your request, please log in to your Account:
+                                    <br/><br/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-bottom:30px;">
+                                    <a href="#" title="Explore more" target="_blank"
+                                       style="color:#FFFFFF; border:none; display:block; text-decoration: none;">
+                                        <table class="half_button" cellpadding="0" cellspacing="0"
+                                               style="padding:0; width:255px; height:40px; background-color:#666;">
+                                            <tr>
+                                                <td align="center" width="255" height="40" valign="middle"
+                                                    bgcolor="#1c69d5">
+                                                    <span class="white_link">
+                                                        <a href="https://dsp-uat-bmw.bmwgroup.com/customer/account/"
+                                                           title="Your account" target="_blank"
+                                                           style="color: #fff; text-decoration: none; font-size:16px;">Manage my test drives
+                                                        </a>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table class="coltab" align="center" border="0" cellpadding="0" cellspacing="0" width="530">
+                            <tr>
+                                <td class="caption"
+                                    style="font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:21px; color:#262626; padding-top:10px; padding-bottom:20px;"
+                                    valign="top">
+                                    Please remember to bring a valid driver’s license with you on the day. We look
+                                    forward to
+                                    introducing you to the Sheer Driving Pleasure and unrivalled performance of the
+                                    {{var
+                                    vehicles.getData('vehicle0').getVehicleTitle() }}.
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <table class="coltab" align="center" border="0" cellpadding="0" cellspacing="0" width="530">
+                            <tr>
+                                <td class="caption"
+                                    style="font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:20px; color:#262626; padding-top:0px; padding-bottom:35px;"
+                                    valign="top"><br/>
+                                    Kind Regards,<br/>
+                                    <strong>BMW South Africa</strong>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <!-- Social Links -->
+                <tr>
+                    <td class="coltab" align="center"
+                        style="font-family:Arial, Helvetica, sans-serif; font-size:12px; line-height:16px; padding-top:20px; padding-right:35px; padding-bottom:0px; padding-left:35px; background-color:#8e8e8e; color: #ffffff;">
+                        <strong>Follow us:</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="social" align="center"
+                        style="padding-top:10px; padding-right:35px; padding-bottom:10px; padding-left:35px; background-color:#8e8e8e;">
+                        <p class="social-links">
+                            <a href="http://www.youtube.com/BMWSouthAfrica" target="_blank"> <img
+                                src="http://www.bmwgroup-media.co.za/campaigns/images/dsp/mails/social/za_youtubeicon.png"
+                                style="vertical-align:text-top;" alt="Youtube"/></a>
+                            <a href="http://twitter.com/BMW_SA" target="_blank"> <img
+                                src="http://www.bmwgroup-media.co.za/campaigns/images/dsp/mails/social/za_twittericon.png"
+                                style="vertical-align:text-top;" alt="Twitter"/></a>
+                            <a href="http://www.facebook.com/BMWSA" target="_blank"> <img
+                                src="http://www.bmwgroup-media.co.za/campaigns/images/dsp/mails/social/za_facebookicon.png"
+                                style="vertical-align:text-top;" alt="Facebook"/></a>
+                            <a href="https://www.linkedin.com/company/bmwsouthafrica" target="_blank"> <img
+                                src="http://www.bmwgroup-media.co.za/campaigns/images/dsp/mails/social/za_linkedinicon.png"
+                                style="vertical-align:text-top;" alt="Instagram"/></a>
+                            <a href="https://www.instagram.com/bmwsouthafrica/" target="_blank"> <img
+                                src="http://www.bmwgroup-media.co.za/campaigns/images/dsp/mails/social/za_instagramicon.png"
+                                style="vertical-align:text-top;" alt="Instagram"/></a>
+                        </p>
+                    </td>
+                </tr>
+                <!-- End Social Links -->
+                <!-- Footer -->
+                <tr style="background-color:#8e8e8e;">
+                    <td style="padding-top:0px; padding-bottom:40px;">
+                        <table class="coltab" align="center" border="0" cellpadding="0" cellspacing="0" width="530"
+                               style="border-collapse:collapse; border-top:1px solid #bbb;">
+                            <tr>
+                                <td style="height:20px;"></td>
+                            </tr>
+                            <tr>
+                                <td style="font-family:Arial, Helvetica, sans-serif; font-size:10px; line-height:12px; color:#fff; padding-top:0px;"
+                                    valign="top">
+                                    If you would like the BMW Customer Interaction Centre to contact you, <a
+                                    style="color:#fff; text-decoration:underline; font-weight:bold"
+                                    href="mailto:customer.infoservice@bmw.co.za?Subject=Order amendment accepted.">please
+                                    click
+                                    here</a>, or contact <a
+                                    style="color:#fff; text-decoration:underline; font-weight:bold"
+                                    href="tel:+27800600555">0800 600 555</a> for more information.
+                                    <br/><br/>
+                                    If you no longer wish to receive emails relating to the above from <strong>BMW South
+                                    Africa</strong>, <a style="color:#fff; text-decoration:underline; font-weight:bold"
+                                                        href="http://www.bmwgroup-media.co.za/Unsubscribe/Params.asp?BRAND=BMW"
+                                                        target="_blank">click here</a> to unsubscribe.
+                                    <br/><br/>
+                                    Please <a style="color:#fff; text-decoration:underline; font-weight:bold"
+                                              href="https://www.bmw.co.za/en/footer/metanavigation/legal-disclaimer-pool/legal-disclaimer.html"
+                                              target="_blank">click here</a> to view the BMW Legal Notice.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" valign="middle" bgcolor="#8e8e8e"
+                                    style="color:#fff; font-family:Arial, Helvetica, sans-serif; line-height:14px; font-size:10px; padding-top:10px ; padding-right:10px">
+                                    BMW
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <!-- End footer  -->
+            </table>
+        </td>
+    </tr>
+</table>
+{{template config_path="design/email/footer"}}

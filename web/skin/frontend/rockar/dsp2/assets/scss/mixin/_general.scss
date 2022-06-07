@@ -1,0 +1,30 @@
+@mixin renderCarFinderHeading($mobile-font-size, $font-size, $line-height-s, $line-height-l) {
+    font-size: $mobile-font-size;
+    line-height: $line-height-s;
+
+    @include media($dsp2-medium-screen-up) {
+        font-size: $font-size;
+        line-height: $line-height-l;
+    }
+}
+
+@mixin device($width, $height, $ratio) {
+    @media only screen
+    and (device-width: $width * 1px)
+    and (device-height: $height * 1px)
+    and (-webkit-device-pixel-ratio: $ratio) {
+        @content;
+    }
+}
+
+@mixin oval {
+    width: max-content;
+    height: 27px;
+    border-radius: 20px;
+    background-color: $c-grey-1;
+    text-align: center;
+
+    &.active {
+        background-color: $bmw-blue;
+    }
+}

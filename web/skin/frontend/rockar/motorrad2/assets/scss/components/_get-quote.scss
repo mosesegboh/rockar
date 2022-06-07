@@ -1,0 +1,14 @@
+.finance-quote-content {
+    .get-quote-cta-icon {
+        &:before {
+            background: url('../images/svg/icon-email-quote-black.svg') no-repeat center;
+            transform: none;
+        }
+
+        &:hover {
+            &:before {
+                filter: invert(1);
+            }
+        }
+    }
+}

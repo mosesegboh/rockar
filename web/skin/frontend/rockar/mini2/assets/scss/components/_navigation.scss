@@ -1,0 +1,403 @@
+.navigation-bar,
+.navigation-bar-mobile {
+    ul {
+        li {
+            a {
+                .icon {
+                    &.icon-account {
+                        @include sprite($sprite-mini-user);
+                    }
+
+                    &.icon-location {
+                        @include sprite($sprite-mini-location-16);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.nav-wrap {
+    .navigation-bar-mobile {
+        .icon {
+            &.icon-account {
+                @include sprite($sprite-mini-user-light-bg);
+            }
+        }
+    }
+}
+
+.on-light {
+    @include lightModeHeader();
+
+    .nav-wrap {
+        @include media($dsp2-l-screen-down) {
+            height: $navigation-on-light-mobile-height;
+            min-height: $navigation-on-light-mobile-height;
+        }
+
+        @include media($horizontal-bar-mode) {
+            min-height: 90px;
+            height: 90px;
+        }
+
+        .navigation-bar {
+            .navigation-menu {
+                border: none;
+
+                ul {
+                    &.navigation {
+                        li {
+                            &.nav-link {
+                                span {
+                                    &.text {
+                                        color: $black;
+                                        text-transform: uppercase;
+                                        font-family: $mini-sans-serif-bold;
+                                        font-size: $dsp2-f-size-xs;
+                                        line-height: $mini-line-h-22;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.finance-overlay-open {
+    @include media($small-screen-down) {
+        @include lightModeHeader();
+    }
+}
+
+.navigation-bar {
+    @include media($horizontal-bar-mode) {
+        height: 71px;
+    }
+
+    .navigation-menu {
+        .custom-nav-wrapper {
+            ul {
+                &.custom-nav {
+                    .account-toggle {
+                        .account-dropdown {
+                            li {
+                                a {
+                                    font-family: $mini-sans-serif-regular;
+                                }
+                            }
+                        }
+                    }
+
+                    .navigation-customer {
+                        font-family: $mini-sans-serif-regular;
+                    }
+                }
+            }
+        }
+    }
+
+    .navigation-bar-wrapper {
+        &.inner-container {
+            @include media($dsp2-xl-screen-up) {
+                max-width: calc(100% - 65px);
+                margin: 0 28px 0 37px;
+            }
+        }
+    }
+
+    .brand-logo {
+        a {
+            img {
+                &.logo-on-light,
+                &.logo-on-dark {
+                    width: auto;
+                    height: auto;
+                }
+            }
+        }
+    }
+
+    .navigation-menu {
+        border: none;
+        margin: 0 20px 0 50px;
+
+        ul {
+            &.navigation {
+                li {
+                    margin: 0;
+                    padding: 0 25px;
+
+                    &:last-child {
+                        padding: 0 25px;
+                    }
+
+                    &:hover {
+                        background-color: $white;
+
+                        &::after {
+                            display: none;
+                        }
+
+                        &.nav-link {
+                            span {
+                                &.text {
+                                    color: $black;
+                                }
+                            }
+                        }
+                    }
+
+                    &.nav-link {
+                        span {
+                            &.text {
+                                text-transform: uppercase;
+                                font-family: $mini-sans-serif-bold;
+                                font-size: $dsp2-f-size-xs;
+                                line-height: $mini-line-h-22;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.navigation-bar-mobile {
+    .main-nav {
+        .mobile-top-section {
+            border: none;
+            padding: 15px 10px;
+
+            &.active {
+                border: 1px solid $white;
+            }
+
+            .logotype {
+                width: 55px;
+                height: auto;
+            }
+
+            .hamburger {
+                &.active {
+                    &::before,
+                    &::after {
+                        background-color: $black;
+                        height: 1px !important; // override dsp2/navigation:589
+                    }
+                }
+            }
+
+            .right-nav-wrapper {
+                .navigation-bar-menu {
+                    min-width: 0;
+
+                    .nav-bar-wrapper {
+                        top: 57px;
+                        background-color: $c-mini-grey;
+                        padding: 57px 26px 20px;
+
+                        ul {
+                            &.menu-manager-menu {
+                                li {
+                                    border: none;
+                                    padding: 0 0 35px;
+
+                                    &::after {
+                                        display: none;
+                                    }
+
+                                    a {
+                                        font-family: $mini-serif-bold;
+                                        font-size: $dsp2-f-size-xl;
+                                        line-height: $dsp2-line-h-30;
+                                        text-transform: uppercase;
+                                        color: $black;
+                                    }
+                                }
+                            }
+
+                            &.custom-nav {
+                                li {
+                                    border: none;
+                                    padding: 0 0 36px;
+
+                                    &::after {
+                                        display: none;
+                                    }
+
+                                    &.toggle-account-mob {
+                                        &::after {
+                                            display: block;
+                                            top: 8px;
+                                            right: -3px;
+                                            border-bottom: 1px solid $black;
+                                            border-right: 1px solid $black;
+                                        }
+
+                                        &.active {
+                                            padding: 0 0 14px;
+
+                                            &::after {
+                                                transform: rotate(45deg) translateY(-50%) scale(.85);
+                                                top: 6px;
+                                                right: 1px;
+                                            }
+                                        }
+
+                                        span {
+                                            font-family: $mini-sans-serif-bold;
+                                            font-size: $dsp2-f-size;
+                                            line-height: $mini-line-h-22;
+                                            color: $black;
+                                        }
+                                    }
+
+                                    &.mob-account-info {
+                                        background-color: $c-mini-grey-1;
+                                        padding: 10px 0 10px 35px;
+                                        font-size: $dsp2-f-size-s;
+                                        line-height: $dsp2-line-h-18;
+
+                                        &.mb-36 {
+                                            margin: 0 0 36px;
+                                        }
+
+                                        a {
+                                            line-height: $dsp2-line-h-18;
+                                            color: $black;
+                                        }
+                                    }
+
+                                    a {
+                                        font-family: $mini-sans-serif-bold;
+                                        font-size: $dsp2-f-size;
+                                        line-height: $mini-line-h-22;
+                                        color: $black;
+                                    }
+                                }
+
+                                .icon {
+                                    &.icon-account {
+                                        background-image: url('../images/svg/user-icon.svg');
+                                        background-position: center;
+                                        background-size: cover;
+                                        margin: -4px 16px 0 1px;
+                                        width: 13px;
+                                        height: 16px;
+                                    }
+
+                                    &.icon-location {
+                                        background-image: url('../images/svg/locate-dealer-icon.svg');
+                                        background-size: cover;
+                                        background-position: center;
+                                        margin: -4px 16px 0 3px;
+                                        width: 10px;
+                                        height: 15px;
+                                    }
+
+                                    &.icon-cart {
+                                        background-image: url('../images/svg/icon-cart-black.svg');
+                                        background-size: cover;
+                                        background-position: center;
+                                        margin: -4px 16px 0 0;
+                                        width: 13px;
+                                        height: 15px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .mobile-bottom-section {
+            padding: 3px 10px 17px;
+        }
+    }
+}
+
+.nav-heading {
+    display: flex;
+    flex-direction: column;
+    color: $white;
+
+    &-title {
+        font-family: $mini-serif-bold;
+        font-size: $dsp2-f-size-sl;
+        line-height: $mini-line-h-21;
+        text-transform: uppercase;
+
+        @include media($medium-screen-up) {
+            font-size: $mini-f-size-70;
+            line-height: $mini-line-h-74;
+        }
+    }
+
+    &-subtitle {
+        font-family: $mini-serif-bold;
+        font-size: $mini-f-size-22;
+        line-height: $dsp2-line-h-28;
+        text-transform: uppercase;
+    }
+}
+
+.rockar-youdrive-index-index {
+    .nav-wrap {
+        @include media($medium-screen-down) {
+            height: 270px;
+        }
+
+        .navigation-bar-mobile {
+            .main-nav {
+                @include media($medium-screen-down) {
+                    height: 270px;
+                }
+
+                .mobile-bottom-section {
+                    align-items: flex-start;
+                }
+            }
+        }
+
+        .nav-heading {
+            @include media($dsp2-l-screen-up) {
+                margin-top: 30px;
+            }
+
+            @include media($dsp2-xl-screen-up) {
+                margin: 30px auto 0;
+            }
+
+            h2 {
+                font-size: $dsp2-f-size-sl;
+
+                @include media($large-screen-up) {
+                    font-size: $mini-f-size-70;
+                    line-height: $mini-line-h-75;
+                }
+            }
+
+            .content {
+                font-size: $dsp2-f-size-s;
+                font-family: $mini-serif-regular;
+
+                @include media($large-screen-up) {
+                    font-size: $mini-f-size-22;
+                    font-family: $mini-serif-bold;
+                }
+            }
+        }
+
+        .nav-hero-image-wrapper {
+            img {
+                height: 100%;
+            }
+        }
+    }
+}

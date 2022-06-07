@@ -1,0 +1,16 @@
+&-steps-block {
+    @include media($small-screen-down) {
+        padding: 10px 0;
+        border-bottom: 1px solid $grey-2;
+    }
+
+    &-wrapper {
+        @include display(flex);
+        margin-left: auto;
+        margin-right: auto;
+
+        @include media($small-screen-down) {
+            margin-left: 30%;
+        }
+    }
+}

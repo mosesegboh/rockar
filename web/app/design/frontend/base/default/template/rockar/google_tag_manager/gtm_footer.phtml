@@ -1,0 +1,36 @@
+<?php
+/**
+ * @category  Rockar
+ * @package rockar_landrover
+ * @author Anna Bicevska <info@scandiweb.com>
+ * @copyright Copyright (c) 2016 Scandiweb, Inc (http://scandiweb.com)
+ * @license   http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0 (OSL-3.0)
+ */
+
+$sessionModel = Mage::getModel('customer/session');
+?>
+<script>
+    if (typeof dataLayer !== 'undefined') {
+        <?php if ($sessionModel->getCustomerRegistered()): ?>
+        dataLayer.push({
+            'Category': 'Global',
+            'Action': 'Registration',
+            'Label': '<?php echo $sessionModel->getCustomerPage(); ?>',
+            'Value': 1,
+            'event': 'UserRegister'
+        });
+        <?php elseif ($sessionModel->getCustomerLoggedIn()): ?>
+        dataLayer.push({
+            'Category': 'Global',
+            'Action': 'Login',
+            'Label': '<?php echo $sessionModel->getCustomerPage(); ?>',
+            'Value': 1,
+            'event': 'UserLogin'
+        });
+        <?php endif; ?>
+    }
+</script>
+
+<?php
+$this->unsetSessionFlags();
+?>

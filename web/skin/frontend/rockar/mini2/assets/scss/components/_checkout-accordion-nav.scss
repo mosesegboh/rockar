@@ -1,0 +1,77 @@
+#accordion-nav {
+    .accordion-nav-body {
+        .accordion-step {
+            &-number {
+                &.checked {
+                    border: 2px solid $c-mini-blue;
+                }
+
+                &.active {
+                    border: 2px solid $c-mini-blue;
+                    background-color: $c-mini-blue;
+                    position: relative;
+
+                    @include media($dsp2-l-screen-up) {
+                        &:after {
+                            @include size(26px 13px);
+                            position: absolute;
+                            display: block;
+                            content: '';
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            background-image: url('../images/svg/icon-car.svg');
+                            background-repeat: no-repeat;
+                            background-position: center;
+                        }
+                    }
+
+                    span {
+                        @include media($dsp2-l-screen-up) {
+                            display: none;
+                        }
+                    }
+                }
+
+                span {
+                    font-family: $mini-sans-serif-bold;
+                    font-size: $dsp2-f-size;
+                    line-height: $dsp2-line-h-28;
+
+                    @include media($dsp2-l-screen-up) {
+                        font-size: $dsp2-f-size-l;
+                        line-height: $dsp2-line-h-30;
+                    }
+                }
+            }
+
+            &-connector {
+                width: calc(100% + 20px);
+
+                @include media($dsp2-l-screen-up) {
+                    width: calc(100% + 45px);
+                }
+
+                &-left {
+                    &.active {
+                        background-color: $c-mini-blue;
+                    }
+                }
+
+                &.checked {
+                    background-color: $c-mini-blue;
+                }
+            }
+
+            .accordion-step-title {
+                text-transform: none;
+                max-width: 110px;
+                color: $black;
+
+                &.active {
+                    font-family: $mini-sans-serif-regular;
+                }
+            }
+        }
+    }
+}

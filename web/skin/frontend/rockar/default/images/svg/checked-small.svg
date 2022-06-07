@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="38px" height="38px" viewBox="0 0 38 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46 (44423) - http://www.bohemiancoding.com/sketch -->
+    <title>checked-small</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="checked-small" fill-rule="nonzero" fill="#005A2B">
+            <path d="M0,8.8817842e-16 L38,8.8817842e-16 L38,38 L0,38 L0,8.8817842e-16 Z M10.2076923,19.7 L10.3461538,19.91 L15.7461538,25.79 C15.8846154,25.93 16.0230769,26 16.2307692,26 C16.4384615,26 16.5769231,25.93 16.7153846,25.79 L27.7923077,14.17 C28.0692308,13.89 28.0692308,13.47 27.7923077,13.19 L26.8230769,12.21 C26.5461538,11.93 26.1307692,11.93 25.8538462,12.21 L25.7846154,12.21 L16.5076923,21.94 C16.3692308,22.08 16.1615385,22.08 16.0230769,21.94 L12.2153846,17.81 L12.1461538,17.74 C11.8692308,17.46 11.4538462,17.46 11.1769231,17.74 L10.2076923,18.72 C10.0692308,18.86 10,19.07 10,19.21 C10,19.35 10.0692308,19.56 10.2076923,19.7 Z" id="Combined-Shape"></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,42 @@
+.catalog-category-view {
+    .finance-options {
+        @include flex-wrap(wrap);
+    }
+
+    #finance-filter > .finance-option-description {
+        @include media($small-screen-down) {
+            display: none;
+        }
+    }
+
+    .finance-option-description {
+        @include flex(0 0 100%);
+        margin-top: 27px;
+
+        @include media($small-screen-down) {
+            margin: 27px 36px 0 43px;
+        }
+
+        .finance-option-description-header {
+            font-size: $f-size-s;
+            text-transform: uppercase;
+            color: $black;  
+        }
+
+        .finance-option-description-text {
+            font-size: $f-size-xl;
+            margin-top: 8px;
+        }
+    }
+}
+
+.catalog-category-view .finance-option-description {
+
+    margin-top: 50px;
+    margin-left: 15px;
+    margin-bottom: 50px;
+
+    @include media($small-screen-down) {
+        display: none;
+    }
+}

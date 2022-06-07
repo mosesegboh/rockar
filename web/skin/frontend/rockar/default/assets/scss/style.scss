@@ -1,0 +1,23 @@
+// Bourbon framework
+@import "../../framework/scss/framework";
+
+// Extended Mixins
+@import "../../assets/scss/mixin/extends";
+
+// Fonts
+@import "../../assets/scss/utils/fonts";
+
+// Sprites
+@import "../../assets/scss/utils/sprites";
+
+// Framework extends
+@import "../../assets/scss/extends/variables";
+
+// Core mixins
+@import "../../assets/scss/mixins";
+
+// Core components
+@import "../../assets/scss/components";
+
+// Commented out till future implementation
+// @import "./components/finance-filter";

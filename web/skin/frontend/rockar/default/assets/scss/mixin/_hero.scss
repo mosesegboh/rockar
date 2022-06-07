@@ -1,0 +1,14 @@
+@mixin hero-alignment($alignment) {
+    .hero-inner {
+        text-align: $alignment;
+    }
+
+    .hero-copy {
+        @if $alignment != center {
+            float: $alignment;
+        }
+        @else {
+            margin: 0 auto;
+        }
+    }
+}

@@ -1,0 +1,199 @@
+//Defining Jaguar red in landrover to be used on the in-store homepage only
+// landrover specific styling colors
+$landrover-light-grey: #f1f1f1;
+$landrover-dark-grey: #f1f1f1;
+$black: #000000;
+$white: #ffffff;
+$call-to-action-btn-color: #0085ac;
+
+////// Colors //////
+$white: #fff;
+$grey-1: #f1f1f1; // E4E8E9 40%
+$grey-2: #e4e8e9;
+$grey-3: #f1f1f1;
+$grey-4: #686868;
+$grey-5: #0c121c;
+$black: #000;
+
+$cool-grey: #53616a;
+$cool-grey-2: #516062;
+$cool-grey-3: #394851;
+
+$simple-gray-1: #555;
+$simple-gray-2: #333;
+
+$red-1: #9f0c0c;
+$red-2: #cf2b2c;
+$red-3: #f6d5d5;
+$bright-red: #f00;
+
+$yellow-1: #ffe600;
+$yellow-2: #fff6bf;
+
+$blue-1: #e5edf8;
+
+$green-1: #e6efc2;
+$green-2: #008000;
+
+$primary-color: #0085ac;
+$primary-color-2: #0b6838;
+$primary-color-3: #c5d4cd;
+$secondary-color: $grey-2;
+$helper-color: $grey-2;
+$off-white: #cecece;
+
+$white-alpha5: rgba(255, 255, 255, .5);
+$black-apha2: rgba(0, 0, 0, .2);
+
+////// Fonts //////
+$brand-specific-font: $mini;
+// $brand-specific-font: $landrover;
+// $basic-store-font: $landrover;
+// $primary-font-family: $avenir;
+// $primary-heading-font-family: $landrover;
+// $base-font-family: $avenir;
+// $secondary-font-family: $avenir;
+// $helper-font-family: $avenir-roman;
+// $helper-font-family-2: $proximanova;
+
+$brand-specific-font: $mini;
+$basic-store-font: $mini;
+$primary-font-family: $mini;
+$primary-heading-font-family: $mini_heading;
+$base-font-family: $mini;
+$secondary-font-family: $mini;
+$helper-font-family: $mini;
+$helper-font-family-2: $mini;
+
+////// Font Sizes //////
+
+$f-size-10xl: 60px;
+$f-size-9xl: 45px;
+$f-size-8xl: 38px;
+$f-size-7xl: 35px;
+$f-size-6xl: 32px;
+$f-size-5xl: 30px;
+$f-size-xxxxl: 25px;
+$f-size-xxxl: 20px;
+$f-size-xxl: 18px;
+$f-size-xl: 16px;
+$f-size-l: 15px;
+
+$f-size: 14px;
+$f-size_medium: 16px;
+$f-size-header: 22px;
+
+$f-size-s: 13px;
+$f-size-xs: 12px;
+$f-size-xxs: 11px;
+$f-size-xxxs: 10px;
+$f-size-xxxxs: 8px;
+$f-size-5xs: 7px;
+$f-size-11xl: 75px;
+
+$f-size-abs: 14px;
+
+$meduim_font_size: 22px;
+
+////// Layout //////
+$horizontal-bar-mode: em(1025);
+$body-max-width: em(2000);
+$outer-max-width: em(1920);
+$max-width: em(1280);
+$footer-width: em(1280);
+$outer-container-max-width: $outer-max-width;
+$inner-container-max-width: $max-width;
+$mobile-nav-min-width: em(320);
+
+////// Breakpoints //////
+$mobile-min-breakpoint: 320;
+$mobile-max-breakpoint: 736;
+$tablet-min-breakpoint: $mobile-max-breakpoint + 1;
+$desktop-min-breakpoint: 1025;
+$tablet-max-breakpoint: $desktop-min-breakpoint - 1;
+$big-desktop-min-breakpoint: 1440;
+$desktop-max-breakpoint: $big-desktop-min-breakpoint - 1;
+$x-big-desktop-min-breakpoint: 1590;
+
+$small-screen-down: em($mobile-max-breakpoint);
+$small-screen-up: em($mobile-min-breakpoint);
+$medium-screen-down: em($tablet-max-breakpoint);
+$medium-screen-up: em($tablet-min-breakpoint);
+$large-screen-down: em($desktop-max-breakpoint);
+$large-screen-up: em($desktop-min-breakpoint);
+$x-large-screen-up: em($big-desktop-min-breakpoint);
+$xx-large-screen-up: em($x-big-desktop-min-breakpoint);
+
+$small-screen-up: new-breakpoint(min-width $small-screen-up 6);
+$small-screen-down: new-breakpoint(max-width $small-screen-down 6);
+$medium-screen-up: new-breakpoint(min-width $medium-screen-up 9);
+$medium-screen-down: new-breakpoint(max-width $medium-screen-down 9);
+$medium-screen-only: new-breakpoint(min-width em($tablet-min-breakpoint) max-width em($tablet-max-breakpoint), 12);
+$large-screen-up: new-breakpoint(min-width $large-screen-up 12);
+$large-screen-down: new-breakpoint(max-width $large-screen-down 12);
+$x-large-screen-up: new-breakpoint(min-width $x-large-screen-up 12);
+
+////// Custom variables //////
+$padding-spacing: .85em;
+$logo-padding: 1em;
+$logo-width: 87px;
+$scrollbox-content-padding: 1.5em;
+$letter-spacing: .05em;
+$button-line-height: 42px;
+$pod-action-row-height: 65px;
+$mini-pdp-back-button-size: 149px;
+
+
+////// Product Pod Breakpoints //////
+$medium-pod-breakpoint: 440;
+$large-pod-breakpoint: 1100;
+
+$medium-pod: em($medium-pod-breakpoint);
+$large-pod: em($large-pod-breakpoint);
+
+$medium-pod-up: new-breakpoint(min-width $medium-pod 9);
+$large-pod-up: new-breakpoint(min-width $large-pod 9);
+
+////// Header breakpoints //////
+$mobile-sm-breakpoint-sizes: em(512px);
+$mobile-header-large: new-breakpoint(min-width em(769) 6);
+$mobile-header-max: new-breakpoint(max-width $horizontal-bar-mode 6);
+$desktop-header-large: new-breakpoint(min-width em(1100) 12);
+$mobile-sm-breakpoint-smaller: new-breakpoint(max-width $mobile-sm-breakpoint-sizes 6);
+$mobile-sm-breakpoint-bigger: new-breakpoint(min-width $mobile-sm-breakpoint-sizes 6);
+
+$jaguar-red: #9e1b32;
+
+$mini_green: #0085ac;
+
+////// Footer //////
+$footer-background-color: $black;
+$footer-background-color-top: $black;
+$footer-link-color: $white;
+$footer-link-font-size: $f-size-xxxxs;
+$footer-font: $mini;
+$footer-font-size: $f-size-xxxs;
+$footer-newsletter-label-color: $white;
+$footer-heading-font: $mini;
+$footer-heading-color: $white;
+$footer-heading-transform: none;
+$footer-validation-failed: $grey-4;
+$footer-subscribe-header-label-color: $white;
+$footer-menu-bg-color: $black;
+$footer-menu-border-color: $white;
+
+///// Input Height ////////
+$primary-input-height: 50px;
+
+///// Line height ////////
+$mini-line-height-16: 16px;
+$mini-line-height-20: 20px;
+$mini-line-height-32: 32px;
+$mini-line-height-39: 39px;
+$mini-line-height-45: 45px;
+
+///// Trade in ///////
+$px-vrm-block-max-width: 350px;
+
+////////// MINI Button //////////
+$mini-button-height: 50px;

@@ -1,0 +1,65 @@
+.more-info {
+    &.header {
+        position: relative;
+        padding-left: 26px;
+        font: {
+            weight: $fw-semibold;
+            size: .8em;
+        }
+        line-height: 20px;
+        text-transform: uppercase;
+
+        &::before {
+            @include pseudo();
+            width: 19px;
+            height: 19px;
+            left: 0;
+            border-radius: 10px;
+            border: 1px solid $motorrad-blue;
+        }
+
+        &::after {
+            @include pseudo();
+            width: 6px;
+            height: 6px;
+            border: {
+                bottom: {
+                    width: 1px;
+                    style: solid;
+                    color: $motorrad-blue;
+                }
+                left: {
+                    width: 1px;
+                    style: solid;
+                    color: $motorrad-blue;
+                }
+            }
+            transform: rotate(-135deg);
+            top: 6px;
+            left: 6px;
+            transition: 1s ease-in;
+        }
+
+        &.expanded {
+            &::after {
+                transform: rotate(-45deg);
+                top: 5px;
+            }
+        }
+    }
+
+    &.content {
+        padding: .5em 0 0;
+
+        ul {
+            list-style: outside;
+            padding-left: 16px;
+            text-align: left;
+            line-height: 1.5em;
+
+            li {
+                color: $grey-4;
+            }
+        }
+    }
+}

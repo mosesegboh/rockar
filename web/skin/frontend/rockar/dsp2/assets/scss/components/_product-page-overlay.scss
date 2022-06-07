@@ -1,0 +1,203 @@
+#product-page-overlay {
+    @include media($medium-screen-up) {
+        #car-compare-component {
+            .top,
+            .bottom {
+                z-index: 999;
+            }
+        }
+
+        .finance-quote-wrapper {
+            .top,
+            .bottom {
+                z-index: 995;
+            }
+        }
+    }
+
+    .product-page-overlay-top {
+        @include media($large-screen-up) {
+            display: none;
+        }
+    }
+
+    &.double {
+        @include media($medium-screen-down) {
+            .product-page-overlay-top {
+                position: fixed;
+                width: 100%;
+                left: 0;
+                transition: bottom 300ms 0s;
+                z-index: 999;
+                cursor: pointer;
+                bottom: 140px;
+
+                &.active {
+                    bottom: calc(75vh - 1px);
+
+                    .toggle {
+                        bottom: calc(75vh + 45px);
+                        box-shadow: 0 0 0 250px rgba(0, 0, 0, .8);
+
+                        .toggle-button {
+                            box-shadow: none;
+
+                            .icon {
+                                transform: rotate(0deg);
+                            }
+                        }
+                    }
+                }
+
+                .toggle {
+                    bottom: 190px;
+
+                    .toggle-button {
+                        height: 50px;
+                        width: 105px;
+                        background-color: $bmw-blue;
+                        margin: 0 auto;
+                        transition: box-shadow 100ms 200ms;
+                        position: absolute;
+                        left: 50%;
+                        bottom: 30px;
+                        transform: translate(-50%, 0);
+
+                        @include media($medium-screen-down) {
+                            width: 65px;
+                            height: 25px;
+                        }
+
+                        .icon {
+                            background-image: url('../images/svg/icon-arrow-white.svg');
+                            transform: rotate(180deg);
+                            background-repeat: no-repeat;
+                            height: 100%;
+                            width: 16px;
+                            background-position: center;
+                            margin: auto;
+                        }
+                    }
+                }
+
+                &:not(.active) {
+                    .toggle {
+                        .toggle-button {
+                            transition: box-shadow 0s;
+                        }
+                    }
+                }
+
+                .titles {
+                    height: 36px;
+                    display: flex;
+                    justify-content: space-around;
+                    margin: 0;
+
+                    div {
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: center;
+                        cursor: pointer;
+                        border-top: 2px solid $c-grey-5;
+                        background-color: $c-grey-5;
+
+                        &.selected {
+                            background-color: $white;
+                            border-top: 2px solid $bmw-blue;
+                        }
+                    }
+
+                    span {
+                        font-family: $bmw;
+                        font-size: $dsp2-f-size-s;
+                        line-height: $dsp2-line-h-20;
+                        color: $c-grey;
+
+                        &.clear {
+                            position: relative;
+                            font-size: $dsp2-f-size-xxs;
+                        }
+                    }
+                }
+            }
+
+            .finance-quote-wrapper {
+                border: none;
+                z-index: 999;
+
+                &.top {
+                    z-index: 999;
+                }
+
+                &.bottom {
+                    z-index: 995;
+                }
+
+                &.active {
+                    box-shadow: none;
+                }
+
+                .finance-quote-bottom {
+                    border-top: none;
+
+                    &.border {
+                        border-top: 3px solid $bmw-blue;
+                    }
+
+                    .finance-payments {
+                        border-top: none;
+                    }
+                }
+
+                .toggle {
+                    display: none;
+                }
+            }
+
+            #car-compare-component {
+                .toggle {
+                    display: none;
+                }
+
+                #car-compare-wrapper {
+                    border-top: none;
+                    z-index: 995;
+                    height: 142px;
+
+                    &.active {
+                        height: 75vh;
+                        box-shadow: none;
+                    }
+
+                    &.top {
+                        z-index: 999;
+                    }
+
+                    &.bottom {
+                        z-index: 995;
+                    }
+
+                    .mobile-wrapper {
+                        .header {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @import '../blocks/car-compare/car-compare-clear';
+}
+
+.product-page-overlay-section {
+    &.overlay {
+        .toggle {
+            @include media($medium-screen-down) {
+                display: none;
+            }
+        }
+    }
+}

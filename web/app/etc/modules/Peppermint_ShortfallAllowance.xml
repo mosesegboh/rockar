@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Peppermint_ShortfallAllowance>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Peppermint_ShortfallAllowance>
+    </modules>
+</config>

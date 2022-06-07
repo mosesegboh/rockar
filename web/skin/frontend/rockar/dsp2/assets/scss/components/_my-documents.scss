@@ -1,0 +1,478 @@
+.my-documents {
+    .my-account-heading {
+        @include media($small-screen-down) {
+            display: block;
+        }
+    }
+
+    .my-account-subheading {
+        @include media($small-screen-down) {
+            display: block;
+        }
+    }
+
+    .my-documents-table {
+        .table {
+            margin: 0;
+
+            td {
+                background: $my-documents-table-background;
+                font-size: $dsp2-f-size;
+                font-weight: $my-documents-table-fw;
+
+                &:first-child {
+                    padding-left: 40px;
+
+                    @include media($medium-screen-down) {
+                        padding-left: 50%;
+                    }
+                }
+
+                &:nth-child(2) {
+                    a {
+                        color: $my-documents-filename-color;
+                        font-weight: $fw-medium;
+                    }
+                }
+
+                &:nth-child(4) {
+                    font-weight: $fw-medium;
+                }
+            }
+
+            .button {
+                text-align: center;
+                width: 100%;
+                font-weight: $fw-normal;
+            }
+        }
+    }
+
+    button {
+        width: 100%;
+
+        @include media($medium-screen-up) {
+            width: 100%;
+        }
+
+        .plus-sign {
+            height: em(12);
+        }
+    }
+
+    .download-icon {
+        @include sprite($sprite-download);
+        float: left;
+        margin-right: 1em;
+    }
+
+    .accordion-content {
+        @include media($small-screen-down) {
+            padding: 0;
+        }
+    }
+
+    .my-account-header {
+        p {
+            font-size: $dsp2-f-size-s;
+            line-height: $dsp2-line-h-20;
+        }
+
+        .mobile-device & {
+            display: block;
+        }
+
+        .groups-header {
+            font-size: $dsp2-f-size;
+            line-height: $dsp2-line-h-32;
+            margin-bottom: 10px;
+        }
+
+        @include media($medium-screen-down) {
+            p {
+                font-size: $dsp2-f-size-xs;
+                line-height: $dsp2-line-h-20;
+            }
+        }
+    }
+
+    .my-account-footer {
+        button {
+            background: $bmw-blue;
+            border: none;
+            color: $white;
+
+            @include media($medium-screen-down) {
+                padding: $button-narrow-height-padding $button-width-padding $button-narrow-bottom-height-padding;
+                width: 100%;
+            }
+
+            &:hover {
+                background: $c-blue-1;
+            }
+        }
+
+        .plus-sign {
+            &::before,
+            &::after {
+                background: $white;
+            }
+
+            &::before {
+                width: 2px;
+            }
+
+            &::after {
+                height: 2px;
+            }
+        }
+    }
+
+    .my-documents-mobile {
+        display: none;
+        margin: 1em 0 0;
+
+        @include media($large-screen-down) {
+            display: block;
+        }
+
+        .document-block {
+            background: $my-documents-mobile-block-bg;
+            padding: 1em;
+            margin: 0 0 0.5em;
+
+            &:last-child {
+                margin: 0;
+            }
+        }
+
+        .document-heading {
+            @include display(flex);
+            @include flex-direction(row);
+
+            .document-title {
+                @include flex(0 0 auto);
+
+                .h4 {
+                    text-transform: none;
+                    padding: 0 1em 0 0;
+                    margin: 0;
+                    color: $my-documents-mobile-document-title-color;
+                }
+            }
+
+            .document-status {
+                @include flex(1 0 49%);
+                font-size: $dsp2-f-size-s;
+                color: $my-documents-mobile-document-details-color;
+                text-transform: uppercase;
+                line-height: $dsp2-line-25;
+            }
+        }
+
+        .document-file {
+            @include display(flex);
+            @include flex-direction(row);
+
+            .document-file-name {
+                @include flex(0 0 auto);
+                padding: 0 1em 0 0;
+                color: $my-documents-brand-accent-color;
+            }
+
+            .document-file-date {
+                @include flex(1 0 30%);
+                color: $my-documents-mobile-document-details-color;
+            }
+        }
+
+        .document-actions {
+            margin: 1em 0 0;
+
+            a {
+                display: block;
+                width: 100%;
+                margin: 0 0 0.5em;
+                text-align: center;
+
+                &:first-child {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.documents-upload {
+    padding: 20px 20px 13px;
+
+    .documents-upload-header {
+        .documents-upload-title {
+            text-transform: uppercase;
+            font-size: $dsp2-f-size;
+        }
+
+        p {
+            font-size: $dsp2-f-size-s;
+            font-family: $bmw-light;
+        }
+    }
+
+    .groups-wrapper {
+        display: flex;
+
+        .groups-row {
+            width: 230px;
+
+            label {
+                font-size: $dsp2-f-size-s;
+                line-height: $dsp2-line-h-24;
+                text-transform: capitalize;
+
+                @include media($medium-screen-down) {
+                    font-size: $dsp2-f-size-xs;
+                }
+            }
+        }
+
+        input {
+            width: 100%;
+        }
+
+        input[type='radio'] {
+            &.radio-checkbox {
+                + label {
+                    span {
+                        border-radius: unset;
+                    }
+                }
+
+                &:checked {
+                    + label {
+                        span {
+                            background-color: $bmw-blue;
+                            border: 2px solid $bmw-blue;
+
+                            &:after {
+                                content: '';
+                                background-image: none;
+                                left: 0;
+                                top: 2px;
+                                width: 9px;
+                                height: 12px;
+                                border: solid $white;
+                                border-width: 0 3px 3px 0;
+                                transform: rotate(45deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .payment-option {
+            display: flex;
+
+            &-mobile {
+                display: none;
+                width: 100%;
+
+                .selectbox {
+                    margin: 0;
+
+                    .selectbox-select {
+                        background: $white;
+                    }
+                }
+            }
+
+            @include media($medium-screen-down) {
+                display: none;
+
+                &-mobile {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .buttons-set {
+        .file-info {
+            @include shift(4);
+
+            @include media($small-screen-down) {
+                @include shift(0);
+            }
+        }
+
+        button {
+            margin-top: 2.5em;
+
+            @include media($small-screen-down) {
+                width: 100%;
+            }
+        }
+    }
+
+    .documents-table {
+        border-collapse: separate;
+        border-spacing: 0 10px;
+
+        tr {
+            height: 80px;
+
+            @include media($medium-screen-down) {
+                display: flex;
+                flex-direction: column;
+                min-height: 120px;
+                border: 1px solid $c-grey-5;
+                margin-bottom: 10px;
+            }
+        }
+
+        td {
+            background: $white;
+            font-size: $dsp2-f-size;
+            padding: 0;
+            border-bottom: 1px solid $c-grey-5;
+            border-top: 1px solid $c-grey-5;
+
+            @include media($medium-screen-down) {
+                border-bottom: unset;
+                border-top: unset;
+            }
+
+            p {
+                margin-bottom: 0;
+            }
+
+            &:first-child {
+                padding-left: 17px;
+                border-left: 1px solid $c-grey-5;
+                vertical-align: top;
+                padding-top: 15px;
+                font-size: $dsp2-f-size-s;
+
+                @include media($medium-screen-down) {
+                    padding-bottom: 15px;
+                    border-left: unset;
+                    font-size: $dsp2-f-size-xs;
+                    line-height: $dsp2-line-h-20;
+
+                    &.documents-uploaded {
+                        padding-bottom: 5px;
+                    }
+                }
+            }
+
+            &:last-child {
+                padding-left: 15px;
+                border-right: 1px solid $c-grey-5;
+
+                @include media($medium-screen-down) {
+                    padding-bottom: 15px;
+                    padding-left: 17px;
+                    border-right: unset;
+                }
+            }
+
+            &.delete-column {
+                text-align: right;
+                padding-right: 18px;
+
+                @include media($medium-screen-down) {
+                    display: flex;
+                    justify-content: space-between;
+                    text-align: left;
+
+                    .icon-delete {
+                        float: right;
+                    }
+                }
+            }
+
+            a {
+                font-family: $bmw;
+                font-size: $dsp2-f-size;
+                color: $c-grey;
+
+                @include media($medium-screen-down) {
+                    font-size: $dsp2-f-size-s;
+                }
+            }
+
+            .a-center {
+                &.mobile {
+                    display: none;
+                }
+
+                @include media($medium-screen-down) {
+                    display: none;
+
+                    &.mobile {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+
+        .document-upload {
+            margin-right: 15px;
+            margin-bottom: 0;
+
+            .button {
+                position: relative;
+                overflow: hidden;
+                padding: 0;
+                text-align: center;
+                margin: 0;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+
+                @include media($small-screen-down) {
+                    margin-right: 0;
+                    width: 100%;
+                    padding: 1.45em 2em;
+                }
+
+                input{
+                    .document {
+                        @include position(absolute, 0 0 0 null);
+                        margin: 0;
+                        padding: 0;
+                        cursor: pointer;
+                        opacity: 0;
+                        height: 100%;
+                        filter: alpha(opacity=0);
+                    }
+                }
+            }
+
+            .i-choose-file {
+                @include sprite($sprite-folder-icon);
+                display: inline-block;
+                position: relative;
+                top: 1px;
+                margin-left: 10px;
+            }
+
+            #document-upload-label {
+                background: none;
+                border: 0;
+                width: 100%;
+                box-shadow: none;
+                display: inline-block;
+                font-size: $dsp2-f-size-s;
+            }
+
+            ::-webkit-input-placeholder {
+                color: inherit;
+            }
+
+            input::-moz-placeholder {
+                color: inherit;
+            }
+        }
+    }
+}

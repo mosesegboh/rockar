@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Peppermint_ExtendedRules>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Rockar_ExtendedRules />
+                <Rockar_PartExchange />
+            </depends>
+        </Peppermint_ExtendedRules>
+    </modules>
+</config>

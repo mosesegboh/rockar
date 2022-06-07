@@ -1,0 +1,90 @@
+.category-car-finder,
+.checkout-cart-index,
+.customer-account-index,
+.checkout-onepage-index,
+.rockar-youdrive-index-index,
+.checkout-onepage-success,
+.popup.finance-filters-overlay,
+.category-bike-finder,
+.styleguide-page {
+    input[type=button],
+    button,
+    .button {
+        background: $black;
+        border: 2px solid $black;
+        color: $white;
+        font-family: $motorrad-bold;
+        height: 50px;
+        text-transform: uppercase;
+
+        &.dsp2-money {
+            border: none;
+
+            &.disabled {
+                border: none;
+                background: $c-motorrad-grey-2;
+                color: $c-motorrad-grey-1;
+
+                &:hover {
+                    border: none;
+                    background: $c-motorrad-grey-2;
+                    color: $c-motorrad-grey-1;
+                }
+            }
+
+            &:hover {
+                background: $c-motorrad-blue;
+                border: none;
+                color: $white;
+            }
+        }
+
+        &.dsp2-outline,
+        &.dsp2-action {
+            background: $white;
+            border: 2px solid $black;
+            color: $black;
+
+            &.disabled {
+                border: 2px solid $c-motorrad-grey-2;
+                background: $c-motorrad-grey-2;
+                color: $c-motorrad-grey-1;
+
+                &:hover {
+                    border: 2px solid $c-motorrad-grey-2;
+                    background: $c-motorrad-grey-2;
+                    color: $c-motorrad-grey-1;
+                }
+            }
+
+            &:hover {
+                background: $c-motorrad-blue;
+                border: 2px solid $c-motorrad-blue;
+                color: $white;
+            }
+        }
+    }
+}
+
+.category-bike-finder {
+    .icon-close-blue {
+        &:after {
+            background: url('../images/svg/icon-close-black-small.svg') no-repeat center;
+        }
+    }
+}
+
+.car-filter-buttons {
+    .reset-all-filters {
+        &:before {
+            right: calc(50% + 60px);
+        }
+
+        p {
+            font-family: $motorrad-bold;
+            text-transform: uppercase;
+            line-height: $dsp2-line-h-16;
+            border: none;
+        }
+    }
+}

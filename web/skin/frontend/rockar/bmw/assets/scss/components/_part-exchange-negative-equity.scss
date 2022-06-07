@@ -1,0 +1,34 @@
+.part-exchange-negative-equity {
+    margin-top: 20px;
+
+    button {
+        height: auto;
+        color: $white;
+        white-space: normal;
+        line-height: inherit;
+        padding: $button-narrow-height-padding $button-width-padding $button-narrow-bottom-height-padding;
+        height: $bmw-button-height;
+        max-width: initial;
+        margin-bottom: 20px;
+    }
+
+    h3 {
+        display: inline-flex;
+    }
+
+    h3.negative-equity-value {
+        float: right;
+        width: auto;
+
+        @include media($small-screen-down) {
+            float: none;
+        }
+    }
+}
+
+.car-filter-blocks {
+    .select-wrapper {
+        display: block;
+        height: 82px;
+    }
+}

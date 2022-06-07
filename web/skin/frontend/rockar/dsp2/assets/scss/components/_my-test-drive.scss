@@ -1,0 +1,410 @@
+.my-account-details {
+    .my-test-drives {
+        .test-drive-location-picker {
+            border: 2px solid $c-grey-5;
+            background: transparent;
+            height: 88px;
+        }
+
+        &-section {
+            background-color: $c-grey-11;
+
+            &.row {
+                &::after {
+                    display: none;
+                }
+            }
+
+            .col-12 {
+                @include media($medium-screen-down) {
+                    padding: 0;
+                }
+            }
+
+            .accordion-content {
+                padding: 0;
+                background-color: $c-grey-11;
+            }
+
+            .my-test-drives {
+                .my-test-drives-wrapper {
+                    @include media($medium-screen-down) {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        &-header {
+            height: 64px;
+            margin: 10px 0 27px;
+
+            @include media($medium-screen-down) {
+                margin: 12px 0;
+                height: auto;
+            }
+
+            .desktop {
+                background-color: $c-grey-5;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+
+                @include media($medium-screen-down) {
+                    display: none;
+                }
+
+                &-tab {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 64px;
+                    cursor: pointer;
+                    padding: 0.4em;
+
+                    &.active {
+                        border-top: 3px solid $bmw-blue;
+                        background-color: $c-grey-11;
+                    }
+
+                    &-title {
+                        font-family: $bmw;
+                        font-size: $dsp2-f-size-s;
+                        line-height: $dsp2-line-h-16;
+                        text-align: center;
+                    }
+                }
+            }
+
+            .mobile {
+                background-color: $white;
+                margin: 0 15px;
+
+                .selectbox,
+                .selectbox-wrapper {
+                    margin: 0;
+                }
+
+                @include media($large-screen-up) {
+                    display: none;
+                }
+            }
+        }
+
+        .empty-test-drive-text {
+            margin: 0 0 0 10px;
+        }
+
+        .test-drive-cards-wrapper {
+            display: block;
+            border: none;
+            height: auto;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+
+            .slick-list {
+                @include media($dsp2-l-screen-up) {
+                    margin-right: -32px;
+                }
+            }
+
+            .slick-next,
+            .slick-prev {
+                background-color: transparentize($c-grey-12, .5);
+                position: absolute;
+                height: 24px;
+                right: 0;
+                top: 110px;
+                width: 24px;
+                z-index: 1;
+
+                &::before {
+                    background-image: url('../images/svg/icon-arrow.svg');
+                    content: '';
+                    height: 16px;
+                    position: absolute;
+                    right: 7px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 10px;
+                }
+            }
+
+            .slick-prev {
+                left: 0;
+                right: unset;
+
+                &::before {
+                    background-image: url('../images/svg/icon-arrow-left.svg');
+                    left: 7px;
+                    right: unset;
+                }
+            }
+
+            .slick-disabled {
+                opacity: 0;
+            }
+        }
+
+        .test-drive-card {
+            box-shadow: 0 15px 40px -12px rgba(0, 0, 0, .15);
+            background-color: $white;
+            height: auto;
+            margin-bottom: 20px;
+            padding: 20px;
+
+            @include media($dsp2-l-screen-up) {
+                margin-right: 32px;
+            }
+
+            &:last-child {
+                margin: 0 0 20px;
+            }
+
+            &-top {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+
+                @include media($medium-screen-down) {
+                    grid-template-columns: 1fr;
+                }
+
+                > .text {
+                    h3 {
+                        margin: 0;
+                        font-family: $bmw;
+
+                        @include media($medium-screen-down) {
+                            font-size: $dsp2-f-size-xl;
+                            line-height: $dsp2-line-h-24;
+                        }
+                    }
+
+                    .dsp2-caption {
+                        text-transform: uppercase;
+                    }
+
+                }
+
+                > .image {
+                    text-align: end;
+                    height: 145px;
+
+                    @include media($medium-screen-down) {
+                        text-align: center;
+                    }
+
+                    > img {
+                        margin: -30px 0 -25px;
+                        transform: scale(1.5);
+                        max-height: 100%;
+                        height: 100%;
+
+                        @include media($dsp2-l-screen-down) {
+                            margin: -20px auto -25px;
+                        }
+
+                        @include media($dsp2-l-screen-up) {
+                            display: inline-block;
+                            object-fit: contain;
+                        }
+                    }
+                }
+            }
+
+            &-body {
+                .accordion {
+                    border: 1px solid $c-grey-5;
+
+                    li {
+                        > a {
+                            &.js-accordion-trigger {
+                                color: $c-grey;
+                                font-family: $bmw;
+                                font-size: $dsp2-f-size-s;
+                                line-height: $dsp2-line-h-24;
+                                border-bottom: none;
+                                padding: 12px 15px 14px;
+                                text-transform: uppercase;
+                            }
+                        }
+
+                        .submenu {
+                            padding: 0 15px 15px;
+                            margin: 0;
+
+                            .options-item {
+                                font-family: $bmw-light;
+                                font-size: $dsp2-f-size-xs;
+                                line-height: $dsp2-line-h-24;
+                                border-bottom: 1px solid $c-grey-5;
+                                padding: 10px 0;
+
+                                @include media($dsp2-l-screen-up) {
+                                    font-size: $dsp2-f-size-s;
+                                }
+
+                                &:first-child {
+                                    border-top: 1px solid $c-grey-5;
+                                }
+
+                                p {
+                                    margin: 0;
+                                }
+                            }
+                        }
+                    }
+
+                    &.type-right-down {
+                        > li {
+                            > a {
+                                &::after {
+                                    background: url('../images/svg/black-arrow-up.svg') no-repeat center;
+                                    background-size: contain;
+                                    border: none;
+                                    transform: rotate(180deg);
+                                    right: 15px;
+                                    top: 22px;
+                                    opacity: 1;
+                                    width: 16px;
+                                    height: 10px;
+                                    transition: transform 200ms;
+                                }
+                            }
+
+                            &.is-expanded {
+                                > a {
+                                    &::after {
+                                        transform: rotate(0deg);
+                                        right: 15px;
+                                        top: 22px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            &-bottom {
+                margin: 20px 0 0;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+
+                @include media($medium-screen-down) {
+                    grid-template-columns: 1fr;
+                }
+
+                > .map {
+                    height: 150px;
+
+                    @include media($dsp2-l-screen-up) {
+                        height: 230px;
+                    }
+
+                    .iframe-wrapper {
+                        height: 100%;
+                        min-height: auto;
+                    }
+                }
+
+                > .info-actions {
+                    .info {
+                        > div {
+                            padding: 12px 0;
+                            border-bottom: 1px solid $c-grey-5;
+                            display: flex;
+                            justify-content: space-between;
+
+                            span {
+                                &:first-child {
+                                    font-family: $bmw-light;
+                                    font-size: $dsp2-f-size-s;
+                                    line-height: $dsp2-line-h-20;
+                                    margin-right: 10px;
+                                }
+
+                                &:last-child {
+                                    font-family: $bmw-bold;
+                                    font-size: $dsp2-f-size-s;
+                                    line-height: $dsp2-line-h-20;
+                                    text-align: end;
+                                }
+                            }
+                        }
+                    }
+
+                    .actions {
+                        > button {
+                            margin: 20px 0 0;
+                        }
+                    }
+                }
+
+                &.one-column {
+                    grid-template-columns: 1fr;
+
+                    > .info-actions {
+                        .info {
+                            color: $c-grey;
+                        }
+
+                        .actions {
+                            text-align: right;
+
+                            > button {
+                                margin: 15px 0 0;
+
+                                @include media($dsp2-l-screen-up) {
+                                    max-width: 245px;
+                                    width: 50%;
+                                }
+
+                                &.dsp2-outline {
+                                    border-color: $c-grey-1;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .test-drives-carousel {
+            width: 100%;
+            margin: 0;
+        }
+
+        .popup {
+            &.confirmation-popup {
+                .popup-content {
+                    .content-wrapper {
+                        div {
+                            button {
+                                &.button-narrow {
+                                    &.button-empty-blue-lagoon {
+                                        &.popup-cancel {
+                                            background-color: transparent;
+
+                                            span {
+                                                color: $cool-grey;
+                                            }
+
+                                            &:hover {
+                                                span {
+                                                    color: $c-blue-1;
+                                                    opacity: .9;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

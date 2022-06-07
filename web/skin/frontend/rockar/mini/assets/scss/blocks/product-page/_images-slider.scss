@@ -1,0 +1,91 @@
+.image-zoom {
+    @include size(17px);
+    position: absolute;
+    z-index: 15;
+    top: 1rem;
+    left: 2rem;
+    cursor: pointer;
+
+    @include media($small-screen-down) {
+        display: none;
+    }
+
+    .zoom-icon {
+        @include sprite($sprite-gallery-fullscreen-icon);
+        display: inline-block;
+    }
+}
+
+.image-type-switcher {
+    .ext-int-buttons {
+        display: flex;
+
+        @include media($small-screen-down) {
+            display: none;
+        }
+
+        button {
+            margin-left: 0;
+        }
+    }
+    .actions-wrapper-mobile {
+        text-align: left;
+    }
+}
+
+.slide360 {
+    .carousel-wrapper {
+        width: 100%;
+        margin-bottom: 0;
+
+        .slick-list {
+            .slick-current {
+                img {
+                    z-index: 1;
+                }
+            }
+        }
+
+        .slick-arrow {
+            @include size(15px);
+            top: 50%;
+            background: none;
+            border: {
+                top: 2px solid $white;
+                right: 2px solid $white;
+            }
+            z-index: 1;
+
+            @include media($small-screen-down) {
+                display: none !important; // Have to override slick JS
+            }
+
+            &.slick-next {
+                right: 2rem;
+                transform: none;
+            }
+
+            &.slick-prev {
+                left: 2rem;
+                transform: none;
+            }
+        }
+
+        .slick-dots {
+            bottom: 1.25em;
+
+            @include media($small-screen-down) {
+                bottom: 0.313em;
+            }
+
+            li {
+                button {
+                    &::before {
+                        color: $white;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}

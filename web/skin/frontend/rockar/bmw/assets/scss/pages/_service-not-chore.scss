@@ -1,0 +1,16 @@
+.cms-service-not-chore {
+    .wrapper {
+        .hero-wrapper {
+            .hero-left {
+                .hero-inner {
+                    .text-upper {
+                        p:not(.h1):not(.h2):not(.h3):not(.h4):not(.h5):not(.h6) {
+                            font-size: $f-size-xs;
+                            font-family: $avenir;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

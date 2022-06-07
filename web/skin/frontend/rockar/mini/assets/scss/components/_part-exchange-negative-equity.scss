@@ -1,0 +1,41 @@
+.part-exchange-negative-equity {
+    button {
+        height: auto;
+        white-space: normal;
+        line-height: inherit;
+        padding: $button-narrow-height-padding $button-width-padding $button-narrow-bottom-height-padding;
+        height: $mini-button-height;
+        max-width: initial;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    h3 {
+        display: inline-flex;
+        font-size: 20px;
+        letter-spacing: 0.10625em;
+
+        @include media($small-screen-down) {
+            display: block;
+            text-align: center;
+        }
+    }
+
+    h3.negative-equity-value {
+        float: right;
+        width: auto;
+        display: inline-block;
+
+        @include media($small-screen-down) {
+            display: block;
+            float: none;
+        }
+    }
+}
+
+.car-filter-blocks {
+    .select-wrapper {
+        display: block;
+        height: 82px;
+    }
+}

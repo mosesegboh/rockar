@@ -1,0 +1,23 @@
+// Bourbon framework
+@import '../../../default2/framework/scss/framework';
+
+// Extended Mixins
+@import '../../../default2/assets/scss/mixin/extends';
+
+// Fonts
+@import '../../../default2/assets/scss/utils/fonts';
+
+// Sprites
+@import '../../../default2/assets/scss/utils/sprites';
+
+// Platform Variables
+@import '../../../default2/assets/scss/utils/variables';
+
+// Framework and Platform variable extends
+@import '../../../default2/assets/scss/extends/variables';
+
+// Email styles
+@import '../../../default2/assets/emails/global';
+@import '../../../default2/assets/emails/grid';
+@import '../../../default2/assets/emails/header';
+@import '../../../default2/assets/emails/footer';

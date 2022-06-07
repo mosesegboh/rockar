@@ -1,0 +1,146 @@
+.catalog-category-view,
+.catalog-category-layered {
+    .breadcrumbs-wrapper {
+        padding-top: 68px;
+    }
+
+    #car-finder,
+    #you-build-category,
+    #approved-used-category {
+        padding: 0 15px 15px;
+
+        @include media($small-screen-down) {
+            padding: 0;
+        }
+
+        &.js-stickybit-parent {
+            position: relative;
+            padding-bottom: 50px;
+        }
+
+        .filter-container {
+            max-width: 100%;
+            padding: 0 1em;
+            margin: auto;
+
+            @include media($small-screen-down) {
+                padding: 0;
+            }
+        }
+
+        .content-card-header {
+            display: none;
+
+            @include media($small-screen-down) {
+                display: block;
+                margin: 10px 0 0;
+                padding: 20px 0 10px;
+                font-weight: $fw-book;
+                letter-spacing: em(.8);
+                border-top: 1px solid $grey-2;
+                text-align: center;
+            }
+
+            .header-highlight {
+                font-weight: $fw-semibold;
+                color: $black;
+            }
+
+            .header-title {
+                text-transform: uppercase;
+                font-size: $f-size-xxl;
+                font-family: $brand-specific-font;
+            }
+
+            .header-description {
+                font-weight: $fw-normal;
+                font-size: $f-size-xs;
+                padding: 0 50px;
+                letter-spacing: 1.1px;
+            }
+        }
+
+        .header-row {
+            .col-12 {
+                padding: 0;
+            }
+        }
+
+        .terms-and-conditions-action {
+            margin-top: 2em;
+
+            @include media($large-screen-up) {
+                margin-top: 0;
+                position: relative;
+            }
+
+            @include media($medium-screen-only) {
+                margin-top: 2.5em;
+            }
+
+            @include media($large-screen-down) {
+                padding: 0 15px;
+            }
+
+            > div {
+                @include media($large-screen-up) {
+                    position: absolute;
+                    top: 3em;
+                    left: 0;
+                    right: 0;
+                }
+            }
+
+            a {
+                color: $grey-2;
+            }
+        }
+
+        a.step-back { 
+            padding-top: 15px;
+        }
+
+        .step-back {
+            font-family: $primary-font-bold;
+            font-size: $bmw-button;
+            font-weight: normal;
+            color: $button-grey-color;
+            background: $button-grey;
+            border: 1px solid $button-grey;
+            height: 50px;
+            width: 285px;
+            padding: $button-narrow-height-padding $button-width-padding $button-narrow-bottom-height-padding;
+
+            @include media($small-screen-down) {
+                width: 55px;
+            }
+
+            &:hover {
+                background: $grey-button-hover-color;
+            }
+
+            &.mobile-only {
+                height: 79px;
+                width: 55px;
+            }
+
+            @include media($small-screen-down) {
+                padding-top: 0;
+                margin: 0;
+                height: 100%;
+            }
+        }
+    }
+
+    .car-finder {
+        @import 'px/modal';
+    }
+
+    footer {
+        .footer-wrapper {
+            @include media($small-screen-down) {
+                padding-bottom: $configurator-sub-nav-buttons-height-mobile;
+            }
+        }
+    }
+}

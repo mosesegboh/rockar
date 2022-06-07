@@ -1,0 +1,33 @@
+.view-online {
+  background-color: $emails-note-background;
+  text-align: center;
+  padding: 10px 0;
+}
+
+#email-title {
+  width: 100%;
+  margin: 25px 0 60px;
+
+  td {
+    padding: 0;
+    border-width: 0;
+  }
+
+  .title {
+    font-family: $secondary-font-family;
+    font-size: $h1-font-size;
+    font-weight: $fw-bold;
+    width: 70%;
+    line-height: 1.1em;
+  }
+
+  .image {
+    width: 30%;
+  }
+
+  img {
+    display: block;
+    width: 85px;
+    float: right;
+  }
+}

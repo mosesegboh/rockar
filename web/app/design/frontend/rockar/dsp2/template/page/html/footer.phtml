@@ -1,0 +1,52 @@
+<?php
+/**
+ * @category design
+ * @package rockar_default
+ * @author Vjaceslavs Hlutkovs <techteam@rockar.com>
+* @copyright Copyright (c) 2016 Rockar Ltd (http://rockar.com)
+ *
+ * @var $this Mage_Page_Block_Html_Footer
+ */
+?>
+<footer>
+    <div class="footer-wrapper">
+        <div class="top">
+            <div class="top-wrapper">
+                <?php echo $this->getChildHtml('newsletter-footer') ?>
+            </div>
+        </div>
+
+        <div class="bottom">
+            <div class="social-block-wrapper">
+                <ul class="social-block"></ul>
+                <ul class="social-block"></ul>
+                <ul class="social-block"></ul>
+                <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_social_media')->toHtml();?>
+            </div>
+
+            <div class="footer-links">
+                <?php echo $this->getChildHtml('footer_our_cars') ?>
+                <?php echo $this->getChildHtml('footer_essential_information_left') ?>
+                <?php echo $this->getChildHtml('footer_essential_information_right') ?>
+                <?php echo $this->getChildHtml('footer_quick_links') ?>
+                <?php if(!Mage::helper('rockar_all')->checkIsInStore()): ?>
+                    <?php echo $this->getChildHtml('footer_follow_us') ?>
+                <?php endif; ?>
+                <?php if (Mage::getModel('customer/session')->isLoggedIn()): ?>
+                    <?php echo $this->getChildHtml('footer_gtm') ?>
+                <?php endif; ?>
+            </div>
+        </div>
+
+        <div class="additional-section-wrapper">
+            <div class="additional">
+                <div class="footer-copyright">
+                    <h6><?php echo $this->__('&copy; BMW SA %s', date('Y')); ?></h6>
+                </div>
+                <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_bottom_links')->toHtml();?>
+            </div>
+        </div>
+    </div>
+
+    <?php if (Mage::getIsDeveloperMode()) echo Mage::app()->getLayout()->createBlock('core/template')->setTemplate('dev/menu.phtml')->toHtml(); ?>
+</footer>

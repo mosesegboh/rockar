@@ -1,0 +1,172 @@
+.dealers {
+    margin: 20px 0 0 0;
+
+    .bold {
+        font-weight: $fw-bold;
+    }
+
+    .dealer-box {
+        .details {
+            .name {
+                font-family: $secondary-font-family;
+                font-size: $f-size-xxxxl;
+                text-transform: uppercase;
+                margin: -10px 0 .5em 0;
+            }
+
+            .row {
+                font-family: $primary-font-family;
+                font-size: $f-size;
+
+                .heading {
+                    font-weight: $fw-semibold;
+                    margin-bottom: 4px;
+                }
+
+                .main-phone {
+                    margin-top: 10px;
+                }
+
+                .hours {
+                    p {
+                        font-family: $primary-font-family;
+                        margin: 0;
+
+                        .day {
+                            display: inline-block;
+                        }
+
+                        .hour {
+                            float: right;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .delivery-method {
+        &.home-delivery {
+            font-size: $f-size;
+
+            .info {
+                .address-details {
+                    .choose-address {
+                        margin-top: 20px;
+                        display: block;
+                        color: $primary-color;
+                    }
+                }
+
+                p {
+                    font-family: $primary-font-family;
+                    margin: 0;
+                }
+            }
+
+            .row {
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+.dealer-list {
+    display: flex;
+    flex-direction: row;
+
+    @include media($small-screen-down) {
+        flex-direction: column;
+    }
+
+    .dealer-preview-wrapper {
+        flex: 1 1 50%;
+        border: 1px solid $primary-color;
+        color: $black;
+        cursor: pointer;
+
+        @include media($medium-screen-down) {
+            border-bottom: 0;
+        }
+
+        &:last-child {
+            border: 1px solid $primary-color;
+        }
+
+        &.active {
+            background: $primary-color;
+
+            .dealer-preview {
+                color: $white;
+            }
+        }
+
+        .dealer-preview {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+            border: none;
+            padding: 10px;
+            color: $black;
+
+            .number {
+                flex: 1 1 10%;
+                width: auto;
+                height: auto;
+                float: none;
+                line-height: inherit;
+            }
+
+            .details {
+                flex: 1 1 90%;
+                float: none;
+                padding: 0;
+                width: auto;
+                height: auto;
+            }
+
+            &.recommended {
+                .title {
+                    text-transform: uppercase;
+                    padding: .6em;
+                    font-weight: $fw-normal;
+                    font-size: $f-size-s;
+                    text-align: center;
+                }
+            }
+
+            .details {
+                font-family: $primary-font-family;
+
+                .name {
+                    font-family: $secondary-font-family;
+                    font-size: $f-size-xxl;
+                }
+
+                .address {
+                    font-size: $f-size-xs;
+                }
+            }
+
+            &.active {
+                background: $primary-color;
+                color: $white;
+            }
+        }
+    }
+
+    .another-dealer-wrapper {
+        font-size: $f-size-l;
+        margin: 1.5em 0 .5em;
+    }
+}
+
+.rockar-youdrive-index-index {
+    .dealer-preview-wrapper:not(:last-of-type) {
+        @include media($medium-screen-up) {
+            border-right: none;
+        }
+    }
+}

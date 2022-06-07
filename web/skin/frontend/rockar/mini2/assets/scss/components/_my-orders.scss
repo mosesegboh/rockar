@@ -1,0 +1,504 @@
+.my-orders,
+.my-orders-mobile {
+    .my-orders-block {
+        &.car-details {
+            max-height: 648px;
+
+            .my-orders-col-3 {
+                .my-orders-header {
+                    .title,
+                    .subtitle {
+                        color: $black;
+                    }
+
+                    .title {
+                        font-family: $mini-serif-bold;
+                        text-transform: uppercase;
+                    }
+
+                    .subtitle {
+                        font-family: $mini-sans-serif-regular;
+                    }
+                }
+            }
+
+            .my-orders-tabs-section {
+                .my-orders-tabs-list {
+                    .my-orders-tab-title {
+                        &.active {
+                            border-top: 3px solid $c-mini-blue;
+                        }
+
+                        p {
+                            font-family: $mini-sans-serif-regular;
+                            color: $black;
+                        }
+                    }
+                }
+
+                .my-orders-tabs-content {
+                    .vehicle-options {
+                        .header {
+                            font-family: $mini-sans-serif-regular;
+                            color: $black;
+                        }
+
+                        .content-box {
+                            .content {
+                                .option-label {
+                                    color: $black;
+                                    font-family: $mini-sans-serif-regular;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .my-orders-tabs-content {
+                height: 380px;
+
+                .trade-in {
+                    .order-info-box {
+                        .order-label,
+                        .car-model,
+                        .align-right {
+                            color: $black;
+                        }
+
+                        .order-label {
+                            font-family: $mini-sans-serif-regular;
+                        }
+
+                        .car-model {
+                            font-family: $mini-sans-serif-regular;
+                        }
+
+                        .align-right {
+                            font-family: $mini-sans-serif-bold;
+
+                            &.estimated-value {
+                                font-family: $mini-serif-bold;
+                                color: $black;
+                            }
+                        }
+                    }
+                }
+
+                .payment-details {
+                    .payment-info-box {
+                        .order-label,
+                        .align-right {
+                            color: $black;
+                        }
+
+                        .order-label {
+                            font-family: $mini-sans-serif-regular;
+                        }
+
+                        .align-right {
+                            font-family: $mini-sans-serif-bold;
+                        }
+
+                        .content {
+                            .align-right {
+                                color: $black;
+                                font-family: $mini-serif-bold;
+                                font-size: $dsp2-f-size-xxl;
+                            }
+
+                            .summary {
+                                .summary-link {
+                                    color: $black;
+                                    font-family: $mini-sans-serif-bold;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .my-order-details {
+                .my-orders-col-2 {
+                    .order-info-boxes {
+                        .order-info-box {
+                            .order-label,
+                            .order-info-content {
+                                color: $black;
+                            }
+
+                            .order-label {
+                                font-family: $mini-sans-serif-regular;
+                            }
+
+                            .order-info-content {
+                                font-family: $mini-sans-serif-bold;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.messages-desktop {
+            .my-orders-table {
+                .my-orders-heading {
+                    font-family: $mini-sans-serif-regular;
+                    color: $black;
+                }
+
+                .my-orders-messages-block {
+                    .my-orders-table-content {
+                        .content {
+                            font-family: $mini-sans-serif-regular;
+                            color: $black;
+                        }
+
+                        .date {
+                            font-family: $mini-sans-serif-bold;
+                            color: $c-grey-14;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.order-amend-actions {
+            .header {
+                .my-orders-heading {
+                    color: $black;
+                    font-family: $mini-serif-regular;
+                    text-transform: uppercase;
+                }
+            }
+
+            .terms-conditions {
+                color: $black;
+                border-bottom: 2px solid $black;
+                line-height: $dsp2-line-h-16;
+                margin: 2px 0 0;
+
+                &:hover {
+                    color: $white;
+                    background: $black;
+                }
+            }
+        }
+
+        &.order-status {
+            .my-orders-heading {
+                color: $black;
+                font-family: $mini-serif-regular;
+                text-transform: uppercase;
+            }
+
+            .content {
+                .my-orders-status-text {
+                    .my-orders-medium {
+                        font-family: $mini-sans-serif-bold;
+                    }
+
+                    .my-orders-p {
+                        font-family: $mini-sans-serif-regular;
+                    }
+                }
+
+                .my-orders-progress-bar-block {
+                    .my-orders-progress-point {
+                        &.active {
+                            .my-orders-progress-point-square {
+                                background: $white;
+
+                                &:after {
+                                    background: url(../images/svg/icon-checkmark.svg) no-repeat center;
+                                    height: 12px;
+                                    width: 16px;
+                                    top: 12px;
+                                }
+                            }
+                        }
+
+                        .my-orders-progress-text {
+                            left: 8%;
+
+                            p {
+                                color: $black !important; // Override dsp2 statement
+                                font-family: $mini-sans-serif-regular;
+                            }
+                        }
+                    }
+
+                    .my-orders-progress-bar-list {
+                        .my-orders-progress-point {
+                            .my-orders-progress-point-square {
+                                height: 40px;
+                                width: 40px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.my-orders-document {
+            .content {
+                .col-3 {
+                    .my-orders-document-label,
+                    .my-orders-heading {
+                        font-family: $mini-sans-serif-regular;
+                    }
+
+                    .my-orders-heading {
+                        color: $black;
+                    }
+                }
+            }
+        }
+
+        .my-orders-status {
+            .my-orders-progress-bar-block {
+                .my-orders-progress-bar-list {
+                    .my-orders-progress-point {
+                        &:before {
+                            height: 2px;
+                            top: 18px;
+                        }
+
+                        &.active {
+                            &:before {
+                                background-color: $c-mini-blue;
+                            }
+
+                            .my-orders-progress-point-square {
+                                border-color: $c-mini-blue;
+                            }
+                        }
+
+                        &.progress {
+                            &:before {
+                                background-color: $c-mini-blue;
+                            }
+
+                            &:after {
+                                position: absolute;
+                                display: block;
+                                content: '';
+                                background: url(../images/svg/icon-car.svg) no-repeat center;
+                                height: 13px;
+                                width: 26px;
+                                top: 12px;
+                                left: 7px;
+                                z-index: 2;
+                            }
+
+                            .my-orders-progress-point-square {
+                                background: $c-mini-blue;
+                                border: 2px solid $c-mini-blue;
+                                color: $c-mini-blue;
+                            }
+                        }
+
+                        .my-orders-progress-point-square {
+                            border: 2px solid $c-mini-grey-1;
+                            line-height: $dsp2-line-h-36;
+                            font-family: $mini-serif-regular;
+                            font-size: $dsp2-f-size-l;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.my-orders-section {
+    .amendment-order-status {
+        .title {
+            font-family: $mini-serif-bold;
+            font-size: $dsp2-f-size-xxxl;
+            color: $black;
+
+            @include media($medium-screen-down) {
+                font-size: $dsp2-f-size;
+                font-family: $mini-sans-serif-regular;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+.my-orders-mobile {
+    .hero-section {
+        .my-orders-header {
+            .title,
+            .subtitle {
+                color: $black;
+                text-transform: uppercase;
+            }
+
+            .title {
+                font-family: $mini-serif-bold;
+                font-size: $dsp2-f-size-l;
+            }
+
+            .subtitle {
+                font-family: $mini-sans-serif-bold;
+            }
+        }
+    }
+
+    .my-orders-block {
+        .image-type-switcher {
+            .actions-wrapper {
+                .switcher {
+                    background-size: 23px;
+                }
+            }
+        }
+    }
+
+    .hero-info {
+        color: $black;
+
+        .hero-order {
+            .order-info-boxes {
+                .order-info-box {
+                    .order-label {
+                        font-family: $mini-sans-serif-regular;
+                    }
+
+                    .order-info-content {
+                        font-family: $mini-sans-serif-bold;
+                    }
+                }
+            }
+        }
+
+        .my-orders-block {
+            &.order-status {
+                .content {
+                    .my-orders-heading {
+                        text-transform: none;
+                        font-family: $mini-sans-serif-regular;
+                    }
+                }
+            }
+        }
+
+        .accordion-list {
+            .accordion {
+                .my-orders-document {
+                    .header {
+                        font-family: $mini-sans-serif-regular;
+                    }
+
+                    .content {
+                        .col-3 {
+                            .my-orders-document-label {
+                                font-family: $mini-sans-serif-bold;
+                            }
+                        }
+                    }
+                }
+
+                .messages-mobile {
+                    .my-orders-table {
+                        .my-orders-heading {
+                            color: $black;
+                            font-family: $mini-sans-serif-regular;
+                        }
+
+                        .table-responsive {
+                            .my-orders-messages-block {
+                                tr {
+                                    td {
+                                        &.my-orders-table-content {
+                                            .content {
+                                                color: $black;
+                                                font-family: $mini-sans-serif-regular;
+                                            }
+
+                                            .date {
+                                                color: $c-grey-14;
+                                                font-family: $mini-sans-serif-regular;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .car-extras {
+                    .vehicle-options {
+                        .header {
+                            font-family: $mini-sans-serif-regular;
+                            font-size: $f-size-xs;
+                        }
+                    }
+                }
+
+                .part-exchange {
+                    .order-info-box {
+                        .order-label {
+                            font-family: $mini-sans-serif-regular;
+                        }
+
+                        .align-right {
+                            font-family: $mini-sans-serif-bold;
+
+                            &.estimated-value {
+                                font-family: $mini-serif-bold;
+                                color: $black;
+                            }
+                        }
+                    }
+                }
+
+                .payment-details {
+                    .payment-info-box {
+                        color: $black;
+
+                        .order-label {
+                            font-family: $mini-sans-serif-regular;
+                        }
+
+                        .align-right {
+                            font-family: $mini-sans-serif-bold;
+                        }
+
+                        .content {
+                            .align-right {
+                                font-family: $mini-serif-bold;
+                            }
+
+                            .summary {
+                                .summary-link {
+                                    color: $black;
+                                    font-family: $mini-sans-serif-bold;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .my-orders-progress-bar-block {
+        padding: 0 0 39px 0;
+    }
+
+    .vehicle-options {
+        font-family: $mini-sans-serif-regular;
+
+        .option-label {
+            text-transform: none;
+        }
+    }
+
+    .car-model {
+        font-family: $mini-sans-serif-regular;
+    }
+}

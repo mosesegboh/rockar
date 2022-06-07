@@ -1,0 +1,83 @@
+#checkout {
+    .checkout-steps {
+        .accordion {
+            &.summary_step {
+                @import '../blocks/product-page/cosy-view-slider';
+            }
+        }
+    }
+}
+
+.accordion-content {
+    .checkout-summary {
+        .car-detail {
+            margin: 0;
+
+            @include media($medium-screen-down) {
+                padding: 20px 24px 10px;
+            }
+
+            .accordion {
+                .js-accordion-trigger {
+                    font-family: $mini-serif-regular;
+                    font-size: $dsp2-f-size-l;
+                    line-height: $dsp2-line-h-28;
+
+                    @include media($medium-screen-down) {
+                        font-family: $mini-serif-regular;
+                        font-size: $dsp2-f-size;
+                        line-height: $dsp2-line-h-24;
+                    }
+                }
+
+                .group-title {
+                    font-family: $mini-sans-serif-regular;
+                }
+
+                .table-right {
+                    font-family: $mini-sans-serif-bold;
+                }
+
+                .features-item {
+                    @include media($medium-screen-down) {
+                        font-size: $dsp2-f-size-s;
+                    }
+                }
+            }
+        }
+
+        .summary-bottom {
+            .content {
+                .disclaimers-wrapper {
+                    .legal-disclaimer {
+                        p {
+                            line-height: $dsp2-line-h-14;
+                        }
+                    }
+                }
+
+                .actions-wrapper {
+                    .checkbox {
+                        label {
+                            display: flex;
+                            justify-content: center;
+                            align-items: baseline;
+
+                            a {
+                                &.terms-conditions {
+                                    font-family: $mini-sans-serif-bold;
+                                    color: $black;
+                                    margin: 0 0 0 3px;
+                                }
+                            }
+
+                            span {
+                                margin: -2px 0 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

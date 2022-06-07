@@ -1,0 +1,16 @@
+.pre-configured-car {
+    background: white;
+    margin-bottom: 10px;
+
+    .option-list {
+        .option {
+            strong {
+                text-transform: uppercase;
+            }
+
+            .price {
+                float: right;
+            }
+        }
+    }
+}

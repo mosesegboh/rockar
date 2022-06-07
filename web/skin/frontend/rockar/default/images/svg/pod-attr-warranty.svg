@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.45 18.2">
+    <defs>
+        <style>
+            .cls-1 {
+                fill: #5F6163;
+            }
+
+            .cls-2 {
+                fill: none;
+                stroke: #5F6163;
+                stroke-linecap: round;
+                stroke-miterlimit: 10;
+                stroke-width: 1.28px;
+            }
+        </style>
+    </defs>
+    <title>warranty</title>
+    <g id="Layer_2" data-name="Layer 2">
+        <g id="Layer_1-2" data-name="Layer 1">
+            <rect class="cls-1" x="5.75" width="1.92" height="3.83" />
+            <rect class="cls-1" x="12.78" width="1.92" height="3.83" />
+            <polyline class="cls-2" points="16.61 2.86 19.81 2.86 19.81 17.56 0.64 17.56 0.64 2.86 3.83 2.86" />
+            <line class="cls-2" x1="9.58" y1="2.86" x2="10.86" y2="2.86" />
+            <line class="cls-2" x1="0.64" y1="5.58" x2="19.81" y2="5.58" />
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,702 @@
+.details_step {
+    .accordion-content {
+        padding: 40px 25px 30px;
+    }
+
+    .your-details {
+        &-title {
+            margin: 0 0 28px;
+
+            @include media($medium-screen-down) {
+                margin: 0 0 20px;
+                padding: 0 0 20px;
+                border-bottom: 1px solid $c-grey-5;
+                font-size: $dsp2-f-size-xs;
+            }
+        }
+
+        label {
+            margin: 0;
+        }
+
+        .side-label {
+            &::after {
+                display: none;
+            }
+        }
+
+        .row-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            grid-gap: 30px 50px;
+            margin: 0 0 30px;
+
+            &.row-grid-hard {
+                @include media($medium-screen-up) {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            input {
+                margin: 0;
+            }
+
+            > .col-6,
+            > .col-12 {
+                width: 100%;
+                position: relative;
+                padding: 0;
+            }
+
+            > .shift-6 {
+                margin-left: calc(50% + 25px);
+                width: auto;
+
+                @include media($medium-screen-down) {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        .button {
+            margin: 0;
+        }
+
+        .accordion {
+            border: 1px solid $c-grey-5;
+            margin: 20px 0 0;
+
+            &.disabled {
+                opacity: 1;
+            }
+
+            li {
+                > a {
+                    &.js-accordion-trigger {
+                        color: $c-grey;
+                        font-family: $bmw;
+                        font-size: $dsp2-f-size;
+                        line-height: $dsp2-line-h-24;
+                        border-bottom: none;
+                        padding: 25px 30px;
+                        text-transform: uppercase;
+
+                        @include media($medium-screen-down) {
+                            font-size: $dsp2-f-size-s;
+                            padding: 12px 15px 14px;
+                        }
+                    }
+
+                    div {
+                        &.checked {
+                            border: 2px solid $bmw-blue;
+                            border-radius: 50%;
+                            text-align: center;
+                            background-color: $white;
+                            height: 30px;
+                            width: 30px;
+                            padding: 7px 6px;
+                            display: inline-block;
+                            margin: 0 20px -8px;
+
+                            @include media($medium-screen-down) {
+                                margin: 0 10px;
+                                position: absolute;
+                                top: 8px;
+                            }
+
+                            div {
+                                background: url('../images/svg/icon-checkmark.svg') no-repeat center;
+                                height: 12px;
+                                width: 16px;
+                            }
+                        }
+                    }
+                }
+
+                .submenu {
+                    padding: 10px 32px 0;
+
+                    @include media($medium-screen-down) {
+                        padding: 10px 16px 0;
+                    }
+                }
+            }
+
+            &.type-right-down {
+                > li {
+                    > a {
+                        &::after {
+                            background: url('../images/svg/black-arrow-up.svg') no-repeat center;
+                            background-size: contain;
+                            border: none;
+                            transform: rotate(180deg);
+                            right: 30px;
+                            top: 45%;
+                            opacity: 1;
+                            width: 16px;
+                            height: 10px;
+                            transition: transform 200ms;
+
+                            @include media($medium-screen-down) {
+                                top: 40%;
+                                right: 15px;
+                            }
+                        }
+                    }
+
+                    &.is-expanded {
+                        > a {
+                            &::after {
+                                transform: rotate(0deg);
+                                right: 30px;
+                                top: 45%;
+
+                                @include media($medium-screen-down) {
+                                    top: 40%;
+                                    right: 15px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .hover-label {
+                position: absolute;
+                background-color: $white;
+                height: 2px;
+                top: 0;
+                padding: 0 10px;
+                left: 15px;
+                margin: 0;
+                z-index: 1;
+
+                > div {
+                    color: $c-grey-3;
+                    font-family: $bmw;
+                    font-size: $dsp2-f-size-xs;
+                    line-height: $dsp2-line-h-32;
+                    margin: -16px 0 0;
+
+                    &.required {
+                        &::after {
+                            content: '*';
+                            display: block;
+                            position: absolute;
+                            right: 2px;
+                            top: -16px;
+                        }
+                    }
+                }
+            }
+
+            .accept-terms {
+                padding: 0;
+
+                .dsp2-subtitle-s {
+                    margin: 0 0 22px;
+                    color: $c-grey;
+                    font-family: $bmw;
+
+                    @include media($medium-screen-down) {
+                        font-size: $dsp2-f-size-xs;
+                        line-height: $dsp2-line-h-16;
+                    }
+                }
+
+                &-statement {
+                    @include media($medium-screen-down) {
+                        font-size: $dsp2-f-size-xs;
+                        line-height: $dsp2-line-h-16;
+                    }
+                }
+            }
+
+            .mandatory-title {
+                margin: 5px 0 0;
+                font-family: $bmw;
+                font-size: $dsp2-f-size-13;
+                line-height: $dsp2-line-h-16;
+                color: $c-grey;
+            }
+
+            .selectbox {
+                height: 52px;
+                margin: 0;
+
+                .selectbox-select {
+                    height: 52px;
+                    margin: 0;
+                    font-family: $bmw-light;
+                    font-size: $dsp2-f-size;
+                    line-height: $dsp2-line-h-24;
+                    padding: 17px 30px 14px 19px;
+                }
+            }
+
+            .finance-credit {
+                .bank-account-text {
+                    p {
+                        @include media($medium-screen-down) {
+                            font-size: $dsp2-f-size-xs;
+                            line-height: $dsp2-line-h-16;
+                        }
+                    }
+
+                    .dsp2-link {
+                        font-family: $bmw;
+                    }
+                }
+
+                .row-top-spacer {
+                    margin: 46px 0 0;
+
+                    @include media($medium-screen-down) {
+                        margin: 0;
+                    }
+                }
+
+                .dsp2-subtitle-s {
+                    margin: 0 0 24px;
+                    font-family: $bmw;
+
+                    @include media($medium-screen-down) {
+                        font-size: $dsp2-f-size-xs;
+                        line-height: $dsp2-line-h-16;
+                    }
+                }
+
+                .money-totals {
+                    border-top: 1px solid $c-grey-5;
+                    border-bottom: 1px solid $c-grey-5;
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    padding: 8px 0;
+                    margin: 0 0 30px;
+
+                    @include media($medium-screen-down) {
+                        border: none;
+                        text-align: center;
+                        flex-direction: column;
+                    }
+
+                    .dsp2-subtitle {
+                        margin: 0 10px 0 0;
+                        font-family: $bmw;
+
+                        @include media($medium-screen-down) {
+                            font-size: $dsp2-f-size-s;
+                            line-height: $dsp2-line-h-18;
+                        }
+                    }
+
+                    .h3 {
+                        color: $bmw-blue;
+                        font-family: $bmw;
+                        margin: 0;
+
+                        @include media($medium-screen-down) {
+                            border-top: 1px solid $c-grey-5;
+                            border-bottom: 1px solid $c-grey-5;
+                            padding: 10px 0;
+                            width: 100%;
+                            margin: 10px 0 0;
+                            font-size: $dsp2-f-size-xl;
+                            line-height: $dsp2-line-h-32;
+                        }
+                    }
+                }
+
+                .bottom-totals {
+                    border-top: 1px solid $c-grey-5;
+                    border-bottom: 1px solid $c-grey-5;
+                    align-items: flex-start;
+
+                    @include media($medium-screen-down) {
+                        border: none;
+                        grid-gap: 10px;
+                    }
+
+                    .money-totals {
+                        border: none;
+                    }
+
+                    .col-6 {
+                        margin: 0;
+                    }
+                }
+
+                .bottom-checkboxes {
+                    align-items: baseline;
+                    display: block;
+
+                    .col {
+                        display: inline-block;
+                        margin: 0 100px 0 0;
+
+                        &:not(:first-child) {
+                            @include media($medium-screen-down) {
+                                margin: 0 100px 30px 0;
+                            }
+                        }
+                    }
+
+                    .dsp2-body-s {
+                        @include media($medium-screen-down) {
+                            font-family: $bmw;
+                            font-size: $dsp2-f-size-xs;
+                            line-height: $dsp2-line-h-16;
+                            margin: 0 0 10px;
+                        }
+                    }
+                }
+            }
+
+            .finance-credit-preferences {
+                margin: -10px 0 0;
+
+                .row {
+                    border-top: 1px solid $c-grey-5;
+                    padding: 30px 0;
+
+                    @include media($medium-screen-down) {
+                        padding: 20px 0;
+                    }
+                }
+
+                .col-2 {
+                    &.p-0 {
+                        @include media($medium-screen-down) {
+                            padding: 0;
+                        }
+                    }
+
+                    @include media($medium-screen-down) {
+                        padding: 0 0 30px;
+                    }
+                }
+
+                .border-bottom {
+                    border-bottom: 1px solid $c-grey-5;
+                    margin: 0 0 30px;
+                }
+
+                .dsp2-body-s {
+                    @include media($medium-screen-down) {
+                        font-family: $bmw;
+                        font-size: $dsp2-f-size-xs;
+                        line-height: $dsp2-line-h-16;
+                    }
+                }
+            }
+        }
+
+        .terms-and-conditions {
+            &-body {
+                border-top: 1px solid $c-grey-5;
+                border-bottom: 1px solid $c-grey-5;
+                padding: 30px 0 10px;
+                margin: 30px 0 25px;
+
+                @include media($medium-screen-down) {
+                    border: none;
+                    padding: 0;
+                    margin: 0;
+                }
+
+                .row {
+                    margin: 0 0 30px;
+                }
+
+                ul {
+                    li {
+                        &::before {
+                            content: '-';
+                            margin: 0 5px 0;
+                        }
+                    }
+                }
+
+                .dsp2-link {
+                    font-family: $bmw;
+
+                    @include media($medium-screen-down) {
+                        font-size: $dsp2-f-size-xs;
+                        line-height: $dsp2-line-h-16;
+                    }
+                }
+
+                .h6 {
+                    @include media($medium-screen-down) {
+                        font-size: $dsp2-f-size-xs;
+                        line-height: $dsp2-line-h-16;
+                    }
+                }
+            }
+
+            .row-grid {
+                margin: 0;
+            }
+        }
+    }
+}
+
+.time-span-selector {
+    .side-label {
+        &.required {
+            &::after {
+                content: '*';
+                display: block;
+                position: absolute;
+                right: 2px;
+                top: 0;
+            }
+        }
+    }
+
+    .title {
+        display: inline-block;
+        margin: 0 0 24px;
+        position: relative;
+
+        &.side-label {
+            &.required {
+                &::after {
+                    right: -10px;
+                }
+            }
+        }
+    }
+
+    .row-grid-sub {
+        display: grid;
+        align-items: flex-end;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        grid-gap: 0 30px;
+        position: relative;
+
+        @include media($medium-screen-down) {
+            grid-gap: 0 20px;
+        }
+
+        > .col-6 {
+            width: 100%;
+            position: relative;
+        }
+    }
+}
+
+.checkout-your-details {
+    .enter-manually,
+    .color-link {
+        color: $bmw-blue;
+        display: block;
+
+        @include media($medium-screen-up) {
+            margin-bottom: 10px;
+        }
+
+        &:hover {
+            color: $bmw-blue;
+        }
+    }
+
+    .top-text {
+        font-weight: $fw-light;
+        line-height: $dsp2-line-25;
+    }
+
+    .input-box.with-tooltip input {
+        display: inline-block;
+        margin-right: 7px;
+    }
+
+    .dropd-width {
+        max-width: 100%;
+    }
+
+    .left {
+        padding-left: $dsp2-left;
+    }
+}
+
+.your-details-section {
+    margin-bottom: 20px;
+
+    .h5 {
+        font-family: $bmw-light;
+        font-size: $checkout-details-font-size;
+    }
+
+    a {
+        font-family: $bmw-light;
+        font-size: $checkout-details-anchor-size;
+        color: $checkout-details-anchor-color;
+    }
+
+    #number_of_dependencies,
+    #number_of_credit_cards {
+        max-width: 120px;
+    }
+
+    .selectbox {
+        @include media($small-screen-down) {
+            max-width: 100%;
+        }
+    }
+
+    .row-elements.form-elements {
+        @include media($small-screen-down) {
+            max-width: 100%;
+        }
+    }
+
+    button {
+        @include media($small-screen-down) {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    input {
+        @include media($small-screen-down) {
+            width: 100% !important; //Used to override inline styling
+            max-width: 100% !important; //Used to override inline styling
+        }
+    }
+
+    .address-label {
+        height: auto;
+        line-height: $dsp2-line-25;
+
+        @include media($small-screen-down) {
+            text-align: center;
+
+            br {
+                display: none;
+            }
+        }
+
+        &::after {
+            content: '';
+        }
+    }
+
+    .your-details-street {
+        @include media($small-screen-down) {
+            padding: 0 !important; //Used to override inline styling
+        }
+    }
+
+    #your-current-address-notification {
+        position: relative;
+        padding: $checkout-details-current-address-padding;
+        margin: $checkout-details-current-address-margin;
+        background: $checkout-details-current-address-bg;
+        font-size: .75em;
+        width: $checkout-details-current-address-width;
+
+        @include media($small-screen-down) {
+            width: auto;
+            text-align: center;
+        }
+
+        .arrow {
+            @include triangle(32px, $checkout-details-current-address-bg, left);
+            position: absolute;
+            left: -16px;
+
+            @include media($small-screen-down) {
+                @include triangle(32px, $checkout-details-current-address-bg, up);
+                left: 50%;
+                top: -32px;
+                margin-left: -16px;
+            }
+        }
+
+        a {
+            font-size: inherit;
+            color: $checkout-details-anchor-color;
+        }
+    }
+
+    .your-details-address {
+        input {
+            float: left;
+        }
+
+        button {
+            margin: 0 0 10px;
+            padding: 1.25em 1.55em;
+
+            @include media($medium-screen-up) {
+                margin: 0 0 0 10px;
+            }
+        }
+
+        a,
+        div.validation-advice {
+            float: left;
+            width: 100%;
+        }
+    }
+}
+
+#your-details-form {
+    button {
+        @include media($small-screen-down) {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    .checkbox-row {
+        @include media($small-screen-down) {
+            @include display(flex);
+            @include flex-direction(row);
+            padding: 1em 0;
+        }
+
+        .col-3 {
+            @include media($small-screen-down) {
+                @include flex(1 0 calc(100% - 27px));
+                @include order(2);
+                padding: 0;
+                margin: 0;
+            }
+        }
+
+        .col-9 {
+            @include media($small-screen-down) {
+                @include flex(1 0 27px);
+                @include order(1);
+                position: relative;
+                top: -20px;
+                padding: 0;
+            }
+        }
+    }
+}
+
+.your-details-section,
+#your-details-form {
+    .section-action-buttons {
+        margin-top: 10px;
+
+        div {
+            min-height: 1px;
+        }
+
+        button {
+            max-width: $max-button-width;
+            width: 100%;
+            margin-bottom: 10px;
+
+            @include media($medium-screen-up) {
+                width: $input-max-width;
+            }
+        }
+    }
+}

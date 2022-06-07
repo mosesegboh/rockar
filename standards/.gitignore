@@ -1,0 +1,14 @@
+/vendor
+/.php_cs.cache
+/grumphp
+/jsonlint
+/parallel-lint
+/phpcbf
+/phpcs
+/php-cs-fixer
+/grumphp.bat
+/jsonlint.bat
+/parallel-lint.bat
+/php-cs-fixer.bat
+/phpcbf.bat
+/phpcs.bat

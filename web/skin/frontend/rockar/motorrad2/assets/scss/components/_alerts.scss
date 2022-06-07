@@ -1,0 +1,62 @@
+.error-msg {
+    color: $c-motorrad-red;
+}
+
+.success-msg {
+    color: $c-green-2;
+}
+
+.warning-msg,
+.error-msg,
+.success-msg {
+    font-family: $motorrad-regular;
+    font-size: $f-size-xs;
+    text-align: left;
+}
+
+.global-warning {
+    .error-msg {
+        background-color: $c-red-3;
+    }
+
+    .success-msg {
+        background-color: $c-green-3;
+    }
+
+    .error-msg,
+    .success-msg {
+        padding: 1em 3.5em;
+
+        @include media($dsp2-medium-screen-up) {
+            padding: 1.8em 5em 1.6em 6em;
+        }
+
+        .icon-info {
+            &-red,
+            &-green {
+                &::after {
+                    @include size(21px 21px);
+
+                    @include media($dsp2-medium-screen-up) {
+                        left: 3.5em;
+                    }
+                }
+            }
+        }
+
+        .close-icon-warning {
+            @include media($medium-screen-down) {
+                top: 50%;
+            }
+
+            &::after {
+                @include size(13px 13px);
+                right: -.5em;
+
+                @include media($dsp2-medium-screen-up) {
+                    right: 0;
+                }
+            }
+        }
+    }
+}

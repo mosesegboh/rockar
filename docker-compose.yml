@@ -1,0 +1,66 @@
+version: "3"
+
+services:
+  dev-tools:
+    container_name: rockar-dev-tools
+    build: ./docker/dev-tools
+    image: rockar/dev-tools
+    restart: always
+    volumes:
+      - ${SOURCEROOT}:/var/www:delegated
+      - ${SSH_PRIVATE_KEY_FILE}:/tmp/.ssh/id_rsa
+    env_file:
+      - .env
+
+  nginx:
+    container_name: rockar-nginx
+    build: ./docker/nginx
+    image: rockar/nginx
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ${SOURCEROOT}:/var/www:delegated
+    depends_on:
+      - php-fpm
+    env_file:
+      - .env
+
+  php-fpm:
+    container_name: rockar-php-fpm
+    build:
+      context: ./docker/php-fpm
+      args:
+        - XDEBUG=${DEBUG_MODE}
+    image: rockar/php-fpm
+    restart: always
+    expose:
+      - "9000"
+    volumes:
+      - ${SOURCEROOT}:/var/www:delegated
+    depends_on:
+      - mysql
+    env_file:
+      - .env
+
+  mysql:
+    container_name: rockar-mysql
+    build: ./docker/mysql
+    image: rockar/mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - ${SOURCEROOT}/mysql/data:/var/lib/mysql:delegated
+    env_file:
+      - .env
+
+networks:
+  default:
+    external:
+      name: rockar-backend-network

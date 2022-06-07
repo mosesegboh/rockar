@@ -1,0 +1,51 @@
+.h3 {
+    margin: 0;
+
+    @include media($medium-screen-up) {
+        margin: 0 0 .4em;
+    }
+
+    &.px-step-title {
+        text-transform: uppercase;
+        font-size: $dsp2-f-size;
+
+        @include media($medium-screen-up) {
+            font-size: $dsp2-f-size-xxl;
+        }
+    }
+}
+
+.px-vrm {
+    @include media($medium-screen-down) {
+        input {
+            margin-bottom: 26px;
+        }
+    }
+
+    div {
+        .input-label-wrapper {
+            @include media($large-screen-up) {
+                max-width: 446px;
+            }
+        }
+
+        .px-select-wrapper {
+            @include media($medium-screen-down) {
+                .selectbox-wrapper {
+                    margin-bottom: 26px;
+                }
+            }
+
+            @include media($large-screen-up) {
+                max-width: 446px;
+                float: right;
+            }
+        }
+    }
+}
+
+.px-required {
+    font-family: $bmw;
+    font-size: $dsp2-f-size-xs;
+    margin: 0;
+}

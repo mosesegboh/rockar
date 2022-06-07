@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint_Checkout
+ * @author       Dominic Sutton <dominic.sutton@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_Checkout>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Rockar_Checkout/>
+                <Rockar2_Checkout/>
+                <Rockar_Configurator/>
+            </depends>
+        </Peppermint_Checkout>
+    </modules>
+</config>

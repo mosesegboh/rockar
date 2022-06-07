@@ -1,0 +1,393 @@
+#checkout {
+    .general-preloader {
+        position: fixed;
+    }
+
+    .popup-content {
+        padding: 25px 50px 25px 25px;
+
+        p {
+            @include media($small-screen-down) {
+                font-size: $f-size-s;
+            }
+        }
+
+        h1 {
+            @include media($small-screen-down) {
+                font-size: $f-size-xxxl;
+                font-weight: $fw-bold;
+            }
+        }
+
+        .valuation-result-continue {
+            button {
+                @include media($small-screen-down) {
+                    display: block;
+                    width: 100%;
+                }
+
+                &:first-child {
+                    @include media($small-screen-down) {
+                        margin: 0 0 .5em 0;
+                    }
+                }
+            }
+        }
+
+        .popup-button-close {
+            right: 20px;
+        }
+    }
+
+    .accordion {
+        &.accordion-light {
+            font-size: inherit;
+            line-height: 1.5;
+
+            .accordionSlide-transition {
+                margin: 0;
+            }
+        }
+
+        li {
+            > a {
+                &:after {
+                    display: none !important;
+                }
+
+                span.status {
+                    @include position(absolute, 19px 40px null null);
+                    color: $checkout-step-status-color;
+
+                    @include media($small-screen-down) {
+                        @include position(initial, auto auto null null);
+                        display: block;
+                    }
+
+                    .fq-edit-icon {
+                        @include sprite($sprite-pencil-icon);
+                        display: inline-block;
+                        position: relative;
+                        top: -1px;
+                    }
+
+                    .plus-sign {
+                        @include size(13px);
+                        border: 1px solid $checkout-step-status-color;
+                        border-radius: 10px;
+                        top: 1px;
+
+                        &:before,
+                        &:after {
+                            background: $checkout-step-status-color;
+                        }
+
+                        &:before {
+                            height: 7px;
+                            width: 1px;
+                            left: 5px;
+                            top: 2px;
+                        }
+
+                        &:after {
+                            height: 1px;
+                            width: 7px;
+                            top: 5px;
+                            left: 2px;
+                        }
+                    }
+                }
+            }
+
+            &:focus,
+            &:hover {
+                > a {
+                    span.status {
+                        color: $checkout-step-status-hover-color;
+
+                        .fq-edit-icon {
+                            @include sprite($sprite-pencil-icon-white);
+                        }
+
+                        .plus-sign {
+                            border-color: $checkout-step-status-hover-color;
+
+                            &:before,
+                            &:after {
+                                background: $checkout-step-status-hover-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .part-exchange {
+        .part-exchange-left {
+            .px-vrm-block {
+                .px-vrm-block-input {
+                    button {
+                        padding: 1.25em 0;
+                    }
+                }
+            }
+        }
+
+        .px-car-worth {
+            .h1 {
+                font-size: $f-size-xxl;
+            }
+        }
+    }
+
+    .section-heading {
+        font-family: $helper-font-family;
+        font-size: $f-size-xxxl;
+    }
+
+    .register-block {
+        input,
+        button {
+            @include media($small-screen-down) {
+                width: 100%;
+            }
+        }
+
+        .driving-license-type,
+        .customer-country,
+        .customer-dob {
+            .selectbox {
+                @include media($small-screen-down) {
+                    max-width: 100%;
+                }
+            }
+        }
+
+        .customer-dob {
+            @include media($small-screen-down) {
+                max-width: 100%;
+            }
+        }
+    }
+
+    .login-wrapper {
+        .button-wrapper {
+            button {
+                display: block;
+                width: 100%;
+                margin: 0;
+            }
+        }
+    }
+}
+
+.cms-barclays {
+    table {
+        td {
+            padding: 0;
+            margin: 0;
+            border: none;
+
+            @include media($medium-screen-down) {
+                display: block;
+                width: 100%!important;
+                text-align: left!important;
+
+                input {
+                    width: 100%;
+                    margin: 5px 0 !important;
+                }
+            }
+        }
+
+        div {
+            text-align: left;
+        }
+
+        strong {
+            font-family: $primary-font-family;
+            text-transform: uppercase;
+            font-size: $h4-font-size;
+            font-weight: $fw-bold;
+            text-align: left;
+        }
+
+        td.ncoltxtl, td.ncoltxt2, td.ncoltxtl2 {
+            width: 175px;
+            text-align: right;
+            padding-right: 15px;
+
+            small, label {
+                text-transform: uppercase;
+                font-family: $helper-font-family;
+                font-size: 11px;
+                color: $label-color;
+            }
+
+            small {
+                line-height:  45px;
+            }
+
+        }
+
+        td.ncolinput {
+            select {
+                display: inline-block;
+                margin: 0 5px 0 0;
+            }
+
+            select#Ecom_Payment_Card_ExpDate_Year {
+                margin-left: 5px;
+            }
+
+            input {
+                padding: 0 10px;
+                margin-top: 9px;
+                height:48px;
+            }
+
+            input#Ecom_Payment_Card_Verification {
+                width:130px;
+            }
+        }
+
+        input.ncol {
+            position: relative;
+            color: #fff;
+            background: $call-to-action-background-color;
+            box-sizing: border-box;
+            display: inline-block;
+            font-family: $primary-font-family;
+            font-weight: $fw-medium;
+            letter-spacing: .05em;
+            border: 1px solid $call-to-action-background-color;
+            border-radius: 0;
+            padding: 1.45em 1.55em;
+            text-transform: uppercase;
+            font-size: 13px;
+            vertical-align: bottom;
+            line-height: 1;
+        }
+
+        input.ncol:hover {
+            opacity: .8;
+        }
+
+        .ncoltable3 {
+            td.ncollogoc {
+                input.ncol {
+                    left: 0;
+                    margin-right: 20px;
+                }
+
+                img {
+                    width: 130px;
+                }
+            }
+        }
+
+        .ncoltxtr small,
+        .ncoltxtr {
+            font-size: 16px;
+            font-family: $helper-font-family;
+            color: $label-color;
+        }
+
+        .ncolinput {
+            color: $label-color;
+            a {
+                color: $label-color;
+                text-decoration: underline;
+                font-size: 10px;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        #btn_Back {
+            float: right;
+            margin-right: 10px;
+        }
+
+        #ncol_cancel {
+            float: left;
+        }
+
+        .ncoltable1 {
+            .ncoltxtc {
+                text-align: left;
+                form {
+                    text-align: center;
+                    padding-top: 10px;
+                }
+                small, b {
+                    font-weight: $fw-normal;
+                    display: inline;
+                    font-size: 16px;
+                    padding-right: 3px;
+                }
+
+                h3 {
+                    font-family: $primary-font-family;
+                    font-weight: $fw-semibold;
+                    text-transform: none;
+                    color: $label-color;
+                    font-size: $h4-font-size;
+                }
+            }
+        }
+    }
+
+    .ncoltable2 {
+        .ncolinput {
+            .selectbox-wrapper {
+                display:inline-block;
+                width:130px;
+            }
+
+            .selectbox-wrapper:first-child {
+                margin-left:0;
+            }
+            .selectbox-wrapper {
+                margin: 0 10px;
+            }
+
+            small {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.coupon {
+    .coupon-label {
+        text-align: center;
+        margin-bottom: 1em;
+
+        .coupon-label-text {
+            margin: 4px 0 0;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+
+    .input-coupon-wrapper {
+        max-width: 365px;
+        margin: 0 auto;
+
+        @include media($small-screen-down) {
+            max-width: 100%;
+        }
+
+        input {
+            width: 100%;
+            max-width: $input-max-width;
+
+            @include media($small-screen-down) {
+                max-width: 100%;
+            }
+        }
+    }
+}

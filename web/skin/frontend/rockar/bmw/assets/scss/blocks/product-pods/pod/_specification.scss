@@ -1,0 +1,79 @@
+.product-pod-attributes-overlay {
+    background-color: $white;
+    padding: 17px 0 0 60px;
+    position: absolute;
+    z-index: 11;
+    width: 100%;
+    height: 100%;
+
+    @include media($medium-screen-down) {
+        top: 0;
+        padding: 8px 16px 0;
+        height: calc(100% - 54px);
+    }
+
+    @include media($small-screen-down) {
+        height: calc(100% - 161px);
+    }
+
+    .attribute-close {
+        @include sprite($sprite-close);
+        cursor: pointer;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        z-index: 20;
+
+        @include media($medium-screen-down) {
+            top: 17px;
+            right: 17px;
+        }
+    }
+
+    .attribute-block {
+        height: 100%;
+        padding: 20px 20px 26px 0;
+
+        @include media($medium-screen-down) {
+            padding: 26px 0;
+            background-color: $white;
+        }
+
+        .feature-list {
+            margin-bottom: 10px;
+        }
+    }
+
+    .attribute-section {
+        height: 100%;
+        padding-right: 15px;
+        position: relative;
+        font-size: $f-size-xxxs;
+        letter-spacing: 1.6px;
+    }
+
+    .attribute-view-switcher {
+        .view-switch {
+            background-color: $white;
+            border: 1px solid $bmw-light-grey;
+            border-radius: 2px;
+            height: $bmw-button-height;
+            width: 122px;
+            letter-spacing: 1.6px;
+            padding: 0;
+            font-size: $f-size-xxxs;
+            font-weight: $fw-black;
+            color: $bmw-dark-grey;
+
+            &:first-of-type {
+                margin-right: 5px;
+            }
+
+            &.active {
+                background-color: $white;
+                border: 2px solid $bmw-blue;
+                color: $bmw-blue;
+            }
+        }
+    }
+}

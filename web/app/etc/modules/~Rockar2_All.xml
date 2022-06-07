@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category Rockar2
+ * @package Rockar2_All
+ * @author Scandiweb <info@scandiweb.com>
+ * @copyright Copyright (c) 2018 Scandiweb, Inc (http://scandiweb.com)
+ * @license http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0 (OSL-3.0)
+ */
+-->
+<config>
+    <modules>
+        <!-- Mage -->
+        <Mage_Review>
+            <active>false</active>
+        </Mage_Review>
+        <Mage_Rating>
+            <active>false</active>
+        </Mage_Rating>
+
+        <!-- Rockar -->
+        <Rockar_ApprovedUsed>
+            <active>true</active>
+            <depends>
+                <Rockar_Configurator/>
+            </depends>
+        </Rockar_ApprovedUsed>
+
+        <!-- Rockar2 -->
+        <Rockar2_Carfinder>
+            <active>true</active>
+        </Rockar2_Carfinder>
+        <Rockar2_Catalog>
+            <active>true</active>
+        </Rockar2_Catalog>
+        <Rockar2_Checkout>
+            <active>true</active>
+        </Rockar2_Checkout>
+        <Rockar2_Compare>
+            <active>true</active>
+        </Rockar2_Compare>
+        <Rockar2_PartExchange>
+            <active>true</active>
+        </Rockar2_PartExchange>
+        <Rockar2_FinancingOptions>
+            <active>true</active>
+        </Rockar2_FinancingOptions>
+        <Rockar2_MySavedCars>
+            <active>true</active>
+        </Rockar2_MySavedCars>
+        <Rockar2_GoogleTagManager>
+            <active>true</active>
+        </Rockar2_GoogleTagManager>
+        <Rockar2_PdcImport>
+            <active>true</active>
+        </Rockar2_PdcImport>
+    </modules>
+</config>

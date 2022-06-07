@@ -1,0 +1,25 @@
+.trade-in-block-wrapper {
+    .px-saved {
+        .px-saved-title {
+            .h7 {
+                text-transform: uppercase;
+                font-family: $motorrad-bold;
+                font-size: $dsp2-f-size-l;
+            }
+        }
+    }
+
+    .px-saved {
+        .dsp2-caption {
+            font-size: $dsp2-f-size-s;
+        }
+    }
+
+   .px-saved {
+       .px-value {
+           font-size: $dsp2-f-size-xl;
+           font-family: $motorrad-bold;
+           color: $black;
+       }
+   }
+}

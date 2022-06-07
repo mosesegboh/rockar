@@ -1,0 +1,69 @@
+.catalog-product-view {
+    @import 'shared/quotation';
+    @import 'product-page/sub-navigation';
+    @import 'product-page/you-build-block';
+    @import 'color-slider/color-slider';
+
+    .car-hero {
+        @import 'product-page/images-slider';
+    }
+
+    .outer-container,
+    .inner-container {
+        padding: 0;
+    }
+
+    .inner-container {
+        max-width: 80em;
+    }
+
+    .layout-2-cols {
+        max-width: $max-width;
+        padding: .313em 1em 0;
+    }
+
+    .image-zoom-popup {
+        .popup-overlay {
+            background: $black;
+        }
+
+        .popup-content {
+            width: auto;
+            padding: 0;
+            background: transparent;
+        }
+    }
+
+    .finance-quote-wrapper {
+        &.mobile-only {
+            .lead-time {
+                margin: 6px;
+            }
+
+            .finance-delivery {
+                display: none;
+            }
+
+            .payment {
+                width: 50%;
+                text-align: center;
+            }
+        }
+    }
+
+    #my-build {
+        @import 'product-page/features';
+    }
+
+    .choose-vehicle-list {
+        @import 'product-page/pre-configured-cars';
+    }
+
+    footer {
+        .footer-wrapper {
+            @include media($small-screen-down) {
+                padding-bottom: $configurator-sub-nav-buttons-height-mobile;
+            }
+        }
+    }
+}

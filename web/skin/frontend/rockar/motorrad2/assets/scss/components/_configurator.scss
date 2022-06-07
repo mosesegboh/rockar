@@ -1,0 +1,473 @@
+#configurator {
+    .configurator-lower-config {
+
+        .configurator-mobile-actions-wrapper {
+            button {
+                margin-top: 0;
+            }
+        }
+
+        .car-extras-content {
+            div:first-child {
+                line-height: $dsp2-line-standard;
+            }
+
+            tr > td {
+                span {
+                    font-size: $dsp2-f-size;
+                }
+            }
+
+            &.desktop {
+                display: block;
+            }
+
+            @include media($small-screen-down) {
+                border-top: 0.6px solid $c-grey-5;
+                padding-top: 1em;
+            }
+        }
+
+        .my-build {
+            display: block;
+        }
+    }
+
+    .btn-back {
+        margin-top: 0;
+    }
+
+    .car-extras-tab-hover,
+    .car-extras-tab-hover:hover,
+    .car-extras-hover {
+        background-color: transparent;
+        border: none;
+    }
+
+    .features-item {
+        padding: 10px 0;
+        border-bottom: 1px solid $c-grey-5;
+    }
+
+    .accordion {
+        background-color: $white;
+        margin-bottom: 10px;
+
+        a {
+            padding: 12px 0 14px 15px;
+
+            @include media($medium-screen-up) {
+                padding: 26px 30px;
+            }
+        }
+
+        li {
+            a {
+                border: none;
+            }
+        }
+
+        .js-accordion-trigger {
+            font-family: $bmw;
+            border: blue;
+            font-size: $dsp2-f-size-s;
+            line-height: $dsp2-line-h-24;
+            text-transform: uppercase;
+
+            @include media($medium-screen-up) {
+                font-family: $bmw-light;
+                font-size: $dsp2-f-size-l;
+                line-height: $dsp2-line-h-28;
+            }
+
+
+            @include media($small-screen-down) {
+                font-family: $motorrad-bold;
+                text-transform: capitalize;
+                font-style: normal;
+                font-size: $dsp2-f-size-sl;
+                line-height: $dsp2-line-h-24;
+            } 
+        }
+
+        .submenu {
+            padding: 10px 15px 40px 15px;
+
+            @include media($medium-screen-up) {
+                padding: 20px 50px 30px 65px;
+            }
+        }
+
+        table {
+            margin: 0 0 40px;
+
+            &.extra-total-table {
+                margin-top: -10px;
+            }
+
+            td {
+                font-size: initial;
+                border-bottom: none;
+            }
+
+            tbody {
+                tr {
+                    &:first-child {
+                        td {
+                            padding-bottom: 10px;
+
+                            @include media($medium-screen-up) {
+                                padding-bottom: 22px;
+                            }
+                        }
+                    }
+
+                    &:not(:first-child) {
+                        border-bottom: 1px solid $c-grey-5;
+
+                        td {
+                            padding: 10px 0;
+                        }
+
+                        span {
+                            font-size: $dsp2-f-size-s;
+                            line-height: $dsp2-line-h-20;
+
+                            @include media($medium-screen-up) {
+                                font-size: $dsp2-f-size;
+                                line-height: $dsp2-line-h-24;
+                            }
+
+                            @include media($small-screen-down) {
+                                font-family: $motorrad-regular;
+                                text-transform: capitalize;
+                                font-style: normal;
+                                font-size: $dsp2-f-size-s;
+                                line-height: $motorrad-line-h-22;
+                            } 
+                        }
+                    }
+
+                    td {
+                        padding: 0;
+                        background-color: $white;
+
+                        &:not(:first-child) {
+                            text-align: end;
+                        }
+
+                        .table-right {
+                            @include media($small-screen-down) {
+                                font-family: $motorrad-bold;
+                                font-style: normal;
+                                font-size: $dsp2-f-size-s;
+                                line-height: $dsp2-f-size;
+                                color: $black;
+                            }  
+                        }
+                    }
+                }
+            }
+        }
+
+        .group-title {
+            font-family: $bmw;
+            font-size: $dsp2-f-size-s;
+            line-height: $dsp2-line-h-20;
+            text-transform: capitalize !important;
+
+            @include media($medium-screen-up) {
+                font-size: $dsp2-f-size;
+                line-height: $dsp2-line-h-24;
+            }
+
+
+            @include media($small-screen-down) {
+                font-family: $motorrad-bold;
+                text-transform: capitalize !important;
+                font-style: normal;
+                font-size: $dsp2-f-size-s;
+                line-height: $dsp2-line-h-16;
+            } 
+        }
+
+        .table-right {
+            font-family: $bmw-bold;
+        }
+
+        .extra-total-table {
+            tr {
+                background-color: $c-grey-6;
+                border-bottom: 1px solid $c-grey-5;
+
+                &:first-child {
+                    td {
+                        padding-bottom: 15px;
+
+                        @include media($medium-screen-up) {
+                            padding-bottom: 10px;
+                        }
+                    }
+                }
+
+                td {
+                    padding-top: 15px;
+                    background-color: $c-grey-6;
+
+                    @include media($medium-screen-up) {
+                        padding-top: 10px;
+                    }
+                }
+            }
+        }
+
+        &.type-right-down {
+            > li {
+                > a {
+                    &::after {
+                        background: url('../images/svg/black-arrow-up.svg') no-repeat center;
+                        background-size: contain;
+                        border: none;
+                        transform: rotate(180deg);
+                        right: 30px;
+                        top: 20px;
+                        opacity: 1;
+                        width: 16px;
+                        height: 10px;
+
+                        @include media($medium-screen-up) {
+                            top: 35px;
+                        }
+                    }
+                }
+
+                &.is-expanded {
+                    > a {
+                        &::after {
+                            transform: rotate(0deg);
+                            right: 30px;
+                            top: 20px;
+
+                            @include media($medium-screen-up) {
+                                top: 35px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .accessories {
+        .popup-button-close {
+            @include media($medium-screen-up) {
+                top: 59px;
+            }
+        }
+
+        .extended-description {
+            .popup-button-close {
+                @include media($medium-screen-up) {
+                    top: 48px;
+                }
+            }
+        }
+
+        .accessories-detailed-wrapper {
+            display: flex;
+            width: 100%;
+
+            @include media($small-screen-down) {
+                flex-direction: column;
+            }
+
+            .accessories-detailed {
+                width: 50%;
+                padding: 5px;
+
+                @include media($small-screen-down) {
+                    width: 100%;
+                }
+
+                &.content {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    padding-left: 30px;
+
+                    @include media($small-screen-down) {
+                        padding-left: 5px;
+                    }
+
+                    .accessory-price {
+                        display: flex;
+                        justify-content: space-between;
+                        padding: 15px 0;
+                        border-top: 1px solid $c-grey-5;
+                        border-bottom: 1px solid $c-grey-5;
+
+                        span {
+                            font-size: $dsp2-f-size-s;
+                            line-height: $dsp2-line-h-16;
+
+                            @include media($small-screen-down) {
+                                line-height: $dsp2-line-h-20;
+                            }
+                        }
+
+                        .price {
+                            font-family: $bmw;
+                            font-size: $dsp2-f-size-xl;
+                            line-height: $dsp2-line-h-28;
+
+                            @include media($small-screen-down) {
+                                font-family: $bmw-bold;
+                                font-size: $dsp2-f-size-s;
+                                line-height: $dsp2-line-h-20;
+                            }
+                        }
+                    }
+
+                    .accessory-title {
+                        @include media($medium-screen-up) {
+                            max-width: 290px;
+                        }
+
+                        @include media($large-screen-up) {
+                            max-width: 420px;
+                        }
+
+                        h1 {
+                            color: $c-grey;
+                            font-family: $bmw;
+                            font-size: $dsp2-f-size-xxl;
+                            line-height: $dsp2-line-h-40;
+                            margin: 0 0 10px;
+
+                            @include media($small-screen-down) {
+                                font-size: $dsp2-f-size-l;
+                                line-height: $dsp2-line-h-28;
+                            }
+
+                            @include media($medium-screen-up) {
+                                font-family: $bmw-light;
+                                text-transform: uppercase;
+                                font-size: $dsp2-f-size-xl;
+                            }
+                        }
+                    }
+
+                    .accessory-details {
+                        margin: 0 0 20px;
+                        font-size: $dsp2-f-size;
+
+                        @include media($small-screen-down) {
+                            margin: 0 0 30px;
+                            font-size: $dsp2-f-size-xs;
+                        }
+
+                        @include media($medium-screen-up) {
+                            border-top: 1px solid $c-grey-5;
+                            max-width: 343px;
+                            padding-top: 12px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .accordion {
+            .accordion-content {
+                padding: 0 2.5em;
+            }
+
+            &.type-right-down {
+                > li {
+                    > a {
+                        &::after {
+                            transform: rotate(135deg) translateY(-50%);
+                        }
+
+                        &:hover:after {
+                            transform: rotate(135deg) translateY(-50%);
+                        }
+
+                        &:focus:after {
+                            transform: rotate(135deg) translateY(-50%);
+                        }
+                    }
+
+                    &.is-expanded {
+                        > a {
+                            &::after {
+                                transform: rotate(-45deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .accessories-modal-ctas {
+            display: flex;
+            flex-direction: row;
+
+            @include media($small-screen-down) {
+                flex-direction: column;
+                margin: 10px 0 0 0;
+            }
+
+            .button-blue-lagoon {
+                margin: 10px 0 0 30px;
+
+                @include media($small-screen-down) {
+                    margin: 15px 0 0;
+                }
+
+                &:disabled {
+                    border: 1px solid $c-blue-2;
+                    background: $c-blue-2;
+                }
+            }
+        }
+
+        .accessory-show-details {
+            cursor: pointer;
+            font-family: $bmw-bold;
+
+            &:hover {
+                color: $bmw-blue;
+
+                .arrow-next {
+                    border-left: 1px solid $bmw-blue;
+                    border-bottom: 1px solid $bmw-blue;
+                }
+            }
+
+            .arrow-next {
+                border-left: 1px solid $c-grey;
+                border-bottom: 1px solid $c-grey;
+                margin: 5px;
+            }
+        }
+    }
+
+    .finance-quote-mobile-container-details {
+        @include media($medium-screen-only) {
+            margin-left: $configurator-sub-nav-back-btn-width;
+        }
+    }
+}
+
+.ext-int-buttons {
+    margin-top: 1em;
+    z-index: 1;
+
+    @include position(absolute, auto 1em null 0);
+
+    @include media($small-screen-down) {
+        margin-top: .5em;
+
+        @include position(absolute, auto .5em null 0);
+    }
+}

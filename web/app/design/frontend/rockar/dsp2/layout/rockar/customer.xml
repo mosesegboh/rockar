@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    design
+ * @package     rockar_bmw2
+ * @author      Ketevani Revazishvili <techteam@rockar.com>
+ * @copyright   Copyright (c) 2021 Rockar, Ltd (http://rockar.com)
+ */
+-->
+
+<layout version="0.1.0">
+    <customer_account_index>
+        <reference name="root">
+            <action method="addBodyClass"><class>on-light</class></action>
+        </reference>
+
+        <reference name="my.account.wrapper">
+            <block type="core/text_list" name="customer.account.dashboard.extra" translate="label">
+                <label>Reference for before body end scripts</label>
+            </block>
+        </reference>
+
+        <reference name="customer_account_dashboard_info">
+            <block type="cms/block" name="gdpr_initial_preferences_popup">
+                <action method="setBlockId">
+                    <block_id>gdpr_initial_preferences_popup</block_id>
+                </action>
+            </block>
+            <block type="cms/block" name="gdpr_bank_preferences">
+                <action method="setBlockId">
+                    <block_id>gdpr_bank_preferences</block_id>
+                </action>
+            </block>
+        </reference>
+
+        <reference name="customer_account_dashboard">
+            <remove name="customer_account_dashboard_top"/>
+            <action method="unsetChild"><name>info</name></action>
+
+            <block type="core/text_list" name="dashboard_info">
+                <!-- Info -->
+                <action method="insert">
+                    <block>customer_account_dashboard_info</block>
+                </action>
+            </block>
+
+            <block type="core/text_list" name="myaccount_trade_in"></block>
+
+            <block type="core/text_list" name="dashboard_list">
+
+                <!-- Orders -->
+                <block type="rockar_customer/order" name="customer_order_list" as="orders" template="rockar/customer/order/list.phtml"/>
+
+                <!-- Documents -->
+                <block type="rockar_customer/documents" name="customer_documents_wrapper" as="documents" template="rockar/customer/documents.phtml">
+                    <block type="rockar_customer/documents_list" name="customer_documents_list" template="rockar/customer/documents/list.phtml"/>
+                    <block type="rockar_customer/documents_form" name="customer_documents_form" template="rockar/customer/documents/form.phtml"/>
+                </block>
+            </block>
+
+            <block type="core/template" name="license_validation_overlay" template="persistent/customer/form/licenseoverlay.phtml">
+                <block type="cms/block" name="license_type_validation_notice">
+                    <action method="setBlockId">
+                        <block_id>license_type_validation_notice</block_id>
+                    </action>
+                </block>
+            </block>
+
+            <block type="core/template" name="logged_out_overlay" template="customer/account/loggedoutoverlay.phtml"/>
+        </reference>
+    </customer_account_index>
+
+    <rockar_customer_documents_edit>
+        <block type="rockar_customer/documents_form" name="customer_documents_form" template="rockar/customer/documents/form.phtml" output="toHtml"/>
+    </rockar_customer_documents_edit>
+
+    <customer_account_login>
+        <reference name="customer_form_login">
+            <block type="core/template" name="license_validation_overlay" template="persistent/customer/form/licenseoverlay.phtml">
+                <block type="cms/block" name="license_type_validation_notice">
+                    <action method="setBlockId">
+                        <block_id>license_type_validation_notice</block_id>
+                    </action>
+                </block>
+            </block>
+
+            <block type="customer/form_login" name="customer_form_login_login" as="login" template="persistent/customer/form/login/login.phtml" />
+            <block type="customer/form_register" name="customer_form_login_register" as="register" template="persistent/customer/form/login/register.phtml">
+                <block type="cms/block" name="registration-form-privacy-policy-url">
+                    <action method="setBlockId">
+                        <block_id>registration-form-privacy-policy-url</block_id>
+                    </action>
+                </block>
+            </block>
+        </reference>
+    </customer_account_login>
+</layout>

@@ -1,0 +1,33 @@
+/**
+ * Preloader placeholder styles
+ */
+.show-loading {
+    @include preloader;
+}
+
+.general-preloader {
+    @include position(absolute, 0 null null 0);
+    @include size(100%);
+    background: $general-preloader-bg;
+    z-index: 9999;
+
+    .show-loading {
+        @include position(absolute, 50% null null 50%);
+        margin: -25px 0 0 -25px;
+    }
+}
+
+
+.page-loader {
+    @include position(fixed, 0 null null 0);
+    @include size(100%);
+    background: $page-loader-bg;
+    z-index: 99999999;
+    overflow: hidden;
+
+    .show-loading {
+        @include position(absolute, 50% null null 50%);
+        margin: -25px 0 0 -25px;
+        opacity: 1 !important;
+    }
+}

@@ -1,0 +1,4 @@
+---
+  - name: Install Internet-Explorer on Mac
+    shell: curl -s https://raw.githubusercontent.com/xdissent/ievms/master/ievms.sh | IEVMS_VERSIONS="{{ievms_versions}}" bash
+    when: ansible_os_family == 'Darwin'

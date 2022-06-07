@@ -1,0 +1,121 @@
+<?php
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Experiences
+ * @author    Jevgenijs Goreliks <techteam@rockar.com>
+ * @copyright Copyright (c) 2021 Rockar, Ltd (http://rockar.com)
+ */
+?>
+<script type="text/javascript">
+    //<![CDATA[
+    const couponTypeSpecific = '<?php echo Peppermint_Experiences_Model_ExperiencesRules::COUPON_TYPE_SPECIFIC ?>';
+    const tmpButtonsActionsStorage = [];
+
+    function disableEnableCouponsTabContent(disable) {
+        const containerId = 'experiencesRules_edit_tabs_coupons_section_content';
+
+        if ($(containerId)) {
+            const dataFields = $(containerId).select('input', 'select', 'textarea', 'button');
+
+            for (let i = 0; i < dataFields.length; i++) {
+                disable ? dataFields[i].disable().addClassName('disabled')
+                    : dataFields[i].enable().removeClassName('disabled');
+            }
+        }
+
+        const elt = $('experiencesRules_edit_tabs_coupons_section');
+        elt.toggle(!disable && !!$('rule_id') );
+    }
+
+    function handleCouponsTabContentActivity() {
+        let disable = $('coupon_type').value != couponTypeSpecific;
+        const couponCodeElement = $('coupon_code');
+        disable ? couponCodeElement.disable() : couponCodeElement.enable();
+        disable ? $('use_auto_generation').disable() : $('use_auto_generation').enable();
+
+        if (!disable) {
+            disable = !$('use_auto_generation').checked;
+            disable ? couponCodeElement.enable() :  couponCodeElement.disable();
+        }
+
+        disableEnableCouponsTabContent(disable);
+    }
+
+    function handleCouponTypeChange() {
+        $('coupon_type').observe('change', function () {
+            handleCouponsTabContentActivity()
+        });
+    }
+
+    function refreshCouponCodesGrid(grid, gridMassAction, transport) {
+        grid.reload();
+        gridMassAction.unselectAll();
+    }
+
+    function generateCouponCodes(idPrefix, generateUrl, grid) {
+        $(idPrefix + 'information_fieldset').removeClassName('ignore-validate');
+        const validationResult = $(idPrefix + 'information_fieldset')
+            .select('input', 'select', 'textarea')
+            .collect(function (elm) {
+                return Validation.validate(elm, {
+                    useTitle: false,
+                    onElementValidate: function () {
+                    }
+                });
+            })
+            .all();
+
+        $(idPrefix + 'information_fieldset').addClassName('ignore-validate');
+
+        if (!validationResult) {
+            return;
+        }
+
+        let elements = $(idPrefix + 'information_fieldset').select('input', 'select', 'textarea');
+        elements = elements.concat(
+            $$('#uses_per_coupon'),
+            $$('#uses_per_customer'),
+            $$('#to_date')
+        );
+
+        const params = Form.serializeElements(elements, true);
+        params.form_key = FORM_KEY;
+        $('messages').update();
+        const couponCodesGrid = eval(grid);
+
+        new Ajax.Request(generateUrl, {
+            parameters: params,
+            method: 'post',
+            onComplete: function (transport, param) {
+                const response = transport.responseJSON || transport.responseText.evalJSON(true) || {};
+
+                if (couponCodesGrid) {
+                    couponCodesGrid.reload();
+                }
+
+                if (response && response.messages) {
+                    $('messages').update(response.messages);
+                }
+
+                if (response && response.error) {
+                    alert(response.error.stripTags().toString());
+                }
+            }
+        });
+    }
+
+    Ajax.Responders.register({
+        onComplete: function () {
+            if ($('experiencesRules_edit_tabs_coupons_section_content')
+                && $('experiencesRules_edit_tabs_coupons_section_content').visible()
+                && Ajax.activeRequestCount == 0
+            ) {
+                handleCouponsTabContentActivity();
+            }
+        }
+    });
+
+    document.observe("dom:loaded", handleCouponsTabContentActivity);
+    document.observe("dom:loaded", handleCouponTypeChange);
+    //]]>
+</script>

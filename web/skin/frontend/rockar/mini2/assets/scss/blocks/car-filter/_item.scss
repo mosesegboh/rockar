@@ -1,0 +1,46 @@
+&-item {
+    .car-filter-title {
+        font-family: $mini-serif-regular;
+        font-size: $dsp2-f-size-l;
+        color: $black;
+    }
+
+    .car-filter-block {
+        input {
+            + label {
+                color: $black;
+                padding-left: 40px;
+            }
+        }
+
+        input[type='checkbox']:checked {
+            + label {
+                .model-image {
+                    span {
+                        left: unset;
+                        right: 3px;
+                        background: $c-mini-blue;
+                        border-radius: 50px;
+                        width: 18px;
+                        height: 18px;
+
+                        &:after {
+                            background-image: url('../images/svg/icon-checkmark-small.svg');
+                            left: 20%;
+                            width: 10px;
+                            height: 7px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    .car-filter-switcher-block {
+        p {
+            font-family: $mini-sans-serif-regular;
+        }
+    }
+}
+

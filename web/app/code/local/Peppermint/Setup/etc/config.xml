@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint_Setup
+ * @author       Razvan Zofota <razvan.zofota@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_Setup>
+            <version>0.1.41</version>
+        </Peppermint_Setup>
+    </modules>
+    <global>
+        <models>
+            <peppermint_setup>
+                <class>Peppermint_Setup_Model</class>
+            </peppermint_setup>
+        </models>
+        <resource>
+            <connection>
+                <types>
+                    <pdo_mysql>
+                        <adapter>Peppermint_Setup_Resource_Db_Pdo_Mysql_Adapter</adapter>
+                        <class>Peppermint_Setup_Resource_Db_Pdo_Mysql_Type</class>
+                    </pdo_mysql>
+                </types>
+            </connection>
+        </resource>
+        <resources>
+            <peppermint_setup_setup>
+                <setup>
+                    <module>Peppermint_Setup</module>
+                    <class>Peppermint_Setup_Model_Resource_Setup</class>
+                </setup>
+            </peppermint_setup_setup>
+        </resources>
+        <helpers>
+            <peppermint_setup>
+                <class>Peppermint_Setup_Helper</class>
+            </peppermint_setup>
+        </helpers>
+    </global>
+</config>

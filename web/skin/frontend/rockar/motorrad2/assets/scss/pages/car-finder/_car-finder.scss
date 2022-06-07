@@ -1,0 +1,90 @@
+#car-finder {
+    .header-mobile,
+    .filters-header-mobile {
+        font-family: $motorrad-bold;
+        font-size: $motorrad-f-size-22;
+        color: $black;
+    }
+
+    #finance-filter {
+        #finance-selection {
+            .selectbox-wrapper {
+                .selectbox-label {
+                    color: $c-motorrad-grey-1;
+                }
+
+               .selectbox {
+                   font-size: $dsp2-f-size;
+
+                   .selectbox-select {
+                       padding: 11px;
+                   }
+               }
+            }
+        }
+
+        .finance-filter-sliders {
+            @include media($medium-screen-up) {
+                margin: 0 0 10px;
+            }
+
+            .dsp2-link {
+                font-family: $motorrad-bold;
+                border-bottom: 1px solid $c-grey-6;
+
+                &:hover {
+                    border-bottom: 1px solid $black;
+                }
+
+                .arrow-next {
+                    margin: 0 5px 0 0;
+
+                    &:after {
+                        background-image: url('../images/svg/icon-plus-black.svg');
+                        width: 11px;
+                        height: 11px;
+                    }
+                }
+            }
+
+            .range-slider-wrapper {
+                padding: 6px 0 0;
+            }
+
+            .finance-filter-slider-wrapper {
+                &.deposit-filter {
+                    .range-slider-wrapper {
+                        padding: 15px 0 10px;
+                    }
+
+                    .field-title {
+                        padding-top: 5px;
+                    }
+                }
+
+                .field-title {
+                    font-family: $motorrad-regular;
+                    font-size: $dsp2-f-size;
+                    padding-top: 0;
+                }
+
+                .finance-filter-slider {
+                    .finance-filter-slider-input {
+                        display: flex;
+                        flex-direction: row-reverse;
+                        justify-content: space-between;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+
+        .finance-filter-wrapper {
+            min-width: 350px;
+
+            @include media($small-screen-down) {
+                min-width: unset;
+            }
+        }
+    }
+}

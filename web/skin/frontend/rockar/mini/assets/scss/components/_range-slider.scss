@@ -1,0 +1,123 @@
+.range-slider-wrapper .ui-slider {
+    height: 25px;
+    margin: 40px -131px 0px 0px;
+
+    .slider-label {
+        margin-top: -3px;
+        z-index: 1;
+        background-color: $white;
+    }
+  }
+
+.range-slider-wrapper .ui-slider .ui-slider-range {
+    top: 50%;
+    background: $black;
+    border-radius: 10px;
+    transition: all .3s;
+    height: 3px;
+    margin-top: 1px;
+    z-index: 2;
+}
+
+.range-slider-wrapper .ui-slider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    background: $white;
+    left: 0;
+    height: 5px;
+    margin-top: 0px;
+    border: 1px solid $black;
+}
+
+.range-slider-wrapper .ui-slider .ui-slider-handle {
+    /* background-image: url(../../default2/spritesheets/sprites.png) !important; */
+    background-position: -57px -222px;
+    height: 26px;
+    width: 26px;
+    top: 50%;
+    transition: all .3s;
+    height: 24px;
+    width: 24px;
+    margin-left: 6px;
+    margin-top: -11px;
+    background-color: $black;
+    background-image: none;
+    border-width: 1.5px;
+    border-style: solid;
+    border-color: $black;
+    border-radius: 50%;
+}
+
+.part-exchange-conditions .range-slider-wrapper .ui-slider {
+    height: 25px;
+    margin: 40px 0px 0px 0px;
+}
+
+.part-exchange-conditions .range-slider-wrapper .ui-slider .slider-label {
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $black;
+    border-radius: 50%;
+    margin-top: -16px;
+    margin-left: 0;
+    z-index: 2;
+    background-color: $white;
+}
+
+.part-exchange-conditions .range-slider-wrapper .ui-slider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    left: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+.part-exchange-conditions .range-slider-wrapper .ui-slider .ui-slider-handle {
+    background-position: -57px -222px;
+    top: 50%;
+    transition: all .3s;
+    height: 23px;
+    width: 23px;
+    margin-left: 6px;
+    margin-top: -10px;
+    background-color: $black;
+    background-image: none;
+    border-width: 1.5px;
+    border-style: solid;
+    border-color: $black;
+    border-radius: 50%;
+    z-index: 3;
+}
+
+.part-exchange-conditions  .range-slider-wrapper .ui-slider .ui-slider-range {
+    top: 50%;
+    background: $black;
+    transition: all 0.3s;
+    height: 1px;
+    margin-top: 1px;
+    z-index: 2;
+}
+
+.car-filter-item.finance-filter .range-slider-wrapper .ui-slider .ui-slider-range {
+    background: $black;
+    outline: 4px solid $white;
+}
+
+.payment-settings .range-slider-wrapper .ui-slider {
+    height: 25px;
+    margin: 10px 0px 0px 0px;
+}
+
+#choose-payment .payment-settings .payment-settings-block .range-slider-wrapper .ui-slider::after {
+    background-color: $white;
+}

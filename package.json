@@ -1,0 +1,24 @@
+{
+  "name": "rockar_peppermint",
+  "version": "1.0.0",
+  "main": "dist/main.js",
+  "license": "MIT",
+  "scripts": {
+    "cucumber": "jest --notify --config=jest.config.js"
+  },
+  "devDependencies": {
+    "selenium-webdriver": "^4.0.0-alpha.4"
+  },
+  "dependencies": {
+    "@types/jest": "^24.0.13",
+    "@types/node": "^12.0.7",
+    "@types/selenium-webdriver": "^4.0.1",
+    "chromedriver": "^75.0.1",
+    "dotenv": "^8.0.0",
+    "eslint": "^5.16.0",
+    "jest-cucumber": "^2.0.11",
+    "prettier": "^1.18.2",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.1"
+  }
+}

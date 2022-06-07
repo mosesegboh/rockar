@@ -1,0 +1,39 @@
+// Bourbon framework
+@import '../../../default2/framework/scss/framework';
+
+// Extended Mixins
+@import '../../../default2/assets/scss/mixin/extends';
+
+// Fonts
+@import '../../../default2/assets/scss/utils/fonts';
+@import './utils/fonts';
+
+// Sprites
+@import '../../../default2/assets/scss/utils/sprites';
+@import './utils/sprites';
+
+// Platform Variables
+@import '../../../default2/assets/scss/utils/variables';
+@import './utils/variables';
+
+// Framework and Platform variable extends
+@import '../../../default2/assets/scss/extends/variables';
+@import './extends/variables';
+
+
+// Core mixins
+@import '../../../default2/assets/scss/mixins';
+@import './mixins';
+
+// Core components
+@import '../../../default2/assets/scss/components';
+@import './components';
+
+// Core blocks
+@import '../../../default2/assets/scss/blocks';
+@import './blocks';
+
+// Core pages
+@import '../../../default2/assets/scss/pages';
+@import './pages';
+

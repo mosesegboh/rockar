@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint_PartExchange
+ * @author       Lucian Mesaros <lucian.mesaros@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_PartExchange>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Rockar_PartExchange />
+                <Rockar2_PartExchange />
+            </depends>
+        </Peppermint_PartExchange>
+    </modules>
+</config>

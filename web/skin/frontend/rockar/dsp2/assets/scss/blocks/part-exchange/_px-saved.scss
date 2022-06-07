@@ -1,0 +1,109 @@
+.px-saved {
+    border: 1px solid $c-grey-5;
+    padding: 15px 25px;
+    margin: 19px 0;
+
+    @include media($medium-screen-up) {
+        margin: 0 0 19px;
+    }
+
+    .px-saved-title {
+        @include display(flex);
+        @include justify-content(space-between);
+        @include align-items(center);
+        margin: 0 0 10px;
+
+        .h7 {
+            margin: 0;
+        }
+
+        .popup {
+            &.trade-in-remove {
+                .popup-content {
+                    top: 21%;
+                }
+            }
+        }
+    }
+
+    .px-saved-estimated {
+        @include align-items(center);
+        @include display(flex);
+        @include justify-content(space-between);
+
+        p {
+            margin: 0 0 0 5px;
+
+            @include media($small-screen-down) {
+                font-size: $dsp2-f-size-sl;
+            }
+        }
+    }
+
+    .px-icons {
+        @include display(flex);
+
+        .icon-delete {
+            margin: 0 15px;
+            cursor: pointer
+        }
+
+        .icon-edit {
+            cursor: pointer
+        }
+    }
+
+    hr {
+        margin: 12px 0;
+    }
+
+    .px-value {
+        color: $bmw-blue;
+        font-family: $bmw;
+        font-size: $dsp2-f-size-xl;
+    }
+
+    .expired {
+        text-align: right;
+        font-size: $dsp2-f-size-xxs;
+        line-height: $dsp2-line-h-14;
+    }
+
+    .confirmation-popup {
+        &.popup {
+            .popup-content {
+                @include media($small-screen-down) {
+                    top: 27%;
+                    left: 50%;
+                    transform: translate(-50%, 0);
+                    max-width: 310px;
+                    max-height: 331px;
+                    position: fixed;
+                    margin: 0;
+                }
+
+                .confirmation-title {
+                    text-transform: none;
+                    margin: 0 0 10px;
+
+                    @include media($small-screen-down) {
+                        font-size: $dsp2-f-size-l;
+                        margin: 17px 0 18px;
+                    }
+                }
+
+                .confirmation-buttons {
+                    @include media($small-screen-down) {
+                        margin: 59px 0 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .tooltip-valuation {
+        &::after {
+            transform: translateY(1px);
+        }
+    }
+}

@@ -1,0 +1,13 @@
+---   
+  - name: Install vscode on mac
+    homebrew_cask:
+      name: visual-studio-code
+      state: present
+      accept_external_apps: yes
+    when: ansible_os_family == 'Darwin'
+ 
+  - name: Install vscode on windows
+    win_chocolatey:
+      name: vscode
+      state: present
+    when: ansible_os_family == "Windows"

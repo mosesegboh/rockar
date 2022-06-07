@@ -1,0 +1,49 @@
+<?php
+/**
+ * @category  BMW
+ * @package   BMW\Checkout
+ * @author    Brandon Ho <brandon.ho@partner.bmw.co.za>
+ */
+/**
+ * @var Rockar_Checkout_Block_Checkout_Steps_Summary $this
+ */
+?>
+<?php
+if ((int)$this->helper('rockar_all')->checkIsInStore()) {
+    $content = $this->getChildHtml('checkout_summary_instore');
+} else {
+    $content = $this->getChildHtml('checkout_summary_not_instore');
+}
+?>
+<app-checkout-accordion title="<?php echo $this->__('Summary') ?>" type="right-down" class-name="accordion-light" step-code="<?php echo Rockar_Checkout_Helper_Data::SUMMARY_STEP_CODE; ?>">
+    <li>
+        <div class="accordion-content">
+            <app-checkout-summary
+                car-title="<?php echo $this->getProductName() ?>"
+                car-image="<?php echo $this->getImage() ?>"
+                car-description=""
+                order-place-url="<?php echo $this->getUrl('checkout/onepage/orderPlace', ['_secure' => true, 'form_key' => Mage::getSingleton('core/session')->getFormKey()]) ?>"
+                delivery-price="<?php echo $this->getDeliveryPrice(); ?>"
+                reseller-overlay-content="<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('reseller_notice_overlay_content')->toHtml(); ?>"
+                reseller-disagree-overlay-content="<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('reseller_notice_overlay_content_disagree')->toHtml(); ?>"
+                partial-deposit-value="<?php echo $this->getPartialDepositValue(); ?>"
+                payment-breakdown="<?php echo $this->getPaymentBreakdownMessage(); ?>"
+                :additional-charges='<?php echo $this->getAdditionalCharges(); ?>'
+                minimum-deposit-amount="<?php echo Mage::helper('rockar_surcharges')->getMinimumDepositAmount(); ?>"
+                :car-extras='<?php echo $this->getOptions(); ?>'
+                :allowed-cards='<?php echo $this->getAllowedCreditCards(); ?>'
+                :credit-card-mapping='<?php echo $this->creditCardMapping(); ?>'
+                description-content='<?php echo Mage::helper('rockar_all')->jsonEncode($content) ?>'
+                car-finder-url='<?php echo $this->getCarFinderUrl(); ?>'
+                v-ref:summary-step
+            >
+            </app-checkout-summary>
+        </div>
+    </li>
+</app-checkout-accordion>
+
+<app-modal v-ref:terms-conditions-modal :add-close-button="true" :close-button-text="Close">
+    <div slot="content">
+        <?php echo $this->getChildHtml('checkout_terms_conditions_overlay') ?>
+    </div>
+</app-modal>

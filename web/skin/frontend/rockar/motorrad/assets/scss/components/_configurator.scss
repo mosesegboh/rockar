@@ -1,0 +1,99 @@
+#configurator {
+    .car-extras-tab-hover:hover,
+    .car-extras-hover {
+        border-top: none;
+    }
+
+    .configurator-lower-config {
+        margin-left: $motorrad-pdp-back-button-size;
+
+        @include media($small-screen-down) {
+            margin-left: 0;
+        }
+
+        .my-build {
+            display: block;
+        }
+
+        .car-extras-content {
+            &.desktop {
+                display: block;
+            }
+
+            @include media($small-screen-down) {
+                border-top: 0.6px solid $motorrad-border-grey;
+                padding-top: 1em;
+            }
+        }
+    }
+
+    .accessories {
+        .accessories-detailed-wrapper{
+            display: flex;
+
+            .accessories-detailed {
+                width: 50%;
+                padding: 5px;
+
+                .accessory-price {
+                    color: $accessories-price-color;
+                    font-size: $f-size-l;
+                }
+
+                .accessory-details {
+                    font-size: $f-size-xxxl;
+                }
+            }
+        }
+
+        .accordion {
+            .accordion-content {
+                padding: 0 2.5em;
+            }
+        }
+
+        .accessory-show-details {
+            cursor: pointer;
+            font-weight: bold;
+
+            &:hover {
+                color: $accessories-price-color;
+
+                .arrow-next {
+                    border-left: 1px solid $accessories-price-color;
+                    border-bottom: 1px solid $accessories-price-color;
+                }
+            }
+
+            .arrow-next {
+                border-left: 1px solid $base-font-color;
+                border-bottom: 1px solid $base-font-color;
+                margin: 5px;
+            }
+        }
+    }
+
+    .configurator-nav .configurator-actions .nav-buttons {
+        display: flex;
+
+        @include media($small-screen-down) {
+            display: none;
+        }
+        .configurator-actions-desktop {
+            height: 100%;
+
+            &.col-3 {
+                .nav-arrow {
+                    position: absolute;
+                }
+            }
+
+        }
+    }
+
+    .finance-quote-mobile-container-details {
+        @include media($medium-screen-only) {
+            margin-left: $motorrad-pdp-back-button-size;
+        }
+    }
+}

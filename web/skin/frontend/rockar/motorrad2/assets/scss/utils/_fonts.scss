@@ -1,0 +1,30 @@
+/**
+Here we add variables that are unique to Motorrad. If a variable is not here but is on the Style guide,
+we can use the variable from Style guide - it is already included in the dsp2 theme
+ */
+
+$motorrad-bold: 'BMW-Motorrad-Bold', 'Tahoma Bold', 'Noto Sans Bold', 'sans-serif bold';
+$motorrad-regular: 'BMW-Motorrad-Regular', 'Lucida Sans Unicode', 'Lucida Grande', 'Noto Sans', sans-serif;
+
+$motorrad-collection: woff, woff2;
+
+// Motorrad font family
+// Bold Sans-serif/ 700
+@include font-face('BMW-Motorrad-Bold', '../../motorrad2/fonts/motorrad/BMWMotorrad-Bold', $fw-normal, normal, false, $motorrad-collection);
+// Regular Sans-serif/ 400
+@include font-face('BMW-Motorrad-Regular', '../../motorrad2/fonts/motorrad/BMWMotorrad-Regular', $fw-normal, normal, false, $motorrad-collection);
+
+////// Font Sizes (px) //////
+$motorrad-f-size-15: 0.9375em;
+$motorrad-f-size-80: 5em;
+$motorrad-f-size-52: 3.25em;
+$motorrad-f-size-40: 2.5em;
+$motorrad-f-size-28: 1.75em;
+$motorrad-f-size-22: 1.375em;
+
+////// Line heights //////
+$motorrad-line-h-52: 52px;
+$motorrad-line-h-42: 42px;
+$motorrad-line-h-26: 26px;
+$motorrad-line-h-22: 22px;
+

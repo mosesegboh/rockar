@@ -1,0 +1,55 @@
+.condition {
+    &-wrapper {
+        .dsp2-label {
+            color: $black;
+            font-family: $mini-sans-serif-bold;
+        }
+
+        .part-exchange-conditions {
+            .slider-label {
+                display: none;
+            }
+
+            .conditions-labels {
+                li {
+                    span {
+                        font-family: $mini-sans-serif-regular;
+                        color: $black;
+                    }
+                }
+            }
+        }
+
+        .condition-info {
+            .title {
+                font-family: $mini-sans-serif-regular;
+            }
+
+            .condition-more-info {
+                .dsp2-link-s {
+                    font-size: $dsp2-f-size-s;
+
+                    @include media($medium-screen-up) {
+                        font-size: $dsp2-f-size;
+                    }
+                }
+
+                .dsp2-more-info {
+                    ul {
+                        li {
+                            color: $black;
+                        }
+                    }
+                }
+            }
+        }
+
+        .px-additional-info-block {
+            .px-additional-info-checkbox {
+                .red-2 {
+                    color: $c-mini-red-1;
+                }
+            }
+        }
+    }
+}

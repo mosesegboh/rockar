@@ -1,0 +1,201 @@
+.my-test-drives {
+    .my-test-drives-wrapper {
+        @include media($large-screen-down) {
+            display: none;
+        }
+    }
+
+    .my-test-drives-mobile {
+        display: none;
+
+        @include media($large-screen-down) {
+            display: block;
+        }
+    }
+
+    .upcoming-test-drives {
+        padding: 0 0 1.9em;
+        margin-bottom: 1.9em;
+        border-bottom: 1px solid $my-account-horizontal-break-color;
+
+        .upcoming-test-drive {
+            border-top: 1px solid $my-account-horizontal-break-color;
+
+            &:first-of-type {
+                padding-top: 0;
+                border: none;
+            }
+
+            &:last-of-type {
+                padding-bottom: 0;
+            }
+        }
+
+        .car-detail {
+            h4 {
+                margin-bottom: 0.25em;
+            }
+        }
+    }
+
+    .cancelled-test-drives {
+        padding: 0 0 1.9em;
+        margin-bottom: 1.9em;
+        border-bottom: 1px solid $my-account-horizontal-break-color;
+    }
+
+    .test-drive-location {
+        margin-bottom: 1.9em;
+        padding: 0 2em 1.9em;
+        border-bottom: 1px solid $my-account-horizontal-break-color;
+
+        .location-col-left {
+            @include media($medium-screen-up) {
+                padding-right: 4em;
+            }
+        }
+
+        .drive-information, .drive-location {
+            color: $my-test-drives-location-color;
+        }
+
+        .drive-information {
+            font-size: $f-size-xs;
+            line-height: 2em;
+            text-align: justify;
+        }
+
+        .drive-location {
+            font-size: $f-size-l;
+            font-weight: $fw-light;
+        }
+    }
+
+    .test-drive-location-picker {
+        border: 2px solid $my-test-drives-location-picker-border-color;
+        padding: 0.75em 0.6em 0.75em 2.1em;
+        margin-top: 1.25em;
+        background: $my-test-drives-location-picker-background;
+
+        p {
+            color: $my-test-drives-location-picker-color;
+            margin: 0;
+            padding-top: 0.3em;
+            font-weight: $fw-light;
+        }
+    }
+
+    .completed-test-drives {
+        .completed-test-drive {
+            border-top: 1px solid $my-account-horizontal-break-color;
+
+            &:first-of-type {
+                padding-top: 0;
+                border: none;
+            }
+        }
+    }
+
+    .cancelled-test-drives {
+        margin-bottom: 1.9em;
+
+        .cancelled-test-drive {
+            border-top: 1px solid $my-account-horizontal-break-color;
+
+            &:first-of-type {
+                padding-top: 0;
+                border: none;
+            }
+        }
+    }
+
+    button {
+        width: 100%;
+
+        @include media($large-screen-up) {
+            max-width: $my-test-drives-button-width;
+            font-weight: $fw-light;
+        }
+    }
+
+    .two-buttons {
+        button {
+            width: 49%;
+        }
+    }
+
+    .block-title {
+        letter-spacing: 0.05em;
+    }
+
+    .my-test-drives-mobile {
+        .hero-car {
+            margin: 0 0 1em 0;
+
+            .hero-content {
+                background: $my-test-drives-mobile-hero-content-bg;
+
+                .hero-image {
+                    padding: 0.5em;
+
+                    img {
+                        display: block;
+                        width: 100%;
+                    }
+                }
+
+                .hero-info {
+                    padding: 1.5em;
+
+                    .hero-title {
+                        .h4 {
+                            font-size: $f-size-xl;
+                            color: $my-test-drives-brand-accent-color;
+                            text-transform: uppercase;
+                            font-weight: $fw-bold;
+                            margin: 0;
+                        }
+
+                        .h5 {
+                            font-size: $f-size-l;
+                            color: $my-test-drives-mobile-greyed-out-color;
+                        }
+                    }
+
+                    .hero-date {
+                        .h4 {
+                            font-size: $f-size-xl;
+                            font-weight: $fw-bold;
+                            text-transform: none;
+                            margin: 0;
+                        }
+
+                        .h5 {
+                            font-size: $f-size-l;
+                            color: $my-test-drives-mobile-greyed-out-color
+                        }
+                    }
+                }
+            }
+
+            .hero-buttons {
+                button {
+                    display: block;
+                }
+            }
+        }
+
+        .test-drives-title {
+            text-transform: none;
+            margin: 0 0 1em 1em;
+        }
+    }
+}
+
+.my-test-drive-section {
+    .accordion-content {
+        @include media($small-screen-down) {
+            padding: .5em 0;
+        }
+    }
+}

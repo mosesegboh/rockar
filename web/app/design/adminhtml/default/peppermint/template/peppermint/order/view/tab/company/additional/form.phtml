@@ -1,0 +1,177 @@
+<?php
+/**
+ * @category  design
+ * @package   adminhtml_default
+ * @author    Tiberiu Barkoczi <tiberiu.barkoczi@rockar.com>
+ * @copyright Copyright (c) 2019 Rockar Ltd (http://rockar.com)
+ */
+
+/**
+ * @var $this Rockar_Checkout_Block_Adminhtml_Order_View_Company_Additional
+ * @var $formData Rockar_Checkout_Model_Order_Additional_Company
+ */
+$formData = $this->getFormData();
+$checkoutHelper = Mage::helper('peppermint_checkout');
+$residentialAddress = $checkoutHelper->getResidentialAddress($formData->getOrderId());
+$postalAddress = $checkoutHelper->getPostalAddress($formData->getOrderId());
+?>
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4 class="icon-head"><?php echo $this->getEntityTitle(); ?></h4>
+    </div>
+    <fieldset>
+        <div id="<?php echo $this->getBlockId(); ?>">
+            <div id="<?php echo $this->getBlockViewId(); ?>">
+                <div class="content-header">
+                    <h3><?php echo $this->__('Company Details'); ?></h3>
+                </div>
+                <table cellspacing="0" class="form-list">
+                    <tbody>
+                        <?php if ($formData->getCompanyType()): ?>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Company Type'); ?></td>
+                                <td class="value">
+                                    <strong><?php echo $checkoutHelper->getCompanyTypeLabelByValue($formData->getCompanyType()); ?></strong>
+                                </td>
+                            </tr>
+                        <?php endif ?>
+                        <?php if ($formData->getCompanyName()): ?>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Company Name'); ?></td>
+                                <td class="value">
+                                    <strong><?php echo $this->escapeHtml($formData->getCompanyName()); ?></strong>
+                                </td>
+                            </tr>
+                        <?php endif ?>
+                        <?php if ($formData->getRegistrationNumber()): ?>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Company Registration Number'); ?></td>
+                                <td class="value">
+                                    <strong><?php echo $this->escapeHtml($formData->getRegistrationNumber()); ?></strong>
+                                </td>
+                            </tr>
+                        <?php endif ?>
+                        <?php if ($formData->getVatNumber()): ?>
+                            <tr>
+                                <td class="label"><?php echo $this->__('VAT Number'); ?></td>
+                                <td class="value">
+                                    <strong><?php echo $this->escapeHtml($formData->getVatNumber()); ?></strong>
+                                </td>
+                            </tr>
+                        <?php endif ?>
+                        <?php if ($formData->getDesignation()): ?>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Designation'); ?></td>
+                                <td class="value">
+                                    <strong><?php echo $checkoutHelper->getDesignationLabelByValue($formData->getDesignation()); ?></strong>
+                                </td>
+                            </tr>
+                        <?php endif ?>
+                        <?php if ($formData->getVatNumber()): ?>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Contact Number'); ?></td>
+                                <td class="value">
+                                    <strong><?php echo $this->escapeHtml($formData->getContactNumber()); ?></strong>
+                                </td>
+                            </tr>
+                        <?php endif ?>
+                    </tbody>
+                </table>
+
+                <div class="content-header">
+                    <h3><?php echo $this->__('Physical Address'); ?></h3>
+                </div>
+                <table cellspacing="0" class="form-list">
+                    <tbody>
+                        <?php if ($residentialAddressOne = $residentialAddress->getStreet(1)): ?>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Address Line 1'); ?></td>
+                                <td class="value">
+                                    <strong><?php echo $residentialAddressOne; ?></strong>
+                                </td>
+                            </tr>
+                        <?php endif ?>
+                        <?php if ($residentialAddressTwo = $residentialAddress->getStreet(2)): ?>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Address Line 2'); ?></td>
+                                <td class="value">
+                                    <strong><?php echo $residentialAddressTwo; ?></strong>
+                                </td>
+                            </tr>
+                        <?php endif ?>
+                        <?php if ($residentialAddress->getCity()): ?>
+                            <tr>
+                                <td class="label"><?php echo $this->__('City'); ?></td>
+                                <td class="value">
+                                    <strong><?php echo $this->escapeHtml($residentialAddress->getCity()); ?></strong></td>
+                            </tr>
+                        <?php endif ?>
+                        <?php if ($residentialAddress->getRegion()): ?>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Suburb'); ?></td>
+                                <td class="value">
+                                    <strong><?php echo $this->escapeHtml($residentialAddress->getRegion()); ?></strong></td>
+                            </tr>
+                        <?php endif ?>
+                        <?php if ($residentialAddress->getPostcode()): ?>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Postal Code'); ?></td>
+                                <td class="value">
+                                    <strong><?php echo $this->escapeHtml($residentialAddress->getPostcode()); ?></strong>
+                                </td>
+                            </tr>
+                        <?php endif ?>
+                    </tbody>
+                </table>
+
+                <div class="content-header">
+                    <h3><?php echo $this->__('Postal Address'); ?></h3>
+                </div>
+                <table cellspacing="0" class="form-list">
+                    <tbody>
+                        <?php if($addressLineOne =  $this->escapeHtml($postalAddress->getAddress_1())): ?>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Address Line 1'); ?></td>
+                                <td class="value">
+                                    <strong><?php echo $addressLineOne ?></strong>
+                                </td>
+                            </tr>
+                        <?php endif ?>
+                        <?php if($addressLineTwo =  $this->escapeHtml($postalAddress->getAddress_2())): ?>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Address Line 2'); ?></td>
+                                <td class="value">
+                                    <strong><?php echo $addressLineTwo ?></strong>
+                                </td>
+                            </tr>
+                        <?php endif ?>
+                        <?php if($postalAddress->getCity()): ?>
+                            <tr>
+                                <td class="label"><?php echo $this->__('City'); ?></td>
+                                <td class="value">
+                                    <strong><?php echo $this->escapeHtml($postalAddress->getCity()); ?></strong>
+                                </td>
+                            </tr>
+                        <?php endif ?>
+                        <?php if($postalAddress->getRegion()): ?>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Suburb'); ?></td>
+                                <td class="value">
+                                    <strong><?php echo $this->escapeHtml($postalAddress->getRegion()); ?></strong>
+                                </td>
+                            </tr>
+                        <?php endif ?>
+                        <?php if($postalAddress->getPostcode()): ?>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Postal Code'); ?></td>
+                                <td class="value">
+                                    <strong><?php echo $this->escapeHtml($postalAddress->getPostcode()); ?></strong>
+                                </td>
+                            </tr>
+                        <?php endif ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </fieldset>
+</div>

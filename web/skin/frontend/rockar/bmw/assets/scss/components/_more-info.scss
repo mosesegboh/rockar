@@ -1,0 +1,112 @@
+.more-info {
+    &.header {
+        position: relative;
+        padding-left: 26px;
+        font: {
+            weight: $fw-semibold;
+            size: .8em;
+        }
+        line-height: 20px;
+        text-transform: uppercase;
+
+        &::before {
+            @include pseudo();
+            width: 19px;
+            height: 19px;
+            left: 0;
+            border-radius: 10px;
+            border: 1px solid $black;
+        }
+
+        &::after {
+            @include pseudo();
+            width: 6px;
+            height: 6px;
+            border: {
+                bottom: {
+                    width: 1px;
+                    style: solid;
+                    color: $black;
+                }
+                left: {
+                    width: 1px;
+                    style: solid;
+                    color: $black;
+                }
+            }
+            transform: rotate(-135deg);
+            top: 6px;
+            left: 6px;
+            transition: 1s ease-in;
+        }
+
+        &.expanded {
+            &::after {
+                transform: rotate(-45deg);
+                top: 5px;
+            }
+        }
+    }
+
+    &.content {
+        padding: .5em 0 0;
+
+        ul {
+            list-style: outside;
+            padding-left: 16px;
+            text-align: left;
+            line-height: .8em;
+
+            li {
+                color: $grey-4;
+            }
+        }
+    }
+}
+
+.bmw-more-info {
+    &.header {
+        position: relative;
+        font: {
+            weight: $fw-semibold;
+            size: $bmw-button;
+            family: $primary-font-bold;
+        }
+        line-height: 20px;
+        text-transform: none;
+        border-bottom: solid 1px $grey-2;
+        border-top: solid 1px $grey-2;
+        padding: 20px 35px;
+
+        &::before {
+            @include pseudo();
+            @include sprite($sprite-action-collapse-dark);
+            top: 24px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        &.expanded {
+            &::after {
+                transform: rotate(-45deg);
+                top: 5px;
+            }
+        }
+    }
+
+    &.content {
+        padding: .5em 0 0;
+
+        ul {
+            list-style: outside;
+            padding-left: 16px;
+            text-align: left;
+            line-height: .8em;
+
+            li {
+                color: $grey-4;
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+#checkout {
+    .checkout-steps {
+        .confirmation-text {
+            p {
+                font-size: $f-size-s;
+            }
+        }
+    }
+
+    .register-block {
+        p {
+            font-size: $f-size-xxxs;
+        }
+    }
+
+    .checkout-quote {
+        @import 'shared/quotation';
+
+        .apply-voucher {
+            padding: .5em;
+            margin-bottom: 20px;
+
+            .coupon-label {
+                @include display(flex);
+                @include justify-content(center);
+
+                .coupon-label-text {
+                    font-size: $f-size-xxxs;
+                    letter-spacing: $base-letter-spacing;
+                }
+            }
+
+            .tooltip-wrapper {
+                margin-left: 5px;
+
+                p {
+                    font-size: $f-size-xs;
+                }
+            }
+        }
+    }
+}

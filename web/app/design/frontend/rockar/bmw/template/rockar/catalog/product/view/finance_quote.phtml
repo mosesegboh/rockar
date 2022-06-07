@@ -1,0 +1,53 @@
+<?php
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Catalog
+ * @author    Sykander Gul <Sykander.Gul@rockar.com>
+ * @copyright Copyright (c) 2018 Rockar Ltd (http://rockar.com)
+ */
+/**
+ * @var $this Rockar_FinancingOptions_Block_FinanceQuote
+ */
+$data = $this->getFinanceQuoteData();
+$productId = $data['product_id'];
+$product = Mage::getModel('catalog/product')->load($productId);
+$preSelectedAccessories = Mage::helper('peppermint_catalog')->getCustomOptionAccessories($product);
+
+?>
+<div class="finance-quote-desktop-container">
+    <app-offer-tags
+        :offer-tag-data='<?php echo Mage::helper('peppermint_catalog')->getOfferTagData($product); ?>'
+    >
+    </app-offer-tags>
+
+    <app-configurator-finance-quote
+        :car-data='<?php echo $data['car_data'] ?>'
+        lead-time='<?php echo $data['lead_time']; ?>'
+        :product-id="<?php echo $data['product_id'];?>"
+        :finance-variables='<?php echo $data['finance_variables']; ?>'
+        :finance-params-origin='<?php echo $data['finance_params'];?>'
+        :finance-slider-steps='<?php echo $data['finance_slider_steps'];?>'
+        :pay-in-full-payment='<?php echo $data['pay_in_full_payment'];?>'
+        :active-payment='<?php echo $data['active_payment'];?>'
+        :rockar-price='<?php echo $data['rockar_price'];?>'
+        :save-off-rrp='<?php echo $data['save_off_rrp'];?>'
+        :monthly-price='<?php echo $data['monthly_price'];?>'
+        finance-url='<?php echo $data['finance_url']; ?>'
+        payment-save-url='<?php echo $data['payment_save_url']; ?>'
+        :part-exchange='<?php echo $this->getPartExchangeJson() ?>'
+        :car-conditions='<?php echo Mage::helper('rockar_partexchange/filters')->getConditionsSliderInfo(true) ?>'
+        calc-type='<?php echo Rockar_FinancingOptions_Model_Calculation_Type_Abstract::CALC_TYPE_PDP ?>'
+        :part-exchange-additional='<?php echo $this->getAdditionalPartExchangeData() ?>'
+        :part-exchange-saved="<?php echo $this->getPartExchangeSaved() ?>"
+        :saved-px="<?php echo $this->getCustomerPartExchange() ?>"
+        :additional-info='<?php echo $this->getCheckboxes() ?>'
+        :hire-payments='<?php echo Mage::helper('rockar_all')->jsonEncode($data['hire_payments']) ?>'
+        :is-hire='<?php echo (int)$data['is_hire'] ?>'
+        :cash-deposit='<?php echo $data['cash_deposit'];?>'
+        :cashback='<?php echo $data['cashback'];?>'
+        :custom-option-titles='<?php echo $this->getCustomOptionTitles(); ?>'
+        :instalment-group-id='<?php echo $this->getInstalmentGroupId(); ?>'
+        :configurable-lead-time='<?php echo $product->getCheapestProductLeadTime(); ?>'
+        v-ref:finance-quote
+    ></app-configurator-finance-quote>
+</div>

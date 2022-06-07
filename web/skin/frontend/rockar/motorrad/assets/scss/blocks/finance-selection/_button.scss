@@ -1,0 +1,15 @@
+button {
+    width: 100%;
+    margin: 0;
+    border: 0;
+    background: $motorrad-white;
+    color: $motorrad-dark-grey;
+    padding: 1.1em 1.55em;
+    text-align: left;
+
+    &:hover,
+    &.selected {
+        background: $motorrad-light-grey;
+        color: $motorrad-text-color;
+    }
+}

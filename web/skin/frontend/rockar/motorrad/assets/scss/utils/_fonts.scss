@@ -1,0 +1,15 @@
+$motorrad: 'Motorrad', Arial, sans-serif;
+$motorrad-light: 'Motorrad Light', Arial, sans-serif;
+
+$motorrad-collection: woff, ttf;
+
+// Normal
+@include font-face('Motorrad', '../../motorrad/fonts/motorrad/bmwtypewebbo_all', normal, false, $motorrad-collection);
+@include font-face('Motorrad Light', '../../motorrad/fonts/motorrad/bmwtypewebli_all', normal, false, $motorrad-collection);
+
+
+
+//////// Font Weight ///////
+$motorrad-fw-normal: normal;
+$motorrad-fw-bold: bold;
+$motorrad-fw-900: 900;

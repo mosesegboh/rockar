@@ -1,0 +1,296 @@
+#checkout {
+    .checkout-steps {
+        .accordion {
+            &.summary_step {
+                @import '../blocks/product-page/cosy-view-slider';
+
+                .cosy-view {
+                    margin: 0;
+
+                    @include media($medium-screen-up) {
+                        margin-bottom: 30px;
+                    }
+                }
+
+                background-color: transparent;
+
+                .submenu {
+                    li:first-child {
+                        &:hover {
+                            background-color: transparent;
+                        }
+                    }
+                }
+
+                .accordion-content {
+                    padding: 0;
+                }
+            }
+        }
+    }
+}
+
+.checkout-summary {
+    .car-detail {
+        padding: 20px 24px;
+
+        @include media($medium-screen-up) {
+            padding: 0;
+        }
+
+        .accordion {
+            background-color: $white;
+            margin-bottom: 10px;
+
+            &.accordion-light {
+                a {
+                    padding: 12px 0 14px 15px;
+
+                    @include media($medium-screen-up) {
+                        padding: 26px 30px;
+                    }
+                }
+            }
+
+            .js-accordion-trigger {
+                font-family: $bmw;
+                font-size: $dsp2-f-size-s;
+                line-height: $dsp2-line-h-24;
+                text-transform: uppercase;
+                border: none;
+
+                @include media($medium-screen-up) {
+                    font-family: $bmw-light;
+                    font-size: $dsp2-f-size-l;
+                    line-height: $dsp2-line-h-28;
+                }
+            }
+
+            .submenu {
+                padding: 10px 15px 40px;
+
+                @include media($medium-screen-up) {
+                    padding: 20px 50px 30px 65px;
+                }
+            }
+
+            table {
+                margin: 0 0 40px;
+
+                td {
+                    font-size: initial;
+                    border-bottom: none;
+                }
+
+                tbody {
+                    tr {
+                        &:first-child {
+                            td {
+                                padding-bottom: 10px;
+
+                                @include media($medium-screen-up) {
+                                    padding-bottom: 22px;
+                                }
+                            }
+                        }
+
+                        &:not(:first-child) {
+                            border-bottom: 1px solid $c-grey-5;
+
+                            td {
+                                padding: 10px 0;
+                            }
+
+                            span {
+                                font-size: $dsp2-f-size-s;
+                                line-height: $dsp2-line-h-20;
+
+                                @include media($medium-screen-up) {
+                                    font-size: $dsp2-f-size;
+                                    line-height: $dsp2-line-h-24;
+                                }
+                            }
+                        }
+
+                        td {
+                            padding: 0;
+                            background-color: $white;
+
+                            &:not(:first-child) {
+                                text-align: end;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .group-title {
+                font-family: $bmw;
+                font-size: $dsp2-f-size-s;
+                line-height: $dsp2-line-h-20;
+                text-transform: uppercase;
+
+                @include media($medium-screen-up) {
+                    font-size: $dsp2-f-size;
+                    line-height: $dsp2-line-h-24;
+                }
+            }
+
+            .features-item {
+                padding: 10px 0;
+                border-bottom: 1px solid $c-grey-5;
+            }
+
+            .table-right {
+                font-family: $bmw-bold;
+            }
+
+            .extra-total-table {
+                tr {
+                    background-color: $c-grey-6;
+                    border-bottom: 1px solid $c-grey-5;
+
+                    &:first-child {
+                        td {
+                            padding-bottom: 15px;
+
+                            @include media($medium-screen-up) {
+                                padding-bottom: 10px;
+                            }
+                        }
+                    }
+
+                    td {
+                        padding-top: 15px;
+                        background-color: $c-grey-6;
+
+                        @include media($medium-screen-up) {
+                            padding-top: 10px;
+                        }
+                    }
+                }
+            }
+
+            &.type-right-down {
+                > li {
+                    > a {
+                        &::after {
+                            background: url('../images/svg/black-arrow-up.svg') no-repeat center;
+                            background-size: contain;
+                            border: none;
+                            transform: rotate(180deg);
+                            right: 30px;
+                            top: 45%;
+                            opacity: 1;
+                            width: 16px;
+                            height: 10px;
+                            transition: transform 200ms;
+                        }
+                    }
+
+                    &.is-expanded {
+                        > a {
+                            &::after {
+                                transform: rotate(0deg);
+                                right: 30px;
+                                top: 45%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .summary-bottom {
+        background-color: $white;
+
+        .content {
+            padding: 32px 24px;
+
+            @include media($medium-screen-up) {
+                padding: 30px;
+            }
+
+            .disclaimers-wrapper {
+                font-size: $dsp2-f-size-xs;
+                line-height: $dsp2-line-h-16;
+                margin: 6px 0 30px;
+            }
+
+            .actions-wrapper {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+                align-items: center;
+                flex-wrap: wrap;
+
+                @include media($medium-screen-up) {
+                    flex-direction: row-reverse;
+                    flex-wrap: nowrap;
+                }
+
+                .checkbox {
+                    order: -1;
+                    font-size: $dsp2-f-size-xs;
+                    line-height: $dsp2-line-h-16;
+
+                    @include media($medium-screen-up) {
+                        order: 0;
+                        font-size: $dsp2-f-size;
+                        line-height: $dsp2-line-h-24;
+                    }
+
+                    a {
+                        &.terms-conditions {
+                            color: $c-grey;
+                            text-decoration: underline;
+                            font-family: $bmw;
+                        }
+                    }
+
+                    label {
+                        margin: 0;
+
+                        p {
+                            margin: 0;
+                        }
+                    }
+                }
+
+                .cta {
+                    width: 100%;
+                    margin: 20px 0 0;
+
+                    @include media($medium-screen-up) {
+                        width: 420px;
+                        margin: 0;
+                    }
+
+                    .button-wrapper {
+                        .button {
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#checkout {
+    .checkout-steps {
+        .accordion {
+            &.summary_step {
+                .accordion-content {
+                    .checkout-summary {
+                        .step-header {
+                            background-color: $white;
+                            margin: 0 -1.5em 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

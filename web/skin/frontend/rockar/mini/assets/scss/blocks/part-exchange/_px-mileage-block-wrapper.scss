@@ -1,0 +1,49 @@
+.px-mileage-block-wrapper {
+    @include media($small-screen-down) {
+        margin-bottom: 16px;
+    }
+
+    .px-regular-heading {
+        @include media($small-screen-down) {
+            text-align: center;
+            margin-bottom: em(15px);
+        }
+    }
+
+    .px-input-wrapper {
+        width: $px-vrm-block-max-width;
+        margin: 0;
+
+        @include media($small-screen-down) {
+            margin: 0 auto;
+            width: $px-vrm-block-max-width-s-screen;
+        }
+
+        .px-input {
+            color: $black;
+            display: inline-block;
+            border: 1px solid $black;
+            font-family: $brand-specific-font;
+            font-weight: $fw-hairline;
+            margin: 2px 0;
+            width: 335px;;
+            text-align: center;
+            padding: 0;
+            text-transform: uppercase;
+            height: 39px;
+            font-size: $f-size-s;
+            line-height: 39px;
+            letter-spacing: $px-input-letter-spacing;
+            max-width: none;
+
+            @include media($small-screen-down) {
+                font-size: $f-size-s;
+                height: 51px;
+                display: block;
+                line-height: 51px;
+                letter-spacing: $px-input-letter-spacing-s-screen;
+                width: $px-vrm-block-max-width-s-screen;
+            }
+        }
+    }
+}

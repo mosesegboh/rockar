@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Catalog
+ * @author    Jiraphong witthayathanakit <jiraphong.witthayathanakit@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <sections>
+        <rockar_catalog>
+                <groups>
+                    <placeholder translate="label">
+                        <label>Model Matrix Image Placeholder</label>
+                        <frontend_type>text</frontend_type>
+                        <sort_order>130</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                        <fields>
+                            <placeholder>
+                                <label>Placeholder Image</label>
+                                <frontend_type>image</frontend_type>
+                                <backend_model>adminhtml/system_config_backend_image</backend_model>
+                                <upload_dir config="system/filesystem/media" scope_info="1">catalog/model_matrix/placeholder</upload_dir>
+                                <base_url type="media" scope_info="1">catalog/model_matrix/placeholder</base_url>
+                                 <comment><![CDATA[Allowed file types: 'jpg', 'jpeg', 'gif' and 'png'.]]></comment>
+                                <sort_order>0</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                            </placeholder>
+                        </fields>
+                    </placeholder>
+                    <general>
+                        <fields>
+                            <exterior_images_indexes>
+                                <label>Visible Exterior Images</label>
+                                <frontend_type>text</frontend_type>
+                                <comment>Indexes, delimited by comma</comment>
+                                <sort_order>100</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                            </exterior_images_indexes>
+                        </fields>
+                    </general>
+                </groups>
+        </rockar_catalog>
+    </sections>
+</config>

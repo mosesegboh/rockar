@@ -1,0 +1,140 @@
+.grid {
+    .row {
+        @include row();
+    }
+
+    @for $i from 1 through 12 {
+        .col-#{$i} {
+            @include span-columns($i);
+            @include media($small-screen-down) {
+                float: none;
+                width: 100%;
+                padding: 20px 0 $column-break 0;
+            }
+        }
+
+        .shift-#{$i} {
+            @include shift($i of 12);
+            @include media($small-screen-down) {
+                margin: 0;
+            }
+        }
+    }
+
+    @for $i from 1 through 12 {
+        @include media($medium-screen-only) {
+            .col-md-#{$i} {
+                @include span-columns($i);
+            }
+        }
+    }
+
+    @for $i from 1 through 12 {
+        @include media($large-screen-up) {
+            .col-lg-#{$i} {
+                @include span-columns($i);
+            }
+        }
+    }
+
+    @for $i from 1 through 12 {
+        $percent: #{100 / $i};
+        @include media($medium-screen-up) {
+            .col-md-up-#{$i} {
+                width: unquote($percent + '%');
+            }
+        }
+    }
+
+    .col-md-12 {
+        padding: 0 0 $column-break 0;
+    }
+}
+
+@include item-grid($mobile-item-grid-column-count, $mobile-min-breakpoint);
+
+@include media($medium-screen-up) {
+    @include item-grid($tablet-item-grid-column-count, $tablet-min-breakpoint);
+}
+
+@include media($large-screen-up) {
+    @include item-grid($desktop-item-grid-column-count, $desktop-min-breakpoint);
+}
+
+.row-elements {
+    @include display(flex);
+    @include flex-direction(row);
+
+    @include media($small-screen-down) {
+        @include flex-wrap(wrap);
+    }
+
+    .row-element {
+        padding-right: $row-element-padding;
+        @include flex(1 0 auto);
+
+        @include media($small-screen-down) {
+            @include flex(1 0 100%);
+            padding-right: 0;
+        }
+
+        #year-error,
+        #month-error,
+        #day-error {
+            display: none;
+        }
+
+        &.last-child {
+            padding-right: 0;
+        }
+    }
+
+    .custom-validation-advice {
+        @include flex(1 1 100%);
+    }
+
+    &.form-elements {
+        max-width: $input-max-width;
+    }
+
+    &.two-in-row {
+        .row-element {
+            @include flex(1 1 100%);
+
+            @include media($medium-screen-up) {
+                @include flex(1 1 50%);
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        div.row-element {
+            padding-bottom: $row-element-padding;
+
+            @include media($medium-screen-up) {
+                padding-right: $row-element-padding;
+
+                &:last-child {
+                    padding-right: 0;
+                    padding-left: $row-element-padding;
+                }
+            }
+        }
+    }
+
+    &.three-in-row {
+        .row-element {
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        div.row-element {
+            &:last-child {
+                padding-right: 0;
+            }
+        }
+    }
+}

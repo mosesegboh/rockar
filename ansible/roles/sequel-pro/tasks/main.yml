@@ -1,0 +1,7 @@
+---
+  - name: Install sequel pro on Mac
+    homebrew_cask: 
+      name: sequel-pro
+      state: present
+      accept_external_apps: yes
+    when: ansible_os_family == 'Darwin'

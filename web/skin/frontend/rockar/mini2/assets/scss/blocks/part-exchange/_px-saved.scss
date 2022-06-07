@@ -1,0 +1,31 @@
+.px-saved {
+    .px-saved-title {
+        .h7 {
+            font-family: $mini-serif-regular;
+            text-transform: uppercase;
+        }
+    }
+
+    .px-saved-estimated {
+        p {
+            font-family: $mini-sans-serif-bold;
+            font-size: $dsp2-f-size;
+            color: $black;
+            line-height: $dsp2-line-h-18;
+
+            &:last-child {
+                font-size: $dsp2-f-size-sl;
+                line-height: $dsp2-line-h-24;
+
+                @include media($medium-screen-up) {
+                    font-size: $dsp2-f-size-xl;
+                    line-height: $dsp2-line-h-20;
+                }
+            }
+        }
+
+        .px-value {
+            font-family: $mini-serif-bold;
+        }
+    }
+}

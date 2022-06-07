@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_ExtendedRules
+ * @author    Ausma Smite <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <sections>
+        <extendedrules translate="label" module="rockar_extendedrules">
+            <show_in_store>1</show_in_store>
+        </extendedrules>
+    </sections>
+</config>

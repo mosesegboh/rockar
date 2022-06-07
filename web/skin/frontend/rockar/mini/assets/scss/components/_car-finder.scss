@@ -1,0 +1,74 @@
+#car-finder {
+    @include clearfix;
+
+    > .car-finder-filters {
+        @include clearfix;
+        margin-top: 56px;
+
+        @include media($small-screen-down) {
+            margin: 0;
+        }
+
+        .car-filter-step {
+            .car-compare {
+                .compare-content-link {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .substep-1 {
+            margin-bottom: 110px;
+
+            @include media($small-screen-down) {
+                margin-bottom: initial;
+            }
+        }
+
+        div.substep-2-main {
+            margin-bottom: 32px;
+
+            @include media($small-screen-down) {
+                margin-bottom: initial;
+            }
+        }
+    }
+
+    .navigation-buttons-wrapper {
+        width: 100vw;
+        position: sticky;
+        position: -webkit-sticky;
+        margin-left: calc(-50vw + 50%);
+        bottom: 0;
+        background: $base-background-color;
+        z-index: 10;
+
+        &.footer-margin {
+            margin-top: 150px;
+        }
+
+        &.js-is-sticky {
+            left: calc(-42vw + 50%);
+        }
+
+        .navigation-outer-container {
+            max-width: 75em;
+        }
+
+        &.px-second-step {
+            @include media($small-screen-down) {
+                bottom: auto;
+            }
+        }
+    }
+}
+
+.catalog-category-view #car-finder, .catalog-category-view #you-build-category, .catalog-category-view #approved-used-category, .catalog-category-layered #car-finder, .catalog-category-layered #you-build-category, .catalog-category-layered #approved-used-category {
+    padding: 15px 15px 15px 0px;
+
+    .button {
+        &.step-back {
+            margin-left: 0;
+        }
+    }
+}

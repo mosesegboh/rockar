@@ -1,0 +1,1042 @@
+////// COLORS UPDATED //////
+$primary-color: #1C69D4;
+$secondary-color: #4D4D4D;
+$helper-color: #E4E8E9;
+
+$primary-font-family: $avenir;
+$base-font-family: $avenir;
+
+$secondary-font-family: $avenir;
+
+$helper-font-family: $avenir-roman;
+$helper-font-family-2: $proximanova;
+
+////// Colors //////
+$light-cool-grey: #E4E8E9;
+$base-background-color: $light-cool-grey;
+$styleguide-content-bg: $light-cool-grey;
+
+$white: #FFFFFF;
+$black: #000000;
+
+$white-opacity-80: rgba(255, 255, 255, 0.80);
+$white-opacity-95: rgba(255, 255, 255, 0.95);
+$black-opacity-90: rgba(0, 0, 0, 0.90);
+$white-background-text-color: $black;
+$grey-background-text-color: $white;
+$black-background-text-color: $white;
+
+$light-grey: #F4F4F4;
+$light-grey-2: #D4D9DC;
+$light-grey-3: #E8E9EB;
+$light-grey-4: #D5DBDB;
+$light-grey-5: #D8DADA;
+$light-grey-6: #EDEEF0;
+$light-grey-7: #D4D9DB;
+$light-grey-8: #D9DFDF;
+$light-grey-9: #EFF1F1;
+$light-grey-10: #B5BCC2;
+$light-grey-11: #EAEAEA;
+$light-grey-12: #b0b0af;
+$light-grey-13: #f3f3f3;
+
+$grey: #b1b1b1;
+$grey-2: #B9BEC1;
+$grey-3: #9D9D9D;
+$grey-4: #61666C;
+$grey-5: #808080;
+$grey-6: #BABABA;
+$grey-7: #686C70;
+$grey-8: #6C747B;
+$grey-9: #C9CBCA;
+$grey-10: #CDD1D2;
+$grey-11: #525151;
+$grey-12: #CCCACA;
+$grey-13: #8D9093;
+$grey-14: #BDBFBF;
+$grey-15: #444444;
+$grey-16: #808080;
+$grey-17: #838282;
+
+$dark-grey: #4A4F54;
+$dark-grey-2: #404040;
+$dark-grey-3: #393939;
+$dark-grey-4: #212121;
+$dark-grey-5: #424E4A;
+$dark-grey-6: #5A5E62;
+$dark-grey-7: #475157;
+$dark-grey-8: #5F5F5F;
+$dark-grey-12: #4a4f54;
+$dark-grey-13: #9c9a9c;
+
+$cool-grey: #53616A;
+$cool-grey-2: #516062;
+$cool-grey-3: #394851;
+$dove-grey: #4F4F4F;
+$bombay: #B0B7BB;
+
+$slate-blue: #0C121C;
+$red: #9F0C0C;
+$red-2: #CF2B2C;
+$red-3: #F84C4C;
+$red-4: #D95353;
+$red-5: #C34342;
+$light-red-2: #FFF7F8;
+$light-red-3: #FFE5E5;
+$light-red-4: #F6D5D5;
+
+$landrover-grey-8: #6C747B;
+$landrover-green: #005A2B;
+$light-green: #C5D4CD;
+$light-bg-green: #F7F8F8;
+
+$hero-bg-color: #f5f5f5;
+$brand-heading-color: $landrover-green;
+
+// Old colors
+$dusty-gray: #999999;
+$bright-red: #DD0000;
+$light-red: #FBE3E4;
+
+$error-color: $light-red;
+$alert-color: #FFF6BF;
+$notice-color: #E5EDF8;
+$success-color: #E6EFC2;
+
+$preloader-bg: rgba(228, 232, 233, 0.7);
+$general-preloader-bg: rgba(228, 232, 233, 0.5);
+$page-loader-bg: rgba(228, 232, 233, 0.7);
+$showcase-bg-color: rgba(0, 0, 0, 0.5);
+
+$notification-alert-color: $alert-color;
+$notification-error-color: $error-color;
+$notification-notice-color: $notice-color;
+$notification-success-color: $success-color;
+
+$accordion-menu-background: $dark-grey;
+$accordion-content-background: $white;
+
+// Tables
+$table-mobile-border: $light-grey-5;
+$table-mobile-bg: $grey-6;
+$table-mobile-tr-bg: $white;
+$table-bg-color: $light-grey-4;
+$table-border-color: $light-grey-5;
+$table-border-color2: $grey;
+$table-zebra-bg: $light-grey-9;
+$table-color: $cool-grey;
+
+// Finance Overlay
+$finance-overlay-tabs-active-bg: $light-green;
+$finance-overlay-tabs-bg: $light-grey;
+$finance-overlay-border-color: $landrover-green;
+$finance-overlay-footer-text-block-heading-font: $avenir;
+$finance-overlay-color: $black;
+
+// Dropdowns
+$dropdown-background: $grey-2;
+$dropdown-background-hover: $black;
+$dropdown-background-active: $dark-grey;
+$dropdown-option-background: $light-grey-3;
+$dropdown-option-background-active: $light-cool-grey;
+$dropdown-color: $white;
+$dropdown-list-color: $dark-grey;
+$dropdown-hover-color: $white;
+$dropdown-open-color: $white;
+$dropdown-option-border: $dropdown-background;
+$dropdown-arrow-opacity: 1;
+$dropdown-arrow-opacity-hover: 1;
+$dropdown-disabled-opacity: 0.5;
+$dropdown-disabled-background: $dropdown-background;
+$dropdown-disabled-color: $dropdown-color;
+
+// Badges
+$badge-bg-color: $landrover-green;
+$badge-counter-color: $white;
+
+$info-badge-background-color: $grey;
+$info-badge-light-background-color: $grey-10;
+$edit-badge-background-color: $landrover-green;
+
+// Side image
+$side-image-background-top: #B5EBEB;
+$side-image-background-bottom: #5DAC5D;
+$side-image-content-background: #F9F9F9;
+$side-image-border: 1px solid darken(transparentize($side-image-background-bottom, 0.8), 30%);
+$side-image-h4-bg: #BBBBBB;
+$side-image-h4-color: $white;
+
+// Tooltip colors
+$tooltip-background: $white;
+$tooltip-color: $base-border-color;
+$tooltip-border-color: $grey-6;
+
+// Accordion colors
+$accordion-menu-color: $white;
+$accordion-menu-hover: lighten($accordion-menu-background, 2%);
+$accordion-menu-sub-background: $light-grey;
+$accordion-menu-sub-inset: darken($accordion-menu-sub-background, 6%);
+$accordion-menu-sub-hover: lighten($accordion-menu-sub-background, 2%);
+$accordion-white-anchor-color: $black;
+$accordion-last-child-border-color: $light-cool-grey;
+$accordion-blank-title-background: $grey;
+$accordion-blank-title-expanded-background: $cool-grey;
+
+$accordion-transparent-color: $black;
+
+// Breadcrumbs colors
+$breadcrumbs-text-color: $slate-blue;
+
+// Shared Homepage
+$shared-homepage-background: $white;
+$shared-homepage-image-text-color: $grey-2;
+$shared-homepage-image-height: 510px;
+
+////// General sizes //////
+
+$base-spacing: 1.5em !default;
+
+$input-max-width: 365px;
+$dropdown-max-width: 365px;
+$row-element-padding: 0.5em;
+
+$textarea-width: 365px;
+
+$input-field-width: $input-max-width;
+$search-field-width: $input-field-width;
+$input-field-fw: $fw-semibold;
+
+$mixin-flash-spacing: $base-spacing;
+
+// Tooltip sizes
+$tooltip-width: 16em;
+$tooltip-border-radius: $base-border-radius;
+$tooltip-margin-bottom: $base-line-height;
+
+////// Font Sizes //////
+
+$f-size-10xl: em(60);
+$f-size-9xl: em(45);
+$f-size-8xl: em(38);
+$f-size-7xl: em(35);
+$f-size-6xl: em(32);
+$f-size-5xl: em(30);
+$f-size-xxxxl: em(25);
+$f-size-xxxl: em(20);
+$f-size-xxl: em(18);
+$f-size-xl: em(16);
+$f-size-l: em(15);
+
+$f-size: em(14);
+
+$f-size-s: em(13);
+$f-size-xs: em(12);
+$f-size-xxs: em(11);
+$f-size-xxxs: em(10);
+$f-size-11xl: em(75);
+
+$f-size-abs: 14px;
+
+////// Typography //////
+// Headings
+$heading-color: $black;
+$heading-letter-spacing: 0;
+$heading-text-transform: none;
+$heading-font-weight: $fw-bold;
+$shared-homepage-heading: $emeric;
+
+$h1-font-size: $f-size-8xl;
+$h2-font-size: $f-size-6xl;
+$h3-font-size: $f-size-xxxxl;
+$h4-font-size: $f-size-xxl;
+$h5-font-size: $f-size-xl;
+$h6-font-size: $f-size-xs;
+
+$h1-mobile-font-size: $f-size-6xl;
+$h2-mobile-font-size: $f-size-xxxxl;
+$h3-mobile-font-size: $f-size-xxl;
+$h4-mobile-font-size: $f-size-l;
+$h5-mobile-font-size: $f-size;
+$h6-mobile-font-size: $h6-font-size;
+
+// Brand specific font sizes
+$h1-brand-font-size: $h1-font-size;
+$h2-brand-font-size: $h2-font-size;
+$h3-brand-font-size: $h3-font-size;
+$h4-brand-font-size: $h4-font-size;
+$h5-brand-font-size: $h5-font-size;
+$h6-brand-font-size: $h6-font-size;
+
+$h1-mobile-brand-font-size: $h1-mobile-font-size;
+$h2-mobile-brand-font-size: $h2-mobile-font-size;
+$h3-mobile-brand-font-size: $h3-mobile-font-size;
+$h4-mobile-brand-font-size: $h4-mobile-font-size;
+$h5-mobile-brand-font-size: $h5-mobile-font-size;
+$h6-mobile-brand-font-size: $h6-mobile-font-size;
+
+// Common heading
+$h-common-fw: $fw-medium;
+$h-common-heavy-fw: $fw-bold;
+
+// Headings - Shared landing page
+$h1-shared-homepage-font-size: $f-size-7xl;
+$h2-shared-homepage-font-size: $f-size-5xl;
+
+// Paragraph variables
+$base-font-size: $f-size-xl;
+$base-font-color: $black;
+$base-letter-spacing: 0;
+
+// Stylized text
+$payment-amount-color: $landrover-green;
+$payment-label-color: $dark-grey;
+
+// Links
+$link-more-color: $cool-grey;
+$link-more-hover-color: $dark-grey;
+
+// Lists
+$bullets-color: $grey-2;
+
+// Accordion fonts
+$accordion-expander: "Times New Roman";
+$accordion-a-font-size: $f-size;
+$accordion-expander-font-size: em(60);
+$accordion-expander-font-size-small: em(30);
+
+// Badge fonts
+$badge-counter-font-size: 12px;
+
+// Breadcrumbs fonts
+$breadcrumbs-font-size: $f-size-xxs;
+$breadcrumbs-letter-spacing: 0.10em;
+
+// Hero Units
+$hero-color: $white;
+$hero-bkg-color: rgba(255, 255, 255, .95);
+$hero-bkg-text-color: $black;
+
+$hero-p-font: $f-size-xl;
+$hero-lineheight-context: 60px;
+
+// Homepage Cards component
+$homepage-card-font: $f-size;
+$homepage-card-body-color: $dove-grey;
+
+// Side image
+$side-image-h4-font-size: 0.75em;
+
+// Table fonts
+$table-font-size: $f-size;
+
+// Tooltip fonts:
+$tooltip-arrow-size: 1.4em;
+$tooltip-font-size: $f-size;
+
+// Layout
+$body-max-width: em(2000);
+$outer-max-width: em(1920);
+$max-width: em(1280);
+$footer-width: em(1280);
+$outer-container-max-width: $outer-max-width;
+$inner-container-max-width: $max-width;
+
+// Breakpoints
+$mobile-min-breakpoint: 320;
+$mobile-max-breakpoint: 736;
+$tablet-min-breakpoint: $mobile-max-breakpoint + 1;
+$desktop-min-breakpoint: 1025;
+$tablet-max-breakpoint: $desktop-min-breakpoint - 1;
+$big-desktop-min-breakpoint: 1440;
+$x-big-desktop-min-breakpoint: 1590;
+
+$small-screen: em($mobile-max-breakpoint);
+$medium-screen: em($tablet-min-breakpoint);
+$large-screen: em($desktop-min-breakpoint);
+$x-large-screen: em($big-desktop-min-breakpoint);
+$xx-large-screen: em($x-big-desktop-min-breakpoint);
+
+$small-screen-down: new-breakpoint(max-width $small-screen 6);
+$medium-screen-up: new-breakpoint(min-width $medium-screen 9);
+$medium-screen-down: new-breakpoint(max-width $medium-screen 9);
+$medium-screen-only: new-breakpoint(min-width $medium-screen max-width em($tablet-max-breakpoint), 12);
+$large-screen-up: new-breakpoint(min-width $large-screen 12);
+$large-screen-down: new-breakpoint(max-width $large-screen 12);
+$x-large-screen-up: new-breakpoint(min-width $x-large-screen 12);
+$xx-large-screen-up: new-breakpoint(min-width $xx-large-screen 12);
+
+// Buttons
+$call-to-action-color: $white;
+$call-to-action-background-color: $landrover-green;
+
+$back-to-top-color: $dark-grey;
+
+$button-font-mobile: $myriad;
+$button-font-size: $f-size-s;
+$button-fw: $fw-medium;
+$button-height-padding: 1.45em;
+$button-width-padding: 1.55em;
+
+$expand-collapse-border-color: 1px solid $grey;
+$expand-collapse-border-color-hover: 1px solid $dark-grey;
+$expand-collapse-background-hover: $dark-grey;
+$alternative-action-button-text-color: $white;
+
+$button-disabled-color: $light-grey-2;
+$button-disabled-background-color: $grey;
+
+$button-black-color: $white;
+$button-black-background-color: $dark-grey-2;
+$button-grey-color: $white;
+$button-grey-background-color: $cool-grey;
+$button-grey-light-color: $white;
+$button-grey-light-background-color: $grey;
+
+$button-silver-chalice-border-color: #B1B1B1;
+
+$button-empty-color: $cool-grey;
+$button-empty-light-color: $cool-grey;
+$button-empty-light-border-color: $grey;
+$button-empty-white-color: $white;
+
+$button-cancel-color: $red-2;
+$button-cancel-background-color: $light-red-2;
+
+$button-red-color: $white;
+$button-red-background-color: $red-5;
+
+$button-narrow-height-padding: 0.6625em;
+$button-narrow-bottom-height-padding: 0.5625em;
+
+$plus-sign-background: $white;
+
+// Custom variables
+$padding-spacing: 0.85em;
+$logo-padding: 1em;
+$logo-width: 87px;
+$scrollbox-content-padding: 1.5em;
+$letter-spacing: .05em;
+$button-line-height: 42px;
+
+// Side images
+$side-image-width: 33.33%;
+
+// Iframe
+$iframe-width: 100%;
+$iframe-min-height: 300px;
+
+// Calendar
+$calendar-bg: $white;
+$calendar-background-color: $white;
+$calendar-color: $black;
+$calendar-header-background: $cool-grey;
+$calendar-header-color: $white;
+$calendar-thead-background-color: $grey;
+$calendar-color-disabled: $light-cool-grey;
+$calendar-max-width: em(420);
+$calendar-current-day-border-color: $cool-grey;
+$calendar-day-not-available-background: $white;
+$calendar-day-not-available-color: $light-cool-grey;
+
+// Scrollbars
+$scrollbar-track: 1px dotted $bombay;
+$gm-scrollbar-background-color: $light-cool-grey;
+$gm-scrollbar-thumb-background-color: $dark-grey-6;
+$scrollbar-color: $grey-2;
+$scrollbar-color-hover: $dark-grey-6;
+
+// Range Slider
+$range-slider-total-background: $white;
+$range-slider-steps-background: $white;
+$range-slider-range-background: $cool-grey;
+$range-slider-handle-background: $landrover-green;
+$range-slider-label-border-color: #c3c4c3;
+
+// Yes/No Switch Slider
+$switch-width: 70px;
+$switch-padding: 2px;
+$switch-height: 38px;
+$switch-radius: $switch-height;
+$knob-height: $switch-height - ($switch-padding * 2);
+$knob-width: $knob-height;
+$knob-radius: $switch-height - ($switch-padding * 2);
+$switch-background-disabled: $light-cool-grey;
+$switch-background-enabled: $slate-blue;
+$switch-button-background-disabled: $white;
+$switch-button-background-enabled: $white;
+
+// Tabs
+$tab-border-color: $light-cool-grey;
+$tab-border: none;
+$tab-content-background: $light-cool-grey;
+$tab-active-background: $cool-grey;
+$tab-inactive-color: $grey;
+$tab-inactive-hover-color: darken($light-cool-grey, 5);
+$tab-mode: $medium-screen;
+$tab-link-color: $white;
+$tab-content-color: $black;
+$tab-background: $light-cool-grey;
+$tab-active-color: $white;
+$tab-font-weight: $fw-normal;
+
+$min-tab-color: #F2F4F4;
+$min-tab-color: $black;
+$min-tab-background-color: $white;
+$min-tab-active-background-color: $light-green;
+$min-tab-content-border-color: $landrover-green;
+
+// Forms
+$input-color: $cool-grey;
+$input-background-color: $light-grey-2;
+
+$input-light-color: $grey-5;
+$input-light-background-color: $light-grey;
+
+$label-color: $dark-grey-3;
+
+$form-validation-failed: $bright-red;
+$input-field-background-blur: $light-grey-2;
+$input-field-height: 3.2em;
+$input-field-font-size: $f-size-l;
+
+$side-label-height: 4.365em;
+
+$form-email-exists-color: $white;
+$form-email-exists-background: $red-4;
+$form-email-exists-font: $avenir;
+
+$input-validate-error-color: $red-4;
+$input-validate-error-background: $light-red-4;
+
+// Checkbox
+$checkbox-unchecked-background-color: $grey;
+$checkbox-checked-background-color: $landrover-green;
+$checkbox-disabled-background-color: $light-grey-2;
+
+// Footer
+$footer-background-color: $light-grey;
+$footer-background-color-top: $grey-2;
+$footer-link-color: $grey-3;
+$footer-font: $avenir-roman;
+$footer-newsletter-label-color: $dark-grey-3;
+$footer-heading-font: $avenir-roman;
+$footer-heading-color: $grey-4;
+$footer-heading-transform: none;
+$footer-validation-failed: $bright-red;
+$footer-subscribe-header-label-color: $cool-grey-2;
+$footer-menu-bg-color: $white;
+$footer-menu-border-color: $light-grey;
+
+// Carousel
+$carousel-text-shadow: 0 1px 2px rgba(0, 0, 0, .6) !default;
+$carousel-control-color: $white !default;
+$carousel-control-width: 15% !default;
+$carousel-control-opacity: .5 !default;
+$carousel-control-font-size: 20px !default;
+$carousel-indicator-active-bg: $white !default;
+$carousel-indicator-border-color: $white !default;
+$carousel-caption-color: $white !default;
+$carousel-color-width: 82px;
+$carousel-arrow-color: $light-grey-10;
+
+$carousel-color-mobile-width: 61px;
+$carousel-color-mobile-height: $carousel-color-mobile-width;
+$carousel-color-width: 82px;
+$carousel-color-height: $carousel-color-width;
+
+$carousel-active-color-mobile-width: 66px;
+$carousel-active-color-mobile-height: $carousel-active-color-mobile-width;
+$carousel-active-color-width: 87px;
+$carousel-active-color-height: $carousel-active-color-width;
+
+// Navigation
+$base-border-color: gainsboro !default;
+$base-border-radius: 3px !default;
+$action-color: #477DCA !default;
+$navigation-padding: 1em;
+$navigation-background: $white;
+$navigation-odd-background: $light-grey-9;
+$navigation-color: $cool-grey;
+$navigation-color-hover: transparentize($navigation-color, 0.7);
+$navigation-height: 72px;
+$navigation-link-height: 40px;
+$navigation-nav-button-background: $action-color;
+$navigation-nav-button-background-hover: lighten($navigation-background, 10%);
+$navigation-nav-button-border: 1px solid lighten($navigation-nav-button-background, 20%);
+$navigation-search-background: lighten($navigation-background, 5);
+$navigation-search-border: 1px solid darken($navigation-background, 5);
+$navigation-active-link-color: transparentize($navigation-color, 0.7);
+$navigation-submenu-padding: 1em;
+$navigation-submenu-width: 10em;
+$navigation-border: $cool-grey;
+$navigation-icon-color: $cool-grey;
+$horizontal-bar-mode: em(900);
+$mobile-mode: new-breakpoint(max-width 859px);
+$menu-arrow-color: $navigation-odd-background;
+
+// Arrow back
+$navigation-arrow-border-color: $cool-grey;
+
+// TimePicker
+$timepicker-timeslot-background: $white;
+$timepicker-timeslot-text-color: $black;
+$timepicker-timeslot-border: $helper-color;
+
+$timepicker-timeslot-active-background: $cool-grey;
+$timepicker-timeslot-active-text-color: $white;
+
+$timepicker-timeslot-not-available-background: $light-red-3;
+$timepicker-timeslot-not-available-text-color: $red-3;
+
+$timepicker-title-fw: $fw-medium;
+
+// Badge
+$badge-width: 22px;
+$badge-height: 22px;
+$badge-line-height: 24px;
+$badge-border-radius: 11px;
+
+// Popup
+$popup-background-color: $light-cool-grey;
+$popup-z-index: 9999999;
+$popup-button-empty-color: $cool-grey;
+$popup-overlay-background: $black;
+
+// Product pods
+$pod-page-background: $light-cool-grey;
+$pod-background: $white;
+$pod-border-color: $light-cool-grey;
+$pod-price-color: $dark-grey;
+$pod-price-background-color: $light-grey-9;
+$pod-price-border-color: $light-grey-9;
+$pod-price-number-color: $landrover-green;
+$pod-prices-bg: $light-grey-9;
+$pod-price-no-bg-color: $grey-8;
+$pod-car-attribute-color: $white;
+$pod-car-attribute-bg-color: rgba($black, 0.8);
+$pod-car-attribute-title-bg-color: $grey-15;
+$pod-running-cost-bg: rgba($black, 0.7);
+$pod-running-costs-badge-bg: $grey;
+$pod-running-costs-badge: $sprite-i-icon;
+$pod-title-size: 1.5em;
+$pod-block-font-size: 1.5em;
+$pod-border-color-hover: $landrover-green;
+$pod-info-badge-background-color: $landrover-green;
+$pod-menu-color: $grey-4;
+$pod-menu-border-color: $white;
+$pod-menu-background-color: $white;
+$pod-menu-background-color2: $light-grey-9;
+$pod-menu-item-hover-color: $landrover-green;
+$pod-buy-background: $light-grey-9;
+$pod-buy-hover-background: $landrover-green;
+$pod-car-name-color: $black;
+$pod-reset-filters-background: $light-cool-grey;
+$pod-hamburger-background: $light-cool-grey;
+$pod-filter-accordion-content-background: $light-cool-grey;
+$pod-brkpnt-1: new-breakpoint(min-width em(440));
+$pod-brkpnt-2: new-breakpoint(min-width em(620));
+$pod-overlay-background: $light-grey-9;
+
+// Trade in
+$px-regular-heading-color: $dark-grey-3;
+$px-input-color: $cool-grey;
+$px-active-info-background: $light-grey-6;
+$px-active-info-error: $red;
+$px-active-info-warning: #005A2B;
+$px-link-color: $grey-7;
+$px-error-color: $red;
+$px-light-text-color: $dark-grey;
+$px-input-text-background: $light-grey-2;
+$px-input-text-color: $grey-7;
+$px-second-input-background: #b8bdbf;
+$px-second-input-color: $white;
+$px-valuation-border-color: #aab2b6;
+$px-car-worth-value-color: $landrover-green;
+$px-car-worth-value-fw: $fw-bold;
+$px-car-worth-notification-color: $dark-grey;
+$px-car-worth-car-name-color: $black;
+$px-vrm-button-font-size: 1.125em;
+$px-submit-button-font-size: 0.9125em;
+
+// Car Filters
+$car-filter-border-color: $grey;
+$car-filter-color: $dark-grey;
+
+// Item grid
+$item-grid-trim: 10px;
+$item-grid-column-spacing: 5px;
+
+// Item grid max product count per row
+$mobile-item-grid-column-count: 1;
+$tablet-item-grid-column-count: 2;
+$desktop-item-grid-column-count: 3;
+
+// Space below full-width column
+$column-break: 10px;
+
+// Configurator
+$configurator-slider-car-name-background: #F7FCFE;
+$configurator-slider-car-name-font: $avenir;
+$configurator-notice-color: $dark-grey;
+
+// Configurator - Choose your vehicle
+$choose-vehicle-border-hover: $landrover-green;
+$choose-vehicle-light-text-color: $dark-grey;
+$choose-vechicle-options-title-color: $landrover-green;
+$choose-vehicle-prices-border: $light-grey-11;
+$choose-vehicle-price-font: $avenir;
+$choose-vechicle-options-label-color: $grey-2;
+$choose-vechicle-border-color: $light-grey-11;
+$choose-vechicle-info-color: $grey-5;
+$choose-vechicle-payment-amount-color: $black;
+
+// Account login
+$account-login-header-trigger-background: $cool-grey;
+$account-login-header-trigger-color: $white;
+
+// My Account
+$my-account-horizontal-break-color: $grey-9;
+$my-account-block-title-font: $avenir;
+$my-account-block-title-fw: $fw-bold;
+$my-account-subheading-color: $dark-grey;
+$my-account-car-plate-color: $landrover-green;
+$my-account-car-plate-background: $light-grey-2;
+$my-account-car-plate-font: $avenir;
+$my-account-car-extras-color: $dark-grey;
+
+// My Account - Personal Details
+$my-personal-details-color: $cool-grey;
+$my-personal-details-label-fw: $fw-normal;
+
+// My Account - Saved Cars
+$my-saved-cars-out-of-stock-color: $red;
+$my-saved-cars-description-color: $dark-grey;
+$my-saved-cars-price-color: $landrover-green;
+$my-saved-cars-price-fw: $fw-normal;
+
+$my-saved-cars-mobile-prices-border: $light-cool-grey;
+$my-saved-cars-mobile-out-of-stock-bg: $landrover-green;
+$my-saved-cars-mobile-wrapper-bg: $white;
+
+// My Account - Current Cars
+$my-current-cars-vrm-number-color: $landrover-green;
+$my-current-cars-vrm-number-background: $light-grey-2;
+$my-current-cars-my-px-vrm-color: $dark-grey;
+$my-current-cars-my-px-value-amount-color: $landrover-green;
+$my-current-cars-my-px-value-amount-font: $avenir;
+$my-current-cars-table-background: $light-grey-2;
+$my-current-cars-px-date-expired-color: $red;
+$my-current-cars-brand-accent-color: $landrover-green;
+
+$my-current-cars-table-mobile-color: $cool-grey;
+$my-current-cars-table-mobile-bg: $light-grey-2;
+$my-current-cars-mobile-title-color: $dark-grey-7;
+$my-current-cars-mobile-title-bg: $white;
+
+$my-current-cars-px-border-color: $grey;
+$my-current-cars-px-current-car-background: $light-grey-6;
+$my-current-cars-px-valuation-result-background: $landrover-green;
+$my-current-cars-px-valuation-result-color: $white;
+$my-current-cars-px-valuation-error-border: $cool-grey;
+$my-current-cars-px-valuation-error-color: $red;
+$my-current-cars-px-condition-color: $dark-grey;
+$my-current-cars-px-condition-title-color: $black;
+$my-current-cars-px-additional-info-color: $dark-grey;
+
+// My Account - Documents
+$my-documents-table-background: $light-grey-9;
+$my-documents-table-font: $avenir;
+$my-documents-table-fw: $fw-book;
+$my-documents-filename-color: $landrover-green;
+$my-documents-accepted-file-color: $landrover-green;
+$my-documents-rejected-file-color: $red;
+$my-documents-pending-file-color: $cool-grey;
+$my-documents-brand-accent-color: $landrover-green;
+
+$my-documents-mobile-document-title-color: $cool-grey-3;
+$my-documents-mobile-block-bg: $white;
+$my-documents-mobile-document-details-color: $grey;
+
+$documents-upload-text-font: $avenir;
+
+// My Account - Orders
+$my-orders-progress-bar-color: $white;
+$my-orders-progress-bar-border-color: $grey;
+$my-orders-progress-point-bg-color: $grey;
+$my-orders-progress-point-bg-color-active: $landrover-green;
+$my-orders-status-text-bg: $light-grey-7;
+$my-orders-contacts-bg: $light-cool-grey;
+$my-orders-table-br-color: $light-grey-9;
+$my-orders-view-summary-color: $slate-blue;
+$my-orders-px-data-checkbox-color: $landrover-green;
+$my-orders-px-data-checkbox-width: 27px;
+$my-orders-px-data-checkbox-height: 27px;
+$my-orders-brand-accent-color: $landrover-green;
+$my-orders-brand-accent-fg-color: $white;
+
+$my-orders-mobile-greyed-out-color: $grey-13;
+$my-orders-mobile-messages-bold-color: $dark-grey-8;
+$my-orders-mobile-messages-border: $grey-14;
+
+$my-orders-tab-title-background: $light-grey;
+$my-orders-tab-title-border: $light-grey;
+$my-orders-tab-title-bottom-border: $landrover-green;
+$my-orders-tab-title-active-border: $landrover-green;
+$my-orders-tab-title-active-bottom-border: $light-green;
+$my-orders-tab-title-active-background: $light-green;
+$my-orders-tab-content-border: $landrover-green;
+$my-orders-tab-title-font: $f-size-xxs;
+$my-orders-tab-content-px-font-size: $f-size-xl;
+$my-orders-tab-content-table-font-size: $f-size-s;
+$my-orders-tab-content-px-additional-font-size: $f-size;
+$my-orders-tab-content-px-text-font-size: $f-size-s;
+$my-orders-tab-tab-link-font-size: $f-size-s;
+$my-orders-view-summary-font-size: $f-size-s;
+$my-orders-progress-text-font-size: $f-size-l;
+$my-orders-car-options-font-size: $f-size-xxxs;
+$my-orders-car-options-p-font-size: $f-size-xxs;
+$my-orders-table-td-font-size: $f-size-l;
+$my-orders-hero-section-color: $white;
+$my-orders-hero-table-font-size: $f-size-xs;
+$my-orders-hero-bolded-font-size: $f-size-l;
+$my-orders-hero-order-font-size: $f-size-l;
+$my-orders-hero-title-font-size: $f-size-xl;
+$my-orders-hero-tabs-border-color: $grey-2;
+$my-orders-hero-tab-color: #a7a7a7;
+$my-orders-hero-tab-font-size: $f-size-xs;
+$my-orders-brand-accent-active-bg-color: $hero-bg-color;
+$my-orders-hero-content-bg-color: transparent;
+$my-orders-hero-progress-text-color: $black;
+
+$my-orders-heading-size: $h4-font-size;
+$my-orders-heading-size-desktop: $h4-font-size;
+$my-orders-plate-font-weight: $fw-bold;
+$my-orders-tabs-p-font-color: $dark-grey;
+
+// My Account - Test Drives
+$my-test-drives-location-picker-border-color: $landrover-green;
+$my-test-drives-location-picker-background: $light-grey-2;
+$my-test-drives-location-picker-color: $dark-grey;
+$my-test-drives-location-color: $dark-grey;
+$my-test-drives-button-width: 10em;
+$my-test-drives-brand-accent-color: $landrover-green;
+
+$my-test-drives-mobile-hero-content-bg: $white;
+$my-test-drives-mobile-greyed-out-color: $grey-5;
+
+// My Account - Services
+$my-services-plate-color: $landrover-green;
+
+$my-services-location-picker-border-color: $landrover-green;
+$my-services-location-picker-background: $light-grey-2;
+$my-services-location-picker-color: $dark-grey;
+$my-services-location-color: $dark-grey;
+$my-services-button-width: 10em;
+$my-services-brand-accent-color: $landrover-green;
+
+$my-services-mobile-hero-content-bg: $white;
+$my-services-mobile-greyed-out-color: $grey-5;
+
+// Select Boxes
+$selectbox-label-background-color: $light-cool-grey;
+$selectbox-label-hover-background-color: $light-cool-grey;
+$selectbox-label-opened-background-color: $light-grey-7;
+$selectbox-label-border-color: $cool-grey;
+$selectbox-caret-background: $cool-grey;
+$selectbox-label-color: $cool-grey;
+$selectbox-font: $avenir;
+$selectbox-list-background: $light-grey-7;
+$selectbox-list-background2: $light-grey-8;
+$selectbox-item-text-color: $dark-grey;
+$selectbox-item-selected-background-color: $light-cool-grey;
+$selectbox-item-selected-border-color: $light-cool-grey;
+$selectbox-item-hover-color: $light-cool-grey;
+$selectbox-disabled-border: $light-cool-grey;
+
+// Finance Quote
+$finance-quote-border-color: $grey;
+$finance-quote-payment-price-font: $avenir;
+$finance-quote-bold-font: $avenir;
+$finance-quote-background: $white;
+$finance-quote-edit-color: $cool-grey;
+$finance-quote-edit-font: $avenir-roman;
+$finance-quote-table-one-color: $landrover-green;
+$finance-quote-table-color-hover: $landrover-green;
+$finance-quote-base-color: $dark-grey;
+$finance-quote-bg-hover: $light-bg-green;
+$finance-quote-base-font: $avenir;
+$finance-quote-bold-color: $dark-grey-4;
+$finance-quote-msp-content-color: $grey-3;
+
+// Accessories
+$accessories-price-color: $landrover-green;
+
+// Homepage
+$homepage-block-paragraph-font: $myriad;
+
+// YouDrive
+$you-drive-section-heading-color: $grey-4;
+$you-drive-section-heading-fw: $fw-normal;
+$you-drive-section-heading-font: $avenir;
+$you-drive-car-name-color: $landrover-green;
+$you-drive-horizontal-break-color: $bombay;
+$you-drive-breadcrumb-top-position: em(20);
+$you-drive-breadcrumb-left-position: em(20);
+$you-drive-breadcrumb-right-position: em(20);
+$you-drive-carousel-selected-color: $landrover-green;
+$you-drive-model-active-border: #477DCA;
+$you-drive-model-active-after-bg: $grey-3;
+
+$you-drive-h-common-font: $avenir;
+
+// YouDrive - Header
+$you-drive-booked-header-heading-color: $dark-grey-2;
+$you-drive-booked-header-heading-font: $avenir;
+$you-drive-booked-header-font: $avenir;
+$you-drive-booked-header-date-time-font: $avenir;
+$you-drive-booked-header-date-time-fw: $fw-bold;
+
+// YouDrive - Footer
+$you-drive-footer-text-color: $dark-grey-4;
+$you-drive-footer-heading-font: $avenir;
+
+// YouDrive - Vehicle
+$you-drive-model-car-model-background: $white;
+$you-drive-model-options-category-font: $avenir;
+$you-drive-model-options-category-fw: $fw-bold;
+$you-drive-model-car-options-font: $avenir;
+$you-drive-model-car-options-color: $dark-grey;
+$you-drive-model-car-details-border: $light-cool-grey;
+
+// YouDrive - Summary
+$you-drive-summary-background: $white;
+$you-drive-summary-heading-size: em(23);
+$you-drive-summary-heading-font: $avenir;
+$you-drive-summary-border-color: $light-grey-4;
+$you-drive-summary-font: $avenir;
+$you-drive-summary-choose-car-color: $grey;
+$you-drive-summary-block-heading-font: $avenir;
+$you-drive-summary-grey-text-color: $grey-5;
+$you-drive-summary-link-color: $primary-color;
+
+// YouDrive - Choose Date
+$you-drive-date-drive-car-font: $avenir;
+$you-drive-date-button-wrapper-max-width: $calendar-max-width;
+
+// YouDrive - Choose Date - Signup
+$you-drive-signup-text-color: $grey-4;
+$you-drive-signup-text-font: $avenir;
+$you-drive-signup-date-time-color: $black;
+$you-drive-signup-form-header-text-color: $dark-grey-2;
+$you-drive-signup-form-header-text-font: $avenir;
+$you-drive-signup-form-header-link-color: $landrover-green;
+
+// YouDrive - Confirmation
+$you-drive-confirmation-heading-font: $avenir;
+$you-drive-conformation-heading-fw: $fw-medium;
+$you-drive-conformation-second-heading-fw: $fw-bold;
+$you-drive-drive-confirmed-color: $dark-grey-2;
+$you-drive-confirmation-confirmed-text-color: $landrover-green;
+
+// Service booking - Footer
+$service-booking-footer-text-color: $dark-grey-4;
+
+// Service booking- Choose Date - Signup
+
+$service-booking-signup-form-header-text-color: $dark-grey-2;
+
+// Service booking - Confirmation
+$service-booking-confirmation-confirmed-text-color: $landrover-green;
+$service-booking-booking-confirmed-color: $dark-grey-2;
+
+// Checkout
+$checkout-step-status-color: $cool-grey;
+$checkout-step-status-hover-color: $white;
+
+// Checkout - Your Details
+$checkout-details-current-address-bg: #ecefef;
+$checkout-details-current-address-padding: 1.35em;
+$checkout-details-current-address-margin: 1.5em 0;
+$checkout-details-current-address-width: 45%;
+$checkout-details-font-size: em(20);
+$checkout-details-anchor-size: em(12);
+$checkout-details-anchor-color: $landrover-green;
+
+// Checkout - Summary
+$checkout-summary-delivery-background: $light-grey-7;
+$checkout-summary-terms-conditions-color: $landrover-green;
+
+// Checkout-payment-methods
+$payment-methods-subtitle-color: $dark-grey-2;
+$payment-methods-preloader-color: $light-cool-grey;
+$payment-methods-row-bg: $helper-color;
+
+// Car Compare
+$car-compare-title-font-size: em(24);
+$car-compare-title-font-size-mobile: em(18);
+$car-compare-title-fw: $fw-medium;
+$car-compare-title-fw-mobile: $fw-bold;
+$car-compare-subtitle-color: #53616b;
+$car-compare-stubtitle-fw: $fw-book;
+$car-compare-car-color: $black;
+$car-compare-car-name-fw: $fw-semibold;
+$car-compare-car-description-fw: $fw-medium;
+$car-compare-price-color: $dark-grey;
+$car-compare-price-fw: $fw-light;
+$car-compare-price-amount-color: $landrover-green;
+$car-compare-list-item-color: $cool-grey;
+$car-compare-list-item-fw: $fw-book;
+$compare-border-color: $grey-2;
+$order-confirmation-subtitle-color: $landrover-green;
+$compare-desktop-mode: $large-screen-up;
+$car-compare-subtitle-underline-color: #d9dee0;
+
+// CMS
+$main-title-font: $avenir;
+$subtitle-font: $avenir;
+$quote-text: $tinos;
+$theme-color: $landrover-green;
+$dark-grey-table: #707173;
+$dark-grey-tab: $dark-grey;
+$light-grey-background: $light-grey;
+$dark-grey-background: $dark-grey;
+$cms-small-heading-color: $dark-grey;
+$cms-menu-border-color: $light-grey-8;
+$cms-menu-item-color: $grey-6;
+$cms-menu-active-color: $dark-grey-3;
+
+//Styleguide
+$styleguide-bg: $white;
+$styleguide-border-color: #F1F1F1;
+$styleguide-loader-bg: rgba(0, 0, 0, .2);
+
+// Pagination
+$pagination-gallery-color: $dusty-gray;
+$pagination-numbered-bg-color: $bombay;
+$pagination-numbered-active: $slate-blue;
+
+// EMAILS
+$emails-links-color: $landrover-green;
+$emails-note-background: $light-grey-5;
+$emails-footer-color: $grey-8;
+$deposit-breakdown-color: $grey-8;
+
+$pod-car-name-font: $secondary-font-family;
+$pod-price-number-font: $secondary-font-family;
+
+// Finance options
+$description-text-color: $grey-5;
+$button-selected-color: $grey;
+$button-color: $light-grey-12;
+$finance-tabs-link-color: $grey-5;
+$finance-tabs-link-color-active: $black;
+
+// Breakpoints
+$medium-pod-breakpoint: 440;
+$large-pod-breakpoint: 1100;
+
+$medium-pod: em($medium-pod-breakpoint);
+$large-pod: em($large-pod-breakpoint);
+
+$medium-pod-up: new-breakpoint(min-width $medium-pod 9);
+$large-pod-up: new-breakpoint(min-width $large-pod 9);

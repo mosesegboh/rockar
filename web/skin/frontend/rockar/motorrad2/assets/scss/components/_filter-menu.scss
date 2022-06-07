@@ -1,0 +1,51 @@
+.category-products-filter-menu {
+    &.mobile-only {
+        padding: 0 25px;
+        height: 50px;
+
+        .heading-wrapper {
+            justify-content: space-between;
+
+            .car-filter-count-heading {
+                width: auto;
+                font-family: $motorrad-regular;
+                font-size: $dsp2-f-size-xs;
+                line-height: $dsp2-line-h-14;
+
+                span {
+                    font-family: $motorrad-bold;
+                    line-height: $dsp2-line-h-14;
+                }
+            }
+
+            .sort-filter {
+                padding: 0;
+
+                .sort {
+                    .filter-options {
+                        select {
+                            width: 85px;
+                            padding: 0 0 0 10px;
+                            font-size: $dsp2-f-size-xs;
+                            line-height: $dsp2-line-h-14;
+                        }
+                    }
+                }
+            }
+
+            .text-wrapper {
+                font-size: $dsp2-f-size;
+
+                @include media($small-screen-down) {
+                    margin: 0;
+                }
+
+                .filter-message {
+                    font-family: $motorrad-bold;
+                    font-size: $dsp2-f-size-s;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

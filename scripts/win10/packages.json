@@ -1,0 +1,36 @@
+{
+   "packages":[
+      {
+         "name":"vscode",
+         "version":"latest"
+      },
+      {
+         "name":"docker-desktop",
+         "version":"latest"
+      },
+      {
+         "name":"googlechrome",
+         "version":"latest"
+      },
+      {
+         "name":"heidisql",
+         "version":"latest"
+      },
+      {
+         "name":"phpstorm",
+         "version":"latest"
+      },
+      {
+        "name":"winginx",
+        "version":"latest"
+      },
+      {
+        "name":"git.install",
+        "version":"latest"
+      },
+      {
+        "name":"safari",
+        "version":"latest"
+      }
+   ]
+}

@@ -1,0 +1,128 @@
+.share-product {
+    margin-right: 12px;
+    margin-top: 0;
+
+    .button {
+        background: none;
+        border: 0;
+        font-size: $f-size-5xs;
+        font-family: $primary-font-family;
+        height: 40px;
+        color: $motorrad-text-color;
+        font-weight: normal;
+        letter-spacing: 1px;
+        padding: 33px 0 0;
+        position: relative;
+        text-transform: none;
+        margin-top: 0;
+
+        &::before {
+            @include pseudo();
+            @include sprite($sprite-wishlist-icon-non-selected);
+            top: 0;
+            right: 0;
+            left: 0;
+            margin: auto;
+        }
+
+        &.added-to-wishlist {
+            &::before {
+                @include sprite($sprite-wishlist-icon-selected);
+            }
+        }
+    }
+}
+
+// Finance overlay trigger
+.link-edit-finance {
+    text-transform: none;
+    font-size: $f-size-5xs;
+    font-weight: $fw-normal;
+    letter-spacing: 1px;
+    max-width: 62px;
+    font-family: $primary-font-family;
+
+    @include media($large-screen-down) {
+        max-width: 80px;
+    }
+
+    &.top {
+        @include media($large-screen-up) {
+            display: block;
+        }
+    }
+
+    .edit-finances {
+        font-weight: $fw-normal;
+    }
+
+    &.bottom {
+        @include media($large-screen-down) {
+            @include display(flex);
+            @include flex-direction(column);
+            @include align-items(center);
+            float: right;
+        }
+
+        @include media($large-screen-up) {
+            display: none;
+        }
+    }
+
+    .finance-calculator-icon {
+        @include size(25px 29px);
+        display: block;
+        background-image: url('../images/svg/finance-calculator.svg');
+        margin: 0 auto 3px;
+    }
+}
+
+.test-drive-block {
+    margin-left: 12px;
+
+    @include media($medium-screen-down) {
+        width: 100%;
+        text-align: center;
+    }
+
+    .td-button-wrapper {
+        display: flex;
+    }
+
+    .link-to-test-drive {
+        text-transform: none;
+        font-size: $f-size-5xs;
+        font-weight: $fw-normal;
+        letter-spacing: 1px;
+        max-width: 62px;
+        font-family: $primary-font-family;
+
+        @include media($large-screen-down) {
+            max-width: 80px;
+        }
+
+        &.top {
+            display: block;
+
+            @include media($medium-screen-down) {
+                margin: auto;
+            }
+        }
+
+        .move-to-test-drive {
+            font-weight: $fw-normal;
+            color: $motorrad-text-color;
+            font-family: $primary-font-family;
+        }
+
+        .book-test-drive-icon {
+            @include size(29px 29px);
+            display: block;
+            background-image: url('../images/test_ride.png');
+            margin: 0 auto 3px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+}

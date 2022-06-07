@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Reports
+ * @author    Igors Zhunins <techteam@rockar.com>
+ * @copyright Copyright (c) 2021 Rockar, Ltd (http://rockar.com)
+ */-->
+
+<layout>
+    <adminhtml_report_vinproductpricing_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="peppermint_reports/adminhtml_vinProductPricing_grid" name="vinProductPricing.grid"/>
+        </block>
+    </adminhtml_report_vinproductpricing_grid>
+</layout>

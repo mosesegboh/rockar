@@ -1,0 +1,186 @@
+#you-drive {
+    .location-wrapper {
+        text-align: center;
+
+        h3 {
+            text-transform: uppercase;
+        }
+
+        .postcode-input {
+            input {
+                display: inline-block;
+                max-width: 32em;
+                margin-top: 10px;
+                margin-bottom: 0;
+                vertical-align: bottom;
+
+                @include media($small-screen-down) {
+                    max-width: 100%;
+                }
+            }
+        }
+
+        .button-default:hover {
+            opacity: 1;
+            background-color: $c-blue-1;
+            color: $white;
+        }
+    }
+
+    .map-ui-wrapper {
+        position: relative;
+
+        .dealer-list {
+            z-index: 2;
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 30%;
+            overflow: auto;
+            background-color: rgba(255, 255, 255, .7);
+
+            @include media($small-screen-down) {
+                position: initial;
+                width: 100%;
+                height: auto;
+                max-height: 350px;
+            }
+
+            .dealer-preview-wrapper {
+                display: block;
+                height: auto;
+                width: 100%;
+                border: 1px solid $c-grey-5;
+                border-left: 4px solid $white;
+                border-top: 0;
+                background-color: $white;
+                padding: 0;
+
+                &.active {
+                    border-left: 4px solid $bmw-blue;
+                }
+
+                .dealer-preview {
+                    color: $c-grey;
+                    border-left-color: $white;
+                    flex-direction: row;
+                    padding: 10px;
+
+                    .number {
+                        font-family: $bmw;
+                    }
+
+                    .details {
+                        .name,
+                        .address {
+                            font-family: $bmw;
+                        }
+
+                        .rating-distance-wrapper {
+                            .distance {
+                                font-family: $bmw;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .dealers {
+            z-index: 2;
+            display: block;
+            position: absolute;
+            left: 30%;
+            top: 0;
+            margin-top: 0;
+            width: 20%;
+            overflow: auto;
+            max-height: 75%;
+            background-color: $white;
+            text-align: center;
+
+            @include media($small-screen-down) {
+                position: static;
+                width: 100%;
+                overflow: hidden;
+            }
+
+            .you-drive-model {
+                &::before {
+                    display: none;
+                }
+
+                .car-model {
+                    margin-top: 0;
+                    border: 0;
+
+                    .greyed-out {
+                        opacity: .6;
+                        filter: grayscale(100%);
+                    }
+
+                    .checkbox-block {
+                        margin: 0 auto;
+                    }
+
+                    .model-options {
+                        margin: 0 auto;
+
+                        p {
+                            &.options-title {
+                                font-family: $bmw;
+                                font-size: $dsp2-f-size-s;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .map-wrapper {
+            height: 35em;
+        }
+    }
+
+    .bottom-navigation-wrapper {
+        .navigation-buttons-wrapper {
+            @include media($small-screen-down) {
+                padding: 0;
+                border-top: 1px solid $c-grey-5;
+                border-bottom: 1px solid $c-grey-5;
+            }
+
+            button {
+                &.disabled {
+                    display: block;
+                }
+
+                &.mobile-only {
+                    display: none;
+
+                    @include media($small-screen-down) {
+                        display: block;
+                        background-color: $bmw-blue;
+                    }
+
+                    &.step-back {
+                        @include media($small-screen-down) {
+                            border-top: 0;
+                            border-right: 1px solid $c-grey-5;
+                        }
+                    }
+                }
+
+                &.desktop-tablet-only {
+                    display: inline-block;
+
+                    @include media($small-screen-down) {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

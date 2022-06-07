@@ -1,0 +1,12 @@
+#car-finder {
+    > .car-finder-filters {
+        .filters-wrapper {
+            @include media($desktop-carousel-breakpoint) {
+                .finance-filters-wrapper {
+                    flex: 0 1 auto;
+                    margin-right: 64px;
+                }
+            }
+        }
+    }
+}

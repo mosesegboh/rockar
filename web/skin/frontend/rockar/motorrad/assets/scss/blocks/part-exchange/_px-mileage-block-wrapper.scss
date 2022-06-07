@@ -1,0 +1,50 @@
+.px-mileage-block-wrapper {
+    @include media($small-screen-down) {
+        margin-bottom: 16px;
+    }
+
+    .px-regular-heading {
+        @include media($small-screen-down) {
+            text-align: left;
+            margin-bottom: em(15px);
+            line-height: 22px;
+            font-size: $motorrad-font-size-step-description;
+        }
+    }
+
+    .px-input-wrapper {
+        width: $px-vrm-block-max-width;
+        margin: 0;
+
+        @include media($small-screen-down) {
+            margin: 0 auto;
+            width: $px-vrm-block-max-width-s-screen;
+        }
+
+        .px-input {
+            color: $motorrad-text-color;
+            display: inline-block;
+            border: 1px solid $motorrad-blue;
+            font-family: $motorrad;
+            font-weight: $motorrad-fw-normal;
+            margin: 2px 0;
+            width: $px-vrm-block-max-width;
+            text-align: center;
+            padding: 0;
+            text-transform: uppercase;
+            height: 50px;
+            font-size: $px-input-font-size-l-screen;
+            line-height: 34px;
+            letter-spacing: normal;
+
+            @include media($small-screen-down) {
+                font-size: $px-input-font-size-s-screen;
+                height: 50px;
+                display: block;
+                line-height: 50px;
+                letter-spacing: $base-letter-spacing;
+                width: $px-vrm-block-max-width-s-screen;
+            }
+        }
+    }
+}

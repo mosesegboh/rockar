@@ -1,0 +1,227 @@
+.timepicker {
+    max-width: $calendar-max-width;
+}
+
+.calendar {
+    background: $calendar-background-color;
+    color: $calendar-color;
+    text-align: center;
+    border: none;
+    font-family: $secondary-font-family;
+    font-weight: $fw-bold;
+    margin-right: 1%;
+
+    .ui-datepicker-header {
+        background: $calendar-header-background;
+        color: $calendar-header-color;
+        padding: .564em 0;
+
+        .ui-datepicker-prev {
+            .ui-icon {
+                @include sprite($sprite-nav-actions-back-light);
+                float: left;
+                display: block;
+                position: relative;
+                top: 2px;
+                left: 8%;
+            }
+        }
+
+        .ui-datepicker-next {
+            .ui-icon {
+                @include sprite($sprite-nav-actions-next-light);
+                position: relative;
+                top: 2px;
+                right: 8%;
+                float: right;
+                display: block;
+            }
+        }
+
+        .ui-datepicker-title {
+            font-size: $f-size-xxxl;
+            text-transform: uppercase;
+        }
+    }
+
+    .ui-datepicker-calendar {
+        margin: 0;
+        background: $calendar-bg;
+        font-size: 14px;
+        border: 1px solid $calendar-thead-background-color;
+
+        @include media($large-screen-up) {
+            width: 100%;
+        }
+
+        thead {
+            background: $calendar-thead-background-color;
+            color: $calendar-thead-background-color;
+
+            span {
+                text-transform: uppercase;
+            }
+
+            th {
+                border-bottom: 0;
+                padding: 0 0 .333em;
+            }
+        }
+
+        th {
+            text-align: center;
+        }
+
+        td {
+            padding: 0;
+            background-color: $calendar-bg;
+            border-width: 0;
+
+            .ui-state-default {
+                color: $calendar-color;
+                height: 40px;
+                line-height: 40px;
+                border: 1px solid transparent;
+            }
+
+            span,
+            a {
+                border: 2px solid transparent;
+            }
+        }
+
+        .ui-state-disabled,
+        .not-available {
+            background-color: $calendar-day-not-available-background;
+
+            span,
+            a {
+                color: $calendar-day-not-available-color;
+            }
+
+            &.ui-datepicker-other-month {
+                background-color: transparent;
+
+                span,
+                a {
+                    color: $calendar-color-disabled;
+                }
+            }
+        }
+
+        a,
+        span {
+            width: 100%;
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 40px;
+            text-decoration: none;
+            font-weight: 700;
+            border: 2px solid transparent;
+            color: $white;
+            height: 32px;
+            line-height: 32px;
+        }
+
+        .ui-datepicker-current-day {
+            a {
+                border: 1px solid $calendar-current-day-border-color;
+            }
+        }
+    }
+}
+
+#timepicker {
+    @include display(flex);
+    @include flex-direction(column);
+    font-weight: $fw-bold;
+
+    .timepicker-time {
+        padding: .25em 0;
+
+        .timepicker-title {
+            font-family: $secondary-font-family;
+            font-weight: $timepicker-title-fw;
+            margin-top: 1em;
+            font-size: $f-size-xxl;
+            clear: left;
+        }
+
+        .timepicker-body {
+            @include clearfix;
+
+            .timepicker-hour {
+                float: left;
+                margin: 0 4px 4px 0;
+                width: calc(33% - 4px);
+                box-sizing: border-box;
+                color: $timepicker-timeslot-text-color;
+                background: $timepicker-timeslot-background;
+                text-align: center;
+                padding: 1em 0;
+                cursor: pointer;
+                font-family: $secondary-font-family;
+
+                &.selected {
+                    color: $timepicker-timeslot-active-text-color;
+                    background: $timepicker-timeslot-active-background;
+                }
+
+                &.not-available {
+                    color: $timepicker-timeslot-not-available-text-color;
+                    background: $timepicker-timeslot-not-available-background;
+                    cursor: not-allowed;
+                }
+            }
+        }
+    }
+}
+
+.calendar-timeslots {
+    button {
+        padding: 1em 0;
+        font-weight: $fw-light;
+    }
+}
+
+.calendar .ui-datepicker-header {
+    background: $grey-3;
+    color: $black;
+    padding: 1px;
+}
+
+.calendar .ui-datepicker-calendar .ui-datepicker-current-day a {
+    border: 2px solid $black;
+    background: $black;
+    color: $white;
+}
+
+#timepicker .timepicker-time .timepicker-body .timepicker-hour.selected {
+    color: $white;
+    background: $black;
+}
+
+#timepicker .timepicker-time .timepicker-body .timepicker-hour {
+    float: left;
+    margin: 0 1% 1% 0;
+    width: 19%;
+    box-sizing: border-box;
+    color: $black;
+    background: $grey-3;
+    text-align: center;
+    padding: 0.70em 0;
+    cursor: pointer;
+    font-family: $mini;
+}
+
+.calendar .ui-datepicker-calendar td .ui-state-default {
+    color: $black;
+    background-color: $white;
+    padding: 0;
+}
+
+.calendar .ui-datepicker-calendar thead {
+    position: relative;
+    background: $black;
+    color: $white;
+  }

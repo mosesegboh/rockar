@@ -1,0 +1,37 @@
+<?php
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Design
+ * @author    Sykander Gul <sykander.gul@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar Ltd (http://rockar.com)
+ */
+/** @var Peppermint_Catalog_Block_Product_View $this */
+?>
+<app-page-header
+    title="Vehicle Details"
+    page="pdp"
+    previous-url='<?php echo $this->getUrl('car-finder'); ?>'
+></app-page-header>
+<app-product-top-container
+    :product='<?php echo $this->getProductJson(); ?>'
+    :vehicles='<?php echo $this->getVehicleJson(); ?>'
+    :options='<?php echo $this->getConfiguratorOptions(); ?>'
+    :car-attributes='<?php echo $this->getCarAttributes(); ?>'
+    :exterior-color='<?php echo $this->getExteriorColor(); ?>'
+    :technical-spec-items='<?php echo $this->getTechnicalSpecificationsJson(); ?>'
+    :offer-tag-data='<?php echo Mage::helper('peppermint_catalog')->getOfferTagData($this->getProduct()); ?>'
+    :compare='<?php echo Mage::helper('rockar_compare')->getCompareData(); ?>'
+    :ext-carousel='<?php echo $this->getImagesAsJson(); ?>'
+    :int-carousel='<?php echo $this->getImagesAsJson(Rockar_Catalog_Helper_Images::IMAGE_TYPE_INTERIOR); ?>'
+    :int-three-sixty-carousel='<?php echo $this->getImagesAsJson(Peppermint_Catalog_Helper_Images::IMAGE_TYPE_INTERIOR_360); ?>'
+    bg-image-url='<?php echo $this->getSkinUrl('images/exterior-bg-pdp.png'); ?>'
+    three-sixty-script='<?php echo $this->getSkinUrl(
+            'assets/js/plugins/js-cloudimage-360-view.min.js',
+            ['_area' => 'frontend', '_theme' => 'dsp2']); ?>'
+    pannellum-script='<?php echo $this->getSkinUrl(
+            'assets/js/plugins/pannellum.js',
+            ['_area' => 'frontend', '_theme' => 'dsp2']); ?>'
+    v-ref:product-top-container
+>
+    <?php echo $this->getBlockHtml('get_quote_cta'); ?>
+</app-product-top-container>

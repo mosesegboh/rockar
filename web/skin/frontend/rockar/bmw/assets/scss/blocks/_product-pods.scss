@@ -1,0 +1,50 @@
+.category-products {
+    overflow-x: hidden;
+
+    @include media($medium-screen-up) {
+        margin-top: -56px;
+    }
+
+    @include media($small-screen-down) {
+        margin-left: 0;
+    }
+
+    &-list {
+        width: 100%;
+
+        @import './product-pods/product-pod';
+
+        .category-products-list-item {
+            background: $pod-background;
+            border: thin solid $pod-borders-color;
+            position: relative;
+            margin: 1em 0;
+
+            @include media($small-screen-down) {
+                padding: 0;
+            }
+
+            @include ie-only {
+                padding: 1px; //fixes IE zoom issue with disappearing borders
+            }
+
+            @include edge-only {
+                padding: 1px; //the same for Edge
+            }
+
+            &.widget-pod {
+                @import './product-pods/widget-pod';
+            }
+
+            &:first-of-type {
+                @include media($small-screen-down) {
+                    margin-top: .5em;
+                }
+            }
+
+            &::after {
+                @include clearfix2;
+            }
+        }
+    }
+}

@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Admin
+ * @author    Ana-Maria Buliga <anamaria.buliga@rockar.com>
+ * @copyright Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+*/
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <acl>
+                            <children>
+                                <role translate="title" module="peppermint_admin">
+                                    <title>S-Gate Access</title>
+                                </role>
+                            </children>
+                        </acl>
+                    </system>
+                    <children>
+                        <config>
+                            <children>
+                                <peppermint_sgate translate="title" module="peppermint_admin">
+                                    <title>S-Gate Authentification</title>
+                                    <sort_order>0</sort_order>
+                                </peppermint_sgate>
+                            </children>
+                        </config>
+                    </children>
+                </children>
+
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <peppermint_sgate translate="title" module="peppermint_admin">
+                                        <title>S-Gate Authentification</title>
+                                        <sort_order>0</sort_order>
+                                    </peppermint_sgate>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+
+            </admin>
+        </resources>
+    </acl>
+    <menu>
+        <system>
+            <children>
+                <acl>
+                    <children>
+                        <role translate="title" module="peppermint_admin">
+                            <title>S-Gate Access</title>
+                            <action>adminhtml/admin_role</action>
+                        </role>
+                    </children>
+                </acl>
+            </children>
+        </system>
+    </menu>
+</config>

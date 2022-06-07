@@ -1,0 +1,13 @@
+.emails-footer {
+  font-size: em(12);
+  color: $emails-footer-color;
+
+  img {
+    display: block;
+    margin: 40px 0;
+  }
+
+  p {
+    margin-bottom: 1.5em;
+  }
+}

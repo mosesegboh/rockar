@@ -1,0 +1,19 @@
+.px-checkout {
+    @import './px-valuation';
+    @import './px-layout';
+
+    .selectbox-wrapper {
+        .selectbox {
+            .selectbox-select {
+                font-family: $mini-sans-serif-regular;
+                font-size: $dsp2-f-size;
+            }
+        }
+    }
+
+    .currentstep {
+        &-one {
+            @import 'px-conditions';
+        }
+    }
+}

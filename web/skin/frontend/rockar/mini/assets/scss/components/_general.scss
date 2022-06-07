@@ -1,0 +1,217 @@
+
+.badge {
+    display: inline-block;
+    padding: 0;
+    font-size: 12px;
+    font-weight: 700;
+    color: $white;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-align: center;
+    background: $mini-green;
+    border-radius: 11px;
+    margin: 0 0 .25em .25em;
+    width: 22px;
+    height: 22px;
+    line-height: 24px;
+}
+
+.footer {
+    width: 100%;
+    background: $black !important;
+    margin-top: auto;
+}
+
+.footer .footer-wrapper .bottom {
+    /* max-width: 1280px; */
+    margin: 0 auto;
+    padding: 1em 1em 1.278em;
+    background-color: $black;
+    color: $white;
+}
+
+.footer .footer-links .footer-menu > li h4 {
+    position: relative;
+    padding: 1em;
+    background: $black;
+    color: $white;
+    cursor: pointer;
+    font-size: 12px;
+    text-transform: none;
+    margin: 0;
+    letter-spacing: initial;
+}
+
+.footer .footer-links .footer-menu .footer-submenu li a {
+    display: block;
+    padding: 1em;
+    font-size: 13px;
+    background: $black;
+    color: $white;
+}
+
+.image-type-switcher {
+    position: absolute;
+
+    @include media($small-screen-down) {
+        position: relative;
+    }
+
+    .actions-wrapper {
+        &.actions-wrapper-mobile {
+            display: flex;
+            padding: .5em 0 0 1em;
+
+            @include media($medium-screen-up) {
+                display: none;
+            }
+
+            button {
+                letter-spacing: 1.7px;
+                margin-right: 0;
+                padding: {
+                    left: 1em;
+                    right: 1em;
+                };
+            }
+        }
+    }
+}
+
+.image-type-switcher .actions-wrapper-mobile button.active {
+    color: $black;
+    background-color: $white;
+    border: 1px solid $black;
+    font-family: $mini;
+    font-size: $f-size-s;
+    font-weight: 100;
+
+    &:hover{
+      border: 1px solid $black;
+      color: $black;
+      background-color: $white;
+    }
+}
+
+.image-type-switcher .actions-wrapper:not(.actions-wrapper-mobile) button:not(.active) {
+    background: $black;
+    color: $white;
+    font-family: $mini;
+    font-size: $f-size-s;
+    font-weight: 100;
+
+    &:hover{
+      border: 1px solid $black;
+      color: $black;
+      background-color: $white;
+    }
+}
+
+.catalog-product-view .slider-color .slide-info .slide-description .checkbox-item span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    margin: auto 0 auto auto;
+    background-color: $white;
+    border-radius: 50%;
+    border: 1px solid $black;
+}
+
+.catalog-product-view .slider-color .slide-block.active-color .slide-info .slide-description .checkbox-item span {
+    background-color: $black;
+    text-align: center;
+}
+
+.product-actions-mobile {
+    display: none;
+
+    @include media($small-screen-down) {
+        @include display(flex);
+
+        .vue-slot {
+            width: 100%;
+        }
+    }
+
+    .product-headings {
+        display: none;
+    }
+
+    .page-title-wrapper {
+        width: 100%;
+
+        .page-title-content {
+            .product-actions {
+                @include media($small-screen-down) {
+                    @include display(flex);
+                    width: 100%;
+                }
+
+                .share-product {
+                    &:not(.mobile) {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.share-product-mobile {
+    display: none;
+
+    @include media($small-screen-down) {
+        display: block;
+    }
+
+    position: absolute;
+    right: 0;
+    top: 20px;
+    margin-right: 20px;
+    z-index: 20;
+
+    .button-empty-dark {
+        background: none;
+        border: 0;
+        font-size: $f-size-xxxxs;
+        height: 40px;
+        color: #000;
+        font-weight: $fw-black;
+        letter-spacing: 1px;
+        padding: 34px 0 0;
+        position: relative;
+
+        &::before {
+            @include pseudo();
+            @include sprite($sprite-wishlist-icon-non-selected);
+            top: 0;
+            right: 0;
+            left: 0;
+            margin: auto;
+        }
+
+        &.added-to-wishlist {
+            &::before {
+                @include sprite($sprite-wishlist-icon-selected);
+            }
+        }
+    }
+}
+
+.actions-wrapper-mobile button:not(.active) {
+    background: $black;
+    color: $white;
+    font-family: $mini;
+    font-size: $f-size-s;
+    font-weight: 100;
+
+    &:hover{
+        border: 1px solid $black;
+        color: $black;
+        background-color: $white;
+    }
+}

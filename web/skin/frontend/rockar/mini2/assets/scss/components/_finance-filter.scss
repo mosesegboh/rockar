@@ -1,0 +1,34 @@
+#finance-filter {
+    .finance-selection {
+        margin-bottom: 20px;
+    }
+
+    .finance-filter-sliders {
+        .field-title {
+            font-family: $mini-serif-bold;
+            font-size: $dsp2-f-size-sl;
+        }
+
+        .finance-filter-slider-wrapper {
+            .finance-filter-slider {
+                .finance-filter-slider-input {
+                    margin-top: 20px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-direction: row-reverse;
+
+                    input {
+                        font-size: $dsp2-f-size-sl;
+                    }
+                }
+            }
+
+            .dsp2-link {
+               &:hover {
+                   line-height: $dsp2-line-h-20;
+               }
+            }
+        }
+    }
+}

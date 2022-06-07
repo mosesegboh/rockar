@@ -1,0 +1,133 @@
+.you-drive-summary {
+    background: $you-drive-summary-background;
+    padding: 2.8em 2.3em 2em;
+
+    .drive-summary-heading {
+        font-size: $you-drive-summary-heading-size;
+        font-family: $secondary-font-family;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 1.5em;
+    }
+
+    p {
+        font-size: $f-size-xs;
+        font-family: $secondary-font-family
+    }
+
+    .location-block {
+        .location-address {
+            margin: 0.7em 0 0;
+        }
+    }
+
+    .test-drive-block {
+        padding-top: 1.5em;
+        margin-top: 1.5em;
+        border-top: 1px solid $you-drive-summary-border-color;
+
+        p {
+            margin-bottom: 0;
+
+            &.choose-car {
+                color: $you-drive-summary-choose-car-color;
+                font-weight: $fw-bold;
+            }
+        }
+
+        .test-drive-car {
+            .car-name {
+                margin-bottom: 0.2em;
+                font-size: $f-size-s;
+            }
+
+            button {
+                width: 100%;
+                margin: 1em 0 1.6em;
+            }
+
+            &:last-child {
+                button {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    table {
+        font-size: $f-size-xs;
+        margin-bottom: 10px;
+    }
+}
+
+.summary-block {
+    background: $white;
+
+    .small-font {
+        font-size: $f-size-l;
+    }
+
+    .summary-title {
+        font-family: $secondary-font-family;
+        font-size: $f-size-xl;
+        padding: 28px 28px 20px;
+        margin: 0;
+        text-align: center;
+        font-weight: $fw-bold;
+    }
+
+    .drive-car {
+        padding: 0 28px 28px 28px;
+        font-size: $f-size;
+        text-align: center;
+
+        &.local-store {
+            text-align: center;
+
+            p {
+                margin: 0;
+            }
+
+            .address {
+                color: $you-drive-summary-grey-text-color;
+            }
+
+            .change-dealer {
+                color: $you-drive-summary-link-color;
+            }
+        }
+
+        &.datetime {
+            text-align: center;
+
+            p {
+                margin: 0;
+            }
+
+            .date {
+                font-weight: $fw-bold;
+            }
+
+            .time {
+                color: $you-drive-summary-grey-text-color;
+            }
+
+            .change-dealer {
+                color: $you-drive-summary-link-color;
+            }
+        }
+
+        .data-wrapper {
+            padding-top: 10px;
+            border-top: 1px solid $you-drive-summary-border-color;
+
+            .variant-title {
+                margin: 0;
+            }
+
+            .remove-car {
+                color: $you-drive-summary-link-color;
+            }
+        }
+    }
+}

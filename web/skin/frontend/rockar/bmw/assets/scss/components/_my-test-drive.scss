@@ -1,0 +1,91 @@
+.my-test-drives {
+    .test-drive-location-picker {
+        border: 2px solid $bmw-light-grey;
+        background: transparent;
+        height: 88px;
+    }
+
+    .popup {
+        &.confirmation-popup {
+            .popup-content {
+                .content-wrapper {
+                    div {
+                        button {
+                            &.button-narrow {
+                                &.button-empty-blue-lagoon {
+                                    &.popup-cancel {
+                                        background-color: transparent;
+
+                                        span {
+                                            color: $cool-grey;
+                                        }
+
+                                        &:hover {
+                                            span {
+                                                color: $button-hover-color;
+                                                opacity: .9;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    button {
+        &.button-edit {
+            color: $white;
+
+            &::after {
+                content: none;
+            }
+        }
+
+        &.button-rebook {
+            color: $white;
+        }
+    }
+
+    & &-mobile {
+        .hero-car {
+            .hero-content {
+                .hero-info {
+                    .hero-date {
+                        .h4 {
+                            font-weight: $fw-bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    & .upcoming-test-drive {
+        .car-extras {
+            p {
+                display: inline;
+            }
+        }
+    }
+
+    & .test-drive-requests {
+        padding: 0 0 1.9em;
+        margin-bottom: 1.9em;
+        border-bottom: 1px solid $my-account-horizontal-break-color;
+
+        & .upcoming-test-drive {
+            padding-top: 1.9em;
+            margin-top: 1.9em;
+            border-top: 1px solid $my-account-horizontal-break-color;
+
+            &:first-of-type {
+                padding-top: 0;
+                border: 0;
+            }
+        }
+    }
+}

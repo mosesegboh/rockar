@@ -1,0 +1,18 @@
+#row_rockar_customer_customer_order_cap_order_cap_groups table tr td:nth-last-of-type(2) {
+    display: none;
+}
+#row_rockar_customer_customer_order_cap_order_cap_groups table tr td:nth-last-of-type(1) {
+    display: none;
+}
+#row_rockar_customer_customer_order_cap_order_cap_groups table tr th:last-of-type {
+    display: none;
+}
+#row_rockar_customer_customer_order_cap_order_cap_groups select {
+    pointer-events: none;
+    background-color: lightgrey;
+    color: gray;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_ShortfallAllowance
+ * @author    Cosmin Chidovat <chidovat.cosmin@rockar.com>
+ * @copyright Copyright (c) 2019 Rockar Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <menu>
+        <promo>
+            <children>
+                <peppermint_shortfallallowance translate="title" module="peppermint_shortfallallowance">
+                    <title>Shortfall Allowance</title>
+                    <sort_order>1030</sort_order>
+                    <action>adminhtml/shortfall_allowance/index</action>
+                </peppermint_shortfallallowance>
+            </children>
+        </promo>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <promo>
+                        <children>
+                            <peppermint_shortfallallowance translate="title">
+                                <title>Shortfall Allowance</title>
+                                <children>
+                                    <title>Manage Shortfall Allowance</title>
+                                </children>
+                            </peppermint_shortfallallowance>
+                        </children>
+                    </promo>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

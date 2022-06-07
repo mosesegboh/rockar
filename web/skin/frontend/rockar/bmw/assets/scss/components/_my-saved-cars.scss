@@ -1,0 +1,116 @@
+.my-saved-cars {
+    @include media($small-screen-down) {
+        padding: $bmw-padding-20 0;
+    }
+
+    .my-saved-cars-wrapper {
+        .car-extras {
+            .accordion-group {
+                &.extras-on-car {
+                    li {
+                        a.js-accordion-trigger {
+                            border-bottom: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .car-cover {
+        .showcase {
+            .showcase-wrapper {
+                background: $white;
+
+                .showcase-image {
+                    .close-background {
+                        background-color: rgba(255, 255, 255, 0.5);
+                        border-radius: 50%;
+                        height: 32px;
+                        width: 32px;
+                        position: absolute;
+                        top: 4px;
+                        right: 4px;
+                    }
+
+                    .arrow-prev {
+                        padding-right: 1px;
+                    }
+
+                    .showcase-actions {
+                        bottom: 10%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.my-saved-cars-save {
+    .my-saved-cars-save-action {
+        .button-blue-lagoon {
+            color: $white
+            }
+        }
+}
+
+.my-saved-cars-mobile-wrapper {
+    .car-extras {
+        .accordion-group {
+            &.extras-on-car {
+                li {
+                    a.js-accordion-trigger {
+                        &::after {
+                            position: relative;
+                        }
+                    }
+                }
+            }
+
+            li {
+                a.js-accordion-trigger {
+                    background-color: $base-background-color;
+                    font-weight: $my-account-block-title-fw;
+                    color: $base-font-color;
+                    padding: 10px 17px 5px 23px;
+
+                    &::after {
+                        float: left;
+                        top: 4px;
+                        right: 10px;
+                        border-color: $base-font-color;
+                    }
+                }
+
+                li.accordion-list {
+                    table {
+                        border-collapse: separate;
+                        border-spacing: 1.7em 0;
+                        border: 0;
+
+                        tbody {
+                            display: table-row-group;
+
+                            tr {
+                                border: 0;
+                                display: table-row;
+
+                                td {
+                                    background-color: $base-background-color;
+                                    overflow-wrap: break-word;
+                                    word-break: keep-all;
+                                    padding: 5px 10px;
+                                    display: table-cell;
+
+                                    &:first-of-type {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

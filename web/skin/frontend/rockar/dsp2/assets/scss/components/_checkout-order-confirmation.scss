@@ -1,0 +1,154 @@
+.order-confirmation {
+    display: flex;
+    flex-direction: column;
+
+    .col-12 {
+        text-align: center;
+        margin-top: -30px;
+
+        @include media($large-screen-up) {
+            margin-top: -110px;
+        }
+    }
+
+    .row {
+        margin: 15px 0;
+        position: relative;
+
+        div {
+            display: inline-block;
+            float: none;
+            margin-right: 0;
+
+            &:last-child {
+                @include media($medium-screen-up) {
+                    position: relative;
+                    top: 50%;
+                    transform: translate(0, -20%);
+                }
+            }
+        }
+    }
+
+    .order-confirmation-body {
+        display: flex;
+        padding: 0 0 100px;
+        flex-direction: column;
+
+        @include media($large-screen-up) {
+            flex-direction: row;
+        }
+
+        .content {
+            width: 100%;
+            padding: 0 30px 0 0;
+            text-align: left;
+
+            @include media($large-screen-up) {
+                width: 65%;
+            }
+
+            .order-confirm-title {
+                font-family: $bmw-light;
+                font-size: $dsp2-f-size;
+                line-height: $dsp2-line-h-18;
+                text-transform: uppercase;
+
+                @include media($medium-screen-up) {
+                    font-size: $dsp2-f-size-xxxl;
+                    line-height: $dsp2-line-h-64;
+                }
+            }
+
+            .order-confirm-subtitle {
+                font-family: $bmw-light;
+                font-size: $dsp2-f-size-xs;
+                line-height: $dsp2-line-h-16;
+                text-transform: none;
+
+                @include media($medium-screen-up) {
+                    font-size: $dsp2-f-size-l;
+                    line-height: $dsp2-line-h-28;
+                    text-transform: uppercase;
+                }
+            }
+
+            .order-confirm-text {
+                font-size: $dsp2-f-size-xs;
+                line-height: $dsp2-line-h-16;
+
+                @include media($medium-screen-up) {
+                    font-size: $dsp2-f-size;
+                    line-height: $dsp2-line-h-28;
+                }
+            }
+        }
+
+        .details {
+            width: 100%;
+
+            @include media($large-screen-up) {
+                width: 35%;
+            }
+
+            .row {
+                width: 100%;
+                margin: 0;
+                padding: 12px 0;
+                border-bottom: 1px solid $c-grey-5;
+
+                .title {
+                    font-family: $bmw-light;
+                    font-size: $dsp2-f-size-xs;
+                    line-height: $dsp2-line-h-20;
+                    float: left;
+
+                    @include media($medium-screen-up) {
+                        font-size: $dsp2-f-size-s;
+                    }
+                }
+
+                .content {
+                    width: auto;
+                    float: right;
+                    font-family: $bmw-bold;
+                    font-size: $dsp2-f-size-xs;
+                    line-height: $dsp2-line-h-20;
+                    padding: 0;
+
+                    @include media($medium-screen-up) {
+                        font-size: $dsp2-f-size-s;
+                    }
+                }
+            }
+
+            .button {
+                max-width: none;
+                margin: 20px 0;
+                font-size: $dsp2-f-size;
+                line-height: inherit;
+
+                @include media($medium-screen-up) {
+                    line-height: 1;
+                }
+            }
+        }
+
+        .button {
+            @include media($medium-screen-up) {
+                text-align: center;
+                padding: $button-order-confirm-height-padding $button-width-padding $button-narrow-bottom-height-padding;
+            }
+        }
+
+        a:not(.button) {
+            color: $bmw-blue !important;
+        }
+    }
+
+    p {
+        &.order-confirm-subtitle {
+            color: $c-grey;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    design
+ * @package     rockar_bmw2
+ * @author      Ketevani Revazishvili <techteam@rockar.com>
+ * @copyright   Copyright (c) 2021 Rockar, Ltd (http://rockar.com)
+ */
+-->
+
+<layout version="0.1.0">
+    <customer_account_index>
+        <reference name="dashboard_list">
+            <block type="rockar_mysavedcars/savedCars" name="customer_saved_cars" as="saved_cars" after="customer_documents_wrapper" template="rockar/customer/saved_cars/list.phtml"/>
+        </reference>
+    </customer_account_index>
+
+    <catalog_product_view>
+        <reference name="product.info.addto">
+            <block type="core/template" name="savedcars_button" template="rockar/customer/saved_cars/button.phtml"/>
+        </reference>
+    </catalog_product_view>
+</layout>

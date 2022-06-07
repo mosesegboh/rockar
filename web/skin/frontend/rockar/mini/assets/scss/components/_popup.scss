@@ -1,0 +1,765 @@
+html.popupActive {
+    overflow: hidden;
+}
+
+.popup {
+    @include position(fixed, 0 null null 0);
+    @include size(100%);
+    position: fixed;
+    outline: 0 !important;
+    -webkit-backface-visibility: hidden;
+    font-size: 0;
+    z-index: $popup-z-index;
+
+    &.confirmation-popup {
+        .popup-content {
+            height: auto;
+            min-height: inherit;
+
+            .content-wrapper div {
+                button.button-narrow {
+                    width: 100%;
+                    margin-bottom: 5px;
+
+                    @include media($large-screen-down) {
+                        padding: 1.45em 1.55em;
+                    }
+
+                    span {
+                        padding-left: 0;
+                        span {
+                            color: $white;
+                        }
+                    }
+
+                    &.button-empty-light span span {
+                        color: $popup-button-empty-color;
+                    }
+                }
+
+                p {
+                    color: $black;
+                    font-weight: normal;
+                    padding-top: 0;
+                    margin: 0 0 0.75em;
+                }
+            }
+        }
+    }
+
+    &.gcdm-popup {
+        .modal-body {
+            .row {
+                border-top: 1px solid #8e8e8e;
+                margin-top: 20px;
+                padding-top: 20px;
+
+                @include media($medium-screen-up) {
+                    button {
+                        max-width: 49%;
+                    }
+                }
+            }
+        }
+
+        .error-message {
+            background: $grey-2;
+            color: $button-cancel-color;
+            margin-top: 10px;
+            line-height: 30px;
+        }
+    }
+
+    &.policy-popup {
+        .popup-content {
+            @include media($small-screen-down) {
+                width: 100%;
+            }
+        }
+
+        .modal-header {
+            .policy-popup-header {
+                font-family: $mini_heading;
+                font-size: $f-size-xxxxl;
+                margin-bottom: 0;
+            }
+
+            .policy-popup-subheader {
+                font-size: $f-size-xxxl;
+                text-transform: none;
+            }
+        }
+
+        .popup-list {
+            display: flex;
+            margin-bottom: 10px;
+
+            p {
+                color: $grey-5;
+            }
+
+            .popup-checkboxes {
+                display: flex;
+                margin: 0.35rem 0;
+
+                @include media($small-screen-down) {
+                    display: flex;
+                    justify-content: center;
+                    padding: 0 0 50px 0;
+                }
+            }
+
+            .popup-subtitle {
+                font-size: $f-size-xxxl;
+                text-transform: uppercase;
+
+                @include media($small-screen-down) {
+                    font-size: $f-size-xl;
+                }
+            }
+
+            @include media($small-screen-down) {
+                margin-bottom: 0;
+            }
+        }
+
+        .popup-mandatory-title {
+            font-size: $f-size-xxl;
+            padding: 0 0 0 40px;
+        }
+
+        .row {
+            display: flex;
+
+            &.align-justified {
+                justify-content: flex-end;
+
+                .button {
+                    margin: 0 0 0 30px;
+
+                    &.popup-continue {
+                        &.button-disabled {
+                            &:hover {
+                                color: $landrover-light-grey;
+                                background: $grey-2;
+                                border: 1px solid $grey-2;
+                            }
+                        }
+                    }
+
+                    &.button-grey {
+                        background-color: transparent;
+                        border: 1px solid $cool-grey;
+                        color: $black;
+
+                        &:hover {
+                            background-color: $black;
+                            color: $white;
+                        }
+                    }
+                }
+
+                @include media($small-screen-down) {
+                    flex-direction: column;
+
+                    .button {
+                        margin: 1rem 0;
+                    }
+                }
+            }
+        }
+    }
+
+    &.settlement-quote-popup {
+        .popup-content {
+            .modal-header {
+                text-transform: unset;
+            }
+
+            .content-wrapper {
+                @include media($large-screen) {
+                    max-height: 400px;
+                    overflow-y: auto;
+                }
+            }
+
+            .settlement-quote-item {
+                padding-top: 10px;
+
+                @include media($small-screen-down) {
+                    display: flex;
+                    align-items: baseline;
+                }
+            }
+
+            .settlement-quote-popup-notification {
+                color: $error-color;
+                margin-top: 20px;
+                min-height: 25px;
+            }
+
+            .settlement-popup-error {
+                a {
+                    color: $action-color;
+                }
+            }
+
+            .settlement-quote-popup-footer {
+                display: flex;
+                justify-content: space-between;
+
+                .button {
+                    margin: 0;
+                }
+
+                a {
+                    color: $cool-grey;
+                    text-decoration: underline;
+                }
+            }
+
+            input[type="radio"] {
+                &.radio-checkbox {
+                    display: inline;
+
+                    + label {
+                        cursor: pointer;
+                        display: inline;
+
+                        .popup-line {
+                            display: block;
+                            color: $cool-grey;
+
+                            &.popup-line-title {
+                                font-weight: $fw-bold;
+                                font-size: $f-size-xxl;
+                            }
+
+                            &.popup-line-reference {
+                                font-weight: $fw-bold;
+                                font-size: $f-size-xl;
+                            }
+
+                            &.popup-line-outstanding-finance {
+                                margin-top: 10px;
+                                font-size: $f-size-xs;
+                            }
+                        }
+                    }
+
+                    &:checked {
+                        + label {
+                            .popup-line {
+                                &.popup-line-title {
+                                    color: $black;
+                                }
+
+                                &.popup-line-reference {
+                                    color: $black;
+                                }
+
+                                &.popup-line-outstanding-finance {
+                                    color: $black;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.otp-popup {
+        .modal-dialog {
+            width: 75%;
+            margin: 20px auto;
+
+            .modal-header,
+            .otp-notice {
+                text-align: center;
+            }
+
+            .otp-password {
+                display: flex;
+                width: 70%;
+                margin: 40px auto 0;
+
+                @include media($small-screen-down) {
+                    width: 100%;
+                }
+
+                .otp-password-input {
+                    height: 80px;
+                    width: 20%;
+                    text-align: center;
+                    padding: 0;
+                    margin: 0 .5em .3em 0;
+                    font-size: $f-size-9xl;
+
+                    @include media($medium-screen-down) {
+                        margin: 0 .3em .3em 0;
+                        font-size: $f-size-5xl;
+                    }
+
+                    @include media($small-screen-down) {
+                        height: 60px;
+                        font-size: $f-size-xxxxl;
+                    }
+                }
+            }
+
+            .request-otp {
+                width: 70%;
+                margin: 0 auto;
+
+                @include media($small-screen-down) {
+                    width: 100%;
+                }
+            }
+
+            .success-message {
+                color: $message-success-color;
+                margin-top: 10px;
+            }
+
+            .error-message {
+                color: $button-cancel-color;
+                margin-top: 10px;
+            }
+
+            .buttons {
+                text-align: right;
+            }
+
+            .timer {
+                text-align: right;
+                margin-top: 20px;
+                font-weight: $fw-bold;
+                font-size: $f-size-xxl;
+            }
+        }
+    }
+
+    &.experience-popup {
+        .popup-content {
+            padding: 0;
+            max-width: 890px;
+
+            .content-wrapper {
+                padding: 20px;
+
+                .arrow-next {
+                    border-left: 3px solid $black;
+                    border-bottom: 3px solid $black;
+                    margin: 5px 0 5px 5px;
+                }
+
+                a {
+                    color: $black;
+
+                    &:hover {
+                        color: $accessories-price-color;
+                    }
+                }
+
+                button {
+                    max-width: 285px;
+
+                    @include media($small-screen-down) {
+                        max-width: none;
+                    }
+                }
+            }
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &.popup-hide {
+        display: none;
+    }
+
+    .popup-button-close {
+        @include sprite($sprite-close);
+        @include position(absolute, 20px 20px null null);
+        text-decoration: none;
+        text-align: center;
+        font-weight: $fw-normal;
+        line-height: 1;
+        float: right;
+        display: block;
+        cursor: pointer;
+        z-index: 100;
+    }
+
+    .popup-button-close2 {
+        @include position(absolute, 20px null null null);
+        padding-left: 20px;
+        cursor: pointer;
+
+        &:after {
+            @include sprite($sprite-nav-actions-back-light);
+            @include position(absolute, -2px null null -6px);
+            display: inline-block;
+        }
+    }
+
+    .popup-overlay {
+        @include position(fixed, 0 null null 0);
+        @include size(100%);
+        background: #000000;
+        opacity: 0.75;
+    }
+
+    .popup-loader {
+        @include position(absolute, 0 0 0 0);
+        background: url(../images/loader.gif) no-repeat center center;
+    }
+
+    .popup-container {
+        @include size(100%);
+        @include position(absolute, 0 null null 0);
+        overflow-y: auto;
+        overflow-x: hidden;
+        text-align: center;
+        padding: 0 16px;
+        box-sizing: border-box;
+
+        > div {
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 auto;
+            text-align: left;
+            width: 100%;
+        }
+
+        &:before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+        }
+
+        .pdp-image-popup {
+            .image-type-switcher {
+                .popup-close-background {
+                    background-color: rgba(255, 255, 255, 0.5);
+                    border-radius: 50%;
+                    height: 26px;
+                    width: 26px;
+                    position: absolute;
+                    top: 16px;
+                    right: 8px;
+
+                    .popup-button-close {
+                        top: 7px;
+                        right: 7px;
+                    }
+                }
+            }
+        }
+    }
+
+    .popup-content {
+        background: $white;
+        padding: 25px;
+        text-align: left;
+        margin: 40px auto;
+        min-height: auto;
+        position: relative;
+        font-size: 16px;
+        box-sizing: border-box;
+        width: 100%;
+        line-height: $base-line-height;
+
+        @include media($large-screen-up) {
+            width: 50%;
+        }
+
+        @include media($large-screen-down) {
+            width: 100%;
+        }
+
+        .modal-header {
+            padding-right: 25px;
+            word-break: break-word;
+            font-family: $mini;
+        }
+    }
+
+    .icon-learn-instore {
+        @include sprite($sprite-learn-store);
+        position: relative;
+        display: inline-block;
+    }
+
+    .icon-learn-budget {
+        @include sprite($sprite-learn-budget);
+        position: relative;
+        display: inline-block;
+    }
+
+    .icon-learn-trade-in {
+        @include sprite($sprite-learn-trade);
+        position: relative;
+        display: inline-block;
+    }
+
+    .icon-learn-choose {
+        @include sprite($sprite-learn-choose);
+        position: relative;
+        display: inline-block;
+    }
+
+    .icon-learn-checkout {
+        @include sprite($sprite-learn-order);
+        position: relative;
+        display: inline-block;
+    }
+
+    .icon-learn-collection {
+        @include sprite($sprite-learn-collect);
+        position: relative;
+        display: inline-block;
+    }
+}
+
+.popup.finance-confirmation-popup .popup-content .content-wrapper .button {
+    @include media($small-screen-down) {
+        margin-left: 0;
+    }
+
+    &.button-white {
+        margin: 0;
+        background-color: $black;
+        color: $white;
+        border: 2px solid $black;
+
+        &:hover {
+            margin: 0;
+            background-color: $white;
+            color: $black;
+            border: 1px solid $black;
+        }
+    }
+}
+
+button .button .button-narrow .button-grey {
+    background-color: $black;
+    color: $white;
+    border: 1px solid $black;
+
+    &:hover {
+        background-color: $white;
+        color: $black;
+        border-color: $black;
+    }
+}
+
+.popup {
+    &.confirmation-popup {
+        .popup-content {
+            .content-wrapper {
+                div button.button-narrow.button-blue-lagoon.popup-confirm {
+                    width: 30%;
+
+                    &:hover {
+                        opacity: .9;
+                        border: 0;
+                        background-color: $mini_green;
+                    }
+                }
+
+                div button.button-narrow.button-empty-light.popup-cancel {
+                    width: 30%;
+
+                    span span {
+                        color: $cool-grey;
+                    }
+                }
+
+                .allign-right {
+                    position: relative;
+                    width: 100%;
+                    display: inline-block;
+                    text-align: right;
+                }
+            }
+        }
+    }
+}
+
+.missing-details-wrapper {
+    .popup {
+        .popup-content {
+            padding: 40px 90px;
+
+            @include media($small-screen-down) {
+                padding: 15px;
+            }
+        }
+
+        h3 {
+            font-weight: bold;
+            letter-spacing: 0px;
+        }
+
+        .details-description {
+            padding-bottom: 15px;
+        }
+
+        .personal-details-header {
+            h4 {
+                font-weight: bold;
+                padding-bottom: 15px;
+                letter-spacing: 0px;
+            }
+        }
+
+        .personal-details {
+            width: 100%;
+            display: block;
+
+            .detailed-input-wrapper {
+                display: flex;
+
+                label {
+                    width: 40%;
+                    text-transform: uppercase;
+                    font-size: $f-size-xxxl;
+
+                    @include media($small-screen-down) {
+                        width: 100%;
+                    }
+                }
+
+                .select-wrapper {
+                    width: 60%;
+                    position: relative;
+
+                    .details-input {
+                        width: 100%;
+                    }
+
+                    &::after {
+                        @include size(12px);
+                        content: '';
+                        display: block;
+                        border-right: 3px solid $white;
+                        border-top: 3px solid $white;
+                        transform: rotate(135deg);
+                        transform-origin: 50% 50%;
+                        background-image: none;
+                        margin-top: 0;
+                        position: absolute;
+                        top: 15px;
+                        right: 15px;
+                        pointer-events: none;
+                    }
+
+                    &::before {
+                        @include size(12px);
+                        content: '';
+                        width: 50px;
+                        height: 50px;
+                        display: block;
+                        background-color: $black;
+                        margin-top: 0;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        pointer-events: none;
+                    }
+
+                    @include media($small-screen-down) {
+                        width: 100%;
+                    }
+                }
+
+                div {
+                    width: 60%;
+
+                    .details-input {
+                        width: 100%;
+
+                        &.select {
+                            background-color: $base-background-color;
+                            border: 1px solid $black;
+                            box-shadow: $form-box-shadow;
+                            box-sizing: border-box;
+                            font-family: $base-font-family;
+                            font-size: $base-font-size;
+                            margin-bottom: $base-spacing / 2;
+                            padding: $base-spacing / 3;
+                            transition: border-color;
+                            height: 50px;
+                            -moz-appearance: none;
+                            -webkit-appearance: none;
+                            appearance: none;
+
+                            @include validationFailed($bright-red);
+                        }
+
+                        &::focus {
+                            border: 1px solid $black;
+                        }
+
+                        &::hover {
+                            border: 1px solid $black;
+                        }
+
+                        @include media($small-screen-down) {
+                            width: 100%;
+                            padding-left: 0.4em;
+                            padding-right: 0.4em;
+                        }
+
+                        &::placeholder {
+                            @include media($small-screen-down) {
+                                font-size: $f-size-xxs;
+                            }
+                        }
+                    }
+
+                    @include media($small-screen-down) {
+                        width: 100%;
+                    }
+                }
+
+                @include media($small-screen-down) {
+                    display: block;
+                }
+
+                input {
+                    @include validationFailed($bright-red);
+                }
+            }
+        }
+
+        .info-section {
+            padding: 15px 0px;
+
+            .warning {
+                display: none;
+            }
+        }
+
+        .missing-details-modal-ctas {
+            text-align: right;
+        }
+    }
+
+    .button-blue-lagoon {
+        width: 240px;
+        height: 50px;
+        margin-left: 20px;
+
+        @include media($small-screen-down) {
+            width: 100%;
+            margin: 20px 0;
+        }
+    }
+}

@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint_PartExchange
+ * @author       Lucian Mesaros <lucian.mesaros@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <sections>
+        <partexchange translate="label" module="peppermint_partexchange">
+            <label>Trade In</label>
+            <groups>
+                <partexchange_expiry>
+                    <label>Trade In Lead Time Configurations</label>
+                    <fields>
+                        <part_exchange_lead_time translate="label">
+                            <label>Trade In Lead Time (in days)</label>
+                        </part_exchange_lead_time>
+                        <part_exchange_lead_time_message translate="label">
+                            <label>Trade In valuation expire warning message</label>
+                        </part_exchange_lead_time_message>
+                        <part_exchange_lead_time_email_status translate="label">
+                            <label>Enable trade in valuation expire warning email</label>
+                        </part_exchange_lead_time_email_status>
+                        <part_exchange_lead_time_email translate="label">
+                            <label>Trade In valuation expire warning email template</label>
+                        </part_exchange_lead_time_email>
+                    </fields>
+                </partexchange_expiry>
+                <running_costs>
+                    <show_in_default>0</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                </running_costs>
+                <requests_limit>
+                    <label>Limit requests to Trade In API from a single user</label>
+                </requests_limit>
+            </groups>
+        </partexchange>
+        <auto_settlement translate="label" module="peppermint_partexchange">
+            <label>Auto-Settlement</label>
+            <tab>rockar</tab>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>0</show_in_website>
+            <show_in_store>0</show_in_store>
+            <groups>
+                <general translate="label">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <url translate="label">
+                            <label>Service URL</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>required-entry validate-url</validate>
+                        </url>
+                        <api_key translate="label">
+                            <label>Service API key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>required-entry</validate>
+                        </api_key>
+                        <user translate="label">
+                            <label>Username</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>required-entry</validate>
+                        </user>
+                        <password translate="label">
+                            <label>Password</label>
+                            <frontend_type>password</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>required-entry</validate>
+                        </password>
+                    </fields>
+                </general>
+            </groups>
+        </auto_settlement>
+    </sections>
+</config>

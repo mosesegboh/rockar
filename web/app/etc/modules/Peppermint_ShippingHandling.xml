@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_ShippingHandling
+ * @author    Aleksejs Oboruns <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_ShippingHandling>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Rockar_ShippingHandling />
+            </depends>
+        </Peppermint_ShippingHandling>
+    </modules>
+</config>

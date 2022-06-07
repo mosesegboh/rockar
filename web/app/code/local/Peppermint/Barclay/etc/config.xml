@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint\Barclay
+ * @author       Aleksejs Oboruns <techteam@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_Barclay>
+            <version>0.1.0</version>
+        </Peppermint_Barclay>
+    </modules>
+    <global>
+        <models>
+            <rockar_barclay>
+                <rewrite>
+                    <observer>Peppermint_Barclay_Model_Observer</observer>
+                    <event>Peppermint_Barclay_Model_Event</event>
+                </rewrite>
+            </rockar_barclay>
+        </models>
+    </global>
+</config>

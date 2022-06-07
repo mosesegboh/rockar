@@ -1,0 +1,60 @@
+// Title & subtitle
+.caption {
+    font-family: $bmw-light;
+    padding-right: 30px;
+    text-transform: none;
+    width: 100%;
+
+    .title {
+        line-height: $dsp2-f-size-xl;
+
+        a {
+            color: $black;
+            font-size: $dsp2-f-size-xl;
+            font-family: $bmw-bold;
+            letter-spacing: 0;
+        }
+    }
+
+    .subtitle {
+        p {
+            line-height: $dsp2-f-size;
+            font-family: $bmw-light;
+            font-size: $dsp2-f-size-xs;
+        }
+    }
+
+    p {
+        letter-spacing: 0;
+    }
+}
+
+// Finance overlay trigger
+.pod-finance-overlay {
+    text-transform: none;
+    font-weight: $fw-black;
+    letter-spacing: 1px;
+    max-width: 64px;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &::before {
+        @include pseudo();
+        @include size(25px 28px);
+        background-image: url('../images/svg/finance-calculator.svg');
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 3px;
+    }
+
+    p {
+        font-size: $dsp2-f-size-xxs;
+        text-align: center;
+        margin-top: 8px;
+        line-height: initial;
+        letter-spacing: 1px;
+    }
+}

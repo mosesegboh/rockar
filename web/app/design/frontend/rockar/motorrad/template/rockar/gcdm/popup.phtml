@@ -1,0 +1,27 @@
+<?php
+/**
+ * @category  design
+ * @package   rockar_motorrad
+ * @author    Sergejs Plisko <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar Ltd (http://rockar.com)
+ */
+?>
+<?php
+/**
+ * @var $this Peppermint_Gcdm_Block_Popup
+ */
+?>
+<?php $customer = $this->getCustomer(); ?>
+
+<?php if ($this->isShowActivationPopup()): ?>
+    <div>
+        <app-modal class-name="gcdm-popup" :show="true" :show-close="false">
+            <div slot="content" class="customer-gcdm">
+                <app-gcdm-popup
+                        customer-email="<?php echo $customer->getEmail(); ?>"
+                        apply-url="<?php echo Mage::getUrl('gcdm/popup/apply', ['_secure' => $this->_isSecure()]); ?>">
+                </app-gcdm-popup>
+            </div>
+        </app-modal>
+    </div>
+<?php endif; ?>

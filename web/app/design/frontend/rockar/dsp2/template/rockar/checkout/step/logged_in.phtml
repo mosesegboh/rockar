@@ -1,0 +1,17 @@
+<?php
+/**
+ * @category  BMW
+ * @package   BMW\Checkout
+ * @author    Brandon Ho <brandon.ho@partner.bmw.co.za>
+ *
+ * @var $this Rockar_Checkout_Block_Checkout_Steps_Login
+ */
+?>
+<ul class="accordion type-right-down accordion-light">
+    <li>
+        <a href="#" class="js-accordion-trigger">
+            <?php echo $this->__('Login/Register') ?>
+            <span class="status text-right"><?php echo $this->escapeHtml($this->helper('customer')->getCustomerName()) ?></span>
+        </a>
+    </li>
+</ul>

@@ -1,0 +1,13 @@
+.interior-three-sixty {
+    @include media($medium-screen-down) {
+        min-height: 350px;
+    }
+
+    #interior-360-panorama {
+        min-height: 340px;
+
+        @include media($medium-screen-down) {
+            padding-top: 20px;
+        }
+    }
+}

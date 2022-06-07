@@ -1,0 +1,120 @@
+@mixin lightModeHeader() {
+    .nav-wrap {
+        background: $white;
+
+        @include media($dsp2-l-screen-down) {
+            height: $navigation-on-light-mobile-height;
+            min-height: $navigation-on-light-mobile-height;
+        }
+
+        @include media($horizontal-bar-mode) {
+            min-height: $navigation-on-light-desktop-height;
+            height: $navigation-on-light-desktop-height;
+        }
+
+        .nav-hero-image-wrapper,
+        .nav-heading {
+            display: none;
+        }
+
+        .main-nav {
+            height: $navigation-on-light-mobile-height;
+        }
+
+        .navigation-bar {
+            .navigation-menu {
+                border-bottom: 2px solid $c-grey-3;
+
+                ul.navigation {
+                    li {
+                        a {
+                            span {
+                                &.text {
+                                    color: $c-grey-3;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .custom-nav-wrapper {
+                    .navigation-customer {
+                        color: $c-grey-3;
+
+                        &::after {
+                            background-image: url('../images/svg/icon-arrow-grey.svg');
+                        }
+                    }
+                }
+            }
+
+            .navigation-caption {
+                &  > p {
+                    color: $c-grey;
+                }
+            }
+        }
+
+        .navigation-bar-mobile {
+            .main-nav {
+                background: $white;
+            }
+
+            .mobile-top-section {
+                border-bottom: 1px solid $c-grey-5;
+
+                .navigation-bar-menu {
+                    .nav-bar-wrapper {
+                        border-top: none;
+                    }
+                }
+            }
+
+            .mobile-bottom-section {
+                @include media($small-screen-down) {
+                    display: none;
+                }
+            }
+        }
+
+        .brand-logo {
+            .logo-on-dark {
+                display: none;
+            }
+
+            .logo-on-light {
+                display: block;
+            }
+        }
+
+        .icon {
+            background-repeat: no-repeat;
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+
+            &.icon-account {
+                background-image: url('../images/svg/icon-account-light-bg.svg');
+            }
+
+            &.icon-cart {
+                background-image: url('../images/svg/icon-cart-light-bg.svg');
+            }
+
+            &.icon-location {
+                background-image: url('../images/svg/icon-location-light-bg.svg');
+            }
+        }
+
+        .hamburger::before,
+        .hamburger .icon,
+        .hamburger::after {
+            @include transition(transform .2s ease-in-out);
+            display: block;
+            width: 60%;
+            height: .067em;
+            margin: 0 0 .1em 0;
+            background: $c-grey-3;
+        }
+    }
+}

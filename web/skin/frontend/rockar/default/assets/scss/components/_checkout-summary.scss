@@ -1,0 +1,81 @@
+.accordion-content {
+    .checkout-summary {
+        .car-image {
+            margin-bottom: 1em;
+        }
+
+        .deposit {
+            margin: 20px 0;
+
+            button {
+                margin: 0 0 20px 0;
+            }
+        }
+
+        .deliver {
+            background-color: $checkout-summary-delivery-background;
+            padding: 1em;
+
+            p {
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        a.terms-conditions {
+            color: $checkout-summary-terms-conditions-color;
+            text-decoration: underline;
+        }
+
+        .car-detail {
+            margin-bottom: 1em;
+
+            .car-title {
+                line-height: 1.2em;
+                text-transform: uppercase;
+                font-weight: $fw-semibold;
+                font-family: $secondary-font-family;
+                font-size: $f-size-xxxxl;
+            }
+        }
+
+        .deposit {
+            .deposit-title {
+                font-family: $helper-font-family;
+                font-size: $f-size-xxxl;
+            }
+        }
+
+        .place-order {
+            display: block;
+            width: 100%;
+            @include media($small-screen-down) {
+                width: 100%;
+            }
+        }
+
+        .payment-icons {
+
+            .visa-icon, .mastercard-icon {
+                background-size: 100%;
+                background-repeat: no-repeat;
+                background-position: center;
+                display: inline-block;
+            }
+
+            .visa-icon {
+                background-image: url(../images/svg/visa.svg);
+                height: 2.875em;
+                width: 3.438em;
+            }
+
+            .mastercard-icon {
+                background-image: url(../images/svg/mastercard.svg);
+                height: 2.5em;
+                margin-left: 1.25em;
+                width: 3.063em;
+            }
+        }
+    }
+}

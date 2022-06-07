@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint_All
+ * @author       Dominic Sutton <dominic.sutton@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_All>
+            <version>0.1.1</version>
+        </Peppermint_All>
+    </modules>
+    <global>
+        <helpers>
+            <peppermint_all>
+                <class>Peppermint_All_Helper</class>
+            </peppermint_all>
+            <rockar_all>
+                <rewrite>
+                    <data>Peppermint_All_Helper_Data</data>
+                </rewrite>
+            </rockar_all>
+        </helpers>
+
+        <models>
+            <core>
+                <rewrite>
+                    <email_template>Mage_Core_Model_Email_Template</email_template>
+                </rewrite>
+            </core>
+        </models>
+    </global>
+    <default>
+        <design>
+            <website>
+                <location_icon_url>https://www.bmw.co.za/en/integration/dealer-locator.html</location_icon_url>
+            </website>
+        </design>
+    </default>
+    <websites>
+        <bmw>
+            <rockar_all>
+                <configurator_link>
+                    <url>https://configure.bmw.co.za/</url>
+                </configurator_link>
+            </rockar_all>
+        </bmw>
+    </websites>
+</config>

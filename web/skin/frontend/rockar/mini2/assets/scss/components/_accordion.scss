@@ -1,0 +1,22 @@
+.accordion {
+    font-family: $mini-sans-serif-regular;
+
+    &.accordion-light {
+        li {
+            > a {
+                &.js-accordion-trigger {
+                    color: $black;
+                    font-family: $mini-serif-regular;
+                    font-size: $dsp2-f-size-l;
+                    line-height: $dsp2-line-h-28;
+
+                    @include media($medium-screen-down) {
+                        font-family: $mini-serif-regular;
+                        font-size: $dsp2-f-size;
+                        line-height: $dsp2-line-h-24;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,266 @@
+.page-title-wrapper {
+    .page-title-content {
+        @include display(flex);
+
+        @include media($small-screen-down) {
+            flex-direction: column;
+        }
+
+        @include justify-content(space-between);
+        padding: 1.25em 3.06em 1.25em 1.81em;
+        max-width: $max-width;
+        margin: 0 auto;
+
+        @include media($medium-screen-down) {
+            padding: 1.25em 10px;
+        }
+
+        &.new-car-actions {
+            .heading-container {
+                width: 70%;
+
+                @include media($medium-screen-down) {
+                    width: 100%;
+                }
+
+                .product-headings {
+                    @include media($medium-screen-down) {
+                        margin-bottom: 10px;
+                    }
+                }
+
+                .main-heading,
+                .sub-heading {
+                    text-transform: uppercase;
+                    font-weight: $fw-bold;
+                }
+
+                .main-heading {
+                    font-size: $f-size-xxl;
+                    font-family: $mini_heading;
+                    letter-spacing: 3px;
+                }
+
+                .sub-heading {
+                    font-size: $f-size-xxxxs;
+                    font-family: $configurator-sub-heading-font;
+                    letter-spacing: .9px;
+                }
+            }
+        }
+
+        .product-actions {
+            // @import 'product-top-container/actions';
+            @include display(flex);
+            @include media($large-screen-up) {
+                width: 30%;
+            }
+
+            @include media($medium-screen-down) {
+                margin: 0 auto;
+                width: 50%;
+            }
+
+            @include media($small-screen-down) {
+                display: none;
+            }
+
+            .finance-quote-block {
+                .fq-button-wrapper {
+                    .link-edit-finance {
+                        .edit-finances {
+                            text-transform: none;
+                        }
+                    }
+                }
+
+                @include media($medium-screen-down) {
+                    border-right: solid $grey-2 1px;
+                }
+            }
+
+            .share-product {
+                .button {
+                    text-transform: none;
+
+                    &::before {
+                        @include sprite($sprite-wishlist-icon-non-selected);
+                    }
+
+                    &.added-to-wishlist {
+                        &::before {
+                            @include sprite($sprite-wishlist-icon-selected);
+                        }
+                    }
+                }
+            }
+
+            .test-drive-block {
+                margin-left: 12px;
+
+                @include media($medium-screen-down) {
+                    width: 100%;
+                    text-align: center;
+                }
+
+                .td-button-wrapper {
+                    display: flex;
+
+                    @include media($medium-screen-down) {
+                        display: block;
+                    }
+                }
+
+                .link-to-test-drive {
+                    text-transform: none;
+                    font-size: $f-size-xxxs;
+                    font-weight: $fw-normal;
+                    letter-spacing: 0px;
+                    line-height: 1;
+                    max-width: 80px;
+                    font-family: $primary-font-family;
+
+                    &.top {
+                        display: block;
+                    }
+
+                    .move-to-test-drive {
+                        font-weight: $fw-black;
+                        color: $black;
+                        font-family: $primary-font-family;
+                    }
+
+                    .book-test-drive-icon {
+                        @include size(29px 31px);
+                        display: block;
+                        background-image: url('../images/test_drive.png');
+                        margin: 0 auto 3px;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        @include media($medium-screen-down) {
+                            margin: 0 auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .pdp-data-container {
+        .offertags-container {
+            display: none;
+        }
+
+        @include media($medium-screen-down) {
+            @include display(flex);
+            @include flex-direction(column);
+
+            .attributes-container {
+                width: 100%;
+            }
+
+            .offertags-container {
+                @include media($medium-screen-down) {
+                    @include display(inline-flex);
+                    @include align-items(center);
+
+                    .offertags {
+                        @include display(flex);
+                        @include align-items(flex-start);
+                        @include flex-direction(column);
+
+                        .offertag-icon {
+                            margin: .5rem 0;
+                        }
+
+                        .offertag-label {
+                            letter-spacing: normal;
+                            margin: 0 0 .2rem .5rem;
+                            text-transform: uppercase;
+                            font: {
+                                size: $f-size-s;
+                                weight: bold;
+                            }
+                        }
+                    }
+
+                    &.offertags-background {
+                        margin: .5rem 0;
+
+                        .offertag-label {
+                            background-color: $mini_green;
+                            color: $white;
+                            padding: .57rem 1rem .4rem;
+                            margin: 0;
+                        }
+                    }
+
+                    &.offertags-blank {
+                        .offertag-label {
+                            margin: 0;
+                            padding: .5rem 1rem;
+                            font: {
+                                size: $f-size-xl;
+                                weight: unset;
+                            }
+                        }
+                    }
+
+                    &.offertags-it {
+                        .offertags {
+                            @include align-items(center);
+
+                            .offertag-icon {
+                                align-self: flex-start;
+                            }
+
+                            .offertag-label {
+                                margin: 0 0 .2rem 0;
+                                font: {
+                                    weight: unset;
+                                }
+
+                                @include media($medium-screen-down) {
+                                    margin: 0 .5rem .2rem .5rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .attributes-container {
+        width: 100%;
+        @include display(flex);
+        @include justify-content(space-between);
+        padding: 0 3.06em 1.25em 1.81em;
+
+        @include media($medium-screen-down) {
+            padding: 0 10px 1.25em 10px;
+        }
+
+        .attributes {
+            @include display(flex);
+            padding-top: 15px;
+
+            .information-attribute {
+                @include align-items(flex-end);
+                @include display(flex);
+                margin-right: 1em;
+
+                .attribute-icon {
+                    width: 30px;
+                    vertical-align: bottom;
+                }
+
+                @include media($small-screen-down) {
+                    @include align-items(center);
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+.slider {
+    background-color: $c-grey-13;
+}
+
+input {
+    &:checked {
+        + .slider {
+            background-color: $black;
+        }
+    }
+
+    &:focus {
+        + .slider {
+            box-shadow: 0 0 1px $black;
+        }
+    }
+}

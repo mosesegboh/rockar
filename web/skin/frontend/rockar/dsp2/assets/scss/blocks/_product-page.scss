@@ -1,0 +1,163 @@
+.catalog-product-view {
+    @import 'shared/quotation';
+    @import 'product-page/sub-navigation';
+    @import 'color-slider/color-slider';
+    @import 'product-page/cosy-view-slider';
+
+    .car-hero {
+        @import 'product-page/images-slider';
+    }
+
+    .cosy-view {
+        > .carousel-wrapper {
+            .slick-arrow {
+                &.slick-disabled {
+                    display: none !important; // Overwrite slick inline styling
+                }
+            }
+
+            .carousel-image-wrapper {
+                position: relative;
+
+                .magnifying-glass {
+                    background-color: transparentize($c-grey-12, .5);
+                    position: absolute;
+                    width: 30px;
+                    height: 30px;
+                    top: 0;
+                    left: 0;
+
+                    &::after {
+                        @include sprite($sprite-search);
+                        content: '';
+                        position: absolute;
+                        top: 7px;
+                        left: 7px;
+                        transform: scale(1.2);
+                    }
+                }
+            }
+        }
+
+        .popup {
+            .slick-slide {
+                padding: 0;
+            }
+
+            .slick-prev,
+            .slick-next {
+                padding: 0;
+                border: 0;
+            }
+
+            .popup-button-close {
+                top: 10px;
+                right: 10px;
+            }
+        }
+    }
+
+    .outer-container {
+        padding: 0 1.5em;
+        width: 100%;
+
+        @include media($dsp2-medium-screen-up) {
+            padding: 0 3em;
+        }
+
+        @include media($dsp2-l-screen-up) {
+            padding: 0 6em;
+        }
+
+        @include media($dsp2-xl-screen-up) {
+            padding: unset;
+            margin: 0 auto;
+            max-width: unset;
+            overflow: hidden;
+        }
+
+        > .inner-container {
+            &:first-child {
+                width: 100%;
+                max-width: unset;
+                background-color: $white;
+
+                .page-title-wrapper {
+                    padding-top: 35px;
+                    margin: 0 auto;
+
+                    @include media($dsp2-medium-screen-up) {
+                        padding-top: 0;
+                    }
+
+                    @include media($dsp2-xl-screen-up) {
+                        max-width: 94em;
+                    }
+                }
+            }
+        }
+    }
+
+    .layout-2-cols {
+        max-width: none;
+        margin: 0 auto;
+        padding: .313em 1.5em 0;
+
+        @include media($dsp2-l-screen-up) {
+            padding: 0 6em;
+        }
+
+        @include media($dsp2-xl-screen-up) {
+            max-width: 94em;
+        }
+    }
+
+    .image-zoom-popup {
+        .popup-overlay {
+            background: $black;
+        }
+
+        .popup-content {
+            width: auto;
+            padding: 0;
+            background: transparent;
+        }
+    }
+
+    .finance-quote-wrapper {
+        &.mobile-only {
+            @include media($small-screen-down) {
+                display: block;
+            }
+
+            .lead-time {
+                margin: 6px;
+            }
+
+            .finance-delivery {
+                display: none;
+            }
+
+            .payment {
+                width: 50%;
+                text-align: center;
+            }
+        }
+    }
+
+    #my-build {
+        @import 'product-page/features';
+    }
+
+    .choose-vehicle-list {
+        @import 'product-page/pre-configured-cars';
+    }
+
+    footer {
+        .footer-wrapper {
+            @include media($small-screen-down) {
+                padding-bottom: $configurator-sub-nav-buttons-height-mobile;
+            }
+        }
+    }
+}

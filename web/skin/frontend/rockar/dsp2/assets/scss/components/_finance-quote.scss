@@ -1,0 +1,986 @@
+.finance-quote-wrapper {
+    position: relative;
+    max-width: 480px;
+    margin-left: auto;
+    transition: height 300ms 0s, box-shadow 100ms 200ms;
+
+    @include media($medium-screen-down) {
+        width: 100%;
+        max-width: none;
+        margin-left: 0;
+        position: fixed;
+        overflow: auto;
+        bottom: 0;
+        left: 0;
+        z-index: 999;
+        background-color: $white;
+        height: 0;
+    }
+
+    &.active {
+        @include media($medium-screen-down) {
+            height: 75vh;
+            box-shadow: 0 -200px 0 0 rgba(0, 0, 0, .8);
+        }
+
+        .finance-quote-top {
+            transition: height 300ms 0s;
+            height: 100vh;
+
+            &.active {
+                position: absolute;
+            }
+
+            .dsp2-outline {
+                margin-bottom: 160px;
+            }
+        }
+
+        .toggle {
+            bottom: calc(75vh - 1px);
+
+            .toggle-button {
+                .icon {
+                    transform: rotate(0deg);
+                }
+            }
+        }
+    }
+
+    &:not(.active) {
+        transition: height 300ms 0s, box-shadow 0s;
+    }
+
+    .finance-quote-top {
+        padding: 20px 25px 5px;
+
+        @include media($medium-screen-down) {
+            position: fixed;
+            overflow: auto;
+            padding: 15px 25px 235px 23px; // If left padding was changed, it needs to be changed for .offertags-container too
+            height: 138px;
+            z-index: 99;
+        }
+
+        .finance-payments {
+            background-color: $c-grey-6;
+
+            div {
+                &.payment {
+                    &:not(:first-child) {
+                        @include media($medium-screen-down) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        .finance-quote-title {
+            font-family: $bmw;
+            font-size: $dsp2-f-size-l;
+            line-height: $dsp2-line-h-32;
+        }
+
+        .finance-calculator {
+            font-family: $bmw-bold;
+            font-size: $dsp2-f-size-s;
+            line-height: $dsp2-line-h-20;
+            cursor: pointer;
+
+            span {
+                border-bottom: 1px solid $c-grey-3;
+            }
+        }
+
+        .finance-calculator-icon {
+            @include flex(0 0 10px);
+            background: url('../images/svg/icon-calculator.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 12px;
+            height: 12px;
+            margin-right: 4px;
+            display: inline-block;
+        }
+
+        .get-quote-button {
+            display: block;
+            padding: 0;
+            margin-top: 15px;
+
+            @include media($medium-screen-down) {
+                height: 250px;
+                margin-top: 20px;
+
+                // Target iPhone 12 and iPhone 12 Pro
+                @include device(390, 844, 3) {
+                    height: 170px;
+                }
+
+                // Target iPhone 12 Mini, specifically
+                @include device(375, 812, 3) {
+                    height: 160px;
+                }
+
+                // Target iPhone Pro Max, specifically
+                @include device(428, 926, 3) {
+                    height: 150px;
+                }
+            }
+
+            .actions-wrapper {
+                margin: 0;
+            }
+
+            button {
+                &.get-quote-icon-button {
+                    margin: 0;
+                    border: 1px solid $c-grey;
+                    transition: all .1s linear;
+
+                    &:hover {
+                        color: $c-grey;
+                        border-width: 1.5px;
+                        border: solid $c-grey;
+                    }
+
+                    .get-quote-cta-icon {
+                        font-family: $bmw-bold;
+                        font-size: initial;
+                        color: $c-grey-1;
+                        letter-spacing: 0;
+
+                        &::before {
+                            background: url('../images/svg/icon-email-quote.svg');
+                            background-repeat: no-repeat;
+                            background-position: bottom;
+                            width: 16px;
+                            height: 16px;
+                            display: inline-block;
+                            margin: 0 8px 0 0;
+                            transform: scale(1.3);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .finance-quote-bottom {
+        background-color: $white;
+
+        @include media($medium-screen-down) {
+            border-top: 3px solid $bmw-blue;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 142px;
+            z-index: 100;
+        }
+
+        .finance-payments {
+            margin: 0 1.4em 0;
+
+            @include media($large-screen-up) {
+                display: none !important; // overwrite default2 stylings
+            }
+
+            .payment {
+                border: none;
+            }
+        }
+
+        .finance-quote-buttons {
+            .dsp2-outline {
+                @include media($medium-screen-down) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .toggle {
+        display: none;
+        position: fixed;
+        width: 100%;
+        margin-top: -35px;
+        cursor: pointer;
+        left: 0;
+        padding-bottom: 8px;
+        border-bottom: 3px solid $bmw-blue;
+        bottom: 138px;
+        z-index: 999;
+        transition: bottom 300ms 0s;
+
+        @include media($medium-screen-down) {
+            display: block;
+        }
+
+        &-button {
+            height: 25px;
+            width: 66px;
+            background-color: $bmw-blue;
+            margin: 0 auto;
+            border: 3px solid $white;
+            border-radius: 20px;
+
+            .icon {
+                background-image: url('../images/svg/icon-arrow-white.svg');
+                background-repeat: no-repeat;
+                height: 100%;
+                width: 16px;
+                background-position: center;
+                margin: auto;
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    .button {
+        font-size: initial;
+    }
+
+    .finance-quote-floating {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 999;
+        width: 100%;
+
+        @include media($medium-screen-down) {
+            display: none;
+        }
+
+        .finance-quote-floating-wrapper {
+            margin: 0 auto;
+            padding: 0 6em;
+
+            @include media($dsp2-xl-screen-up) {
+                max-width: 94em;
+                padding: 0;
+            }
+        }
+
+        .finance-quote-floating-checkout {
+            background-color: $white;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, .15);
+            padding: 25px;
+            float: right;
+
+            .button {
+                margin: 0;
+            }
+        }
+    }
+
+    .offertags-container {
+        @include display(inline-flex);
+        position: absolute;
+        left: 23px; // If .finance-quote-top left padding for mobile was changed, this must have the same value
+        top: 0;
+        z-index: 1;
+
+        @include media($dsp2-l-screen-down) {
+            margin: 0;
+        }
+
+        @include media($dsp2-l-screen-up) {
+            left: 0;
+            top: 15px;
+        }
+
+        .offertags {
+            @include display(flex);
+            @include align-items(flex-start);
+            @include flex-direction(column);
+
+            .offertag-icon {
+                margin: 0;
+                max-height: 35px;
+            }
+
+            .offertag-label {
+                background-color: $white;
+                color: $c-grey;
+                height: 35px;
+                letter-spacing: 0;
+                line-height: 35px;
+                margin: 0;
+                font-family: $bmw-bold;
+                font-size: $dsp2-f-size-xs;
+                padding: 0 15px;
+                position: relative;
+
+                @include media($dsp2-l-screen-down) {
+                    height: 25px;
+                    line-height: 25px;
+                    padding: 0 10px;
+                }
+
+                &::after {
+                    border-right: 25px solid transparent;
+                    border-top: 35px solid $white;
+                    content: '';
+                    position: absolute;
+                    right: -25px;
+                    top: 0;
+
+                    @include media($dsp2-l-screen-down) {
+                        border-right-width: 18px;
+                        border-top-width: 25px;
+                        right: -18px;
+                    }
+                }
+            }
+        }
+
+        &.offertags-background {
+            margin: 0;
+
+            .offertag-label {
+                background-color: $c-grey;
+                color: $white;
+                margin: 0;
+
+                &::after {
+                    border-color: $c-grey;
+                    border-right-color: transparent;
+                }
+            }
+        }
+
+        &.offertags-blank {
+            @include media($small-screen-down) {
+                margin: unset;
+            }
+
+            .offertag-label {
+                margin: 0;
+                padding: 0 15px;
+                font: {
+                    weight: unset;
+                }
+
+                @include media($small-screen-down) {
+                    padding: 0 15px;
+                }
+            }
+        }
+
+        &.offertags-it {
+            @include media($dsp2-l-screen-up) {
+                top: 10px;
+            }
+
+            .offertags {
+                @include align-items(flex-start);
+                @include flex-direction(row);
+
+                .offertag-icon {
+                    align-self: flex-start;
+
+                    & ~ .offertag-label {
+                        background-color: unset;
+                    }
+                }
+
+                .offertag-label {
+                    line-height: 1.2;
+                    margin: 0 0 0 5px;
+                    padding: 0 10px;
+
+                    &::after {
+                        content: unset;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.finance-quote-configurator,
+.finance-quote-checkout {
+    background: $finance-quote-background;
+
+    .icon-email {
+        background: url('../images/svg/icon-email-quote.svg');
+        background-repeat: no-repeat;
+        background-position: bottom;
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+    }
+
+    .ved-info-trigger {
+        text-transform: lowercase;
+        cursor: pointer;
+        font-weight: $fw-black;
+    }
+
+    .ved-info-modal {
+        margin: auto;
+        padding: 5em 0;
+        line-height: 14px;
+        font-weight: $fw-normal;
+        font-size: $dsp2-f-size-xs;
+        font-family: $bmw-light;
+        letter-spacing: .1375em;
+
+        @include media($medium-screen-up) {
+            max-width: 50%;
+        }
+
+        a {
+            text-decoration: underline;
+        }
+    }
+
+    .finance-quote-header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        border: 0 !important; // overwrite default2 stylings
+
+        &-image {
+            margin: -10% auto -10%;
+            text-align: center;
+
+            img {
+                max-width: 80%;
+            }
+        }
+
+        &-body {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: baseline;
+            margin-bottom: 20px;
+
+            @include media($medium-screen-down) {
+                .finance-quote-title {
+                    font-size: $dsp2-f-size-l;
+                    line-height: $dsp2-line-h-32;
+                }
+
+                .finance-calculator {
+                    font-size: $dsp2-f-size-s;
+                    line-height: $dsp2-line-h-20;
+                }
+            }
+        }
+    }
+
+    .finance-quote {
+        word-break: keep-all;
+        font-family: $bmw-light;
+        transition: all .3s;
+        margin: 0;
+        padding: 0;
+
+        &.no-padding-bottom {
+            padding-bottom: .2em;
+        }
+
+        &.no-padding-top {
+            padding-top: .2em;
+        }
+
+        .group-title {
+            color: $c-grey;
+            text-transform: none;
+        }
+
+        .finance-quote-mobile-container & {
+            font-size: $dsp2-f-size;
+            padding: em(29) em(29) em(29) em(34);
+
+            @include media($medium-screen-down) {
+                padding: $dsp2-padding-20 $dsp2-padding-mobile;
+            }
+
+            &.no-padding-bottom {
+                padding-bottom: .2em;
+            }
+
+            &.no-padding-top {
+                padding-top: .2em;
+            }
+        }
+
+        .fq-heading {
+            font-size: $dsp2-f-size-s;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0;
+            line-height: 34px;
+            height: 31px;
+        }
+
+        .fq-button-wrapper {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: right;
+            float: right;
+
+            @include media($medium-screen-down) {
+                text-align: center;
+            }
+        }
+
+        .finance-quote-content {
+            font-size: $dsp2-f-size-s;
+            line-height: $dsp2-line-h-20;
+
+            .fq-padding-top {
+                padding-top: 1.5em;
+            }
+
+            .fq-label-text {
+                font-family: $bmw-light;
+            }
+
+            .fq-padding-bottom {
+                padding-bottom: 1.5em;
+            }
+
+            > .table {
+                padding: .75em 0;
+                margin: 0;
+
+                &.table-one,
+                &.table-two {
+                    td {
+                        font-weight: $fw-normal;
+                    }
+                }
+
+                td {
+                    font-weight: $fw-light;
+                    font-family: $bmw-light;
+                    color: $finance-quote-base-color;
+                    background: none;
+                    padding: 0;
+
+                    &:first-child {
+                        padding: .25em;
+                    }
+
+                    &:last-child {
+                        width: 50%;
+                        padding: 0 0 .5em .5em;
+                        text-align: end;
+                        text-transform: none;
+                    }
+
+                    &.separator {
+                        padding-bottom: 1.5em;
+                    }
+                }
+
+                tr {
+                    border-bottom: 1px solid $grey-2;
+                }
+
+                .deposit-data {
+                    tr:first-child {
+                        td {
+                            padding-top: 1.5em;
+                        }
+                    }
+
+                    tr:last-child {
+                        td {
+                            padding-bottom: 1.5em;
+                        }
+                    }
+                }
+
+                .customer-deposit {
+                    padding-bottom: 1.5em;
+                }
+
+                &.table-two {
+                    tr {
+                        &:not(:first-child) {
+                            .table-right {
+                                font-size: $dsp2-f-size-xs;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        span,
+        a {
+            word-break: keep-all;
+            display: inline-block;
+
+            @include media($medium-screen-down) {
+                font-size: $dsp2-f-size-s;
+            }
+        }
+
+        &.group-block {
+            table {
+                td:first-child {
+                    @include display(flex);
+                    @include flex-direction(row);
+                    width: auto;
+
+                    span {
+                        display: inline-block;
+                        max-width: 100%;
+                    }
+                }
+
+                tbody {
+                    tr {
+                        &:first-child {
+                            &:hover {
+                                span {
+                                    color: $black;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+
+                        &:not(:first-child) {
+                            &:hover {
+                                span {
+                                    color: $black;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Add accessories group expand icon
+            .expand {
+                background: url('../images/svg/icon-arrow.svg');
+                background-repeat: no-repeat;
+                background-position: center;
+                transform: rotate(-90deg);
+                width: 10px;
+                height: 10px;
+                display: inline-block;
+            }
+
+            // Add accessories group collapse icon
+            .collapse {
+                background: url('../images/svg/icon-arrow.svg');
+                background-repeat: no-repeat;
+                background-position: center;
+                width: 10px;
+                height: 10px;
+                display: inline-block;
+            }
+
+            // Add accessories remove icon
+            a.delete {
+                background: url('../images/svg/icon-cross.svg') no-repeat center;
+                transform: rotate(45deg);
+                width: 9px;
+                height: 9px;
+                display: inline-block;
+                margin: 4px 2px 0 0;
+            }
+
+            .group-title {
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            span.no-icon {
+                padding-left: 10px;
+            }
+
+            &.block-expand {
+                background-color: $white;
+
+                .group-title {
+                    color: $bmw-blue;
+                }
+            }
+        }
+    }
+
+    .finance-payments {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin: 0;
+
+        .payment {
+            display: flex;
+            justify-content: space-between;
+            text-align: left;
+            border-bottom: 1px solid $grey-2;
+            padding: 0 10px;
+
+            &:last-child {
+                padding-right: 0;
+            }
+
+            &:not(:last-child) {
+                border-right: 1px solid $c-grey-5;
+            }
+        }
+
+        .payment-amount {
+            font-family: $bmw;
+            font-size: $dsp2-f-size-xl;
+            line-height: $dsp2-line-h-28;
+            padding-top: 12px;
+        }
+
+        .payment-label {
+            font-family: $bmw-light;
+            font-size: $dsp2-f-size-s;
+            line-height: $dsp2-line-h-16;
+            padding-top: 4px;
+            color: $c-grey;
+        }
+    }
+
+    .finance-delivery {
+        text-align: center;
+        border-top: 1px solid $finance-quote-border-color;
+        border-left: 0;
+        border-right: 0;
+        margin: 5px 1.1em 1em;
+        padding: .3em 0;
+    }
+
+    .finance-quote-buttons {
+        margin: 0 10px !important; // overwrite default2 stylings
+
+        .button {
+            &:first-child {
+                margin-bottom: 10px;
+            }
+        }
+
+        .dsp2-money {
+            max-width: none;
+        }
+    }
+}
+
+.catalog-product-view {
+    .grid.inner-container.layout-2-cols {
+        position: relative;
+    }
+
+    @include media($medium-screen-down) {
+        &.modal-open {
+            #product-page-overlay {
+                &.overlay {
+                    .product-page-overlay-top {
+                        display: none;
+                    }
+
+                    .finance-quote-configurator {
+                        box-shadow: none;
+                    }
+
+                    #car-compare-wrapper {
+                        &.active {
+                            box-shadow: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.finance-quote-container {
+    position: relative;
+
+    .finance-quote-configurator {
+        .finance-quote-scroll {
+            overflow: hidden;
+
+            .gm-scroll-view {
+                overflow-x: hidden;
+            }
+        }
+
+        .finance-quote-actions {
+            text-align: center;
+            padding: 0 1.1em 1.1em;
+
+            button.button.button-empty {
+                text-align: center;
+                margin: 5px 0;
+                width: 100%;
+            }
+        }
+
+        .finance-quote-mobile-container & {
+            position: static;
+            top: 0;
+        }
+
+        .coupon {
+            padding: 0 1.1em 1.1em;
+        }
+    }
+
+    .link-edit-finance {
+        letter-spacing: .4px;
+        padding-top: 5px;
+    }
+}
+
+.finance-quote-checkout {
+    padding-bottom: 20px;
+
+    @include media($large-screen-up) {
+        margin-left: -15px;
+    }
+
+    .finance-quote-content {
+        .finance-delivery {
+            .fq-heading {
+                height: 40px;
+            }
+        }
+    }
+}
+
+.finance-quote-mobile-container {
+    padding: 10px 0 22px;
+    margin-bottom: 22px;
+
+    @include media($large-screen-up) {
+        border: 0;
+        padding: 0;
+        margin-bottom: 0;
+    }
+
+    .finance-quote-actions {
+        button {
+            width: 100%;
+            margin: 10px 0;
+        }
+    }
+}
+
+.finance-popup {
+    .popup-container {
+        .popup-content {
+            .table {
+                td {
+                    font-size: $dsp2-f-size-xs;
+                }
+            }
+        }
+    }
+}
+
+#configurator {
+    .finance-quote-mobile-container {
+        display: block;
+    }
+}
+
+.finance-quote-configurator {
+    .finance-quote {
+        &.group-block {
+            table {
+                tbody {
+                    &.Accessories {
+                        tr {
+                            &:not([class]) {
+                                td:first-child {
+                                    &:not([class]) {
+                                        display: grid;
+                                        grid-template-columns: 5px 1fr;
+                                        grid-gap: 10px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.catalog-product-view {
+    &.modal-open {
+        #product-page-overlay {
+            .finance-quote-top {
+                &.active {
+                    z-index: 101;
+                }
+            }
+        }
+
+        .finance-quote-wrapper {
+            .popup-content {
+                @include media($medium-screen-down) {
+                    margin: 0 auto 40px;
+                }
+
+                .get-quote-popup,
+                .get-quote-popup-success {
+                    .modal-header {
+                        font-size: $dsp2-f-size-xxl;
+                        text-transform: none;
+                        font-family: $bmw;
+                        line-height: $dsp2-line-h-40;
+
+                        @include media($medium-screen-down) {
+                            font-size: $dsp2-f-size-l;
+                            line-height: $dsp2-line-h-28;
+                            margin-bottom: 20px;
+                        }
+                    }
+
+                    .row {
+                        @include media($medium-screen-down) {
+                            margin: 0;
+                        }
+
+                        p {
+                            margin: 0 0 30px;
+
+                            @include media($medium-screen-down) {
+                                font-family: $bmw-light;
+                                font-size: $dsp2-f-size-xs;
+                                line-height: $dsp2-line-h-16;
+                                margin: 0 0 15px;
+                            }
+                        }
+
+                        span {
+                            @include media($medium-screen-down) {
+                                font-size: $dsp2-f-size;
+                            }
+                        }
+
+                        &.actions-row {
+                            button {
+                                @include media($large-screen-up) {
+                                    width: 50%;
+                                    max-width: 480px;
+                                    float: right;
+                                    margin-top: 30px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

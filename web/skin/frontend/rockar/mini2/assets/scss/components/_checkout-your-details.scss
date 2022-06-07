@@ -1,0 +1,207 @@
+.details_step {
+    .your-details {
+        div {
+            font-family: $mini-sans-serif-regular;
+        }
+
+        label {
+            @include media($small-screen-down) {
+                line-height: 1;
+            }
+        }
+
+        .terms-and-conditions-body {
+            p,
+            div {
+                color: $black;
+
+                &.h6,
+                .h6 {
+                    color: $black;
+                    font-family: $mini-sans-serif-regular;
+
+                    li {
+                        font-family: $mini-sans-serif-regular;
+                    }
+                }
+            }
+
+            a {
+                &:link,
+                &:visited,
+                &:hover,
+                &:active {
+                    &.dsp2-link {
+                        text-decoration: none;
+                        border-bottom: none;
+                        font-family: $mini-sans-serif-regular;
+                        font-size: $dsp2-f-size-xs;
+                        background: unset;
+                        margin: 0 -4px 0 0;
+                        color: $black;
+
+                        @include media($medium-screen-up) {
+                            font-size: $dsp2-f-size;
+                        }
+                    }
+                }
+            }
+
+            .validation-advice {
+                color: $c-mini-red-1;
+            }
+        }
+
+        .accordion {
+            li {
+                & > a {
+                    &.js-accordion-trigger {
+                        font-family: $mini-serif-regular;
+                        font-size: $dsp2-f-size;
+                        color: $black;
+
+                        @include media($medium-screen-up) {
+                            font-size: $dsp2-f-size-l;
+                        }
+                    }
+
+                    div {
+                        &.checked {
+                            border: 2px solid $black;
+
+                            div {
+                                background-image: url('../images/svg/icon-checkmark-bold.svg');
+                            }
+                        }
+                    }
+                }
+            }
+
+            .accept-terms {
+                font-family: $mini-sans-serif-regular;
+                color: $black;
+            }
+
+            .hover-label {
+                > span {
+                    font-size: $dsp2-f-size-s;
+                    line-height: $dsp2-line-h-32;
+                    margin: -16px 0 0;
+                    color: $c-grey-14;
+                    display: block;
+
+                    &.required {
+                        &::after {
+                            content: '*';
+                            display: block;
+                            position: absolute;
+                            right: 2px;
+                            top: -16px;
+                            color: $c-grey-14;
+                        }
+                    }
+                }
+
+                > div {
+                    color: $c-grey-14;
+                    font-family: $mini-sans-serif-regular;
+                    font-size: $dsp2-f-size-s;
+                }
+            }
+
+            .selectbox {
+                .selectbox-select {
+                    margin: inherit;
+                    font-family: unset;
+                    line-height: $dsp2-line-h-20;
+                }
+
+                &.disabled {
+                    border-left: none;
+
+                    .selectbox-select {
+                        border: 2px solid $c-mini-grey-1;
+                    }
+                }
+            }
+
+            .mandatory-title {
+                font-size: $dsp2-f-size-xs;
+                font-family: $mini-sans-serif-regular;
+                color: $black;
+            }
+
+            .finance-filter-slider-input {
+                input {
+                    padding: .5em 1.14em .1em;
+                }
+            }
+
+            .finance-credit {
+                .money-totals {
+                    .dsp2-subtitle {
+                        font-family: $mini-sans-serif-regular;
+
+                        @include media($medium-screen-up) {
+                            margin: 0 36px 0 0;
+                        }
+                    }
+
+                    .h3 {
+                        color: $black;
+                        font-family: $mini-serif-bold;
+                    }
+                }
+
+                p {
+                    &.accept-terms-statement {
+                        font-family: $mini-sans-serif-regular;
+                        color: $black;
+                    }
+                }
+
+                .dsp2-subtitle-s {
+                    font-family: $mini-sans-serif-regular;
+                    color: $black;
+                }
+
+                .bottom-checkboxes {
+                    .dsp2-body-s {
+                        font-family: $mini-sans-serif-regular;
+                    }
+                }
+
+                &-preferences {
+                    .dsp2-body-s {
+                        font-family: $mini-sans-serif-regular;
+                    }
+                }
+            }
+
+            .bank-account-text {
+                p {
+                    font-family: $mini-sans-serif-regular;
+                    color: $black;
+
+                    a {
+                        &:link,
+                        &:visited,
+                        &:hover,
+                        &:active {
+                            &.dsp2-link {
+                                text-decoration: none;
+                                border-bottom: none;
+                                font-family: $mini-sans-serif-regular;
+                                font-size: $dsp2-f-size;
+                                background: unset;
+                                margin: 0 -4px 0 0;
+                                color: $black;
+                                line-height: 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

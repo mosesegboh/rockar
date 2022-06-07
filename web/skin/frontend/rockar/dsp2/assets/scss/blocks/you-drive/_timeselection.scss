@@ -1,0 +1,95 @@
+.step-three-no-inherit {
+    #timepicker {
+        @include media($large-screen-up) {
+            flex-direction: row;
+        }
+
+        .calendar {
+            @include media($large-screen-up) {
+                width: 40%;
+            }
+            .ui-datepicker-header {
+                background: none;
+
+                @include media($large-screen-up) {
+                    width: 90%;
+                    margin-left: 5%;
+                }
+            }
+            .ui-datepicker-calendar {
+                thead {
+                    background: none;
+                    th {
+                        // Week day text
+                        span {
+                            color: $c-grey;
+                        }
+                    }
+                }
+
+                th,
+                td {
+                    // All cells
+                    &,
+                    a,
+                    span {
+                        right: 0;
+                    }
+                }
+
+                tbody {
+                    .ui-state-disabled,
+                    .ui-datepicker-unselectable {
+                        a,
+                        span {
+                            color: $c-grey;
+                        }
+                    }
+                }
+            }
+        }
+
+        .timepicker-time {
+            @include media($large-screen-up) {
+                width: 60%;
+                padding: 34px 20px 0;
+            }
+
+            .timepicker-title {
+                font-family: $bmw-light;
+                text-align: center;
+                margin-bottom: 24px;
+            }
+
+            .timepicker-body {
+                flex-wrap: nowrap;
+
+                .timepicker-hour {
+                    margin: 0 4% 4% 0;
+                    width: 22%;
+                    font-family: $bmw-bold;
+                    border: none;
+                    outline: 1px solid $c-grey-5;
+
+                    &:nth-of-type(4n) {
+                        margin-right: 0;
+                    }
+
+                    &.available {
+                        &.selected,
+                        &:hover {
+                            color: $c-grey;
+                            background: $white;
+                            outline: 2px solid $bmw-blue;
+                        }
+                    }
+
+                    &.not-available {
+                        background: $white;
+                        color: $timepicker-timeslot-not-available-text-color;
+                    }
+                }
+            }
+        }
+    }
+}

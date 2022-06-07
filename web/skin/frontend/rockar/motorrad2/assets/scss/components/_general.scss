@@ -1,0 +1,96 @@
+* {
+    outline: none;
+}
+
+p {
+    color: $black;
+    font-family: $motorrad-regular;
+}
+
+.tooltipster-content {
+    div {
+        p {
+            color: $black;
+            font-family: $motorrad-regular;
+        }
+    }
+}
+
+
+body,
+input,
+label,
+select,
+#{$all-text-inputs},
+select[multiple=multiple],
+textarea {
+    font-family: $motorrad-regular;
+}
+
+button,
+a {
+    color: $c-motorrad-blue;
+    font-family: $motorrad-regular;
+
+    &:focus,
+    &:active,
+    &:hover {
+        color: $c-motorrad-blue;
+        opacity: 1;
+    }
+}
+
+.color-link {
+    color: $c-motorrad-blue;
+
+    &:hover {
+        color: $c-motorrad-blue;
+    }
+}
+
+.badge {
+    font-family: $motorrad-bold;
+    background: $black;
+
+    &.empty {
+        border: 2px solid $black;
+        color: $black;
+    }
+
+    &.checked {
+        border: 2px solid $black;
+    }
+}
+
+.catalog-category-view {
+    &.categorypath-bike-finder {
+        &.category-bike-finder {
+            .outer-container {
+                @include media($dsp2-xl-screen-up) {
+                    max-width: 1620px;
+                }
+
+                .car-finder-filters {
+                    margin-bottom: 314px;
+                }
+            }
+
+            &.on-light {
+                #car-finder {
+                    .filters-wrapper {
+                        @include media($dsp2-xl-screen-up) {
+                            padding: 1em 0 0 80px;
+                        }
+                    }
+
+                    .car-filter-step {
+                        @include media($dsp2-xl-screen-up) {
+                            max-width: 94em;
+                            margin: 50px 0 0 80px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

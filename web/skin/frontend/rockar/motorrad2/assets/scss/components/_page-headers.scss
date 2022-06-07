@@ -1,0 +1,30 @@
+#page-header {
+    padding: 0 6em 30px;
+
+    .header-desktop {
+        .title {
+            font-family: $motorrad-bold;
+            font-size: $motorrad-f-size-52;
+            line-height: $motorrad-line-h-52;
+            color: $black;
+
+            @include media($medium-screen-down) {
+                font-size: $dsp2-f-size-xl;
+            }
+        }
+
+        .previous {
+            span {
+                color: $black;
+                font-family: $motorrad-bold;
+            }
+        }
+    }
+
+    .header-mobile {
+        color: $black;
+        font-family: $motorrad-bold;
+        font-size: $dsp2-f-size-l;
+        line-height: $dsp2-line-h-24;
+    }
+}

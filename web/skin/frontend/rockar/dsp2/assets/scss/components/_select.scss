@@ -1,0 +1,472 @@
+.id-document-type {
+    .selectbox-dropdown {
+        height: auto !important; //Used to overwrite inline style applied to dropdown
+    }
+}
+
+.selectbox {
+    position: relative;
+    font-family: $bmw-bold;
+    font-weight: $fw-semibold;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: .8em;
+    font-size: $dsp2-f-size;
+    border: solid 1px $c-grey-5;
+
+    .select-1 & {
+        max-width: 445px;
+    }
+
+    .select-2 & {
+        max-width: 175px;
+    }
+
+    .select-3 & {
+        max-width: 130px;
+    }
+
+    &.open {
+        .selectbox-select {
+            background: transparent;
+
+            .dropdown-caret {
+                &::after {
+                    @include size(12px);
+                    content: '';
+                    display: block;
+                    border-right: 3px solid $c-grey-1;
+                    border-top: 3px solid $c-grey-1;
+                    transform: rotate(315deg) translateY(0%);
+                    transform-origin: 50% 50%;
+                    background-image: none;
+                    margin-top: 0;
+                    right: 15px;
+                    top: 50%;
+                    opacity: 1;
+                    }
+                }
+            }
+        }
+
+    &.disabled {
+        opacity: .5 !important;
+
+        .selectbox-select {
+            cursor: not-allowed;
+            border: 1px solid $c-grey-2;
+            border-left: $bmw-nav;
+        }
+    }
+
+    &.grey-dropdown {
+        .selectbox-select {
+            text-align: left;
+
+            .dropdown-caret {
+                background: transparent;
+                border-left: 1px solid $white;
+
+                &::after {
+                    @include sprite($sprite-arrow-down-dark);
+
+                    @include media($small-screen-down) {
+                        background-image: none;
+                        background-position: unset;
+                        width: 12px;
+                        height: 12px;
+                    }
+                }
+            }
+        }
+
+        &.open {
+            .selectbox-select {
+                background: $white;
+
+                .dropdown-caret {
+                    &::after {
+                        @include transform(rotate(180deg));
+
+                        @include media($small-screen-down) {
+                            transform: rotate(315deg) translateY(0%);
+                        }
+                    }
+                }
+            }
+        }
+
+        &.selected {
+            .selectbox-wrapper {
+                border-left: $bmw-active-nav;
+            }
+        }
+    }
+
+    .selectbox-select {
+        position: relative;
+        background: transparent;
+        border: none;
+        color: $c-grey;
+        line-height: 15px;
+        cursor: pointer;
+        padding: 17px 59px 14px 19px;
+        min-height: 48px;
+        border-left: $bmw-nav;
+
+        &:hover {
+            background: $white;
+            border-left: $bmw-active-nav;
+        }
+
+        &:active {
+            border-left: $bmw-active-nav;
+        }
+
+        &:focus {
+            border-left: $bmw-active-nav;
+        }
+
+        .dropdown-caret {
+            @include position(absolute, 0px 0 null null);
+            width: 40px;
+            height: 100%;
+            background: transparent;
+
+            &::after {
+                @include size(12px);
+                content: '';
+                display: block;
+                border-right: 3px solid $c-grey-1;
+                border-top: 3px solid $c-grey-1;
+                transform: rotate(135deg) translateY(-50%);
+                transform-origin: 50% 0%;
+                background-image: none;
+                margin-top: 0;
+                right: 15px;
+                top: 50%;
+                opacity: 0.7;
+
+                &:hover {
+                    @include size(12px);
+                    content: '';
+                    display: block;
+                    border-right: 3px solid $bmw-blue;
+                    border-top: 3px solid $bmw-blue;
+                    transform: rotate(135deg) translateY(-50%);
+                    transform-origin: 50% 0%;
+                    background-image: none;
+                    margin-top: 0;
+                    right: 15px;
+                    top: 50%;
+                    opacity: 0.7;
+                }
+
+                &:focus {
+                    border-right: 2px solid $c-grey;
+                    border-top: 2px solid $c-grey;
+                    transform: rotate(45deg) translateY(-50%);
+                    transform-origin: 50% 50%;
+                }
+            }
+        }
+    }
+
+    .selectbox-dropdown {
+        position: absolute;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: $white;
+        z-index: 999;
+        overflow-y: scroll;
+        border: solid 2px #e6e6e6;
+
+        .dropdown-item {
+            color: $c-grey;
+            padding: 10px 19px;
+            line-height: 25px;
+            border: 1px solid $white;
+            cursor: pointer;
+
+            &:nth-child(3n) {
+                background: transparent;
+                border-left: 4px solid $white;
+            }
+
+            &:nth-child(3n+1) {
+                background: transparent;
+                border-left: 4px solid $white;
+            }
+
+            &:nth-child(3n+2) {
+                background: transparent;
+                border-left: 4px solid $white;
+            }
+
+            &.selected {
+                background: transparent;
+                border-left: $bmw-active-nav;
+            }
+
+            &:hover {
+                background: transparent;
+                border-left: $bmw-active-nav;
+            }
+        }
+    }
+}
+
+.category-car-finder,
+.category-bike-finder,
+.checkout-cart-index,
+.customer-account-index,
+.checkout-onepage-index,
+.styleguide-page {
+    .selectbox-wrapper {
+        position: relative;
+        margin-bottom: .8em;
+
+        .selectbox-label {
+            background: $white;
+            padding: 0 10px;
+            margin: 0 0 0 10px;
+            position: absolute;
+            top: -11px;
+            z-index: 1;
+            color: $c-grey-3;
+            font-family: $bmw;
+            font-size: $dsp2-f-size-xs;
+        }
+    }
+
+    .selectbox {
+        margin: .8em 0 .8em;
+        border: none;
+
+        &.open {
+            .selectbox-select {
+                background: transparent;
+
+                .dropdown-caret {
+                    &::after {
+                        @include size(9px);
+                        content: '';
+                        display: block;
+                        border-right: 2px solid $c-grey-3;
+                        border-top: 2px solid $c-grey-3;
+                        transform: rotate(315deg) translateY(0%);
+                        transform-origin: 50% 50%;
+                        background-image: none;
+                        margin-top: 0;
+                        right: 15px;
+                        top: 50%;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        &.disabled {
+            border-left: 1px solid $c-grey-5;
+
+            .selectbox-select {
+                cursor: not-allowed;
+                border: solid 1px $c-grey-5;
+                border-left: 4px solid $white;
+
+                .dropdown-caret {
+                    &::after {
+                        border-right: 2px solid $c-grey-5;
+                        border-top: 2px solid $c-grey-5;
+                    }
+                }
+
+                &:hover {
+                    border: solid 1px $c-grey-5;
+                    border-left: 4px solid $white;
+                    padding: 17px 59px 14px 19px;
+                    line-height: 15px;
+
+                    .dropdown-caret {
+                        width: 40px;
+                    }
+                }
+
+                &:focus {
+                    border: solid 1px $c-grey-5;
+                    border-left: 4px solid $white;
+                    padding: 17px 59px 14px 19px;
+                    line-height: 15px;
+
+                    .dropdown-caret {
+                        width: 40px;
+                    }
+                }
+            }
+        }
+
+        .selectbox-select {
+            position: relative;
+            background: transparent;
+            color: $c-grey;
+            font-family: $bmw;
+            line-height: 15px;
+            cursor: pointer;
+            padding: 17px 59px 14px 19px;
+            min-height: 52px;
+            border: solid 1px $c-grey-4;
+
+            &.selectbox-title {
+                color: $c-grey-2;
+                font-family: $bmw-light;
+            }
+
+            &:hover {
+                background: unset;
+                border: 2px solid $c-grey-3;
+                padding: 17px 59px 14px 18px;
+                line-height: 13px;
+
+                .dropdown-caret {
+                    width: 38px;
+                }
+            }
+
+            &:active {
+                border: 2px solid $c-grey-1;
+                padding: 17px 59px 14px 18px;
+                line-height: 13px;
+
+                .dropdown-caret {
+                    width: 38px;
+                }
+            }
+
+            &:focus {
+                border: 2px solid $c-grey-1;
+                padding: 17px 59px 14px 18px;
+                line-height: 13px;
+
+                .dropdown-caret {
+                    width: 38px;
+                }
+            }
+
+            .dropdown-caret {
+                @include position(absolute, 0px 0 null null);
+                width: 40px;
+                height: 100%;
+                background: transparent;
+
+                &::after {
+                    @include size(9px);
+                    content: '';
+                    display: block;
+                    border-right: 2px solid $c-grey-3;
+                    border-top: 2px solid $c-grey-3;
+                    transform: rotate(135deg) translateY(-50%);
+                    transform-origin: 50% 0;
+                    background-image: none;
+                    margin-top: 0;
+                    right: 15px;
+                    top: 50%;
+                    opacity: 1;
+
+                    &:hover {
+                        @include size(12px);
+                        content: '';
+                        display: block;
+                        border-right: 3px solid $bmw-blue;
+                        border-top: 3px solid $bmw-blue;
+                        transform: rotate(135deg) translateY(-50%);
+                        transform-origin: 50% 0;
+                        background-image: none;
+                        margin-top: 0;
+                        right: 15px;
+                        top: 50%;
+                        opacity: 1;
+                    }
+
+                    &:focus {
+                        border-right: 2px solid $c-grey;
+                        border-top: 2px solid $c-grey;
+                        transform: rotate(45deg) translateY(-50%);
+                        transform-origin: 50% 50%;
+                    }
+                }
+            }
+        }
+
+        .selectbox-dropdown {
+            position: absolute;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: $white;
+            z-index: 999;
+            overflow-y: scroll;
+            border: solid 2px $c-grey-6;
+            filter: drop-shadow(0 6px 6px $c-grey-6);
+            display: block;
+            font-family: $bmw-light;
+            font-size: $dsp2-f-size;
+
+            .dropdown-item {
+                color: $c-grey;
+                padding: 10px 19px;
+                line-height: 25px;
+                border: none;
+                cursor: pointer;
+                position: relative;
+
+                &:nth-child(3n) {
+                    background: transparent;
+                    border: none;
+                }
+
+                &:nth-child(3n+1) {
+                    background: transparent;
+                    border: none;
+                }
+
+                &:nth-child(3n+2) {
+                    background: transparent;
+                    border: none;
+                }
+
+                &.selected {
+                    background: transparent;
+                    border: none;
+
+                    &:after {
+                        content: '';
+                        @include size(16px 12px);
+                        background-image: url('../images/svg/icon-checkmark.svg');
+                        background-repeat: no-repeat;
+                        position: absolute;
+                        top: 15px;
+                        right: 18px;
+                    }
+                }
+
+                &:hover {
+                    background: $c-grey-6;
+                    border: none;
+                }
+            }
+
+            // Styles if custom scrollbar added BEGIN
+            .ps {
+                .ps__scrollbar-y-rail {
+                    background: $white;
+
+                    .ps__scrollbar-y {
+                        background: $c-grey-2;
+                    }
+                }
+            }
+            // Custom scrollbar styles END
+        }
+    }
+}

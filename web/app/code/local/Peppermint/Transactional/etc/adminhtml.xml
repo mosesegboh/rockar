@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Transactional
+ * @author    Donald Mailula <mailula.donald@partner.bmw.co.za>
+ * @copyright Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <peppermint_transactional translate="title">
+                                        <title>Transactional</title>
+                                        <sort_order>0</sort_order>
+                                    </peppermint_transactional>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

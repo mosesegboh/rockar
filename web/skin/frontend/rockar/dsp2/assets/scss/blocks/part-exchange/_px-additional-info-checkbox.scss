@@ -1,0 +1,54 @@
+.px-additional-info-checkbox {
+    margin-bottom: em(10);
+
+    p {
+        color: $c-red-2;
+    }
+
+    label {
+        span {
+            &::before {
+                top: -3px;
+                right: -2px;
+            }
+        }
+    }
+
+    .info-label-wrap {
+        position: relative;
+        display: inline-block;
+
+        @include media($small-screen-down) {
+            padding-right: 35px;
+        }
+
+        .px-light-text {
+
+            @include media($medium-screen-up) {
+                font-size: $dsp2-f-size;
+            }
+
+            @include media($small-screen-down) {
+                font-size: $dsp2-f-size-s;
+            }
+        }
+
+        .action-badge {
+            @include media($small-screen-down) {
+                padding-left: 5px;
+                bottom: 0;
+                top: auto;
+                right: 0;
+                position: relative;
+            }
+        }
+    }
+
+    .warning,
+    p {
+        @include media($medium-screen-up) {
+            font-size: 12px;
+            font-weight: $fw-normal;
+        }
+    }
+}

@@ -1,0 +1,438 @@
+a {
+    &.view-more,
+    &.back-to-top {
+        color: $back-to-top-color;
+    }
+}
+
+.view-more,
+.back-to-top {
+    $button-spacing: 2em;
+
+    background-color: $grey-2;
+    color: $back-to-top-color;
+    text-transform: uppercase;
+    padding: $button-spacing / 2 $button-spacing;
+    border-radius: 50px;
+    font-family: $primary-font-family;
+    font-size: $f-size-xxs;
+    font-weight: $fw-heavy;
+    letter-spacing: .2em;
+    display: inline-block;
+    margin-bottom: 1em;
+
+    &::after {
+        @include sprite($sprite-back-to-top-arrow);
+        content: '';
+        display: inline-block;
+        margin-left: $button-spacing / 2;
+    }
+
+    &:hover {
+        color: darken($back-to-top-color, 15%);
+    }
+}
+
+.view-more {
+    &::after {
+        @include sprite($sprite-view-more-arrow);
+    }
+}
+
+.expand-collapse {
+    position: relative;
+    display: inline-block;
+    width: 54px;
+    height: 44px;
+    text-indent: -9999px;
+    border: $expand-collapse-border-color;
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 22px;
+        height: 12px;
+        top: 50%;
+        margin-top: -6px;
+        left: 50%;
+        margin-left: -11px;
+    }
+
+    &.expand::after {
+        @include sprite($sprite-action-expand-dark);
+    }
+
+    &.collapse::after {
+        @include sprite($sprite-action-collapse-dark);
+    }
+
+    &:hover {
+        border: $expand-collapse-border-color-hover;
+        background: $expand-collapse-background-hover;
+
+        &.expand::after {
+            @include sprite($sprite-action-expand-light);
+        }
+
+        &.collapse::after {
+            @include sprite($sprite-action-collapse-light);
+        }
+    }
+}
+
+.nav-actions {
+    position: relative;
+    display: inline-block;
+    text-indent: -9999px;
+    width: 25px;
+    height: 25px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+    }
+
+    &.nav-actions--light {
+
+        &.back {
+
+            &::after {
+                @include sprite($sprite-nav-actions-back-light);
+                left: 0;
+            }
+        }
+
+        &.next {
+
+            &::after {
+                @include sprite($sprite-nav-actions-next-light);
+                left: 0;
+            }
+        }
+    }
+
+    &.nav-actions--dark {
+        background: $call-to-action-background-color;
+        border-radius: 25px;
+
+        &.back::after {
+            @include sprite($sprite-nav-actions-back-dark);
+            left: -1px;
+        }
+
+        &.next::after {
+            @include sprite($sprite-nav-actions-next-dark);
+            left: 2px;
+        }
+    }
+}
+
+input[type=button],
+button,
+.button,
+.call-to-action {
+    box-sizing: border-box;
+    display: inline-block;
+    font-family: $primary-font-family;
+    font-weight: $button-fw;
+    letter-spacing: .05em;
+    border: 1px solid $call-to-action-background-color;
+    border-radius: 0;
+    padding: $button-narrow-height-padding $button-width-padding $button-narrow-bottom-height-padding;
+    text-transform: uppercase;
+    font-size: $button-font-size;
+    color: $call-to-action-color;
+    background: $call-to-action-background-color;
+    vertical-align: bottom;
+    line-height: 1;
+
+    &:disabled {
+        opacity: 1 !important;
+    }
+
+    &.left {
+        float: left;
+    }
+
+    &.right {
+        float: right;
+    }
+
+    &:focus {
+        color: $call-to-action-color;
+        background: $call-to-action-background-color;
+    }
+
+    &:active,
+    &:hover {
+        color: $black;
+        background: $white;
+        border: 1px solid $black;
+    }
+
+    // Redundant but often used
+    // Should be removed
+    &.button-dark {
+        color: $call-to-action-color;
+        background: $call-to-action-background-color;
+    }
+
+    // LATEST BUTTONS
+
+    &.button-white {
+        color: $button-white-color;
+        background: $button-white-background-color;
+        border: 1px solid $button-white-background-color;
+    }
+
+    &.button-default {
+        color: $call-to-action-color;
+        background: $call-to-action-background-color;
+        border: 1px solid $black;
+    }
+
+    &.button-disabled {
+        color: $button-disabled-color;
+        background: $button-disabled-background-color;
+        border: 1px solid $button-disabled-background-color;
+    }
+
+    &.button-black {
+        color: $button-black-color;
+        background: $button-black-background-color;
+        border: 1px solid $black;
+    }
+
+    &.button-gray-light {
+        color: $button-grey-light-color;
+        background: $button-grey-light-background-color;
+        border: 1px solid $black;
+    }
+
+    &.button-gray-light-2 {
+        color: $black;
+        background: $white;
+        border: 1px solid $black;
+
+        &:hover {
+            color: $white;
+            background: $black;
+            border: 1px solid $black;
+        }
+    }
+
+    &.button-gray {
+        color: $button-grey-color;
+        background: $button-grey-background-color;
+        border: 1px solid $black;
+    }
+
+    &.button-gray-dark {
+        color: $button-grey-dark-color;
+        background: $button-grey-dark-background-color;
+        border: 1px solid $black;
+    }
+
+    &.button-empty {
+        color: $button-empty-color;
+        background: transparent;
+        border: 1px solid $button-empty-color;
+    }
+
+    &.button-empty-light {
+        color: $button-empty-light-color;
+        background: transparent;
+        border: 1px solid $button-empty-light-border-color;
+    }
+
+    &.button-empty-white-color {
+        color: $button-empty-white-color;
+        background: transparent;
+        border: 1px solid $button-empty-white-color;
+    }
+
+    &.button-narrow {
+        padding: $button-narrow-height-padding 1.55em $button-narrow-bottom-height-padding;
+    }
+
+    &.wide {
+        padding: 1.45em 6em;
+    }
+
+    &.full-width {
+        float: none;
+        display: block;
+        width: 100%;
+        max-width: 100%;
+
+        @include media($medium-screen-up) {
+            max-width: $input-field-width;
+        }
+    }
+
+    &.cms-full-width {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 0 1em;
+        text-align: center;
+        display: table;
+
+        span {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+
+    &.button-edit {
+        &::after {
+            @include sprite($sprite-pencil-icon);
+            content: '';
+            display: inline-block;
+            vertical-align: baseline;
+            margin-left: .25em;
+        }
+    }
+
+    &.button-cancel {
+        color: $button-cancel-color;
+        background: $button-cancel-background-color;
+        border: 1px solid $button-cancel-background-color;
+        font-size: $f-size-xxxs;
+        padding: 1em 1.55em;
+        font-weight: $fw-normal;
+        font-family: $secondary-font-family;
+    }
+
+    &.button-red {
+        color: $button-red-color;
+        background: $button-red-background-color;
+        border: 1px solid $button-red-background-color;
+    }
+
+    &.button-medium {
+        padding: 1em 2.55em;
+    }
+
+    &.regular-size {
+        padding: $button-height-padding $button-width-padding;
+        font-size: $button-font-size;
+    }
+
+    .mobile-hide,
+    &.mobile-hide {
+        display: none;
+
+        @include media($medium-screen-up) {
+            display: inline-block;
+        }
+    }
+}
+
+.btn-mobile-large {
+    @include media($small-screen-down) {
+        width: 100%;
+        height: 73px;
+        line-height: 60px;
+        font-size: $f-size-xxxl;
+        padding: .39em 1.16em;
+    }
+}
+
+.input-wrapper {
+    max-width: $input-field-width;
+}
+
+.finance-selection .finance-options .finance-groups .group-wrapper .finance-group-button button {
+    width: 100%;
+    margin: 0;
+    border-top: 1px solid $off-white;
+    border-bottom: 1px solid $off-white;
+    background: $white;
+    color: $black;
+    font-family: $mini;
+    font-size: $f-size-xl;
+    font-weight: 100;
+    padding: 20px 10px 20px 10px;
+}
+
+
+@media screen and (min-width: 46.0625em){
+.input[type=button].full-width, button.full-width, .button.full-width, .call-to-action.full-width {
+    display: block;
+    width: 100%;
+    }
+}
+
+@media screen and (min-width: 46.0625em){
+  button.button.button-narrow.next-step.mobile-only.full-width {
+      display: none;
+  }
+}
+
+input[type=button].button-narrow, button.button-narrow, .button.button-narrow, .call-to-action.button-narrow {
+    padding: 0.6625em 1.55em 0.5625em;
+    width: 240px;
+    height: $primary-input-height;
+
+    @include media($small-screen-down) {
+        margin-top: 10px;
+        width: 100%;
+    }
+}
+
+input[type=button].button-default, button.button-default, .button.button-default, .call-to-action.button-default {
+    color: $white;
+    background: $mini-green;
+    border: 1px solid $mini-green;
+
+    &:hover {
+        background-color: $white;
+        border: 1px solid $black;
+        color: $black;
+    }
+}
+
+.finance-selection .finance-options .finance-groups .group-wrapper .finance-group-button button:hover, .finance-selection .finance-options .finance-groups .group-wrapper .finance-group-button button.selected {
+    background: $white;
+    color: $black;
+}
+
+.popup-no input[type=button].button-narrow  {
+    padding: 0.6625em 1.55em 0.5625em;
+    width: 240px;
+    height: $primary-input-height;
+    border: 1px solid $black;
+
+    &:hover {
+        background-color: $black;
+        color: $black;
+        border: 1px solid $black;
+    }
+}
+
+input[type=button]:active, input[type=button]:hover, button:active, button:hover, .button:active, .button:hover, .call-to-action:active, .call-to-action:hover {
+    color: $black;
+    background: $white;
+    border: 1px solid $black;
+}
+
+input[type=button].button-dark, button.button-dark, .button.button-dark, .call-to-action.button-dark {
+    color: $white;
+    background: $mini-green;
+
+    &:hover {
+        background: $white;
+        border: 1px solid $black;
+        color: $black;
+    }
+}
+
+.button {
+    .button-narrow {
+        .button-grey {
+            background-color: $black;
+            border: 1px solid $black;
+        }
+    }
+}

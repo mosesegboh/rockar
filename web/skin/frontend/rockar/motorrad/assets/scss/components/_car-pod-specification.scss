@@ -1,0 +1,40 @@
+.catalog-category-view {
+    .category-products {
+        .category-products-list {
+            .attribute-list {
+                li {
+                    font-size: $f-size-xs;
+                    line-height: 19px;
+                    letter-spacing: $base-letter-spacing;
+                    font-weight: $motorrad-fw-normal;
+                }
+            }
+
+            .option-title {
+                float: left;
+                width: 69%;
+            }
+
+            .option-price {
+                float: right;
+                margin-right: 60px;
+
+                @include media($small-screen-down) {
+                    margin-right: 25px;
+                }
+            }
+
+            .option-total-price {
+                margin-top: 30px;
+                text-transform: none;
+                letter-spacing: $base-letter-spacing;
+                font-size: $f-size-xs;
+                font-weight: $motorrad-fw-normal;
+
+                @include media($small-screen-down) {
+                    letter-spacing: $base-letter-spacing;
+                }
+            }
+        }
+    }
+}

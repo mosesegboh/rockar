@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint_Compare
+ * @author       Dominic Sutton <dominic.sutton@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_Compare>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Rockar_Compare/>
+            </depends>
+        </Peppermint_Compare>
+    </modules>
+</config>

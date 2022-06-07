@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Dfe
+ * @author    Adrian Grigorita <adrian.grigorita@rockar.com>
+ * @copyright Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_Dfe>
+            <version>0.1.5</version>
+        </Peppermint_Dfe>
+    </modules>
+    <frontend>
+        <routers>
+            <peppermint_dfe>
+                <use>standard</use>
+                <args>
+                    <module>Peppermint_Dfe</module>
+                    <frontName>dfe</frontName>
+                </args>
+            </peppermint_dfe>
+        </routers>
+    </frontend>
+    <global>
+        <blocks>
+            <peppermint_dfe>
+                <class>Peppermint_Dfe_Block</class>
+            </peppermint_dfe>
+        </blocks>
+        <helpers>
+            <peppermint_dfe>
+                <class>Peppermint_Dfe_Helper</class>
+            </peppermint_dfe>
+        </helpers>
+        <models>
+            <peppermint_dfe>
+                <class>Peppermint_Dfe_Model</class>
+                <resourceModel>peppermint_dfe_resource</resourceModel>
+            </peppermint_dfe>
+            <peppermint_dfe_resource>
+                <class>Peppermint_Dfe_Model_Resource</class>
+                <entities>
+                    <bank_branches>
+                        <table>peppermint_dfe_bank_branches</table>
+                    </bank_branches>
+                    <reference_code>
+                        <table>peppermint_dfe_reference_code</table>
+                    </reference_code>
+                    <resend_order>
+                        <table>peppermint_dfe_resend_order</table>
+                    </resend_order>
+                </entities>
+            </peppermint_dfe_resource>
+        </models>
+        <resources>
+            <peppermint_dfe_setup>
+                <setup>
+                    <module>Peppermint_Dfe</module>
+                </setup>
+            </peppermint_dfe_setup>
+        </resources>
+        <events>
+            <rockar_order_confirmation_prepare_order_data>
+                <observers>
+                    <peppermint_dfe_order_placed>
+                        <class>peppermint_dfe/observer</class>
+                        <method>sendOrderAfterCheckoutToDfe</method>
+                        <type>singleton</type>
+                    </peppermint_dfe_order_placed>
+                </observers>
+            </rockar_order_confirmation_prepare_order_data>
+            <peppermint_order_amendment_accepted>
+                <observers>
+                    <peppermint_dfe_order_amended>
+                        <class>peppermint_dfe/observer</class>
+                        <method>sendOrderAfterAmendmentToDfe</method>
+                        <type>singleton</type>
+                    </peppermint_dfe_order_amended>
+                </observers>
+            </peppermint_order_amendment_accepted>
+        </events>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Peppermint_Dfe before="Mage_Adminhtml">Peppermint_Dfe_Adminhtml</Peppermint_Dfe>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <default>
+        <peppermint_dfe>
+            <api>
+                <wsdl_url><![CDATA[https://apim-alpha-dev.bmwgroup.com/dvs/bmwza/nfsc/financeapp?wsdl]]></wsdl_url>
+                <service_url><![CDATA[https://apim-alpha-dev.bmwgroup.com/dvs/bmwza/nfsc/financeapp]]></service_url>
+                <user>user</user>
+                <pass>pass</pass>
+            </api>
+            <cron>
+                <cron_limit>100</cron_limit>
+            </cron>
+        </peppermint_dfe>
+    </default>
+    <crontab>
+        <jobs>
+            <peppermint_dfe_resend>
+                <schedule>
+                    <cron_expr>0 * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>peppermint_dfe/cron::reSend</model>
+                </run>
+            </peppermint_dfe_resend>
+            <peppermint_dfe_reference_update>
+                <schedule>
+                    <cron_expr>0 * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>peppermint_dfe/cron::pullDfeData</model>
+                </run>
+            </peppermint_dfe_reference_update>
+        </jobs>
+    </crontab>
+</config>

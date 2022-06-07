@@ -1,0 +1,32 @@
+.sort-filter {
+    .results {
+        span {
+            font-family: $mini-sans-serif-bold;
+
+            &:first-child {
+                font-family: $mini-sans-serif-bold;
+            }
+        }
+    }
+}
+
+.car-filter {
+    @import './car-filter/wrapper';
+    @import './car-filter/item';
+}
+
+#car-filter {
+    .car-filter-buttons {
+        .button {
+            @include media($small-screen-down) {
+                background: $c-mini-blue;
+            }
+        }
+    }
+
+    .trade-in-block-wrapper {
+        .trade-in-get-started {
+            line-height: $dsp2-line-h-16;
+        }
+    }
+}

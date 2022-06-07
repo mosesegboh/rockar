@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_ApprovedUsed
+ * @author    Krists Dadzitis <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_ApprovedUsed>
+            <version>0.1.0</version>
+        </Peppermint_ApprovedUsed>
+    </modules>
+    <global>
+        <helpers>
+            <peppermint_approvedused>
+                <class>Peppermint_ApprovedUsed_Helper</class>
+            </peppermint_approvedused>
+            <rockar_approvedused>
+                <rewrite>
+                    <data>Peppermint_ApprovedUsed_Helper_Data</data>
+                    <finance>Peppermint_ApprovedUsed_Helper_Finance</finance>
+                </rewrite>
+            </rockar_approvedused>
+        </helpers>
+    </global>
+</config>

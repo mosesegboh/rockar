@@ -1,0 +1,64 @@
+<?php
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Customer
+ * @author    Chuck Ip <chuck.ip@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar Ltd (http://rockar.com)
+ */
+?>
+<div class="dashboard">
+    <div class="page-title">
+        <app-page-header
+            title="My Account"
+        ></app-page-header>
+    </div>
+    <div class="page-content">
+        <?php echo $this->getMessagesBlock()->toHtml(); ?>
+        <?php echo $this->getChildHtml('top'); ?>
+        <?php echo $this->getChildHtml('logged_out_overlay'); ?>
+        <div class="box-account box-info">
+            <?php echo $this->getChildHtml('customer.account.dashboard.extra'); ?>
+
+            <div class="personal-details row">
+                <div class="personal-info">
+                    <?php /* personal info and trade-in (desktop) sections */ ?>
+                    <?php echo $this->getChildHtml('dashboard_info'); ?>
+                    <?php echo $this->getChildHtml('myaccount_trade_in'); ?>
+                </div>
+                <div class="col-12 my-account-details">
+                    <app-accordion-group :open-all="true">
+                        <div class="accordion-group">
+                            <?php echo $this->getChildHtml('dashboard_list'); ?>
+                            <?php echo $this->getChildHtml('license_validation_overlay'); ?>
+                        </div>
+                    </app-accordion-group>
+                </div>
+            </div>
+        </div>
+        <?php echo $this->getChildHtml('info1'); ?>
+        <?php echo $this->getChildHtml('info2'); ?>
+        <app-modal
+            v-ref:terms-conditions-modal
+            :add-close-button="true"
+            close-button-text="Close"
+        >
+            <div slot="content">
+                <?php echo $this->getChildHtml('checkout_terms_conditions_overlay'); ?>
+            </div>
+        </app-modal>
+    </div>
+</div>
+<script type="text/javascript">
+    jQuery(document).ready(() => {
+        setTimeout(() => {
+            let target = window.location.hash;
+            target = target.replace('#', '') + '-section';
+            const section = jQuery('.' + target).first();
+            if (section.length == 1) {
+                jQuery('html, body').animate({
+                    scrollTop: section.offset().top - 5
+                }, 1000);
+            }
+        }, 400);
+    });
+</script>

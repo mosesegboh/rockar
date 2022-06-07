@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint_Carfinder
+ * @author       Dumitru Mocanu <dumitru.mocanu@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_Carfinder>
+            <version>0.1.1</version>
+        </Peppermint_Carfinder>
+    </modules>
+    <global>
+        <blocks>
+            <rockar_carfinder>
+                <rewrite>
+                    <layer_view>Peppermint_Carfinder_Block_Layer_View</layer_view>
+                </rewrite>
+            </rockar_carfinder>
+        </blocks>
+        <helpers>
+            <peppermint_carfinder>
+                <class>Peppermint_Carfinder_Helper</class>
+            </peppermint_carfinder>
+        </helpers>
+        <models>
+            <catalog_resource_eav_mysql4>
+                <rewrite>
+                    <attribute>Peppermint_Carfinder_Model_Catalog_Resource_Eav_Mysql4_Attribute</attribute>
+                </rewrite>
+            </catalog_resource_eav_mysql4>
+        </models>
+    </global>
+</config>

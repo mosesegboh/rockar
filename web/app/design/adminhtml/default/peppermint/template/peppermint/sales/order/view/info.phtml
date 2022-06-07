@@ -1,0 +1,219 @@
+<?php
+/**
+ * @category  design
+ * @package   adminhtml_default
+ * @author    Tiberiu Barkoczi <tiberiu.barkoczi@rockar.com>
+ * @copyright Copyright (c) 2019 Rockar Ltd (http://rockar.com)
+ */
+
+$order = $this->getOrder();
+$orderAdminDate = $this->formatDate($order->getCreatedAtDate(), 'medium', true);
+$orderStoreDate = $this->formatDate($order->getCreatedAtStoreDate(), 'medium', true);
+$helper = Mage::helper('sales');
+?>
+<div class="box-left">
+    <!--Order Information-->
+    <div class="entry-edit">
+        <?php if ($order->getEmailSent()):
+            $email = $helper->__('the order confirmation email was sent');
+        else:
+            $email = $helper->__('the order confirmation email is not sent');
+        endif; ?>
+        <div class="entry-edit-head">
+            <?php if ($this->getNoUseOrderLink()): ?>
+                <h4 class="icon-head head-account">
+                    <?php echo $helper->__('Order # %s', $order->getRealOrderId()) ?>
+                    (<?php echo $email ?>)
+                </h4>
+            <?php else: ?>
+                <a href="<?php echo $this->getViewUrl($order->getId()) ?>"><?php echo $helper->__('Order # %s', $order->getRealOrderId()) ?></a>
+                <strong>(<?php echo $email ?>)</strong>
+            <?php endif; ?>
+        </div>
+        <div class="fieldset">
+            <table cellspacing="0" class="form-list">
+                <tr>
+                    <td class="label"><label><?php echo $helper->__('Order Date') ?></label></td>
+                    <td class="value"><strong><?php echo $orderAdminDate ?></strong></td>
+                </tr>
+                <?php if ($orderAdminDate != $orderStoreDate): ?>
+                    <tr>
+                        <td class="label">
+                            <label><?php echo $helper->__('Order Date (%s)', $order->getCreatedAtStoreDate()->getTimezone()) ?></label>
+                        </td>
+                        <td class="value"><strong><?php echo $orderStoreDate ?></strong></td>
+                    </tr>
+                <?php endif; ?>
+                <tr>
+                    <td class="label"><label><?php echo $helper->__('Order Status') ?></label></td>
+                    <td class="value">
+                        <strong>
+                            <span id="order_status"><?php echo $order->getStatusLabel() ?></span>
+                        </strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label"><label><?php echo $helper->__('Purchased From') ?></label></td>
+                    <td class="value"><strong><?php echo $this->getOrderStoreName() ?></strong></td>
+                </tr>
+                <tr>
+                    <td class="label"><label><?php echo $helper->__('Vehicle Condition') ?></label></td>
+                    <td class="value"><?php echo $this->getVehicleCondition() ?></td>
+                </tr>
+                <?php if ($order->getRelationChildId()): ?>
+                    <tr>
+                        <td class="label">
+                            <label><?php echo $helper->__('Link to the New Order') ?></label>
+                        </td>
+                        <td class="value">
+                            <a href="<?php echo $this->getViewUrl($order->getRelationChildId()) ?>">
+                                <?php echo $order->getRelationChildRealId() ?>
+                            </a>
+                        </td>
+                    </tr>
+                <?php endif; ?>
+                <?php if ($order->getRelationParentId()): ?>
+                    <tr>
+                        <td class="label">
+                            <label><?php echo $helper->__('Link to the Previous Order') ?></label>
+                        </td>
+                        <td class="value">
+                            <a href="<?php echo $this->getViewUrl($order->getRelationParentId()) ?>">
+                                <?php echo $order->getRelationParentRealId() ?>
+                            </a>
+                        </td>
+                    </tr>
+                <?php endif; ?>
+                <?php if ($order->getRemoteIp() && $this->shouldDisplayCustomerIp()): ?>
+                    <tr>
+                        <td class="label">
+                            <label><?php echo $helper->__('Placed from IP') ?></label>
+                        </td>
+                        <td class="value">
+                            <strong>
+                                <?php
+                                    echo $this->escapeHtml($order->getRemoteIp());
+                                    echo ($order->getXForwardedFor())
+                                        ? ' (' . $this->escapeHtml($order->getXForwardedFor()) . ')'
+                                        : '';
+                                ?>
+                            </strong>
+                        </td>
+                    </tr>
+                <?php endif; ?>
+                <tr>
+                    <td class="label"><label><?php echo $helper->__('Order placed as') ?></label></td>
+                    <td class="value">
+                        <?php
+                            echo Mage::getModel('rockar_checkout/order_additional')->load($order->getId(), 'order_id')
+                                ->getIsCompany() == 1
+                                ? $helper->__('Company')
+                                : $helper->__('Individual')
+                        ?>
+                    </td>
+                </tr>
+
+                <?php if ($order->getGlobalCurrencyCode() != $order->getBaseCurrencyCode()): ?>
+                    <tr>
+                        <td class="label">
+                            <label><?php echo $helper->__('%s / %s rate:', $order->getGlobalCurrencyCode(), $order->getBaseCurrencyCode()) ?></label>
+                        </td>
+                        <td class="value">
+                            <strong><?php echo $order->getBaseToGlobalRate() ?></strong>
+                        </td>
+                    </tr>
+                <?php endif; ?>
+                <?php if ($order->getBaseCurrencyCode() != $order->getOrderCurrencyCode()): ?>
+                    <tr>
+                        <td class="label">
+                            <label><?php echo $helper->__('%s / %s rate:', $order->getOrderCurrencyCode(), $order->getBaseCurrencyCode()) ?></label>
+                        </td>
+                        <td class="value">
+                            <strong><?php echo $order->getBaseToOrderRate() ?></strong>
+                        </td>
+                    </tr>
+                <?php endif; ?>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="box-right">
+    <!--Account Information-->
+    <div class="entry-edit">
+        <div class="entry-edit-head">
+            <h4 class="icon-head head-account"><?php echo $helper->__('Account Information') ?></h4>
+            <div class="tools"><?php echo $this->getAccountEditLink() ?></div>
+        </div>
+        <div class="fieldset">
+            <div class="hor-scroll">
+                <table cellspacing="0" class="form-list">
+                    <tr>
+                        <td class="label"><label><?php echo $helper->__('Customer Name') ?></label></td>
+                        <td class="value">
+                            <?php if ($customerUrl = $this->getCustomerViewUrl()): ?>
+                                <a href="<?php echo $customerUrl ?>" target="_blank">
+                                    <strong><?php echo $this->escapeHtml($order->getCustomerName()) ?></strong>
+                                </a>
+                            <?php else: ?>
+                                <strong><?php echo $this->escapeHtml($order->getCustomerName()) ?></strong>
+                            <?php endif; ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label"><label><?php echo $helper->__('Email') ?></label></td>
+                        <td class="value">
+                            <a href="mailto:<?php echo $this->escapeHtml($order->getCustomerEmail()) ?>">
+                                <strong><?php echo $this->escapeHtml($order->getCustomerEmail()) ?></strong>
+                            </a>
+                        </td>
+                    </tr>
+                    <?php if ($groupName = $this->getCustomerGroupName()): ?>
+                        <tr>
+                            <td class="label"><label><?php echo $helper->__('Customer Group') ?></label></td>
+                            <td class="value"><strong><?php echo $groupName ?></strong></td>
+                        </tr>
+                    <?php endif; ?>
+                    <?php foreach ($this->getCustomerAccountData() as $data): ?>
+                        <tr>
+                            <td class="label"><label><?php echo $data['label'] ?></label></td>
+                            <td class="value"><strong><?php echo $data['value'] ?></strong></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clear"></div>
+
+<div class="box-left">
+    <!--Billing Address-->
+    <div class="entry-edit">
+        <div class="entry-edit-head">
+            <h4 class="icon-head head-billing-address"><?php echo $helper->__('Billing Address') ?></h4>
+            <?php if ($this->_isAllowedAddress()): ?>
+                <div class="tools"><?php echo $this->getAddressEditLink($order->getBillingAddress()) ?></div>
+            <?php endif; ?>
+        </div>
+        <fieldset>
+            <address><?php echo $order->getBillingAddress()->getFormated(true) ?></address>
+        </fieldset>
+    </div>
+</div>
+<?php if (!$this->getOrder()->getIsVirtual()): ?>
+    <div class="box-right">
+        <!--Shipping Address-->
+        <div class="entry-edit">
+            <div class="entry-edit-head">
+                <h4 class="icon-head head-shipping-address"><?php echo $helper->__('Shipping Address') ?></h4>
+                <?php if ($this->_isAllowedAddress()): ?>
+                    <div class="tools"><?php echo $this->getAddressEditLink($order->getShippingAddress()) ?></div>
+                <?php endif; ?>
+            </div>
+            <fieldset>
+                <address><?php echo $order->getShippingAddress()->getFormated(true) ?></address>
+            </fieldset>
+        </div>
+    </div>
+    <div class="clear"></div>
+<?php endif; ?>

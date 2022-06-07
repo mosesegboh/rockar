@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint\OrderCap
+ * @author    Lika Sikharulia <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_OrderCap>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Peppermint_OrderCap>
+    </modules>
+</config>

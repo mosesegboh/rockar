@@ -1,0 +1,554 @@
+.nav-wrap {
+    position: relative;
+    height: $navigation-menu-mobile-height;
+
+    @include media($horizontal-bar-mode) {
+        height: $navigation-desktop-height;
+    }
+}
+
+.navigation-bar {
+    @include position(absolute, 0 null null 0);
+    width: 100%;
+    opacity: 0;
+    z-index: 0;
+    height: 50px;
+    background-color: $motorrad-white;
+    border-bottom: 1px solid $navigation-border-color;
+    display: none;
+
+    @include media($horizontal-bar-mode) {
+        opacity: 1;
+        z-index: 99;
+        display: block;
+        height: $motorrad-nav-desktop-height;
+    }
+
+    .navigation-bar-wrapper {
+        @include display(flex);
+        @include flex-direction(row);
+        @include justify-content(flex-start);
+        max-height: 100%;
+        height: 100%;
+        width: 100%;
+    }
+
+    .brand-logo {
+        @include display(flex);
+        @include align-items(center);
+
+        a {
+            img {
+                display: block;
+                max-width: 217px;
+                padding: 30px 30px 30px 25px;
+            }
+        }
+    }
+
+    .navigation-menu {
+        width: 100%;
+
+        .navigations-list {
+            @include display(flex);
+            @include align-content(space-between);
+            @include order(1);
+            height: 100%;
+        }
+
+        ul.navigation {
+            @include display(flex);
+            @include flex-direction(row);
+            @include order(1);
+            height: 100%;
+
+            li {
+                @include flex-grow(1);
+                text-align: center;
+                position: relative;
+
+                &.mobile {
+                    display: none;
+                }
+
+                &:hover {
+                    background: $navigation-menu-hover-color;
+
+                    ul {
+                        &.submenu {
+                            display: block;
+                        }
+                    }
+                }
+
+                &:last-child {
+                    padding-right: 0;
+                    border-right: 0;
+                }
+
+                span {
+                    &.text {
+                        @include display(flex);
+                        @include align-items(center);
+                        color: $navigation-color;
+                        font-family: $motorrad-light;
+                        font-size: $navigation-menu-item-font-size;
+                        font-weight: $motorrad-fw-normal;
+                        text-transform: none;
+                        letter-spacing: normal;
+                        padding-left: 13px;
+                        padding-right: 13px;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                ul {
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    white-space: nowrap;
+                    display: none;
+
+                    li {
+                        background-color: $navigation-background;
+
+                        &:not(.first) {
+                            margin-top: 1px;
+                        }
+
+                        &.first {
+                            border-top: 1px solid $navigation-border-color;
+                        }
+
+                        a,
+                        span {
+                            &.text {
+                                font-size: $navigation-menu-sub-item-font-size;
+                            }
+
+                            span {
+                                &.text {
+                                    padding: 11px 16px 11px 25px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .custom-nav-wrapper {
+            @include display(flex);
+            @include align-content(space-between);
+            @include align-items(center);
+            @include order(2);
+            @include flex(1);
+            height: 100%;
+            min-width: 240px;
+
+            ul.custom-nav {
+                @include display(flex);
+                @include flex-direction(row);
+                @include justify-content(flex-end);
+                @include order(2);
+                @include flex(1);
+
+                .in-store-indicator {
+                    margin-right: 20px;
+                    color: $motorrad-text-color;
+                    font-family: $motorrad-light;
+                    font-weight: $motorrad-fw-normal;
+                    font-size: $motorrad-font-size-nav;
+                    display: flex;
+                    align-items: center;
+
+                    .dealer-id {
+                        text-transform: uppercase;
+                    }
+                }
+
+                .account-toggle {
+                    ul {
+                        padding-top: 25px;
+                    }
+                }
+
+                > li {
+                    position: relative;
+                    padding: 0 .5em;
+                    text-align: right;
+
+                    &.logotype {
+                        padding: 0 2em 0 1em;
+
+                        a {
+                            img {
+                                max-height: 13px;
+                            }
+                        }
+                    }
+
+                    ul {
+                        @include position(absolute, 22px null null 0);
+                        display: none;
+                        width: 150px;
+                        text-align: left;
+                        background-color: $navigation-background;
+                        z-index: 99;
+
+                        li {
+                            &:nth-child(odd) {
+                                background: $navigation-odd-background;
+                            }
+
+                            span {
+                                &.text {
+                                    display: block;
+                                    padding: 1em;
+                                    color: $navigation-color;
+                                    font-family: $navigation-menu-item-font;
+                                    font-size: $f-size-xxs;
+                                    text-transform: uppercase;
+                                    letter-spacing: .05em;
+                                    font-weight: bold;
+                                }
+                            }
+
+                            a {
+                                display: block;
+                                padding: 1em;
+                                color: $navigation-color;
+                                font-family: $navigation-menu-item-font;
+                                font-size: $f-size-xxs;
+                                text-transform: uppercase;
+                                letter-spacing: .05em;
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.navigation-bar-mobile {
+    display: block;
+
+    @include media($horizontal-bar-mode) {
+        display: none;
+    }
+
+    .main-nav {
+        @include display(flex);
+        @include justify-content(space-between);
+        @include flex-direction(row);
+        @include position(fixed, 0 null null 0);
+        width: 100%;
+        min-width: $mobile-nav-min-width;
+        opacity: 1;
+        z-index: 200;
+        height: $navigation-menu-mobile-height;
+        background-color: $motorrad-white;
+        border-bottom: 1px solid darken($navigation-background, 10);
+        position: inherit;
+
+        @include media($horizontal-bar-mode) {
+            visibility: hidden;
+            opacity: 0;
+            z-index: 0;
+        }
+
+        .logotypes {
+            @include display(flex);
+            @include flex-direction(row);
+            @include justify-content(flex-start);
+            height: 100%;
+            padding: 0;
+
+            a {
+                padding: 1em;
+                display: inline-block;
+                height: 100%;
+                margin-top: 1em;
+
+                img {
+                    display: block;
+                    width: 100%;
+                    max-width: 140px;
+                    min-width: 50px;
+                    top: 23%;
+                    position: relative;
+                    transform: translateY(-50%);
+                }
+
+                &:not(.rockar) {
+                    border-right: none;
+                }
+            }
+        }
+
+        .right-nav-wrapper {
+            @include display(flex);
+            @include flex-direction(row);
+            @include justify-content(flex-end);
+
+            .navigation-bar-user {
+                margin: 32px 1em 0 0;
+
+                > ul {
+                    @include display(flex);
+                    @include flex-direction(row);
+                    @include justify-content(flex-end);
+
+                    > li {
+                        margin: 0 .5em;
+                        text-align: right;
+
+                        &:last-child {
+                            margin-right: 0;
+                        }
+
+                        ul {
+                            display: none;
+                            position: absolute;
+                            top: 100%;
+                            left: 0;
+                            width: 100%;
+                            background-color: $navigation-background;
+                            z-index: 999;
+                            text-align: left;
+
+                            li {
+                                a {
+                                    display: block;
+                                    padding: 1em;
+                                    color: $navigation-color;
+                                    font-family: $navigation-menu-item-font;
+                                    font-size: $f-size-xxs;
+                                    text-transform: uppercase;
+                                    letter-spacing: .05em;
+                                    font-weight: bold;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .navigation-bar-menu {
+                min-width: 48px;
+                border-left: 1px solid $navigation-border-color;
+
+                ul {
+                    @include position(absolute, calc(100% + 1px) null null 0);
+                    display: none;
+                    background-color: $navigation-mobile-menu-background-color;
+                    width: 100%;
+                    z-index: 999;
+
+                    &.submenu {
+                        display: none !important; // To rewrite display parameter by JS
+                    }
+
+                    li {
+                        border-bottom: 1px solid $white;
+
+                        &:last-of-type {
+                            border-bottom: 0;
+                        }
+
+                        &.parent {
+                            &.more {
+                                display: none;
+                            }
+                        }
+
+                        a {
+                            display: block;
+                            padding: 1.5em 1.5em 1.5em 3em;
+                            color: $motorrad-text-color;
+                            font-family: $motorrad;
+                            font-size: $f-size-xxxs;
+                            text-transform: none;
+                            letter-spacing: $base-letter-spacing;
+                            font-weight: $motorrad-fw-normal;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.navigation-bar,
+.navigation-bar-mobile {
+    ul {
+        li {
+            a {
+                .badge {
+                    display: inline-block;
+                    width: 21px;
+                    height: 21px;
+                    line-height: 24px;
+                    border-radius: 50%;
+                }
+
+                .icon {
+                    &.icon-account {
+                        @include sprite($sprite-my-account);
+                        position: relative;
+                        display: inline-block;
+
+                        &::after {
+                            content: '\25BE';
+                            position: absolute;
+                            right: -10px;
+                            top: 0;
+                            text-indent: 0;
+                            color: $navigation-icon-color;
+                            font-size: $f-size-s;
+                        }
+
+                        &.no-after::after {
+                            display: none;
+                        }
+                    }
+
+                    &.icon-cart {
+                        @include sprite($sprite-cart-icon);
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+
+    .store-switcher {
+        width: 100%;
+        background: $navigation-store-switcher-background;
+        height: $navigation-store-switcher-mobile-height;
+        text-align: right;
+        padding: .2em 2em;
+        display: none;
+
+        a {
+            font-family: $navigation-store-switcher-font;
+            text-decoration: underline;
+            font-weight: $fw-bold;
+            text-transform: uppercase;
+            font-size: $navigation-store-switcher-font-size;
+            color: $navigation-store-switcher-color;
+        }
+    }
+}
+
+//Sidebar menu
+.menu-sticky-apply {
+    position: static;
+    transition: all .15s;
+    width: 100%;
+
+    @include media($medium-screen-up) {
+        position: absolute;
+    }
+}
+
+.cms-menu {
+    max-width: 100%;
+    min-height: 1px;
+
+    @include media($medium-screen-up) {
+        max-width: 90%;
+    }
+
+    .menu {
+        @include border-radius(3px);
+        background: $light-grey-background;
+        margin: 0 0 2em;
+
+        @include media($medium-screen-up) {
+            margin-bottom: 0;
+
+            &.fixed-menu {
+                position: fixed;
+                top: 3.5em;
+                left: 3.5em;
+            }
+        }
+
+        &-sticky {
+            display: block;
+            max-height: 95vh;
+            overflow-y: scroll;
+        }
+
+        li.parent {
+            border-top: 1px solid $cms-menu-border-color;
+            padding: 1em 2em;
+            color: $cms-menu-item-color;
+            font-family: $secondary-font-family;
+            font-weight: $fw-bold;
+            font-size: 1em;
+
+            span {
+                display: block;
+            }
+
+            &:hover {
+                @include opacity(.8);
+                cursor: pointer;
+            }
+
+            &:first-child {
+                border: 0;
+            }
+
+            .subtitle-wrapper {
+                display: none;
+                padding: 1em 0;
+
+                .child {
+                    font-family: $helper-font-family-2;
+                    padding: .2em 0;
+                }
+            }
+
+            &.active {
+                background: $white;
+
+                span {
+                    color: $theme-color;
+                }
+            }
+        }
+
+        .no-child,
+        .child {
+            &.active-element {
+                color: $cms-menu-active-color;
+            }
+        }
+    }
+}
+
+// Homepage
+.cms-index-index {
+    .nav-wrap {
+        height: $navigation-mobile-height;
+
+        @include media($horizontal-bar-mode) {
+            height: $navigation-desktop-height;
+        }
+
+        .navigation-bar-mobile {
+            .store-switcher {
+                display: block;
+                position: inherit;
+                top: $navigation-menu-mobile-height;
+                z-index: 150;
+            }
+        }
+    }
+}

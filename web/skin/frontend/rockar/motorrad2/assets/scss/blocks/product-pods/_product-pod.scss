@@ -1,0 +1,161 @@
+.product-pod {
+    .pod-data {
+        @import 'pod/actions';
+        @import 'pod/data-actions';
+        @import 'pod/prices';
+
+        .pod-attribute {
+            .price-wrapper {
+                span {
+                    font-family: $motorrad-regular;
+
+                    @include media($medium-screen-up) {
+                        font-family: $motorrad-bold;
+                        line-height: $motorrad-line-h-22;
+                    }
+                }
+            }
+        }
+    }
+
+    .attributes-container {
+        .attributes {
+            .information-attribute {
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+
+                .title {
+                    color: $black;
+                    font-family: $motorrad-bold;
+                    font-size: $dsp2-f-size;
+                    line-height: $motorrad-line-h-26;
+
+                    @include media($medium-screen-down) {
+                        font-size: $dsp2-f-size-s;
+                        line-height: $dsp2-line-h-16;
+                    }
+                }
+            }
+        }
+    }
+
+    .pod-specs-container {
+        .pod-specs {
+            .pod-spec-item {
+                @include media($medium-screen-up) {
+                    display: block;
+                    width: auto;
+                }
+
+                &:nth-child(2) {
+                    .pod-spec-item-data {
+                        @include media($medium-screen-up) {
+                            width: auto;
+                            padding: 0 0 0 10px;
+                        }
+                    }
+                }
+
+                &:not(:last-child) {
+                    @include media($medium-screen-up) {
+                        border-right: 1px solid $black;
+                    }
+                }
+
+                &::after {
+                    display: none;
+                }
+
+                .pod-spec-item-data {
+                    font-size: initial;
+                    max-width: none;
+
+                    .pod-spec-item-value {
+                        color: $black;
+                        font-family: $motorrad-bold;
+                        font-size: $dsp2-f-size-xxxl;
+                        line-height: $dsp2-line-h-28;
+
+                        @include media($medium-screen-down) {
+                            font-size: $dsp2-f-size-s;
+                            line-height: $dsp2-line-h-16;
+                        }
+
+                        span {
+                            font-family: $motorrad-regular;
+                            line-height: $motorrad-line-h-22;
+
+                            @include media($medium-screen-down) {
+                                font-family: $motorrad-bold;
+                                line-height: $dsp2-line-h-16;
+                            }
+                        }
+                    }
+
+                    .pod-spec-item-label {
+                        color: $black;
+                        font-family: $motorrad-regular;
+                        font-size: $dsp2-f-size-s;
+                        line-height: $motorrad-line-h-22;
+
+                        @include media($medium-screen-down) {
+                            font-size: $dsp2-f-size-s;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .pod-images {
+        @import 'pod/specification';
+        @import 'pod/images';
+    }
+
+    .pod-specs-button {
+        text-transform: capitalize;
+
+        &::before {
+            border-bottom: 1px solid $black;
+            border-right: 1px solid $black;
+        }
+    }
+}
+
+.pod-caption {
+    .caption {
+        .title {
+            font-family: $motorrad-bold;
+            font-size: $dsp2-f-size-xxl;
+            line-height: $dsp2-line-h-28;
+            margin-bottom: 5px;
+
+            @include media($medium-screen-down) {
+                font-size: $dsp2-f-size-xl;
+                line-height: $dsp2-line-h-20;
+            }
+        }
+
+        .subtitle {
+            p {
+                font-family: $motorrad-regular;
+                font-size: $dsp2-f-size-s;
+                line-height: $motorrad-line-h-22;
+                margin-bottom: 19px;
+
+                @include media($medium-screen-down) {
+                    font-size: $dsp2-f-size-xs;
+                    line-height: $dsp2-line-h-14;
+                }
+            }
+        }
+    }
+}
+
+.pod-content {
+    @include media($medium-screen-up) {
+        height: 547px;
+    }
+}

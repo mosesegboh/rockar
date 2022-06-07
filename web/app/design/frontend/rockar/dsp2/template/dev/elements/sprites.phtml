@@ -1,0 +1,94 @@
+<?php
+$skinDir = Mage::getDesign()->getSkinBaseDir();
+$spriteDir = $skinDir . DS . 'assets/sprites';
+$defaultSpriteDir = Mage::getBaseDir('skin') . DS . 'frontend/rockar/default/assets/sprites';
+
+$skinName = Mage::getDesign()->getTheme('frontend');
+$pngSprites = getSprites($spriteDir);
+$pngDefaultSprites = getSprites($defaultSpriteDir);
+
+function getSprites($dir) {
+    $result = [];
+    $_dir = @dir($dir);
+
+    if ($_dir) {
+        while (false !== ($_entry = $_dir->read())) {
+            if (substr($_entry, 0, 1) != '.' && preg_match('/^(.+?)\.png$/i', $_entry, $matches)) {
+                // using url raise access denied
+                //$pngSprites[$matches[1]] = $this->getSkinUrl('assets/sprites/' . $_entry);
+                $result[$matches[1]] = $dir . DS . $_entry;
+            }
+        }
+        $_dir->close();
+    }
+
+    return $result;
+}
+?>
+
+<p>To include sprite simply use <span>'@include sprite($sprite-png-file-name)'</span></p>
+<p>To add badge use <code>&lt;span class=&quot;badge&quot;&gt;NUMBER&lt;/span&gt;</code></p>
+<p>Example: <span class="badge">2</span></p>
+<p>To add empty badge use <code>&lt;span class=&quot;badge empty&quot;&gt;NUMBER&lt;/span&gt;</code></p>
+<p>Example: <span class="badge empty">2</span></p>
+<p>To add checked step use <code>&lt;span class=&quot;badge checked&quot;&gt;NUMBER&lt;/span&gt;</code></p>
+<p>Example: <span class="badge checked">2</span></p>
+<p>Info badge: <span class="icon-info"></span></p>
+<p>Edit: <span class="icon-edit"></span></p>
+
+<hr>
+
+<?php if (!empty($pngDefaultSprites)): ?>
+
+    <div class="styleGuide-sprites">
+        <div class="styleGuide">
+            <h2>Default Sprites</h2>
+            <hr>
+            <table class="table">
+                <thead>
+                <tr>
+                    <td><strong>Mixin name</strong></td>
+                    <td><strong>Image</strong></td>
+                    <td style="background:#333;"><strong style="color:#fff;">Image on dark background</strong></td>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($pngDefaultSprites as $pngFileName => $pngFile): ?>
+                    <tr>
+                        <td><?php echo $pngFileName; ?></td>
+                        <td><img src="data:image/png;base64,<?php echo base64_encode(file_get_contents($pngFile)); ?>"/></td>
+                        <td style="background:#333;"><img src="data:image/png;base64,<?php echo base64_encode(file_get_contents($pngFile)); ?>"/></td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+<?php endif; ?>
+
+<?php if (!empty($pngSprites)): ?>
+    <div class="styleGuide-sprites">
+        <div class="styleGuide">
+            <h2><? echo $skinName; ?> Sprites</h2>
+            <hr>
+            <table class="table">
+                <thead>
+                <tr>
+                    <td><h5>Mixin name</h5></td>
+                    <td><h5>Image</h5></td>
+                    <td style="background:#333;"><h5 style="color:#fff;">Image on dark background</h5></td>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($pngSprites as $pngFileName => $pngFile): ?>
+                    <tr>
+                        <td><?php echo $pngFileName; ?></td>
+                        <td><img src="data:image/png;base64,<?php echo base64_encode(file_get_contents($pngFile)); ?>"/></td>
+                        <td style="background:#333;"><img src="data:image/png;base64,<?php echo base64_encode(file_get_contents($pngFile)); ?>"/></td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,22 @@
+.mobile-choose-button {
+    @include position(sticky);
+    bottom: -1px;
+    height: 50px;
+    width: 100%;
+    display: none;
+
+    @include media($medium-screen-down) {
+        display: block;
+    }
+
+    button {
+        width: 100%;
+        font: {
+            size: $f-size-xs;
+            weight: $motorrad-fw-bold;
+        };
+        letter-spacing: $base-letter-spacing;
+        height: 3em;
+        margin-left:1.2em;
+    }
+}

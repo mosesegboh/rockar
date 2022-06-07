@@ -1,0 +1,154 @@
+$grey-3: $motorrad-dark-grey;
+
+////// Inputs //////
+$motorrad-input-desktop-height: 50px;
+
+////// Range slider ///////////
+$range-slider-handle-background: $motorrad-blue;
+$range-slider-range-background: $motorrad-blue;
+$range-slider-outline-color: $motorrad-blue;
+
+////// Finance Sliders //////
+$finance-selection-group-default-color: $motorrad-white;
+$finance-selection-group-border-top: $motorrad-grey;
+$finance-selection-group-border-bottom: $motorrad-grey;
+$finance-selection-group-active-color: $motorrad-light-grey;
+$finance-selection-group-text-color-active: $motorrad-text-color;
+$finance-selection-range-sliders-height: $motorrad-input-desktop-height;
+
+///// Finance Calcultor //////
+$finance-overlay-tabs-active-bg: $motorrad-blue;
+$finance-overlay-active-border: $motorrad-dark-grey;
+
+///// Finance Selection /////
+$finance-selection-group-font-weight: $motorrad-fw-normal;
+$finance-selection-group-font-size: $motorrad-font-size-finance-options;
+$payment-methods-row-bg: $motorrad-grey;
+
+/////// Trade in  //////////
+$selectbox-label-hover-background-color: $motorrad-light-grey;
+$selectbox-label-background-color: $motorrad-light-grey;
+$selectbox-caret-background: $motorrad-light-grey;
+$selectbox-label-opened-background-color: $motorrad-light-grey;
+
+////// Badge /////////
+$badge-bg-color: $motorrad-blue;
+
+////// Fonts ////////
+$brand-specific-font: $motorrad;
+$primary-heading-font-family: $motorrad;
+$finance-selection-group-font: $motorrad-light;
+$finance-selection-group-font-weight: $motorrad-fw-bold;
+$primary-font-family: $motorrad-light;
+$navigation-menu-item-font: $motorrad;
+$px-input-font-size-l-screen: $f-size-s;
+$navigation-menu-item-font-size: $motorrad-font-size-nav;
+$helper-font-family: $motorrad;
+$base-font-family: $motorrad-light;
+$secondary-font-family: $motorrad;
+$finance-quote-font-family: $motorrad-light;
+$finance-quote-payment-amount-font: $motorrad-light;
+$configurator-main-heading-font: $motorrad;
+$configurator-sub-heading-font: $motorrad-light;
+$configurator-sub-nav-font: $motorrad;
+$configurator-features-section-title-font: $motorrad-light;
+$accordion-title-font: $motorrad-light;
+$pod-sort-button-font: $motorrad;
+$pod-images-switcher-font: $motorrad;
+$side-label-font-family: $motorrad-light;
+$finance-quote-lead-time-font-size: $motorrad-finance-quote-lead-time-font-size;
+
+////// Steps ////////
+$ns-active-navigation-steps-font-size-l-screen: $motorrad-font-size-steps;
+$ns-inactive-navigation-steps-font-size-l-screen: $motorrad-font-size-steps;
+$ns-description-font-size: $motorrad-font-size-step-description;
+$ns-future-step-description-c: $motorrad-dark-grey;
+$ns-future-step-number-c: $motorrad-dark-grey;
+$ns-active-step-line-bc: $motorrad-dark-grey;
+$ns-step-number-size-l-screen: $motorrad-step-number-size;
+
+///// Buttons //////
+$call-to-action-background-color2: $motorrad-blue;
+$call-to-action-background-color: $motorrad-hover-blue;
+$button-grey-background-color: $motorrad-dark-grey;
+$motorrad-CTA-secondary-background: $motorrad-dark-grey;
+$motorrad-CTA-disabled-background: $motorrad-light-grey;
+$motorrad-CTA-disabled-color: $motorrad-dark-grey;
+$button-font-size: $motorrad-button-font-size;
+
+
+///// Footer //////
+$footer-background-color: $motorrad-grey;
+$footer-background-color-top: $motorrad-grey;
+
+////// Overlay //////
+$popup-overlay-background: $motorrad-popup-overlay-background;
+
+////// Trade in //////
+$px-vrm-block-max-width: 240px;
+
+////// navigation //////
+$navigation-background: $motorrad-grey;
+$navigation-color: $motorrad-dark-grey;
+$navigation-desktop-height: $motorrad-nav-desktop-height;
+$navigation-menu-mobile-height: $motorrad-nav-mobile-height;
+
+////// Car Filters //////
+$car-filter-button-filter-font-size: $motorrad-filter-button-filter-font-size;
+
+////// Car Finder //////
+$car-finder-demonstrators-message-font-size: $motorrad-finder-demonstrators-message-font-size;
+
+////// Sizes ///////
+$f-size-xxxs: $motorrad-subhead;
+$f-size-xxxxs: $motorrad-price-label;
+$input-field-font-size: $motorrad-input-field-font-size;
+$car-finder-choose-model-name-size: 23px;
+$px-input-font-size-s-screen: $motorrad-input-font-size-s-screen;
+$h1-shared-homepage-font-size: $motorrad-font-size-heading;
+
+///// Trade in Popup //////
+$px-vrm-color: $motorrad-text-color;
+
+///// Info badge //////
+$info-badge-background-color: $motorrad-blue;
+
+///// Finance Quote /////
+$finance-quote-base-color: $motorrad-text-color;
+
+///// Sub Nav //////
+$configurator-sub-nav-color: $motorrad-white;
+
+///// Accordion /////
+$accordion-blank-title-background: $white;
+$accordion-title-background: $white;
+$accordion-title-expanded-background: $white;
+$accordion-content-background: $white;
+
+///// Calander /////
+$calendar-font-family: $motorrad-light;
+$calendar-header-background: $motorrad-light-grey;
+$calendar-thead-background-color: $motorrad-dark-grey;
+$timepicker-timeslot-active-background: $motorrad-blue;
+$timepicker-timeslot-background: $motorrad-light-grey;
+$calendar-current-day-border-color: $motorrad-blue;
+$calendar-current-day-background-color: $motorrad-blue;
+
+///// Checkout /////
+$checkout-step-status-hover-color: $motorrad-text-color;
+
+///// Checkout summary //////
+$checkout-summary-delivery-background: $motorrad-light-grey;
+
+///// My Account /////
+$basic-store-font: $motorrad;
+$my-personal-details-color: $motorrad-text-color;
+$my-account-cta-button-background-color: $motorrad-blue;
+$my-account-car-plate-background: $motorrad-white;
+$my-account-car-plate-color: $motorrad-dark-grey;
+
+///// Select Dropdown /////
+$selectbox-label-color: $motorrad-text-color;
+
+////// Pop Up ////////
+$message-success-color: #006800;

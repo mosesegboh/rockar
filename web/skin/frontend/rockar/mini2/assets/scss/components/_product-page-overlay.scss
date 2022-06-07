@@ -1,0 +1,78 @@
+#product-page-overlay {
+    &.double {
+        @include media($medium-screen-down) {
+            .product-page-overlay-top {
+                .titles {
+                    span {
+                        font-family: $mini-serif-regular;
+
+                        &.clear {
+                            font-family: $mini-sans-serif-regular;
+                            color: $black;
+                        }
+                    }
+
+                    div {
+                        &.selected {
+                            border-top: 2px solid $c-mini-blue;
+                        }
+                    }
+                }
+
+                .toggle {
+                    .toggle-button {
+                        position: absolute;
+                        left: 50%;
+                        bottom: 30px;
+                        transform: translate(-50%, 0);
+                        background-color: $black;
+
+                        .icon {
+                            background-image: url('../images/svg/icon-arrow-down-slim.svg');
+                        }
+                    }
+                }
+
+                &.active {
+                    .toggle {
+                        box-shadow: 0 0 0 250px rgba(0, 0, 0, .8);
+
+                        .toggle-button {
+                            box-shadow: none;
+                        }
+                    }
+                }
+            }
+
+            .finance-quote-wrapper {
+                &.active {
+                    .finance-quote-top {
+                        border-top: none;
+                    }
+                }
+            }
+
+            #car-compare-component {
+                &.active {
+                    .mobile-wrapper {
+                        margin: 3px 0 0;
+                    }
+
+                    .car-compare-mobile {
+                        .car-page {
+                            padding: 20px 0 0;
+                        }
+                    }
+                }
+
+                .car-compare-mobile {
+                    .car-page {
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    @import '../blocks/car-compare/car-compare-clear';
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Catalog
+ * @author    Moses Egboh <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<layout>
+    <adminhtml_modelmatrix_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="peppermint_catalog/adminhtml_modelMatrix_grid" name="modelMatrix.grid"/>
+        </block>
+    </adminhtml_modelmatrix_grid>
+    <adminhtml_modelmatrix_edit>
+        <reference name="content">
+            <block type="peppermint_catalog/adminhtml_modelMatrix_edit" name="modelMatrix.edit"/>
+        </reference>
+    </adminhtml_modelmatrix_edit>
+</layout>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_admin_role_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>system/peppermint_admin/role</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="peppermint_admin/adminhtml_role" name="role" />
+        </reference>
+    </adminhtml_admin_role_index>
+    <adminhtml_admin_role_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="peppermint_admin/adminhtml_role_grid" name="role_grid"/>
+        </block>
+    </adminhtml_admin_role_grid>
+
+    <adminhtml_admin_role_edit>
+        <update handle="editor"/>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>system/peppermint_admin/role</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="peppermint_admin/adminhtml_role_edit" name="role_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="peppermint_admin/adminhtml_role_edit_tabs" name="role_tabs"></block>
+        </reference>
+    </adminhtml_admin_role_edit>
+</layout>

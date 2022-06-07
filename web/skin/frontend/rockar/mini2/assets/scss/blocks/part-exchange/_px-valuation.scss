@@ -1,0 +1,107 @@
+.currentstep-two {
+    @import './settlement-block-content';
+
+    .estimated-value {
+        .estimated-value-info {
+            p {
+                font-size: $dsp2-f-size;
+                font-family: $mini-sans-serif-regular;
+
+                &::after {
+                    margin: 3px 0 0 10px;
+                }
+            }
+        }
+
+        .value {
+            color: $black;
+            font-family: $mini-serif-bold;
+            line-height: $dsp2-line-h-20;
+        }
+
+        .future-value {
+            ul {
+                li {
+                    font-family: $mini-sans-serif-regular;
+                    font-size: $dsp2-f-size;
+                    color: $black;
+
+                    strong {
+                        font-family: $mini-sans-serif-regular;
+                        font-size: $dsp2-f-size;
+
+                        @include media($medium-screen-up) {
+                            font-size: $dsp2-f-size-xs;
+                        }
+
+                        &:first-child {
+                            font-size: $dsp2-f-size;
+                            font-family: $mini-sans-serif-regular;
+
+                            @include media($medium-screen-up) {
+                                font-family: $mini-sans-serif-bold;
+                                font-size: $dsp2-f-size;
+                            }
+                        }
+                    }
+
+                    span {
+                        font-family: $mini-sans-serif-regular;
+                        line-height: $dsp2-line-h-24;
+                        color: $black;
+
+                        &:first-child {
+                            @include media($small-screen-down) {
+                                font-family: $mini-sans-serif-bold;
+                            }
+                        }
+
+                        &:last-child {
+                            font-family: $mini-sans-serif-regular;
+                            line-height: $dsp2-line-h-12;
+                        }
+                    }
+                }
+            }
+
+            p {
+                font-family: $mini-sans-serif-regular;
+            }
+        }
+    }
+
+    .px-settlement-value {
+        .px-outstanding-amount {
+            p {
+                font-family: $mini-sans-serif-regular;
+            }
+
+            .value {
+                color: $black;
+                font-family: $mini-serif-bold;
+            }
+        }
+    }
+
+    .px-shortfall-wrapper {
+        .px-shortfall-payments {
+            .px-shortfall-mobile {
+                font-family: $mini-sans-serif-regular;
+            }
+
+            h3 {
+                font-family: $mini-sans-serif-bold;
+                color: $c-grey-9;
+            }
+
+            .dsp2-outline {
+                color: $black;
+                border-color: $black;
+
+                &:hover {
+                    color: $white;
+                }
+            }
+        }
+    }
+}

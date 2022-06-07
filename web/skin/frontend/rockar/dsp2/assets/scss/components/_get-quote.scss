@@ -1,0 +1,207 @@
+.get-quote {
+    .actions-wrapper {
+        margin-right: 12px;
+
+        button {
+            background: transparent;
+            border: 0;
+            padding: 0;
+        }
+
+        .get-quote-icon-button {
+            margin: 8px 0 0;
+            display: inline-block;
+            font-size: $dsp2-f-size-xs;
+            font-family: $bmw-light;
+            text-transform: none;
+            letter-spacing: 1px;
+            color: $black;
+            max-width: none;
+        }
+    }
+
+    .popup-container {
+        .popup-content {
+            @include media($small-screen-down) {
+                max-width: 310px;
+                min-height: 264px;
+                padding: 53px 20px 40px;
+            }
+
+            @include media($medium-screen-up) {
+                max-width: 1056px;
+                min-height: 272px;
+                padding: 30px 32px 40px;
+            }
+
+            .popup-button-close {
+                top: 26px;
+
+                @include media($medium-screen-up) {
+                    top: 30px;
+                    right: 32px;
+                }
+            }
+
+            .get-quote-popup,
+            .get-quote-popup-success,
+            .get-quote-popup-failure {
+                .modal-header {
+                    font-family: $bmw;
+                    font-size: 20px;
+                    line-height: 28px;
+                    text-transform: none;
+                    letter-spacing: normal;
+                    margin-bottom: 20px;
+
+                    @include media($medium-screen-up) {
+                        font-size: 32px;
+                        line-height: 40px;
+                        margin-bottom: 10px;
+                    }
+                }
+
+                .row {
+                    font-family: $bmw-light;
+                    font-size: 12px;
+                    line-height: 16px;
+                    border: 0;
+
+                    @include media($medium-screen-up) {
+                        font-size: 16px;
+                        line-height: 24px;
+                    }
+
+                    &:last-of-type {
+                        border: 0;
+                    }
+
+                    p,
+                    span {
+                        line-height: 16px;
+
+                        @include media($medium-screen-up) {
+                            line-height: 24px;
+                        }
+                    }
+
+                    &.actions-row {
+                        font-family: $bmw-bold;
+                        font-size: 16px;
+                        line-height: 24px;
+                        padding: 30px 0 0;
+
+                        @include media($medium-screen-up) {
+                            margin-top: 25px;
+                            padding: 30px 0 10px;
+                        }
+
+                        .button {
+                            display: block;
+                            margin: 0 0 0 auto;
+                            text-align: center;
+                            background: $bmw-blue;
+                            color: $white;
+                            text-decoration: none;
+                            height: 52px;
+                            font-size: $dsp2-f-size;
+
+                            @include media($medium-screen-up) {
+                                width: 50%;
+                                max-width: 480px;
+                            }
+
+                            &::after {
+                                display: none;
+                            }
+                        }
+
+                        a.button {
+                            line-height: 2em;
+                        }
+                    }
+                }
+            }
+
+            .content-wrapper {
+                .get-quote-popup-success {
+                    .row {
+                        @include media($medium-screen-up) {
+                            height: auto;
+                        }
+
+                        .notes {
+                            padding-top: 15px;
+
+                            @include media($medium-screen-up) {
+                                padding-top: 22px;
+                            }
+                        }
+
+                        &.actions-row {
+                            @include media($medium-screen-up) {
+                                margin-top: 9px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.category-products-list {
+    .category-products-list-item {
+        .pod-content {
+            .get-quote {
+                .popup-content {
+                    .get-quote-popup, .get-quote-popup-success {
+                        div {
+                            width: 100%;
+                            border: 0;
+
+                            &.actions-row {
+                                height: 100%;
+                            }
+
+                            p {
+                                font-size: $dsp2-f-size;
+                                color: $c-grey;
+                                font-family: $bmw-light;
+                                letter-spacing: $base-letter-spacing;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.get-quote-cta-icon {
+    &::before {
+        @include sprite($sprite-get-quote);
+
+        content: '';
+        margin: 0 auto 8px;
+        display: block;
+    }
+}
+
+.finance-quote-content {
+    .get-quote-cta-icon {
+        background: $white;
+        color: $c-grey;
+
+        &::before {
+            background: url(../images/svg/icon-email-quote.svg);
+            background-repeat: no-repeat;
+            background-position: bottom;
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            margin: 0 8px 0 -25px;
+            transform: scale(1.3);
+        }
+    }
+}

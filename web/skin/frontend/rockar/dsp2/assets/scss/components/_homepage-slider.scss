@@ -1,0 +1,94 @@
+.hero-wrapper {
+    .hero {
+        &.homepage-slider {
+            .hero-inner {
+                @include media($large-screen-down) {
+                    top: 35%;
+                }
+            }
+        }
+    }
+}
+
+.hero {
+    &.homepage-slider {
+        .hero-inner {
+            &.marketing-block {
+                .hero-copy {
+                    padding: 0;
+                    background-color: $c-grey-5;
+                }
+
+                .hero-header {
+                    background-color: $white;
+                    padding-top: 20px;
+                }
+
+                .hero-header,
+                .button-wrapper,
+                .hero-detail-wrapper {
+                    padding-left: 20px;
+                    padding-right: 20px;
+                }
+
+                .hero-detail-wrapper {
+                    padding-bottom: 20px;
+
+                    @include media($medium-screen-down) {
+                        padding-bottom: 0;
+                    }
+                }
+
+                .button-wrapper {
+                    padding-bottom: 20px;
+
+                    @include media($large-screen-up) {
+                        background: $white;
+                        padding-bottom: 7px;
+                        margin-bottom: 0;
+                    }
+                }
+
+                .hero-detail {
+                    .pcp-from {
+                        line-height: 34px;
+                    }
+
+                    .fade-block {
+                        &.fade-transition {
+                            top: 35px;
+                        }
+                    }
+
+                    .deposit-block,
+                    .apr-block {
+                        line-height: 23px;
+                    }
+                }
+
+                .bottom-block {
+                    border-top: 1px solid $black;
+                    margin-top: 7px;
+                    padding-top: 7px;
+                }
+            }
+        }
+
+        .button-wrapper {
+            .button {
+                color: $button-black-color;
+                background: $black;
+                border: 1px solid $black;
+            }
+        }
+
+        .slider-nav {
+            li {
+                span {
+                    background: $bmw-blue;
+                    box-shadow: 0 0 2px $bmw-blue;
+                }
+            }
+        }
+    }
+}

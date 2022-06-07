@@ -1,0 +1,45 @@
+<?php
+/**
+ * @category  Design
+ * @package   Pep_Design
+ * @author    Sykander Gul <sykander.gul@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar Ltd (http://rockar.com)
+ */
+
+/** @var Peppermint_Customer_Block_Documents_List $this */
+
+/** @var Rockar_Customer_Model_Resource_Documents_Collection $collection */
+$collection = $this->getCustomerDocuments();
+?>
+<div class="my-documents-section">
+    <app-accordion
+        title="<?php echo $this->__('My Documents'); ?>"
+        class-name="accordion-light"
+        type="right-down"
+        :scroll-on-show="false"
+    >
+        <li>
+            <div class="accordion-content">
+                <div class="my-documents">
+                    <div class="my-account-wrapper my-documents-wrapper">
+                        <div class="my-account-content my-documents-table">
+                            <app-document-upload
+                                edit-url='<?php echo $this->getEditUrl(null); ?>'
+                                save-url='<?php echo $this->getSaveUrl(); ?>'
+                                form-key='<?php echo $this->getFormKey(); ?>'
+                                document-download-url='<?php echo $this->getDownloadUrl('@entity_id@'); ?>'
+                                document-delete-url='<?php echo $this->getRemoveUrl(null); ?>'
+                                document-load-url='<?php echo $this->getLoadDocumentsUrl(); ?>'
+                                :max-file-size='<?php echo $this->getMaxFileUploadSize(); ?>'
+                                :finance-groups='<?php echo Mage::helper('peppermint_customer')->getLookupForDropDown('peppermint_customer/document_finance_group'); ?>'
+                                :customer-groups='<?php echo Mage::helper('peppermint_customer')->getLookupForDropDown('peppermint_customer/document_customer_group'); ?>'
+                                confirmation-message='<?php echo $this->__('Are you sure you want to delete this document?'); ?>'
+                                :default-selection='<?php echo $this->getDefaultSelectedItems(); ?>'
+                            ></app-document-upload>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </app-accordion>
+</div>

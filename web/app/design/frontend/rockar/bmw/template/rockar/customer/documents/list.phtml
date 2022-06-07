@@ -1,0 +1,42 @@
+<?php
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Customer
+ * @author    Craig Goodspeed <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar Ltd (http://rockar.com)
+ */
+
+/** @var Peppermint_Customer_Block_Documents_List $this */
+?>
+<div class="col-12 my-documents-section">
+    <app-accordion title="<?php echo $this->__('My Documents'); ?>" class-name="accordion-light" type="right-down">
+        <li>
+            <div class="accordion-content">
+                <div class="my-documents">
+                    <div class="my-account-wrapper my-documents-wrapper">
+                        <div class="my-account-header">
+                            <p class="my-account-heading h-common"><?php echo $this->__('My Documents'); ?></p>
+                            <p class="my-account-subheading">
+                                <?php echo $this->__('Need to upload some documents? Do so here securely.'); ?>
+                            </p>
+                        </div>
+                        <div class="my-account-content my-documents-table">
+                            <app-document-upload
+                                edit-url='<?php echo $this->getEditUrl(null); ?>'
+                                save-url='<?php echo $this->getSaveUrl(); ?>'
+                                form-key='<?php echo $this->getFormKey(); ?>'
+                                document-download-url='<?php echo $this->getDownloadUrl('@entity_id@'); ?>'
+                                document-delete-url='<?php echo $this->getRemoveUrl(null); ?>'
+                                document-load-url='<?php echo $this->getLoadDocumentsUrl(); ?>'
+                                :finance-groups='<?php echo Mage::helper('peppermint_customer')->getLookupForDropDown('peppermint_customer/document_finance_group'); ?>'
+                                :customer-groups='<?php echo Mage::helper('peppermint_customer')->getLookupForDropDown('peppermint_customer/document_customer_group'); ?>'
+                                confirmation-message='<?php echo $this->__("Are you sure you want to delete this document?");?>'
+                                :default-selection='<?php echo $this->getDefaultSelectedItems(); ?>'
+                            ></app-document-upload>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </app-accordion>
+</div>

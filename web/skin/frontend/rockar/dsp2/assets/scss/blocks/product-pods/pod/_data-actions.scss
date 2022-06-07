@@ -1,0 +1,64 @@
+.pod-data-actions {
+    @include align-items(center);
+    @include display(flex);
+    @include justify-content(space-between);
+    background-color: $c-grey-6;
+    font-family: $bmw-bold;
+    font-size: $dsp2-f-size-s;
+    line-height: 1.1;
+    margin-bottom: 15px;
+    padding: 9px 15px 8px;
+
+    .pod-data-action {
+        font-size: initial;
+
+        button,
+        .get-quote-cta-icon {
+            background: none;
+            border: 0;
+            color: $c-grey;
+            font-family: $bmw-bold;
+            font-size: $dsp2-f-size-s;
+            height: auto;
+            line-height: $dsp2-line-h-20;
+
+            &::after {
+                content: '';
+                height: 1px;
+                background: $c-grey-3;
+                display: block;
+                margin: 3px 0;
+            }
+        }
+
+        .pod-finance-button,
+        .get-quote-cta-icon {
+            margin-top: 0;
+            padding: 0 0 0 20px;
+            position: relative;
+
+            &::before {
+                background-image: url('../images/svg/icon-payment-options.svg');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+                content: '';
+                height: 12px;
+                left: 0;
+                position: absolute;
+                top: 4px;
+                width: 12px;
+                margin: 0;
+            }
+        }
+
+        .get-quote-cta-icon {
+            letter-spacing: normal;
+
+            &::before {
+                background-image: url('../images/svg/icon-email-quote.svg');
+                top: 5px;
+            }
+        }
+    }
+}

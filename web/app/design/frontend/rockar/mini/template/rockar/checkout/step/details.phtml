@@ -1,0 +1,70 @@
+<?php
+/**
+ * @category  MINI
+ * @package   MINI\Checkout
+ * @author    Brandon Ho <brandon.ho@partner.bmw.co.za>
+ */
+/**
+ * @var Peppermint_Checkout_Block_Checkout_Steps_Details $this
+ */
+?>
+<?php $customerDashboardInfoBlock = $this->getAccountDashboardInfoBlock() ?>
+<?php $checkoutHelper = Mage::helper('rockar_checkout') ?>
+<?php $stepCode = Rockar_Checkout_Helper_Data::DETAILS_STEP_CODE; ?>
+<app-checkout-accordion title="<?php echo $this->__('Credit Application'); ?>" type="right-down" class-name="accordion-light" step-code="<?php echo $stepCode; ?>">
+    <li>
+        <div class="accordion-content">
+            <app-checkout-your-details
+                step-code="<?php echo $stepCode; ?>"
+                residence-form-url="<?php echo $this->getSaveResidenceAction() ?>"
+                employment-form-url="<?php echo $this->getSaveEmploymentAction() ?>"
+                top-text='<?php echo Mage::helper('rockar_all')->jsonEncode($this->getChildHtml('checkout_details_top_text')) ?>'
+                details-form-url="<?php echo $this->getSaveDetailsAction() ?>"
+                income-form-url="<?php echo $this->getIncomeDetailsAction() ?>"
+                company-form-url="<?php echo $this->getSaveCompanyAction() ?>"
+                deposit-form-url="<?php echo $this->getSaveDepositDetailsUrl() ?>"
+                form-key="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>"
+                get-address-url="<?php echo $this->getAddressUrl() ?>"
+                :available-countries='<?php echo $customerDashboardInfoBlock->getAvailableCountriesJson() ?>'
+                default-country="<?php echo $customerDashboardInfoBlock->getDefaultCountry() ?>"
+                :residence-min-years="<?php echo $checkoutHelper->getResidenceMinYearsConfig() ?>"
+                :employment-min-years="<?php echo $checkoutHelper->getEmploymentMinYearsConfig() ?>"
+                :income-data='<?php echo $this->getIncomeQuoteData() ?>'
+                :residence-data='<?php echo $this->getResidenceQuoteDataJson() ?>'
+                :ownership-options='<?php echo $this->getOwnershipJson() ?>'
+                :accommodation-types='<?php echo $this->getAccommodationTypeJson() ?>'
+                :bond-options='<?php echo $this->getBondStatusJson() ?>'
+                :employment-statuses='<?php echo $checkoutHelper->getEmploymentStatusTypeJson() ?>'
+                :employment-data='<?php echo $this->getEmploymentQuoteData() ?>'
+                :industry-type-options ='<?php echo $checkoutHelper->getIndustryTypeJson() ?>'
+                :company-types='<?php echo $this->getCompanyTypesJson() ?>'
+                :date-parts='<?php echo $this->getDateParts() ?>'
+                :quote-data='<?php echo $this->getQuoteData() ?>'
+                :gender-options='<?php echo $checkoutHelper->getGenderOptionsJson()?>'
+                :bank-options='<?php echo $checkoutHelper->getBankNamesJson()?>'
+                bank-form-url='<?php echo $this->getSaveDetailsAction()?>'
+                get-branch-url='<?php echo $checkoutHelper->getBankBranchesUrl()?>'
+                :deposit-quote-data='<?php echo $this->getDepositQuoteData() ?>'
+                :ethnic-options='<?php echo $checkoutHelper->getEthnicGroupJson()?>'
+                :preferred-language-options ='<?php echo $checkoutHelper->getPreferredLanguageJson()?>'
+                :marital-statuses='<?php echo $checkoutHelper->getMaritalStatusJson() ?>'
+                :marriage-type-options ='<?php echo $checkoutHelper->getMarriageTypeJson()?>'
+                :spouse-id-type-options ='<?php echo $checkoutHelper->getSpouseUniqueIdTypeJson()?>'
+                :married-living-apart-status='<?php echo $checkoutHelper->getMarriedLivingApartStatusJson()?>'
+                :communication-preferences-data='<?php echo $this->getCommunicationPreferencesQuoteData() ?>'
+                :marital-contract-type-requires-spouse-details='<?php echo $checkoutHelper->getMaritalContractTypeRequiresSpouseDetailsJson() ?>'
+                :za-id-type='<?php echo $checkoutHelper->getZaIdTypeJson() ?>'
+                :owner-status='<?php echo $checkoutHelper->getOwnerStatusJson() ?>'
+                :bond-status='<?php echo $checkoutHelper->getBondStatusJson() ?>'
+                :unemployed-status='<?php echo $checkoutHelper->getUnemployedStatusJson() ?>'
+                :retired-or-student-status='<?php echo $checkoutHelper->getRetiredOrStudentStatusJson() ?>'
+                :account-type='<?php echo $checkoutHelper->getBankAccountTypeJson() ?>'
+                :bank-name='<?php echo $checkoutHelper->getBankNameJson() ?>'
+                :branch-name='<?php echo $checkoutHelper->getBranchNameJson() ?>'
+                :deposit-source='<?php echo $checkoutHelper->getDepositSource() ?>'
+                gdpr-details-disclaimer='<?php echo htmlspecialchars($this->getChildHtml('checkout_your_details_gdpr_statement')) ?>'
+                :credit-app-data='<?php echo $this->getCreditAppData() ?>'
+            /></app-checkout-your-details>
+        </div>
+    </li>
+</app-checkout-accordion>

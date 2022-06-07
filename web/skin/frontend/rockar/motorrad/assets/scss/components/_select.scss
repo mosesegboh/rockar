@@ -1,0 +1,162 @@
+.id-document-type {
+    .selectbox-dropdown {
+        height: auto !important; //Used to overwrite inline style applied to dropdown
+    }
+}
+
+.selectbox {
+    position: relative;
+    font-family: $motorrad-light;
+    font-weight: $motorrad-fw-normal;
+    width: 100%;
+    max-width: $dropdown-max-width;
+    margin-bottom: 1.6em;
+    font-size: $input-field-font-size;
+    border: 1px solid $motorrad-blue;
+
+    .select-1 & {
+        max-width: 445px;
+    }
+
+    .select-2 & {
+        max-width: 175px;
+    }
+
+    .select-3 & {
+        max-width: 130px;
+    }
+
+    &.open {
+        .selectbox-select {
+            background: $selectbox-label-opened-background-color;
+
+            .dropdown-caret {
+                &::after {
+                    @include sprite($sprite-dropdown-arrow-up);
+                }
+            }
+        }
+    }
+
+    &.disabled {
+        opacity: .5 !important;
+
+        .selectbox-select {
+            cursor: not-allowed;
+            border: 1px solid $selectbox-disabled-border;
+        }
+    }
+
+    &.grey-dropdown {
+        .selectbox-select {
+            text-align: center;
+
+            .dropdown-caret {
+                background: $motorrad-light-grey;
+                border-left: none;
+
+                &::after {
+                    @include sprite($sprite-arrow-down-dark);
+                }
+            }
+        }
+
+        &.open {
+            .selectbox-select {
+                background: $selectbox-label-background-color;
+
+                .dropdown-caret {
+                    &::after {
+                        @include transform(rotate(180deg));
+                    }
+                }
+            }
+        }
+    }
+
+    .selectbox-select {
+        position: relative;
+        background: $selectbox-label-background-color;
+        color: $selectbox-label-color;
+        line-height: 15px;
+        cursor: pointer;
+        padding: 17px 59px 14px 19px;
+        min-height: 48px;
+
+        &:hover {
+            background: $selectbox-label-hover-background-color;
+        }
+
+        .dropdown-caret {
+            @include position(absolute, 0px 0 null null);
+            width: 48px;
+            height: 100%;
+            background: $selectbox-caret-background;
+
+            &::after {
+                @include position(absolute, 50% null null 50%);
+                @include sprite($sprite-dropdown-arrow-down);
+                content: '';
+                margin-top: -4px;
+                margin-left: -6px;
+            }
+        }
+    }
+
+    .selectbox-dropdown {
+        position: absolute;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: $selectbox-list-background;
+        z-index: 999;
+        overflow-y: scroll;
+
+        .dropdown-item {
+            color: $motorrad-text-color;
+            padding: 10px 19px;
+            line-height: 25px;
+            border: 1px solid $motorrad-light-grey;
+            cursor: pointer;
+            font-size: $f-size-s;
+
+            &:nth-child(3n) {
+                background: $motorrad-white;
+            }
+
+            &:nth-child(3n+1) {
+                background: $motorrad-white;
+            }
+
+            &:nth-child(3n+2) {
+                background: $motorrad-white;
+            }
+
+            &.selected {
+                background: $motorrad-light-grey;
+            }
+
+            &:hover {
+                background: $motorrad-light-grey;
+            }
+        }
+
+        // Styles if custom scrollbar added BEGIN
+        .ps {
+            .ps__scrollbar-y-rail {
+                background: $white;
+
+                .ps__scrollbar-y {
+                    background: $selectbox-scrollbar-thumb-color;
+                }
+            }
+        }
+        // Custom scrollbar styles END
+    }
+}
+
+.selectbox-wrapper {
+    .selectbox-dropdown {
+        display: none;
+    }
+}

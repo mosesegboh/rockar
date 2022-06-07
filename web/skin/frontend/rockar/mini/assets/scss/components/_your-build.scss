@@ -1,0 +1,40 @@
+.my-build {
+    margin-top: em(30);
+
+    .accordion-group {
+        margin-top: em(15);
+    }
+
+    .my-build-item-list {
+        @include display(flex);
+        @include flex-direction(row);
+        @include flex-wrap(wrap);
+
+        .my-build-item-block {
+            @include flex(0 0 25%);
+            padding: 5px;
+            margin-bottom: 10px;
+            cursor: pointer;
+
+            .item-block-cover {
+                img {
+                    display: block;
+                    width: 100%;
+                }
+            }
+
+            .item-block-info {
+                h3 {
+                    font-size: $f-size-l;
+                    font-weight: $fw-bold;
+                }
+
+                p {
+                    font-size: $f-size-xxl;
+                    font-weight: $fw-bold;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

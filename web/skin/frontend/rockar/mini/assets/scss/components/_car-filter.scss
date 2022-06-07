@@ -1,0 +1,170 @@
+#car-filter {
+    .carousel-wrapper {
+        border-bottom: 1px solid $car-filter-border-color;
+        margin-bottom: 22px;
+        padding-bottom: 32px;
+    }
+
+    .car-filter-list {
+        margin-bottom: 15px;
+
+        .car-filter-section {
+            padding: 0 20px;
+            margin-bottom: 10px;
+            font-size: 0;
+            text-transform: uppercase;
+            background-color: inherit;
+            box-shadow: none;
+            color: $car-filter-color;
+
+            @include media($medium-screen-up) {
+                border-right: 1px solid $car-filter-border-color;
+            }
+
+            @include media($large-screen-up) {
+                padding: 0 10px;
+            }
+
+            @include media($large-screen-down) {
+                border: 0;
+                height: auto !important;
+                margin-right: 0;
+
+                &:nth-of-type(3):last-child {
+                    $column-count: 2;
+                    $column-gutters: ($column-count) - 1;
+                    $container: $tablet-min-breakpoint - (2 * $item-grid-trim);
+                    $column-width: ($container - ($column-gutters * $item-grid-column-spacing)) / $column-count;
+
+                    border: 0;
+                    width: percentage($column-width / $container) * 2;
+
+                    .car-filter-block {
+                        margin-right: calc((100% - 40px) / 100);
+                        padding-left: calc((100% - 40px) / 100 * 7.5);
+                        width: calc((100% - 40px) / 100 * 24);
+
+                        &:nth-of-type(4n + 3) {
+                            margin-right: calc((100% - 40px) / 100 + 40px);
+                        }
+                    }
+                }
+            }
+
+            @include media($small-screen-down) {
+                width: 48%;
+
+                &:nth-of-type(3):last-child {
+                    width: 96%;
+
+                    .car-filter-block {
+                        margin-right: 0;
+                        padding-left: 0;
+                        width: 50%;
+
+                        &:nth-of-type(4n + 3) {
+                            margin-right: 0;
+                        }
+
+                        &:nth-of-type(odd) {
+                            padding-left: 20px;
+                        }
+                    }
+                }
+            }
+
+            @include media(new-breakpoint(max-width em(380) 6)) {
+                width: 100%;
+
+                &:nth-of-type(3):last-child {
+                    width: 100%;
+
+                    .car-filter-block {
+                        width: 100%;
+
+                        &:nth-of-type(odd) {
+                            padding-left: 0;
+                        }
+                    }
+                }
+            }
+
+            &:hover {
+                background-color: inherit;
+            }
+
+            &:nth-child(3n+3) {
+                border-right: 1px solid transparent;
+            }
+
+            &:last-child {
+                border-right: 1px solid transparent;
+            }
+
+            .car-filter-title {
+                color: $label-color;
+                flex-basis: 100%;
+                font-size: 16px;
+                font-weight: $fw-bold;
+                margin-bottom: 1em;
+                text-align: center;
+            }
+
+            label {
+                font-weight: $fw-bold;
+                padding-top: 3px;
+            }
+
+            .car-filter-block {
+                display: inline-block;
+                vertical-align: top;
+                margin-bottom: 10px;
+                font-size: 14px;
+                margin-right: 0;
+                width: 100%;
+
+
+                @include media($medium-screen-up) {
+                    margin-right: 2%;
+                    padding-left: 15%;
+                    width: 48%;
+                }
+
+                @include media($large-screen-up) {
+                    padding-left: 5%;
+                }
+
+                label {
+                    color: $label-color;
+                    font-size: 14px;
+                    font-weight: $fw-bold;
+                }
+            }
+        }
+    }
+}
+
+.car-filter-item .car-filter-title {
+    width: 100%;
+    padding: 10px 40px 11px 19px;
+    background-color: $white;
+    border-top: 1px solid $off-white;
+    border-bottom: 1px solid $off-white;
+    font-family: $mini_heading;
+    color: $black;
+    font-weight: 700;
+    margin-bottom: -2px;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.car-filter-blocks .finance-header {
+    font-family: $mini_heading;
+    font-size: $f-size-xxl;
+    font-weight: $fw-bold;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: 8px;
+    margin-bottom: 19px;
+}

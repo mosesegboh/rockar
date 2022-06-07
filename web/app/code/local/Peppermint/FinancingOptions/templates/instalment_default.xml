@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<finance>
+    <fields>
+        <field name="is_active">
+            <dspName>Status</dspName>
+            <source/>
+            <source_field/>
+            <default>1</default>
+            <notes/>
+        </field>
+        <field name="position">
+            <dspName>Position</dspName>
+            <source>DLM</source>
+            <source_field/>
+            <default>1</default>
+            <notes/>
+        </field>
+        <field name="method_type">
+            <dspName>Method Type</dspName>
+            <source/>
+            <source_field></source_field>
+            <!-- Default method type is Leasing ID -->
+            <default>4</default>
+            <notes/>
+        </field>
+        <field name="is_credit">
+            <dspName>Is Credit</dspName>
+            <source/>
+            <source_field/>
+            <default>1</default>
+            <notes/>
+        </field>
+        <field name="is_business">
+            <dspName>Is Business</dspName>
+            <source/>
+            <source_field/>
+            <default>0</default>
+            <notes/>
+        </field>
+        <field name="option_group_id">
+            <dspName>Financing Group</dspName>
+            <source/>
+            <source_field/>
+            <default>3</default>
+            <notes>BMW Instalment Sale</notes>
+        </field>
+        <field name="is_static">
+            <dspName>Is Static Content</dspName>
+            <source/>
+            <source_field/>
+            <default>0</default>
+            <notes/>
+        </field>
+        <field name="maintenance">
+            <dspName>Maintenance</dspName>
+            <source/>
+            <source_field/>
+            <default>0</default>
+            <notes/>
+        </field>
+        <field name="stores">
+            <dspName>Store view</dspName>
+            <source/>
+            <source_field/>
+            <default>0</default>
+            <websiteBmw>bmw</websiteBmw>
+            <websiteMini>mini</websiteMini>
+            <websiteMotorrad>motorrad</websiteMotorrad>
+            <notes/>
+        </field>
+        <field name="customer_groups">
+            <dspName>Customer Group</dspName>
+            <source/>
+            <source_field/>
+            <default>0,1,2,3,4,5</default>
+            <notes/>
+        </field>
+        <field name="option_finance_type">
+            <dspName>Finance type</dspName>
+            <source>DLM</source>
+            <source_field>finance_type</source_field>
+            <default>1</default>
+            <notes/>
+        </field>
+        <field name="title">
+            <dspName>Title</dspName>
+            <source>DLM</source>
+            <source_field>title</source_field>
+            <default>io1</default>
+            <notes/>
+        </field>
+        <field name="option_type">
+            <dspName>Type</dspName>
+            <source>DLM</source>
+            <source_field>payment_type</source_field>
+            <default>io1</default>
+            <notes/>
+        </field>
+        <field name="finance_company">
+            <dspName>Finance Company</dspName>
+            <source/>
+            <source_field/>
+            <default>BMW Financial Services</default>
+            <notes/>
+        </field>
+        <field name="minimum_amount_of_finance">
+            <dspName>Minimum Amount of Finance</dspName>
+            <source/>
+            <source_field/>
+            <default>1</default>
+            <notes/>
+        </field>
+        <field name="monthly_price_calc">
+            <dspName>Monthly Price Calculation</dspName>
+            <source/>
+            <source_field/>
+            <default>
+                $termValue = $term;
+                if ($balloonAmount != 0) {
+                    $termValue -= 1;
+                }
+                $minAmount = (($amountOfCredit + $individualFeeCapitalised + $pxSettlementCreditamount) - $balloonAmount ) / $termValue + $individualFeeMonthly;
+
+                $result = (-$balloonAmount + ((($amountOfCredit - $rateSubventionAmount) + $individualFeeCapitalised + $pxSettlementCreditamount) * ($interestRate / 100) * (30 / 360) + (($amountOfCredit - $rateSubventionAmount) + $individualFeeCapitalised + $pxSettlementCreditamount)) * pow(1 + ($interestRate / 1200), $termValue)) / (1 + ($interestRate / 1200) * 1) / ((pow(1 + ($interestRate / 1200), $termValue) - 1) / ($interestRate / 1200)) + $individualFeeMonthly;
+
+                $result = max($result, $minAmount);
+            </default>
+            <notes/>
+        </field>
+        <field name="total_amount_payable_calc">
+            <dspName>Total Amount Payable Calculation</dspName>
+            <source/>
+            <source_field/>
+            <default>
+                if ($balloonAmount == 0) {
+                    $result = ($monthlyCost * ($term)) + $depositBalance;
+                } else {
+                    $result = ($monthlyCost * ($term-1)) + $depositBalance + $individualFeeMonthly + $balloonAmount;
+                }
+            </default>
+            <notes/>
+        </field>
+        <field name="interest_charges_calc">
+            <dspName>Interest Charges Calculation</dspName>
+            <source/>
+            <source_field/>
+            <default>$result = ($totalAmountPayable + $finalPayment) - $productPrice - ($individualFeeMonthly * ($term - 1));</default>
+            <notes/>
+        </field>
+        <field name="interest_rate_calc">
+            <dspName>Calculated Interest Rate</dspName>
+            <source/>
+            <source_field/>
+            <default>$result = ($subventionAmount ? $subventionRate : $interestRate);</default>
+            <notes/>
+        </field>
+        <field name="header">
+            <dspName>Header</dspName>
+            <source/>
+            <source_field/>
+            <default/>
+            <websiteBmw><![CDATA[
+                <h3>How does BMW Instalment Sale work?</h3>
+                <h3>What is BMW Instalment Sale?</h3>
+                <p>Traditional vehicle finance that lets you pay monthly instalments on your journey to full ownership through BMW Financial Services</p>
+                <ul>
+                    <li>Choose your deposit - starting from 0%</li>
+                    <li>Include a balloon for lower monthly instalments with one final lump-sum settlement due at the end of your term</li>
+                    <li>Or, opt for no balloon payment if you would prefer higher monthly instalments with full immediate ownership at end of your term</li>
+                    <li>Select your repayment period (number of instalments) to calculate your monthly instalments</li><li>Enjoy the freedom of no mileage limit on your contract</li>
+                    <li>At the end of your term, you can take ownership of your BMW and decide if you want to keep the vehicle, sell it, or trade it in</li>
+                    <li>If you would like to trade in your current vehicle, you can get an instant trade-in estimate online</li>
+                </ul>
+            ]]></websiteBmw>
+            <websiteMini><![CDATA[
+                <h3>How does MINI Instalment Sale work?</h3>
+                <h3>What is MINI Instalment Sale?</h3>
+                <p>With MINI Instalment Sale, from MINI Financial Services, you pay monthly instalments to take full ownership of your MINI while enjoying no mileage limitations.</p>
+                <ul>
+                    <li>Choose your deposit.</li>
+                    <li>For lower monthly instalments, select a balloon amount that includes one final payment at the end of your term.</li>
+                    <li>If you prefer not to have a balloon payment, you will have higher monthly instalments but can take ownership of your MINI immediately at the end of your term.</li>
+                    <li>Select your repayment period to calculate your monthly instalment value.</li>
+                    <li>If you’d like to trade in your current vehicle, click ‘Add My Trade-In’ to receive an instant trade-in estimate.</li>
+                    <li>At the end of your finance agreement, you take ownership of your MINI with the option to keep, sell, or trade it in.</li>
+                </ul>
+            ]]></websiteMini>
+            <websiteMotorrad><![CDATA[
+                <h3>HOW DOES BMW MOTORRAD INSTALMENT SALE WORK?</h3>
+                <h3>How does BMW Motorrad Instalment Sale work?</h3>
+                <p>With BMW Motorrad Instalment Sale, from BMW Financial Services, you pay monthly instalments to take full ownership of your BMW bike while enjoying no mileage limitations.</p>
+                <ul>
+                    <li>Choose your deposit.</li>
+                    <li>For lower monthly instalments, select a balloon amount that includes one final payment at the end of your term.</li>
+                    <li>If you prefer not to have a balloon payment, you will have higher monthly instalments but can take ownership of your BMW bike immediately at the end of your term.</li>
+                    <li>Select your repayment period to calculate your monthly instalment value.</li>
+                    <li>If you’d like to trade in your current vehicle, click ‘Add My Trade-In’ to receive an instant trade-in estimate.</li>
+                    <li>At the end of your finance agreement, you take ownership of your BMW bike with the option to keep, sell, or trade it in.</li>
+                </ul>
+            ]]></websiteMotorrad>
+            <notes>This will be displayed on the Finance Calculator Overlay</notes>
+        </field>
+        <field name="video">
+            <dspName>Video</dspName>
+            <source/>
+            <source_field/>
+            <default/>
+            <websiteBmw><![CDATA[<video width="382" height="216" preload="metadata" controls><source src="https://forms.bmw.co.za/SelectVideo/BMWInstalmentSale.mp4#t=0.001" type="video/mp4"></video>]]></websiteBmw>
+            <websiteMini><![CDATA[<video width="382" height="216" controls><source src="https://forms.bmw.co.za/SelectVideo/MINI-INSTALMENTSALEFinal.mp4#t=0.001" type="video/mp4"></video>]]></websiteMini>
+            <websiteMotorrad><![CDATA[<video width="382" height="216" controls><source src="https://forms.bmw.co.za/SelectVideo/MOTORRAD_INSTALMENTSALEBALLOON.mp4#t=0.001" type="video/mp4"></video>]]></websiteMotorrad>
+            <notes/>
+        </field>
+        <field name="footer">
+            <dspName>Footer</dspName>
+            <source/>
+            <source_field/>
+            <default/>
+            <websiteBmw><![CDATA[
+                <p>Legal disclaimer</p>
+                <p>Finance available through BMW Financial Services (South Africa) (Pty) Ltd, an Authorised Financial Services (FSP 4623) and Registered Credit Provider (NCRCP2341). BMW Financial Services provides no warranty either implicitly or expressly, as to the accuracy of the information or estimated values supplied by you. All products are subject to qualifying criteria and credit approval where applicable. T&C’ s apply in respect of specific finance option.</p>
+                <div>
+                    <p>Legal disclaimer</p>
+                    <p>Finance available through BMW Financial Services (South Africa (Pty) Ltd., an Authorised Financial Services (FSP 4623) and Registered Credit Provider NCRCP2341 (“BMW Financial Services”)</p>
+                    <p>Any information obtained on this website calculator will not constitute a finance quote as contemplated by the National Credit Act (No. 34 of 2005) ("NCA"). Any information provided through the calculator and/or the website, regarding our finance products are subject to change and/or may be amended at any time. This calculator is based on an indicative interest rate. The actual interest rate offered by BMW Financial Services, should you apply for vehicle finance, is dependent on your individual credit profile and may differ from the interest rate indicated in the calculator. The calculator is also based on the condition of your current vehicle to be traded in as reported by you and any outstanding finance you have declared. Your monthly payment will alter if either of these change. No responsibility for any loss suffered by any person acting or refraining from acting as a result of the use of this calculator and/or information obtained through this calculator or the website is accepted by BMW Financial Services. BMW Financial Services does not warrant that the information obtained may be free of errors. Terms and Conditions apply.</p>
+                </div>
+            ]]></websiteBmw>
+            <websiteMini><![CDATA[
+                <p>Legal disclaimer</p>
+                <p>Available through MINI Financial Services, a division of BMW Financial Services (South Africa) (Pty) Ltd, an Authorised Financial Services (FSP 4623) and Registered Credit Provider (NCRCP2341). BMW Financial Services provides no warranty either implicitly or expressly, as to the accuracy of the information or estimated values supplied by you. All products are subject to qualifying criteria and credit approval where applicable. T&C's apply in respect of specific finance option.</p>
+                <div>
+                    <p>Legal disclaimer</p>
+                    <p>Finance available through MINI Financial Services, a division of BMW Financial Services (South Africa) (Pty) Ltd., an Authorised Financial Services (FSP 4623) and Registered Credit Provider NCRCP2341 (“BMW Financial Services”)</p>
+                    <p>Any information obtained on this website calculator will not constitute a finance quote as contemplated by the National Credit Act (No. 34 of 2005) ("NCA"). Any information provided through the calculator and/or the website, regarding our finance products are subject to change and/or may be amended at any time. This calculator is based on an indicative interest rate. The actual interest rate offered by BMW Financial Services, should you apply for vehicle finance, is dependent on your individual credit profile and may differ from the interest rate indicated in the calculator. The calculator is also based on the condition of your current vehicle to be traded in as reported by you and any outstanding finance you have declared. Your monthly payment will alter if either of these change. No responsibility for any loss suffered by any person acting or refraining from acting as a result of the use of this calculator and/or information obtained through this calculator or the website is accepted by BMW Financial Services. BMW Financial Services does not warrant that the information obtained may be free of errors. Terms and Conditions apply.</p>
+                </div>
+            ]]></websiteMini>
+            <websiteMotorrad><![CDATA[
+                <p>Legal disclaimer</p>
+                <p>Available through BMW Financial Services (South Africa) (Pty) Ltd, an Authorised Financial Services (FSP 4623) and Registered Credit Provider (NCRCP2341). BMW Financial Services provides no warranty either implicitly or expressly, as to the accuracy of the information or estimated values supplied by you. All products are subject to qualifying criteria and credit approval where applicable. T&C's apply in respect of specific finance option.</p>
+                <div>
+                    <p>Legal disclaimer</p>
+                    <p>Finance available through BMW Financial Services (South Africa) (Pty) Ltd., an Authorised Financial Services (FSP 4623) and Registered Credit Provider NCRCP2341 (“BMW Financial Services”)</p>
+                    <p>Any information obtained on this website calculator will not constitute a finance quote as contemplated by the National Credit Act (No. 34 of 2005) ("NCA"). Any information provided through the calculator and/or the website, regarding our finance products are subject to change and/or may be amended at any time. This calculator is based on an indicative interest rate. The actual interest rate offered by BMW Financial Services, should you apply for vehicle finance, is dependent on your individual credit profile and may differ from the interest rate indicated in the calculator. The calculator is also based on the condition of your current vehicle to be traded in as reported by you and any outstanding finance you have declared. Your monthly payment will alter if either of these change. No responsibility for any loss suffered by any person acting or refraining from acting as a result of the use of this calculator and/or information obtained through this calculator or the website is accepted by BMW Financial Services. BMW Financial Services does not warrant that the information obtained may be free of errors. Terms and Conditions apply.</p>
+                </div>
+            ]]></websiteMotorrad>
+            <notes>This will be displayed on the Finance Calculator Overlay</notes>
+        </field>
+    </fields>
+    <financeOverlay>
+        <variable>
+            <name>part_exchange</name>
+            <sort>10</sort>
+            <title>Trade-in</title>
+        </variable>
+        <variable>
+            <name>outstanding_finance</name>
+            <sort>20</sort>
+            <title>Outstanding Finance on Your Trade-in Vehicle</title>
+        </variable>
+        <variable>
+            <name>shortfall_applied</name>
+            <sort>30</sort>
+            <title>Trade-in Support</title>
+        </variable>
+        <variable>
+            <name>x_monthly_payments_of</name>
+            <sort>-100</sort>
+            <title>Per Month</title>
+        </variable>
+        <variable>
+            <name>cash_price</name>
+            <sort>-90</sort>
+            <title>Offer Price</title>
+        </variable>
+        <variable>
+            <name>coupon_discount</name>
+            <sort>60</sort>
+            <title>Discount - {{ getCouponCode() }}</title>
+        </variable>
+        <variable>
+            <name>manufacturer_deposit_contribution</name>
+            <sort>70</sort>
+            <title>Manufacturer Deposit Contribution</title>
+        </variable>
+        <variable>
+            <name>dealer_deposit_contribution</name>
+            <sort>80</sort>
+            <title>Retailer Deposit Contribution</title>
+        </variable>
+        <variable>
+            <name>cash_deposit</name>
+            <sort>90</sort>
+            <title>Cash Deposit</title>
+        </variable>
+        <variable>
+            <name>customer_deposit</name>
+            <sort>100</sort>
+            <title>Deposit Balance *</title>
+        </variable>
+        <variable>
+            <name>cashback</name>
+            <sort>110</sort>
+            <title>Deposit Reimbursement *</title>
+        </variable>
+        <variable>
+            <name>px_settlement_creditamount</name>
+            <sort>120</sort>
+            <title>{{ getWebsiteCode() }} Trade Assist Loan</title>
+        </variable>
+        <variable>
+            <name>px_settlement_payment</name>
+            <sort>130</sort>
+            <title>Trade-in Settlement Due</title>
+        </variable>
+        <variable>
+            <name>initiation_fee</name>
+            <sort>140</sort>
+            <title>Initiation Fee</title>
+        </variable>
+        <variable>
+            <name>amount_of_credit</name>
+            <sort>150</sort>
+            <title>Finance Amount</title>
+        </variable>
+        <variable>
+            <name>interest_rate</name>
+            <sort>160</sort>
+            <title>Interest Rate (% Linked to Prime)*</title>
+        </variable>
+        <variable>
+            <name>duration_of_agreement</name>
+            <sort>170</sort>
+            <title>Term</title>
+        </variable>
+        <variable>
+            <name>balloon_amount</name>
+            <sort>180</sort>
+            <title>Balloon Amount</title>
+        </variable>
+        <variable>
+            <name>balloon_percentage</name>
+            <sort>190</sort>
+            <title>Balloon Percentage Applied</title>
+        </variable>
+        <variable>
+            <name>total_amount_payable</name>
+            <sort>200</sort>
+            <title>Total Cost to Customer</title>
+        </variable>
+        <variable>
+            <name>monthly_service_fee</name>
+            <sort>210</sort>
+            <title>Monthly Service Fee</title>
+        </variable>
+    </financeOverlay>
+    <financeQuote>
+        <variable>
+            <name>coupon_discount</name>
+            <sort>30</sort>
+            <title>Discount - {{ getCouponCode() }}</title>
+        </variable>
+        <variable>
+            <name>x_monthly_payments_of</name>
+            <sort>40</sort>
+            <title>Monthly Payment</title>
+        </variable>
+        <variable>
+            <name>cash_deposit</name>
+            <sort>50</sort>
+            <title>Cash Deposit</title>
+        </variable>
+        <variable>
+            <name>part_exchange</name>
+            <sort>60</sort>
+            <title>Trade-in</title>
+        </variable>
+        <variable>
+            <name>outstanding_finance</name>
+            <sort>70</sort>
+            <title>Outstanding Finance on Your Trade-in Vehicle</title>
+        </variable>
+        <variable>
+            <name>shortfall_applied</name>
+            <sort>80</sort>
+            <title>Trade-in Support</title>
+        </variable>
+        <variable>
+            <name>px_settlement_creditamount</name>
+            <sort>90</sort>
+            <title>{{ getWebsiteCode() }} Trade Assist Loan</title>
+        </variable>
+        <variable>
+            <name>px_settlement_payment</name>
+            <sort>100</sort>
+            <title>Trade-in Settlement Due</title>
+        </variable>
+        <variable>
+            <name>cashback</name>
+            <sort>110</sort>
+            <title>Deposit Reimbursement *</title>
+        </variable>
+        <variable>
+            <name>manufacturer_deposit_contribution</name>
+            <sort>120</sort>
+            <title>Manufacturer Deposit Contribution</title>
+        </variable>
+        <variable>
+            <name>dealer_deposit_contribution</name>
+            <sort>130</sort>
+            <title>Retailer Deposit Contribution</title>
+        </variable>
+        <variable>
+            <name>customer_deposit</name>
+            <sort>140</sort>
+            <title>Deposit Balance *</title>
+        </variable>
+        <variable>
+            <name>initiation_fee</name>
+            <sort>150</sort>
+            <title>Initiation Fee</title>
+        </variable>
+        <variable>
+            <name>amount_of_credit</name>
+            <sort>160</sort>
+            <title>Finance Amount</title>
+        </variable>
+        <variable>
+            <name>interest_rate</name>
+            <sort>170</sort>
+            <title>Interest Rate (% Linked to Prime)*</title>
+        </variable>
+        <variable>
+            <name>duration_of_agreement</name>
+            <sort>180</sort>
+            <title>Term</title>
+        </variable>
+        <variable>
+            <name>balloon_amount</name>
+            <sort>190</sort>
+            <title>Balloon Amount</title>
+        </variable>
+        <variable>
+            <name>balloon_percentage</name>
+            <sort>200</sort>
+            <title>Balloon Percentage Applied</title>
+        </variable>
+        <variable>
+            <name>total_amount_payable</name>
+            <sort>210</sort>
+            <title>Total Cost to Customer</title>
+        </variable>
+        <variable>
+            <name>monthly_service_fee</name>
+            <sort>220</sort>
+            <title>Monthly Service Fee</title>
+        </variable>
+    </financeQuote>
+</finance>

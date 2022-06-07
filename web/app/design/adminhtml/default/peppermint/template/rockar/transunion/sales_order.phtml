@@ -1,0 +1,143 @@
+<?php
+/**
+ * @category Peppermint
+ * @package Peppermint\PartExchange
+ * @author Lucian Mesaros <lucian.mesaros@rockar.com>
+ * @copyright Copyright (c) 2019 Rockar Ltd (http://rockar.com)
+ *
+ * @var $this Peppermint_PartExchange_Block_Adminhtml_Order_View_PartExchange
+ */
+
+/**
+ * @var $partExchange Peppermint_PartExchange_Model_Order
+ */
+$partExchange = $this->getPartExchange();
+?>
+
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4 class="icon-head"><?php echo $this->getEntityTitle(); ?></h4>
+        <?php if ($this->_isAllowed()): ?>
+            <div class="tools">
+                <a href="javascript:void(0);" onclick="$('<?php echo $this->getBlockViewId(); ?>').hide(); $('<?php echo $this->getBlockFormId(); ?>').show(); return false;"><?php echo $this->__('Edit'); ?></a>
+            </div>
+        <?php endif; ?>
+    </div>
+    <fieldset>
+        <?php if ($partExchange->getId()): ?>
+            <div class="f-right">
+                <?php echo $this->getChildHtml('remove_button') ?>
+            </div>
+            <div class="clear"></div>
+        <?php endif; ?>
+        <div id="<?php echo $this->getBlockId(); ?>">
+            <div id="<?php echo $this->getBlockFormId(); ?>" style="display:none;">
+                <table cellspacing="0" class="form-list">
+                    <tbody>
+                    <tr>
+                        <td class="label"><?php echo $this->__('Car Derivative'); ?></td>
+                        <td class="value">
+                            <input type="text" name="car_model" class="input-text" value="<?php echo $partExchange->getCarModel(); ?>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label"><?php echo $this->__('License Plate'); ?></td>
+                        <td class="value">
+                            <input type="text" name="license_plate" class="input-text" value="<?php echo $partExchange->getLicensePlate(); ?>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label"><?php echo $this->__('Trade-in Value'); ?></td>
+                        <td class="value">
+                            <input type="text" name="part_exchange_value" class="input-text" value="<?php echo $partExchange->getPartExchangeValue(); ?>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label"><?php echo $this->__('Outstanding Finance'); ?></td>
+                        <td class="value">
+                            <input type="text" name="outstanding_finance" class="input-text" value="<?php echo $partExchange->getOutstandingFinance(); ?>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label"><?php echo $this->__('Year of first Registration'); ?></td>
+                        <td class="value">
+                            <input type="text" name="car_year" class="input-text" value="<?php echo $partExchange->getCarYear(); ?>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label"><?php echo $this->__('Total Mileage'); ?></td>
+                        <td class="value">
+                            <input type="text" name="car_mileage" class="input-text" value="<?php echo $partExchange->getCarMileage(); ?>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label"><?php echo $this->__('Car Condition'); ?></td>
+                        <td class="value">
+                            <select name="car_condition" id="car_condition">
+                                <?php echo $this->getCarConditionOptions(); ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label"><?php echo $this->__('Extra Exchange Info'); ?></td>
+                        <td class="value"><?php echo $this->getCheckboxes(); ?></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="f-right">
+                    <?php echo $this->getChildHtml('cancel_button') ?>
+                    <?php echo $this->getChildHtml('submit_button') ?>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div id="<?php echo $this->getBlockViewId(); ?>">
+                <table cellspacing="0" class="form-list">
+                    <tbody>
+                    <?php if ($partExchange->getId()): ?>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Car Derivative'); ?></td>
+                            <td class="value"><strong><?php echo $partExchange->getCarModel(); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('License Plate'); ?></td>
+                            <td class="value"><strong><?php echo $partExchange->getLicensePlate(); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Trade-in Value'); ?></td>
+                            <td class="value"><strong><?php echo $partExchange->getPartExchangeValue(); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Outstanding Finance'); ?></td>
+                            <td class="value"><strong><?php echo $partExchange->getOutstandingFinance(); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Year of first Registration'); ?></td>
+                            <td class="value"><strong><?php echo $partExchange->getCarYear(); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Total Mileage'); ?></td>
+                            <td class="value"><strong><?php echo $partExchange->getCarMileage(); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Car Condition'); ?></td>
+                            <td class="value"><strong><?php echo $this->getCarCondition(); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Bidding ID'); ?></td>
+                            <td class="value"><strong><?php echo $partExchange->getBiddingId(); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Extra Exchange Info'); ?></td>
+                            <td class="value"><strong><?php echo $this->getCheckedCheckboxes(); ?></strong></td>
+                        </tr>
+                    <?php else: ?>
+                        <tr>
+                            <td class="label"><?php echo $this->__("I'm not swapping a car");?></td>
+                        </tr>
+                    <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </fieldset>
+</div>

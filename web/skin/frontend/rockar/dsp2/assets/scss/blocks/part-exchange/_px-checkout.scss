@@ -1,0 +1,176 @@
+.px-checkout {
+    @import './px-checkout-skip';
+    @import './px-layout';
+    @import './px-substep-0';
+    @import './px-substep-1';
+    @import './px-substep-2';
+    @import './px-valuation';
+
+        .px-quote-text {
+            p {
+                @include media($small-screen-down) {
+                    font-size: $dsp2-f-size-xs;
+                }
+            }
+        }
+
+    li {
+        list-style: outside;
+    }
+
+    .selectbox-wrapper {
+        margin-bottom: .8em;
+
+        .selectbox {
+            margin: 0 0 36px;
+
+            @include media($large-screen-up) {
+                margin-bottom: 56px;
+            }
+
+            .selectbox-select {
+                font-family: $bmw-light;
+            }
+        }
+    }
+
+    .navigation-steps-block {
+        @include media($small-screen-down) {
+            padding: 0;
+
+            .navigation-steps-wrapper {
+                &:after {
+                    margin-left: unset;
+                    width: 100%;
+                }
+            }
+        }
+
+        .navigation-steps-wrapper {
+            .navigation-link-desktop {
+                @include media($large-screen-up) {
+                    top: 80%;
+                }
+
+                @include media($x-large-screen-up) {
+                    top: 50%;
+                }
+            }
+        }
+
+        .navigation-steps {
+            @include media($large-screen-up) {
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
+
+            @include media($x-large-screen-up) {
+                margin-bottom: unset;
+                margin-top: unset;
+            }
+        }
+    }
+
+    .px-mileage {
+        @include media($small-screen-down) {
+            float: left;
+        }
+    }
+
+    .substep-1 {
+        @include media($medium-screen-up) {
+            @include display(flex);
+            @include flex-direction(column);
+        }
+
+        .px-car-info {
+            border: 1px solid $c-grey-5;
+
+            p {
+                padding: 21px;
+                margin: 0;
+                font-size: $dsp2-f-size;
+            }
+        }
+
+        .px-bottom {
+            @include display(flex);
+            @include flex-direction(column-reverse);
+
+            @include media($medium-screen-up) {
+                @include flex-direction(row);
+            }
+
+            .dsp2-outline {
+                @include media($large-screen-up) {
+                   margin-top: 0;
+                }
+            }
+
+            .col-md-12 {
+                @include media($small-screen-down) {
+                    padding: 0;
+                }
+            }
+        }
+    }
+
+    .currentstep{
+        &-one {
+            @import 'px-conditions';
+
+            @include media($medium-screen-up) {
+                @include display(flex);
+                @include flex-direction(column);
+            }
+        }
+    }
+
+    .currentstep-two {
+        @include media($medium-screen-up) {
+            @include display(flex);
+            @include flex-direction(column);
+        }
+
+        .px-bottom {
+            .dsp2-outline {
+                @include media($large-screen-up) {
+                    margin-top: 0;
+                }
+            }
+        }
+
+        .px-shortfall-payments {
+            @include media($medium-screen-up) {
+                @include display(flex);
+                @include flex-direction(column);
+            }
+
+            @include media($desktop-px-down) {
+                .col-md-12 {
+                    width: 100%;
+                }
+            }
+
+            @include media($desktop-px-breakpoint) {
+                @include display(block);
+            }
+        }
+    }
+}
+
+// Placed here as the actual tooltip in not the descendant of the element
+// It was placed in
+.tooltipster-content {
+    body & {
+        div.tooltip-valuation {
+            max-width: 256px;
+            padding: 10px;
+
+            p {
+                font-size: $dsp2-f-size;
+                text-align: left;
+            }
+        }
+    }
+}

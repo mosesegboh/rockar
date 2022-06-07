@@ -1,0 +1,36 @@
+.pod-actions {
+    .pod-action {
+        font-family: $mini-sans-serif-bold;
+    }
+
+    .action-compare {
+        background: $white;
+        border: 3px solid $black;
+        color: $black;
+
+        &:hover {
+            background: $black;
+            color: $white;
+
+            &::before {
+                filter: invert(1);
+            }
+        }
+
+        &.remove {
+            &::before {
+                background-image: url('../images/svg/icon-minus-thin.svg');
+            }
+
+            &:hover {
+                &::before {
+                    filter: invert(1);
+                }
+            }
+        }
+
+        &::before {
+            background-image: url('../images/svg/icon-plus-thin.svg');
+        }
+    }
+}

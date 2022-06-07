@@ -1,0 +1,318 @@
+.vehicle-options {
+    th {
+        border: 0;
+        padding: .2em 0;
+    }
+
+    td {
+        padding: 0;
+    }
+
+    .option-label {
+        font-weight: $fw-bold;
+        text-transform: uppercase;
+
+        span {
+            font-weight: $fw-light;
+            text-transform: none;
+            color: $choose-vechicle-options-label-color;
+        }
+    }
+}
+
+.choose-vehicle-list {
+    text-align: center;
+    margin-bottom: 1em;
+
+    .slides {
+        .slides-wrapper {
+            transition: left .3s;
+        }
+    }
+
+    .choose-vehicle {
+        padding: 6px 7px;
+        margin: 0 20px 20px;
+
+        .choose-vehicle-cover {
+            border: 1px solid transparent;
+            margin-bottom: 13px;
+
+            img {
+                vertical-align: middle;
+            }
+        }
+
+        .choose-vehicle-info {
+            @include clearfix;
+
+            p {
+                font-size: $f-size;
+                line-height: $f-size;
+
+                &.h-common {
+                    color: $choose-vechicle-info-color;
+                    text-transform: none;
+
+                    @include media($small-screen-down) {
+                        font-size: $f-size-xs;
+                    }
+                }
+
+                &.payment-amount {
+                    color: $choose-vechicle-payment-amount-color;
+                    font-weight: $fw-bold;
+
+                    @include media($small-screen-down) {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        &.active {
+            background: $white;
+
+            .choose-vehicle-cover {
+                border-color: $primary-color;
+                position: relative;
+                z-index: 0;
+
+                &::after {
+                    @include position(absolute, null 0 0 null);
+                    @include size(20px);
+                    content: '';
+                    background: url(../images/svg/checked.svg) no-repeat center;
+                    background-size: 100%;
+                }
+            }
+        }
+    }
+}
+
+.choose_vehicle {
+    background: $white;
+    border: 2px solid $white;
+    padding: 12px;
+    position: relative;
+    margin: 0 0 1em 0;
+
+    &.active {
+        border: 2px solid $choose-vehicle-border-hover;
+    }
+
+    .choose-vehicle-head {
+        .interior-switcher {
+            height: 53px;
+            overflow: hidden;
+
+            &.auto {
+                height: auto;
+            }
+
+            button {
+                width: 100%;
+
+                .arrow-down {
+                    top: 50%;
+                    bottom: auto;
+                    margin-top: -3px;
+                }
+            }
+        }
+
+        .choose-vehicle-cover {
+            margin: .5em 0;
+
+            img {
+                display: block;
+            }
+        }
+
+        .choose-vehicle-actions {
+            button {
+                display: block;
+                width: 100%;
+                padding: 1.45em 1.55em;
+
+                &.button-switcher {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .choose-vehicle-info {
+        .h2 {
+            text-transform: uppercase;
+            font-size: $f-size-xxxl;
+            padding: .5em 0 0 0;
+            font-weight: bold;
+        }
+
+        .choose-vehicle-options-subtotal {
+            @include display(flex);
+            @include flex-direction(row);
+
+            border-bottom: 1px solid $choose-vechicle-border-color;
+            margin: .5em 0;
+            padding: 0 1em .5em 0;
+
+            .subtotal-title {
+                @include flex(1 0 auto);
+            }
+
+            .subtotal-price {
+                @include flex(1 0 auto);
+                text-align: right;
+            }
+        }
+
+        .choose-vehicle-prices {
+            padding: .5em 0 0 0;
+
+            .finance-payments {
+                text-align: center;
+
+                .payment {
+                    display: inline-block;
+                    padding-right: 1.5em;
+                    text-align: left;
+
+                    &:last-child {
+                        padding-right: 0;
+                    }
+                }
+
+                .payment-amount {
+                    @include media($small-screen-down) {
+                        font-size: $f-size-xxxxl;
+                    }
+                }
+
+                .payment-label {
+                    @include media($small-screen-down) {
+                        font-size: $f-size-xxl;
+                        line-height: 16px;
+                    }
+                }
+            }
+        }
+
+        .choose-vehicle-delivery {
+            text-align: center;
+            margin: .5em 0;
+        }
+
+        .choose-vehicle-actions {
+            button {
+                display: block;
+                width: 100%;
+
+                &:first-child {
+                    margin: 0 0 .5em 0;
+                }
+
+                &.button-switcher {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+// Desktop styles
+
+@include media($large-screen-up) {
+    .choose_vehicle {
+        @include display(flex);
+        @include flex-direction(row);
+        
+        .choose-vehicle-head {
+            width: 40%;
+            display: inline-block;
+            vertical-align: top;
+
+            .choose-vehicle-nav {
+                display: none;
+            }
+            
+            .choose-vehicle-actions {
+                font-size: 0;
+
+                button {
+                    display: inline-block;
+                    width: 49%;
+                    font-size: 13px;
+                    padding: 0.5625em 1.55em;
+
+                    &:first-child {
+                        margin-right: 2%;
+                    }
+
+                    &:last-child {
+                        display: block;
+                        width: 100%;
+                        margin-top: 5px;
+                    }
+
+                    &.button-switcher {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+
+        .choose-vehicle-info {
+            width: 60%;
+            display: inline-block;
+            vertical-align: top;
+            padding: 0 0 0 1em;
+
+            .h2 {
+                padding: 0;
+            }
+
+            .vehicle-options-wrapper {
+                height: 165px;
+                overflow-y: auto;
+                overflow-x: hidden;
+                padding: 0;
+
+                .vehicle-options-wrap {
+                    padding: 0 1em 0 0;
+                }
+            }
+
+            .choose-vehicle-prices {
+                margin: .5em 0;
+            }
+        }
+
+        .choose-vehicle-bottom {
+            @include display(flex);
+            @include flex-direction(row);
+
+            .choose-vehicle-delivery {
+                @include flex(1 1 40%);
+                margin: 0;
+            }
+
+            .choose-vehicle-actions {
+                @include flex(1 1 60%);
+                @include display(flex);
+                margin: 0;
+
+                button {
+                    @include flex(1 1 50%);
+                    margin: 0;
+                    padding: .25em;
+
+                    &:first-child {
+                        margin: 0 .5em 0 0;
+                    }
+                }
+            }
+        }
+    }
+}

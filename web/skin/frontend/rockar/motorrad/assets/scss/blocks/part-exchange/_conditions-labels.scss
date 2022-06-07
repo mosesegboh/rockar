@@ -1,0 +1,41 @@
+.conditions-labels {
+    @include display(flex);
+
+    font: {
+        size: $f-size-xs;
+        weight: $motorrad-fw-normal;
+    }
+    letter-spacing: $base-letter-spacing;
+    width: 120%;
+    margin-left: -10%;
+    margin-bottom: 4em;
+
+    // Different positioning based on conditions count (default is for 6 conditions)
+    &.conditions-5 {
+        width: 125%;
+        margin-left: -12%;
+    }
+
+    li {
+        @include flex-grow(1);
+        @include flex-basis(0);
+
+        text-align: center;
+
+        span {
+            max-width: 50%;
+            width: 50%;
+            display: inline-block;
+            font-family: $motorrad-light;
+            color: $motorrad-text-color;
+        }
+
+        &:first-of-type {
+            text-align: right;
+
+            span {
+                text-align: left;
+            }
+        }
+    }
+}

@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint_ExtendedRules
+ * @author       Razvan Zofota <razvan.zofota@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+*/
+-->
+<config>
+    <modules>
+        <Peppermint_ExtendedRules>
+            <version>0.1.2</version>
+        </Peppermint_ExtendedRules>
+    </modules>
+     <global>
+         <helpers>
+            <peppermint_extendedrules>
+                <class>Peppermint_ExtendedRules_Helper</class>
+            </peppermint_extendedrules>
+            <rockar_extendedrules>
+                <rewrite>
+                    <data>Peppermint_ExtendedRules_Helper_Data</data>
+                </rewrite>
+            </rockar_extendedrules>
+        </helpers>
+        <blocks>
+            <peppermint_extendedrules>
+                <class>Peppermint_ExtendedRules_Block</class>
+            </peppermint_extendedrules>
+            <rockar_extendedrules>
+                <rewrite>
+                    <adminhtml_rules_exceptionCap_edit_form>Peppermint_ExtendedRules_Block_Adminhtml_Rules_ExceptionCap_Edit_Form</adminhtml_rules_exceptionCap_edit_form>
+                    <adminhtml_rules_edit_tab_exceptionCap>Peppermint_ExtendedRules_Block_Adminhtml_Rules_Edit_Tab_ExceptionCap</adminhtml_rules_edit_tab_exceptionCap>
+                    <adminhtml_rules_exceptionCap_edit>Peppermint_ExtendedRules_Block_Adminhtml_Rules_ExceptionCap_Edit</adminhtml_rules_exceptionCap_edit>
+                    <adminhtml_system_config_sortOrder_renderer>Peppermint_ExtendedRules_Block_Adminhtml_System_Config_SortOrder_Renderer</adminhtml_system_config_sortOrder_renderer>
+                </rewrite>
+            </rockar_extendedrules>
+        </blocks>
+        <models>
+            <peppermint_extendedrules>
+                <class>Peppermint_ExtendedRules_Model</class>
+                <resourceModel>peppermint_extendedrules_resource</resourceModel>
+            </peppermint_extendedrules>
+            <peppermint_extendedrules_resource>
+                <class>Peppermint_ExtendedRules_Model_Resource</class>
+                <entities>
+                    <mileage>
+                        <table>peppermint_extendedrules_mileage</table>
+                    </mileage>
+                </entities>
+            </peppermint_extendedrules_resource>
+        </models>
+        <events>
+            <rockar_partexchange_apply_deductions>
+                <observers>
+                    <rockar_extended_rules_deduct>
+                        <class>peppermint_extendedrules/observer</class>
+                        <method>applyDeductions</method>
+                    </rockar_extended_rules_deduct>
+                </observers>
+            </rockar_partexchange_apply_deductions>
+        </events>
+        <resources>
+            <peppermint_extendedrules_setup>
+                <setup>
+                    <module>Peppermint_ExtendedRules</module>
+                </setup>
+            </peppermint_extendedrules_setup>
+        </resources>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <peppermint_extendedrules before="Mage_Adminhtml">Peppermint_ExtendedRules_Adminhtml</peppermint_extendedrules>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <peppermint_extendedrules>
+                    <file>extended_rules.xml</file>
+                </peppermint_extendedrules>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

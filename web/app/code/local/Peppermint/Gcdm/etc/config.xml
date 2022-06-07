@@ -1,0 +1,234 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint\Gcdm
+ * @author    Stefan Lucaci <lucacistefan.alexandru@rockar.com>
+ * @copyright Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_Gcdm>
+            <version>0.1.5</version>
+        </Peppermint_Gcdm>
+    </modules>
+    <frontend>
+        <routers>
+            <peppermint_gcdm>
+                <use>standard</use>
+                <args>
+                    <module>Peppermint_Gcdm</module>
+                    <frontName>gcdm</frontName>
+                </args>
+            </peppermint_gcdm>
+        </routers>
+        <events>
+            <peppermint_gcdm_customer_login_success>
+                <observers>
+                    <peppermint_gcdm_customer_check_policy>
+                        <type>singleton</type>
+                        <class>peppermint_gcdm/observer</class>
+                        <method>processCustomerCurrentPolicy</method>
+                    </peppermint_gcdm_customer_check_policy>
+                    <peppermint_gcdm_customer_check_missing_details>
+                        <type>singleton</type>
+                        <class>peppermint_gcdm/observer</class>
+                        <method>checkMissingDetails</method>
+                    </peppermint_gcdm_customer_check_missing_details>
+                </observers>
+            </peppermint_gcdm_customer_login_success>
+            <peppermint_gcdm_customer_register_success>
+                <observers>
+                    <peppermint_gcdm_customer_check_policy>
+                        <type>singleton</type>
+                        <class>peppermint_gcdm/observer</class>
+                        <method>processCustomerCurrentPolicy</method>
+                    </peppermint_gcdm_customer_check_policy>
+                    <peppermint_gcdm_customer_check_missing_details>
+                        <type>singleton</type>
+                        <class>peppermint_gcdm/observer</class>
+                        <method>checkMissingDetails</method>
+                    </peppermint_gcdm_customer_check_missing_details>
+                </observers>
+            </peppermint_gcdm_customer_register_success>
+            <customer_save_before>
+                <observers>
+                    <peppermint_gcdm_customer_save_before>
+                        <type>singleton</type>
+                        <class>peppermint_gcdm/observer</class>
+                        <method>onBeforeCustomerSave</method>
+                    </peppermint_gcdm_customer_save_before>
+                </observers>
+            </customer_save_before>
+        </events>
+        <layout>
+            <updates>
+                <peppermint_gcdm>
+                    <file>rockar/customer_gcdm_popup.xml</file>
+                </peppermint_gcdm>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <blocks>
+            <peppermint_gcdm>
+                <class>Peppermint_Gcdm_Block</class>
+            </peppermint_gcdm>
+        </blocks>
+        <models>
+            <peppermint_gcdm>
+                <class>Peppermint_Gcdm_Model</class>
+                <resourceModel>peppermint_gcdm_resource</resourceModel>
+            </peppermint_gcdm>
+            <peppermint_gcdm_resource>
+                <class>Peppermint_Gcdm_Model_Resource</class>
+                <entities>
+                    <customer_access>
+                        <table>peppermint_gcdm_customer_access</table>
+                    </customer_access>
+                    <customer_profile>
+                        <table>peppermint_gcdm_customer_profile</table>
+                    </customer_profile>
+                </entities>
+            </peppermint_gcdm_resource>
+        </models>
+        <events>
+            <controller_action_predispatch_customer_account_login>
+                <observers>
+                    <restrict_default_functionality>
+                        <class>peppermint_gcdm/observer</class>
+                        <method>redirectToExternalLogin</method>
+                    </restrict_default_functionality>
+                </observers>
+            </controller_action_predispatch_customer_account_login>
+            <controller_action_predispatch_checkout_onepage_index>
+                <observers>
+                    <restrict_default_functionality>
+                        <class>peppermint_gcdm/observer</class>
+                        <method>redirectToExternalLogin</method>
+                    </restrict_default_functionality>
+                </observers>
+            </controller_action_predispatch_checkout_onepage_index>
+            <customer_logout>
+                <observers>
+                    <peppermint_gcdm_customer_customer_logout>
+                        <class>peppermint_gcdm/observer</class>
+                        <method>onCustomerLogout</method>
+                    </peppermint_gcdm_customer_customer_logout>
+                </observers>
+            </customer_logout>
+            <peppermint_re_auth>
+                <observers>
+                    <peppermint_gcdm_re_auth>
+                        <class>peppermint_gcdm/observer</class>
+                        <method>onGcdmReAuth</method>
+                    </peppermint_gcdm_re_auth>
+                </observers>
+            </peppermint_re_auth>
+        </events>
+        <resources>
+            <peppermint_gcdm_setup>
+                <setup>
+                    <module>Peppermint_Gcdm</module>
+                </setup>
+            </peppermint_gcdm_setup>
+        </resources>
+        <helpers>
+            <peppermint_gcdm>
+                <class>Peppermint_Gcdm_Helper</class>
+            </peppermint_gcdm>
+        </helpers>
+    </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <peppermint_gcdm>
+                    <file>peppermint/gcdm.xml</file>
+                </peppermint_gcdm>
+            </updates>
+        </layout>
+    </adminhtml>
+    <default>
+        <peppermint_gcdm>
+            <general>
+                <gcdm_login_url>https://customer-i.bmwgroup.com/one/signin.html</gcdm_login_url>
+                <gcdm_base_api_url>https://customer-i.bmwgroup.com/gcdm</gcdm_base_api_url>
+                <gcdm_client_id>c206637c-2f38-41a0-b003-85ccac260c3b</gcdm_client_id>
+                <gcdm_secret>Change me!</gcdm_secret>
+            </general>
+            <contact_policy_consents>
+                <base_api_url>https://customer-i.bmwgroup.com/pm2/pm-document-service/api/v1/documents/Privacy_Statement/ZA</base_api_url>
+                <api_key>c206637c-2f38-41a0-b003-85ccac260c3b</api_key>
+            </contact_policy_consents>
+            <error_mapping>
+                <errors>
+                    a:13:{s:16:"_1596641731007_7";a:2:{s:10:"error_code";s:8:"1014-103";s:13:
+                    "error_message";s:189:"You do not have the necessary access rights to use the application. 
+                    Please contact BMW customer service on 0800 600 555 or customer.service@bmw.co.za for assistance. 
+                    {Error code:  1014-103}";}s:18:"_1596641732874_874";a:2:{s:10:"error_code";s:8:"1014-102";s:13:
+                    "error_message";s:152:"Your account has been locked. Please contact BMW customer service on 0800 
+                    600 555 or customer.service@bmw.co.za for assistance. {Error code:  1014-102} ";}s:18:"_15966417
+                    33660_660";a:2:{s:10:"error_code";s:8:"1014-101";s:13:"error_message";s:243:"The credentials 
+                    you've entered cannot be authenticated at this time. Please re-enter your details and try again. 
+                    Kindly contact BMW customer service on 0800 600 555 or customer.service@bmw.co.za if the issue 
+                    continues. {Error code:  1014-101} ";}s:18:"_1596641734242_242";a:2:{s:10:"error_code";s:8:
+                    "1014-406";s:13:"error_message";s:151:"Your account has been locked. Please contact BMW customer 
+                    service on 0800 600 555 or customer.service@bmw.co.za for assistance. {Error code:  1014-406}";}
+                    s:16:"_1596641764009_9";a:2:{s:10:"error_code";s:8:"1014-404";s:13:"error_message";s:160:"Your 
+                    account cannot be authenticated. Please contact BMW customer service on 0800 600 555 or 
+                    customer.service@bmw.co.za for assistance. {Error code:  1014-404} ";}s:18:"_1596641764574
+                    _574";a:2:{s:10:"error_code";s:8:"1014-405";s:13:"error_message";s:72:"Your session has 
+                    timed out. Please log in again. {Error code:  1014-405}";}s:18:"_1596641765106_106";a:
+                    2:{s:10:"error_code";s:8:"1014-403";s:13:"error_message";s:218:"The information provided 
+                    is not valid. Please re-enter the required information. Alternatively, you can contact 
+                    BMW customer service on 0800 600 555 or customer.service@bmw.co.za for assistance. 
+                    {Error code: 1014-403} ";}s:18:"_1596641765664_664";a:2:{s:10:"error_code";s:8:"1014-401";
+                    s:13:"error_message";s:231:"Your customer profile could not be retrieved. Please refresh 
+                    your page and try again. If the issue persists, please contact BMW customer service on 0800 
+                    600 555 or customer.service@bmw.co.za for assistance. {Error code:  1014-401} ";}s:18:"_1596
+                    641766213_213";a:2:{s:10:"error_code";s:8:"1014-402";s:13:"error_message";s:196:"You have 
+                    exceeded the number of changes allowed to your customer profile. Please contact BMW customer 
+                    service on 0800 600 555 or customer.service@bmw.co.za for assistance. {Error code:  1014-402} 
+                    ";}s:18:"_1596641766704_704";a:2:{s:10:"error_code";s:8:"1014-200";s:13:"error_message";s:167:
+                    "Your customer profile could not be retrieved. Please contact BMW customer service on 0800 
+                    600 555 or customer.service@bmw.co.za for assistance. {Error code:  1010-200}";}s:18:"
+                    _1596641767245_245";a:2:{s:10:"error_code";s:8:"1014-300";s:13:"error_message";s:239:"The 
+                    information provided is not valid. Please re-enter the required information and try 
+                    again. If the issue persists, please contact BMW customer service on 0800 600 555 or 
+                    customer.service@bmw.co.za for assistance. {Error code:  1014-300}";}s:18:"_15966417
+                    67753_753";a:2:{s:10:"error_code";s:8:"2014-000";s:13:"error_message";s:213:"An 
+                    unexpected error occurred. Please refresh your page and try again. If the issue 
+                    persists, please contact BMW customer service on 0800 600 555 or customer.service@bmw.co.za 
+                    for assistance.{Error code: 2014-000} ";}s:18:"_1596641862748_748";a:2:{s:10:"error_code";s
+                    :20:"Not one of the above";s:13:"error_message";s:245:"An unexpected error occurred. Please 
+                    refresh your page and try again.  If the issue persists, please contact BMW customer service 
+                    on 0800 600 555 or customer.service@bmw.co.za for assistance.
+                </errors>
+            </error_mapping>
+        </peppermint_gcdm>
+    </default>
+    <stores>
+        <bmw_store_view>
+            <peppermint_gcdm>
+                <general>
+                    <gcdm_store_locale>ZA-BMW-en</gcdm_store_locale>
+                </general>
+            </peppermint_gcdm>
+        </bmw_store_view>
+        <mini_store_view>
+            <peppermint_gcdm>
+                <general>
+                    <gcdm_store_locale>ZA-MINI-en</gcdm_store_locale>
+                </general>
+            </peppermint_gcdm>
+        </mini_store_view>
+        <motorrad_store_view>
+            <peppermint_gcdm>
+                <general>
+                    <gcdm_store_locale>ZA-MOT-en</gcdm_store_locale>
+                </general>
+            </peppermint_gcdm>
+        </motorrad_store_view>
+    </stores>
+</config>

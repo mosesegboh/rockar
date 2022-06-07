@@ -1,0 +1,93 @@
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $motorrad-bold;
+    color: $black;
+}
+
+p {
+    font-family: $motorrad-regular;
+}
+
+.category-car-finder,
+.checkout-cart-index,
+.customer-account-index,
+.checkout-onepage-index,
+.styleguide-page {
+    .outer-container,
+    .footer-wrapper,
+    .styleguide {
+        .h1,
+        h1 {
+            @include renderCarFinderHeading($motorrad-f-size-28, $motorrad-f-size-80, $dsp2-line-h-32, $dsp2-line-h-80);
+            font-family: $motorrad-bold;
+            text-transform: none;
+        }
+
+        .h2,
+        h2 {
+            @include renderCarFinderHeading($dsp2-f-size-xl, $motorrad-f-size-40, $dsp2-line-h-28, $motorrad-line-h-42);
+            font-family: $motorrad-bold;
+            text-transform: none;
+        }
+
+        .h3,
+        h3 {
+            @include renderCarFinderHeading($motorrad-f-size-22, $dsp2-f-size-xxl, $motorrad-line-h-26, $dsp2-line-h-36);
+            font-family: $motorrad-bold;
+            text-transform: none;
+        }
+
+        .h4,
+        h4 {
+            @include renderCarFinderHeading($dsp2-f-size, $dsp2-f-size-xl, $motorrad-line-h-22, $dsp2-line-h-28);
+            font-family: $motorrad-bold;
+            text-transform: none;
+        }
+
+        .h5,
+        .h6,
+        h5,
+        h6 {
+            @include renderCarFinderHeading($dsp2-f-size, $dsp2-f-size, $motorrad-line-h-22, $motorrad-line-h-22);
+            font-family: $motorrad-bold;
+            text-transform: none;
+        }
+
+        .h7,
+        .h8 {
+            font-family: $motorrad-regular;
+        }
+
+        .dsp2-subtitle,
+        .dsp2-subtitle-s,
+        .dsp2-body,
+        .dsp2-body-s,
+        .dsp2-link,
+        .dsp2-link-s,
+        .dsp2-caption,
+        .dsp2-label-s,
+        .dsp2-label {
+            font-family: $motorrad-bold;
+        }
+
+        .dsp2-link {
+            color: $black;
+        }
+
+        a {
+            &.dsp2-link {
+                color: $black;
+            }
+        }
+    }
+}

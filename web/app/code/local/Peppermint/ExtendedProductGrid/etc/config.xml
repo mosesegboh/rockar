@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint_ExtendedProductGrid
+ * @author       Razvan Zofota <razvan.zofota@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_ExtendedProductGrid>
+            <version>0.1.3</version>
+        </Peppermint_ExtendedProductGrid>
+    </modules>
+    <global>
+        <blocks>
+            <peppermint_extendedproductgrid>
+                <class>Peppermint_ExtendedProductGrid_Block</class>
+            </peppermint_extendedproductgrid>
+            <adminhtml>
+                <rewrite>
+                    <catalog_product_grid>Peppermint_ExtendedProductGrid_Block_Adminhtml_Catalog_Product_Grid</catalog_product_grid>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+        <models>
+            <peppermint_extendedproductgrid>
+               <class>Peppermint_ExtendedProductGrid_Model</class>
+            </peppermint_extendedproductgrid>
+        </models>
+        <events>
+            <product_grid_prepare_before>
+                <observers>
+                    <peppermint_extendedproductgrid_product_grid_prepare_before>
+                        <class>peppermint_extendedproductgrid/observer</class>
+                        <method>addCustomColumns</method>
+                    </peppermint_extendedproductgrid_product_grid_prepare_before>
+                </observers>
+            </product_grid_prepare_before>
+            <product_grid_collection_set_before>
+                <observers>
+                    <peppermint_extendedproductgrid_product_grid_collection_set_before>
+                        <class>peppermint_extendedproductgrid/observer</class>
+                        <method>additionalAttributes</method>
+                    </peppermint_extendedproductgrid_product_grid_collection_set_before>
+                </observers>
+            </product_grid_collection_set_before>
+        </events>
+    </global>
+</config>
+

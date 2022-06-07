@@ -1,0 +1,14 @@
+button {
+    width: 100%;
+    margin: 0;
+    border: 0;
+    background: $finance-selection-group-default-color;
+    color: $finance-selection-group-text-color-dark;
+    padding: .5em 1.55em;
+
+    &:hover,
+    &.selected {
+        background: $finance-selection-group-active-color;
+        color: $finance-selection-group-text-color-light;
+    }
+}

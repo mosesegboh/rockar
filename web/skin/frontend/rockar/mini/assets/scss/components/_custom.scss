@@ -1,0 +1,45 @@
+.footer {
+    width: 100%;
+    background: #000000;
+    margin-top: auto;
+}
+
+.footer .footer-wrapper .bottom {
+    /* max-width: 1280px; */
+    margin: 0 auto;
+    padding: 1em 1em 1.278em;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.footer .footer-links .footer-menu > li h4 {
+    position: relative;
+    padding: 1em;
+    background: #000000;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 12px;
+    text-transform: none;
+    margin: 0;
+    letter-spacing: initial;
+}
+
+.footer .footer-links .footer-menu .footer-submenu li a {
+    display: block;
+    padding: 1em;
+    font-size: 13px;
+    background: #000000;
+    color: #ffffff;
+}
+
+.category-products-list .pod-content .pod-data .product-prices .item-details-price-block .item-details-price .price-wrapper .price {
+    line-height: 100%;
+    padding-bottom: 2px;
+    font-family: $mini_heading;
+}
+
+.category-products-list .pod-content .pod-data .pod-actions .row .pod-attribute.attr-day .attr-day-day {
+    font-size: 25px;
+    line-height: 25px;
+    font-family: $mini_heading;
+}

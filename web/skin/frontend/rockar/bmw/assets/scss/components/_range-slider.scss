@@ -1,0 +1,53 @@
+.range-slider-wrapper {
+    .ui-slider {
+        .slider-label {
+            background: $bmw-light-grey;
+        }
+        .ui-slider-range {
+            background: $bmw-blue;
+        }
+        .ui-slider-handle {
+            border-color: $bmw-blue;
+            background-color: $bmw-blue;
+            top: 50%;
+            transition: all .3s;
+            height: 11px;
+            width: 11px;
+            margin: {
+                left: -3px;
+                top: -3px;
+            };
+
+            &:hover {
+                opacity: 1;
+                cursor: pointer;
+                height: 19px;
+                width: 19px;
+                margin: {
+                    left: -7px;
+                    top: -7px;
+                }
+            }
+            
+            &:active {
+                opacity: 1;
+                height: 19px;
+                width: 19px;
+                margin: {
+                    left: -7px;
+                    top: -7px;
+                }
+            }
+        }
+        .ui-slider-handle::after {
+            background-image: none;
+        }
+    }
+}
+
+.range-slider-wrapper {
+    .ui-slider {
+        height: 40px;
+        margin: 15px 0px 5px 0px;
+    }
+}

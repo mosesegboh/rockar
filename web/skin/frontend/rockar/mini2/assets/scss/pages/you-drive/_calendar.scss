@@ -1,0 +1,67 @@
+.calendar {
+    .ui-datepicker-header {
+        .ui-datepicker-prev {
+            .ui-icon {
+                top: 2px;
+                left: 8%;
+            }
+        }
+
+        .ui-datepicker-next {
+            .ui-icon {
+                top: 2px;
+                right: 8%;
+            }
+        }
+
+        .ui-datepicker-title {
+            font-size: $dsp2-f-size-l;
+            text-transform: uppercase;
+            line-height: $dsp2-line-h-30;
+        }
+    }
+
+    .ui-datepicker-calendar {
+        border: 1px solid $calendar-thead-background-color;
+
+        @include media($large-screen-up) {
+            width: 100%;
+        }
+
+        td {
+            .ui-state-default {
+                color: $black;
+                background-color: $white;
+                padding: 0;
+            }
+        }
+
+        thead {
+            border: 0;
+
+            span {
+                text-transform: uppercase;
+            }
+
+            th {
+                border-bottom: 0;
+            }
+        }
+
+        .ui-datepicker-current-day {
+            a {
+                border: 2px solid $black;
+            }
+        }
+    }
+}
+
+#timepicker {
+    .timepicker-time {
+        .timepicker-body {
+            .timepicker-hour {
+                background: $timepicker-timeslot-background;
+            }
+        }
+    }
+}

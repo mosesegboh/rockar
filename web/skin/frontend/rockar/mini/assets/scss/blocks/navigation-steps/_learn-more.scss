@@ -1,0 +1,32 @@
+$navigation-learn-more-size: 89px;
+$navigation-learn-more-icon-size: 40px;
+
+&-learn-more {
+    position: relative;
+    text-align: center;
+    margin-right: 2%;
+    margin-top: 100px;
+    margin-bottom: 10px;
+
+    @include media($mobile-header-max) {
+        display: none;
+    }
+
+    &::before {
+        @include pseudo();
+
+        @include sprite($sprite-learn-more);
+        left: ($navigation-learn-more-size / 2) - ($navigation-learn-more-icon-size / 2);
+        top: ($navigation-learn-more-size / 2) - ($navigation-learn-more-icon-size / 2) + 3px;
+    }
+
+    span {
+        color: $black;
+        font-size: $f-size-xxxs;
+        font-weight: $fw-medium;
+        text-transform: uppercase;
+        position: relative;
+        top: $navigation-learn-more-size - 42px;
+        white-space: nowrap;
+    }
+}

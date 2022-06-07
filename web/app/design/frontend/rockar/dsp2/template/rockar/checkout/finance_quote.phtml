@@ -1,0 +1,41 @@
+<?php
+/**
+ * @category     Rockar
+ * @package      Rockar_FinancingOptions
+ * @author       Andrian Kogoshvili <techteam@rockar.com>
+ * @copyright    Copyright (c) 2021 Scandiweb, Inc (http://scandiweb.com)
+ * @license      http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0 (OSL-3.0)
+ *
+ * @var $this Rockar_FinancingOptions_Block_Checkout_FinanceQuote
+ */
+
+$data = $this->getFinanceQuoteData();
+$product = Mage::getModel('catalog/product')->load($data['product_id']);
+$image = Mage::helper('peppermint_catalog/images')->getSmallImage($product);
+?>
+
+<app-configurator-finance-quote
+    v-ref:finance-quote
+    :active-payment="<?php echo htmlentities($data['active_payment']); ?>"
+    :car-data="<?php echo htmlentities($data['car_data']); ?>"
+    :cash-deposit='<?php echo $data['cash_deposit']; ?>'
+    :cashback='<?php echo $data['cashback']; ?>'
+    :custom-option-titles="<?php echo htmlentities($this->getCustomOptionTitles()); ?>"
+    :finance-params-origin="<?php echo htmlentities($data['finance_params']); ?>"
+    :finance-variables="<?php echo htmlentities($data['finance_variables']); ?>"
+    :hire-payments="<?php echo htmlentities(Mage::helper('rockar_all')->jsonEncode($data['hire_payments'])); ?>"
+    :is-hire='<?php echo (int) $data['is_hire']; ?>'
+    :monthly-price='<?php echo $data['monthly_price']; ?>'
+    :pay-in-full-payment="<?php echo htmlentities($data['pay_in_full_payment']); ?>"
+    :product-id="<?php echo $data['product_id']; ?>"
+    :rockar-price='<?php echo $data['rockar_price']; ?>'
+    progress-url='<?php echo Mage::getUrl('checkout/onepage_financing/progress', ['_secure' => true]); ?>'
+    update-step-url='<?php echo Mage::getUrl('partexchange/ajax/updatePxState'); ?>'
+    image='<?php echo $image; ?>'
+    payment-save-url='<?php echo $data['payment_save_url']; ?>'
+>
+    <app-offer-tags
+        slot="offer-tags"
+        :offer-tag-data="<?php echo htmlentities(Mage::helper('peppermint_catalog')->getOfferTagData($product)); ?>"
+    ></app-offer-tags>
+</app-configurator-finance-quote>

@@ -1,0 +1,48 @@
+.catalog-product-view {
+    @import 'product-page/cosy-view-slider';
+
+    .product-pod {
+        .pod-specs-container {
+            .pod-specs {
+                .pod-spec-item {
+                    &:not(:last-of-type) {
+                        &::after {
+                            background-color: $black;
+                            height: 100%;
+                        }
+                    }
+
+                    .pod-spec-item-data {
+                        font-size: initial;
+
+                        .pod-spec-item-label {
+                            font-family: $mini-sans-serif-regular;
+                            font-size: $dsp2-f-size-s;
+                            line-height: $dsp2-line-h-16;
+                        }
+
+                        .pod-spec-item-value {
+                            font-family: $mini-sans-serif-bold;
+                            font-size: $dsp2-f-size-s;
+                            line-height: $dsp2-line-h-18;
+
+                            @include media($medium-screen-up) {
+                                font-family: $mini-serif-bold;
+                                font-size: $dsp2-f-size-xxxl;
+                                line-height: $mini-line-h-38;
+                            }
+
+                            span {
+                                font-family: $mini-sans-serif-bold;
+
+                                @include media($medium-screen-up) {
+                                    font-family: $mini-serif-regular;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

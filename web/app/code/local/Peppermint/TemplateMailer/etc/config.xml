@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint\TemplateMailer
+ * @author       Catalin Lungu <catalin.lungu@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_TemplateMailer>
+            <version>0.1.0</version>
+        </Peppermint_TemplateMailer>
+    </modules>
+    <global>
+        <models>
+            <peppermint_templatemailer>
+                <class>Peppermint_TemplateMailer_Model</class>
+            </peppermint_templatemailer>
+            <core>
+                <rewrite>
+                    <email_template_mailer>Peppermint_TemplateMailer_Model_Email_Template_Mailer</email_template_mailer>
+                </rewrite>
+            </core>
+        </models>
+    </global>
+</config>

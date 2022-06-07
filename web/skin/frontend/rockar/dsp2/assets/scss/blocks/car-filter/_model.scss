@@ -1,0 +1,43 @@
+&-model {
+    .car-filter-blocks {
+        padding: 0 15px;
+    }
+
+    .car-filter-block {
+        &:last-child {
+            .model-wrapper {
+                @include media($small-screen-down) {
+                    border: 0;
+                }
+            }
+        }
+
+        span {
+            width: 22px;
+            height: 22px;
+            top: calc(100% / 2 - 14px);
+
+            &::before {
+                top: -3px;
+                height: 12px;
+            }
+        }
+
+        .model-wrapper {
+            width: 100%;
+            text-align: center;
+
+            @include media($small-screen-down) {
+                border-bottom: 1px solid $c-grey-5;
+            }
+
+            img {
+                display: block;
+                height: 90px;
+                max-width: 165px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+}

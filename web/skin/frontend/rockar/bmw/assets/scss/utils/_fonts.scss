@@ -1,0 +1,28 @@
+$bmw: 'BMW', Arial Narrow, sans-serif;
+$bmw-bold: 'BMW-Bold', Arial Bold, sans-serif;
+$bmw-icon: 'BMW-Icon', Arial Narrow, sans-serif;
+
+$bmw-collection: ttf, woff2;
+
+// BMW font family
+// Normal
+@include font-face('BMW', '../../bmw/fonts/bmw/BMWTypeNextLatinTT-Regular', $fw-normal, normal, false, $bmw-collection);
+// Bold
+@include font-face('BMW-Bold', '../../bmw/fonts/bmw/BMWTypeNextLatinTT-Bold', $fw-bold, normal, false, $bmw-collection);
+// Icon
+@include font-face('BMW-Icon', '../../bmw/fonts/bmw/BMW_iconFont', normal, false, $bmw-collection);
+
+
+$fw-hairline: 1;
+$fw-light: 1;
+$fw-book: 1;
+$fw-normal: 1;
+$fw-medium: 1;
+$fw-semibold: 1;
+$fw-bold: 1;
+$fw-heavy: 1;
+$fw-black: 1;
+
+$bmw-fw-bold: bold;
+$bmw-fw-300: 300;
+$bmw-fw-900: 900;

@@ -1,0 +1,132 @@
+.you-drive-summary {
+    background: $you-drive-summary-background;
+
+    .drive-summary-heading {
+        font-size: $you-drive-summary-heading-size;
+        font-family: $bmw-light;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 1.5em;
+    }
+
+    p {
+        font-size: $dsp2-f-size-xs;
+        font-family: $bmw-light;
+    }
+
+    .location-block {
+        .location-address {
+            margin: .7em 0 0;
+        }
+    }
+
+    .test-drive-block {
+        padding-top: 1.5em;
+        margin-top: 1.5em;
+        border-top: 1px solid $you-drive-summary-border-color;
+
+        p {
+            margin-bottom: 0;
+
+            &.choose-car {
+                color: $you-drive-summary-choose-car-color;
+            }
+        }
+
+        .test-drive-car {
+            .car-name {
+                margin-bottom: .2em;
+                font-size: $dsp2-f-size-s;
+            }
+
+            button {
+                width: 100%;
+                margin: 1em 0 1.6em;
+            }
+
+            &:last-child {
+                button {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    table {
+        font-size: $dsp2-f-size-xs;
+        margin-bottom: 10px;
+    }
+}
+
+.summary-block {
+    background: $white;
+
+    .small-font {
+        font-size: $dsp2-f-size-xxs;
+    }
+
+    .summary-title {
+        font-family: $bmw-light;
+        font-size: $dsp2-f-size-xxs;
+        margin: 0;
+        text-align: left;
+        text-transform: uppercase;
+    }
+
+    .drive-car {
+        font-size: $dsp2-f-size-s;
+        text-align: center;
+
+        &.local-store {
+            text-align: left;
+
+            p {
+                margin: 0;
+            }
+
+            .address {
+                @include display(flex);
+                @include flex-direction(column);
+                color: $you-drive-summary-grey-text-color;
+
+                span {
+                    line-height: 15px;
+                    letter-spacing: 1.4px;
+                }
+            }
+
+            .change-dealer {
+                color: $you-drive-summary-link-color;
+            }
+        }
+
+        &.datetime {
+            text-align: center;
+
+            p {
+                margin: 0;
+            }
+
+            .time {
+                color: $you-drive-summary-grey-text-color;
+            }
+
+            .change-dealer {
+                color: $you-drive-summary-link-color;
+            }
+        }
+
+        .data-wrapper {
+            padding-top: 10px;
+            border-top: 1px solid $you-drive-summary-border-color;
+
+            .variant-title {
+                margin: 0;
+            }
+
+            .remove-car {
+                color: $you-drive-summary-link-color;
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Rockar
+ * @package      Rockar_GoogleTagManager
+ * @author       Girts Livzenieks <techteam@rockar.com>
+* @copyright Copyright (c) 2018 Rockar Ltd (http://rockar.com)
+ */
+-->
+<layout version="0.1.0">
+    <default>
+        <reference name="after_body_start">
+            <block type="rockar_googletagmanager/gtm" name="google_tag_manager" as="google_tag_manager" template="rockar/google_tag_manager/gtm.phtml" />
+        </reference>
+        <reference name="footer">
+            <block type="rockar_googletagmanager/gtm" name="footer_gtm" template="rockar/google_tag_manager/gtm_footer.phtml" />
+        </reference>
+    </default>
+
+    <cms_index_index>
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><script>assets/js/homepage_gtm.js</script></action>
+        </reference>
+    </cms_index_index>
+</layout>

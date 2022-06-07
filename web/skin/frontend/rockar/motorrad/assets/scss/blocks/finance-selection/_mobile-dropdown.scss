@@ -1,0 +1,77 @@
+.select-wrapper {
+    .selectbox {
+        max-width: none;
+
+        .selectbox-select {
+            background: $motorrad-light-grey;
+            text-align: center;
+
+            .dropdown-caret {
+                background: $finance-selection-mobile-dropdown-background;
+                border-left: 1px solid $motorrad-light-grey;
+
+                &::after {
+                    @include sprite($sprite-arrow-down-dark);
+                }
+            }
+        }
+
+        &.open {
+            .selectbox-select {
+                .dropdown-caret {
+                    &::after {
+                        @include transform(rotate(180deg));
+                    }
+                }
+            }
+        }
+    }
+
+    &.selected {
+        position: relative;
+
+        .question-icon-wrapper {
+            position: absolute;
+            left: 1px;
+            height: 48px;
+            width: 48px;
+            z-index: 10;
+            top: 1px;
+            background-color: $motorrad-white;
+
+            .icon-question {
+                @include sprite($sprite-question);
+                @include transform(scale(.5) translate(-100%, -100%));
+                display: inline-block;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+            }
+        }
+
+        .selectbox {
+            .selectbox-select {
+                padding: 17px 60px 14px 35px;
+                font-size: $f-size-xs;
+
+                .dropdown-caret {
+                    background: $motorrad-light-grey;
+
+                    &::after {
+                        @include sprite($sprite-mot-check-icon-blue);
+                    }
+                }
+            }
+
+            &.open {
+                .selectbox-select {
+                    .dropdown-caret {
+                        &::after {
+                            @include transform(rotate(0));
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

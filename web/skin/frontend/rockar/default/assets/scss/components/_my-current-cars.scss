@@ -1,0 +1,246 @@
+.my-current-cars {
+    border-bottom: 1px solid $my-account-horizontal-break-color;
+    margin-bottom: 1.875em;
+    padding: 0 0 10px 0;
+
+    @include clearfix;
+
+    @include media($small-screen-down) {
+        padding: 0;
+    }
+
+    &:first-of-type {
+        border: none;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+        padding: 0 2em 0;
+        border-bottom: 0;
+
+        @include media($small-screen-down) {
+            padding: 0;
+        }
+    }
+
+    .preloader {
+        @include position(absolute, 0 null null 0);
+        @include size(100%);
+        background: $preloader-bg;
+        z-index: 9999;
+
+        .show-loading {
+            @include position(absolute, 50% null null 50%);
+            margin: -25px 0 0 -25px;
+        }
+    }
+
+    .my-current-cars-wrap {
+        @include display(flex);
+        @include flex-direction(row);
+
+        @include media($large-screen-down) {
+            display: none;
+        }
+
+        .my-current-cars-left {
+            position: relative;
+            @include flex(1 0 60%);
+
+            .book-a-service {
+                @include position(absolute, null null 0 0);
+            }
+        }
+
+        .my-current-cars-right {
+            @include flex(1 0 40%);
+        }
+    }
+
+    .my-px-vrm {
+        p {
+            text-align: center;
+            text-decoration: underline;
+            text-transform: uppercase;
+            color: $my-current-cars-my-px-vrm-color;
+            font-size: $f-size-xxs;
+        }
+    }
+
+    .my-px-carinfo {
+        font-weight: $fw-light;
+        padding: 1em 0;
+    }
+
+    .my-px-service {
+        margin-top: 92px;
+    }
+
+    .part-exchange-summary {
+        .table {
+
+            tr {
+                &:first-child {
+                    td {
+                        padding-top: 20px
+                    }
+                }
+
+                &:last-child {
+                    td {
+                        font-size: 1em;
+                        padding-bottom: 20px;
+                    }
+                }
+            }
+
+            td {
+                background: $my-current-cars-table-background;
+                font-size: $f-size-l;
+                padding: 5px 5px 5px 25px;
+
+                &:last-child {
+                    width: 40%;
+                    text-align: right;
+                    padding: 5px 25px 5px 5px
+                }
+
+                &.my-px-value-label {
+                    font-weight: $fw-bold;
+                }
+
+                &.my-px-value-amount {
+                    color: $my-current-cars-my-px-value-amount-color;
+                    font-family: $primary-font-family;
+                    font-weight: $fw-bold;
+                    font-size: $f-size-xxl;
+                }
+
+                &.my-px-date-expired {
+                    color: $my-current-cars-px-date-expired-color;
+                    font-weight: $fw-bold;
+                }
+            }
+
+            button {
+                width: 100%;
+                padding: $button-narrow-height-padding 0.5em;
+            }
+        }
+    }
+
+    .my-current-cars-mobile {
+        display: none;
+
+        @include media($large-screen-down) {
+            display: block;
+        }
+
+        .vrm-wrapper {
+            padding-bottom: 10px;
+        }
+
+        .car-plate {
+            padding: 1em;
+            margin: 0;
+            font-size: $f-size-xl;
+        }
+
+        .mobile-title {
+            position: relative;
+            color: $my-current-cars-mobile-title-color;
+            background: $my-current-cars-mobile-title-bg;
+            padding: 1em;
+            text-align: center;
+            font-weight: $fw-bold;
+            text-transform: uppercase;
+
+            &:before {
+                @include position(absolute, -15px null null 50%);
+                @include triangle(30px, $my-current-cars-mobile-title-bg, up);
+                content: '';
+                margin-left: -15px;
+            }
+
+            .col-12 {
+                padding: 0;
+            }
+        }
+
+        .mobile-table {
+            .table {
+                background: $my-current-cars-table-mobile-bg;
+                text-transform: uppercase;
+
+                tbody {
+                    tr {
+                        td:first-child {
+                            background: $my-current-cars-table-mobile-bg;
+                        }
+                    }
+
+                    tr {
+                        &:first-child {
+                            td {
+                                &:last-child {
+                                    opacity: 1;
+                                    color: $my-current-cars-brand-accent-color;
+                                }
+                            }
+                        }
+
+                        td {
+                            font-size: $f-size-xs;
+
+                            &:first-child {
+                                width: 65%;
+                                padding: 5px 0 5px 10px;
+                                color: $table-color;
+                            }
+
+                            &:last-child {
+                                width: 35%;
+                                padding: 5px 10px 5px 0;
+                                text-align: right;
+                                color: $table-color;
+                                opacity: .73;
+
+                                &.my-px-date-expired {
+                                    opacity: 1;
+                                    color: $my-current-cars-px-date-expired-color;
+                                    font-weight: $fw-bold;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .my-px-value-label {
+                    font-size: $f-size-l;
+                    color: $black;
+                    text-transform: none;
+                    font-weight: $fw-bold;
+                }
+
+                .my-px-value-amount {
+                    font-size: $f-size-l;
+                    color: $my-current-cars-brand-accent-color;
+                    text-transform: none;
+                    font-weight: $fw-bold;
+                }
+            }
+
+            button {
+                display: block;
+                width: 100%;
+                margin: 0 0 10px 0;
+            }
+        }
+    }
+}
+
+.my-part-exchange {
+    .hide-button {
+        display: none;
+    }
+}

@@ -1,0 +1,6 @@
+---
+  - name: Install HeidiSQL on Windows
+    win_chocolatey:
+      name: heidisql
+      state: present
+    when: ansible_os_family == 'Windows'

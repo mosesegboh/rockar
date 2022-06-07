@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint\Page
+ * @author    Artis Viblo <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_Page>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Page />
+            </depends>
+        </Peppermint_Page>
+    </modules>
+</config>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_NotifyMe
+ * @author    Ausma Smite <techteam@rockar.com>
+ * @copyright Copyright (c) 2021 Rockar Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_NotifyMe>
+            <version>0.1.0</version>
+        </Peppermint_NotifyMe>
+    </modules>
+    <global>
+        <helpers>
+            <peppermint_notifyme>
+                <class>Peppermint_NotifyMe_Helper</class>
+            </peppermint_notifyme>
+        </helpers>
+    </global>
+    <default>
+        <peppermint_notifyme>
+            <general>
+                <enabled>0</enabled>
+            </general>
+        </peppermint_notifyme>
+    </default>
+    <websites>
+        <bmw>
+            <peppermint_notifyme>
+                <general>
+                    <notifyme_url><![CDATA[https://www.bmw.co.za/en/index.html]]></notifyme_url>
+                </general>
+            </peppermint_notifyme>
+        </bmw>
+    </websites>
+</config>

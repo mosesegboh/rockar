@@ -1,0 +1,37 @@
+<?php
+/**
+ * @category  design
+ * @package   peppermint_bmw
+ * @author    Ausma Smite <techteam@rockar.com>
+ * @copyright Copyright (c) 2021 Rockar Ltd (http://rockar.com)
+ */
+?>
+<?php
+/** @var Rockar2_FinancingOptions_Block_Filters $this */
+
+$financeConfig = Mage::helper('financing_options/config');
+$financeFilterConfirmationPopup = $this->getLayout()->createBlock('cms/block')->setBlockId('finance_filter_confirmation_popup')->toHtml();
+?>
+
+<app-finance-filter
+    :finance-items-in-row='<?php echo Mage::getStoreConfig('rockar_catalog/general/categories_in_row', Mage::app()->getStore()); ?>'
+    :finance-groups-params='<?php echo $financeConfig->getAllSliderState(); ?>'
+    :default-payment='<?php echo Mage::helper('rockar_all')->jsonEncode(Mage::helper('financing_options')->getDefaultPayment()); ?>'
+    :finance-default-params='<?php echo $financeConfig->getAllSliderDefaultState(); ?>'
+    :finance-steps='<?php echo $financeConfig->getAllSliderSteps(); ?>'
+    :finance-options='<?php echo Mage::helper('rockar_all')->jsonEncode($this->getFinanceGroups()->toArray()); ?>'
+    :finance-active-payment='<?php echo Mage::helper('rockar_all')->jsonEncode(Mage::helper('financing_options')->getActivePayment()); ?>'
+    help-overlay-content='<?php echo Mage::helper('rockar_all')->jsonEncode($this->getChildHtml('finance_filter_help')); ?>'
+    reset-finance-url='<?php echo Mage::getUrl('financing/ajax/resetFinanceSession'); ?>'
+    :is-px-removed='<?php echo Mage::helper('peppermint_partexchange')->getPxCurrentState(); ?>'
+    expire-date='<?php echo Mage::helper('peppermint_partexchange')->getExpireDate(); ?>'
+    est-value-disclaimer='<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('est_value_disclaimer')->toHtml(); ?>'
+    :pe-id="<?php echo Mage::helper('peppermint_partexchange')->getPartExchangeIdFromSession(); ?>"
+    reset-url="<?php echo $this->getUrl('partexchange/crud/reset', ['_secure' => true, 'form_key' => Mage::getSingleton('core/session')->getFormKey()]); ?>"
+    v-ref:finance-filter>
+
+    <div slot="part-exchange-filter" class="vue-slot">
+        <?php echo $this->getLayout()->getBlock('part_exchange_wrapper')->toHtml(); ?>
+    </div>
+    <div slot="finance_filter_confirmation_popup" class="vue-slot"><?php echo $financeFilterConfirmationPopup ?></div>
+</app-finance-filter>

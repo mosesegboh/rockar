@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint_DealerEmail
+ * @author       Bogdan Gafitescu <bogdan.gafitescu@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_DealerEmail>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Rockar_Sales />
+                <Rockar_Localstores />
+                <Rockar_Customer />
+                <Peppermint_YouDrive />
+            </depends>
+        </Peppermint_DealerEmail>
+    </modules>
+</config>

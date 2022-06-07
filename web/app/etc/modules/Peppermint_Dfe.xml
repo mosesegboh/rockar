@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Dfe
+ * @author    Adrian Grigorita <adrian.grigorita@rockar.com>
+ * @copyright Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_Dfe>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Rockar_All/>
+            </depends>
+        </Peppermint_Dfe>
+    </modules>
+</config>

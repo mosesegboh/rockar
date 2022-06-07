@@ -1,0 +1,13 @@
+
+.navigation-step::after {
+    content: "";
+    position: absolute;
+    display: block;
+    right: calc(50% + 32px);
+    height: 0;
+    width: calc(100% - 64px);
+    top: 16px;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #000000;
+}

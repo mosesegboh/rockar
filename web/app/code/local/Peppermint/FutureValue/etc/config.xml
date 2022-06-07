@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_FutureValue
+ * @author    Razvan Zofota <razvan.zofota@rockar.com>
+ * @copyright Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+*/
+-->
+<config>
+    <modules>
+        <Peppermint_FutureValue>
+            <version>0.1.0</version>
+        </Peppermint_FutureValue>
+    </modules>
+    <global>
+        <models>
+            <peppermint_futurevalue>
+                <class>Peppermint_FutureValue_Model</class>
+            </peppermint_futurevalue>
+            <rockar_futurevalue>
+                <rewrite>
+                    <finance_observer>Peppermint_FutureValue_Model_Finance_Observer</finance_observer>
+                </rewrite>
+            </rockar_futurevalue>
+        </models>
+        <events>
+            <rockar_partexchange_set_px_future_value>
+                <observers>
+                    <rockar_futurevalue>
+                        <type>disabled</type>
+                    </rockar_futurevalue>
+                </observers>
+            </rockar_partexchange_set_px_future_value>
+        </events>
+        <blocks>
+            <peppermint_futurevalue>
+                <class>Peppermint_FutureValue_Block</class>
+            </peppermint_futurevalue>
+            <rockar_extendedrules>
+                <rewrite>
+                    <adminhtml_rules_edit_tabs>Peppermint_FutureValue_Block_Adminhtml_Rules_Edit_Tabs</adminhtml_rules_edit_tabs>
+                </rewrite>
+            </rockar_extendedrules>
+        </blocks>
+        <helpers>
+            <peppermint_futurevalue>
+                <class>Peppermint_FutureValue_Helper</class>
+            </peppermint_futurevalue>
+            <rockar_futurevalue>
+                <rewrite>
+                    <data>Peppermint_FutureValue_Helper_Data</data>
+                </rewrite>
+            </rockar_futurevalue>
+        </helpers>
+    </global>
+</config>

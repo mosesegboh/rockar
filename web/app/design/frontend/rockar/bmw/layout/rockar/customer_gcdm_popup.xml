@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  design
+ * @package   rockar_bmw
+ * @author    Sergejs Plisko <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar Ltd (http://rockar.com)
+ */
+-->
+<layout version="0.1.0">
+    <default>
+        <reference name="content">
+            <block type="peppermint_gcdm/popup" name="customer_gcdm_popup" as="gcdm_popup" template="rockar/gcdm/popup.phtml" after="-" />
+            <block type="peppermint_gcdm/popup" name="customer_policy_popup" as="policy_popup" template="rockar/gcdm/policy_popup.phtml" after="-" />
+            <block type="peppermint_gcdm/popup" name="customer_missing_details_popup" as="missing_details_popup" template="rockar/gcdm/missing_details_popup.phtml" after="-" />
+        </reference>
+    </default>
+</layout>

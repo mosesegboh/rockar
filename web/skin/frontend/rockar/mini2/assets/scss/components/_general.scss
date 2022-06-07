@@ -1,0 +1,98 @@
+.tooltipster-content {
+    div {
+        p {
+            font-size: $dsp2-f-size;
+            color: $black;
+            font-family: $mini-sans-serif-regular;
+            letter-spacing: 0;
+
+            &.required {
+                font-size: $dsp2-f-size-s;
+            }
+        }
+    }
+}
+
+body,
+input,
+label,
+select,
+#{$all-text-inputs},
+select[multiple=multiple],
+textarea {
+    font-family: $mini-sans-serif-regular;
+    letter-spacing: 0;
+    color: $black;
+}
+
+p {
+    font-family: $mini-sans-serif-regular;
+    color: $black;
+}
+
+.badge {
+    font-family: $mini-sans-serif-bold;
+    font-size: $dsp2-f-size;
+    background: $c-mini-blue;
+    line-height: $dsp2-line-h-32;
+
+    &.empty {
+        border: 2px solid $c-mini-blue;
+        color: $black;
+    }
+
+    &.checked {
+        border: 2px solid $c-mini-blue;
+    }
+}
+
+button,
+a {
+    color: $c-mini-blue;
+    font-family: $mini-sans-serif-bold;
+
+    &:focus,
+    &:active,
+    &:hover {
+        color: $c-mini-blue;
+    }
+}
+
+#you-drive,
+.rockar-youdrive-index-index {
+    div,
+    strong,
+    p {
+        font-family: $mini-sans-serif-regular;
+        color: $black;
+    }
+}
+
+.catalog-category-view {
+    &.categorypath-car-finder {
+        &.category-car-finder {
+            .outer-container {
+                @include media($dsp2-xl-screen-up) {
+                    max-width: 103em;
+                }
+            }
+
+            &.on-light {
+                #car-finder {
+                    .filters-wrapper {
+                        @include media($dsp2-xl-screen-up) {
+                            padding: 1em 0 0 80px;
+                        }
+                    }
+
+                    .car-filter-step {
+                        @include media($dsp2-xl-screen-up) {
+                            max-width: 94em;
+                            margin: 50px 0 0 80px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

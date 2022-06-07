@@ -1,0 +1,163 @@
+#configurator {
+    .configurator-lower-config {
+
+        .configurator-mobile-actions-wrapper {
+            button {
+                margin-top: 0;
+            }
+        }
+
+        .car-extras-content {
+            div:first-child {
+                line-height: $bmw-line-standard;
+            }
+
+            tr > td {
+                span {
+                    font-size: $bmw-rem;
+                }
+            }
+
+            &.desktop {
+                display: block;
+            }
+
+            @include media($small-screen-down) {
+                border-top: 0.6px solid $bmw-light-grey;
+                padding-top: 1em;
+            }
+        }
+
+        .my-build {
+            display: block;
+        }
+    }
+
+    .btn-back {
+        margin-top: 0;
+    }
+
+    .car-extras-tab-hover,
+    .car-extras-tab-hover:hover,
+    .car-extras-hover {
+        background-color: transparent;
+        border: none;
+    }
+
+    .accessories {
+        .accessories-detailed-wrapper{
+            display: flex;
+            width: 100%;
+
+            @include media($small-screen-down) {
+                flex-direction: column;
+            }
+
+            .accessories-detailed {
+                width: 50%;
+                padding: 5px;
+
+                @include media($small-screen-down) {
+                    width: 100%;
+                }
+
+                .accessory-price {
+                    color: $black;
+                    font-size: $f-size-l;
+                }
+
+                .accessory-title {
+                    font-family: $bmw-bold;
+                    font-size: $f-size-l;
+
+                    @include media($small-screen-down) {
+                        padding-top: 0.5em;
+                    }
+                }
+
+                .accessory-details {
+                    font-size: $f-size-abs;
+                }
+            }
+        }
+
+        .accordion {
+            .accordion-content {
+                padding: 0 2.5em;
+            }
+
+            &.type-right-down {
+                > li {
+                    > a {
+                        &::after {
+                            transform: rotate(135deg) translateY(-50%);
+                        }
+
+                        &:hover:after {
+                            transform: rotate(135deg) translateY(-50%);
+                        }
+
+                        &:focus:after {
+                            transform: rotate(135deg) translateY(-50%);
+                        }
+                    }
+
+                    &.is-expanded {
+                        > a {
+                            &::after {
+                                transform: rotate(-45deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .accessories-modal-ctas {
+            display: flex;
+
+            .button-blue-lagoon {
+                margin-left: 5px;
+            }
+        }
+
+        .accessory-show-details {
+            cursor: pointer;
+            font-weight: bold;
+
+            &:hover {
+                color: $accessories-price-color;
+
+                .arrow-next {
+                    border-left: 1px solid $accessories-price-color;
+                    border-bottom: 1px solid $accessories-price-color;
+                }
+            }
+
+            .arrow-next {
+                border-left: 1px solid $base-font-color;
+                border-bottom: 1px solid $base-font-color;
+                margin: 5px;
+            }
+        }
+    }
+
+    .finance-quote-mobile-container-details {
+        @include media($medium-screen-only) {
+            margin-left: $configurator-sub-nav-back-btn-width;
+        }
+    }
+}
+
+.ext-int-buttons {
+    margin-top: 1em;
+    z-index: 1;
+
+    @include position(absolute, auto 1em null 0);
+
+    @include media($small-screen-down) {
+        margin-top: .5em;
+
+        @include position(absolute, auto .5em null 0);
+    }
+}

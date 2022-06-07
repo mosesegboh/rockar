@@ -1,0 +1,20 @@
+.applied-filters {
+    font: {
+        family: $car-filter-applied-filters-font;
+        size: $car-filter-applied-filters-font-size;
+        weight: $fw-book;
+    }
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    display: inline-block;
+
+    @include media($small-screen-down) {
+        display: none;
+    }
+
+    ul {
+        li {
+            display: inline-block;
+        }
+    }
+}

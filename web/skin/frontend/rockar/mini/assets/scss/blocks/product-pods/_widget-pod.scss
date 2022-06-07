@@ -1,0 +1,262 @@
+.pod-content {
+    @include media($medium-screen-down) {
+        min-width: 75%;
+    }
+
+    @include media($small-screen-down) {
+        min-width: 100%;
+    }
+
+    @include media($large-screen-up) {
+        max-height: 342px;
+    }
+
+    .pod-images {
+        border-top: 0;
+
+        @include media($medium-screen-up) {
+            width: calc(100% - 53px);
+            margin: auto;
+            width: 409px;
+        }
+
+        @include media($large-screen-up) {
+            width: auto;
+            margin: 0;
+            min-width: 409px;
+        }
+
+        div {
+            text-align: center;
+
+            @include media($medium-screen-up) {
+                text-align: inherit;
+            }
+        }
+
+        .pod-image-container {
+            @include media($large-screen-up) {
+                height: 100%;
+            }
+
+            img {
+                @include media($large-screen-up) {
+                    height: 100%;
+                }
+
+                @include media($medium-screen-down) {
+                    margin: auto;
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .pod-data-container {
+        @include media($large-screen-up) {
+            margin: auto;
+        }
+
+        @include media($medium-screen-up) {
+            display: block;
+            margin: auto;
+        }
+
+        @include media($medium-screen-down) {
+            width: 409px;
+        }
+
+        @include media($small-screen-down) {
+            width: 100%;
+        }
+    }
+
+    .pod-data {
+        margin: auto;
+        border: 0;
+
+        @include media(new-breakpoint(375px)) { //Styles breaks under 320px
+            width: calc(100% - 50px);
+        }
+
+        @include media($large-screen-up) {
+            width: 60%;
+            padding-left: 42px;
+        }
+
+        @include media($medium-screen-down) {
+            width: 409px;
+        }
+
+        @include media($small-screen-down) {
+            width: 100%;
+        }
+
+        .price-label-container,
+        .day-label-container {
+            min-height: 28px;
+        }
+
+        .product-prices {
+            .item-details-price-block {
+                @include media($medium-screen-up) {
+                    @include display(flex);
+                }
+
+                .item-details-price {
+                    padding: 0;
+
+                    @include media($medium-screen-up) {
+                        @include flex(.3);
+                        border-top: 0;
+                        text-align: left;
+
+                        &:not(:first-child) {
+                            padding-left: 12px;
+                        }
+
+                        &:not(:last-child) {
+                            border-right: 1px solid $grey-2;
+                        }
+                    }
+
+                    .price-wrapper {
+                        .price,
+                        .attr-day-day {
+                            font-family: $pod-prices-font;
+                            font-weight: $fw-bold;
+                            letter-spacing: 2.1px;
+                            font-size: 22px;
+                        }
+
+                        div {
+                            line-height: 1.25;
+                        }
+
+                        .attr-day-label {
+                            font-size: $f-size-xxs;
+                            font-weight: $fw-book;
+                        }
+
+                        .from-label {
+                            font-size: $f-size-xxxxs;
+                            font-weight: $fw-book;
+                        }
+                    }
+                }
+            }
+        }
+
+        .pod-caption {
+            padding: 0 0 0 5px;
+
+            @include media($medium-screen-up) {
+                padding: 0;
+                margin-bottom: 7px;
+            }
+
+            a {
+                font-size: $f-size-xxxl;
+
+                @include media($medium-screen-up) {
+                    font-size: $f-size-xxxxl;
+                }
+            }
+        }
+
+        .caption {
+            @include media($small-screen-down) {
+                margin: auto;
+                width: 409px;
+            }
+        }
+
+        .description-content {
+            padding: 0 5px;
+            font-weight: $fw-book;
+            text-transform: uppercase;
+            letter-spacing: 3.2px;
+            font-size: $f-size-xxxs;
+            line-height: 1.38;
+            font-family: $widget-pod-description-font;
+
+            @include media($medium-screen-up) {
+                font-size: $f-size-s;
+                letter-spacing: 4px;
+                padding: 0;
+                max-width: 29em;
+            }
+
+            @include media($small-screen-down) {
+                margin: auto;
+                max-width: 409px;
+            }
+        }
+
+        .pod-actions {
+            margin-top: 10px;
+
+            @include media($medium-screen-up) {
+                margin-top: $widget-pod-button-margin;
+            }
+
+            .row {
+                @include flex_basis(100%);
+                border: 0;
+
+                &:first-of-type {
+                    border: 0;
+
+                    @include media($medium-screen-up) {
+                        @include display(flex);
+                        @include flex-direction(row);
+                    }
+                }
+
+                .pod-attribute {
+                    background-color: $widget-pod-button-color;
+                    height: 42px;
+                    position: relative;
+
+                    @include media($medium-screen-up) {
+                        max-width: 204px;
+                    }
+
+                    @include media($large-screen-up) {
+                        margin: 0;
+                    }
+
+                    &.you-build-attr {
+                        @include flex(1);
+
+                        &::after {
+                            @include pseudo();
+                            @include sprite($sprite-you-build-light);
+                            left: calc(100% - 27px);
+                            top: 10px;
+                        }
+                    }
+
+                    p {
+                        color: $white;
+                        font-size: $f-size-xxxxs;
+                        font-weight: $fw-black;
+                        margin: 0;
+                        line-height: 33px;
+                        letter-spacing: 2.5px;
+
+                        @include media($medium-screen-up) {
+                            text-align: left;
+                            padding-left: 3em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .delivery-label {
+        vertical-align: top;
+        font-size: $f-size-xxxxs;
+    }
+}

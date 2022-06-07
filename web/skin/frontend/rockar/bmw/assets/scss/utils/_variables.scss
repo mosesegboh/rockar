@@ -1,0 +1,188 @@
+//Defining Jaguar red in landrover to be used on the in-store homepage only
+$jaguar-red: #9e1b32;
+$bmw-blue: #1C69D4;
+
+$white: #fff;
+$grey-1: #e6e6e6;
+$grey-2: #e6e6e6;
+$grey-3: #4D4D4D;
+$grey-4: #262626;
+$grey-5: #0c121c;
+$grey-6: #bbb;
+$black: #000;
+$bright-red: #f00;
+
+$primary-color: #1C69D4;
+$button-hover-color: #0653B6;
+$button-grey: #4D4D4D;
+$grey-button-hover-color: #262626;
+$grey-menu: #8e8e8e;
+$grey-footer: $grey-6;
+$grey-disclaimer: #f2f2f2;
+$grey-disabled: rgba(230, 230, 230, 0.3);
+$grey-price: $grey-6;
+$grey-input: $grey-6;
+
+$grey-overlay: rgba(0,0,0,.6);
+
+////// Fonts //////
+$brand-specific-font: $bmw;
+$primary-font-family: $bmw;
+$navigation-menu-item-font: $bmw-bold;
+$primary-heading-font-family: $bmw;
+$shared-homepage-heading: $bmw;
+$secondary-font-family: $bmw;
+$basic-store-font: $bmw;
+$base-font-family: $bmw;
+$helper-font-family: $bmw;
+$helper-font-family-2: $bmw;
+$primary-font-bold: $bmw-bold;
+$pod-prices-labels-font: $bmw;
+$car-compare-subtitle-font-family: $bmw;
+
+////// Font Sizes //////
+
+$f-size-10xl: 60px;
+$f-size-9xl: 45px;
+$f-size-8xl: 38px;
+$f-size-7xl: 35px;
+$f-size-6xl: 32px;
+$f-size-5xl: 30px;
+$f-size-xxxxl: 25px;
+$f-size-xxxl: 20px;
+$f-size-xxl: 18px;
+$f-size-xl: 16px;
+$f-size-l: 15px;
+
+$f-size: 14px;
+
+$f-size-s: 13px;
+$f-size-xs: 12px;
+$f-size-xxs: 11px;
+$f-size-xxxs: 10px;
+$f-size-xxxxs: 8px;
+$f-size-5xs: 7px;
+$f-size-11xl: 75px;
+
+////// Font Sizes - 50px //////
+$bmw-h1: 3.125em;
+
+////// Font Sizes - 35px //////
+$bmw-h2: 2.1875em;
+
+////// Font Sizes - 25px //////
+$bmw-h3: 1.5625em;
+
+////// Font Sizes - 18px //////
+$bmw-h5: 1.125em;
+
+////// Font Sizes - 15px //////
+$bmw-p: 0.9375em;
+
+////// Font Sizes - 14px //////
+$bmw-button: 0.875em;
+
+////// Font Sizes - 16px //////
+$bmw-rem: 1em;
+
+////// Font Sizes - 12px //////
+$bmw-info: 0.75em;
+
+////// Font Sizes - 16px //////
+$bmw-input: 0.75em;
+
+//////////// Buy Now - REM 6px ////////////
+////// Font Sizes - 50px //////
+$bmw-buy-h1: 6.25em;
+
+////// Font Sizes - 35px //////
+$bmw-buy-h2: 4.375em;
+
+////// Font Sizes - 25px //////
+$bmw-buy-h3: 3.125em;
+
+////// Font Sizes - 18px //////
+$bmw-buy-h5: 2.25em;
+
+////// Font Sizes - 15px //////
+$bmw-buy-p: 1.875em;
+
+////// Font Sizes - 14px //////
+$bmw-buy-button: 1.75em;
+
+////// Font Sizes - 16px //////
+$bmw-buy-rem: 2em;
+
+//////////// Buy Now - REM 14px ////////////
+////// Font Sizes - 50px //////
+$bmw-offer-h1: 3.5714285714285716em;
+
+////// Font Sizes - 35px //////
+$bmw-offer-h2: 2.5em;
+
+////// Font Sizes - 25px //////
+$bmw-offer-h3: 1.7857142857142858em;
+
+////// Font Sizes - 18px //////
+$bmw-offer-h5: 1.2857142857142858em;
+
+////// Font Sizes - 15px //////
+$bmw-offer-p: 1.0714285714285714em;
+
+////// Font Sizes - 14px //////
+$bmw-offer-button: 1em;
+
+////// Font Sizes - 16px //////
+$bmw-offer-rem: 1.1428571428571428em;
+
+//////////// Buy Now - REM 8px ////////////
+////// Font Sizes - 14px //////
+$bmw-quote-button: 1.75em;
+
+//////////// Buy Now - REM 14px ////////////
+////// Font Sizes - 12px //////
+$bmw-voucher: 0.8571428571428571em;
+
+$form-desc-top: 1.3em;
+$tooltip-margin-left: 0.5em;
+$tooltip-margin-top: 0.8em;
+
+////////// Line height //////////
+$bmw-line-standard: 1.5;
+$bmw-line-16: 16px;
+$bmw-line-21: 21px;
+$bmw-line-25: 25px;
+$bmw-line-30: 30px;
+$bmw-line-39: 39px;
+$bmw-line-46: 46px;
+
+////////// List spacing //////////
+$bmw-left: 20px;
+
+////////// Column spacing //////////
+$bmw-right: 20px;
+
+////////// Padding //////////
+$bmw-padding-15: 15px;
+$bmw-padding-17: 17px;
+$bmw-padding-45: 45px;
+$bmw-padding-35: 35px;
+$bmw-footer-7: 7px;
+$bmw-footer-60: 60px;
+$bmw-nav-20: 20px;
+$bmw-padding-20: 20px;
+$bmw-padding-mobile: 17px;
+
+////////// BMW ID Module //////////
+$bmw-id-width: 91px;
+$bmw-id-height: 98px;
+
+////////// BMW Button //////////
+$bmw-button-height: 50px;
+$bmw-table-tab-height: 50px;
+$bmw-button-back-width: 55px;
+$bmw-button-mobile-back: 40px;
+
+////////// Padding //////////
+$bmw-margin-45: 45px;
+$bmw-p-margin-bottom: 0.75em;

@@ -1,0 +1,45 @@
+.step-three-no-inherit {
+    #timepicker {
+        .calendar {
+            .ui-datepicker-calendar {
+                thead {
+                    th {
+                        span {
+                            color: $grey-4;
+                        }
+                    }
+                }
+
+                tbody {
+                    .ui-state-disabled,
+                    .ui-datepicker-unselectable {
+                        a,
+                        span {
+                            color: $grey-4;
+                        }
+                    }
+                }
+            }
+        }
+
+        .timepicker-time {
+            .timepicker-title {
+                font-family: $mini-sans-serif-regular;
+                text-transform: uppercase;
+            }
+
+            .timepicker-body {
+                .timepicker-hour {
+                    &.available {
+                        &.selected,
+                        &:hover {
+                            color: $grey-4;
+                            background: $white;
+                            outline: 2px solid $c-mini-blue;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,71 @@
+.catalog-category-view {
+    .category-products {
+        .category-products-list {
+            .attribute-list {
+                li {
+                    font-family: $bmw-light;
+                    font-size: $dsp2-f-size-s;
+                    line-height: $dsp2-line-h-20;
+                    letter-spacing: 1.6px;
+
+                    @include media($medium-screen-up) {
+                        font-size: $dsp2-f-size;
+                    }
+                }
+            }
+
+            .row {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border-bottom: 1px solid $c-grey-5;
+                padding: 14px 0;
+            }
+
+            .option-title {
+                float: none;
+                width: auto;
+                max-width: 69%;
+                letter-spacing: normal;
+
+                @include media($medium-screen-up) {
+                    font-size: $dsp2-f-size;
+                    max-width: 65%;
+                }
+            }
+
+            .option-price {
+                font-family: $bmw-bold;
+                line-height: $dsp2-line-h-20;
+                text-align: right;
+                float: none;
+                margin-right: 0;
+                width: auto;
+                margin-left: auto;
+                letter-spacing: normal;
+
+                @include media($small-screen-down) {
+                    margin-right: 0;
+                }
+
+                @include media($medium-screen-up) {
+                    font-size: $dsp2-f-size;
+                }
+            }
+
+            .option-total-price {
+                background: $c-grey-6;
+                margin-top: 0;
+                letter-spacing: 1.6px;
+                font-family: $bmw-light;
+                font-size: $dsp2-f-size-s;
+                line-height: $dsp2-line-h-20;
+                text-transform: none;
+
+                @include media($medium-screen-up) {
+                    font-size: $dsp2-f-size;
+                }
+            }
+        }
+    }
+}

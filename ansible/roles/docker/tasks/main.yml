@@ -1,0 +1,14 @@
+---   
+  - name: Install docker on mac
+    homebrew_cask:
+      name: docker
+      state: present
+      accept_external_apps: yes
+    when: ansible_os_family == 'Darwin'
+
+  - name: Install docker on windows
+    win_chocolatey:
+      install_args: "-y"
+      name: docker
+      state: present
+    when: ansible_os_family == "Windows"

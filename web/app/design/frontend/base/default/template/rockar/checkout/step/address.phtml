@@ -1,0 +1,36 @@
+<?php
+/**
+ * @category  Peppermint
+ * @package   Peppermint\Checkout
+ * @author    Mihai Chezan <mihai.chezan@rockar.com>
+ * @copyright Copyright (c) 2019 Rockar Ltd (http://rockar.com)
+ */
+/**
+ * @var $this Rockar_Checkout_Block_Checkout_Steps_Address
+ */
+?>
+<?php $customerDashboardInfoBlock = $this->getAccountDashboardInfoBlock(); ?>
+<?php $checkoutHelper = Mage::helper('rockar_checkout') ?>
+<?php echo $this->getChildHtml('license_validation_overlay'); ?>
+<app-checkout-accordion title="<?php echo $this->__('Your Details'); ?>" type="right-down" class-name="accordion-light" step-code="<?php echo Rockar_Checkout_Helper_Data::ADDRESS_STEP_CODE; ?>">
+    <li>
+        <div class="accordion-content">
+           <?php echo $this->getMessagesBlock()->toHtml(); ?>
+            <app-checkout-address
+                form-url="<?php echo $this->getAddressAction(); ?>"
+                form-key="<?php echo Mage::getSingleton('core/session')->getFormKey(); ?>"
+                :available-countries='<?php echo $customerDashboardInfoBlock->getAvailableCountriesJson(); ?>'
+                :all-countries='<?php echo $customerDashboardInfoBlock->getAllCountriesJson(); ?>'
+                default-country="<?php echo $customerDashboardInfoBlock->getDefaultCountry(); ?>"
+                :company-type='<?php echo $checkoutHelper->getCompanyTypesJson(); ?>'
+                :designation='<?php echo $checkoutHelper->getDesignationsJson(); ?>'
+                :driving-license-types='<?php echo $customerDashboardInfoBlock->getDrivingLicenseTypesJson(); ?>'
+                :south-african-document-types='<?php echo $customerDashboardInfoBlock->getSouthAfricanDocumentTypesJson(); ?>'
+                :dob='<?php echo $customerDashboardInfoBlock->getDobData(); ?>'
+                :form-data='<?php echo $this->getYourAddressDataJson(); ?>'
+                :multiple-addresses-enabled="<?php echo $this->getIsMultipleAddressesEnabled(); ?>"
+                gdpr-address-disclaimer="<?php echo htmlspecialchars($this->getChildHtml('checkout_your_address_gdpr_statement')); ?>"
+            ></app-checkout-address>
+        </div>
+    </li>
+</app-checkout-accordion>

@@ -1,0 +1,438 @@
+<?php
+/**
+ * @category  Peppermint
+ * @package   Peppermint\Checkout
+ * @author    Razvan Zofota <razvan.zofota@rockar.com>
+ * @copyright Copyright (c) 2019 Rockar Ltd (http://rockar.com)
+ */
+
+$formData = $this->getFormData();
+$orderItem = $formData->getOrderItemData();
+$residence = $formData->getAdditionalResidenceData();
+$employment = $formData->getAdditionalEmploymentData();
+?>
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4 class="icon-head"><?php echo $this->getEntityTitle(); ?></h4>
+    </div>
+    <fieldset>
+        <div id="<?php echo $this->getBlockId(); ?>">
+            <div id="<?php echo $this->getBlockViewId(); ?>">
+                <div class="content-header">
+                    <h3><?php echo $this->__('Deposit'); ?></h3>
+                </div>
+                <table cellspacing="0" class="form-list">
+                    <tbody>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Deposit Amount'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getDepositAmount()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Source of Deposit'); ?></td>
+                            <td class="value">
+                                <strong><?php echo $this->getValueLabel($orderItem->getDepositSource(),
+                                        $this->getDepositSourceList()); ?></strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Source of Deposit Description'); ?></td>
+                            <td class="value">
+                                <strong><?php echo $this->escapeHtml($orderItem->getDepositOtherDescription()); ?></strong>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="content-header">
+                    <h3><?php echo $this->__('Personal Details'); ?></h3>
+                </div>
+                <table cellspacing="0" class="form-list">
+                    <tbody>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Home number'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getHomeTel()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Gender'); ?></td>
+                            <td class="value">
+                                <strong><?php echo $this->getValueLabel($formData->getGender(),
+                                    $this->getGenderList()); ?></strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Ethnic Group'); ?></td>
+                            <td class="value">
+                                <strong><?php echo $this->getValueLabel($formData->getRace(),
+                                    $this->getEthnicGroupList()); ?></strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Preferred Language'); ?></td>
+                            <td class="value">
+                                <strong><?php echo $this->getValueLabel($formData->getPreferredLanguage(),
+                                    $this->getLanguageList()); ?></strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Marital Status'); ?></td>
+                            <td class="value">
+                                <strong><?php echo $this->getValueLabel($formData->getMaritalStatus(),
+                                    $this->getMaritalStatusList()); ?></strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Marital Contract'); ?></td>
+                            <td class="value">
+                                <strong><?php echo $this->getValueLabel($formData->getMarriageType(),
+                                    $this->getMaritalContractList()); ?></strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Spouse First Name'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getSpouseFirstName()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Spouse Last Name'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getSpouseLastName()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Spouse ID Type'); ?></td>
+                            <td class="value">
+                                <strong><?php echo $this->getValueLabel($formData->getSpouseIdType(),
+                                        $this->getSpouseIdTypesList()); ?></strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Spouse ID Number'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getSpouseIdNo()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Spouse Mobile Number'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getSpouseCellNumber()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Spouse Email Address'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getSpouseEmail()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('I warrant and declare that the consent of my spouse, to the extent required by applicable laws, have been obtained.'); ?></td>
+                            <td class="value">
+                                    <strong><?php echo $formData->getSpouseConsent() == true ? $this->__('Yes') : $this->__('No'); ?></strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Next of kin Full Name'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getKinName()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Next of kin Mobile Number'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getKinTel()); ?></strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="content-header">
+                    <h3><?php echo $this->__('Residential Information'); ?></h3>
+                </div>
+                <table cellspacing="0" class="form-list">
+                    <tbody>
+                        <?php if ($residence) { ?>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Residential Status'); ?></td>
+                                <td class="value">
+                                    <strong><?php echo $this->getValueLabel($residence->getOwnership(),
+                                        $this->getResidenceStatusList()); ?></strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Property Owner'); ?></td>
+                                <td class="value">
+                                    <strong><?php echo $this->getValueLabel($residence->getAccommodationType(),
+                                        $this->getAccommodationTypeList()); ?></strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Bond Status'); ?></td>
+                                <td class="value">
+                                    <strong><?php echo $this->getValueLabel($residence->getHouseStatus(),
+                                        $this->getBondStatusList()); ?></strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Duration at Current Address (Y/M)'); ?></td>
+                                <td class="value"><strong><?php echo $this->getYearsMonths($residence->getDurationAtCurrentAddress()); ?></strong></td>
+                            </tr>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Duration at Previous Address (Y/M)'); ?></td>
+                                <td class="value"><strong><?php echo $this->getYearsMonths($residence->getDurationAtPreviousAddress()); ?></strong></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><h4><?php echo $this->__('Postal Address'); ?></h4></td>
+                            </tr>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Same as Residential Address.'); ?></td>
+                                <td class="value">
+                                    <strong><?php echo $residence->getSameAsResidential() == true ? $this->__('Yes') : $this->__('No'); ?></strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Address Line 1'); ?></td>
+                                <td class="value"><strong><?php echo $this->escapeHtml($residence->getAddress_1()); ?></strong></td>
+                            </tr>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Address Line 2'); ?></td>
+                                <td class="value"><strong><?php echo $this->escapeHtml($residence->getAddress_2()); ?></strong></td>
+                            </tr>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Region'); ?></td>
+                                <td class="value"><strong><?php echo $this->escapeHtml($residence->getRegion()); ?></strong></td>
+                            </tr>
+                            <tr>
+                                <td class="label"><?php echo $this->__('City'); ?></td>
+                                <td class="value"><strong><?php echo $this->escapeHtml($residence->getCity()); ?></strong></td>
+                            </tr>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Postal Code'); ?></td>
+                                <td class="value"><strong><?php echo $this->escapeHtml($residence->getPostcode()); ?></strong></td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+
+                <div class="content-header">
+                    <h3><?php echo $this->__('Employment Details'); ?></h3>
+                </div>
+                <table cellspacing="0" class="form-list">
+                    <tbody>
+                        <?php if ($employment) { ?>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Employment Status'); ?></td>
+                                <td class="value">
+                                    <strong><?php echo $this->getValueLabel($employment->getEmploymentStatus(),
+                                        $this->getEmploymentStatusList()); ?></strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Occupation'); ?></td>
+                                <td class="value"><strong><?php echo $this->escapeHtml($employment->getOccupation()); ?></strong></td>
+                            </tr>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Industry'); ?></td>
+                                <td class="value">
+                                    <strong><?php echo $this->getValueLabel($employment->getEmploymentIndustry(),
+                                        $this->getEmploymentIndustryList()); ?></strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Employer'); ?></td>
+                                <td class="value"><strong><?php echo $this->escapeHtml($employment->getCurrentEmployer()); ?></strong></td>
+                            </tr>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Duration at Current Employer (Y/M)'); ?></td>
+                                <td class="value"><strong><?php echo $this->getYearsMonths($employment->getDurationAtCurrentEmployer()); ?></strong></td>
+                            </tr>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Current Employer Telephone Number'); ?></td>
+                                <td class="value"><strong><?php echo $this->escapeHtml($employment->getEmployersPhone()); ?></strong></td>
+                            </tr>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Previous Employer'); ?></td>
+                                <td class="value"><strong><?php echo $this->escapeHtml($employment->getPreviousEmployer()); ?></strong></td>
+                            </tr>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Duration at Previous Employer (Y/M)'); ?></td>
+                                <td class="value"><strong><?php echo $this->getYearsMonths($employment->getDurationAtPreviousEmployer()); ?></strong></td>
+                            </tr>
+                            <tr>
+                                <td class="label"><?php echo $this->__('I consider myself to be, or to be associated with a Prominent Influential Person'); ?></td>
+                                <td class="value">
+                                    <strong><?php echo $employment->getInfluential() == true ? $this->__('Yes') : $this->__('No'); ?></strong>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+
+                <div class="content-header">
+                    <h3><?php echo $this->__('Income & Expenses'); ?></h3>
+                </div>
+                <table cellspacing="0" class="form-list">
+                    <tbody>
+                        <tr>
+                            <td colspan="2"><h4><?php echo $this->__('Income'); ?></h4></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Gross Monthly Salary'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getMonthlyGrossSalary()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Commission (3 month average)'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getAverageOfThreeMonthsSalary()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Car Allowance (included in Gross)'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getCarAllowance()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Additional Income'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getAdditionalIncome()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Source of Additional Income'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getSouceOfAdditionalIncome()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Net/Take Home Salary'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getTakeHomeSalary()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><h4><?php echo $this->__('Expenses'); ?></h4></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Bond'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getBondRentPayment()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Rent Repayment'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getRentAmount()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Maintenance Expenses'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getMaintenanceExpenses()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Household Expenses'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getHouseholdExpenses()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Vehicle Instalment (Excl. to be settled)'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getVehicleInstallments()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Transport Cost'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getTransportCost()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Credit Card Repayment'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getCreditCardRepayments()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Clothing Account'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getClothingAccounts()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Policy Repayments'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getPolicyRepayments()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Personal Loan'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getPersonalLoanRepayment()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Overdraft Repayment'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getOverDraftRepayments()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Furniture Account'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getFurnitureAccounts()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Education Cost'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getEducationCost()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Rates, Water and Electricity'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getWaterElectricityExpenses()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Telephone Payment'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getTelephonePayments()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Food and Entertainment'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getFoodAndEntertainment()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Medical Aid'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getMedicalExpenses()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Other Expenses'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getOtherExpenses()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('I am liable as'); ?></td>
+                            <td class="value"><strong><?php echo $formData->getLiableAs(); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Liability Details'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getLiableAsComments()); ?></strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="content-header">
+                    <h3><?php echo $this->__('Bank Account Details'); ?></h3>
+                </div>
+                <table cellspacing="0" class="form-list">
+                    <tbody>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Account Holder Name'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getNameOfBankAccount()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Bank Name'); ?></td>
+                            <td class="value">
+                                <strong><?php echo $this->getValueLabel($formData->getBankName(),
+                                    $this->getBankNameList()); ?></strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Branch Name'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getBranchName()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Branch Code'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getBranchCode()); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Account Type'); ?></td>
+                            <td class="value">
+                                <strong><?php echo $this->getValueLabel($formData->getAccountTypeCode(),
+                                    $this->getBankAccountTypeList()); ?></strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Account Number'); ?></td>
+                            <td class="value"><strong><?php echo $this->escapeHtml($formData->getAccountNumber()); ?></strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="content-header">
+                    <h3><?php echo $this->__('Financial Communications'); ?></h3>
+                </div>
+                <table cellspacing="0" class="form-list">
+                    <tbody>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Preferred Communication Method'); ?></td>
+                            <td class="value"><strong><?php echo $formData->getPreferredComminicationMethod(); ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Contract Documentation'); ?></td>
+                            <td class="value">
+                                <strong><?php echo $formData->getContractDocument() == true ? $this->__('Post') : $this->__('Email'); ?></strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Statement Frequency'); ?></td>
+                            <td class="value">
+                                <strong><?php echo $formData->getStatementFrequency() == true ? $this->__('Bi-Monthly') : $this->__('Quarterly'); ?></strong>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </fieldset>
+</div>

@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint\Localstores
+ * @author       Catalin Lungu <catalin.lungu@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+
+<config>
+    <modules>
+        <Peppermint_Localstores>
+            <version>0.1.10</version>
+        </Peppermint_Localstores>
+    </modules>
+    <global>
+        <resources>
+            <peppermint_localstores_setup>
+                <setup>
+                    <module>Peppermint_Localstores</module>
+                </setup>
+            </peppermint_localstores_setup>
+        </resources>
+        <models>
+            <peppermint_localstores>
+                <class>Peppermint_Localstores_Model</class>
+                <resourceModel>peppermint_localstores_resource</resourceModel>
+            </peppermint_localstores>
+            <rockar_localstores>
+                <rewrite>
+                    <adminhtml_system_config_source_stores>Peppermint_Localstores_Model_Adminhtml_System_Config_Source_Stores</adminhtml_system_config_source_stores>
+                    <observer_adminhtml_grid>Peppermint_Localstores_Model_Observer_Adminhtml_Grid</observer_adminhtml_grid>
+                </rewrite>
+            </rockar_localstores>
+            <peppermint_localstores_resource>
+                <class>Peppermint_Localstores_Model_Resource</class>
+                <entities>
+                    <distances>
+                        <table>peppermint_localstores_distances</table>
+                    </distances>
+                </entities>
+            </peppermint_localstores_resource>
+        </models>
+        <helpers>
+            <peppermint_localstores>
+                <class>Peppermint_Localstores_Helper</class>
+            </peppermint_localstores>
+            <rockar_localstores>
+                <rewrite>
+                    <data>Peppermint_Localstores_Helper_Data</data>
+                    <customer>Peppermint_Localstores_Helper_Customer</customer>
+                </rewrite>
+            </rockar_localstores>
+        </helpers>
+        <events>
+            <rockar_localstore_address_prepare_form>
+                <observers>
+                    <peppermint_localstores_address_observer>
+                        <class>peppermint_localstores/observer</class>
+                        <method>prepareAddressTabForm</method>
+                    </peppermint_localstores_address_observer>
+                </observers>
+            </rockar_localstore_address_prepare_form>
+            <rockar_localstore_general_prepare_form>
+                <observers>
+                    <peppermint_localstores_general_observer>
+                        <class>peppermint_localstores/observer</class>
+                        <method>prepareGeneralTabForm</method>
+                    </peppermint_localstores_general_observer>
+                </observers>
+            </rockar_localstore_general_prepare_form>
+        </events>
+    </global>
+    <frontend>
+        <events>
+            <sales_order_place_after>
+                <observers>
+                    <peppermint_localstores_general_observer>
+                        <class>peppermint_localstores/observer</class>
+                        <method>setDealerId</method>
+                    </peppermint_localstores_general_observer>
+                </observers>
+            </sales_order_place_after>
+        </events>
+    </frontend>
+    <adminhtml>
+        <events>
+            <sales_order_grid_prepare_collection>
+                <observers>
+                    <rockar_localstores_filter_order_grid>
+                        <type>singleton</type>
+                        <class>rockar_localstores/observer_adminhtml_grid</class>
+                        <method>addDealerFilterToOrdersGrid</method>
+                    </rockar_localstores_filter_order_grid>
+                </observers>
+            </sales_order_grid_prepare_collection>
+            <sales_order_grid_prepare_columns>
+                <observers>
+                    <peppermint_order_grid_add_columns>
+                        <type>singleton</type>
+                        <class>peppermint_localstores/observer</class>
+                        <method>addDealerIdToOrdersGrid</method>
+                    </peppermint_order_grid_add_columns>
+                </observers>
+            </sales_order_grid_prepare_columns>
+        </events>
+    </adminhtml>
+</config>

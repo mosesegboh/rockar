@@ -1,0 +1,36 @@
+.finance-filter .finance-filter-sliders .finance-filter-slider-wrapper .finance-filter-slider .finance-filter-slider-input .finance-filter-slider-input-wrapper .finance-filter-input input {
+    opacity: 1 !important;
+    background: $white;
+    border: 1px solid $black;
+}
+
+#finance-filter .finance-filter-mobile .finance-filter-dropdown-input-wrapper .option-field .finance-options-input {
+    width: 100%;
+    border: 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 13px;
+    height: 51px;
+    margin-bottom: 19px;
+    border: 1px solid $black;
+}
+
+#finance-filter .finance-filter-sliders .finance-filter-slider .range-slider-wrapper, #finance-filter .finance-filter-slider .finance-filter-slider .range-slider-wrapper {
+    padding: 0 0px 0 0;
+}
+
+#finance-filter .finance-filter-sliders .finance-filter-slider .finance-filter-slider-input .finance-filter-slider-input-wrapper input[type=text]#deposit-multiple, #finance-filter .finance-filter-sliders .finance-filter-slider .finance-filter-slider-input .finance-filter-slider-input-wrapper input#deposit-multiple, #finance-filter .finance-filter-slider .finance-filter-slider .finance-filter-slider-input .finance-filter-slider-input-wrapper input[type=text]#deposit-multiple, #finance-filter .finance-filter-slider .finance-filter-slider .finance-filter-slider-input .finance-filter-slider-input-wrapper input#deposit-multiple {
+    width: 300px;
+    text-align: center;
+    margin-left: -82px;
+}
+
+#finance-filter .finance-filter-sliders .finance-filter-slider .range-slider-wrapper .slider-label, #finance-filter .finance-filter-slider .finance-filter-slider .range-slider-wrapper .slider-label {
+    border-color: $black;
+}
+
+#finance-filter .finance-filter-sliders p, #finance-filter .finance-filter-slider p {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: $f-size-xl;
+}

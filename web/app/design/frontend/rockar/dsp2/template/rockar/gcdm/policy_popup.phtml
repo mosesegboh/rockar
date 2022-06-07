@@ -1,0 +1,29 @@
+<?php
+/**
+ * @category  design
+ * @package   rockar_bmw
+ * @author    Ausma Smite <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar Ltd (http://rockar.com)
+ */
+?>
+<?php
+/**
+ * @var $this Peppermint_Gcdm_Block_Popup
+ */
+?>
+
+<?php if ($this->isShowPolicyPopup()): ?>
+    <?php $details = $this->getCustomerDetails(); ?>
+    <div>
+        <app-policy-popup
+            customer-policies="<?php echo htmlentities($this->getJsonCheckboxes()); ?>"
+            submit-url="<?php echo Mage::getUrl('gcdm/popup/submit', ['_secure' => $this->_isSecure()]); ?>"
+            submit-missing-details-url="<?php echo Mage::getUrl('gcdm/popup/submitMissingDetails', ['_secure' => true]); ?>"
+            surname="<?php echo htmlentities($details['surname'] ?? ''); ?>"
+            given-name="<?php echo htmlentities($details['givenName'] ?? ''); ?>"
+            salutation="<?php echo htmlentities($details['salutation'] ?? ''); ?>"
+            :show-details-popup=<?php echo ($this->isShowMissingDetailsPopup() ? 'true' : 'false'); ?>
+        >
+        </app-policy-popup>
+    </div>
+<?php endif; ?>

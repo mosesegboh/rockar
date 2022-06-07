@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Customer
+ * @author    Chuck Ip <chuck.ip@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar Ltd (http://rockar.com)
+ */
+-->
+
+<layout version="0.1.0">
+    <customer_account_index>
+        <reference name="customer_account_dashboard">
+            <block type="cms/block" name="checkout_terms_conditions_overlay">
+                <action method="setBlockId">
+                    <block_id>checkout_terms_conditions_overlay</block_id>
+                </action>
+            </block>
+        </reference>
+    </customer_account_index>
+</layout>

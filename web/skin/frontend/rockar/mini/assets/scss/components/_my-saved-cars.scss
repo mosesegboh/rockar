@@ -1,0 +1,101 @@
+.my-saved-cars {
+    .car-cover {
+        .showcase {
+            .showcase-wrapper {
+                width: 60%;
+                left: 20%;
+                background: $white;
+
+                .showcase-image {
+                    .close-background {
+                        background-color: rgba(255, 255, 255, 0.5);
+                        border-radius: 50%;
+                        height: 32px;
+                        width: 32px;
+                        position: absolute;
+                        top: 4px;
+                        right: 4px;
+
+                        a {
+                            &:after {
+                                border-top: none;
+                            }
+                        }
+                    }
+
+                    .arrow-prev {
+                        padding-right: 1px;
+                    }
+
+                    .showcase-actions {
+                        bottom: 10%;
+
+                        a {
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.my-saved-cars-mobile-wrapper {
+    .car-extras {
+        .accordion-group {
+            &.extras-on-car {
+                li {
+                    a.js-accordion-trigger {
+                        &::after {
+                            position: relative;
+                            border-color: $black;
+                        }
+                    }
+                }
+            }
+
+            li {
+                a.js-accordion-trigger {
+                    font-weight: $my-account-block-title-fw;
+                    padding: 10px 17px 5px 23px;
+
+                    &::after {
+                        float: left;
+                        top: 4px;
+                        right: 10px;
+                        border-color: $white;
+                    }
+                }
+
+                li.accordion-list {
+                    table {
+                        border-collapse: separate;
+                        border-spacing: 1.7em 0;
+                        border: 0;
+
+                        tbody {
+                            display: table-row-group;
+
+                            tr {
+                                border: 0;
+                                display: table-row;
+
+                                td {
+                                    background-color: $base-background-color;
+                                    overflow-wrap: break-word;
+                                    word-break: keep-all;
+                                    padding: 5px 10px;
+                                    display: table-cell;
+
+                                    &:first-of-type {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

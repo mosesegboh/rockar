@@ -1,0 +1,225 @@
+<?php
+/**
+ * @var Rockar_FinancingOptions_Block_Adminhtml_Order_View_Financing $this
+ */
+$financing = $this->getFinancing();
+$paymentType = $this->getFinanceValue('payment_type');
+$orderStoreId = Mage::helper('rockar_checkout/order')->getFirstVisibleItem($this->getOrder())->getStoreId();
+$editMode = $this->getOrder()->getFinanceEditMode();
+$helper = Mage::helper('financing_options');
+
+$creditAppId = $this->getOrder()->getCreditAppId();
+$creditAppStatus = $this->getOrder()->getCreditAppStatus();
+?>
+
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4 class="icon-head"><?php echo $this->getEntityTitle(); ?></h4>
+        <?php if (!$editMode && $this->_isAllowed()): ?>
+            <?php echo $this->getChildHtml('finance_edit') ?>
+        <?php endif; ?>
+    </div>
+    <fieldset>
+        <div id="<?php echo $this->getBlockId(); ?>">
+            <?php if ($editMode): ?>
+            <div id="<?php echo $this->getBlockFormId(); ?>">
+                <table cellspacing="0" class="form-list">
+                    <tbody>
+                    <tr>
+                        <td class="label"><?php echo $this->__('Finance Product'); ?></td>
+                        <td class="value">
+                            <?php echo $this->getFinanceValue('payment_type') ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label"><?php echo $this->__('Finance Group'); ?></td>
+                        <td class="value"><?php echo $group = $helper->getFinancingOptionsGroup($paymentType) ?></td>
+                    </tr>
+                    <tr>
+                        <td class="label"><?php echo $this->__('Finance Option'); ?></td>
+                        <td class="value">
+                            <select name="payment_type" id="payment_type">
+                                <?php echo $this->getFinancingOptionsSelect($paymentType, $paymentType,
+                                    $orderStoreId) ?>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <?php if (!$this->isCash($paymentType)): ?>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Finance Company'); ?></td>
+                            <td class="value"><?php echo $this->getFinancingOptionsCompany($paymentType) ?></td>
+                        </tr>
+
+                        <?php if ($this->isPCH($paymentType) || $this->isBCH($paymentType)): ?>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Initial Rental'); ?></td>
+                                <td class="value">
+                                    <input type="text" name="deposit" class="input-text"
+                                           value="<?php echo $this->getFinanceValue('deposit'); ?>"/>
+                                </td>
+                            </tr>
+                        <?php else: ?>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Deposit'); ?></td>
+                                <td class="value">
+                                    <input type="text" name="deposit" class="input-text"
+                                           value="<?php echo $this->getFinanceValue('deposit'); ?>"/>
+                                </td>
+                            </tr>
+                        <?php endif ?>
+
+                        <tr>
+                            <td class="label"><?php echo $this->__('Initial Term'); ?></td>
+                            <td class="value">
+                                <input type="text" name="term" class="input-text"
+                                       value="<?php echo $this->getFinanceValue('term'); ?>"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Annual Mileage'); ?></td>
+                            <td class="value">
+                                <input type="text" name="mileage" class="input-text"
+                                       value="<?php echo $this->getFinanceValue('mileage'); ?>"/>
+                            </td>
+                        </tr>
+
+                        <?php if (!$this->isPCP($paymentType) && !$this->isHP($paymentType)): ?>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Deposit Multiple'); ?></td>
+                                <td class="value">
+                                    <input type="text" name="deposit_multiple" class="input-text"
+                                           value="<?php echo $this->getFinanceValue('depositMultiple'); ?>"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Maintenance'); ?></td>
+                                <td class="value">
+                                    <select name="maintenance" class="input-text">
+                                        <option value="0" <?php echo $this->getFinanceValue('maintenance') == 0 ? 'selected="selected"' : '' ?>><?php echo $this->__('No') ?></option>
+                                        <option value="1" <?php echo $this->getFinanceValue('maintenance') == 1 ? 'selected="selected"' : '' ?>><?php echo $this->__('Yes') ?></option>
+                                    </select>
+                                </td>
+                            </tr>
+                        <?php endif ?>
+
+                        <tr>
+                            <td class="label"><?php echo $this->__('Finance Application Status'); ?></td>
+                            <td class="value">
+                                <select name="fas" id="fas">
+                                    <?php echo $this->getFASSelect($this->getFinanceValue('fas')) ?>
+                                </select>
+                            </td>
+                        </tr>
+
+                    <?php endif ?>
+
+                    </tbody>
+                </table>
+            </div>
+            <?php else: ?>
+            <div id="<?php echo $this->getBlockViewId(); ?>">
+                <table cellspacing="0" class="form-list">
+                    <tbody>
+                    <?php if (isset($financing['finance_data']) && isset($financing['finance_data_variables'])): ?>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Finance Product'); ?></td>
+                            <td class="value"><strong><?php echo $this->getFinanceValue('payment_type') ?></strong></td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Finance Group'); ?></td>
+                            <td class="value">
+                                <strong><?php echo $group = $helper->getFinancingOptionsGroup($paymentType) ?></strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label"><?php echo $this->__('Finance Option'); ?></td>
+                            <td class="value">
+                                <strong><?php echo $this->getFinancingOptionsTitle($this->getFinanceValue('payment_type')) ?></strong>
+                            </td>
+                        </tr>
+
+                        <?php if (!$this->isCash($paymentType)): ?>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Finance Company:'); ?></td>
+                                <td class="value">
+                                    <strong><?php echo $this->getFinancingOptionsCompany($paymentType) ?></strong></td>
+                            </tr>
+
+                            <?php if ($this->isPCH($paymentType) || $this->isBCH($paymentType)): ?>
+                                <tr>
+                                    <td class="label"><?php echo $this->__('Initial Rental'); ?></td>
+                                    <td class="value">
+                                        <strong><?php echo $this->formatPrice($this->getFinanceValue('deposit')); ?></strong>
+                                    </td>
+                                </tr>
+                            <?php else: ?>
+                                <tr>
+                                    <td class="label"><?php echo $this->__('Deposit'); ?></td>
+                                    <td class="value">
+                                        <strong><?php echo $this->formatPrice($this->getFinanceValue('deposit')); ?></strong>
+                                    </td>
+                                </tr>
+                            <?php endif ?>
+
+                            <tr>
+                                <td class="label"><?php echo $this->__('Initial Term'); ?></td>
+                                <td class="value"><strong><?php echo $this->getFinanceValue('term'); ?></strong></td>
+                            </tr>
+                            <tr>
+                                <td class="label"><?php echo $this->__('Annual Mileage'); ?></td>
+                                <td class="value"><strong><?php echo $this->getFinanceValue('mileage'); ?></strong></td>
+                            </tr>
+
+                            <?php if (!$this->isPCP($paymentType) && !$this->isHP($paymentType)): ?>
+                                <tr>
+                                    <td class="label"><?php echo $this->__('Deposit Multiple'); ?></td>
+                                    <td class="value">
+                                        <strong><?php echo $this->getFinanceValue('depositMultiple'); ?></strong></td>
+                                </tr>
+                                <tr>
+                                    <td class="label"><?php echo $this->__('Maintenance'); ?></td>
+                                    <td class="value">
+                                        <strong><?php echo $this->getFinanceValue('maintenance') == 1 ? $this->__('Yes') : $this->__('No'); ?></strong>
+                                    </td>
+                                </tr>
+                            <?php endif ?>
+
+                            <?php if ($creditAppId): ?>
+                                <tr>
+                                    <td class="label"><?php echo $this->__('Finance Application ID'); ?></td>
+                                    <td class="value"><strong><?php echo $creditAppId; ?></strong></td>
+                                </tr>
+                                <tr>
+                                    <td class="label"><?php echo $this->__('Finance Application Status'); ?></td>
+                                    <td class="value">
+                                        <strong><?php echo $creditAppStatus; ?></strong>
+                                    </td>
+                                </tr>
+                            <?php endif; ?>
+
+                            <tr>
+                                <?php if ($this->isPCH($paymentType) || $this->isBCH($paymentType)): ?>
+                                    <td class="label"><?php echo $this->__('Monthly Rental'); ?></td>
+                                <?php else: ?>
+                                    <td class="label"><?php echo $this->__('Monthly Payment'); ?></td>
+                                <?php endif ?>
+                                <td class="value">
+                                    <strong><?php echo $this->formatPrice(isset($financing['finance_data_variables']['monthly_price']) ? $financing['finance_data_variables']['monthly_price'] : 0); ?></strong>
+                                </td>
+                            </tr>
+
+                        <?php endif ?>
+
+                    <?php else: ?>
+                        <tr>
+                            <td class="label"><?php echo $this->__("No Financing Information"); ?></td>
+                        </tr>
+                    <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+            <?php endif; ?>
+        </div>
+    </fieldset>
+</div>

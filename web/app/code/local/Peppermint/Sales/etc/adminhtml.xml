@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Sales
+ * @author    Taras Kapushchak <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <menu>
+        <report>
+            <children>
+                <pricing>
+                    <children>
+                        <product_order translate="title">
+                            <title>Product Order Pricing Report</title>
+                            <sort_order>10</sort_order>
+                            <action>adminhtml/report_productOrderPricing/</action>
+                        </product_order>
+                    </children>
+                </pricing>
+            </children>
+        </report>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <sales>
+                        <children>
+                            <order>
+                                <children>
+                                    <actions>
+                                        <children>
+                                            <sync_order translate="title"><title>Sync Order</title></sync_order>
+                                            <refresh_product translate="title"><title>Refresh Order Product Data</title></refresh_product>
+                                            <send_order translate="title"><title>Send Order to SAP</title></send_order>
+                                            <prepare_invoice translate="title"><title>Prepare Invoice</title></prepare_invoice>
+                                            <invoice translate="title"><title>Pre-Retail</title></invoice>
+                                            <order_amend_lock translate="title"><title>Order Amend Lock</title></order_amend_lock>
+                                        </children>
+                                    </actions>
+                                    <download_otp translate="title">
+                                        <title>Download OTP</title>
+                                    </download_otp>
+                                </children>
+                            </order>
+                        </children>
+                    </sales>
+                    <report>
+                        <children>
+                            <pricing>
+                                <children>
+                                    <product_order translate="title">
+                                        <title>Product Order Pricing Report</title>
+                                    </product_order>
+                                </children>
+                            </pricing>
+                        </children>
+                    </report>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

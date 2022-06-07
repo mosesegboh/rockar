@@ -1,0 +1,1240 @@
+.my-orders,
+.my-orders-mobile {
+    padding-top: 10px;
+    color: $c-grey;
+
+    .my-orders-clear {
+        border: none;
+    }
+
+    .order-images-actions {
+        button {
+            background-color: $white;
+            border: 1px solid $c-grey-5;
+            color: $c-grey;
+
+            &:hover {
+                background-color: $white;
+                color: $c-grey;
+            }
+        }
+    }
+
+    .my-orders-block {
+        border-bottom: none;
+        padding-top: $dsp2-padding-20;
+
+        @include media($large-screen-up) {
+            border-bottom: 1px solid $c-grey-5;
+        }
+
+        .my-orders-heading {
+            text-transform: none;
+            font-family: $bmw-light;
+        }
+
+        .my-orders-status {
+            .my-orders-progress-bar-block {
+                .my-orders-progress-bar-list {
+                    .my-orders-progress-point {
+                        &::before {
+                            border: none;
+                            background-color: $c-grey-5;
+                            height: 1px;
+                            top: 15px;
+
+                            @include media($medium-screen-up) {
+                                border-bottom: none;
+                                border-top: none;
+                            }
+                        }
+
+                        &.active {
+                            .my-orders-progress-point-square {
+                                background-color: $c-grey-4;
+                                border-color: $c-grey-4;
+                            }
+
+                            &::before {
+                                border: none;
+                                background-color: $c-grey-5;
+                            }
+                        }
+
+                        .my-orders-progress-point-square {
+                            @include size(30px);
+                            border: 1px solid $bmw-blue;
+                            background-color: $white;
+                            text-align: center;
+                            font-family: $bmw-bold;
+                            font-size: $dsp2-f-size-s;
+                            color: $c-grey;
+                            line-height: $dsp2-line-h-28;
+                        }
+
+                        &.progress {
+                            .my-orders-progress-point-square {
+                                background: $bmw-blue;
+                                color: $white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .my-orders-bolded {
+            text-transform: none;
+        }
+
+        &.order-amend-actions {
+            padding: 20px 15px;
+            border: none;
+            display: flex;
+
+            @include media($dsp2-l-screen-up) {
+                padding: 15px 30px 45px;
+                flex-direction: column;
+                margin-top: 10px;
+                background: $white;
+            }
+
+            .header {
+                padding: 0 0 20px;
+
+                .my-orders-heading {
+                    font-family: $bmw;
+                    font-size: $dsp2-f-size-l;
+                }
+            }
+
+            .my-orders-table {
+                display: flex;
+                padding: 10px;
+                border: 1px solid $c-grey-5;
+
+                @include media($dsp2-l-screen-up) {
+                    padding: 15px;
+                }
+
+                .content {
+                    width: 40%;
+                    height: 50px;
+
+                    .row {
+                        display: flex;
+                        align-items: center;
+                        height: 100%;
+
+                        p,
+                        label {
+                            margin: 0;
+                        }
+                    }
+                }
+
+                .actions {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+
+                    @include media($dsp2-l-screen-up) {
+                        width: 60%;
+                        flex-direction: row;
+                    }
+
+                    .row {
+                        padding: 10px 0 30px;
+
+                        p,
+                        a {
+                            margin: 0;
+                            font-size: $dsp2-f-size-xs;
+                        }
+                    }
+
+                    button {
+                        margin: 0;
+                        min-width: unset;
+                        width: 100%;
+                        font-size: $dsp2-f-size;
+
+                        @include media($dsp2-l-screen-up) {
+                            width: 50%;
+                        }
+
+                        &.dsp2-money {
+                            margin: 0 0 10px;
+
+                            @include media($dsp2-l-screen-up) {
+                                margin: 0 20px 0 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.messages-desktop {
+            border: none;
+            padding: 0 30px;
+            background: $white;
+
+            .my-orders-table {
+                border: 1px $c-grey-5;
+                border-style: solid none;
+                padding: 15px 0;
+
+                .my-orders-heading {
+                    font-size: $dsp2-f-size-s;
+                    line-height: $dsp2-line-h-20;
+                }
+
+                .my-orders-messages-block {
+                    color: $c-grey;
+
+                    .my-orders-table-content {
+                        font-size: $dsp2-f-size;
+
+                        .date {
+                            font-family: $bmw-bold;
+                            font-size: $dsp2-f-size-xs;
+                            color: $c-grey-2;
+                            line-height: $dsp2-line-h-20;
+                        }
+
+                        .content {
+                            font-size: $dsp2-f-size;
+                            line-height: $dsp2-line-h-20;
+                        }
+                    }
+                }
+            }
+        }
+
+        .summary-link {
+            font-family: $bmw-light;
+            text-transform: none;
+        }
+
+        .image-type-switcher {
+            left: unset;
+            position: absolute;
+            right: 15px;
+            top: 0;
+
+            @include media($dsp2-l-screen-up) {
+                right: 25px;
+                top: 20px;
+            }
+
+            .actions-wrapper {
+                background-color: $c-grey-5;
+                text-align: right;
+                filter: drop-shadow(0 4px 10px rgba(0, 0, 0, .15));
+                padding: 0;
+                display: flex;
+
+                .switcher {
+                    cursor: pointer;
+                    display: inline-block;
+                    width: 30px;
+                    height: 30px;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: 35px;
+
+                    @include media($dsp2-l-screen-up) {
+                        width: 40px;
+                        height: 40px;
+                    }
+
+                    &.active {
+                        border-bottom: $bmw-blue solid 2px;
+
+                        &.interior-switch {
+                            background-image: url('../images/svg/icon_interior_image_on.svg');
+                        }
+
+                        &.exterior-switch {
+                            background-image: url('../images/svg/icon_exterior_image_on.svg');
+                        }
+                    }
+
+                    &:not(.active) {
+                        opacity: .5;
+
+                        &.interior-switch {
+                            background-image: url('../images/svg/icon_interior_image_off.svg');
+                        }
+
+                        &.exterior-switch {
+                            background-image: url('../images/svg/icon_exterior_image_off.svg');
+                        }
+                    }
+                }
+
+                &.actions-wrapper-mobile {
+                    .switcher {
+                        letter-spacing: 1.7px;
+                        margin-right: 0;
+                        padding: 0 15px;
+                    }
+                }
+            }
+        }
+
+        &.car-details {
+            display: flex;
+            max-height: 600px;
+            padding: 0;
+            background: $white;
+
+            @include media($dsp2-l-screen-up) {
+                box-shadow: 0 15px 20px -12px rgba(0, 0, 0, .15);
+            }
+
+            .my-order-details {
+                width: 81%;
+
+                @include media($dsp2-l-screen-up) {
+                    background: linear-gradient(180deg, $white 0%, rgba(243, 243, 243, .5) 100%);
+                }
+
+                .my-orders-col {
+                    float: none;
+                    width: 100%;
+
+                    .order-images-head {
+                        position: relative;
+
+                        .order-images-cover {
+                            background-image: url('../images/exterior-bg.png');
+                            background-size: 100% 77%;
+                            background-position: top center;
+                            background-repeat: no-repeat;
+
+                            img {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+
+                .my-orders-col-2 {
+                    float: none;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+
+                    .order-info-boxes {
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        justify-content: space-between;
+
+                        &:first-child {
+                            padding: 0 30px 0 0;
+                        }
+
+                        .order-info-box {
+                            display: flex;
+                            justify-content: space-between;
+                            padding: 12px 0;
+
+                            &:last-child {
+                                border: solid $c-grey-5;
+                                border-width: 1px 0;
+                            }
+
+                            .order-info-content {
+                                text-align: right;
+                                font-family: $bmw-bold;
+                                font-size: $dsp2-f-size-s;
+                            }
+
+                            .order-label {
+                                font-family: $bmw-light;
+                                font-size: $dsp2-f-size-s;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .my-orders-col-3 {
+                background: $white;
+
+                .my-orders-header {
+                    padding: 25px 30px 20px;
+
+                    .title {
+                        font-family: $bmw;
+                        font-size: $dsp2-f-size-xxl;
+                        line-height: $dsp2-line-h-40;
+                        margin: 0;
+                    }
+
+                    .subtitle {
+                        font-family: $bmw-light;
+                        font-size: $dsp2-f-size;
+                        line-height: $dsp2-line-h-24;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+
+            .my-orders-tabs-section {
+                .my-orders-tabs-list {
+                    .my-orders-tab-title {
+                        background: $c-grey-5;
+                        border-color: $c-grey-5;
+                        font-size: $dsp2-f-size;
+                        margin: 0;
+                        height: inherit;
+                        display: flex;
+                        padding: 15px 0;
+
+                        &.active {
+                            background: $white;
+                            border-color: $white;
+                            border-top: 3px solid $bmw-blue;
+                        }
+
+                        p {
+                            width: 85px;
+                            margin: auto;
+                            text-transform: none;
+                            font-family: $bmw;
+                            font-size: $dsp2-f-size-s;
+                            line-height: $dsp2-line-h-16;
+                        }
+                    }
+                }
+
+                .my-orders-tabs-content {
+                    padding: $dsp2-padding-20;
+                    overflow-y: scroll;
+                    border: none;
+
+                    .vehicle-options {
+                        .header {
+                            font-family: $bmw;
+                            font-size: $dsp2-f-size;
+                            padding: 5px 0;
+                            text-transform: uppercase;
+                        }
+
+                        .content-box {
+                            .content {
+                                padding: 15px 0;
+                                border-top: 1px solid $c-grey-5;
+
+                                &:first-child {
+                                    border: none;
+                                }
+
+                                .option-label {
+                                    font-family: $bmw-light;
+                                    font-size: $dsp2-f-size;
+                                    text-transform: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .my-orders-tabs-content {
+                border: none;
+                height: 370px;
+                background: $white;
+
+                .payment-details {
+                    color: $c-grey;
+                    padding: 25px 30px;
+
+                    .payment-info-box {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        padding: 15px 0;
+                        border-bottom: 1px solid $c-grey-5;
+
+                        .order-price {
+                            display: flex;
+                            justify-content: space-between;
+                            border-bottom: 1px solid $c-grey-5;
+                            padding-bottom: 10px;
+                        }
+
+                        &.summary {
+                            background: $c-grey-6;
+                            padding: 15px;
+                            margin: 10px 0;
+                            border: none;
+                            flex-direction: column;
+                        }
+
+                        .order-label {
+                            font-family: $bmw-light;
+                            font-size: $dsp2-f-size-s;
+                        }
+
+                        .align-right {
+                            font-family: $bmw-bold;
+                            font-size: $dsp2-f-size-s;
+                        }
+
+                        .content {
+                            display: flex;
+                            flex-direction: column;
+                            align-content: flex-end;
+                            align-items: flex-end;
+                            text-align: right;
+
+                            .align-right {
+                                font-family: $bmw;
+                                font-size: $dsp2-f-size-xl;
+                                line-height: $dsp2-line-h-36;
+                            }
+
+                            .label {
+                                font-family: $bmw-light;
+                                font-size: $dsp2-f-size-xxxs;
+                            }
+
+                            .summary {
+                                display: flex;
+                                align-items: center;
+                                padding-top: 10px;
+
+                                .summary-link {
+                                    font-family: $bmw-bold;
+                                    font-size: $dsp2-f-size-s;
+                                    color: $c-grey;
+                                    line-height: $dsp2-line-h-20;
+                                    padding-left: 8px;
+                                }
+
+                                &::before {
+                                    content: '';
+                                    background-image: url('../images/svg/pod-finance-overlay.svg');
+                                    display: block;
+                                    background-repeat: no-repeat;
+                                    background-position: center;
+                                    height: 12px;
+                                    width: 12px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .trade-in {
+                    padding: 20px;
+
+                    .order-info-box {
+                        display: flex;
+                        justify-content: space-between;
+                        padding: 15px 0;
+                        border-top: 1px solid $c-grey-5;
+
+                        .car-model {
+                            font-size: $dsp2-f-size-s;
+                        }
+
+                        &:first-child {
+                            border: none;
+                        }
+
+                        .align-right {
+                            font-family: $bmw-bold;
+                            font-size: $dsp2-f-size-s;
+
+                            &.estimated-value {
+                                font-family: $bmw;
+                                font-size: $dsp2-f-size-xl;
+                                color: $bmw-blue;
+                            }
+                        }
+
+                        .order-label {
+                            font-family: $bmw-light;
+                            font-size: $dsp2-f-size-s;
+                            padding-right: 20px;
+                            position: relative;
+
+                            &.estimated-value {
+                                .icon-info {
+                                    &::after {
+                                        display: block;
+                                        height: 16px;
+                                        position: absolute;
+                                        right: 0;
+                                        top: 9px;
+                                        width: 16px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.order-status {
+            background: $white;
+            padding: 0;
+            border-bottom: none;
+            margin-top: 10px;
+
+            .my-orders-heading {
+                font-family: $bmw-light;
+                font-size: $dsp2-f-size-l;
+                line-height: $dsp2-line-h-32;
+                text-transform: none;
+            }
+
+            .content {
+                margin: 15px 30px;
+                border-bottom: 1px solid $c-grey-5;
+
+                .my-orders-status {
+                    margin-top: 16px;
+                }
+
+                .my-orders-status-text {
+                    background: $white;
+                    padding: 0;
+
+                    .my-orders-medium {
+                        font-family: $bmw-bold;
+                        font-size: $dsp2-f-size-s;
+                        line-height: $dsp2-line-h-20;
+                        margin-bottom: 9px;
+                    }
+
+                    .my-orders-p {
+                        font-family: $bmw-light;
+                        font-size: $dsp2-f-size-s;
+                        line-height: $dsp2-line-h-20;
+                    }
+                }
+
+                .my-orders-progress-bar-block {
+                    .my-orders-progress-point {
+                        &.active {
+                            .my-orders-progress-point-square {
+                                background: $c-grey-4;
+                            }
+                        }
+
+                        .my-orders-progress-text {
+                            top: 11px;
+
+                            p {
+                                font-family: $bmw-light;
+                                font-size: $dsp2-f-size-xs;
+                                line-height: $dsp2-line-h-16;
+                            }
+                        }
+                    }
+                }
+
+                .row {
+                    .col-4 {
+                        position: relative;
+                        top: -28px;
+                    }
+                }
+            }
+        }
+
+        &.my-orders-document {
+            background: $white;
+            padding: 0;
+            border-bottom: none;
+
+            .content {
+                margin: 15px 30px;
+                padding: 15px;
+                border: 1px solid $c-grey-5;
+                background: $white;
+
+                .col-3 {
+                    .my-orders-heading {
+                        font-family: $bmw-light;
+                        font-size: $dsp2-f-size-s;
+                    }
+
+                    .my-orders-document-label {
+                        font-family: $bmw;
+                        font-size: $dsp2-f-size-s;
+                    }
+                }
+            }
+        }
+    }
+
+    .my-orders-table {
+        @include media($small-screen-down) {
+            padding-top: $dsp2-padding-20;
+        }
+    }
+
+    .my-orders-mobile {
+        .hero-section {
+            .hero-info {
+                .hero-padding {
+                    .hero-title {
+                        @include media($small-screen-down) {
+                            margin-top: $bmw-margin-45;
+                        }
+                    }
+                }
+
+                .hero-tabs {
+                    .hero-tabs-list {
+                        .hero-tab {
+                            &.active {
+                                background: $bmw-blue;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &-section {
+        &.row {
+            &::after {
+                display: none;
+            }
+        }
+
+        .my-account-content {
+            padding: 0 0 20px;
+        }
+
+        .my-orders {
+            &-mobile {
+                box-shadow: 0 15px 20px -12px rgba(0, 0, 0, .15);
+            }
+        }
+
+        .my-orders-mobile {
+            .my-orders-block {
+                .my-orders-status {
+                    .my-orders-progress-bar-block {
+                        .my-orders-progress-bar-list {
+                            .my-orders-progress-point {
+                                .my-orders-progress-text {
+                                    @include media($medium-screen-down) {
+                                        font-size: $dsp2-f-size;
+                                        position: relative;
+                                        top: 12px;
+                                        left: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.my-orders {
+    &.desktop {
+        display: none;
+        padding-bottom: 20px;
+        margin-bottom: 0;
+
+        @include media($large-screen-up) {
+            display: block;
+        }
+    }
+
+    &-mobile {
+        display: block;
+
+        @include media($large-screen-up) {
+            display: none;
+        }
+
+        .hero-section {
+            padding: 0 0 10px;
+
+            .my-orders-header {
+                position: relative;
+                padding: 20px 15px;
+
+                .image-type-switcher {
+                    top: 20px;
+                }
+
+                .title {
+                    font-family: $bmw;
+                    font-size: $dsp2-f-size-xl;
+                    line-height: $dsp2-line-h-24;
+                    margin: 0;
+                }
+
+                .subtitle {
+                    font-family: $bmw-light;
+                    font-size: $dsp2-f-size-xs;
+                    line-height: $dsp2-line-h-16;
+                    text-transform: uppercase;
+                }
+            }
+
+            .car-details {
+                .my-order-details {
+                    width: 100%;
+
+                    .my-orders-col {
+                        .order-images-head {
+                            .order-images-cover {
+                                background-image: url('../images/exterior-bg.png');
+                                background-size: 100% 77%;
+                                background-position: top center;
+                                background-repeat: no-repeat;
+
+                                img {
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .hero-info {
+            .my-orders-block.order-status {
+                .content {
+                    margin: 0;
+                    border-bottom: 0;
+
+                    .row {
+                        .col-7 {
+                            width: 100%;
+
+                            @include media($medium-screen-down) {
+                                padding-bottom: 10px;
+                            }
+                        }
+                    }
+
+                    .my-orders-heading {
+                        font-size: $dsp2-f-size-xs;
+                        margin-left: 28px;
+                        line-height: $dsp2-line-h-16;
+                    }
+                }
+            }
+
+            .accordion-list {
+                .accordion {
+                    border: 1px solid $c-grey-5;
+                    margin: 10px 15px;
+
+                    .accordionSlide-leave {
+                        display: none !important; // override manually added styling
+                    }
+
+                    li {
+                        a {
+                            &.js-accordion-trigger {
+                                text-transform: uppercase;
+                                font-size: $dsp2-f-size-s;
+                            }
+                        }
+
+                        .accordionSlide-transition {
+                            margin: 0 !important; // override manually added styling
+                        }
+
+                        &.is-expanded {
+                            .accordionSlide-transition {
+                                display: flex !important; // override manually added styling
+                                flex-direction: column;
+                            }
+                        }
+                    }
+
+                    .my-orders-document {
+                        .header {
+                            padding: 10px 15px;
+                            font-size: $dsp2-f-size-s;
+                        }
+
+                        .content {
+                            margin: 0 15px;
+
+                            .col-3 {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                padding: 10px 0;
+
+                                .my-orders-document-label {
+                                    margin: 0;
+                                    font-family: $bmw-bold;
+                                    font-size: $dsp2-f-size-xs;
+                                }
+
+                                .my-orders-heading {
+                                    font-size: $dsp2-f-size-xs;
+                                }
+
+                                @include media($small-screen-down) {
+                                    &:not(:last-child) {
+                                        border-bottom: 1px solid $c-grey-5;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    hr {
+                        margin: 0 15px;
+                        border-color: $c-grey-5;
+                    }
+
+                    .messages-mobile {
+                        margin: 0 15px;
+                        display: flex;
+                        padding: 0;
+                        border-bottom: none;
+                        border-top: 1px solid $c-grey-5;
+
+                        .my-orders-table {
+                            padding: 20px 0 0;
+
+                            .my-orders-heading {
+                                font-size: $dsp2-f-size-s;
+                                line-height: $dsp2-line-h-20;
+                            }
+
+                            .table-responsive {
+                                border: none;
+                                margin-bottom: 0;
+
+                                .my-orders-messages-block {
+                                    tr {
+                                        display: flex;
+                                        color: $c-grey;
+                                        border: none;
+
+                                        td {
+                                            font-size: $dsp2-f-size;
+
+                                            &.my-orders-table-checkbox {
+                                                background: none;
+                                            }
+
+                                            &.my-orders-table-content {
+                                                .content {
+                                                    font-size: $dsp2-f-size-xs;
+                                                    line-height: $dsp2-line-h-20;
+                                                }
+
+                                                .date {
+                                                    font-size: $dsp2-f-size-xxs;
+                                                    line-height: $dsp2-line-h-20;
+                                                    font-family: $bmw-bold;
+                                                    color: $c-grey-2;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .car-extras {
+                        padding: 10px 15px;
+
+                        .vehicle-options {
+                            .header {
+                                font-family: $bmw;
+                                font-size: $dsp2-f-size-s;
+                                padding: 15px 0 0;
+                                text-transform: uppercase;
+                            }
+
+                            .content-box {
+                                .content {
+                                    padding: 10px 0;
+                                    border-bottom: 1px solid $c-grey-5;
+                                    font-size: $dsp2-f-size-xs;
+                                }
+                            }
+                        }
+                    }
+
+                    .part-exchange {
+                        padding: 0 15px 15px;
+
+                        .order-info-box {
+                            display: flex;
+                            justify-content: space-between;
+                            padding: 10px 0;
+                            border-bottom: 1px solid $c-grey-5;
+
+                            &.header {
+                                font-size: $dsp2-f-size-xs;
+                            }
+
+                            .order-label {
+                                font-size: $dsp2-f-size-xs;
+
+                                &.estimated-value {
+                                    display: flex;
+                                    align-items: center;
+
+                                    .icon-info {
+                                        &::after {
+                                            display: block;
+                                            background-position: center;
+                                            height: 16px;
+                                            width: 16px;
+                                            margin: 0 5px;
+                                            transform: translateY(5px);
+                                        }
+                                    }
+                                }
+                            }
+
+                            .align-right {
+                                font-family: $bmw-bold;
+                                font-size: $dsp2-f-size-xs;
+
+                                &.estimated-value {
+                                    font-family: $bmw;
+                                    font-size: $dsp2-f-size-sl;
+                                    color: $bmw-blue;
+                                }
+                            }
+                        }
+                    }
+
+                    .payment-details {
+                        color: $c-grey;
+                        padding: 0 15px 15px;
+
+                        .payment-info-box {
+                            display: flex;
+                            justify-content: space-between;
+                            padding: 15px 0;
+                            border-bottom: 1px solid $c-grey-5;
+
+                            &.summary {
+                                background: $c-grey-6;
+                                padding: 15px;
+                                border: none;
+                                flex-direction: column;
+
+                                .order-price {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    border-bottom: 1px solid $c-grey-5;
+                                    padding-bottom: 10px;
+                                }
+                            }
+
+                            .order-label {
+                                font-family: $bmw-light;
+                                font-size: $dsp2-f-size-xs;
+                            }
+
+                            .align-right {
+                                font-family: $bmw-bold;
+                                font-size: $dsp2-f-size-xs;
+                            }
+
+                            .content {
+                                display: flex;
+                                flex-direction: column;
+                                align-content: flex-end;
+                                align-items: flex-end;
+                                text-align: right;
+
+                                .align-right {
+                                    font-family: $bmw;
+                                    font-size: $dsp2-f-size-xl;
+                                }
+
+                                .label {
+                                    font-family: $bmw-light;
+                                    font-size: $dsp2-f-size-xxxs;
+                                }
+
+                                .summary {
+                                    display: flex;
+                                    align-items: center;
+                                    padding-top: 5px;
+
+                                    .summary-link {
+                                        font-family: $bmw-bold;
+                                        font-size: $dsp2-f-size-s;
+                                        color: $c-grey;
+                                        line-height: $dsp2-line-h-20;
+                                        margin-left: 8px;
+                                        border-bottom: 1px solid $c-grey-3;
+                                    }
+
+                                    &::before {
+                                        content: '';
+                                        background-image: url('../images/svg/pod-finance-overlay.svg');
+                                        display: block;
+                                        background-repeat: no-repeat;
+                                        background-position: center;
+                                        height: 12px;
+                                        width: 12px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .hero-order {
+                .order-info-boxes {
+                    width: 100%;
+
+                    .order-info-box {
+                        display: flex;
+                        justify-content: space-between;
+                        text-align: right;
+                        border-bottom: 1px solid $c-grey-5;
+                        padding: 10px 0;
+
+                        .order-info-content {
+                            text-align: right;
+                            font-family: $bmw-bold;
+                            font-size: $dsp2-f-size-xs;
+                        }
+
+                        .order-label {
+                            font-family: $bmw-light;
+                            font-size: $dsp2-f-size-xs;
+                        }
+                    }
+                }
+            }
+        }
+
+        .my-orders-progress-bar-block {
+            position: relative;
+            padding: 0 0 24px 10px;
+
+            .my-orders-progress-bar-list {
+                display: flex;
+                justify-content: center;
+
+                .my-orders-progress-point {
+                    float: left;
+                    position: relative;
+                    width: calc(100% / 3) !important; //overriding default2 styles
+
+                    &::before {
+                        position: absolute;
+                        content: '';
+                        display: block;
+                        width: 100%;
+                    }
+
+                    &:last-child {
+                        width: 30px !important; //overriding default2 styles
+
+                        &::before {
+                            display: none;
+                        }
+                    }
+
+                    .my-orders-progress-point-square {
+                        position: relative;
+                        z-index: 2;
+                        border-radius: 50%;
+                    }
+
+                    .my-orders-progress-text {
+                        left: 0;
+                        max-width: 55px;
+                        text-align: center;
+                        font-size: $dsp2-f-size-xs;
+                        margin: 0 -10px;
+
+                        p {
+                            color: $c-grey !important; // override styling in default2
+                        }
+                    }
+
+                    &.active {
+                        .my-orders-progress-point-square {
+                            &::after {
+                                @include position(relative, 8px null null null);
+                                @include sprite($sprite-check-icon);
+                                content: '';
+                                display: inline-block;
+                                vertical-align: top;
+                            }
+                        }
+                    }
+
+                    &.progress {
+                        .my-orders-progress-text {
+                            p {
+                                font-family: $bmw;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.my-orders-section {
+    &.multiple-orders {
+        .accordion {
+            .my-orders {
+                .order-status,
+                .my-orders-status-text,
+                .my-orders-document {
+                    background: transparent;
+                }
+
+                .messages-desktop {
+                    background: $c-grey-11;
+                }
+            }
+        }
+    }
+
+    .accordion-content {
+        padding: 0;
+    }
+
+    .amendment-order-status {
+        .title {
+            font-family: $bmw-light;
+            font-size: $dsp2-f-size;
+            color: $c-grey;
+            padding: 30px 15px 0;
+            margin: 0;
+
+            @include media($dsp2-l-screen-up) {
+                font-size: $dsp2-f-size-xxl;
+                padding: 35px 25px 15px;
+            }
+        }
+    }
+}

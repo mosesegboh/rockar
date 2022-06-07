@@ -1,0 +1,61 @@
+.notice-cookie {
+    @include media($horizontal-bar-mode) {
+        position: relative;
+        margin: 0;
+    }
+
+    @include media($dsp2-l-screen-down) {
+        position: fixed;
+        z-index: 990;
+    }
+
+    .notice-inner {
+        background-color: $c-grey-6;
+        z-index: 100;
+
+        .notice-text {
+            position: relative;
+
+            p {
+                padding: 30px 40px 50px 30px;
+                margin: 0;
+                color: $c-grey;
+                text-align: left;
+                font-size: 14px;
+                font-weight: 300;
+                line-height: 20px;
+
+                a {
+                    font-weight: 700;
+                    color: $c-grey;
+                    text-decoration: none;
+                    font-family: $bmw-bold;
+                }
+            }
+        }
+
+        .actions {
+            .button {
+                background-image: url(../images/svg/icon-close-black.svg);
+                background-repeat: no-repeat;
+                background-position: center;
+                height: 12px;
+                width: 12px;
+                top: 8px;
+
+                span {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.on-light {
+    .notice-cookie {
+        @include media($dsp2-l-screen-down) {
+            position: fixed;
+            z-index: 990;
+        }
+    }
+}

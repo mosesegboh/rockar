@@ -1,0 +1,107 @@
+#page-header {
+    background-color: $white;
+    position: relative;
+
+    @include media($dsp2-medium-screen-up) {
+        padding: 20px 25px;
+    }
+
+    @include media($large-screen-up) {
+        padding: 0 6em 20px;
+    }
+
+    .header-desktop {
+        position: relative;
+        text-align: center;
+        display: none;
+        max-width: 94em;
+        margin: 0 auto;
+
+        @include media($dsp2-medium-screen-up) {
+            display: block;
+        }
+
+        .previous {
+            position: absolute;
+            cursor: pointer;
+
+            @include media($medium-screen-down) {
+                top: 15%;
+                left: 2%;
+            }
+
+            span {
+                font-family: $bmw-bold;
+                font-size: $dsp2-f-size;
+                line-height: $dsp2-line-h-24;
+                border-bottom: 1px solid $c-grey;
+                margin: 0 0 0 20px;
+            }
+
+            &::before {
+                @include pseudo();
+                background: url('../images/svg/icon-arrow-left.svg') no-repeat center;
+                width: 10px;
+                height: 16px;
+                top: 5px;
+            }
+        }
+
+        .title {
+            font-family: $bmw-light;
+            font-size: $dsp2-f-size-xxl;
+            line-height: $dsp2-line-h-40;
+            text-transform: uppercase;
+        }
+    }
+
+    &.checkout-delivery {
+        @include media($dsp2-medium-screen-up) {
+            padding: 10px 0 46px;
+        }
+
+        @include media($large-screen-up) {
+            padding: 10px 0 46px;
+        }
+
+        .header-desktop {
+            .previous {
+                @include media($medium-screen-down) {
+                    left: 0;
+                }
+            }
+        }
+    }
+
+    .header-mobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        font-family: $bmw-light;
+        font-size: $dsp2-f-size;
+        line-height: $dsp2-line-h-18;
+        border-bottom: 1px solid $c-grey-5;
+        height: 39px;
+        width: 100%;
+        position: fixed;
+        background: $white;
+        left: 0;
+        top: 60px;
+        z-index: 101;
+
+        @include media($dsp2-medium-screen-up) {
+            display: none;
+        }
+
+        .previous {
+            @include size(20px);
+            background-image: url('../images/svg/icon-arrow-left.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            position: fixed;
+            margin-left: 1.3em;
+            left: 0;
+        }
+    }
+}

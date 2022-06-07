@@ -1,0 +1,105 @@
+.selectbox {
+    position: relative;
+    font-family: $secondary-font-family;
+    font-weight: $fw-semibold;
+    width: 100%;
+    max-width: $dropdown-max-width;
+    margin-bottom: 0.8em;
+    font-size: $input-field-font-size;
+
+    .select-1 & {
+        max-width: 445px;
+    }
+
+    .select-2 & {
+        max-width: 175px;
+    }
+
+    .select-3 & {
+        max-width: 130px;
+    }
+
+    &.open {
+        .selectbox-select {
+            background: $selectbox-label-opened-background-color;
+
+            .dropdown-caret {
+                &:after {
+                    @include sprite($sprite-dropdown-arrow-up);
+                }
+            }
+        }
+    }
+
+    &.disabled {
+        opacity: 0.5 !important;
+
+        .selectbox-select {
+            cursor: not-allowed;
+            border: 1px solid $selectbox-disabled-border;
+        }
+    }
+
+    .selectbox-select {
+        position: relative;
+        background: $selectbox-label-background-color;
+        border: 1px solid $selectbox-label-background-color;
+        color: $selectbox-label-color;
+        line-height: 15px;
+        cursor: pointer;
+        padding: 17px 59px 14px 19px;
+        height: 46px;
+
+        &:hover {
+            background: $selectbox-label-hover-background-color;
+        }
+
+        .dropdown-caret {
+            @include position(absolute, 0 0 null null);
+            @include size(44px);
+            background: $selectbox-caret-background;
+
+            &:after {
+                @include position(absolute, 50% null null 50%);
+                @include sprite($sprite-dropdown-arrow-down);
+                content: '';
+                margin-top: -6px;
+                margin-left: -6px;
+            }
+        }
+    }
+
+    .selectbox-dropdown {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        background: $selectbox-list-background;
+        z-index: 999;
+        overflow-y: scroll;
+
+        .dropdown-item {
+            color: $selectbox-item-text-color;
+            padding: 15px 19px 16px 19px;
+            line-height: 25px;
+            cursor: pointer;
+
+            &:nth-child(2n) {
+                background: $selectbox-list-background2;
+            }
+
+            &.selected {
+                background: $selectbox-item-selected-background-color;
+            }
+
+            &:hover {
+                background: $selectbox-item-hover-color;
+            }
+        }
+    }
+}
+
+.selectbox-wrapper {
+    .selectbox-dropdown {
+        display: none;
+    }
+}

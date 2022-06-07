@@ -1,0 +1,45 @@
+.notice-cookie {
+    @include media($horizontal-bar-mode) {
+        position: relative;
+        margin: 0;
+    }
+
+    .notice-inner {
+        background-color: $grey-disclaimer;
+        z-index: 100;
+
+        .notice-text {
+            p {
+                padding: 30px 40px 50px 30px;
+                margin: 0;
+                color: $grey-4;
+                text-align: left;
+                font-size: 14px;
+                font-weight: 300;
+                line-height: 20px;
+
+                a {
+                    font-weight: 700;
+                    color: $grey-4;
+                    text-decoration: none;
+                    font-family: $primary-font-bold;
+                }
+            }
+        }
+
+        .actions {
+            .button {
+                @include sprite($sprite-close-light-small);
+                @include position(absolute, 20px 20px null null);
+                background-position: -332px -250px;
+                border: 0;
+                background-color: transparent;
+                padding: 0;
+
+                span {
+                    display: none;
+                }
+            }
+        }
+    }
+}

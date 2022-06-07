@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint\MailTrap
+ * @author       Dumitru Mocanu <dumitru.mocanu@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_MailTrap>
+            <version>0.1.0</version>
+        </Peppermint_MailTrap>
+    </modules>
+    <global>
+        <helpers>
+            <peppermint_mailtrap>
+                <class>Peppermint_MailTrap_Helper</class>
+            </peppermint_mailtrap>
+        </helpers>
+        <models>
+            <core>
+                <rewrite>
+                    <email>Peppermint_MailTrap_Model_Email</email>
+                </rewrite>
+            </core>
+            <peppermint_aschroderemail>
+                <rewrite>
+                    <email_template>Peppermint_MailTrap_Model_Email_Template</email_template>
+                </rewrite>
+            </peppermint_aschroderemail>
+        </models>
+    </global>
+    <default>
+        <peppermint_mailtrap>
+            <general>
+                <enabled>1</enabled>
+                <email_force_to><![CDATA[you@change.me]]></email_force_to>
+                <email_templates><![CDATA[BMW M Fest - Offer to Purchase]]></email_templates>
+                <dev_mode>0</dev_mode>
+            </general>
+        </peppermint_mailtrap>
+    </default>
+</config>

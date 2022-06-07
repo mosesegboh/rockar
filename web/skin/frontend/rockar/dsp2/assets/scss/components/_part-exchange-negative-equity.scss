@@ -1,0 +1,25 @@
+.part-exchange-negative-equity {
+    margin-top: 20px;
+
+    button {
+        height: auto;
+        color: $white;
+        white-space: normal;
+        line-height: inherit;
+        padding: $button-narrow-height-padding $button-width-padding $button-narrow-bottom-height-padding;
+        height: $dsp2-f-size-s-height;
+        max-width: initial;
+        margin-bottom: 20px;
+    }
+
+    h3 {
+        display: inline-flex;
+    }
+}
+
+.car-filter-blocks {
+    .select-wrapper {
+        display: block;
+        height: 82px;
+    }
+}

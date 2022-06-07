@@ -1,0 +1,415 @@
+.my-saved-cars {
+    margin-bottom: 1.875em;
+    padding: 0;
+    border-bottom: 1px solid $my-account-horizontal-break-color;
+
+    @include media($small-screen-down) {
+        padding: 0;
+    }
+
+    .my-saved-cars-wrapper {
+        @include media($large-screen-down) {
+            display: none;
+        }
+    }
+
+    .my-saved-cars-mobile-wrapper {
+        display: none;
+
+        @include media($large-screen-down) {
+            display: block;
+        }
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+        padding: 0;
+        border-bottom: 0;
+
+        @include media($small-screen-down) {
+            padding: 0;
+        }
+    }
+
+    .preloader {
+        @include position(absolute, 0 null null 0);
+        @include size(100%);
+        background: $preloader-bg;
+        z-index: 9999;
+
+        .show-loading {
+            @include position(absolute, 50% null null 50%);
+            margin: -25px 0 0 -25px;
+        }
+    }
+
+    .block-title {
+        &.out-of-stock {
+            color: $my-saved-cars-out-of-stock-color;
+        }
+    }
+
+    .car-cover {
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        .saved-cars-cover-actions {
+            margin-top: 0.25em;
+            @include clearfix;
+
+            button {
+                width: 49%;
+                float: left;
+
+                &:first-child {
+                    margin-right: 2%;
+                }
+
+                &.open-showcase {
+                    width: 100%;
+                }
+            }
+        }
+        .showcase {
+            @include size(100%);
+            @include position(fixed, 0 null null 0);
+            z-index: 999;
+
+            .showcase-background {
+                @include position(absolute, 0 null null 0);
+                @include size(100%);
+                background: $showcase-bg-color;
+            }
+
+            .showcase-wrapper {
+                position: absolute;
+                width: 70%;
+                top: 50%;
+                margin-top: -15%;
+                left: 15%;
+
+                .showcase-image {
+                    position: relative;
+
+                    img {
+                        display: block;
+                        width: 100%;
+                    }
+
+                    .fc-arrow {
+                        display: block;
+                        position: absolute;
+                        top: 50%;
+                        margin-top: -20px;
+                        opacity: .5;
+                        background: transparent;
+                        border: none;
+
+                        &.arrow-prev {
+                            left: 20px;
+                            @include sprite($sprite-slider-back);
+                        }
+
+                        &.arrow-next {
+                            right: 20px;
+                            @include sprite($sprite-slider-next);
+                        }
+                    }
+
+                    .showcase-close {
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        @include sprite($sprite-close);
+                    }
+
+                    .showcase-actions {
+                        position: absolute;
+                        left: 50%;
+                        margin-left: -95px;
+                        bottom: 15%;
+                        width: 100%;
+
+                        a {
+                            padding: 10px 15px;
+                            color: $white;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                            font-size: $f-size-s;
+                            background: $button-grey-light-background-color;
+
+                            &.active {
+                                background: $button-black-background-color;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+
+    }
+
+    .car-extras {
+        .accordion-group {
+            li {
+
+                a.js-accordion-trigger {
+                    background-color: $base-background-color;
+                    font-weight: $my-account-block-title-fw;
+                    color: $base-font-color;
+                    padding: 10px 17px 5px 23px;
+
+                    &:after {
+                        float: left;
+                        top: 4px;
+                        right: 10px;
+                        border-color: $base-font-color;
+                    }
+                }
+
+                li.accordion-list {
+                    table {
+                        border-collapse: separate;
+                        border-spacing: 1.7em 0;
+
+                        td {
+                            background-color: $base-background-color;
+                            overflow-wrap: break-word;
+                            word-break: keep-all;
+                            padding: 5px 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .user-title {
+        overflow-wrap: break-word;
+        word-break: keep-all;
+    }
+
+    .saved-cars-info {
+        .car-description {
+            font-weight: $fw-light;
+            color: $my-saved-cars-description-color;
+        }
+
+        .block-title {
+            margin: 0.5em 0 1em;
+        }
+    }
+
+    .saved-cars-price {
+        .saved-cars-price-block {
+            p {
+                margin-bottom: 0;
+            }
+
+            .payment-amount {
+                display: inline-block;
+            }
+        }
+
+        .saved-cars-price-action {
+            @include media($medium-screen-up) {
+                margin-top: 3em;
+                text-align: right;
+            }
+
+            button {
+                &:first-child {
+                    margin-right: 0.5em;
+                }
+            }
+        }
+
+        .action-badge {
+            margin-left: 0.3em;
+        }
+    }
+
+    .my-saved-cars-mobile-wrapper {
+        background: $my-saved-cars-mobile-wrapper-bg;
+
+        .hero-title {
+            padding: 1em .5em;
+
+            .user-title {
+                font-size: .7em;
+                margin: 0;
+            }
+        }
+
+        .hero-image {
+            position: relative;
+
+            img {
+                display: block;
+                width: 100%;
+            }
+
+            .out-of-stock {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(255, 255, 255, .5);
+
+                .out-of-stock-label {
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    width: 40%;
+                    font-size: $f-size-s;
+                    padding: .5em;
+                    text-align: center;
+                    color: $white;
+                    background: $my-saved-cars-mobile-out-of-stock-bg;
+                    text-transform: uppercase;
+                    font-weight: $fw-bold;
+                    opacity: .7;
+                }
+            }
+        }
+
+        .car-content {
+            padding: 1em;
+
+            .car-header {
+                .car-header-title {
+                    .block-title {
+                        font-size: $f-size-xxl;
+                        margin: 0;
+                    }
+
+                    .car-description {
+                        font-size: $f-size-l;
+                        font-weight: $fw-normal;
+                        text-transform: none;
+                        margin: 0;
+                    }
+                }
+
+                .car-header-action {
+                    button {
+                        display: block;
+                        width: 100%;
+                        margin: 1em 0;
+                    }
+                }
+            }
+
+            .car-options {
+                .options-list {
+                    .options-item {
+                        color: rgba(0, 0, 0, .62);
+                        font-size: $f-size-l;
+                    }
+                }
+            }
+            .car-prices {
+                border-top: 1px solid $my-saved-cars-mobile-prices-border;
+                margin: 1em 0 0 0;
+                padding: 1em 0 0 0;
+
+                .price-title {
+                    text-align: center;
+                    text-transform: uppercase;
+                    color: $my-saved-cars-price-color;
+                    font-weight: $fw-bold;
+                    font-size: $f-size-xs;
+                }
+
+                .price-section {
+                    @include display(flex);
+                    @include flex-direction(row);
+                    @include flex-wrap(nowrap);
+
+                    .price-block {
+                        @include flex(1 0 32%);
+                        margin: 1em 0;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
+        .save-action {
+            button {
+                display: block;
+                width: 100%;
+            }
+        }
+    }
+
+    .accordion-list {
+        p {
+            color: $dark-grey;
+            font-weight: 200;
+            margin-left: 25px;
+            margin-top: 10px;
+        }
+    }
+}
+
+.my-saved-cars-section {
+    .accordion-content {
+        padding: 1.5em;
+
+        @include media($small-screen-down) {
+            padding: 1em;
+        }
+    }
+}
+
+.my-saved-cars-save {
+    position: relative;
+
+    .preloader {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, .5);
+        z-index: 9999;
+
+        .show-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -25px 0 0 -25px;
+        }
+    }
+
+    input {
+        width: 100%;
+    }
+
+    .my-saved-cars-save-action {
+        text-align: right;
+    }
+
+    .my-saved-cars-content-name {
+        font-weight: $fw-bold;
+        margin: 0;
+        @include word-wrap;
+    }
+
+    .my-saved-cars-content-link {
+        text-decoration: underline;
+    }
+}
+
+.my-saved-cars-heading {
+    margin-bottom: 20px;
+
+    @include media($large-screen-down) {
+        display: none;
+    }
+}

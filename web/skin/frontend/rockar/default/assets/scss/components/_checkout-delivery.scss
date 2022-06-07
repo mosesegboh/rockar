@@ -1,0 +1,174 @@
+.checkout-delivery {
+    margin-top: -20px;
+
+    p {
+        font-family: $helper-font-family;
+    }
+
+    .timepicker {
+        .timepicker-hour {
+            text-transform: lowercase;
+        }
+
+        .timepicker-title {
+            display: none;
+        }
+    }
+
+    .title {
+        font-weight: $fw-bold;
+    }
+
+    .map-wrapper {
+        width: 100%;
+        height: 400px;
+    }
+
+    .button-set {
+        margin-top: $padding-spacing;
+
+        button {
+            @include media($small-screen-down) {
+                width: 100%;
+            }
+        }
+    }
+
+    .delivery-actions {
+        margin: 20px 0;
+
+        @include media($small-screen-down) {
+            @include display(flex);
+            @include flex-direction(row);
+            @include flex-wrap(wrap);
+        }
+
+        button {
+            @include media($small-screen-down) {
+                @include flex(1 0 100%);
+                margin: 0 0 .5em 0;
+            }
+
+            &:first-child {
+                @include media($small-screen-down) {
+                    margin-right: 0;
+                }
+            }
+
+            &:last-child {
+                @include media($small-screen-down) {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        p {
+            color: $dark-grey-5;
+            margin: 20px 0 0 0;
+        }
+    }
+
+    .delivery-opening {
+        @include media($small-screen-down) {
+            @include display(flex);
+            @include flex-direction(row);
+            @include flex-wrap(wrap);
+        }
+
+        > p {
+            @include media($small-screen-down) {
+                @include flex(1 0 100%);
+            }
+        }
+
+        .inner-content {
+            margin-top: 20px;
+
+            .right-col {
+                margin-top: 15px;
+
+                .cost {
+                    margin-top: 20px;
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .row {
+            @include media($small-screen-down) {
+                @include flex(1 0 50%);
+                min-width: 14.5em;
+            }
+        }
+    }
+
+    .main-content {
+        .delivery-method {
+            &.collection_free {
+                .day {
+                    text-transform: capitalize;
+                }
+            }
+        }
+
+        .save-button {
+            width: 100%;
+        }
+    }
+
+    .info {
+        .address-details {
+            margin: 0 0 20px 0;
+        }
+
+        .chosed-date {
+            margin: 0 0 20px 0;
+        }
+
+        .delivery {
+            margin: 0 0 20px 0;
+        }
+
+        span {
+            display: block;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    .dealer-preview-wrapper {
+        border-bottom: 0;
+
+        &.recommended {
+            border: 0;
+        }
+
+        .dealer-preview {
+            &.recommended {
+                border: 1px solid $primary-color;
+            }
+        }
+    }
+
+    #timepicker {
+        max-width: none;
+
+        .timepicker-time {
+            .timepicker-body {
+                .timepicker-hour {
+                    min-width: 50px;
+                    border: 1px solid $timepicker-timeslot-border;
+                    margin: 0 2% 2% 0;
+                    width: calc(32%);
+
+                    &:nth-child(3n) {
+                        margin: 0 0 2% 0;
+                    }
+                }
+            }
+        }
+    }
+}

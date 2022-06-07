@@ -1,0 +1,6 @@
+---
+  - name: Install Git tools for Windows
+    win_chocolatey:
+      name: git.install
+      state: present
+    when: ansible_os_family == "Windows"

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Peppermint_PartialPayment>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Rockar_PartialPayment />
+            </depends>
+        </Peppermint_PartialPayment>
+    </modules>
+</config>

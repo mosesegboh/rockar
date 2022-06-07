@@ -1,0 +1,143 @@
+.category-car-finder,
+.checkout-cart-index,
+.customer-account-index,
+.checkout-onepage-index,
+.rockar-youdrive-index-index,
+.checkout-onepage-success,
+.styleguide-page {
+    input[type=button],
+    button,
+    .button {
+        font-family: $mini-sans-serif-bold;
+        border: 3px solid $c-mini-blue;
+        background: $c-mini-blue;
+
+        &.dsp2-money {
+            &.disabled {
+                border: 3px solid $c-grey-9;
+                background: $c-grey-9;
+                color: $c-grey-14;
+
+                &:hover {
+                    border: 3px solid $c-grey-9;
+                    background: $c-grey-9;
+                    color: $c-grey-14;
+                }
+            }
+
+            &:hover {
+                background: $white;
+                color: $black;
+                border: 3px solid $c-mini-blue;
+            }
+        }
+
+        &.dsp2-action {
+            border: 3px solid $black;
+            background: $black;
+
+            &.disabled {
+                border: 3px solid $c-grey-9;
+                background: $c-grey-9;
+                color: $c-grey-14;
+
+                &:hover {
+                    border: 3px solid $c-grey-9;
+                    background: $c-grey-9;
+                    color: $c-grey-14;
+                }
+            }
+
+            &:hover {
+                border: 3px solid $black;
+                background: $white;
+                color: $black;
+            }
+        }
+
+        &.dsp2-outline {
+            border: 3px solid $black;
+            color: $black;
+
+            &.disabled {
+                border: 3px solid $c-grey-14;
+                color: $c-grey-14;
+
+                &:hover {
+                    border: 3px solid $c-grey-14;
+                    color: $c-grey-14;
+                }
+            }
+
+            &:hover {
+                color: $white;
+                border: 3px solid $black;
+                background: $black;
+            }
+        }
+    }
+
+    .arrow {
+        &-next,
+        &-back,
+        &-down {
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        &-next {
+            &::after {
+                @include size(8px 12px);
+            }
+        }
+
+        &-back {
+            &::after {
+                @include size(8px 12px);
+            }
+        }
+
+        &-down {
+            position: relative;
+            padding: 0 19px 3px 0;
+
+            &::after {
+                position: absolute;
+                top: 0;
+            }
+        }
+
+        &-up {
+            &::after {
+                @include size(8px 12px);
+            }
+        }
+    }
+
+    .icon-video {
+        &::after {
+            content: '';
+            @include size(13px 11px);
+            display: inline-block;
+            background: url('../images/svg/icon-video.svg') center no-repeat;
+        }
+    }
+}
+
+.car-filter-buttons {
+    .reset-all-filters {
+        p {
+            color: $black;
+            font-family: $mini-sans-serif-bold;
+        }
+    }
+}
+
+.category-car-finder {
+    .icon-close-blue {
+        &:after {
+            background: url('../images/svg/icon-remove-black-small.svg') center no-repeat;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+---
+  - hosts: localhost
+    gather_facts: true
+
+    roles:
+      - { role: chocolatey }
+      - { role: docker }
+      - { role: firefox }
+      - { role: git-bash }
+      - { role: googlechrome }
+      - { role: heidisql }
+      - { role: homebrew }
+      - { role: internet-explorer }
+      - { role: phpstorm }
+      - { role: sequel-pro }
+      - { role: sublime-text }
+      - { role: vagrant }
+      - { role: virtualbox }
+      - { role: vscode }

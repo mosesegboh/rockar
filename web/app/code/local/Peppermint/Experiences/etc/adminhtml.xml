@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Experiences
+ * @author    Jevgenijs Goreliks <techteam@rockar.com>
+ * @copyright Copyright (c) 2021 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <menu>
+        <promo>
+            <children>
+                <peppermint_experiences translate="title" module="peppermint_experiences">
+                    <title>CLV Experiences</title>
+                    <sort_order>1020</sort_order>
+                    <children>
+                        <manage_experiences translate="title" module="peppermint_experiences">
+                            <title>Manage Experiences</title>
+                            <action>adminhtml/experiences</action>
+                            <sort_order>0</sort_order>
+                        </manage_experiences>
+                        <manage_experiencesrules translate="title" module="peppermint_experiences">
+                            <title>Manage Experience Rules</title>
+                            <action>adminhtml/experiencesRules</action>
+                            <sort_order>1</sort_order>
+                        </manage_experiencesrules>
+                    </children>
+                </peppermint_experiences>
+            </children>
+        </promo>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <promo>
+                        <children>
+                            <peppermint_experiences translate="title">
+                                <title>CLV Experiences</title>
+                                <children>
+                                    <manage_experiences translate="title">
+                                        <title>Manage Experiences</title>
+                                    </manage_experiences>
+                                    <manage_experiencesrules translate="title">
+                                        <title>Manage Experience Rules</title>
+                                    </manage_experiencesrules>
+                                </children>
+                            </peppermint_experiences>
+                        </children>
+                    </promo>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <experiences translate="title">
+                                        <title>CLV Experiences</title>
+                                        <sort_order>0</sort_order>
+                                    </experiences>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

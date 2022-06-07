@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint\OrderCap
+ * @author    Lika Sikharulia <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+-->
+
+<config>
+    <modules>
+        <Peppermint_OrderCap>
+            <version>0.1.0</version>
+        </Peppermint_OrderCap>
+    </modules>
+    <global>
+        <models>
+            <peppermint_ordercap>
+                <class>Peppermint_OrderCap_Model</class>
+                <resourceModel>ordercap</resourceModel>
+            </peppermint_ordercap>
+        </models>
+        <resources>
+            <peppermint_ordercap_setup>
+                <setup>
+                    <module>Peppermint_OrderCap</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </peppermint_ordercap_setup>
+            <peppermint_ordercap_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </peppermint_ordercap_write>
+            <peppermint_ordercap_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </peppermint_ordercap_read>
+        </resources>
+        <blocks>
+            <peppermint_ordercap>
+                <class>Peppermint_OrderCap_Block</class>
+            </peppermint_ordercap>
+        </blocks>
+        <helpers>
+            <peppermint_ordercap>
+                <class>Peppermint_OrderCap_Helper</class>
+            </peppermint_ordercap>
+        </helpers>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Peppermint_OrderCap before="Mage_Adminhtml">Peppermint_OrderCap_Adminhtml</Peppermint_OrderCap>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <peppermint_ordercap>
+                    <file>peppermint/order_cap.xml</file>
+                </peppermint_ordercap>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

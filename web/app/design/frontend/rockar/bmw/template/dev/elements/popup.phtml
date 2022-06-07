@@ -1,0 +1,29 @@
+<button @click="openInModal('modalTextExample')" style="margin-bottom: 5px">Open Text Popup</button>
+<button @click="openInModal('modalAjaxExample')" style="margin-bottom: 5px">Open AJAX Popup</button>
+<button @click="openInModal('modalDomExample')" style="margin-bottom: 5px">Open DOM Popup</button>
+<button @click="openInModal('modalConfirmExample')" style="margin-bottom: 5px">Open Confirmation Popup</button>
+
+<app-modal v-ref:modal-text-example>
+    <p slot="content">This is basic text modal</p>
+</app-modal>
+
+<app-modal v-ref:modal-ajax-example url="<?php echo $this->getUrl(); ?>"></app-modal>
+
+<app-modal v-ref:modal-dom-example dom=".styleGuide-sprites"></app-modal>
+
+<app-modal v-ref:modal-confirm-example>
+    <div slot="content">
+        <p class="modal-header">This is example heading text</p>
+        <div class="main-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lacinia nec risus ut pulvinar. Aliquam pretium libero ac sagittis dapibus. Nunc bibendum pulvinar mauris, nec ornare massa porta non. Maecenas vestibulum id ex laoreet posuere. Etiam nec lacus bibendum, ornare ligula ut, luctus metus.</p>
+        </div>
+        <div class="align-right">
+            <button type="button" name="button" class="button button-narrow button-grey popup-close">
+                <span><span>YOU SHALL NOT PASS</span></span>
+            </button>
+            <button type="button" name="button" class="button button-narrow button-dark popup-close">
+                <span><span>CONTINUE</span></span>
+            </button>
+        </div>
+    </div>
+</app-modal>

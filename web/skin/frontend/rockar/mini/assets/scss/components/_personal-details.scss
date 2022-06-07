@@ -1,0 +1,318 @@
+.personal-details {
+    @include clearfix;
+
+    .personal-details-heading {
+        margin-bottom: 1.5em;
+        @include media($large-screen-down) {
+            text-transform: none;
+        }
+    }
+
+    .customer-dob {
+        label {
+            @include media($small-screen-down) {
+                display: none;
+            }
+        }
+    }
+
+    hr {
+        border-color: $my-account-horizontal-break-color;
+    }
+
+    .button-wrapper {
+        margin-top: 2.65em;
+        max-width: $input-max-width;
+
+        button {
+            padding: 1.15em 3.6em;
+            margin-bottom: 0.8em;
+
+            @include media($small-screen-down) {
+                padding: 1.45em 1.55em;
+            }
+        }
+    }
+
+    .contact-block {
+        .side-label {
+            height: auto;
+            padding-top: 6px;
+            padding-bottom: 6px;
+            margin-bottom: 0.65em;
+            text-align: left;
+
+            &::after {
+                content: "";
+            }
+        }
+    }
+
+    @include media($small-screen-down) {
+        .contact-block .button-wrapper,
+        .edit-block .selectbox,
+        .edit-block .customer-dob,
+        .edit-block .button-wrapper {
+            max-width: 100%;
+        }
+
+        .edit-block input,
+        .password-block input {
+            width: 100%;
+        }
+    }
+
+    .details-block {
+        color: $my-personal-details-color;
+
+        .content-wrapper {
+            @include media($small-screen-down) {
+                padding-left: 0;
+            }
+
+            .details-label {
+                @include media($small-screen-down) {
+                    text-transform: uppercase;
+                    margin: 10px 0 0 0;
+                    padding: 0;
+                }
+
+                p {
+                    @include media($small-screen-down) {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+
+        .details-label {
+            p {
+                font-weight: $my-personal-details-label-fw;
+
+                &::after {
+                    content: ":";
+                }
+            }
+        }
+
+        .content-wrapper {
+            p {
+                color: $my-personal-details-color;
+                font-weight: $fw-bold;
+                font-size: $f-size-s;
+                margin-bottom: 0.8em;
+            }
+
+            .col-9 {
+                .col-7 {
+                    @include media($small-screen-down) {
+                        padding: 0;
+                    }
+
+                    p {
+                        @include media($small-screen-down) {
+                            margin: 0;
+                            font-size: $f-size-xl;
+                        }
+                    }
+                }
+            }
+        }
+
+        address {
+            font-style: normal;
+            font-weight: $fw-bold;
+            font-size: $f-size-s;
+        }
+    }
+
+    .details-buttons {
+
+        button {
+            display: block;
+            margin: 0 0 1em auto;
+            width: 100%;
+            font-size: $f-size-xs;
+            font-weight: $fw-normal;
+            padding: 0.65em 0;
+            max-width: 230px;
+
+            @include media($large-screen-down) {
+                max-width: none;
+            }
+
+            @include media($large-screen-down) {
+                padding: 1.45em 1.55em;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .password-block {
+        .button-wrapper {
+            @include media($small-screen-down) {
+                @include display(flex);
+                @include flex-direction(column);
+                margin: 0;
+            }
+
+            @include media($medium-screen-up) {
+                button:first-child {
+                    margin-right: 0.5em;
+                }
+            }
+
+            button {
+                @include media($small-screen-down) {
+                    @include flex(1 0 100%);
+                    margin: 0 0 1em 0;
+                }
+
+                &:last-child {
+                    @include media($small-screen-down) {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .contact-block {
+        .content-wrapper {
+            @include media($small-screen-down) {
+                padding: 0;
+            }
+
+            .button-wrapper {
+                @include media($small-screen-down) {
+                    @include display(flex);
+                    @include flex-direction(column);
+                    margin: 0;
+                }
+
+                @include media($medium-screen-up) {
+                    button:first-child {
+                        margin-right: 0.5em;
+                    }
+                }
+
+                button {
+                    @include media($small-screen-down) {
+                        @include flex(1 0 100%);
+                        margin: 0 0 1em 0;
+                    }
+
+                    &:last-child {
+                        @include media($small-screen-down) {
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+
+            &.notification-wrapper {
+                .row {
+                    @include media($small-screen-down) {
+                        @include display(flex);
+                    }
+
+                    .col-6 {
+                        @include media($small-screen-down) {
+                            @include flex(1 0 49%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .personal-details-desktop {
+        @include media($large-screen-down) {
+            display: none;
+        }
+
+        .button-wrapper {
+            button {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            button:first-child {
+                margin-right: 0.5em;
+            }
+        }
+    }
+
+    .edit-block {
+        .personal-details-desktop {
+            @include media($large-screen-down) {
+                display: none;
+            }
+
+            .button-wrapper {
+                button {
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+
+                button:first-child {
+                    margin-right: 0.5em;
+                }
+            }
+        }
+
+        .personal-details-mobile {
+            display: none;
+
+            @include media($large-screen-down) {
+                display: block;
+            }
+
+            .button-wrapper {
+                @include display(flex);
+                @include flex-direction(column);
+                margin: 0;
+
+                .button {
+                    @include flex(1 0 100%);
+                    display: block;
+                    margin: 0 0 1em;
+
+                    @include media($small-screen-down) {
+                        flex: unset;
+                    }
+
+                    &:last-child {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    form {
+        .row {
+            .action-badge {
+                &.side-badge {
+                    @include media($small-screen-down) {
+                        margin: 0 0 .5em .5em;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.personal-details .details-block .content-wrapper p {
+    color: $black;
+    font-weight: $fw-bold;
+    font-size: $f-size-s;
+    margin-bottom: 0.8em;
+}
+
+.personal-details .details-block {
+    color: $black;
+}

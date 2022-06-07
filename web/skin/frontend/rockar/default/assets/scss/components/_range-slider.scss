@@ -1,0 +1,28 @@
+
+.range-slider-wrapper .ui-slider .ui-slider-range {
+    top: 50%;
+    background: #000000;
+    border-radius: 10px;
+    transition: all .3s;
+    height: 3px;
+    margin-top: 1px;
+    z-index: 2;
+}
+
+.range-slider-wrapper .ui-slider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    background: #ffffff;
+    left: 0;
+    height: 5px;
+    margin-top: 0px;
+    border: 1px solid #000000;
+}
+
+.finance-filter-sliders .finance-filter-slider-wrapper .finance-filter-slider .finance-filter-slider-input .finance-filter-slider-input-wrapper .finance-filter-input input {
+    opacity: 1 !important;
+    background: #ffffff;
+    border: 1px solid #000000;
+}

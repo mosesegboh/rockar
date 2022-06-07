@@ -1,0 +1,37 @@
+.my-orders {
+
+    .my-orders-block {
+
+        .my-orders-status {
+
+            .my-orders-progress-bar-block {
+
+                .my-orders-progress-bar-list {
+
+                    .my-orders-progress-point {
+
+                        .my-orders-progress-text {
+
+                            @include media($small-screen-down) {
+                                top: -22px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.my-orders-section {
+
+    .my-orders-mobile {
+
+        .my-orders-block {
+
+            .my-orders-subheading {
+                font-family: "MINISansSerif-Regular", Arial, sans-serif;
+            }
+        }
+    }
+}

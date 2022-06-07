@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_ShortfallAllowance
+ * @author    Cosmin Chidovat <chidovat.cosmin@rockar.com>
+ * @copyright Copyright (c) 2019 Rockar Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_ShortfallAllowance>
+            <version>0.1.0</version>
+        </Peppermint_ShortfallAllowance>
+    </modules>
+    <global>
+        <models>
+            <peppermint_shortfallallowance>
+                <class>Peppermint_ShortfallAllowance_Model</class>
+                <resourceModel>peppermint_shortfallallowance_resource</resourceModel>
+            </peppermint_shortfallallowance>
+            <peppermint_shortfallallowance_resource>
+                <class>Peppermint_ShortfallAllowance_Model_Resource</class>
+                <entities>
+                    <shortfall_allowance>
+                        <table>peppermint_shortfallallowance</table>
+                    </shortfall_allowance>
+                </entities>
+            </peppermint_shortfallallowance_resource>
+        </models>
+        <blocks>
+            <peppermint_shortfallallowance>
+                <class>Peppermint_ShortfallAllowance_Block</class>
+            </peppermint_shortfallallowance>
+        </blocks>
+        <helpers>
+            <peppermint_shortfallallowance>
+                <class>Peppermint_ShortfallAllowance_Helper</class>
+            </peppermint_shortfallallowance>
+        </helpers>
+        <resources>
+            <peppermint_shortfallallowance_setup>
+                <setup>
+                    <module>Peppermint_ShortfallAllowance</module>
+                </setup>
+            </peppermint_shortfallallowance_setup>
+        </resources>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <peppermint_shortfallallowance before="Mage_Adminhtml">Peppermint_ShortfallAllowance_Adminhtml</peppermint_shortfallallowance>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <peppermint_shortfallallowance>
+                    <file>shortfall.xml</file>
+                </peppermint_shortfallallowance>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

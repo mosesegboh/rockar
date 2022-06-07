@@ -1,0 +1,35 @@
+.interior-three-sixty {
+    #interior-360-panorama {
+        min-height: 360px;
+        position: static;
+
+        @include media($large-screen-up) {
+            bottom: 0;
+            left: 0;
+            margin: 0;
+            position: absolute;
+            top: 0;
+        }
+    }
+
+    .pnlm-container {
+        background-color: $white;
+        background-image: none;
+    }
+
+    .pnlm-about-msg {
+        // We have to override inline style
+        display: none !important;
+    }
+
+    .pnlm-load-box {
+        background-color: transparent;
+    }
+
+    .pnlm-info-box {
+        background-color: transparent;
+        left: 20%;
+        top: 30%;
+        width: 80%;
+    }
+}

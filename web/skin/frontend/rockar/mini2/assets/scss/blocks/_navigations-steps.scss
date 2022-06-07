@@ -1,0 +1,40 @@
+.trade-in-navigation {
+    .navigation {
+        &-step {
+            &.current {
+                .number {
+                    background-color: $c-mini-blue;
+                    font-family: $mini-sans-serif-bold;
+                }
+
+                .description {
+                    font-family: $mini-sans-serif-regular;
+                }
+            }
+
+            .number {
+                border: 2px solid $c-mini-blue;
+                line-height: $mini-line-h-26;
+            }
+
+            .description {
+                font-family: $mini-sans-serif-regular;
+                font-size: $dsp2-f-size-xs;
+                line-height: $dsp2-line-h-14;
+
+                @include media($medium-screen-up) {
+                    font-size: $dsp2-f-size-s;
+                    line-height: $mini-line-h-22;
+                }
+            }
+        }
+
+        &-link-mobile {
+            .arrow-back {
+                &::after {
+                    transform: rotate(180deg) translateY(-18%) scale(1.4);
+                }
+            }
+        }
+    }
+}

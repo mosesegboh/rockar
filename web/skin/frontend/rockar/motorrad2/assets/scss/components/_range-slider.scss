@@ -1,0 +1,47 @@
+.range-slider-wrapper {
+    .ui-slider {
+        .slider-label {
+            display: none;
+        }
+
+        .ui-slider-range {
+            background: $black;
+            border: 2px solid $black;
+            border-radius: 3px;
+            height: 6px;
+            margin-top: 0;
+            outline: none;
+        }
+
+        .ui-slider-handle {
+            border-color: $black;
+            background-color: $black;
+
+            &,
+            &:hover,
+            &:active {
+                height: 21px;
+                width: 21px;
+                margin: {
+                    left: -8px;
+                    top: -8px;
+                }
+            }
+        }
+
+        &:after {
+            background: $c-motorrad-grey-2;
+            border: 2px solid $c-motorrad-grey-2;
+            border-radius: 3px;
+            height: 6px;
+            margin-top: 0;
+            outline: none;
+        }
+
+        &.show-steps {
+            .ui-slider-range {
+                outline: none;
+            }
+        }
+    }
+}

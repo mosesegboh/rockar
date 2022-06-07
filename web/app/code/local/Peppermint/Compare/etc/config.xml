@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint_Compare
+ * @author       Dominic Sutton <dominic.sutton@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+*/
+-->
+<config>
+    <modules>
+        <Peppermint_Compare>
+            <version>0.1.0</version>
+        </Peppermint_Compare>
+    </modules>
+    <global>
+        <blocks>
+            <peppermint_compare>
+                <class>Peppermint_Compare_Block</class>
+            </peppermint_compare>
+            <rockar_compare>
+                <rewrite>
+                    <catalog_product_compare_list>Peppermint_Compare_Block_Catalog_Product_Compare_List</catalog_product_compare_list>
+                </rewrite>
+            </rockar_compare>
+        </blocks>
+        <helpers>
+            <peppermint_compare>
+                <class>Peppermint_Compare_Helper</class>
+            </peppermint_compare>
+            <rockar_compare>
+                <rewrite>
+                    <data>Peppermint_Compare_Helper_Data</data>
+                </rewrite>
+            </rockar_compare>
+        </helpers>
+    </global>
+    <frontend>
+        <routers>
+            <rockar_compare>
+                <use>standard</use>
+                <args>
+                    <modules>
+                        <peppermint_compare before="Rockar2_Compare">Peppermint_Compare</peppermint_compare>
+                    </modules>
+                </args>
+            </rockar_compare>
+        </routers>
+    </frontend>
+</config>

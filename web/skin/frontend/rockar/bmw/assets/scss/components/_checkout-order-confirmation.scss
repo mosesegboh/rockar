@@ -1,0 +1,12 @@
+.order-confirmation {
+
+    .order-confirmation-body {
+
+        .button {
+            @include media($medium-screen-up) {
+                text-align: center;
+                padding: $button-order-confirm-height-padding $button-width-padding $button-narrow-bottom-height-padding;
+            }
+        }
+    }
+}

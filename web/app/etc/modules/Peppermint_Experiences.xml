@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category Peppermint
+ * @package Peppermint_Experiences
+ * @author Jevgenijs Goreliks <techteam@rockar.com>
+ * @copyright Copyright (c) 2021 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_Experiences>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Cms />
+                <Mage_Widget />
+            </depends>
+        </Peppermint_Experiences>
+    </modules>
+</config>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21.08 21.08">
+    <defs>
+        <style>
+            .cls-1 {
+                fill: none;
+                stroke: #5F6163;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke-width: 1.28px;
+            }
+        </style>
+    </defs>
+    <title>tax</title>
+    <g id="Layer_2" data-name="Layer 2">
+        <g id="Layer_1-2" data-name="Layer 1">
+            <path class="cls-1" d="M18.1,4.15a9.89,9.89,0,1,1-1.77-1.64" />
+        </g>
+    </g>
+</svg>

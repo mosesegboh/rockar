@@ -1,0 +1,45 @@
+<?php
+/**
+ * @category    design
+ * @package     rockar_bmw
+ * @author      Dumitru Mocanu <dumitru.mocanu@rockar.com>
+ * @copyright   Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+?>
+
+<app-part-exchange-car-finder
+    :pe-id="<?php echo $this->getPartExchangeId(); ?>"
+    valuation-url="<?php echo $this->getUrl('partexchange/valuation'); ?>"
+    car-details-url="<?php echo $this->getUrl('partexchange/details'); ?>"
+    reset-url="<?php echo $this->getUrl('partexchange/crud/reset', ['_secure' => true, 'form_key' => Mage::getSingleton('core/session')->getFormKey()]); ?>"
+    :additional-info='<?php echo $this->getCheckboxes(); ?>'
+    :active-condition="<?php echo $this->getActiveCondition(); ?>"
+    :car-conditions="<?php echo $this->getCarConditions(); ?>"
+    car-alternative-details-url="<?php echo $this->getUrl('partexchange/alternatives'); ?>"
+    save-valuation-url="<?php echo $this->getUrl('partexchange/crud/save', ['_secure' => true, 'form_key' => Mage::getSingleton('core/session')->getFormKey()]); ?>"
+    save-to-session-url="<?php echo $this->getUrl('partexchange/crud/saveToSession'); ?>"
+    :saved="<?php echo $this->getSavedStatus(); ?>"
+    vehicle-type-url="<?php echo $this->getUrl('partexchange/details/getType'); ?>"
+    year-url="<?php echo $this->getUrl('partexchange/details/getYear'); ?>"
+    make-url="<?php echo $this->getUrl('partexchange/details/getMake'); ?>"
+    model-url="<?php echo $this->getUrl('partexchange/details/getModel'); ?>"
+    fuel-type-url="<?php echo $this->getUrl('partexchange/details/getFuelType'); ?>"
+    transmission-url="<?php echo $this->getUrl('partexchange/details/getTransmission'); ?>"
+    variant-url="<?php echo $this->getUrl('partexchange/details/getVariant'); ?>"
+    custom-car-url="<?php echo $this->getUrl('partexchange/details/customCar'); ?>"
+    active-px-url="<?php echo $this->getUrl('partexchange/switch/'); ?>"
+    :saved-px="<?php echo $this->getCustomerPartExchange(); ?>"
+    :is-used-in-finance="<?php echo $this->getPxUsedInFinance(); ?>"
+    px-future-value-block="<?php echo $this->getFutureValueInfoBlock(); ?>"
+    :px-future-value-step="<?php echo $this->getFutureValueBlockStep(); ?>"
+    px-future-value-placeholder="<?php echo $this->getFutureValueInfoBlockPlaceholder(); ?>"
+    :px-future-value-enabled="<?php echo $this->getFutureValueEnabled(); ?>"
+    :temp-px="<?php echo $this->getTemporaryPartExchangeJson(); ?>"
+    :customer-is-logged-in="<?php echo Mage::helper('peppermint_partexchange')->getCustomerIsLoggedIn() ? 'true' : 'false'; ?>"
+    customer-account-url="<?php echo $this->getUrl('customer/account'); ?>"
+    settlement-quotes-url="<?php echo $this->getUrl('partexchange/autoSettlement/getSettlementQuotes'); ?>"
+    settlement-terms-url="<?php echo Mage::helper('peppermint_partexchange/autoSettlement')->getSettlementTermsUrl(); ?>"
+    update-step-url="<?php echo $this->getUrl('rockar_catalog/ajax/updateCurrentStep'); ?>"
+    est-value-disclaimer='<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('est_value_disclaimer')->toHtml(); ?>'
+    v-ref:part-exchange
+></app-part-exchange-car-finder>

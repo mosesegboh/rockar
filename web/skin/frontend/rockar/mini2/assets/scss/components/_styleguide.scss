@@ -1,0 +1,24 @@
+.styleguide {
+    .styleguide-fonts {
+        .font-regular {
+            font-family: $mini-sans-serif-regular;
+        }
+
+        .font-serif-bold {
+            font-family: $mini-serif-bold;
+        }
+
+        .font-serif-regular {
+            font-family: $mini-serif-regular;
+        }
+
+        .font-serif-bold,
+        .font-serif-regular {
+            font-size: $dsp2-f-size-l;
+        }
+
+        .font-bold {
+            font-family: $mini-sans-serif-bold;
+        }
+    }
+}

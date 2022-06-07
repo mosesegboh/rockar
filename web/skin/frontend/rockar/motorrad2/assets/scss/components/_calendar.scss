@@ -1,0 +1,159 @@
+.calendar {
+    color: $c-motorrad-grey-1;
+    font-family: $motorrad-bold;
+
+    .ui-datepicker-header {
+        .ui-datepicker-next {
+            .ui-icon {
+                right: 6%;
+            }
+        }
+    }
+
+    .ui-datepicker-calendar {
+        thead {
+            color: $c-motorrad-grey-1;
+            border-bottom: 1px solid $c-motorrad-grey-2;
+        }
+
+        td {
+            .ui-state-default {
+                color: $c-motorrad-grey-1;
+            }
+
+            &.highlight {
+                a {
+                    background: $black;
+                }
+            }
+        }
+
+        .ui-datepicker-current-day {
+            a {
+                border: 2px solid $black;
+                background: $black;
+            }
+        }
+    }
+}
+
+#timepicker {
+    .timepicker-time {
+        .timepicker-body {
+            .timepicker-hour {
+                font-family: $motorrad-bold;
+
+                &.selected {
+                    color: $black;
+                    border: 2px solid $black;
+                }
+
+                &.hover {
+                    color: $black;
+                    border: 2px solid $black;
+                }
+            }
+        }
+    }
+}
+
+.category-car-finder,
+.category-bike-finder,
+.checkout-cart-index,
+.customer-account-index,
+.checkout-onepage-index,
+.styleguide-page {
+    .calendar {
+        border: 1px solid $c-motorrad-grey-2;
+        color: $c-motorrad-grey-1;
+        font-family: $motorrad-bold;
+
+        .ui-datepicker-header {
+            color: $black;
+            font-family: $motorrad-regular;
+
+            .ui-datepicker-prev {
+                .ui-icon {
+                    left: 82%;
+                    top: 20px;
+                    opacity: 1;
+                }
+            }
+
+            .ui-datepicker-next {
+                .ui-icon {
+                    top: 20px;
+                    opacity: 1;
+                }
+            }
+
+            .ui-datepicker-title {
+                margin: 17px 0 0 15px;
+            }
+        }
+
+        .ui-datepicker-calendar {
+            thead {
+                background: $c-motorrad-grey-3;
+                color: $c-motorrad-grey-1;
+                font-family: $motorrad-bold;
+            }
+
+            td {
+                border-width: 2px 0;
+
+                &.highlight {
+                    a {
+                        background: $black;
+                    }
+                }
+            }
+
+            a,
+            span {
+                font-family: $motorrad-bold;
+            }
+
+            .ui-datepicker-unselectable {
+                &.ui-state-disabled {
+                    span {
+                        font-family: $motorrad-regular;
+                    }
+                }
+            }
+
+            .ui-datepicker-current-day {
+                a {
+                    &:before {
+                        background: $black;
+                        border: 2px solid $black;
+                        border-radius: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    #timepicker {
+        .timepicker-time {
+            .timepicker-body {
+                .timepicker-hour {
+                    color: $c-motorrad-grey-1;
+                    font-family: $motorrad-regular;
+
+                    &.selected {
+                        &:after {
+                            background: $black;
+                            border: 1px solid $black;
+                        }
+                    }
+
+                    &.hover {
+                        color: $black;
+                        border: 2px solid $black;
+                    }
+                }
+            }
+        }
+    }
+}

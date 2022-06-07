@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint_Carfinder
+ * @author       Dumitru Mocanu <dumitru.mocanu@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_Carfinder>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Rockar2_Carfinder/>
+            </depends>
+        </Peppermint_Carfinder>
+    </modules>
+</config>

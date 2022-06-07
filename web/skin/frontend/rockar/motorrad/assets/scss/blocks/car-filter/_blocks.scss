@@ -1,0 +1,176 @@
+&-blocks {
+    @include media($medium-screen-up) {
+        display: block;
+        position: absolute;
+        left: calc(100% + 23px);
+        min-width: 416px;
+        z-index: 1000;
+        top: 0;
+        background-color: $white;
+        box-shadow: 0 2px 4px 0 $car-filter-blocks-box-shadow;
+        pointer-events: all;
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 50%;
+            transform: translateY(-50%) rotate(135deg);
+            height: 15px;
+            width: 15px;
+            background: $white;
+            border-bottom: inherit;
+            border-right: inherit;
+        }
+    }
+
+    .finance-header {
+        font-family: $motorrad;
+        font-size: $f-size-xxl;
+        font-weight: $motorrad-fw-normal;
+        letter-spacing: normal;
+        text-transform: none;
+        margin-top: 8px;
+        margin-bottom: 19px;
+    }
+
+    .finance-filter-slider {
+        @include display(flex);
+
+        .finance-filter-slider-input {
+            order: 2;
+            margin-left: 0px;
+        }
+
+        &.with-two-inputs {
+            @include flex-direction(column);
+
+            .range-slider-wrapper {
+                display: block;
+                width: 95%;
+            }
+
+            .finance-filter-slider-input {
+                margin-top: 15px;
+            }
+
+            .finance-filter-slider-input-wrapper {
+                @include display(flex);
+
+                input {
+                    &:first-of-type {
+                        margin-right: auto;
+                    }
+
+                    &:last-of-type {
+                        margin-left: auto;
+                    }
+                }
+            }
+        }
+    }
+
+    .car-filter-slider-block {
+        @include display(flex);
+        @include flex-direction(column);
+        width: calc(100% - 50px);
+        margin: auto;
+
+        .range-value-container {
+            @include display(flex);
+            @include flex-direction(row);
+            @include justify-content(space-between);
+
+            .value-wrapper {
+                padding-left: 7px;
+                padding-right: 5px;
+                padding-top: 5px;
+                width: 104px;
+                height: 28px;
+                background: $grey-2;
+                text-align: left;
+                font-weight: $fw-semibold;
+                font-size: $f-size-xs;
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    .car-filter-miles,
+    .car-filter-price {
+        .enscroll-track {
+            display: none;
+        }
+    }
+
+    .selectbox-select {
+        min-height: auto;
+        height: 50px;
+        background: $motorrad-light-grey;
+        font-size: $f-size-s;
+        padding: 16px 0 0 20px;
+        text-transform: uppercase;
+        font-weight: $motorrad-fw-normal;
+        letter-spacing: normal;
+
+        &:hover {
+            background: $motorrad-light-grey;
+        }
+
+        .dropdown-caret {
+            background: $motorrad-light-grey;
+            width: 38px;
+            border-left: none;
+            top: 0;
+
+            &::after {
+                @include sprite($sprite-grey-arrow-down);
+            }
+        }
+    }
+
+    .selectbox {
+        .selectbox-select {
+            .dropdown-caret {
+                &::after {
+                    @include sprite($sprite-dropdown-arrow-down);
+                }
+            }
+        }
+    }
+
+    .actions {
+        @include display(flex);
+        @include justify-content(space-between);
+        margin-top: 10px;
+
+        .clear-button,
+        .go-button {
+            margin: 0;
+            border: 0;
+        }
+
+        .clear-button {
+            width: 65%;
+            background: none;
+            color: $motorrad-dark-grey;
+            font-size: $f-size-s;
+            padding: 0;
+            margin-top: 0px;
+            border: 2px solid $motorrad-dark-grey;
+        }
+
+        .go-button {
+            text-transform: uppercase;
+            background: $motorrad-blue;
+            width: 114px;
+            min-height: 28px;
+            padding: 0;
+        }
+
+    }
+
+    .selectbox-dropdown {
+        text-transform: uppercase;
+    }
+}

@@ -1,0 +1,86 @@
+.category-car-finder,
+.checkout-cart-index,
+.customer-account-index,
+.checkout-onepage-index,
+.styleguide-page {
+    .calendar {
+        .ui-datepicker-header {
+            .ui-datepicker-prev {
+                .ui-icon {
+                    transform: rotate(0);
+                    background-image: url('../images/svg/icon-arrow-left.svg');
+                    left: 84%;
+                }
+            }
+
+            .ui-datepicker-next {
+                .ui-icon {
+                    transform: rotate(180deg);
+                    background-image: url('../images/svg/icon-arrow-left.svg');
+                    right: 6%;
+                }
+            }
+
+            .ui-datepicker-title {
+                font-family: $mini-sans-serif-bold;
+                color: $black;
+            }
+        }
+
+        .ui-datepicker-calendar {
+            th {
+                color: $c-grey-13;
+            }
+
+            td {
+                border: 0;
+
+                span,
+                a {
+                    font-family: $mini-sans-serif-bold;
+                }
+            }
+
+            a,
+            span {
+                font-family: $mini-sans-serif-regular;
+            }
+
+            .ui-datepicker-unselectable {
+                &.ui-state-disabled {
+                    span {
+                        font-family: $mini-sans-serif-regular;
+                    }
+                }
+            }
+
+            .ui-datepicker-current-day {
+                a {
+                    &:before {
+                        border-radius: 50%;
+                        border: none;
+                        background: $c-mini-blue;
+                    }
+                }
+            }
+        }
+    }
+
+    #timepicker {
+        .timepicker-time {
+            .timepicker-body {
+                .timepicker-hour {
+                    padding: .8em 0;
+                    font-family: $mini-sans-serif-regular;
+
+                    &.selected {
+                        &:after {
+                            background: $c-mini-blue;
+                            border: 1px solid $c-mini-blue;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

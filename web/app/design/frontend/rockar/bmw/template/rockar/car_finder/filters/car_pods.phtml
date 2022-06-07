@@ -1,0 +1,52 @@
+<?php
+/**
+ * @category  Peppermint
+ * @package   Peppermint_FinancingOptions
+ * @author    Alexander Metzgen <alexander.metzgen@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+
+/** @var Peppermint_Carfinder_Block_Layer_View $this */
+$financeHelper = Mage::helper('financing_options');
+$financeConfig = Mage::helper('financing_options/config');
+$carFinderHelper = Mage::helper('rockar_catalog/carFinder');
+$rockarAllHelper = Mage::helper('rockar_all');
+?>
+
+<div class="car-filter-step">
+    <app-model-filter
+        v-ref:model-filter
+        :step-titles='<?php echo $rockarAllHelper->jsonEncode($this->getModelStepTitles()); ?>'
+    ></app-model-filter>
+    <app-car-filter
+        filters-update-url="<?php echo $this->getClearUrl(); ?>"
+        disabled-notification='<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('finance_filter_notification_tooltip')->toHtml(); ?>'
+        v-ref:car-filter
+    ></app-car-filter>
+
+    <app-product-grid
+        show-features-title='<?php echo $this->__('Show key features'); ?>'
+        hide-features-title='<?php echo $this->__('Hide key features'); ?>'
+        :finance-params='<?php echo $financeConfig->getAllSliderState(); ?>'
+        :finance-slider-steps='<?php echo $financeConfig->getAllSliderSteps(); ?>'
+        current-category='<?php echo Mage::registry("current_category")->getName(); ?>'
+        brand='<?php echo Mage::helper('rockar2_catalog/configurator')->getStoreBrandName(); ?>'
+        :pay-in-full-payment='<?php echo $rockarAllHelper->jsonEncode($financeHelper->getDefaultPayInFullPayment()); ?>'
+        :hire-payments='<?php echo $rockarAllHelper->jsonEncode($financeHelper->getHirePayments()); ?>'
+        :active-payment='<?php echo $rockarAllHelper->jsonEncode($financeHelper->getActivePayment()); ?>'
+        :is-enabled-you-build-block='<?php echo $rockarAllHelper->jsonEncode($carFinderHelper->getYouBuildActionBlockEnabled()); ?>'
+        you-build-block-message='<?php echo $carFinderHelper->getYouBuildActionBlockMessage(); ?>'
+        :you-build-products-count='<?php echo $carFinderHelper->getYouBuildActionBlockProductsCount(); ?>'
+        you-build-url="<?php echo $this->getYouBuildUrl(); ?>"
+        :is-color-name-displayed="<?php echo $rockarAllHelper->jsonEncode($carFinderHelper->getColorNameParameter()); ?>"
+        :instalment-group-id='<?php echo $this->getInstalmentGroupId(); ?>'
+        get-quote-url="<?php echo $this->getQuoteUrl(); ?>"
+        continue-shopping-url="<?php echo $this->getContinueShoppingUrl(); ?>"
+        customer-login-url="<?php echo $this->getCustomerLoginUrl(); ?>"
+        <?php if($this->getShouldShowGetQuoteCta()) echo 'show-get-quote-cta'; ?>
+        <?php if($this->getShowContinueShoppingCta()) echo 'show-continue-shopping-cta'; ?>
+        <?php if($this->getCustomerIsLoggedIn()) echo 'customer-is-logged-in'; ?>
+        <?php if($this->getRedirectToContinueShopping()) echo 'redirect-to-continue-shopping'; ?>
+        v-ref:product-grid
+    ></app-product-grid>
+</div>

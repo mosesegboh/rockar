@@ -1,0 +1,43 @@
+.notice-cookie {
+    @include media($horizontal-bar-mode) {
+        position: relative;
+        margin: 0;
+    }
+
+    .notice-inner {
+        background-color: $motorrad-light-grey;
+        z-index: 100;
+
+        .notice-text {
+            p {
+                padding: 30px 40px 50px 30px;
+                margin: 0;
+                color: $motorrad-text-color;
+                text-align: center;
+                font-size: 14px;
+                font-weight: 300;
+                line-height: 20px;
+
+                a {
+                    font-weight: 700;
+                    color: $motorrad-text-color;
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .actions {
+            .button {
+                @include sprite($sprite-close);
+                @include position(absolute, 20px 20px null null);
+                border: 0;
+                background-color: transparent;
+                padding: 0;
+
+                span {
+                    display: none;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,95 @@
+.shared-homepage {
+    background: $shared-homepage-background;
+
+    .images-wrapper {
+        height: $shared-homepage-image-height;
+        position: relative;
+
+        p {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            color: $shared-homepage-image-text-color;
+            padding: 0.25em 1.5em;
+            text-transform: uppercase;
+            font-size: $f-size-xxs;
+            font-weight: $fw-bold;
+        }
+    }
+
+    .homepage-card-wrapper {
+        max-width: em(1080);
+        margin: 0 auto;
+        padding: 0 1.5em 3em;
+    }
+
+    header.shared-header {
+        background: $white;
+        border: 0;
+        text-align: center;
+
+        .navigation-wrapper {
+            max-width: em(1080);
+        }
+
+        h1 {
+            display: block;
+            margin: 0;
+            padding: $padding-spacing 0.5em 0 0.5em;
+            letter-spacing: 0.075em;
+
+            @include media ($medium-screen-up) {
+                padding: $padding-spacing .5em;
+            }
+        }
+
+        .logos {
+            background: $white;
+            padding: 0 $padding-spacing $padding-spacing;
+            margin: 0;
+            height: auto;
+            float: none;
+
+            @include media ($medium-screen-up) {
+                padding: $padding-spacing;
+            }
+
+            .logo {
+                float: none;
+                display: inline-block;
+                vertical-align: middle;
+                padding: 0 $logo-padding;
+                height: auto;
+
+                img {
+                    max-height: initial;
+                    max-width: $logo-width;
+                }
+            }
+        }
+
+        @include media ($medium-screen-up) {
+            text-align: left;
+
+            h1 {
+                float: left;
+            }
+
+            .navigation-tools {
+                float: right;
+                clear: none;
+            }
+
+            .logos {
+                .logo {
+                    float: left;
+                    padding: 0 $logo-padding;
+
+                    &:last-child {
+                        padding-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}

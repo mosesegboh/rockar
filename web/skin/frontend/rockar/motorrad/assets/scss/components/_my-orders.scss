@@ -1,0 +1,221 @@
+.my-orders {
+    .my-orders-tabs-section {
+        .my-orders-tabs-list {
+            .my-orders-tab-title {
+                background: $motorrad-white;
+                text-transform: none;
+                font-size: $motorrad-font-tabs;
+                border: none;
+                font-weight: $motorrad-fw-bold;
+                padding: 1em;
+
+                &.active {
+                    border: none;
+                    background: $motorrad-light-grey;
+                }
+            }
+        }
+    }
+
+    .my-orders-block {
+        .my-orders-heading {
+            font-size: $f-size-xxl;
+            font-family: $motorrad;
+            text-transform: none;
+
+            @include media($large-screen-up) {
+                font-size: $f-size-xxl;
+            }
+        }
+        .my-orders-status {
+            .my-orders-progress-bar-block {
+                .my-orders-progress-bar-list {
+                    .my-orders-progress-point {
+                        &::before {
+                            border: 1px solid $motorrad-light-grey;
+                            background-color: $motorrad-light-grey;
+
+                            @include media($medium-screen-up) {
+                                border-bottom: 1px solid $motorrad-light-grey;
+                                border-top: 1px solid $motorrad-light-grey;
+                            }
+                        }
+
+                        .my-orders-progress-point-square {
+                            border: none;
+                        }
+
+                        .my-orders-progress-text {
+                            p {
+                                font-size: $motorrad-side-label;
+                                font-weight: $motorrad-fw-normal;
+                            }
+                        }
+
+                        &.active {
+                            &::before {
+                                border: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .my-orders-status-text {
+            .my-orders-medium {
+                font-weight: $motorrad-fw-bold;
+            }
+
+            .my-orders-p {
+                font-weight: $motorrad-fw-normal;
+            }
+        }
+
+        .my-orders-bolded {
+            font-weight: $motorrad-fw-normal;
+            text-transform: none;
+        }
+
+        &.order-amend-actions {
+            .my-orders-heading {
+                margin-bottom: 20px;
+            }
+
+            .accept-terms-statement {
+                a {
+                    vertical-align: top;
+                }
+            }
+
+            .actions {
+                .confirm,
+                .reject {
+                    font-size: $f-size-s;
+                }
+            }
+        }
+    }
+
+    .my-orders-table {
+        tr {
+            td {
+                font-size: $f-size-xl;
+                font-weight: $motorrad-fw-normal;
+            }
+        }
+    }
+}
+
+.my-orders-section {
+    .my-orders-mobile {
+        .hero-section {
+            .hero-info {
+                .my-orders-bolded {
+                    font-size: $f-size-xs;
+                }
+
+                .hero-padding {
+                    .hero-title {
+                        font-size: $f-size-xl;
+                        font-weight: $motorrad-fw-bold;
+                    }
+
+                    .hero-order {
+                        .hero-order-block {
+                            @include flex(1 0 49%);
+                            color: $motorrad-text-color;
+                            font-size: $f-size-xs;
+
+                            &.upper {
+                                text-transform: none;
+                            }
+                        }
+                    }
+                }
+
+                .hero-tabs {
+                    border-top: 1px solid $motorrad-light-grey;
+
+                    .hero-tabs-list {
+                        .hero-tab {
+                            text-transform: none;
+                            color: $motorrad-text-color;
+                            font-size: $f-size-xs;
+                            font-weight: $motorrad-fw-bold;
+
+                            &.active {
+                                color: $motorrad-text-color;
+                                background: $motorrad-light-grey;
+                            }
+                        }
+                    }
+
+                    .hero-content {
+                        background: $motorrad-light-grey;
+
+                        .hero-payment-section {
+                            .hero-payment-block {
+                                @include flex(1 0 35%);
+                                margin: 1em 0;
+                                text-align: left;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .my-orders-block {
+            .my-orders-heading {
+                text-transform: none;
+                margin-bottom: 1em;
+            }
+
+            .my-orders-subheading {
+                text-transform: none;
+                font-size: $f-size-xs;
+                font-weight: $motorrad-fw-normal;
+                font-family: $motorrad-light;
+            }
+
+            .my-orders-status .my-orders-progress-bar-block .my-orders-progress-bar-list .my-orders-progress-point {
+                &.active {
+                    .my-orders-progress-text {
+                        p {
+                            color: $motorrad-text-color;
+                        }
+                    }
+                }
+
+                .my-orders-progress-text {
+                    @include media($small-screen-down) {
+                        top: -20px;
+                    }
+
+                    p {
+                        color: $motorrad-dark-grey;
+                    }
+                }
+            }
+        }
+
+        .my-orders-next-steps,
+        .my-orders-messages {
+            .my-orders-heading {
+                font-size: $f-size-xxl;
+            }
+
+            .table {
+                .my-orders-messages-block {
+                    tr {
+                        .bold {
+                            font-weight: $motorrad-fw-bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

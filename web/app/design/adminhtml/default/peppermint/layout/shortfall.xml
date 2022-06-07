@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_ShortfallAllowance
+ * @author    Egboh Moses <moses.egboh@rockar.com>
+ * @copyright Copyright (c) 2019 Rockar Ltd (http://rockar.com)
+ */
+-->
+<layout>
+    <adminhtml_shortfall_allowance_index>
+        <reference name="content">
+            <block type="peppermint_shortfallallowance/adminhtml_shortfall_allowance" name="peppermint_shortfall_allowance"/>
+        </reference>
+    </adminhtml_shortfall_allowance_index>
+    
+    <adminhtml_shortfall_allowance_edit>
+        <reference name="content">
+            <block type="peppermint_shortfallallowance/adminhtml_shortfall_allowance_edit" name="peppermint_shortfall_allowance_edit"/>
+        </reference>
+    </adminhtml_shortfall_allowance_edit>
+</layout>

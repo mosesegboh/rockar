@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    Peppermint
+ * @package     Peppermint\Orderamend
+ * @author      Sergejs Plisko <techteam@rockar.com>
+ * @copyright   Copyright (c) 2020 Rockar, Ltd (https://rockar.com)
+ */
+-->
+<config>
+    <menu>
+        <sales>
+            <children>
+                <amend module="peppermint_orderamend">
+                    <title>Incomplete Order Amendments</title>
+                    <sort_order>15</sort_order>
+                    <action>*/amend</action>
+                </amend>
+            </children>
+        </sales>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <sales>
+                        <children>
+                            <amend translate="title" module="peppermint_orderamend">
+                                <title>Incomplete Order Amendments</title>
+                                <sort_order>15</sort_order>
+                            </amend>
+                        </children>
+                    </sales>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

@@ -1,0 +1,134 @@
+{
+    "authors": [
+        {
+            "email": "dominic.sutton@rockar.com",
+            "name": "Dominic Sutton"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "": [
+                "web/app",
+                "web/app/code/local",
+                "web/app/code/community",
+                "web/app/code/core",
+                "web/lib"
+            ]
+        }
+    },
+    "comment": "Please use 'composer update --prefer-source' to download all extensions with version control to allow commit changes for every extension",
+    "config": {
+        "bin-dir": "bin",
+        "secure-http": false
+    },
+    "extra": {
+        "auto-append-gitignore": true,
+        "magento-core-deploy": {
+            "excludes": [
+                ".htaccess.sample",
+                "favicon.ico",
+                "CHANGELOG.txt",
+                "index.php.sample",
+                "install.php",
+                "LICENSE.html",
+                "LICENSE.txt",
+                "LICENSE_AFL.txt",
+                "LICENSE_EE.html",
+                "LICENSE_EE.txt",
+                "mage",
+                "dev/",
+                "downloader/",
+                "php.ini.sample",
+                "readme.html",
+                "readme.txt",
+                "RELEASE_NOTES.txt",
+                "pkginfo/",
+                ".htaccess",
+                "media/.htaccess",
+                "errors/",
+                "app/locale/en_US/template/email/account_new.html",
+                "app/locale/en_US/template/email/account_password_reset_confirmation.html",
+                "app/locale/en_US/template/email/html/footer.html",
+                "app/locale/en_US/template/email/html/header.html",
+                "app/locale/en_US/template/email/sales/order_new.html",
+                "app/locale/en_US/template/email/sales/order_update.html",
+                "index.php"
+            ]
+        },
+        "magento-deploy-ignore": {},
+        "magento-deploy-sort-priority": {},
+        "magento-deploystrategy": "symlink",
+        "magento-deploystrategy-overwrite": {
+            "rockar/magento-ce-core": "copy"
+        },
+        "magento-force": true,
+        "magento-root-dir": "web",
+        "with-bootstrap-patch": false,
+        "grumphp": {
+            "config-default-path": "standards",
+            "project-path": ""
+        }
+    },
+    "minimum-stability": "dev",
+    "name": "rockar/rockar",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "packages.newbald1.com"
+        },
+        {
+            "type": "composer",
+            "url": "https://packages.firegento.com"
+        }
+    ],
+    "require": {
+        "aydin-hassan/magento-connect-composer-plugin": "1.4.1",
+        "defcon2/imaclean": "1.2.2",
+        "ecomdev/composer_autoload": "1.0.1",
+        "magento-hackathon/magento-composer-installer": "3.1.2",
+        "phoenix/varnish": "dev-master",
+        "rockar/magento-ce-core": "dev-magento-1.9.4.14",
+        "rockar/magento-core-composer-installer": "dev-master",
+        "rockar/rockar-backend-demo": "1.14.0",
+        "rockar/rockar-frontend-demo2": "1.36.0",
+        "rockar/rockar-platform": "2020.10.4",
+        "rockar/rockar-platform-block-login": "1.2.0",
+        "rockar/rockar-platform-configurator": "1.6.0",
+        "rockar/rockar-platform-future-value": "0.1.15",
+        "rockar/rockar-platform-gdpr": "1.4.0",
+        "rockar/rockar-platform-google-tag-manager": "1.1.0",
+        "rockar/rockar-platform-lead-times": "1.2.0",
+        "rockar/rockar-platform-marketing-pods": "1.0.0",
+        "rockar/rockar-platform-pdc-import": "1.10.0",
+        "rockar/rockar-platform-running-costs": "1.0.0",
+        "rockar/rockar-platform-widget": "1.0.0",
+        "rockar/rockar-platform-youdrive": "1.9.0",
+        "php-amqplib/php-amqplib": "^2.9",
+        "aschroder/smtp_pro": "2.0.7",
+        "aws/aws-sdk-php": "^3.171"
+    },
+    "require-dev": {
+        "magetest/magento-phpspec-extension": "~2.0"
+    },
+    "scripts": {
+        "post-update-cmd": [
+            "@copy"
+        ],
+        "copy": [
+            "rm -f web/skin/frontend/rockar/default2/config/global.config.js",
+            "rm -f web/app/design/adminhtml/default/rockar/template/amaudit/tab/view/details.phtml",
+            "rm -f web/lib/TijsVerkoyen/CssToInlineStyles.php",
+            "rm -f web/skin/adminhtml/default/rockar/custom.css",
+            "rm -f web/skin/frontend/rockar/gulpfile.js",
+            "cp web/skin/frontend/rockar/global.config.js web/skin/frontend/rockar/default2/config/global.config.js",
+            "cp vendor/rockar/rockar-frontend-demo2/app/design/adminhtml/default/rockar/template/amaudit/tab/view/details.phtml web/app/design/adminhtml/default/rockar/template/amaudit/tab/view/details.phtml",
+            "cp vendor/rockar/rockar-frontend-demo2/lib/TijsVerkoyen/CssToInlineStyles.php web/lib/TijsVerkoyen/CssToInlineStyles.php",
+            "cp vendor/rockar/rockar-frontend-demo2/skin/adminhtml/default/rockar/custom.css web/skin/adminhtml/default/rockar/custom.css",
+            "cp vendor/rockar/rockar-frontend-demo2/skin/frontend/rockar/gulpfile.js web/skin/frontend/rockar/gulpfile.js",
+            "cp web/skin/adminhtml/default/peppermint/vue/components/elements/pxPriceData.vue web/skin/adminhtml/default/rockar/vue/components/elements/pxPriceData.vue",
+            "cp web/skin/adminhtml/default/peppermint/vue/components/elements/pxPriceManualData.vue web/skin/adminhtml/default/rockar/vue/components/elements/pxPriceManualData.vue",
+            "git checkout web/skin/frontend/rockar/package.json"
+        ]
+    }
+}

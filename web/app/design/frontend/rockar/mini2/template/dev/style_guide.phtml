@@ -1,0 +1,158 @@
+<?php
+/**
+ * @category  Peppermint
+ * @package   Peppermint_All
+ * @author    Ausma Smite <techteam@rockar.com>
+ * @copyright Copyright (c) 2021 Rockar Ltd (http://rockar.com)
+ *
+ */
+?>
+
+<div class="styleguide">
+    <header class="sg-header">
+        <div class="sg-logotype">
+            <img src="<?php echo $this->getSkinUrl(Mage::getStoreConfig('design/header/logo_src')) ?>">
+        </div>
+
+        <div class="sg-title">
+            Styleguide
+        </div>
+    </header>
+    <div class="sg-content">
+        <p>
+            <?php echo Mage::app()->getLayout()->createBlock('core/template')->setTemplate('dev/getting_started.phtml')->toHtml(); ?>
+        </p>
+
+        <div class="sg-list">
+            <section class="sg-section">
+                <header>
+                    <h2>Grid</h2>
+                </header>
+
+                <div class="sgc-content">
+                    <?php echo Mage::app()->getLayout()->createBlock('core/template')->setTemplate('dev/elements/grid.phtml')->toHtml(); ?>
+                </div>
+            </section>
+
+            <section class="sg-section">
+                <header>
+                    <h2>Colors</h2>
+                </header>
+
+                <div class="sgc-content">
+                    <?php echo Mage::app()->getLayout()->createBlock('core/template')->setTemplate('dev/elements/colors.phtml')->toHtml(); ?>
+                </div>
+            </section>
+
+            <section class="sg-section">
+                <header>
+                    <h2>Typography</h2>
+                </header>
+
+                <div class="sgc-content">
+                    <?php echo Mage::app()->getLayout()->createBlock('core/template')->setTemplate('dev/elements/typography.phtml')->toHtml(); ?>
+                </div>
+            </section>
+
+            <section class="sg-section">
+                <header>
+                    <h2>Buttons</h2>
+                </header>
+
+                <div class="sgc-content">
+                    <?php echo Mage::app()->getLayout()->createBlock('core/template')->setTemplate('dev/elements/buttons.phtml')->toHtml(); ?>
+                </div>
+            </section>
+
+            <section class="sg-section">
+                <header>
+                    <h2>Links</h2>
+                </header>
+
+                <div class="sgc-content">
+                    <?php echo Mage::app()->getLayout()->createBlock('core/template')->setTemplate('dev/elements/links.phtml')->toHtml(); ?>
+                </div>
+            </section>
+
+            <section class="sg-section">
+                <header>
+                    <h2>Alerts / Notifications</h2>
+                </header>
+
+                <div class="sgc-content">
+                    <?php echo Mage::app()->getLayout()->createBlock('core/template')->setTemplate('dev/elements/alerts.phtml')->toHtml(); ?>
+                </div>
+            </section>
+
+            <section class="sg-section">
+                <header>
+                    <h2>Form elements</h2>
+                </header>
+
+                <div class="sgc-content">
+                    <?php echo Mage::app()->getLayout()->createBlock('core/template')->setTemplate('dev/elements/forms-inputs.phtml')->toHtml(); ?>
+                </div>
+            </section>
+
+            <section class="sg-section">
+                <header>
+                    <h2>Tooltips</h2>
+                </header>
+
+                <div class="sgc-content">
+                    <?php echo Mage::app()->getLayout()->createBlock('core/template')->setTemplate('dev/elements/tooltips.phtml')->toHtml(); ?>
+                </div>
+            </section>
+
+            <section class="sg-section">
+                <header>
+                    <h2>Action elements</h2>
+                </header>
+
+                <div class="sgc-content">
+                    <?php echo Mage::app()->getLayout()->createBlock('core/template')->setTemplate('dev/elements/dropdowns.phtml')->toHtml(); ?>
+                </div>
+            </section>
+
+            <section class="sg-section">
+                <header>
+                    <h2>Range Sliders</h2>
+                </header>
+
+                <div class="sgc-content">
+                    <?php echo Mage::app()->getLayout()->createBlock('core/template')->setTemplate('dev/elements/range-sliders.phtml')->toHtml(); ?>
+                </div>
+            </section>
+
+            <section class="sg-section">
+                <header>
+                    <h2>Popup / Modal</h2>
+                </header>
+
+                <div class="sgc-content">
+                    <?php echo Mage::app()->getLayout()->createBlock('core/template')->setTemplate('dev/elements/popup.phtml')->toHtml(); ?>
+                </div>
+            </section>
+
+            <section class="sg-section">
+                <header>
+                    <h2>Calendar</h2>
+                </header>
+
+                <div class="sgc-content">
+                    <?php echo Mage::app()->getLayout()->createBlock('core/template')->setTemplate('dev/elements/datepicker.phtml')->toHtml(); ?>
+                </div>
+            </section>
+
+            <section class="sg-section">
+                <header>
+                    <h2>Sprites</h2>
+                </header>
+
+                <div class="sgc-content">
+                    <?php echo Mage::app()->getLayout()->createBlock('core/template')->setTemplate('dev/elements/sprites.phtml')->toHtml(); ?>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

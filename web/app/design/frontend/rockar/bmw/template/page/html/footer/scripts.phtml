@@ -1,0 +1,23 @@
+<?php
+/**
+ * @category design
+ * @package rockar_default
+ * @author Dmitrijs Sitovs <techteam@rockar.com>
+* @copyright Copyright (c) 2016 Rockar Ltd (http://rockar.com)
+ *
+ * @var $this Mage_Page_Block_Html_Head
+ */
+?>
+<?php
+$currencyCode = Mage::app()->getStore()->getCurrentCurrencyCode();
+$currencySymbol = Mage::app()->getLocale()->currency($currencyCode)->getSymbol();
+$regionsList = $this->helper('directory')->getRegionJson();
+?>
+<script type="text/javascript">
+    var currencySymbol = '<?php echo $currencySymbol; ?>';
+    Mage.Regions = <?php echo $regionsList ?>;
+    translations = new Translate(<?php echo $this->helper('core/js')->getTranslateJson() ?>);
+</script>
+<?php echo $this->getCssJsHtml() ?>
+<?php echo $this->getChildHtml() ?>
+<?php echo $this->getIncludes() ?>

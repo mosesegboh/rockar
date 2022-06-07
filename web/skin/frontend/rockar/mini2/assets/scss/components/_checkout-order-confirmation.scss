@@ -1,0 +1,150 @@
+.order-confirmation {
+    .col-12 {
+        img {
+            transform: scale(1.2);
+        }
+    }
+
+    .order-confirmation-body {
+        @include media($medium-screen-up) {
+            margin: -65px 0 0;
+        }
+
+        .content {
+            .order-confirm-title {
+                font-family: $mini-serif-bold;
+                font-size: $dsp2-f-size-l;
+                line-height: $mini-line-h-22;
+
+                @include media($medium-screen-up) {
+                    font-size: $dsp2-f-size-xxxl;
+                    line-height: $mini-line-h-38;
+                }
+            }
+
+            .order-confirm-subtitle {
+                text-transform: uppercase;
+                color: $black;
+                font-family: $mini-sans-serif-regular;
+                font-size: $dsp2-f-size-xs;
+                line-height: $dsp2-line-h-16;
+
+                @include media($medium-screen-up) {
+                    font-size: $dsp2-f-size-l;
+                    line-height: $dsp2-line-h-28;
+                }
+
+                &.second {
+                    text-transform: none;
+                    font-size: $dsp2-f-size-xs;
+                    line-height: $dsp2-line-h-14;
+
+                    @include media($medium-screen-up) {
+                        font-size: $dsp2-f-size;
+                        line-height: $dsp2-line-h-24;
+                    }
+                }
+            }
+
+            ul {
+                counter-reset: order-confirmation-counter;
+
+                li {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: flex-start;
+
+                    @include media($medium-screen-down) {
+                        margin: 0 0 5px;
+                    }
+
+                    .order-confirm-text {
+                        color: $black;
+                        font-family: $mini-sans-serif-regular;
+                        font-size: $dsp2-f-size-xs;
+                        line-height: $dsp2-line-h-14;
+                        margin: 0;
+                        padding-left: 10px;
+
+                        @include media($medium-screen-up) {
+                            font-size: $dsp2-f-size;
+                            line-height: $dsp2-line-h-24;
+                        }
+
+                        a {
+                            font-family: $mini-sans-serif-bold;
+                            font-size: $dsp2-f-size;
+                            text-decoration: underline;
+                            color: $black !important; // Overrides dsp2/checkout-order-confirmation
+                        }
+                    }
+
+                    &::before {
+                        counter-increment: order-confirmation-counter;
+                        content: "#" counter(order-confirmation-counter) ".";
+                        font-family: $mini-serif-bold;
+                        font-size: $dsp2-f-size-xs;
+                        line-height: $dsp2-line-h-14;
+
+                        @include media($medium-screen-up) {
+                            font-size: $dsp2-f-size-l;
+                            line-height: $dsp2-line-h-24;
+                        }
+                    }
+                }
+            }
+
+            .bottom {
+                p {
+                    padding: 20px 0 30px;
+                    margin: 0;
+                    color: $black;
+                    font-size: $dsp2-f-size-xs;
+                    line-height: $dsp2-line-h-14;
+
+                    @include media($medium-screen-up) {
+                        padding: 30px 0;
+                        font-size: $dsp2-f-size;
+                        line-height: $dsp2-line-h-24;
+                    }
+                }
+            }
+        }
+
+        .details {
+            @include media($medium-screen-up) {
+                max-width: 479px;
+            }
+
+            .row {
+                .title {
+                    color: $black;
+                    font-family: $mini-sans-serif-regular;
+                    font-size: $dsp2-f-size-xs;
+                    line-height: $dsp2-line-h-14;
+
+                    @include media($medium-screen-up) {
+                        font-size: $dsp2-f-size-s;
+                        line-height: $dsp2-line-h-16;
+                    }
+                }
+
+                .content {
+                    color: $black;
+                    font-family: $mini-sans-serif-bold;
+                    font-size: $dsp2-f-size-xs;
+                    line-height: $dsp2-line-h-14;
+
+                    @include media($medium-screen-up) {
+                        font-size: $dsp2-f-size-s;
+                        line-height: $dsp2-line-h-16;
+                    }
+                }
+            }
+
+            .button {
+                height: 52px;
+            }
+        }
+    }
+}

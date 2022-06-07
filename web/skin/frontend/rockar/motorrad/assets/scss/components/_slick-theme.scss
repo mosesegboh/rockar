@@ -1,0 +1,471 @@
+@charset 'UTF-8';
+
+// Default Variables
+
+$slick-font-path: '../../default/fonts/slick/' !default;
+$slick-font-family: 'slick' !default;
+$slick-loader-path: '../images/' !default;
+$slick-arrow-color: $white !default;
+$slick-dot-color: $white !default;
+$slick-dot-color-active: $slick-dot-color !default;
+$slick-dot-container-size: 14px !default;
+$slick-prev-character: '' !default;
+$slick-next-character: '' !default;
+$slick-dot-character: '•' !default;
+$slick-dot-size: 7px !default;
+$slick-dot-size-active: 9px !default;
+$slick-opacity-default: .75 !default;
+$slick-opacity-on-hover: 1 !default;
+$slick-opacity-not-active: .25 !default;
+
+@function slick-image-url($url) {
+    @if function-exists(image-url) {
+        @return image-url($url);
+    } @else {
+        @return url($slick-loader-path + $url);
+    }
+}
+
+@function slick-font-url($url) {
+    @if function-exists(font-url) {
+        @return font-url($url);
+    } @else {
+        @return url($slick-font-path + $url);
+    }
+}
+
+// Slider
+
+.slick-list {
+    .slick-loading & {
+        background: $white slick-image-url('loader.gif') center center no-repeat;
+    }
+}
+
+// Icons
+@if $slick-font-family == 'slick' {
+    @font-face {
+        font-family: $slick-font-family;
+        src: slick-font-url('slick.eot');
+        src: slick-font-url('slick.eot?#iefix') format('embedded-opentype'), slick-font-url('slick.woff') format('woff'), slick-font-url('slick.ttf') format('truetype'), slick-font-url('slick.svg#slick') format('svg');
+        font-weight: $fw-normal;
+        font-style: normal;
+    }
+}
+
+// Arrows
+
+.slick-prev,
+.slick-next {
+    @include position(absolute, 50% null null null);
+    display: block;
+    line-height: 0;
+    font-size: 0;
+    cursor: pointer;
+    background: transparent;
+    color: transparent;
+    margin-top: -10px\9; // lte IE 8
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    padding: 0;
+    border: 0;
+    outline: none;
+    text-indent: -9999px;
+    background-image: none;
+    width: 28px;
+    height: 50px;
+
+    &.slick-disabled::before {
+        opacity: $slick-opacity-not-active;
+    }
+
+    .color-carousel & {
+        top: 50px;
+    }
+}
+
+.slick-prev::before,
+.slick-next::before {
+    @include size(40px);
+    font-family: $slick-font-family;
+    font-size: 20px;
+    line-height: 1;
+    color: $slick-arrow-color;
+    opacity: $slick-opacity-default;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-indent: -9999px;
+    display: block;
+    border-right: 0;
+    border-top: 0;
+    transform: rotate(0deg);
+    background: url('../images/svg/arrow.svg') no-repeat center;
+    background-size: 100%;
+    transform-origin: 50% 50%;
+}
+
+.slick-prev {
+    left: -30px;
+
+    [dir='rtl'] & {
+        left: auto;
+        right: -25px;
+    }
+
+    &::before {
+        @include position(absolute, 9px null null 7px);
+        content: $slick-prev-character;
+        transform: rotate(180deg);
+
+        [dir='rtl'] & {
+            content: $slick-next-character;
+        }
+    }
+}
+
+.slick-next {
+    right: -30px;
+
+    [dir='rtl'] & {
+        left: -25px;
+        right: auto;
+    }
+
+    &::before {
+        @include position(absolute, 9px 7px null null);
+        content: $slick-next-character;
+
+        [dir='rtl'] & {
+            content: $slick-prev-character;
+        }
+    }
+}
+
+// Dots
+
+.slick-slider {
+    margin: 0 auto 30px;
+    width: 95%;
+    display: block;
+}
+
+.slick-dots {
+    position: absolute;
+    bottom: -45px;
+    list-style: none;
+    display: block;
+    text-align: center;
+    padding: 0;
+    width: 100%;
+
+    li {
+        position: relative;
+        display: inline-block;
+        height: $slick-dot-container-size;
+        width: $slick-dot-container-size;
+        padding: 0;
+        cursor: pointer;
+
+        button {
+            border: 0;
+            background: transparent;
+            display: block;
+            height: $slick-dot-container-size;
+            width: $slick-dot-container-size;
+            outline: none;
+            line-height: 0;
+            font-size: 0;
+            color: transparent;
+            padding: 5px;
+            cursor: pointer;
+
+            &:hover,
+            &:focus {
+                outline: none;
+
+                &::before {
+                    opacity: $slick-opacity-on-hover;
+                }
+            }
+
+            &::before {
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: $slick-dot-character;
+                width: $slick-dot-container-size;
+                height: $slick-dot-container-size;
+                font-family: $slick-font-family;
+                font-size: $slick-dot-size;
+                line-height: $slick-dot-container-size;
+                text-align: center;
+                color: $slick-dot-color;
+                opacity: $slick-opacity-not-active;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+        }
+
+        &.slick-active button::before {
+            font-size: $slick-dot-size-active;
+        }
+    }
+}
+
+.slick-slide {
+    &.slick-center {
+        .slick-slide-color {
+            padding: 0;
+        }
+
+        .car {
+            .checkbox-values {
+                @include media($small-screen-down) {
+                    display: block;
+                }
+            }
+
+            .carousel-image-wrapper {
+                img {
+                    @include media($small-screen-down) {
+                        padding: 0;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    .slick-slide-color {
+        padding: 10px;
+        transition: padding .3s;
+        margin: 0 10px;
+
+        .slick-slide-color-block {
+            position: relative;
+            width: 100%;
+            height: 100%;
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to bottom, transparent 70%, $slick-slide-color-block-after-bg);
+            }
+        }
+    }
+
+    .car {
+        cursor: pointer;
+        position: relative;
+
+        @include media($small-screen-down) {
+            cursor: auto;
+        }
+
+        &::after {
+            @include media($medium-screen-up) {
+                content: '';
+                pointer-events: none;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: block;
+                position: absolute;
+                z-index: 1;
+            }
+        }
+
+        .checkbox-values {
+            text-transform: uppercase;
+
+            @include media($small-screen-down) {
+                display: none;
+            }
+
+            label {
+                pointer-events: none;
+                color: $motorrad-text-color;
+                font-weight: $motorrad-fw-normal;
+                font-size: $f-size-xxl;
+                font-family: $motorrad;
+                border: none;
+                border-left: 0;
+                border-right: 0;
+                margin-left: 30px;
+                padding: 2px 0;
+
+                span {
+                    pointer-events: none;
+                    margin: 4px 0 0 -40px;
+                }
+            }
+        }
+
+        .carousel-image-wrapper {
+            position: relative;
+            margin-bottom: 10px;
+            cursor: grab;
+
+            @include media($small-screen-down) {
+                margin-bottom: 27px;
+            }
+
+            img {
+                width: 100%;
+                bottom: 0;
+                padding: 0;
+                transition: padding .3s;
+
+                @include media($small-screen-down) {
+                    opacity: .4;
+                    padding: 23px 9px 23px 69px;
+                }
+            }
+        }
+
+        &.disabled {
+            cursor: not-allowed;
+
+            label {
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    .car-color {
+        .carousel-color-wrapper {
+            width: $carousel-color-mobile-width;
+            height: $carousel-color-mobile-height;
+            margin: 10px auto 15px;
+
+            @include media($small-screen-down) {
+                padding: 5px;
+                font-size: $f-size-s;
+                width: 63px !important;
+            }
+
+            @include media($large-screen-up) {
+                width: $carousel-color-width;
+                height: $carousel-color-height;
+            }
+
+            .color-block {
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+                background-size: cover !important;
+                box-shadow: 0 0 4px $slick-car-color-block-bg;
+            }
+        }
+
+        .carousel-count-block {
+            width: $carousel-color-mobile-width;
+            margin-top: 12px;
+            height: 41px;
+            text-align: center;
+            background-color: $white;
+            position: relative;
+            font-size: 12px;
+            line-height: 22px;
+            margin: 0 auto;
+
+            @include media($small-screen-down) {
+                width: auto !important;
+                margin: 0 5px;
+            }
+
+            @include media($large-screen-up) {
+                width: $carousel-color-width;
+            }
+
+            &::before {
+                @include triangle(18px 9px, $white, up);
+                content: '';
+                position: absolute;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                top: -8px;
+                display: block;
+            }
+        }
+
+        // Styles for active slider color
+        &.active-color {
+            margin-top: -5px;
+
+            .carousel-color-wrapper {
+                width: $carousel-active-color-mobile-width;
+                height: $carousel-active-color-mobile-height;
+
+                @include media($large-screen-up) {
+                    width: $carousel-active-color-width;
+                    height: $carousel-active-color-height;
+                }
+
+                .color-block {
+                    cursor: default;
+
+                    &::after {
+                        content: attr(data-content);
+                        text-transform: uppercase;
+                        color: $white;
+                        text-align: center;
+                        height: 100%;
+                        display: block;
+                        line-height: 500%;
+                        font-size: $f-size-s;
+                        background: linear-gradient(to bottom, $slick-car-color-block-bg, transparent);
+                        text-shadow: 1px 1px 0 $slick-car-color-block-text-shadow;
+
+                        @include media($small-screen-down) {
+                            font-size: $f-size-xs !important;
+                            line-height: 600% !important;
+                        }
+
+                        @include media($medium-screen-up) {
+                            line-height: 570%;
+                            font-size: $f-size-xs;
+                        }
+
+                        @include media($large-screen-up) {
+                            line-height: 625%;
+                            font-size: $f-size;
+                        }
+                    }
+                }
+            }
+
+            .carousel-count-block {
+                width: $carousel-active-color-mobile-width;
+
+                @include media($large-screen-up) {
+                    width: $carousel-active-color-width;
+                }
+            }
+        }
+    }
+}
+
+.color-wrapper {
+    .preloader {
+        background: $slick-color-wrapper-preloader-bg;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 99999;
+        padding-top: 30%;
+
+        .show-loading {
+            margin: 0 auto;
+        }
+    }
+}

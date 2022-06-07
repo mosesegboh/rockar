@@ -1,0 +1,56 @@
+.category-products-filter-menu {
+    display: none;
+    color: $grey-3;
+    border: 1px solid $grey-3;
+    left: -2em;
+    width: calc(100% + 4em);
+    border-left: 0;
+    border-right: 0;
+    position: relative;
+    cursor: pointer;
+
+    &.mobile-only {
+        border: 0;
+        align-items: center;
+        background-color: $motorrad-blue;
+        bottom: 0;
+        color: $white;
+        cursor: pointer;
+        left: 55px;
+        justify-content: center;
+        position: fixed;
+        right: 0;
+        width: calc(100vw - 55px);
+        z-index: 80;
+
+        @include media($small-screen-down) {
+            display: flex;
+        }
+
+        .filter-message {
+            margin-left: 13px;
+        }
+    }
+
+    .text-wrapper {
+        display: flex;
+        font-size: $f-size-s;
+        padding-left: 3em;
+        padding-right: 4em;
+        line-height: 3em;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: $fw-bold;
+        letter-spacing: .1em;
+    }
+
+    .filter-icon {
+        @include sprite($sprite-np-filter-light-small);
+        display: block;
+        width: 16px;
+        height: 15px;
+        justify-self: center;
+        align-self: center;
+        padding-bottom: 15px;
+    }
+}

@@ -1,0 +1,83 @@
+<?php
+/**
+ * @category  Peppermint
+ * @package   Peppermint_All
+ * @author    Taras Kapushchak <techteam@rockar.com>
+ * @copyright Copyright (c) 2021 Rockar Ltd (http://rockar.com)
+ *
+ */
+
+$staticColors = [
+    '$white' => ['#fff'],
+    '$c-motorrad-grey-3' => ['#f2f2f2'],
+    '$c-motorrad-grey-2' => ['#e6e6e6'],
+    '$c-anthracite-1' => ['#16171a'],
+    '$c-anthracite-2' => ['#212326'],
+    '$c-anthracite-3' => ['#2b2e33']
+];
+
+$interfaceColors = [
+    '$white' => ['#fff'],
+    '$c-anthracite-1' => ['#16171a'],
+    '$c-motorrad-blue' => ['#0062ff'],
+    '$c-motorrad-grey-1' => ['#999999']
+];
+
+$signalColors = [
+    '$c-motorrad-red' => ['#cd3430', 'Alert'],
+    '$c-motorrad-orange' => ['#ffe6bb', 'Warning Background Color'],
+    '$c-motorrad-green' => ['#3db014', 'Confirmation']
+];
+?>
+
+<h3>Static Colors</h3>
+<div class="color-container">
+    <?php foreach ($staticColors as $key => $value) : ?>
+        <div class="palette">
+            <h4><?php echo ucfirst(str_replace(['$', '-'], ['', ' '], $key)); ?></h4>
+            <p class="palette-color" style="background-color: <?php echo $value[0]; ?>; color: #000"></p>
+            <p><?php echo $value[0]; ?></p>
+            <p><?php echo $key; ?></p>
+            <p><?php echo $value[1]; ?></p>
+        </div>
+    <?php endforeach ?>
+</div>
+
+<hr>
+
+<h3>Interface Colors</h3>
+<div class="color-container">
+    <?php foreach ($interfaceColors as $key => $value) : ?>
+        <div class="palette">
+            <h4><?php echo ucfirst(str_replace(['$', '-'], ['', ' '], $key)); ?></h4>
+            <p class="palette-color" style="background-color: <?php echo $value[0]; ?>; color: #000"></p>
+            <p><?php echo $value[0]; ?></p>
+            <p><?php echo $key; ?></p>
+            <p><?php echo $value[1]; ?></p>
+        </div>
+    <?php endforeach ?>
+</div>
+
+<hr>
+
+<h3>Signal Colors</h3>
+<div class="color-container">
+    <?php foreach ($signalColors as $key => $value) : ?>
+        <div class="palette">
+            <h4><?php echo ucfirst(str_replace(['$', '-'], ['', ' '], $key)); ?></h4>
+            <p class="palette-color" style="background-color: <?php echo $value[0]; ?>; color: #000"></p>
+            <p><?php echo $value[0]; ?></p>
+            <p><?php echo $key; ?></p>
+            <p><?php echo $value[1]; ?></p>
+        </div>
+    <?php endforeach ?>
+</div>
+
+<hr>
+
+<h3>Helper classes</h3>
+<p>There are available 2 types of helper classes that will work with all here defined colors</p>
+<p>.motorrad-blue (color: $c-motorrad-blue)</p>
+<p>.bg-motorrad-blue (background-color: $c-motorrad-blue)</p>
+<h5 class="motorrad-blue">I am Motorrad Blue.</h5>
+<h5 class="bg-motorrad-blue">My background is Motorrad Blue.</h5>

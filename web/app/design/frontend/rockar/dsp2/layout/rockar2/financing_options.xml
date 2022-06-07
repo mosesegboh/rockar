@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Rockar2
+ * @package   Rockar2_FinancingOptions
+ * @author    Ausma Smite <techteam@rockar.com>
+ * @copyright Copyright (c) 2021 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<layout version="0.1.0">
+    <catalog_category_default>
+        <reference name="product_list">
+            <block type="rockar2_financing_options/filters" name="finance_filters" before="-" template="rockar/car_finder/filters/finance.phtml">
+                <block type="cms/block" name="finance_filter_help">
+                    <action method="setBlockId">
+                        <block_id>finance_filter_help</block_id>
+                    </action>
+                </block>
+            </block>
+        </reference>
+    </catalog_category_default>
+
+    <catalog_category_layered>
+        <reference name="product_list">
+            <block type="rockar2_financing_options/filters" name="finance_filters" before="-" template="rockar/car_finder/filters/finance.phtml">
+                <block type="cms/block" name="finance_filter_help">
+                    <action method="setBlockId">
+                        <block_id>finance_filter_help</block_id>
+                    </action>
+                </block>
+            </block>
+        </reference>
+    </catalog_category_layered>
+</layout>

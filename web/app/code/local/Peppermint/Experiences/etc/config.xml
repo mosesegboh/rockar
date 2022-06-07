@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Experiences
+ * @author    Jevgenijs Goreliks <techteam@rockar.com>
+ * @copyright Copyright (c) 2021 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_Experiences>
+            <version>0.1.3</version>
+        </Peppermint_Experiences>
+    </modules>
+    <global>
+        <models>
+            <peppermint_experiences>
+                <class>Peppermint_Experiences_Model</class>
+                <resourceModel>peppermint_experiences_resource</resourceModel>
+            </peppermint_experiences>
+            <peppermint_experiences_resource>
+                <class>Peppermint_Experiences_Model_Resource</class>
+                <entities>
+                    <experiences>
+                        <table>peppermint_experiences</table>
+                    </experiences>
+                    <experiences_rules>
+                        <table>peppermint_experiences_rules</table>
+                    </experiences_rules>
+                    <experiences_rules_website>
+                        <table>peppermint_experiences_rules_website</table>
+                    </experiences_rules_website>
+                    <experiences_rules_customer_group>
+                        <table>peppermint_experiences_rules_customer_group</table>
+                    </experiences_rules_customer_group>
+                    <coupon>
+                        <table>peppermint_experiences_coupon</table>
+                    </coupon>
+                    <coupon_usage>
+                        <table>peppermint_experiences_coupon_usage</table>
+                    </coupon_usage>
+                </entities>
+            </peppermint_experiences_resource>
+        </models>
+        <resources>
+            <peppermint_experiences_setup>
+                <setup>
+                    <module>Peppermint_Experiences</module>
+                </setup>
+            </peppermint_experiences_setup>
+        </resources>
+        <blocks>
+            <peppermint_experiences>
+                <class>Peppermint_Experiences_Block</class>
+            </peppermint_experiences>
+        </blocks>
+        <helpers>
+            <peppermint_experiences>
+                <class>Peppermint_Experiences_Helper</class>
+            </peppermint_experiences>
+        </helpers>
+        <experiences>
+            <coupon>
+                <separator>-</separator>
+                <charset>
+                    <alphanum>ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789</alphanum>
+                    <alpha>ABCDEFGHIJKLMNOPQRSTUVWXYZ</alpha>
+                    <num>0123456789</num>
+                </charset>
+            </coupon>
+        </experiences>
+    </global>
+    <frontend>
+        <routers>
+            <peppermint_experiences>
+                <use>standard</use>
+                <args>
+                    <module>Peppermint_Experiences</module>
+                    <frontName>experiences</frontName>
+                </args>
+            </peppermint_experiences>
+        </routers>
+    </frontend>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Peppermint_Experiences before="Mage_Adminhtml">Peppermint_Experiences_Adminhtml</Peppermint_Experiences>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <peppermint_experiences>
+                    <file>peppermint/experiences.xml</file>
+                </peppermint_experiences>
+            </updates>
+        </layout>
+    </adminhtml>
+    <default>
+        <experiences>
+            <auto_generated_coupon_codes>
+                <length>12</length>
+                <format>1</format>
+            </auto_generated_coupon_codes>
+            <popup_management>
+                <popup_delay>0</popup_delay>
+            </popup_management>
+        </experiences>
+    </default>
+</config>

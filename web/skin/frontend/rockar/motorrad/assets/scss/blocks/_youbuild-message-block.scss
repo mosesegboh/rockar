@@ -1,0 +1,76 @@
+.you-build-action-wrapper {
+    border: 1px solid $grey-2;
+    background-color: $white;
+
+    .message {
+        text-transform: none;
+
+        p {
+            font-family: $brand-specific-font;
+        }
+    }
+
+    .you-build-action-container {
+        @include display(flex);
+    }
+
+    .button {
+        font-size: $motorrad-button-font-size;
+        letter-spacing: normal;
+        font-weight: $motorrad-fw-normal;
+        width: 240px;
+        height: 50px;
+    }
+
+    &.mobile-tablet {
+        cursor: pointer;
+        margin-top: 18px;
+
+        @include media($large-screen-up) {
+            display: none;
+        }
+
+        .you-build-action-container {
+            padding: .75em 1em;
+        }
+
+        .you-build-logo {
+            @include sprite($sprite-you-build-dark);
+            min-width: 28px; // need this due to sprite getting collapsed by neighbouring text
+            display: block;
+            margin-right: 20px;
+        }
+
+        .message {
+            p {
+                font-size: $f-size-xs;
+                font-weight: $fw-book;
+                letter-spacing: .21em;
+            }
+        }
+    }
+
+    &.desktop-only {
+        @include media($medium-screen-down) {
+            display: none;
+        }
+
+        .you-build-action-container {
+            @include justify-content(space-between);
+            padding: 17px 26px 18px 30px;
+        }
+
+        .message {
+            @include align-self(center);
+
+            p {
+                font-size: $f-size-l;
+                line-height: 1.4;
+                margin: 0;
+                font-weight: $motorrad-fw-normal;
+                letter-spacing: normal;
+                vertical-align: center;
+            }
+        }
+    }
+}

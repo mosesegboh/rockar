@@ -1,0 +1,166 @@
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $mini-serif-bold;
+    color: $black;
+}
+
+.category-car-finder,
+.checkout-cart-index,
+.customer-account-index,
+.checkout-onepage-index,
+.styleguide-page {
+    .outer-container,
+    .footer-wrapper,
+    .styleguide {
+        .h1,
+        h1 {
+            @include renderCarFinderHeading($dsp2-f-size-xxl, $dsp2-f-size-xxxxl, $dsp2-line-h-40, $dsp2-line-h-80);
+            font-family: $mini-serif-bold;
+            text-transform: none;
+        }
+
+        .h2,
+        h2 {
+            @include renderCarFinderHeading($dsp2-f-size-xxl, $dsp2-f-size-xxxl, $dsp2-line-h-40, $dsp2-line-h-64);
+            font-family: $mini-serif-bold;
+            text-transform: none;
+        }
+
+        .h3,
+        h3 {
+            @include renderCarFinderHeading($dsp2-f-size-xxl, $dsp2-f-size-xxl, $dsp2-line-h-40, $dsp2-line-h-40);
+            font-family: $mini-serif-bold;
+            text-transform: none;
+        }
+
+        .h4,
+        h4 {
+            @include renderCarFinderHeading($dsp2-f-size-xl, $dsp2-f-size-xl, $dsp2-line-h-32, $dsp2-line-h-32);
+            font-family: $mini-serif-bold;
+            text-transform: none;
+        }
+
+        .h5,
+        .h6,
+        h5,
+        h6 {
+            font-family: $mini-serif-bold;
+        }
+
+        .h7,
+        .h8 {
+            font-family: $mini-sans-serif-regular;
+        }
+
+        .dsp2-subtitle {
+            font-family: $mini-serif-bold;
+        }
+
+        .dsp2-subtitle-s {
+            font-family: $mini-sans-serif-bold;
+        }
+
+        .dsp2-body,
+        .dsp2-body-s {
+            font-family: $mini-sans-serif-regular;
+            color: $black;
+        }
+
+        .dsp2-link {
+            font-family: $mini-sans-serif-bold;
+            color: $black;
+            line-height: $dsp2-line-h-24;
+            font-size: $dsp2-f-size;
+
+            &.filter {
+                font-family: $mini-serif-bold;
+                font-size: $dsp2-f-size-sl;
+                border-bottom: 1px solid $c-mini-grey-1;
+
+                &:hover {
+                    .arrow-next {
+                        margin: 0;
+                        padding: 0 12px 3px 0;
+                        background: $white;
+                    }
+                }
+            }
+        }
+
+        a {
+            &.dsp2-link {
+                border-bottom: 2px solid $black;
+                color: $black;
+
+                &:hover,
+                :active {
+                    color: $white;
+                    background: $black;
+                }
+
+                &.previous {
+                    .arrow-back {
+                        position: relative;
+                        padding: 0 19px 3px 0;
+
+                        &::after {
+                            height: 15px;
+                            width: 9px;
+                            top: 0;
+                            position: absolute;
+                            @include transform(rotate(360deg));
+                            background-image: url('../images/svg/icon-arrow-big.svg');
+                        }
+                    }
+                }
+
+                .icon-video {
+                    padding: 0 7px 3px 0;
+                    background-color: $white;
+                }
+            }
+        }
+
+        .dsp2-link-s {
+            font-family: $mini-sans-serif-bold;
+        }
+
+        a {
+            &.dsp2-link-s {
+                border-bottom: 2px solid $black;
+                color: $black;
+
+                &:hover,
+                :active {
+                    color: $white;
+                    background: $black;
+                }
+            }
+        }
+
+        .dsp2-caption {
+            font-family: $mini-sans-serif-regular;
+            color: $black;
+        }
+
+        .dsp2-label {
+            font-family: $mini-serif-bold;
+            color: $black;
+        }
+
+        .dsp2-label-s {
+            font-family: $mini-serif-bold;
+            color: $black;
+        }
+    }
+}

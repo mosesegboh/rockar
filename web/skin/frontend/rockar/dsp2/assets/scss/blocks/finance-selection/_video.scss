@@ -1,0 +1,12 @@
+.finance-video {
+    .video {
+        p {
+            width: 100%;
+            height: $finance-video-height;
+
+            iframe {
+                height: $finance-video-height;
+            }
+        }
+    }
+}

@@ -1,0 +1,111 @@
+.image-zoom {
+    @include size(17px);
+    position: absolute;
+    z-index: 15;
+    top: 1rem;
+    left: 2rem;
+    cursor: pointer;
+    margin-top: 16px;
+
+    @include media($small-screen-down) {
+        display: none;
+    }
+
+    .zoom-icon {
+        @include sprite($sprite-gallery-fullscreen-icon);
+        display: inline-block;
+    }
+}
+
+.image-type-switcher {
+    .actions-wrapper-mobile {
+        text-align: left;
+    }
+}
+
+.slide360 {
+    .carousel-wrapper {
+        width: 100%;
+        margin-bottom: 0;
+
+        .slick-list {
+            .slick-current {
+                img {
+                    z-index: 1;
+                }
+            }
+        }
+
+        .slick-arrow {
+            @include size(15px);
+            top: 50%;
+            background: none;
+            border: {
+                top: 2px solid $c-grey-1;
+                right: 2px solid $c-grey-1;
+            }
+            z-index: 1;
+
+            @include media($small-screen-down) {
+                display: block !important; // Have to override default2
+            }
+
+            &.slick-next {
+                right: 2rem;
+                transform: rotate(45deg);
+            }
+
+            &.slick-prev {
+                left: 2rem;
+                transform: rotate(225deg);
+            }
+        }
+
+        .slick-dots {
+            bottom: 1.25em;
+
+            @include media($small-screen-down) {
+                bottom: .313em;
+                position: inherit;
+            }
+
+            li {
+                button {
+                    &::before {
+                        color: $white;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.cloudimage-360 {
+    &::before {
+        @include pseudo();
+        background-image: url('../images/360-indicator-s.png');
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        bottom: 0;
+        left: 4%;
+        right: 4%;
+        top: 65%;
+
+        @include media($small-screen-up) {
+            background-image: url('../images/360-indicator-m.png');
+            top: 68%;
+        }
+
+        @include media($large-screen-up) {
+            background-image: url('../images/360-indicator-l.png');
+            left: 0;
+            right: 0;
+            top: 66%;
+        }
+    }
+
+    .cloudimage-360-loader {
+        display: none;
+    }
+}

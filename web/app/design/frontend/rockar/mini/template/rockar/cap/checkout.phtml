@@ -1,0 +1,48 @@
+<?php
+/**
+ * @category  MINI
+ * @package   MINI\Cap
+ * @author    Brandon Ho <brandon.ho@partner.bmw.co.za>
+ */
+?>
+<?php
+/**
+ * @var $this Rockar_PartExchange_Block_Checkout
+ */
+?>
+<app-checkout-accordion title="<?php echo $this->__('Trade-In'); ?>" type="right-down" class-name="accordion-light" step-code="<?php echo Rockar_PartExchange_Helper_Filters::PX_STEP_CODE; ?>">
+    <li>
+        <div class="accordion-content">
+            <app-checkout-part-exchange-cap
+                vehicle-brand-name="MINI"
+                :pe-id="<?php echo $this->getPartExchangeId() ?>"
+                valuation-url="<?php echo $this->getUrl('partexchange/valuation'); ?>"
+                car-details-url="<?php echo $this->getUrl('partexchange/details'); ?>"
+                reset-url="<?php echo $this->getUrl('checkout/onepage_partexchange/reset'); ?>"
+                soft-reset-url="<?php echo $this->getUrl('partexchange/crud/softReset'); ?>"
+                :additional-info='<?php echo $this->getCheckboxes() ?>'
+                explanatory-text="<?php echo $this->getExplanatoryText(); ?>"
+                :active-condition="<?php echo $this->getActiveCondition() ?>"
+                :car-conditions="<?php echo $this->getCarConditions(); ?>"
+                car-alternative-details-url="<?php echo $this->getUrl('partexchange/alternatives'); ?>"
+                save-valuation-url="<?php echo $this->getUrl('checkout/onepage_partexchange/save'); ?>"
+                save-to-session-url="<?php echo $this->getUrl('partexchange/crud/saveToSession'); ?>"
+                :saved="<?php echo $this->getSavedStatus() ?>"
+                :saved-px-list="<?php echo $this->getAllPartExchanges() ?>"
+                make-url="<?php echo $this->getUrl('partexchange/details/getMake'); ?>"
+                range-url="<?php echo $this->getUrl('partexchange/details/getRange'); ?>"
+                model-url="<?php echo $this->getUrl('partexchange/details/getModel'); ?>"
+                year-url="<?php echo $this->getUrl('partexchange/details/getYear'); ?>"
+                colour-url="<?php echo $this->getUrl('partexchange/details/getColour'); ?>"
+                derivative-url="<?php echo $this->getUrl('partexchange/details/getDerivative'); ?>"
+                custom-car-url="<?php echo $this->getUrl('partexchange/details/customCar'); ?>"
+                active-px-url="<?php echo $this->getUrl('partexchange/switch/'); ?>"
+                :saved-px="<?php echo $this->getCustomerPartExchange(); ?>"
+                :can-open-custom="false"
+                :product-id="<?php echo $this->getProductId(); ?>"
+                error-message="<?php echo Mage::getStoreConfig('extendedrules/future_value/checkout_error_message'); ?>"
+                v-ref:part-exchange-filter>
+            </app-checkout-part-exchange-cap>
+        </div>
+    </li>
+</app-checkout-accordion>

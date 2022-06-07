@@ -1,0 +1,55 @@
+#checkout {
+    .checkout-steps {
+        @include media($medium-screen-down) {
+            margin: -2px 0 0;
+        }
+
+        .confirmation-text {
+            p {
+                font-size: $dsp2-f-size-s;
+            }
+        }
+    }
+
+    .register-block {
+        p {
+            font-size: $dsp2-f-size-s;
+        }
+
+        .checkout-address-disclaimer {
+            display: contents;
+        }
+    }
+
+    .checkout-quote {
+        @import 'shared/quotation';
+
+        .apply-voucher {
+            padding: .5em;
+            margin-bottom: 20px;
+
+            .coupon-label {
+                @include display(flex);
+                @include justify-content(center);
+
+                .coupon-label-text {
+                    font-size: $dsp2-f-size-s;
+                    letter-spacing: 0;
+                }
+            }
+
+            .tooltip-wrapper {
+                margin-left: 5px;
+                margin-top: 0;
+            }
+
+            .button-default {
+                font-size: 1em;
+
+                &:hover {
+                    color: $white;
+                }
+            }
+        }
+    }
+}

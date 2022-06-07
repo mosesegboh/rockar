@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_OfferTags
+ * @author    Jevgenijs Goreliks <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_OfferTags>
+            <version>0.1.3</version>
+        </Peppermint_OfferTags>
+    </modules>
+    <global>
+        <models>
+            <peppermint_offertags>
+                <class>Peppermint_OfferTags_Model</class>
+                <resourceModel>peppermint_offertags_resource</resourceModel>
+            </peppermint_offertags>
+            <peppermint_offertags_resource>
+                <class>Peppermint_OfferTags_Model_Resource</class>
+                <entities>
+                    <offertags>
+                        <table>peppermint_offertags</table>
+                    </offertags>
+                    <offertag_rules>
+                        <table>peppermint_offertag_rules</table>
+                    </offertag_rules>
+                    <offertag_rules_website>
+                        <table>peppermint_offertag_rules_website</table>
+                    </offertag_rules_website>
+                    <offertag_rules_customer_group>
+                        <table>peppermint_offertag_rules_customer_group</table>
+                    </offertag_rules_customer_group>
+                    <offertag_rules_finance_group>
+                        <table>peppermint_offertag_rules_finance_group</table>
+                    </offertag_rules_finance_group>
+                </entities>
+            </peppermint_offertags_resource>
+        </models>
+        <resources>
+            <peppermint_offertags_setup>
+                <setup>
+                    <module>Peppermint_OfferTags</module>
+                </setup>
+            </peppermint_offertags_setup>
+        </resources>
+        <blocks>
+            <peppermint_offertags>
+                <class>Peppermint_OfferTags_Block</class>
+            </peppermint_offertags>
+        </blocks>
+        <helpers>
+            <peppermint_offertags>
+                <class>Peppermint_OfferTags_Helper</class>
+            </peppermint_offertags>
+        </helpers>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Peppermint_OfferTags before="Mage_Adminhtml">Peppermint_OfferTags_Adminhtml</Peppermint_OfferTags>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <peppermint_offertags>
+                    <file>peppermint/offer_tags.xml</file>
+                </peppermint_offertags>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>
+
+

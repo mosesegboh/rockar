@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Page
+ * @author    Artis Viblo <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_Page>
+            <version>0.1.0</version>
+        </Peppermint_Page>
+    </modules>
+    <global>
+        <blocks>
+            <page>
+                <rewrite>
+                    <html>Peppermint_Page_Block_Html</html>
+                </rewrite>
+            </page>
+            <adminhtml>
+                <rewrite>
+                    <page_header>Peppermint_Page_Block_Adminhtml_Page_Header</page_header>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+        <models>
+            <peppermint_page>
+                <class>Peppermint_Page_Model</class>
+            </peppermint_page>
+        </models>
+        <helpers>
+            <peppermint_page>
+                <class>Peppermint_Page_Helper</class>
+            </peppermint_page>
+        </helpers>
+        <events>
+            <peppermint_before_absolute_footer>
+                <observers>
+                    <peppermint_page_apply_analytics_data>
+                        <class>peppermint_page/observer</class>
+                        <method>applyAnalyticsData</method>
+                    </peppermint_page_apply_analytics_data>
+                </observers>
+            </peppermint_before_absolute_footer>
+        </events>
+    </global>
+</config>

@@ -1,0 +1,18 @@
+<div class="slider-wrap" style="width:700px;height:auto;">
+    <?php echo $this->getLayout()->createBlock('rockar_slider/slider')->setIdentifier('homepage')->toHtml() ?>
+</div>
+
+<div class="section" style="margin-top:30px;">
+    Slider uses 3 componenets and accept multiple attributes:
+    <ul>
+        <li style="margin: 10px 0;">
+            &lt;app-slider :width="800" :height="267"&gt; - <strong>width</strong> and <strong>height</strong> attribute in <strong>px</strong>
+        </li>
+        <li style="margin: 10px 0;">
+            &lt;sl-slide id="slider_text1" image="url"&gt; - <strong>id</strong> reference to the text element of the slider. <strong>image</strong> link to the image file
+        </li>
+        <li style="margin: 10px 0;">
+            &lt;sl-text id="slider_text1" :left="600" :top="240" class="custom_class"&gt; - <strong>id</strong> is the ID that we set inside &lt;sl-slide&gt; for the text element. <strong>left</strong> and <strong>top</strong> is the horizontal and vertical position of the text on the slide. You can also set custom class with the <strong>class</strong> attribute.
+        </li>
+    </ul>
+</div>

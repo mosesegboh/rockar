@@ -1,0 +1,43 @@
+<?php
+/**
+ * @category  Motorrad
+ * @package   Motorrad\Checkout
+ * @author    Mihai Chezan <mihai.chezan@rockar.com>
+ * @copyright Copyright (c) 2019 Rockar Ltd (http://rockar.com)
+ */
+/**
+ * @var $this Rockar_Checkout_Block_Checkout_Steps_Address
+ */
+?>
+<?php $customerDashboardInfoBlock = $this->getAccountDashboardInfoBlock(); ?>
+<?php $checkoutHelper = Mage::helper('rockar_checkout') ?>
+<?php $customerInfo = Mage::helper('peppermint_checkout/customer') ?>
+<?php echo $this->getChildHtml('license_validation_overlay'); ?>
+<app-checkout-accordion title="<?php echo $this->__('Your Details'); ?>" type="right-down" class-name="accordion-light" step-code="<?php echo Rockar_Checkout_Helper_Data::ADDRESS_STEP_CODE; ?>">
+    <li>
+        <div class="accordion-content">
+           <?php echo $this->getMessagesBlock()->toHtml(); ?>
+            <app-checkout-address
+                form-url="<?php echo $this->getAddressAction(); ?>"
+                form-key="<?php echo Mage::getSingleton('core/session')->getFormKey(); ?>"
+                :available-countries='<?php echo $customerDashboardInfoBlock->getAvailableCountriesJson(); ?>'
+                :all-countries='<?php echo $customerDashboardInfoBlock->getAllCountriesJson(); ?>'
+                default-country="<?php echo $customerDashboardInfoBlock->getDefaultCountry(); ?>"
+                :company-type='<?php echo $checkoutHelper->getCompanyTypesJson(); ?>'
+                :designation='<?php echo $checkoutHelper->getDesignationsJson(); ?>'
+                :driving-license-types='<?php echo $customerDashboardInfoBlock->getDrivingLicenseTypesJson(); ?>'
+                :south-african-document-types='<?php echo $customerDashboardInfoBlock->getSouthAfricanDocumentTypesJson(); ?>'
+                :dob='<?php echo $customerDashboardInfoBlock->getDobData(); ?>'
+                :form-data='<?php echo $this->getYourAddressDataJson(); ?>'
+                :multiple-addresses-enabled="<?php echo $this->getIsMultipleAddressesEnabled(); ?>"
+                customer-type="<?php echo Mage::getSingleton('customer/session')->getCustomerType(); ?>"
+                gdpr-address-disclaimer="<?php echo htmlspecialchars($this->getChildHtml('checkout_your_address_gdpr_statement')); ?>"
+                customer-order-cap-block="<?php  echo htmlspecialchars($this->getCustomerOrderCapBlock()); ?>"
+                my-account-url='<?php echo Mage::helper('customer')->getAccountUrl(); ?>'
+                :order-caps='<?php echo $customerInfo->getCustomerGroupOrderCap() ?>'
+                active-orders='<?php echo $customerInfo->getCustomerActiveOrders() ?>'
+                product-url='<?php echo $checkoutHelper->getQuoteSimpleItemProduct()->getProductUrl() ?>'
+            ></app-checkout-address>
+        </div>
+    </li>
+</app-checkout-accordion>

@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Gcdm
+ * @author    Cosmin Chidovat <chidovat.cosmin@rockar.com>
+ * @copyright Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <sections>
+        <peppermint_gcdm translate="label">
+            <label>GCDM</label>
+            <tab>rockar</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general>
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <gcdm_login_url translate="label">
+                            <label>GCDM Base Login URL</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>required-entry validate-url</validate>
+                            <comment>Mandatory field! Expected format: URL</comment>
+                        </gcdm_login_url>
+                        <gcdm_base_api_url translate="label">
+                            <label>GCDM Base API endpoint URL</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>required-entry validate-url</validate>
+                            <comment>Mandatory field! Expected format: URL</comment>
+                        </gcdm_base_api_url>
+                        <gcdm_client_id translate="label">
+                            <label>GCDM Client ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>required-entry</validate>
+                            <comment>Mandatory field! Expected format: GUID</comment>
+                        </gcdm_client_id>
+                        <gcdm_secret translate="label">
+                            <label>GCDM Secret</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>required-entry</validate>
+                            <comment>Mandatory field! Expected format: GUID</comment>
+                        </gcdm_secret>
+                        <gcdm_store_locale translate="label">
+                            <label>GCDM store locale</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>required-entry</validate>
+                            <comment>Mandatory field! Expected format: string (eg: ZA-BMW-en)</comment>
+                        </gcdm_store_locale>
+                    </fields>
+                </general>
+                <contact_policy_consents>
+                    <label>Contact Policy Consents</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <base_api_url translate="label">
+                            <label>contactPolicyConsents Base API endpoint URL</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>required-entry validate-url</validate>
+                            <comment>Mandatory field! Expected format: URL</comment>
+                        </base_api_url>
+                        <api_key translate="label">
+                            <label>contactPolicyConsents Api Key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>required-entry</validate>
+                            <comment>Mandatory field! Expected format: ApiKey</comment>
+                        </api_key>
+                    </fields>
+                </contact_policy_consents>
+                <error_mapping>
+                    <label>Error messages</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <errors translate="label">
+                            <label>GCDM Error Mapping</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>peppermint_gcdm/system_config_form_field_gcdmErrorMessages</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </errors>
+                    </fields>
+                </error_mapping>
+            </groups>
+        </peppermint_gcdm>
+    </sections>
+</config>

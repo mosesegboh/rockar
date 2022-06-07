@@ -1,0 +1,739 @@
+* {
+    outline: none;
+}
+
+p {
+    font-size: $f-size-abs;
+    color: $motorrad-text-color;
+    font-family: $primary-font-family;
+    letter-spacing: $base-letter-spacing;
+    font-weight: $motorrad-fw-normal;
+
+    &.required {
+        font-size: $f-size-xs;
+    }
+}
+
+.tooltipster-content {
+    div {
+        p {
+            font-size: $f-size-xs;
+            color: $base-font-color;
+            font-family: $primary-font-family;
+            letter-spacing: $base-letter-spacing;
+
+            &.required {
+                font-size: $f-size-xs;
+            }
+        }
+    }
+}
+
+
+body,
+input,
+label,
+select,
+#{$all-text-inputs},
+select[multiple=multiple],
+textarea {
+    font-family: $primary-font-family;
+}
+
+body {
+    @include display(flex);
+    @include flex-direction(column);
+    background: $base-background-color;
+    min-height: 100vh;
+
+    &.modal-open {
+        overflow: hidden;
+    }
+}
+
+.wrapper {
+    max-width: $body-max-width;
+    margin: 0 auto;
+}
+
+button,
+a {
+    @include transition(all .3s);
+    color: $base-font-color;
+    cursor: pointer;
+    -moz-osx-font-smoothing: grayscale;
+
+    &:focus,
+    &:active,
+    &:hover {
+        color: $base-font-color;
+        opacity: .9;
+    }
+}
+
+.color-link {
+    color: $call-to-action-background-color;
+    text-decoration: underline;
+    font-weight: $fw-bold;
+
+    &:hover {
+        color: $call-to-action-background-color;
+    }
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.no-margin {
+    margin: 0 !important;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.no-padding-top-bottom {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.no-display {
+    display: none;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+i {
+    display: block;
+}
+
+.example-image {
+    margin: .65em 0;
+}
+
+.refills-wrapper {
+    @include outer-container;
+}
+
+.iframe-wrapper {
+    @include display(flex);
+    width: $iframe-width;
+    min-height: $iframe-min-height;
+
+    iframe {
+        border: 0;
+        width: 100%;
+        height: auto;
+    }
+}
+
+.outer-container {
+    @include outer-container;
+    padding: 1em;
+    width: 100%;
+
+    @include media($small-screen-down) {
+        padding-top: 0;
+    }
+
+    &.breadcrumbs-wrapper {
+        display: none;
+    }
+}
+
+.inner-container {
+    @include inner-container;
+    padding: 0;
+
+    @include media($medium-screen-up) {
+        padding: 1em;
+
+        &.breadcrumbs-wrapper {
+            padding: 0 1em;
+        }
+    }
+}
+
+.cms-index-index {
+    .main-container {
+        @include clearfix;
+    }
+}
+
+.full_width {
+    .store-switcher {
+        margin: 0;
+    }
+}
+
+.badge {
+    display: inline-block;
+    padding: 0;
+    font-size: $badge-counter-font-size;
+    font-weight: $fw-bold;
+    color: $badge-counter-color;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-align: center;
+    background: $badge-bg-color;
+    border-radius: $badge-border-radius;
+    margin: 0 0 .25em .25em;
+    width: $badge-width;
+    height: $badge-height;
+    line-height: $badge-line-height;
+}
+
+.side-badge-block {
+    @include display(flex);
+    @include flex-direction(row-reverse);
+    @include align-items(center);
+
+    @include media($small-screen-down) {
+        @include justify-content(flex-end);
+    }
+}
+
+.action-badge {
+    @include size(19px);
+    @include transition(all .3s);
+    display: inline-block;
+    vertical-align: middle;
+    background: $info-badge-background-color;
+    position: relative;
+    border-radius: 10px;
+
+    &::after {
+        content: '';
+        position: absolute;
+    }
+
+    &:hover {
+        opacity: .8;
+        cursor: pointer;
+    }
+
+    &.info {
+        &::after {
+            @include sprite($sprite-i-icon);
+            left: 8px;
+            top: 4px;
+        }
+
+        &.light {
+            background: $info-badge-light-background-color;
+        }
+    }
+
+    &.info-small {
+        @include size(15px);
+
+        &::after {
+            @include sprite($sprite-i-icon-small);
+            left: 6px;
+            top: 2.5px;
+        }
+    }
+
+    &.edit {
+        background: $edit-badge-background-color;
+
+        &::after {
+            @include sprite($sprite-pencil-icon-white);
+            left: 5px;
+            top: 4px;
+        }
+    }
+}
+
+.bottom-container {
+    @include inner-container;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.text-block {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.nav-arrow {
+    display: inline-block;
+    vertical-align: middle;
+    width: 7px;
+    height: 7px;
+    border-left: 1px solid $white;
+    border-bottom: 1px solid $white;
+    position: relative;
+    bottom: 1px;
+
+    &.arrow-back {
+        transform: rotate(45deg);
+    }
+
+    &.arrow-next {
+        transform: rotate(225deg);
+        margin-top: -4px;
+    }
+
+    &.arrow-down {
+        transform: rotate(-45deg);
+        position: absolute;
+        bottom: 15px;
+        right: 10px;
+    }
+}
+
+.button {
+    position: relative;
+
+    .arrow-next {
+        @include position(absolute, 50% 10px null null);
+        margin-top: -3px;
+    }
+
+    .arrow-back {
+        @include position(absolute, 50% null null 10px);
+        margin-top: -3px;
+    }
+}
+
+.hamburger {
+    @include transition(transform .2s ease-in-out);
+    @include size(28px);
+    font-size: 30px;
+    line-height: 30px;
+    display: block;
+    float: left;
+    padding: 0;
+    margin: 1.15em .5em .6em;
+    cursor: pointer;
+    vertical-align: middle;
+    border: 0 none;
+    background: transparent;
+
+    // CLOSE/CANCEL/CROSS
+    &.hamburger-cancel.active {
+        .icon {
+            @include transform(scale(0));
+        }
+
+        &::before {
+            @include transform(translateY(.3em) rotate(135deg));
+
+            // Styling for iOS devices specifically
+            @supports (-webkit-overflow-scrolling: touch) {
+                @include transform(translateY(.325em) rotate(135deg));
+
+                // Target iPhone devices above plus models, up to Xs Max, specifically
+                @media only screen and (min-device-width: 375px) and (max-device-width: 414px) and (-webkit-device-pixel-ratio: 3) {
+                    @include transform(translateY(.295em) rotate(135deg));
+                }
+            }
+        }
+
+        &::after {
+            @include transform(translateY(-.23em) rotate(-135deg));
+
+            // Styling for iOS devices specifically
+            @supports (-webkit-overflow-scrolling: touch) {
+                @include transform(translateY(-.25em) rotate(-135deg));
+            }
+        }
+    }
+}
+
+//Button height fix for Firefox
+.hamburger::-moz-focus-inner {
+    padding: 0;
+    border: 0 none;
+}
+
+// Focus fix for Chrome
+.hamburger:focus {
+    outline: 0;
+}
+
+// Styling the icon
+.hamburger::before,
+.hamburger::after {
+    content: '';
+}
+
+.hamburger::before,
+.hamburger .icon,
+.hamburger::after {
+    @include transition(transform .2s ease-in-out);
+    display: block;
+    width: 85%;
+    height: .1em;
+    margin: 0 0 .18em .18em;
+    border-radius: .05em;
+    -moz-border-radius: .05em;
+    -webkit-border-radius: .05em;
+    background: $navigation-color;
+}
+
+// Styles for the active `.hamburger` icon
+.hamburger.active::before,
+.hamburger.active .icon,
+.hamburger.active::after {
+    background: $navigation-color;
+}
+
+@include media ($medium-screen-up) {
+    .align-left-tablet {
+        text-align: left;
+    }
+
+    .align-center-tablet {
+        text-align: center;
+    }
+
+    .align-right-tablet {
+        text-align: right;
+    }
+}
+
+.plus-sign {
+    @include size(9px);
+    display: inline-block;
+    position: relative;
+    margin-right: .75em;
+
+    &::before,
+    &::after {
+        content: '';
+        display: block;
+        background: $plus-sign-background;
+        position: absolute;
+    }
+
+    &::before {
+        height: 9px;
+        width: 1px;
+        left: 4px;
+    }
+
+    &::after {
+        height: 1px;
+        width: 9px;
+        top: 4px;
+    }
+}
+
+.gm-prevented {
+    overflow-x: hidden !important;
+    overflow-y: scroll !important;
+}
+
+.opacity-08 {
+    @include opacity(.8);
+}
+
+.bg-white {
+    background: $white;
+}
+
+.bg-body-color {
+    background: $base-background-color;
+}
+
+.bg-light-grey {
+    background: $grey-1;
+}
+
+.bg-cool-grey {
+    background: $cool-grey;
+}
+
+.bg-dark-grey {
+    background: $grey-4;
+
+    * {
+        color: $grey-background-text-color;
+    }
+}
+
+.bg-cool-grey,
+.bg-dark-grey {
+    * {
+        color: $grey-background-text-color;
+    }
+}
+
+.link-more {
+    position: relative;
+    color: $link-more-color;
+
+    &::before {
+        content: '';
+        display: inline-block;
+        // By using an em scale, the arrows will size with the font
+        width: .5em;
+        height: .5em;
+        border-right: .12em solid $link-more-color;
+        border-top: .12em solid $link-more-color;
+        transform: rotate(45deg);
+        margin-right: .5em;
+        position: relative;
+        top: -1px;
+    }
+
+    &:hover {
+        text-decoration: none;
+        color: $link-more-hover-color;
+
+        &::before {
+            border-color: $link-more-hover-color;
+        }
+    }
+}
+
+.close-icon {
+    @include transition(all .3s);
+    @include sprite($sprite-close);
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+
+    &:hover {
+        @include opacity(.8);
+    }
+}
+
+.menu-arrow {
+    @include size(0);
+    border-style: solid;
+    border-width: 0 16px 16px;
+    border-color: transparent transparent $menu-arrow-color;
+    position: absolute;
+    top: -15px;
+    right: 20px;
+}
+
+.bread-switch {
+    @include display(flex);
+    @include flex-direction(row);
+    padding: 0;
+
+    .breadcrumbs {
+        @include flex(1 0 65%);
+        margin: 0;
+    }
+
+    .store-switcher {
+        @include flex(1 0 auto);
+        margin: 0;
+        text-align: right;
+    }
+
+    .rockar-youdrive-index-index & {
+        @include inner-container;
+        padding: 1em;
+    }
+
+    .rockar-service-index-index & {
+        @include inner-container;
+        padding: 1em;
+    }
+}
+
+ul.with-bullets {
+    padding-left: 1em;
+
+    li {
+        list-style-type: disc;
+        padding-left: 1em;
+    }
+}
+
+$fontweights: 100 200 300 400 500 600 700 800 900;
+
+@each $weight in $fontweights {
+    .font-weight-#{$weight} {
+        font-weight: $weight;
+    }
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+input[type='text'],
+input[type='submit'],
+input[type='date'],
+input[type='datetime'],
+input[type='password'],
+input[type='email'],
+input[type='month'],
+input[type='number'],
+input[type='range'],
+input[type='search'],
+input[type='tel'],
+input[type='time'],
+input[type='url'],
+input[type='week'] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+}
+
+.text-bold {
+    font-weight: $fw-bold;
+}
+
+.disabled {
+    opacity: .7;
+}
+
+.animation {
+    transition: left .5s;
+}
+
+html {
+    div:not(.page-loader) {
+        transition: opacity .15s ease-in-out;
+    }
+
+    &.loading {
+        div {
+            opacity: 1;
+
+            &:not(.page-loader) {
+                opacity: 0;
+            }
+        }
+    }
+}
+
+.image-type-switcher {
+    position: absolute;
+    z-index: 10;
+    right: 0;
+
+    @include media($small-screen-down) {
+        left: 0;
+        right: auto;
+    }
+
+    .actions-wrapper {
+        text-align: right;
+        padding: 1em 1em 0 0;
+
+        @include media($small-screen-down) {
+            display: none;
+        }
+
+        button {
+            font: {
+                family: $pod-images-switcher-font;
+                size: $f-size-xxxxs;
+                weight: $fw-black;
+            };
+        }
+
+        &:not(.actions-wrapper-mobile) {
+            button {
+                letter-spacing: $base-letter-spacing;
+
+                &.active {
+                    color: $motorrad-white;
+
+                    &:hover {
+                        background: $motorrad-hover-grey;
+                    }
+                }
+
+                &:not(.active) {
+                    background: $white;
+                    color: $grey-3;
+                }
+            }
+        }
+
+        &.actions-wrapper-mobile {
+            display: block;
+            padding: .5em 0 0 1em;
+
+            @include media($medium-screen-up) {
+                display: none;
+            }
+
+            button {
+                letter-spacing: 1.7px;
+                padding: {
+                    left: 1em;
+                    right: 1em;
+                };
+            }
+        }
+    }
+}
+
+.share-product-mobile {
+    display: none;
+
+    @include media($small-screen-down) {
+        display: block;
+    }
+
+    position: absolute;
+    right: 0;
+    top: 20px;
+    margin-right: 20px;
+    z-index: 20;
+
+    .button-empty-dark {
+        background: none;
+        border: 0;
+        font-size: $f-size-xxxxs;
+        height: 40px;
+        color: $black;
+        font-weight: $motorrad-fw-900;
+        letter-spacing: 1px;
+        padding: 34px 0 0;
+        position: relative;
+
+        &:hover,
+        &:active {
+            background-color: transparent;
+            color: $black;
+        }
+
+        &::before {
+            @include pseudo();
+            @include sprite($sprite-wishlist-icon-non-selected);
+            top: 0;
+            right: 0;
+            left: 0;
+            margin: auto;
+        }
+
+        &.added-to-wishlist {
+            &::before {
+                @include sprite($sprite-wishlist-icon-selected);
+            }
+        }
+    }
+}

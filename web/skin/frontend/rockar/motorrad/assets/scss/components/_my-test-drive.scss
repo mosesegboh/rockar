@@ -1,0 +1,119 @@
+.my-test-drives {
+    .test-drive-location-picker {
+        border: 2px solid $motorrad-border-grey;
+        background: transparent;
+        height: 88px;
+    }
+
+    button {
+        &.button-edit {
+            border: none;
+
+            &::after {
+                content: none;
+            }
+        }
+
+        &.button-rebook {
+            border: none;
+        }
+
+        &.popup-cancel {
+            border: 1px solid $motorrad-dark-grey;
+        }
+    }
+
+    & .upcoming-test-drive {
+        .car-extras {
+            p {
+                display: inline;
+            }
+        }
+    }
+
+    .cancelled-test-drive,
+    .completed-test-drive,
+    .upcoming-test-drive {
+        .car-detail {
+            h4 {
+                margin-bottom: .25em;
+            }
+        }
+
+        .car-extras {
+            li {
+                p {
+                    font-size: $f-size-abs;
+                    color: $motorrad-text-color;
+                    display: inline;
+                }
+            }
+        }
+    }
+
+    .my-test-drives-mobile {
+        .hero-car {
+            .hero-content {
+                .hero-info {
+                    .hero-date {
+                        .h5 {
+                            font-size: $f-size-abs;
+                            color: $motorrad-text-color;
+                        }
+                    }
+
+                    .hero-title {
+                        .h5 {
+                            font-size: $f-size-xl;
+                            color: $dark-gray;
+                            font-weight: $motorrad-fw-bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    & .test-drive-requests {
+        padding: 0 0 1.9em;
+        margin-bottom: 1.9em;
+        border-bottom: 1px solid $my-account-horizontal-break-color;
+
+        & .upcoming-test-drive {
+            padding-top: 1.9em;
+            margin-top: 1.9em;
+            border-top: 1px solid $my-account-horizontal-break-color;
+
+            &:first-of-type {
+                padding-top: 0;
+                border: 0;
+            }
+        }
+    }
+
+    & &-mobile {
+        & .hero-buttons {
+            button {
+                margin-bottom: 6px;
+
+                &.button-narrow {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
+            & .popup {
+                &.confirmation-popup {
+                    & .popup-content {
+                        button {
+                            &.button-narrow {
+                                padding: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

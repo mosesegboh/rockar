@@ -1,0 +1,44 @@
+.substep-1 {
+    .px-bottom {
+        .dsp2-money {
+            margin-bottom: 10px;
+
+            @include media($large-screen-up) {
+                margin: 0;
+            }
+        }
+
+        @include media($medium-screen-down) {
+            @include display(flex);
+            @include flex-direction(column-reverse);
+        }
+    }
+
+    hr {
+        display: none;
+
+        @include media($medium-screen-up) {
+            display: block;
+        }
+    }
+
+    .px-car-info {
+        margin: 0 0 10px;
+
+        @include media($medium-screen-up) {
+            margin: unset;
+            display: block;
+        }
+    }
+
+    .px-popup-info-block {
+        p {
+            font-size: $dsp2-f-size-xs;
+            line-height: $dsp2-line-h-16;
+
+            @include media($medium-screen-up) {
+                font-size: initial;
+            }
+        }
+    }
+}

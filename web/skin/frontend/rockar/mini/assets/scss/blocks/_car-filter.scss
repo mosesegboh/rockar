@@ -1,0 +1,11 @@
+.car-filter-step {
+    .category-products {
+        @include media($small-screen-down) {
+            overflow-x: unset;
+        }
+    }
+}
+
+.car-filter {
+    @import './car-filter/item';
+}

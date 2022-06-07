@@ -1,0 +1,139 @@
+.customer-account-index {
+    .my-account {
+        .my-part-exchange {
+            @include media($small-screen-down) {
+                padding: 0;
+            }
+
+            .trade-in-get-started {
+                font-size: $dsp2-f-size-s;
+            }
+
+            hr {
+                &:first-of-type {
+                    display: none;
+                }
+            }
+
+            .px-saved-estimated {
+                padding: 13px 0 0;
+
+                .dsp2-caption {
+                    font-size: $dsp2-f-size-s;
+                }
+
+                &.my-account {
+                    padding: 5px 0 10px;
+                    border-bottom: 1px solid $c-grey-5;
+
+                    .px-value {
+                        font-family: $bmw-bold;
+                        font-size: $dsp2-f-size-s;
+                        color: $c-grey;
+                    }
+
+                    p {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+
+        .accordion-group {
+            > .row {
+                &.part-exchange {
+                    .accordion {
+                        @include media($small-screen-down) {
+                            border: none;
+                        }
+
+                        .is-expanded {
+                            @include media($small-screen-down) {
+                                padding: 0 0 20px;
+                                background-color: $c-grey-11;
+                            }
+                        }
+
+                        li {
+                            > ul {
+                                &.submenu {
+                                    @include media($small-screen-down) {
+                                        margin: 0;
+
+                                        .my-part-exchange {
+                                            margin: 5px 0 0;
+
+                                            .trade-in-block-wrapper {
+                                                padding: 15px;
+                                                border-top: none;
+                                                box-shadow: 0 15px 20px -12px rgba(0, 0, 0, .15);
+
+                                                .h7 {
+                                                    display: none;
+                                                }
+
+                                                .px-saved {
+                                                    margin: 0;
+
+                                                    .px-saved-title {
+                                                        float: right;
+                                                    }
+
+                                                    .dsp2-body-s {
+                                                        font-size: $dsp2-f-size-xs;
+                                                        max-width: 200px;
+                                                    }
+
+                                                    .px-saved-estimated {
+                                                        padding: 10px 0 0;
+
+                                                        .dsp2-caption {
+                                                            font-size: $dsp2-f-size-xs;
+                                                        }
+
+                                                        &.my-account {
+                                                            .px-value {
+                                                                font-size: $dsp2-f-size-xs;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .px-popup-content {
+        .selectbox-select {
+            font-family: $bmw-light;
+        }
+
+        hr {
+            border-color: $c-grey-5;
+        }
+    }
+
+    .my-part-exchange {
+        hr {
+            border-color: $c-grey-5;
+        }
+    }
+
+    @include media($small-screen-down) {
+        .px-popup-wrapper {
+            .px-close {
+                top: 71px;
+                right: 26px;
+                position: fixed;
+                z-index: 201;
+            }
+        }
+    }
+}

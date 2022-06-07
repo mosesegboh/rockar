@@ -1,0 +1,93 @@
+.get-quote {
+    .actions-wrapper {
+        margin-right: 12px;
+
+        button {
+            background: transparent;
+            border: 0;
+            padding: 0;
+        }
+
+        .get-quote-icon-button {
+            margin: 3px 0 0;
+            display: inline-block;
+            font-size: $f-size-xxxs;
+            font-family: $primary-font-family;
+            text-transform: none;
+            letter-spacing: 1px;
+            color: $black;
+        }
+    }
+
+    .popup-content {
+        .get-quote-popup,
+        .get-quote-popup-success,
+        .get-quote-popup-failure {
+            .row {
+                border: 0;
+
+                &:last-of-type {
+                    border: 0;
+                }
+
+                &.actions-row {
+                    .button {
+                        display: block;
+                        margin: 0 0 0 auto;
+                        text-align: center;
+                    }
+
+                    a.button {
+                        line-height: 2em;
+                    }
+                }
+            }
+        }
+
+        .my-account-link {
+            color: $action-color;
+        }
+    }
+}
+
+.category-products-list {
+    .category-products-list-item {
+        .pod-content {
+            .get-quote {
+                .popup-content {
+                    .get-quote-popup, .get-quote-popup-success {
+                        div {
+                            width: 100%;
+                            border: 0;
+
+                            &.actions-row {
+                                height: 100%;
+                            }
+
+                            p {
+                                font-size: $base-font-size;
+                                color: $base-font-color;
+                                font-family: $primary-font-family;
+                                letter-spacing: $base-letter-spacing;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+} 
+
+.get-quote-cta-icon {
+    &::before {
+        @include sprite($sprite-get-quote);
+
+        content: '';
+        margin: 0 auto 6px;
+        display: block;
+    }
+
+    @include media($medium-screen-down) {
+        font-size: $f-size-5xs;
+    }
+}

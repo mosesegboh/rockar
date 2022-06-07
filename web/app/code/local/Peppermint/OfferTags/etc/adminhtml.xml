@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_OfferTags
+ * @author    Jevgenijs Goreliks <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <menu>
+        <promo>
+            <children>
+                <peppermint_offertags translate="title" module="peppermint_offertags">
+                    <title>Offer Tags</title>
+                    <sort_order>1010</sort_order>
+                    <children>
+                        <manage_offertags translate="title" module="peppermint_offertags">
+                            <title>Manage Offer Tags</title>
+                            <action>adminhtml/offerTags</action>
+                            <sort_order>0</sort_order>
+                        </manage_offertags>
+                        <manage_offertagrules translate="title" module="peppermint_offertags">
+                            <title>Manage Offer Tag Rules</title>
+                            <action>adminhtml/offerTagRules</action>
+                            <sort_order>1</sort_order>
+                        </manage_offertagrules>
+                    </children>
+                </peppermint_offertags>
+            </children>
+        </promo>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <promo>
+                        <children>
+                            <peppermint_offertags translate="title">
+                                <title>Offer Tags</title>
+                                <children>
+                                    <manage_offertags translate="title">
+                                        <title>Manage Offer Tags</title>
+                                    </manage_offertags>
+                                    <manage_offertagrules translate="title">
+                                        <title>Manage Offer Tag Rules</title>
+                                    </manage_offertagrules>
+                                </children>
+                            </peppermint_offertags>
+                        </children>
+                    </promo>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

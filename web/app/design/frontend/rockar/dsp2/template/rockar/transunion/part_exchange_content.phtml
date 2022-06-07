@@ -1,0 +1,20 @@
+<?php
+/**
+ * @category    design
+ * @package     rockar_bmw2
+ * @author      Ketevani Revazishvili <techteam@rockar.com>
+ * @copyright   Copyright (c) 2021 Rockar, Ltd (http://rockar.com)
+ */
+?>
+
+<div class="my-part-exchange">
+    <app-part-exchange-block
+        v-ref:part-exchange-block
+        est-value-disclaimer='<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('est_value_disclaimer')->toHtml(); ?>'
+        expire-date="<?php echo htmlentities(Mage::helper('peppermint_partexchange')->getExpireDate()); ?>"
+        :temp-px="<?php echo Mage::helper('peppermint_partexchange')->getTemporaryPartExchangeJson(); ?>"
+        :saved-px="<?php echo Mage::helper('financing_options')->getCustomerPartExchange(); ?>"
+        :is-px-removed="<?php echo Mage::helper('peppermint_partexchange')->getPxCurrentState(); ?>"
+        :is-expired="<?php echo Mage::helper('peppermint_partexchange')->getIsExpiredPartExchange() ? 'true' : 'false'; ?>"
+    ></app-part-exchange-block>
+</div>

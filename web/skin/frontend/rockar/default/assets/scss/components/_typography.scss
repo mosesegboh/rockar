@@ -1,0 +1,127 @@
+.h1, .h2, .h3, .h4, .h5, .h6,
+h1, h2, h3, h4, h5, h6 {
+    font-family: $base-font-family;
+    font-weight: $heading-font-weight;
+    color: $heading-color;
+    text-transform: $heading-text-transform;
+    margin: 0 0 0.8em 0;
+    padding: 0;
+
+    &.white {
+        color: $white;
+    }
+
+    &.center {
+        text-align: center;
+    }
+
+    &.left {
+        text-align: left;
+    }
+
+    &.right {
+        text-align: right;
+    }
+
+    &.gray {
+        color: $light-cool-grey;
+    }
+
+    &.dove-gray {
+        color: $dove-grey;
+    }
+
+    .bg-cool-grey & {
+        color: $grey-background-text-color;
+    }
+}
+
+.h1,
+h1 {
+    @include renderHeading($h1-mobile-font-size, $h1-font-size, $h1-mobile-brand-font-size, $h1-brand-font-size);
+    text-transform: uppercase;
+
+    .shared-homepage & {
+        font-family: $shared-homepage-heading;
+        font-size: $h1-shared-homepage-font-size;
+        text-transform: none;
+        font-weight: $fw-normal;
+    }
+}
+
+.h2,
+h2 {
+    @include renderHeading($h2-mobile-font-size, $h2-font-size, $h2-mobile-brand-font-size, $h2-brand-font-size);
+    text-transform: uppercase;
+}
+
+.h3,
+h3 {
+    @include renderHeading($h3-mobile-font-size, $h3-font-size, $h3-mobile-brand-font-size, $h3-brand-font-size);
+    text-transform: uppercase;
+}
+
+.h4,
+h4 {
+    @include renderHeading($h4-mobile-font-size, $h4-font-size, $h4-mobile-brand-font-size, $h4-brand-font-size);
+    font-family: $base-font-family;
+    text-transform: uppercase;
+}
+
+.h5,
+h5 {
+    @include renderHeading($h5-mobile-font-size, $h5-font-size, $h5-mobile-brand-font-size, $h5-brand-font-size);
+    font-family: $base-font-family;
+}
+
+.h6,
+h6 {
+    @include renderHeading($h6-mobile-font-size, $h6-font-size, $h6-mobile-brand-font-size, $h6-brand-font-size);
+}
+
+// Common heading
+.h-common {
+    text-transform: uppercase;
+    font-size: $f-size-xxl;
+    font-family: $base-font-family;
+    font-weight: $h-common-fw;
+    margin: 0;
+    padding: 0;
+
+    &.h-small {
+        font-size: $f-size;
+    }
+
+    &.h-tiny {
+        font-size: $f-size-xs;
+    }
+
+    &.h-heavy {
+        font-weight: $h-common-heavy-fw;
+    }
+}
+
+.payment-amount {
+    margin: 0;
+    color: $payment-amount-color;
+    font-weight: $fw-medium;
+    font-size: $f-size-xxl;
+    line-height: $f-size-xxl;
+}
+
+.payment-label {
+    margin: 0;
+    font-size: $f-size-xs;
+    line-height: $f-size-xs;
+    color: $payment-label-color;
+}
+
+.font-brand {
+    font-family: $base-font-family !important;
+}
+
+.action-text {
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-size: $f-size-s;
+}

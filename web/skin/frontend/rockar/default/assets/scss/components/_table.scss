@@ -1,0 +1,172 @@
+@mixin mobileTable {
+    border-bottom: 1px solid $table-mobile-border;
+    display: block;
+
+    & > thead, & > tbody, & > thead > tr, & > tbody > tr,
+    & > thead > tr > th, & > thead > tr > td,
+    & > tbody > tr > th, & > tbody > tr > td {
+        background: transparent;
+        display: block;
+        font-weight: $fw-normal;
+        text-align: left;
+        vertical-align: top;
+        border: 0;
+
+        &.center {
+            text-align: left;
+        }
+    }
+
+    & > thead {
+        display: none;
+    }
+
+    & > tbody {
+        & > tr {
+            background: $table-mobile-tr-bg;
+            border-top: 1px solid $table-mobile-border;
+
+            & > td[aria-label], & > th[aria-label] {
+                box-sizing: border-box;
+                padding: 9px 10px 9px 50%;
+                position: relative;
+
+                &:before {
+                    content: attr(aria-label);
+                    display: block;
+                    font-size: inherit;
+                    font-weight: $fw-normal;
+                    line-height: inherit;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    right: 50%;
+                    padding: 9px 10px;
+                }
+            }
+
+            &.odd {
+                background: $table-mobile-bg;
+            }
+        }
+    }
+}
+
+.table-responsive {
+    width: 100%;
+    @include media($small-screen-down)  {
+        @include mobileTable;
+    }
+}
+
+.table,
+.data-table {
+    width: 100%;
+    max-width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+
+    th {
+        text-align: left;
+        padding: 17px 10px;
+        background: transparent;
+        font-size: $table-font-size;
+        font-weight: $fw-medium;
+        border-top: 1px solid $table-border-color2;
+        border-bottom: 1px solid $table-border-color2;
+
+        &:first-child {
+            border-left: none;
+            background: $table-bg-color;
+        }
+
+        &.options {
+            width: 1%;
+        }
+
+        &.center {
+            text-align: center;
+        }
+    }
+
+    td {
+        padding: 17px 10px;
+        font-size: $table-font-size;
+        background: transparent;
+        font-weight: $fw-book;
+        border-bottom: 0;
+        word-break: break-all;
+
+        &:first-child {
+            border-left: none;
+            background: $table-bg-color;
+        }
+
+        span.table-right {
+            float: right;
+        }
+
+        span.table-bold {
+            font-weight: $fw-bold;
+        }
+
+        &.center {
+            text-align: center;
+        }
+
+        @include media($small-screen-down) {
+            padding: 10px;
+        }
+    }
+}
+
+.table-mono {
+    tr {
+        border-bottom: 1px solid $white;
+        td {
+            &:first-child {
+                background: $table-bg-color;
+            }
+        }
+
+        &:last-child {
+            border-bottom: 0;
+        }
+    }
+}
+
+.table-borderless {
+    th {
+        border-color: transparent;
+        border-bottom-color: $table-border-color;
+    }
+
+    td {
+        border: 0;
+    }
+
+    .order-label {
+        font-weight: $fw-bold;
+        text-transform: uppercase;
+    }
+}
+
+.table-zebra {
+    td {
+        background: transparent;
+
+        &:first-child {
+            background: transparent;
+        }
+    }
+
+    tr:nth-child(even) {
+        td {
+            background: $table-zebra-bg;
+
+            &:first-child {
+                background: $table-zebra-bg;
+            }
+        }
+    }
+}

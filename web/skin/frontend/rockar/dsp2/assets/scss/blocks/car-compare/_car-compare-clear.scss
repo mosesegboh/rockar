@@ -1,0 +1,17 @@
+.clear {
+    position: absolute;
+    font-size: $dsp2-f-size-xxs;
+    font-family: $bmw;
+    letter-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    border-bottom: 2px solid;
+
+    @include media($medium-screen-up) {
+        font-size: $dsp2-f-size-xs;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}

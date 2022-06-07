@@ -1,0 +1,19 @@
+.customer-account-index {
+    .my-account {
+        .my-part-exchange {
+            .trade-in-get-started {
+                line-height: $dsp2-line-h-16;
+            }
+
+            .px-saved-estimated {
+                &.my-account {
+                    .px-value {
+                        color: $black;
+                        font-family: $mini-sans-serif-bold;
+                        font-size: $dsp2-f-size-s;
+                    }
+                }
+            }
+        }
+    }
+}

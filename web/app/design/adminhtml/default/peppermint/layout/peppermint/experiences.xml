@@ -1,0 +1,66 @@
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Experiences
+ * @author    Jevgenijs Goreliks <techteam@rockar.com>
+ * @copyright Copyright (c) 2021 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<layout>
+    <adminhtml_experiences_index>
+        <reference name="content">
+            <block type="peppermint_experiences/adminhtml_experiences" name="experiences"/>
+        </reference>
+    </adminhtml_experiences_index>
+    <adminhtml_experiences_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="peppermint_experiences/adminhtml_experiences_grid" name="experiences.grid"/>
+        </block>
+    </adminhtml_experiences_grid>
+    <adminhtml_experiences_edit>
+        <reference name="content">
+            <block type="peppermint_experiences/adminhtml_experiences_edit" name="experiences_edit"/>
+        </reference>
+    </adminhtml_experiences_edit>
+    <adminhtml_experiencesrules_index>
+        <reference name="content">
+            <block type="peppermint_experiences/adminhtml_experiencesRules" name="experiencesrules"/>
+        </reference>
+    </adminhtml_experiencesrules_index>
+    <adminhtml_experiencesrules_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="peppermint_experiences/adminhtml_experiencesRules_grid" name="experiencesrules.grid"/>
+        </block>
+    </adminhtml_experiencesrules_grid>
+    <adminhtml_experiencesrules_edit>
+        <reference name="head">
+            <action method="setCanLoadExtJs"><flag>1</flag></action>
+            <action method="setCanLoadRulesJs"><flag>1</flag></action>
+        </reference>
+        <reference name="left">
+            <block type="peppermint_experiences/adminhtml_experiencesRules_edit_tabs" name="experiencesrules_edit_tabs">
+                <block type="peppermint_experiences/adminhtml_experiencesRules_edit_tab_main" name="experiencesRules_edit_tab_main"/>
+                <block type="peppermint_experiences/adminhtml_experiencesRules_edit_tab_conditions" name="experiencesRules_edit_tab_conditions"/>
+                <block type="peppermint_experiences/adminhtml_experiencesRules_edit_tab_actions" name="experiencesRules_edit_tab_actions"/>
+                <block type="peppermint_experiences/adminhtml_experiencesRules_edit_tab_coupons" name="experiencesRules_edit_tab_coupons">
+                    <block type="peppermint_experiences/adminhtml_experiencesRules_edit_tab_coupons_form" name="experiencesRules_edit_tab_coupons_form"/>
+                    <block type="peppermint_experiences/adminhtml_experiencesRules_edit_tab_coupons_grid" name="experiencesRules_edit_tab_coupons_grid"/>
+                </block>
+
+                <action method="addTab"><name>main_section</name><block>experiencesRules_edit_tab_main</block></action>
+                <action method="addTab"><name>conditions_section</name><block>experiencesRules_edit_tab_conditions</block></action>
+                <action method="addTab"><name>actions_section</name><block>experiencesRules_edit_tab_actions</block></action>
+                <action method="addTab"><name>coupons_section</name><block>experiencesRules_edit_tab_coupons</block></action>
+            </block>
+            <block type="adminhtml/template" template="peppermint/experiences/rulejs.phtml" name="peppermint_experiences_edit_jsinit"/>
+        </reference>
+        <reference name="content">
+            <block type="peppermint_experiences/adminhtml_experiencesRules_edit" name="experiencesrules"/>
+        </reference>
+    </adminhtml_experiencesrules_edit>
+    <adminhtml_experiencesrules_couponsgrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="peppermint_experiences/adminhtml_experiencesRules_edit_tab_coupons_grid" name="experiencesRules_edit_tab_coupons_grid" />
+        </block>
+    </adminhtml_experiencesrules_couponsgrid>
+</layout>

@@ -1,0 +1,44 @@
+// //Then Jaguar font is necessary on landrover ONLY for the in store homepage
+// $jaguar: 'Jaguar', Arial, sans-serif;
+//
+// $jaguar-collection: otf;
+//
+// // Jaguar font family
+// // Normal
+// @include font-face('Jaguar', '../../default2/fonts/jaguar/Jaguar-Regular', $fw-normal, normal, false, $jaguar-collection);
+// // Bold
+// @include font-face('Jaguar', '../../default2/fonts/jaguar/Jaguar-Bold', $fw-bold, normal, false, $jaguar-collection);
+// // Black
+// @include font-face('Jaguar', '../../default2/fonts/jaguar/Jaguar-ExtraBold', $fw-black, normal, false, $jaguar-collection);
+
+//Then MINI font is necessary on MINI ONLY for the in store homepage
+$mini: 'MINISansSerif-Regular', Arial, sans-serif;
+$mini_heading: 'MINISerif-Headline', Arial, sans-serif;
+
+$mini-collection: otf;
+
+$fw-hairline: 100;
+$fw-light: 200;
+$fw-book: 300;
+$fw-normal: 400;
+$fw-medium: 500;
+$fw-semibold: 600;
+$fw-bold: 700;
+$fw-heavy: 800;
+$fw-black: 900;
+$fw-normal: normal;
+
+// MINI font family
+// Normal
+@include font-face('MINISansSerif-Regular', '../../mini/fonts/MINI/MINISansSerif-Regular', $fw-black, normal, $mini-collection );
+// Bold
+@include font-face('MINI', '../../mini/fonts/MINI/MINISansSerif-Bold', $fw-bold,  normal, $mini-collection );
+
+// Black
+@include font-face('MINI', '../../mini/fonts/MINI/MINISerif-Regular', $fw-black, normal, $mini-collection );
+// Headline
+@include font-face('MINISerif-Headline', '../../mini/fonts/MINI/MINISerif-Headline', $fw-bold, normal, $mini-collection );
+// Bold
+@include font-face('MINI', '../../mini/fonts/MINI/MINISerif-Bold', $fw-bold, normal, $mini-collection );
+// Medium
+@include font-face('MINI', '../../mini/fonts/MINI/MINISerif-Medium', $fw-medium,  normal, $mini-collection );

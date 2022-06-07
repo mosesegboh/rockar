@@ -1,0 +1,202 @@
+.popup {
+    &.finance-filters-overlay {
+        .tabs {
+            section {
+                font-family: $motorrad-regular;
+                color: $black;
+
+                &.active {
+                    @include media($medium-screen-up) {
+                        box-shadow: inset 0 3px 0 0 $black;
+                        font-family: $motorrad-bold;
+                        color: $black;
+                    }
+                }
+            }
+        }
+
+        .content-container {
+            .content {
+                @include media($medium-screen-up) {
+                    position: relative;
+                }
+
+                .ffo-header {
+                    @include media($medium-screen-up) {
+                       padding-bottom: 70px;
+                    }
+
+                    h3 {
+                        font-family: $motorrad-regular;
+                        color: $c-motorrad-blue;
+
+                        &::before {
+                            @include media($small-screen-down) {
+                                content: '';
+                                background-image: url('../images/svg/icon-plus-black.svg');
+                                transform: none;
+                                border: none;
+                                top: 15px;
+                                left: 0;
+                                width: 11px;
+                                height: 11px;
+                            }
+                        }
+
+                        @include media($medium-screen-up) {
+                            font-family: $motorrad-bold;
+                            margin-left: -450px;
+                            transform: translateX(450px);
+                            color: $black;
+                        }
+                    }
+
+                    &.show {
+                        ol {
+                            @include media($small-screen-down) {
+                                display: block;
+                            }
+                        }
+                    }
+
+                    p {
+                        font-family: $motorrad-regular;
+                        color: $black;
+                        line-height: $dsp2-line-h-14;
+                        padding: 0;
+
+                        @include media($medium-screen-up) {
+                            line-height: $motorrad-line-h-22;
+                        }
+                    }
+
+                    ol {
+                        list-style-type: none;
+                        font-family: $motorrad-regular;
+                        font-size: $dsp2-f-size-xs;
+                        line-height: $dsp2-line-h-14;
+                        padding-left: 0;
+                        color: $black;
+                        display: none;
+
+                        @include media($medium-screen-up) {
+                            list-style-type: auto;
+                            font-size: $dsp2-f-size-s;
+                            line-height: $motorrad-line-h-22;
+                            padding-left: 15px;
+                            display: block;
+                        }
+
+                        li {
+                            color: $black;
+                            padding-bottom: 15px;
+
+                            @include media($medium-screen-up) {
+                                padding-bottom: 0;
+                            }
+                        }
+                    }
+                }
+
+                .ffo-video {
+                    top: unset;
+                    bottom: 0;
+                    color: $c-motorrad-blue;
+
+                    @include media($medium-screen-up) {
+                        position: absolute;
+                    }
+
+                    > span {
+                        color: $c-motorrad-blue;
+                        border-bottom: none;
+                        text-decoration: none;
+                        font-family: $motorrad-regular;
+                        font-size: $dsp2-f-size;
+                        line-height: $motorrad-line-h-26;
+
+                        &::before {
+                            content: none;
+                        }
+                    }
+
+                    &::before {
+                        content: '';
+                        display: inline-block;
+                        background-image: url('../images/svg/icon-video.svg');
+                        background-repeat: no-repeat;
+                        @include size(16px);
+                        position: relative;
+                        left: 0;
+                        top: 5px;
+                    }
+                }
+            }
+
+            .options-container {
+                input[type=text] {
+                    &.keyboard-numbers {
+                        &:read-only {
+                            background: transparent;
+                            border: none;
+                        }
+                    }
+                }
+
+                .finance-filter-slider-wrapper {
+                    .finance-filter-slider-input {
+                        input {
+                            padding: 7px 0;
+                            text-align: center;
+
+                            @include media($small-screen-down) {
+                                font-size: $dsp2-f-size;
+                            }
+                        }
+                    }
+                }
+
+                .finance-filter-slider {
+                    .finance-filter-slider-input {
+                        .finance-filter-slider-input-wrapper {
+                            input {
+                                padding: 7px 0;
+                                text-align: center;
+
+                                @include media($small-screen-down) {
+                                    font-size: $dsp2-f-size;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .field-title {
+                    font-family: $motorrad-regular;
+
+                    @include media($small-screen-down) {
+                        font-size: $dsp2-f-size;
+                    }
+                }
+            }
+        }
+
+        .continue-container {
+            @include media($small-screen-down) {
+                box-shadow: 0 -4px 20px rgba(0, 0, 0, .15);
+            }
+
+            .dsp2-money {
+                @include media($small-screen-down) {
+                    max-width: calc(100% - 72px);
+                }
+            }
+        }
+
+        .popup-content {
+            @include media($small-screen-down) {
+                padding: 0 26px 40px;
+            }
+        }
+    }
+}

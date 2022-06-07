@@ -1,0 +1,36 @@
+.applied-filters {
+  width: 100%;
+  margin: 0 17px;
+
+  .title {
+    font-size: $dsp2-f-size-xs;
+    margin: 8px 0 0;
+  }
+
+  ul {
+    margin: 2px 0;
+
+    li {
+      float: left;
+      border-radius: 18px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+      margin: 0 10px 10px 0;
+
+      div {
+        @include display(flex);
+        @include align-items(center);
+        @include align-content(center);
+        margin: 1px 10px;
+
+        span {
+          font-size: $dsp2-f-size-xs;
+          line-height: $dsp2-line-h-16;
+
+          &.icon-close-blue {
+            margin: 0 0 0 10px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+const exportArr = {};
+
+export {
+    exportArr
+}

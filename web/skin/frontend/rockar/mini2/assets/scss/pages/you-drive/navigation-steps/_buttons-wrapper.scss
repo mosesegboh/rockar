@@ -1,0 +1,13 @@
+&-buttons-wrapper {
+    .navigation-outer-container {
+        .step-back {
+            &::before {
+                @include media($small-screen-down) {
+                    @include sprite($sprite-nav-actions-back-dark);
+                    transform: none;
+                    border: 0;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,46 @@
+// Bourbon framework
+@import '../../../default2/framework/scss/framework';
+
+// Import CSS for JS plugins
+@import './plugins/pannellum';
+
+// Extended Mixins
+@import '../../../default2/assets/scss/mixin/extends';
+
+// Typography
+@import '../../../default2/assets/scss/utils/fonts';
+@import './utils/fonts';
+
+// Colors
+@import './utils/colors';
+
+// Sprites
+@import '../../../default2/assets/scss/utils/sprites';
+@import './utils/sprites';
+
+// Platform Variables
+@import '../../../default2/assets/scss/utils/variables';
+@import './utils/variables';
+
+// Framework and Platform variable extends
+@import '../../../default2/assets/scss/extends/variables';
+@import './extends/variables';
+
+// Grid
+@import './base/grid-settings';
+
+// Mixins
+@import '../../../default2/assets/scss/mixins';
+@import './mixins';
+
+// Core components
+@import '../../../default2/assets/scss/components';
+@import './components';
+
+// Core blocks
+@import '../../../default2/assets/scss/blocks';
+@import './blocks';
+
+// Core pages
+@import '../../../default2/assets/scss/pages';
+@import './pages';

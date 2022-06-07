@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint\Sales
+ * @author       Catalin Lungu <catalin.lungu@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_TemplateMailer>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Rockar_Sales />
+            </depends>
+        </Peppermint_TemplateMailer>
+    </modules>
+</config>

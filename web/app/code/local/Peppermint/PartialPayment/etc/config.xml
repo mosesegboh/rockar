@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint_PartialPayment
+ * @author       Razvan Zofota <razvan.zofota@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+*/
+-->
+<config>
+    <modules>
+        <Peppermint_PartialPayment>
+            <version>0.1.0</version>
+        </Peppermint_PartialPayment>
+    </modules>
+    <global>
+        <models>
+            <peppermint_partialpayment>
+                <class>Peppermint_PartialPayment_Model</class>
+            </peppermint_partialpayment>
+            <rockar_partialpayment>
+                <rewrite>
+                    <payment>Peppermint_PartialPayment_Model_Payment</payment>
+                    <observer>Peppermint_PartialPayment_Model_Observer</observer>
+                </rewrite>
+            </rockar_partialpayment>
+        </models>
+    </global>
+</config>

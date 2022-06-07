@@ -1,0 +1,118 @@
+.get-quote {
+    .popup-container {
+        .popup-button-close {
+            background-image: url('../images/svg/icon-close-black-2.svg');
+
+            @include media($medium-screen-down) {
+                right: 20px;
+            }
+        }
+
+        .popup-content {
+            padding: 30px 32px 50px;
+            min-height: auto;
+
+            @include media($medium-screen-down) {
+                padding: 52px 20px 30px;
+            }
+
+            .get-quote-popup,
+            .get-quote-popup-success,
+            .get-quote-popup-failure {
+                .modal-header {
+                    font-family: $mini-serif-bold;
+                    font-size: $dsp2-f-size-xxl;
+                    line-height: $mini-line-h-38;
+                    margin-bottom: 12px;
+                    text-transform: uppercase;
+
+                    @include media($medium-screen-down) {
+                        margin-bottom: 30px;
+                        font-size: $dsp2-f-size-l;
+                        line-height: $mini-line-h-22;
+                        padding-right: 0;
+                    }
+                }
+
+                .row {
+                    padding: 0;
+                    font-size: initial;
+
+                    > p {
+                        margin: 0;
+                        font-family: $mini-sans-serif-regular;
+                        font-size: $dsp2-f-size;
+                        line-height: $dsp2-line-h-24;
+
+                        @include media($medium-screen-down) {
+                            font-size: $dsp2-f-size-s;
+                            line-height: $dsp2-line-h-16;
+                        }
+
+                        .my-account-link {
+                            @include media($medium-screen-down) {
+                                font-size: $dsp2-f-size;
+                            }
+                        }
+                    }
+
+                    &.actions-row {
+                        padding-bottom: 0;
+                        margin: 35px 0 0;
+                        display: flex;
+                        justify-content: end;
+
+                        @include media($medium-screen-down) {
+                            margin: 17px 0 0;
+                        }
+
+                        .button {
+                            background: $c-mini-blue;
+                            color: $white;
+                            font-size: $dsp2-f-size;
+                            font-family: $mini-sans-serif-bold;
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.finance-quote-content {
+    .get-quote-cta-icon {
+        &:hover {
+            &::before {
+                filter: invert(1);
+            }
+        }
+    }
+}
+
+.category-products-list {
+    .category-products-list-item {
+        .pod-content {
+            .get-quote {
+                .popup-content {
+                    .get-quote-popup,
+                    .get-quote-popup-success {
+                        div {
+                            p {
+                                font-family: $mini-sans-serif-regular;
+                                font-size: $dsp2-f-size;
+                                line-height: $dsp2-line-h-24;
+                                color: $black;
+
+                                @include media($medium-screen-down) {
+                                    font-size: $dsp2-f-size-s;
+                                    line-height: $dsp2-line-h-16;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

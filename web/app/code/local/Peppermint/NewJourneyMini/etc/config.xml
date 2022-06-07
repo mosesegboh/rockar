@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_NewJourneyMini
+ * @author    Kalvis Ostrovskis <techteam@rockar.com>
+ * @copyright Copyright (c) 2021 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_NewJourneyMini>
+            <version>0.1.10</version>
+        </Peppermint_NewJourneyMini>
+    </modules>
+    <global>
+        <resources>
+            <peppermint_newjourneymini_setup>
+                <setup>
+                    <module>Peppermint_NewJourneyMini</module>
+                </setup>
+            </peppermint_newjourneymini_setup>
+        </resources>
+    </global>
+</config>

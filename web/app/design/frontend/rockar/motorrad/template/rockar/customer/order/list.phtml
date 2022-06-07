@@ -1,0 +1,106 @@
+<?php
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Customer
+ * @author    Igors Zhunins <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar Ltd (http://rockar.com)
+ */
+?>
+
+<div class="row my-orders-section">
+    <div class="col-12">
+        <app-accordion title="<?php echo $this->__('My Orders'); ?>" class-name="accordion-light" type="right-down">
+            <li>
+                <div class="accordion-content">
+                    <div class="my-account-wrapper my-part-exchange">
+                        <?php if (count($this->getAmendmentOrders()) > 0): ?>
+                            <div class="my-account-content">
+                                <?php foreach ($this->getAmendmentOrders() as $order): ?>
+                                    <?php $data = $this->getFinanceQuoteData($order); ?>
+                                    <?php if (!empty($data)): ?>
+                                        <div class="amendment-order-status">
+                                            <p class="title">
+                                                <?php echo $this->__($order->getIsAmendment() ? 'Amendment Pending' : 'Original Order') ?>
+                                            </p>
+                                        </div>
+                                        <app-my-orders
+                                            messages-ajax='<?php echo $this->getUrl('rockar_sales/messages/mark'); ?>'
+                                            notification-count-ajax='<?php echo $this->getUrl('rockar_sales/messages/notificationcount'); ?>'
+                                            :car='<?php echo $this->getCarDetailsJson($order) ?>'
+                                            :order='<?php echo $this->getOrderDetailsJson($order) ?>'
+                                            :statuses='<?php echo $this->getOrderStatusesJson($order) ?>'
+                                            :next-steps='<?php echo $this->getNextStepsJson($order) ?>'
+                                            :is-in-store="<?php echo Mage::helper('rockar_all')->checkIsInStore() ? 'true' : 'false' ?>"
+                                            :car-options='<?php echo $this->getCarOptionsJson($order) ?>'
+                                            steps-update-url='<?php echo $this->getUrl('rockar_nextsteps/ajax/check'); ?>'
+                                            <?php if ($partExchange = $this->getPartExchangeJson($order)): ?>
+                                                :part-exchange='<?php echo $this->getPartExchangeJson($order); ?>'
+                                            <?php endif; ?>
+                                            :payment='<?php echo $this->getPaymentJson($order) ?>'
+                                            :messages='<?php echo $this->getOrderComments($order); ?>'
+                                            :product-id='<?php echo $data['product_id'];?>'
+                                            finance-url='<?php echo $data['finance_url']; ?>'
+                                            :finance-params='<?php echo $data['finance_params'];?>'
+                                            :finance-saved-data='<?php echo $data['finance_saved_data'];?>'
+                                            :finance-slider-steps='<?php echo $data['finance_slider_steps'];?>'
+                                            :pay-in-full-payment='<?php echo $data['pay_in_full_payment'];?>'
+                                            :hire-payments='<?php echo $data['hire_payments'] ?>'
+                                            :active-payment='<?php echo $data['active_payment'];?>'
+                                            payment-save-url='<?php echo $data['payment_save_url']; ?>'
+                                            calc-type='<?php echo Rockar_FinancingOptions_Model_Calculation_Type_Abstract::CALC_TYPE_ORDER ?>'
+                                            :hidden-sections='<?php echo $this->getHiddenAmendmentSections() ?>'
+                                            amendment-resolve-url='<?php echo $this->getUrl('rockar_customer/amendment/resolve') ?>'
+                                            :amendment-actions='<?php echo $this->getAmendmentActionsJson() ?>'
+                                        ></app-my-orders>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if (count($this->getOrders()) > 0): ?>
+                            <div class="my-account-header">
+                                <p class="my-account-heading h-common"><?php echo $this->__('My Orders'); ?></p>
+                            </div>
+                            <div class="my-account-content">
+                                <?php foreach ($this->getOrders() as $order): ?>
+                                    <?php $data = $this->getFinanceQuoteData($order); ?>
+                                    <?php if (!empty($data)): ?>
+                                        <app-my-orders
+                                            messages-ajax='<?php echo $this->getUrl('rockar_sales/messages/mark'); ?>'
+                                            notification-count-ajax='<?php echo $this->getUrl('rockar_sales/messages/notificationcount'); ?>'
+                                            :car='<?php echo $this->getCarDetailsJson($order) ?>'
+                                            :order='<?php echo $this->getOrderDetailsJson($order) ?>'
+                                            :statuses='<?php echo $this->getOrderStatusesJson($order) ?>'
+                                            :next-steps='<?php echo $this->getNextStepsJson($order) ?>'
+                                            :is-in-store="<?php echo Mage::helper('rockar_all')->checkIsInStore() ? 'true' : 'false' ?>"
+                                            :car-options='<?php echo $this->getCarOptionsJson($order) ?>'
+                                            steps-update-url='<?php echo $this->getUrl('rockar_nextsteps/ajax/check'); ?>'
+                                            <?php if ($partExchange = $this->getPartExchangeJson($order)): ?>
+                                                :part-exchange='<?php echo $this->getPartExchangeJson($order); ?>'
+                                            <?php endif; ?>
+                                            <?php if ($this->isPendingAmendment($order)): ?>
+                                                :hidden-sections='<?php echo $this->getHiddenAmendmentSections() ?>'
+                                            <?php endif; ?>
+                                            :payment='<?php echo $this->getPaymentJson($order) ?>'
+                                            :messages='<?php echo $this->getOrderComments($order); ?>'
+                                            :product-id='<?php echo $data['product_id'];?>'
+                                            finance-url='<?php echo $data['finance_url']; ?>'
+                                            :finance-params='<?php echo $data['finance_params'];?>'
+                                            :finance-saved-data='<?php echo $data['finance_saved_data'];?>'
+                                            :finance-slider-steps='<?php echo $data['finance_slider_steps'];?>'
+                                            :pay-in-full-payment='<?php echo $data['pay_in_full_payment'];?>'
+                                            :hire-payments='<?php echo $data['hire_payments'] ?>'
+                                            :active-payment='<?php echo $data['active_payment'];?>'
+                                            payment-save-url='<?php echo $data['payment_save_url']; ?>'
+                                            calc-type='<?php echo Rockar_FinancingOptions_Model_Calculation_Type_Abstract::CALC_TYPE_ORDER ?>'
+                                        ></app-my-orders>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </li>
+        </app-accordion>
+    </div>
+</div>

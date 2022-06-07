@@ -1,0 +1,80 @@
+<?php
+/**
+ * @category  design
+ * @package   rockar_bmw
+ * @author    Sergejs Plisko <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+
+/**
+ * @var $this Rockar2_Catalog_Block_Product_List
+ */
+$modelAttribute = Mage::helper('rockar_all')->jsonEncode(Mage::helper('rockar_all')->getModelAttribute());
+$financeFilterSlider = $this->getChildHtml('finance_filter_slider');
+$learnMorePopup = $this->getChildHtml('car_finder_learn_more');
+$carFinderConfirmationPopup = $this->getLayout()->createBlock('cms/block')->setBlockId('car_finder_confirmation_popup')->toHtml();
+$wishlistHelper = Mage::helper('rockar_mysavedcars');
+$compareBlock = Mage::getBlockSingleton('rockar_compare/catalog_product_compare_list');
+$compareHelper = Mage::helper('peppermint_compare');
+$notifyMeHelper = Mage::helper('peppermint_notifyme');
+
+// Note: products-list and car-filters will be loaded with ajax,
+// so we are putting dummy values during initial page rendering
+?>
+<app-page-header
+    title="Search Available Stock"
+    page="carFinder"
+></app-page-header>
+<app-car-finder
+    :products-list='{ products: [], page: { totalCount: 0 } }'
+    :car-filters='<?php echo $this->getChild('car_finder_filters')->getChild('car_pods_filters')->getFiltersJson(); ?>'
+    :options='<?php echo $this->getCarFinderOptions(); ?>'
+    :compare='<?php echo Mage::helper('rockar_compare')->getCompareData() ?>'
+    :is-in-store-device='<?php echo Mage::helper('rockar_all')->checkIsInStore() && !Mage::helper('rockar_customer')->isRegisteredInStoreDevice() ? 'true' : 'false' ?>'
+    :part-exchange-additional='<?php echo Mage::helper('financing_options')->getAdditionalPartExchangeData() ?>'
+    :car-conditions='<?php echo Mage::helper('rockar_partexchange/filters')->getConditionsSliderInfo(true) ?>'
+    :additional-info='<?php echo Mage::helper('rockar_partexchange/filters')->getCheckboxesInfo(true) ?>'
+    :saved-px='<?php echo Mage::helper('financing_options')->getCustomerPartExchange() ?>'
+    :model-attribute='<?php echo $modelAttribute ?>'
+    current-saved-step='<?php echo Mage::helper('peppermint_carfinder')->getStepParamValue() ?>'
+    v-ref:car-finder
+>
+    <div slot="finance_filter_slider" class="vue-slot"><?php echo $financeFilterSlider ?></div>
+    <div slot="car_finder_learn_more" class="vue-slot"><?php echo $learnMorePopup ?></div>
+
+    <div class="car-finder-filters">
+        <div class="filters-wrapper">
+            <div class="finance-filters-wrapper">
+                <?php echo $this->getChildHtml('finance_filters'); ?>
+            </div>
+            <div class="model-filters-wrapper">
+                <div slot="model-filter-slot" class="vue-slot">
+                    <app-model-filter
+                        v-ref:model-filter
+                        :step-titles='<?php echo Mage::helper('rockar_all')->jsonEncode($this->getModelStepTitles()); ?>'
+                        :notify-me-enabled='<?php echo $notifyMeHelper->isEnabled() ? 'true' : 'false'; ?>'
+                        notify-me-url='<?php echo $notifyMeHelper->getNotifyMeUrl(); ?>'
+                    ></app-model-filter>
+                </div>
+            </div>
+        </div>
+        <?php echo $this->getChildHtml('car_finder_filters'); ?>
+    </div>
+
+    <div slot="car_finder_confirmation_popup" class="vue-slot"><?php echo $carFinderConfirmationPopup ?></div>
+</app-car-finder>
+<app-car-compare
+    :compare-data-prop="<?php echo htmlentities($compareBlock->getCompareDataJson()); ?>"
+    compare-data-url='<?php echo $compareHelper->getCompareDataUrl(); ?>'
+    customer-name='<?php echo $wishlistHelper->getCustomerName(); ?>'
+    my-account-url='<?php echo $compareBlock->getUrl('customer/account'); ?>'
+    :is-ajax-request='<?php echo Mage::getSingleton('customer/session')->isLoggedIn() ? 'true' : 'false'; ?>'
+    :show-as-link='false'
+    add-car-img='<?php echo $compareBlock->getSkinUrl('images/add-car.png'); ?>'
+    car-finder-url='<?php echo $compareBlock->getCarFinderUrl(); ?>'
+    you-drive-url='<?php echo $compareBlock->getYouDriveLinkPlaceholder(); ?>'
+    v-ref:car-compare
+></app-car-compare>
+<app-car-compare-clear
+    compare-clear-url="<?php echo $compareHelper->getClearUrl(); ?>"
+></app-car-compare-clear>

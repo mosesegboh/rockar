@@ -1,0 +1,100 @@
+.you-drive-signup {
+    @include clearfix;
+
+    p {
+        font-family: $secondary-font-family;
+    }
+
+    .drive-signup-header {
+        padding-bottom: 1.5em;
+        margin-bottom: 1.5em;
+        border-bottom: 1px solid $you-drive-horizontal-break-color;
+
+        button {
+            @include media($small-screen-down) {
+                display: block;
+                width: 100%;
+            }
+        }
+    }
+
+    .drive-signup-body {
+        @include media($small-screen-down) {
+            button,
+            .selectbox,
+            .customer-dob {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            input,
+            .buttons-set {
+                width: 100%;
+            }
+        }
+
+        .form-header {
+            margin-bottom: 3em;
+            @include clearfix;
+
+            p {
+                color: $you-drive-signup-form-header-text-color;
+                font-size: $f-size-l;
+                margin-bottom: 0;
+            }
+
+            a {
+                color: $you-drive-signup-form-header-link-color;
+            }
+        }
+
+        .form-footer {
+            margin-top: 1em;
+
+            p {
+                color: $you-drive-signup-text-color;
+                font-size: $f-size-xs;
+
+                @include media($medium-screen-up) {
+                    padding: 1.45em 0;
+                }
+            }
+
+            .button-wrapper {
+                max-width: $input-max-width;
+            }
+        }
+
+        #you-drive-customer {
+
+            p:not(.required) {
+                padding: em(20) em(60);
+                text-align: center;
+            }
+
+            h3 {
+                text-align: center;
+
+                @include media($medium-screen-up) {
+                    max-width: $input-max-width;
+                }
+            }
+
+            .col-6 + .col-6 {
+                button {
+                    margin: 0 auto;
+                }
+
+                h3 {
+                    margin: 0 auto;
+                }
+            }
+
+            & + .row {
+                h3 {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

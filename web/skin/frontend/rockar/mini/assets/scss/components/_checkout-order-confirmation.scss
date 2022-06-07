@@ -1,0 +1,58 @@
+.order-confirmation {
+    text-align: center;
+
+    @include media($medium-screen-up) {
+        text-align: left;
+    }
+
+    .row {
+        margin: 15px 0;
+        position: relative;
+
+        div {
+            display: inline-block;
+            float: none;
+            margin-right: 0;
+
+            &:last-child {
+                @include media($medium-screen-up) {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+    }
+
+    p.order-confirm-subtitle {
+        color: $order-confirmation-subtitle-color;
+        margin: 10px 0;
+        font-size: $f-size-xxxl;
+    }
+
+    .order-confirmation-body {
+        p {
+            font-size: $f-size-l;
+            font-weight: 300;
+            margin: 0 0 20px 0;
+            line-height: 24px;
+
+            &.no-margin {
+                margin: 0;
+            }
+        }
+
+        a:not(.button) {
+            font-weight: $fw-bold;
+            color: $checkout-details-anchor-color !important;
+        }
+
+        .button {
+            @include media($small-screen-down) {
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+}

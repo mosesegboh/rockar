@@ -1,0 +1,13 @@
+.substep-1 {
+    .px-car-info {
+        p {
+            @include media($medium-screen-up) {
+               font-size: $dsp2-f-size-sl;
+            }
+        }
+
+        @include media($medium-screen-up) {
+            margin: 0 0 50px;
+        }
+    }
+}

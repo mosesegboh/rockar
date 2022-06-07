@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @category  Peppermint
+* @package   Peppermint_Accessories
+* @author    Krists Dadzitis <techteam@rockar.com>
+* @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+*/
+-->
+
+<config>
+    <modules>
+        <Peppermint_Accessories>
+            <version>0.1.3</version>
+        </Peppermint_Accessories>
+    </modules>
+    <global>
+        <blocks>
+            <peppermint_accessories>
+                <class>Peppermint_Accessories_Block</class>
+            </peppermint_accessories>
+            <rockar_accessories>
+                <rewrite>
+                    <adminhtml_accessories_groups_accessories_edit_tab_products>Peppermint_Accessories_Block_Adminhtml_Accessories_Groups_Edit_Tab_Products</adminhtml_accessories_groups_accessories_edit_tab_products>
+                </rewrite>
+            </rockar_accessories>
+        </blocks>
+        <models>
+            <peppermint_accessories>
+                <class>Peppermint_Accessories_Model</class>
+            </peppermint_accessories>
+            <rockar_accessories>
+                <rewrite>
+                    <accessories>Peppermint_Accessories_Model_Accessories</accessories>
+                </rewrite>
+            </rockar_accessories>
+        </models>
+        <events>
+            <rockar_accessories_groups_accessories_edit_tab_main_prepare_form>
+                <observers>
+                    <peppermint_prepare_accessory_form>
+                        <type>singleton</type>
+                        <class>peppermint_accessories/observer</class>
+                        <method>prepareAccessoryForm</method>
+                    </peppermint_prepare_accessory_form>
+                </observers>
+            </rockar_accessories_groups_accessories_edit_tab_main_prepare_form>
+        </events>
+        <resources>
+            <peppermint_accessories_setup>
+                <setup>
+                    <module>Peppermint_Accessories</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+            </peppermint_accessories_setup>
+        </resources>
+    </global>
+</config>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint_Barclay
+ * @author       Aleksejs Oboruns <techteam@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_Barclay>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Rockar_Barclay />
+            </depends>
+        </Peppermint_Barclay>
+    </modules>
+</config>

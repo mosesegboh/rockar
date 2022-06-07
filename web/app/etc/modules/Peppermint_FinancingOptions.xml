@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint\FinancingOptions
+ * @author       Dumitru Mocanu <dumitru.mocanu@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_FinancingOptions>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Rockar_FinancingOptions/>
+                <Rockar_Configurator/>
+                <Peppermint_ShortfallAllowance/>
+                <Rockar_ApprovedUsed/>
+            </depends>
+        </Peppermint_FinancingOptions>
+    </modules>
+</config>

@@ -1,0 +1,66 @@
+.pod-data-actions {
+    padding: 12px 15px;
+
+    .pod-data-action {
+        .get-quote-cta-icon {
+            color: $black;
+            font-family: $mini-sans-serif-bold;
+
+            @include media($medium-screen-down) {
+                font-size: $dsp2-f-size-xs;
+                line-height: $dsp2-line-h-14;
+            }
+
+            &::before {
+                background-image: url('../images/svg/icon-email-quote-2.svg');
+                top: calc(50% + 2px);
+                height: 13px;
+                width: 10px;
+                transform: translateY(-50%);
+
+                @include media($medium-screen-down) {
+                    top: calc(50% + 1px);
+                }
+            }
+
+            &::after {
+                background: $black;
+                height: 2px;
+                margin: 0;
+
+                @include media($medium-screen-up) {
+                    margin-top: -2px;
+                }
+            }
+        }
+
+        .pod-finance-button {
+            color: $black;
+            font-family: $mini-sans-serif-bold;
+
+            @include media($medium-screen-down) {
+                font-size: $dsp2-f-size-xs;
+                line-height: $dsp2-line-h-14;
+            }
+
+            &::before {
+                top: calc(50% + 2px);
+                transform: translateY(-50%);
+
+                @include media($medium-screen-down) {
+                    top: calc(50% - 2px);
+                }
+            }
+
+            &::after {
+                background: $black;
+                height: 2px;
+                margin: 0;
+
+                @include media($medium-screen-up) {
+                    margin-top: -2px;
+                }
+            }
+        }
+    }
+}

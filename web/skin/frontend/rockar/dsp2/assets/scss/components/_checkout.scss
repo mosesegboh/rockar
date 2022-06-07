@@ -1,0 +1,990 @@
+#checkout {
+    .general-preloader {
+        position: fixed;
+    }
+
+    .popup-content {
+        padding: 25px 50px 25px 25px;
+
+        p {
+            @include media($small-screen-down) {
+                font-size: $dsp2-f-size-s;
+            }
+        }
+
+        h1 {
+            @include media($small-screen-down) {
+                font-size: $dsp2-f-size-l;
+            }
+        }
+
+        .valuation-result-continue {
+            button {
+                @include media($small-screen-down) {
+                    display: block;
+                    width: 100%;
+                }
+
+                &:first-child {
+                    @include media($small-screen-down) {
+                        margin: 0 0 .5em;
+                    }
+                }
+            }
+
+            button:not(.button-confirm) {
+                border: 1px solid $c-grey-1;
+                background-color: $c-grey-1;
+
+                &:hover {
+                    background-color: $c-grey;
+                }
+            }
+        }
+
+        .popup-button-close {
+            right: 20px;
+        }
+
+        .row.align-right {
+            position: absolute;
+            right: 2%;
+            bottom: 8%;
+
+            &.order-cap-popup-buttons {
+                position: initial;
+            }
+
+            @include media($small-screen-down) {
+                position: initial;
+                right: initial;
+                bottom: initial;
+            }
+        }
+    }
+
+    .accordion {
+        background-color: $white;
+
+        &.finance_step {
+            .accordion-content {
+                padding: 0;
+
+                @include media($small-screen-down) {
+                    padding: 1.5em;
+                }
+            }
+        }
+
+        ul {
+            &.submenu {
+                display: block;
+            }
+        }
+
+        &.accordion-light {
+            font-size: inherit;
+            line-height: 24px;
+
+            .accordionSlide-transition {
+                margin: 0;
+            }
+        }
+
+        li {
+            > a {
+                &::after {
+                    display: block !important; // Override default2/_checkout.scss:72 display: none !important;
+                }
+
+                span.status {
+                    @include position(absolute, 19px 40px null null);
+                    color: $c-grey-1;
+
+                    @include media($small-screen-down) {
+                        @include position(initial, auto auto null null);
+                        display: block;
+                    }
+
+                    .fq-edit-icon {
+                        @include sprite($sprite-pencil-icon);
+                        display: inline-block;
+                        position: relative;
+                        top: -1px;
+                    }
+
+                    .plus-sign {
+                        @include size(13px);
+                        border: 1px solid $c-grey-1;
+                        border-radius: 10px;
+                        top: 1px;
+
+                        &::before,
+                        &::after {
+                            background: $c-grey-1;
+                        }
+
+                        &::before {
+                            height: 7px;
+                            width: 1px;
+                            left: 5px;
+                            top: 2px;
+                        }
+
+                        &::after {
+                            height: 1px;
+                            width: 7px;
+                            top: 5px;
+                            left: 2px;
+                        }
+                    }
+                }
+            }
+
+            &:focus,
+            &:hover {
+                > a {
+                    span.status {
+                        color: $c-grey;
+
+                        .fq-edit-icon {
+                            @include sprite($sprite-pencil-icon-white);
+                        }
+
+                        .plus-sign {
+                            border-color: $c-grey;
+
+                            &::before,
+                            &::after {
+                                background: $c-grey;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .customer-address {
+            .side-label {
+                &.required {
+                    &::after {
+                        content: '*';
+                    }
+                }
+
+                &::after {
+                    content: '';
+                }
+            }
+
+            .checkout-address-disclaimer {
+                .col-12 {
+                    padding: 0;
+
+                    p {
+                        padding: 0 0 20px;
+                    }
+
+                    a {
+                        text-decoration: underline;
+                        font-family: $bmw;
+                        color: $c-grey;
+                    }
+                }
+
+                hr {
+                    margin: 10px -15px 20px;
+                    display: block;
+
+                    @include media($dsp2-medium-screen-up) {
+                        display: none;
+                    }
+                }
+            }
+
+            .col-6,
+            .col-12 {
+                position: relative;
+                padding: 18px 0;
+
+                @include media($dsp2-medium-screen-up) {
+                    padding: 28px 0;
+                }
+
+                p {
+                    margin: 0;
+                    padding: 0;
+                    font-size: $dsp2-f-size-xs;
+                    line-height: $dsp2-line-h-16;
+
+                    @include media($dsp2-medium-screen-up) {
+                        font-size: $dsp2-f-size;
+                        line-height: $dsp2-line-h-24;
+                    }
+                }
+
+                label {
+                    font-family: $bmw;
+                    font-size: $dsp2-f-size-xs;
+                    position: absolute;
+                    top: 12px;
+                    left: 20px;
+                    background: $white;
+                    padding: 0 10px;
+                    z-index: 1;
+                    color: $c-grey-3;
+
+                    @include media($dsp2-medium-screen-up) {
+                        top: 3px
+                    }
+
+                    &:after {
+                        color: $c-grey-3;
+                    }
+                }
+
+                .selectbox,
+                input {
+                    margin: 0;
+
+                    .selectbox-select {
+                        font-family: $bmw-light;
+                        font-size: $dsp2-f-size;
+                    }
+                }
+
+                &.same-address {
+                    label {
+                        padding: 3px 35px;
+                        position: relative;
+                        top: 0;
+                        left: 0;
+                    }
+                }
+
+                &.date {
+                    padding: 35px 0 18px;
+
+                    @include media($dsp2-medium-screen-up) {
+                        padding: 28px 0;
+                    }
+
+                    .main-label {
+                        top: 5px;
+                        left: -10px;
+
+                        @include media($dsp2-medium-screen-up) {
+                            top: -15px;
+                        }
+                    }
+
+                    .customer-dob {
+                        max-width: none;
+
+                        .row-elements {
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: nowrap;
+                            justify-content: space-between;
+
+                            .row-element {
+                                position: relative;
+                                flex: none;
+                                padding: 0;
+                                width: calc(33% - 10px);
+
+                                &.last-child {
+                                    padding: 0;
+                                }
+
+                                label {
+                                    top: -5px;
+
+                                    @include media($dsp2-medium-screen-up) {
+                                        top: -20px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .buttons-set {
+                    display: flex;
+                    flex-direction: column;
+                    position: relative;
+
+                    button {
+                        max-width: 100%;
+
+                        @include media($large-screen-up) {
+                            max-width: calc(50% - 10px);
+                        }
+                    }
+
+                    .label {
+                        left: 0;
+                        position: absolute;
+                        bottom: -30px;
+
+                        @include media($large-screen-up) {
+                            left: calc(50% + 10px);
+                        }
+                    }
+                }
+
+                &.content {
+                    padding: 10px 0 0;
+                }
+            }
+
+            .customer-type {
+                .col-12 {
+                    padding: 0 0 20px;
+                    display: flex;
+                    flex-direction: column;
+
+                    @include media($dsp2-medium-screen-up) {
+                        flex-direction: row;
+                        padding: 20px 0;
+                    }
+
+                    .type {
+                        padding: 20px 0 0;
+
+                        @include media($dsp2-medium-screen-up) {
+                            padding: 0;
+                        }
+                    }
+
+                    input[type='radio'] {
+                        &.radio-checkbox {
+                            &:checked {
+                                border: 2px solid $bmw-blue;
+                                background: $bmw-blue;
+
+                                + label span {
+                                    background-color: $bmw-blue;
+                                    border: 2px solid $bmw-blue;
+
+                                    &:after {
+                                        content: '';
+                                        background-image: none;
+                                        left: 0;
+                                        top: 2px;
+                                        width: 9px;
+                                        height: 12px;
+                                        border: solid $white;
+                                        border-width: 0 3px 3px 0;
+                                        transform: rotate(45deg);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    label {
+                        font-size: $dsp2-f-size-xs;
+                        font-family: $bmw-light;
+                        color: $c-grey;
+                        position: relative;
+                        top: 5px;
+                        left: 0;
+                        padding: 0 35px;
+                        margin: 0;
+
+                        @include media($dsp2-medium-screen-up) {
+                            font-size: $dsp2-f-size;
+                        }
+
+                        span {
+                            border-radius: unset;
+                            font-size: $dsp2-f-size-xxs;
+                            font-family: $bmw-light;
+
+                            @include media($dsp2-medium-screen-up) {
+                                font-size: $dsp2-f-size;
+                            }
+                        }
+                    }
+
+                    .order-cap-tooltip {
+                        opacity: 0;
+                        padding: 0 30px;
+
+                        &.show {
+                            opacity: 1;
+                        }
+
+                        .coupon-label-text {
+                            font-family: $bmw;
+                            font-size: $dsp2-f-size-xxs;
+
+                            @include media($dsp2-medium-screen-up) {
+                                font-size: $dsp2-f-size-xs;
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            .buttons-set {
+                .button-default,
+                .required {
+                    float: right;
+                    font-family: $bmw;
+                    font-size: $dsp2-f-size-13;
+
+                    @include media($dsp2-medium-screen-up) {
+                        top: -20px;
+                    }
+                }
+
+                .button {
+                    &.dsp2-money {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+
+        .step-header {
+            font-family: $bmw;
+            font-size: $dsp2-f-size-s;
+            line-height: $dsp2-line-h-20;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 0 0 10px;
+            border-bottom: 1px solid $c-grey-5;
+            margin: -20px -1.5em 20px;
+
+            @include media($dsp2-medium-screen-up) {
+                display: none;
+            }
+        }
+
+        .accordion-content {
+            padding: 1.5em;
+        }
+    }
+
+    .part-exchange {
+        .part-exchange-left {
+            @include media($large-screen-up) {
+                padding: 0 4em 0 2em;
+                border-right: solid 1px $c-grey-5;
+            }
+
+            .button-wrap {
+                .button-default {
+                    height: 50px;
+                }
+            }
+
+            .px-condition-block {
+                .range-slider {
+                    .ui-slider-range {
+                        outline: 4px solid $white;
+                    }
+                }
+            }
+        }
+
+        .part-exchange-right {
+            @include media($large-screen-up) {
+                padding-left: 4em;
+                margin-left: 0;
+            }
+
+            .px-additional-info-block {
+                @include media($large-screen-up) {
+                    #info-checkbox3 {
+                        ~ .info-label-wrap {
+                            .px-light-text {
+                                max-width: 84%;
+
+                                .action-badge {
+                                    margin-bottom: -.3em;
+                                }
+                            }
+                        }
+
+                        ~ label {
+                            margin-top: -.4em;
+                        }
+                    }
+
+                    #info-checkbox4 {
+                        ~ .info-label-wrap {
+                            .px-light-text {
+                                max-width: 84%;
+
+                                .action-badge {
+                                    margin-bottom: 1em;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                @include media($medium-screen-down) {
+                    #info-checkbox4 {
+
+                        ~ label {
+                            margin-top: -1.5em;
+                        }
+                    }
+                }
+
+                @include media($small-screen-down) {
+                    #info-checkbox3 {
+                        ~ label {
+                            margin-top: -.5em;
+                        }
+
+                        .action-badge {
+                            margin-bottom: .5em;
+                        }
+                    }
+                }
+
+                input[type='checkbox'] + label {
+                    align-self: center;
+
+                    @include media($small-screen-down) {
+                        margin-top: -.4em;
+                    }
+                }
+            }
+
+            .part-exchange-valuation {
+                .px-result-actions {
+                    button {
+                        height: 50px;
+
+                        @include media($medium-screen-down) {
+                            max-width: 45.625em;
+                        }
+
+                        @include media($small-screen-down) {
+                            max-width: 52.143em;
+                        }
+                    }
+                }
+
+                .auto-settlement {
+                    margin: 0 0 10px 0;
+
+                    .heading {
+                        font-size: $dsp2-f-size-l;
+                    }
+                }
+            }
+        }
+    }
+
+    .section-heading {
+        font-family: $bmw-light;
+        font-size: $dsp2-f-size-l;
+
+        @include media($small-screen-down) {
+            padding-top: $dsp2-padding-20;
+        }
+    }
+
+    .register-block {
+        input,
+        button {
+            @include media($small-screen-down) {
+                width: 100%;
+            }
+        }
+
+        .checkout-name-tooltip,
+        .checkout-name-label {
+            display: inline-block;
+        }
+
+        .driving-license-type,
+        .customer-country,
+        .customer-dob {
+            .selectbox {
+                @include media($small-screen-down) {
+                    max-width: 100%;
+                }
+            }
+        }
+
+        .customer-dob {
+            @include media($small-screen-down) {
+                max-width: 100%;
+            }
+        }
+    }
+
+    .login-wrapper {
+        .button-wrapper {
+            button {
+                display: block;
+                width: 100%;
+                margin: 0;
+            }
+        }
+    }
+
+    .tooltip-wrapper {
+        margin-left: $dsp2-f-size-xxs;
+        margin-top: $dsp2-f-size-xs;
+    }
+
+    .flex-display {
+        @include display(flex);
+    }
+
+    .checkout-quote {
+        .finance-quote {
+            table {
+                tbody {
+                    tr {
+                        &:nth-child(n+2) {
+                            td {
+                                &:nth-child(1) {
+                                    span {
+                                        padding-left: 19px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .order-cap-tooltip {
+        display: flex;
+
+        .tooltip-wrapper {
+            margin: 0;
+        }
+
+        p {
+            padding-top: 4px;
+            padding-left: 10px;
+        }
+    }
+
+    .finance-quote-wrapper {
+        .finance-quote-floating {
+            display: none;
+        }
+
+        .finance-quote-top {
+            .offertags-container {
+                .offertags {
+                    .offertag-icon {
+                        width: unquote("clamp(min(100%, 50px), 10vw, 100%)");
+
+                        @include media($dsp2-l-screen-down) {
+                            width: unquote("clamp(min(100%, 50px), 23vw, 100%)");
+                        }
+                    }
+                }
+
+                &.offertags-it {
+                    .offertags {
+                        .offertag-icon {
+                            width: unquote("clamp(min(100%, 35px), 9vw, 100% - 125px)");
+
+                            @include media($dsp2-l-screen-down) {
+                                width: unquote("clamp(min(100%, 50px), 20vw, 100% - 20px)");
+                            }
+                        }
+
+                        .offertag-label {
+                            white-space: nowrap;
+                        }
+                    }
+                }
+            }
+
+            .finance-quote-header {
+                padding: 20px 0 0;
+
+                @include media($dsp2-l-screen-down) {
+                   padding: 0;
+                }
+
+                &-body {
+                    .finance-calculator {
+                        display: none;
+                    }
+                }
+            }
+
+            .get-quote-button {
+                height: 30px;
+
+                @include media($medium-screen-down) {
+                    height: 130px;
+                }
+            }
+        }
+
+        .finance-quote-content {
+            .fq-edit,
+            .delete {
+                display: none;
+            }
+
+            tbody {
+                &.Accessories {
+                    tr {
+                        &:not([class]) {
+                            td:first-child {
+                                &:not([class]) {
+                                    grid-template-columns: 1fr;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .finance-quote-bottom {
+            .finance-quote-buttons {
+                display: none !important; // Overrides default finance-quote style
+            }
+
+            @include media($medium-screen-down) {
+                height: 82px;
+            }
+        }
+
+        .toggle {
+            bottom: 79px;
+        }
+
+        &.active {
+            .toggle {
+                bottom: 75vh;
+            }
+        }
+    }
+}
+
+.cms-barclays {
+    table {
+        td {
+            padding: 0;
+            margin: 0;
+            border: 0;
+
+            @include media($small-screen-down) {
+                display: block;
+                width: 100% !important;
+                text-align: left !important;
+
+                input {
+                    width: 100%;
+                    margin: 5px 0 !important;
+                }
+            }
+
+            &.ncolinput {
+                select {
+                    display: inline-block;
+                    margin: 0 5px 0 0;
+                }
+
+                select#Ecom_Payment_Card_ExpDate_Year {
+                    margin-left: 5px;
+                }
+
+                input {
+                    padding: 0 10px;
+                    margin-top: 9px;
+                    height: 48px;
+                }
+
+                input#Ecom_Payment_Card_Verification {
+                    width: 130px;
+                }
+            }
+        }
+
+        div {
+            text-align: left;
+        }
+
+        strong {
+            font-family: $bmw-light;
+            text-transform: uppercase;
+            font-size: $h4-font-size;
+            text-align: left;
+        }
+
+        td.ncoltxtl,
+        td.ncoltxt2,
+        td.ncoltxtl2 {
+            width: 175px;
+            text-align: right;
+            padding-right: 15px;
+
+            small,
+            label {
+                text-transform: uppercase;
+                font-family: $bmw-light;
+                font-size: 11px;
+                color: $label-color;
+            }
+
+            small {
+                line-height: 45px;
+            }
+        }
+
+        input.ncol {
+            position: relative;
+            color: $white;
+            background: $bmw-blue;
+            box-sizing: border-box;
+            display: inline-block;
+            font-family: $bmw-light;
+            font-weight: $fw-medium;
+            letter-spacing: .05em;
+            border: 1px solid $bmw-blue;
+            border-radius: 0;
+            padding: 1.45em 1.55em;
+            text-transform: uppercase;
+            font-size: 13px;
+            vertical-align: bottom;
+            line-height: 1;
+        }
+
+        input.ncol:hover {
+            opacity: .8;
+        }
+
+        .ncoltable3 {
+            td.ncollogoc {
+                input.ncol {
+                    left: 0;
+                    margin-right: 20px;
+                }
+
+                img {
+                    width: 130px;
+                }
+            }
+        }
+
+        .ncoltxtr small,
+        .ncoltxtr {
+            font-size: 16px;
+            font-family: $bmw-light;
+            color: $label-color;
+        }
+
+        .ncolinput {
+            color: $label-color;
+
+            a {
+                color: $label-color;
+                text-decoration: underline;
+                font-size: 10px;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        #btn_Back {
+            float: right;
+            margin-right: 10px;
+        }
+
+        #ncol_cancel {
+            float: left;
+        }
+
+        .ncoltable1 {
+            .ncoltxtc {
+                text-align: left;
+
+                form {
+                    text-align: center;
+                    padding-top: 10px;
+                }
+
+                small,
+                b {
+                    font-weight: $fw-normal;
+                    display: inline;
+                    font-size: 16px;
+                    padding-right: 3px;
+                }
+
+                h3 {
+                    font-family: $bmw-light;
+                    font-weight: $fw-semibold;
+                    text-transform: none;
+                    color: $label-color;
+                    font-size: $h4-font-size;
+                }
+            }
+        }
+    }
+
+    .ncoltable2 {
+        .ncolinput {
+            .selectbox-wrapper {
+                display: inline-block;
+                width: 130px;
+                margin: 0 10px;
+            }
+
+            .selectbox-wrapper:first-child {
+                margin-left: 0;
+            }
+
+            small {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.coupon {
+    .coupon-label {
+        text-align: center;
+        margin-bottom: 1em;
+
+        .coupon-label-text {
+            margin: 4px 0 0;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+
+    .input-coupon-wrapper {
+        max-width: 365px;
+        margin: 0 auto;
+
+        @include media($small-screen-down) {
+            max-width: 100%;
+        }
+
+        input {
+            width: 100%;
+            max-width: $input-max-width;
+
+            @include media($small-screen-down) {
+                max-width: 100%;
+            }
+        }
+    }
+}

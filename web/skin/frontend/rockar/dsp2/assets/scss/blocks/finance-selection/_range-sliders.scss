@@ -1,0 +1,69 @@
+.finance-filter-slider-wrapper {
+    > p {
+        margin-bottom: -1em;
+    }
+
+    .finance-filter-slider {
+        margin: 0;
+        @include flex-direction(column);
+
+        .finance-filter-slider-input {
+            margin-top: 0;
+
+            div:not(:first-child) {
+                float: right;
+            }
+
+            .finance-filter-slider-input-wrapper {
+                input {
+                    height: $finance-selection-range-sliders-height;
+                    font: {
+                        size: $dsp2-f-size-s;
+                        weight: normal;
+                    };
+                }
+
+                .finance-filter-input {
+                    input {
+                        opacity: 1 !important;
+                        background: $white;
+                        border: 1px solid $c-grey-5;
+
+                        &:disabled{
+                            background: $c-grey-6;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.three-action {
+            margin-bottom: 0;
+            @include flex-direction(row);
+
+            .finance-filter-slider-input {
+                margin-top: 0;
+
+                &.input-two {
+                    div {
+                        float: right;
+                    }
+                }
+            }
+        }
+    }
+
+    &.maintenance-filter-wrapper {
+        label {
+            font-size: $dsp2-f-size-s;
+            padding-left: 2.5em;
+            color: $black;
+            letter-spacing: .5px;
+
+            // Checkbox element
+            span {
+                margin-top: 0;
+            }
+        }
+    }
+}

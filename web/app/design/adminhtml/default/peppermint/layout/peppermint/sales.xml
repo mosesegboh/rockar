@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Sales
+ * @author    Sykander Gul <sykander.gul@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar Ltd (http://rockar.com)
+ */-->
+
+<layout>
+    <adminhtml_sales_order_view>
+        <reference name="sales_order_tabs">
+            <action method="addTabAfter">
+                <name>peppermint_sales_order_view_tabs_documents</name>
+                <block>peppermint_sales/adminhtml_sales_order_view_tab_documents</block>
+                <after>order_info</after>
+            </action>
+        </reference>
+        <reference name="order_items">
+            <action method="addColumnRender">
+                <column>name</column>
+                <block>peppermint_sales/adminhtml_sales_items_column_name</block>
+                <template>peppermint/sales/items/column/name.phtml</template>
+            </action>
+        </reference>
+    </adminhtml_sales_order_view>
+    <adminhtml_report_productorderpricing_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="peppermint_sales/adminhtml_report_productOrderPricing_grid" name="productOrderPricing.grid"/>
+        </block>
+    </adminhtml_report_productorderpricing_grid>
+</layout>

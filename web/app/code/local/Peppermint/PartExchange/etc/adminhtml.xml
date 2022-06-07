@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint_PartExchange
+ * @author       Lucian Mesaros <lucian.mesaros@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <menu>
+        <rockar_partexchange>
+            <title>Trade In</title>
+        </rockar_partexchange>
+        <report>
+            <children>
+                <part_exchange translate="title" module="rockar_partexchange">
+                    <title>Trade In</title>
+                </part_exchange>
+            </children>
+        </report>
+        <promo>
+            <children>
+                <partexchange_promotions translate="title" module="rockar_partexchange">
+                    <sort_order>10</sort_order>
+                    <title>PX Promotion Rules</title>
+                    <action>adminhtml/partexchange_promotions/</action>
+                </partexchange_promotions>
+            </children>
+        </promo>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <auto_settlement>
+                                        <title>Auto-Settlement</title>
+                                    </auto_settlement>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <promo>
+                        <children>
+                            <partexchange_promotions>
+                                <children>
+                                    <actions translate="title">
+                                        <title>Actions</title>
+                                        <children>
+                                            <apply translate="title">
+                                                <title>Apply Rules</title>
+                                            </apply>
+                                            <add_new_rule translate="title">
+                                                <title>Add new Rule</title>
+                                            </add_new_rule>
+                                            <reset translate="title">
+                                                <title>Reset</title>
+                                            </reset>
+                                            <delete translate="title">
+                                                <title>Delete</title>
+                                            </delete>
+                                            <save translate="title">
+                                                <title>Save</title>
+                                            </save>
+                                            <save_and_continue translate="title">
+                                                <title>Save and Continue Edit</title>
+                                            </save_and_continue>
+                                            <approve translate="title">
+                                                <title>Approve</title>
+                                            </approve>
+                                        </children>
+                                    </actions>
+                                </children>
+                            </partexchange_promotions>
+                        </children>
+                    </promo>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

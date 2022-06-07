@@ -1,0 +1,182 @@
+.carousel {
+    height: 100%;
+
+    .slick-list,
+    .slick-track,
+    .slick-slide {
+        height: 100%;
+    }
+
+    &.thumbnail-carousel {
+        .slick-slider {
+            margin: 0;
+        }
+
+        &.main {
+            @include display(flex);
+
+            .navigation-wrapper {
+                display: block;
+                width: 100%;
+            }
+
+            .main-slider {
+                max-width: 445px;
+                max-height: 300px;
+            }
+
+            .nav-carousel {
+                @include transform(translateY(-50%));
+                height: auto;
+                padding: 16px;
+                position: relative;
+                top: 50%;
+
+                .slick-list {
+                    display: block;
+                    margin: auto;
+                    max-width: 117px;
+                }
+
+                .slick-track {
+                    .slick-slide {
+                        margin: 2px 0;
+                        max-height: 76px;
+                        min-height: 0;
+                    }
+                }
+
+                .slick-next {
+                    top: -2px;
+                }
+
+                .slick-prev {
+                    bottom: -3px;
+                    top: auto;
+                }
+
+                .slick-arrow {
+                    @include transform(translateY(0));
+                    background-color: $white;
+                    display: block !important; // override Important
+                    left: 0;
+                    height: 16px;
+                    right: 0;
+                    width: 100%;
+                    z-index: 1;
+
+                    &::before {
+                        bottom: 0;
+                        background: url('../images/svg/black-arrow-up.svg') no-repeat center;
+                        background-size: initial;
+                        height: 7px;
+                        left: 0;
+                        margin: auto;
+                        right: 0;
+                        top: 0;
+                        width: 12px;
+                    }
+                }
+            }
+        }
+
+        a {
+            display: block;
+        }
+    }
+
+    .carousel-wrapper {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+
+        .slick-list {
+            @include display(flex);
+            @include flex-direction(column);
+            @include justify-content(space-around);
+            height: 100%;
+
+            .carousel-vertical-image-wrapper {
+                img {
+                    height: auto;
+                    width: auto;
+                    left: 50%;
+                    position: relative;
+                    transform: translateX(-50%);
+                }
+            }
+
+            .slick-current {
+                img {
+                    z-index: 1;
+                }
+            }
+
+            .slick-track {
+                .slick-slide {
+                    padding-top: $bmw-nav-20;
+
+                    @include media($small-screen-down) {
+                        min-height: 6.943em;
+                    }
+
+                    @include media($medium-screen-only) {
+                        min-height: 11.209em;
+                    }
+
+                    @include media($x-large-screen-up) {
+                        min-height: 17.313em;
+                    }
+                }
+            }
+        }
+
+        .slick-dots {
+            bottom: .5em;
+
+            li {
+                margin: 0;
+
+                button {
+                    &::before {
+                        color: $white;
+                        font-size: 10px;
+                        opacity: 1;
+                    }
+                }
+
+                &.slick-active {
+                    button {
+                        &::before {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.mobile-slider {
+            padding: 0 1em;
+
+            @include media($medium-screen-up) {
+                display: none;
+            }
+
+            .slick-list {
+                .carousel-vertical-image-wrapper {
+                    display: block;
+                }
+            }
+        }
+
+        &:not(.mobile-slider) {
+            @include media($small-screen-down) {
+                display: none;
+            }
+        }
+
+        .slick-arrow {
+            display: none !important; // Have to override js
+        }
+    }
+}

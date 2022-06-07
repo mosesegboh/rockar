@@ -1,0 +1,265 @@
+// Passed steps
+$ns-passed-step-line-bs: solid !default;
+$ns-passed-step-line-bc: $c-grey-5 !default;
+$ns-passed-step-number-bg: $white !default;
+$ns-passed-step-number-bc: $c-grey-5 !default;
+$ns-passed-step-number-c: $white !default;
+$ns-passed-step-number-size-l-screen: 26px !default;
+$ns-passed-step-number-size-s-screen: 25px !default;
+
+// Active Steps
+$ns-active-step-number-c: $black !default;
+$ns-active-step-description-c: $black !default;
+$ns-active-step-line-bs: solid !default;
+$ns-active-step-line-bc: $c-grey-5 !default;
+$ns-active-step-number-size-l-screen: 35px !default;
+$ns-active-step-number-size-s-screen: 33px !default;
+
+// Future Steps
+$ns-future-step-number-c: $c-grey-5 !default;
+$ns-future-step-description-c: $c-grey-5 !default;
+$ns-step-number-size-l-screen: $ns-passed-step-number-size-l-screen + 6px !default;
+$ns-step-number-size-s-screen: $ns-passed-step-number-size-s-screen + 6px !default;
+$ns-summary-step-number-c: $bmw-blue !default;
+$ns-summary-step-description-c: $bmw-blue !default;
+
+// Steps configuration
+$ns-description-letter-spacing-l-screen: em(1.2) !default;
+$ns-description-letter-spacing-s-screen: em(.8) !default;
+
+// Steps navigation buttons
+$nv-bc: $c-grey-5 !default;
+
+.navigation {
+    @import './navigation-steps/steps-block';
+    @import './navigation-steps/steps';
+    @import './navigation-steps/steps-wrapper';
+    @import './navigation-steps/step';
+    @import './navigation-steps/buttons-wrapper';
+    @import './navigation-steps/learn-more';
+}
+
+.trade-in-navigation {
+    .navigation {
+        &-step {
+            &::after {
+                right: calc(50% + 15.25px);
+                width: calc(100% - 30.5px);
+
+                @include media($dsp2-l-screen-up) {
+                    content: none;
+                }
+            }
+
+            &.current {
+                & ~ .navigation-step {
+                    cursor: unset;
+                    padding-top: 0;
+
+                    .number {
+                        background: $white;
+                        color: $white;
+                        height: 30px;
+                        width: 30px;
+
+                        &::before {
+                            border-color: $black;
+                            height: 13px;
+                            top: 6px;
+                            width: 8px;
+
+                            @include media($small-screen-down) {
+                                border-width: 0 3px 3px 0;
+                                height: 13px;
+                                top: 5px;
+                                width: 8px;
+                            }
+                        }
+                    }
+
+                    .description {
+                        margin: 5px 0 0;
+
+                        @include media($dsp2-l-screen-up) {
+                            margin: 0;
+                        }
+                    }
+                }
+
+                .number {
+                    background-color: $bmw-blue;
+                    color: $white;
+                    font-size: $dsp2-f-size-s;
+                    font-family: $bmw-bold;
+                }
+
+                .description {
+                    @include media($dsp2-l-screen-up) {
+                        font-family: $bmw;
+                    }
+                }
+            }
+
+            .description {
+                color: $ns-active-step-description-c;
+                margin: 5px 0 0;
+                text-transform: none;
+                letter-spacing: 0;
+                font-family: $bmw-light;
+                font-size: $dsp2-f-size-xxs;
+
+                @include media($dsp2-l-screen-up) {
+                    display: inline-block;
+                    font-size: $dsp2-f-size-xs;
+                    margin: 0;
+                    vertical-align: middle;
+                }
+            }
+
+            .number {
+                background-color: $white;
+                border: 2px solid $bmw-blue;
+                border-radius: 50%;
+                color: $black;
+                display: inline-block;
+                height: 30px;
+                line-height: $dsp2-line-25;
+                font-family: $bmw-bold;
+                font-size: $dsp2-f-size-s;
+                text-align: center;
+                width: 30px;
+
+                @include media($dsp2-l-screen-up) {
+                    margin-right: 10px;
+                    vertical-align: middle;
+                }
+
+                &::before {
+                    content: none;
+                }
+            }
+        }
+
+        &-steps {
+            margin: 0 auto;
+            max-width: 600px;
+
+            &-wrapper {
+                border-bottom: none;
+                margin-bottom: 10px;
+                padding: 10px 0 5px;
+                position: relative;
+
+                @include media($small-screen-down) {
+                    &:after {
+                        content: '';
+                        width: 100vw;
+                        margin-left: calc(-50vw + 50%);
+                        border-bottom: 1px solid $c-grey-5;
+                        position: absolute;
+                        bottom: 0;
+                    }
+                }
+
+                @include media($medium-screen-up) {
+                    border-bottom: 1px solid $c-grey-5;
+                    padding: 10px 0;
+                }
+
+                .navigation-link {
+                    display: none;
+
+                    &-desktop {
+                        margin: 10px 0 0;
+
+                        @include media($large-screen-up) {
+                            margin: 0;
+                            position: absolute;
+                            display: block;
+                            top: 50%;
+                            transform: translate(0,-50%);
+                        }
+                    }
+                }
+
+                @include media($dsp2-l-screen-up) {
+                    border-top: 1px solid $ns-active-step-line-bc;
+                    margin-bottom: 20px;
+                }
+            }
+
+            &-block {
+                border-bottom: 0;
+            }
+        }
+
+        &-link {
+            &-desktop {
+                display: none;
+
+                @include media($medium-screen-up) {
+                    display: block;
+                }
+            }
+
+            &-mobile {
+                position: fixed;
+                top: 67px;
+                z-index: 201;
+
+                @include media($medium-screen-up) {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.learn-more-popup {
+    h3 {
+        font-weight: $fw-book;
+        text-align: center;
+        font-size: $f-size-5xl;
+        margin-top: 20px;
+    }
+
+    .reasons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0 30px;
+        align-items: baseline;
+
+        .reason-block {
+            flex: 0 1 100%;
+            padding: 20px;
+
+            @include media($medium-screen-only) {
+                flex: 0 1 50%;
+            }
+
+            @include media($large-screen-up) {
+                flex: 0 1 calc(100% / 3);
+            }
+
+            img {
+                margin: auto;
+            }
+
+            .text {
+                margin-top: 20px;
+
+                .title {
+                    margin-bottom: 13px;
+                    font-weight: $fw-medium;
+                }
+
+                .content {
+                    font-size: $dsp2-f-size-s;
+                    line-height: $heading-line-height;
+                    letter-spacing: 0;
+                }
+            }
+        }
+    }
+}

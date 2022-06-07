@@ -1,0 +1,39 @@
+<?php
+/**
+ * @category  design
+ * @package   rockar_mini
+ * @author    Sergejs Plisko <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+
+/**
+ * @var $this Rockar2_Catalog_Block_Product_List
+ */
+$modelAttribute = Mage::helper('rockar_all')->jsonEncode(Mage::helper('rockar_all')->getModelAttribute());
+$financeFilterSlider = $this->getChildHtml('finance_filter_slider');
+$learnMorePopup = $this->getChildHtml('car_finder_learn_more');
+$carFinderConfirmationPopup = $this->getLayout()->createBlock('cms/block')->setBlockId('car_finder_confirmation_popup')->toHtml();
+?>
+
+<app-car-finder
+        :products-list='<?php echo $this->getProductListJson() ?>'
+        :car-filters='<?php echo $this->getChild('car_finder_filters')->getChild('car_pods_filters')->getFiltersJson() ?>'
+        :options='<?php echo $this->getCarFinderOptions(); ?>'
+        :compare='<?php echo Mage::helper('rockar_compare')->getCompareData() ?>'
+        :is-in-store-device='<?php echo Mage::helper('rockar_all')->checkIsInStore() && !Mage::helper('rockar_customer')->isRegisteredInStoreDevice() ? 'true' : 'false' ?>'
+        :part-exchange-additional='<?php echo Mage::helper('financing_options')->getAdditionalPartExchangeData() ?>'
+        :car-conditions='<?php echo Mage::helper('rockar_partexchange/filters')->getConditionsSliderInfo(true) ?>'
+        :additional-info='<?php echo Mage::helper('rockar_partexchange/filters')->getCheckboxesInfo(true) ?>'
+        :saved-px='<?php echo Mage::helper('financing_options')->getCustomerPartExchange() ?>'
+        :model-attribute='<?php echo $modelAttribute ?>'
+        current-saved-step='<?php echo Mage::helper('peppermint_carfinder')->getStepParamValue() ?>'
+        v-ref:car-finder
+>
+    <div slot="finance_filter_slider" class="vue-slot"><?php echo $financeFilterSlider ?></div>
+    <div slot="car_finder_learn_more" class="vue-slot"><?php echo $learnMorePopup ?></div>
+    <div class="car-finder-filters">
+        <?php echo $this->getChildHtml('car_finder_filters'); ?>
+    </div>
+
+    <div slot="car_finder_confirmation_popup" class="vue-slot"><?php echo $carFinderConfirmationPopup ?></div>
+</app-car-finder>

@@ -1,0 +1,55 @@
+#configurator {
+    .accordion {
+        .js-accordion-trigger {
+            color: $black;
+            font-family: $mini-serif-regular;
+            font-size: $dsp2-f-size-l;
+            line-height: $dsp2-line-h-28;
+
+            @include media($medium-screen-down) {
+                font-family: $mini-serif-regular;
+                font-size: $dsp2-f-size;
+                line-height: $dsp2-line-h-24;
+            }
+        }
+
+        .group-title {
+            font-family: $mini-sans-serif-regular;
+        }
+
+        .table-right {
+            font-family: $mini-sans-serif-bold;
+        }
+    }
+
+    .features-item {
+        @include media($small-screen-down) {
+           font-size: $dsp2-f-size-s;
+        }
+    }
+
+    .accessories {
+        .accessories-detailed-wrapper {
+            .accessories-detailed.content {
+                .accessory-title {
+                    h1 {
+                        color: $black;
+                        font-family: $mini-serif-bold;
+                        font-size: $dsp2-f-size-xxl;
+
+                        @include media($small-screen-down) {
+                            font-size: $dsp2-f-size-l;
+                        }
+                    }
+                }
+
+                .accessory-price {
+                    .price {
+                        color: $black;
+                        font-family: $mini-sans-serif-bold;
+                    }
+                }
+            }
+        }
+    }
+}

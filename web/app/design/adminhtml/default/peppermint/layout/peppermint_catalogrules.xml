@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_CatalogRule
+ * @author    Moses Egboh <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+-->
+
+<layout>
+    <adminhtml_report_applicablerules_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="peppermint_catalogrule/adminhtml_report_applicableRules_grid" name="applicableRules.grid"/>
+        </block>
+    </adminhtml_report_applicablerules_grid>
+    <adminhtml_report_ruleslog_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="peppermint_catalogrule/adminhtml_report_rulesLog_grid" name="rulesLog.grid"/>
+        </block>
+    </adminhtml_report_ruleslog_grid>
+</layout>

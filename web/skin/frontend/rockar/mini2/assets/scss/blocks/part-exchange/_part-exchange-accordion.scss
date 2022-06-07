@@ -1,0 +1,28 @@
+.px-popup-content {
+    .accordion {
+        &.accordion-light {
+            li {
+                a {
+                    &.js-accordion-trigger {
+                        .accordion-px-title {
+                            span {
+                                color: $black;
+                                font-family: $mini-sans-serif-regular;
+                            }
+
+                            .px-edit {
+                                .icon-edit {
+                                    &-text {
+                                        color: $black;
+                                        font-family: $mini-sans-serif-bold;
+                                        font-size: $dsp2-f-size-s;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,288 @@
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $bmw-light;
+    font-weight: $heading-font-weight;
+    color: $c-grey;
+    text-transform: $heading-text-transform;
+    letter-spacing: 0;
+    margin: 0 0 .8em;
+    padding: 0;
+
+    &.white {
+        color: $white;
+    }
+
+    &.center {
+        text-align: center;
+    }
+
+    &.left {
+        text-align: left;
+    }
+
+    &.right {
+        text-align: right;
+    }
+
+    &.gray {
+        color: $c-grey-5;
+    }
+
+    &.dove-gray {
+        color: $c-grey;
+    }
+
+    .bg-cool-grey & {
+        color: $white;
+    }
+}
+
+.h1,
+h1 {
+    @include renderHeading($dsp2-f-size-xxl, $h1-font-size, $dsp2-f-size-xxl, $h1-brand-font-size);
+    text-transform: none;
+}
+
+.h2,
+h2 {
+    @include renderHeading($h2-mobile-font-size, $h2-font-size, $h2-mobile-brand-font-size, $h2-brand-font-size);
+    text-transform: none;
+}
+
+.h3,
+h3 {
+    @include renderHeading($h3-mobile-font-size, $h3-font-size, $h3-mobile-brand-font-size, $h3-brand-font-size);
+    text-transform: none;
+}
+
+.h4,
+h4 {
+    @include renderHeading($h4-mobile-font-size, $h4-font-size, $h4-mobile-brand-font-size, $h4-brand-font-size);
+    font-family: $bmw-light;
+    text-transform: none;
+}
+
+.h5,
+h5 {
+    @include renderHeading($h5-mobile-font-size, $h5-font-size, $h5-mobile-brand-font-size, $h5-brand-font-size);
+    font-family: $bmw-light;
+}
+
+.h6,
+h6 {
+    @include renderHeading($h6-mobile-font-size, $h6-font-size, $h6-mobile-brand-font-size, $h6-brand-font-size);
+}
+
+.category-car-finder,
+.category-bike-finder,
+.checkout-cart-index,
+.customer-account-index,
+.checkout-onepage-index,
+.styleguide-page {
+    .outer-container,
+    .styleguide {
+        .h1,
+        h1 {
+            @include renderCarFinderHeading($dsp2-f-size-xxl, $dsp2-f-size-xxxxl, $dsp2-line-h-40, $dsp2-line-h-80);
+            font-family: $bmw-light;
+            text-transform: none;
+        }
+
+        .h2,
+        h2 {
+            @include renderCarFinderHeading($dsp2-f-size-xxl, $dsp2-f-size-xxxl, $dsp2-line-h-40, $dsp2-line-h-64);
+            font-family: $bmw-light;
+            text-transform: none;
+        }
+
+        .h3,
+        h3 {
+            @include renderCarFinderHeading($dsp2-f-size-xxl, $dsp2-f-size-xxl, $dsp2-line-h-40, $dsp2-line-h-40);
+            font-family: $bmw-light;
+            text-transform: none;
+        }
+
+        .h4,
+        h4 {
+            @include renderCarFinderHeading($dsp2-f-size-xl, $dsp2-f-size-xl, $dsp2-line-h-32, $dsp2-line-h-32);
+            font-family: $bmw-light;
+            text-transform: none;
+        }
+
+        .h5,
+        h5 {
+            @include renderCarFinderHeading($dsp2-f-size-l, $dsp2-f-size-l, $dsp2-line-h-28, $dsp2-line-h-28);
+            font-family: $bmw-light;
+            text-transform: none;
+        }
+
+        .h6,
+        h6 {
+            @include renderCarFinderHeading($dsp2-f-size, $dsp2-f-size, $dsp2-line-h-24, $dsp2-line-h-24);
+            font-family: $bmw-light;
+            text-transform: none;
+        }
+
+        .h7 {
+            @include renderCarFinderHeading($dsp2-f-size-l, $dsp2-f-size-l, $dsp2-line-h-28, $dsp2-line-h-28);
+            font-family: $bmw;
+            text-transform: none;
+        }
+
+        .h8 {
+            @include renderCarFinderHeading($dsp2-f-size, $dsp2-f-size, $dsp2-line-h-24, $dsp2-line-h-24);
+            font-family: $bmw;
+            text-transform: none;
+        }
+
+        .dsp2-subtitle {
+            @include renderCarFinderHeading($dsp2-f-size, $dsp2-f-size, $dsp2-line-h-24, $dsp2-line-h-24);
+            font-family: $bmw-bold;
+            text-transform: none;
+        }
+
+        .dsp2-subtitle-s {
+            @include renderCarFinderHeading($dsp2-f-size-s, $dsp2-f-size-s, $dsp2-line-h-20, $dsp2-line-h-20);
+            font-family: $bmw-bold;
+            text-transform: none;
+        }
+
+        .dsp2-body {
+            @include renderCarFinderHeading($dsp2-f-size, $dsp2-f-size, $dsp2-line-h-24, $dsp2-line-h-24);
+            font-family: $bmw-light;
+            text-transform: none;
+        }
+
+        .dsp2-body-s {
+            @include renderCarFinderHeading($dsp2-f-size-s, $dsp2-f-size-s, $dsp2-line-h-20, $dsp2-line-h-20);
+            font-family: $bmw-light;
+            text-transform: none;
+        }
+
+        .dsp2-link {
+            @include renderCarFinderHeading($dsp2-f-size, $dsp2-f-size, $dsp2-line-h-24, $dsp2-line-h-24);
+            font-family: $bmw-bold;
+            text-transform: none;
+            width: fit-content;
+            transition: border-bottom .05s linear;
+        }
+
+        a {
+            &.dsp2-link {
+                border-bottom: 1px solid $c-grey-3;
+                color: $c-grey;
+
+                &:hover,
+                :active {
+                    color: $c-grey;
+                    opacity: 1;
+                    border-bottom: 2px solid $c-grey-1;
+                }
+
+                &:focus {
+                    opacity: 1;
+                    border-bottom: 1px solid $c-grey-3;
+                }
+
+                &.disabled {
+                    pointer-events: none;
+                    border-bottom: 1px solid $c-grey;
+                    opacity: .3;
+                }
+            }
+        }
+
+        .dsp2-link-s {
+            @include renderCarFinderHeading($dsp2-f-size-s, $dsp2-f-size-s, $dsp2-line-h-20, $dsp2-line-h-20);
+            font-family: $bmw-bold;
+            text-transform: none;
+            width: fit-content;
+            transition: border-bottom .05s linear;
+        }
+
+        a {
+            &.dsp2-link-s {
+                color: $c-grey;
+                opacity: 1;
+                border-bottom: 1px solid $c-grey-3;
+
+                &:hover,
+                :active {
+                    border-bottom: 2px solid $c-grey-1;
+                }
+
+                &:focus {
+                    opacity: 1;
+                    border-bottom: 1px solid $c-grey-3;
+                }
+
+                &.disabled {
+                    pointer-events: none;
+                    border-bottom: 1px solid $c-grey;
+                    opacity: .3;
+                }
+            }
+        }
+
+        .dsp2-caption {
+            @include renderCarFinderHeading($dsp2-f-size-xs, $dsp2-f-size-xs, $dsp2-line-h-16, $dsp2-line-h-16);
+            font-family: $bmw-light;
+            text-transform: none;
+        }
+
+        .dsp2-label {
+            @include renderCarFinderHeading($dsp2-f-size-xxs, $dsp2-f-size-xs, $dsp2-line-h-14, $dsp2-line-h-16);
+            font-family: $bmw-bold;
+            text-transform: uppercase;
+        }
+
+        .dsp2-label-s {
+            @include renderCarFinderHeading($dsp2-f-size-xxs, $dsp2-f-size-xxs, $dsp2-line-h-14, $dsp2-line-h-14);
+            font-family: $bmw-bold;
+            text-transform: uppercase;
+        }
+    }
+}
+
+// Common heading
+.h-common {
+    text-transform: none;
+    font-size: $dsp2-f-size-l;
+    font-family: $bmw-light;
+    font-weight: $h-common-fw;
+    margin: 0;
+    padding: 0;
+
+    &.h-small {
+        font-size: $dsp2-f-size-s;
+    }
+
+    &.h-heavy {
+        font-weight: $h-common-heavy-fw;
+    }
+}
+
+.payment-amount {
+    margin: 0;
+    color: $bmw-blue;
+    font-weight: $fw-medium;
+    font-size: $dsp2-f-size-l;
+    line-height: $dsp2-f-size-l;
+}
+
+.payment-label {
+    margin: 0;
+    font-size: $dsp2-f-size-xs;
+    line-height: $dsp2-f-size-xs;
+    color: $payment-label-color;
+}

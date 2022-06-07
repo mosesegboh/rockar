@@ -1,0 +1,54 @@
+.px-skip {
+    .dsp2-action {
+        max-width: 446px;
+        float: right;
+        margin: 0;
+
+        @include media($small-screen-down) {
+            margin: 12px 0 0;
+        }
+    }
+
+    p {
+        @include media($small-screen-down) {
+            font-size: $dsp2-f-size-xs;
+            line-height: $dsp2-line-h-16;
+        }
+    }
+
+    .px-title {
+        font-family: $bmw;
+        font-size: $dsp2-f-size-s;
+        line-height: 20px;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 0 0 10px;
+        border-bottom: 1px solid $c-grey-5;
+        margin: -20px calc(50% - 50vw) 20px;
+
+        @include media($medium-screen-up) {
+            display: none;
+        }
+    }
+
+    .row {
+        @include display(flex);
+        @include align-items(center);
+        border-top: 1px solid $c-grey-5;
+        border-bottom: 1px solid $c-grey-5;
+        padding: 10px 0 10px;
+        margin: 0 0 10px;
+
+        @include media($small-screen-down) {
+            padding: 15px 0 15px;
+            margin: 20px 0 0;
+            @include display(block);
+        }
+
+        .col-6 {
+            p {
+                margin: 0;
+            }
+        }
+    }
+}

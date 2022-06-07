@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    design
+ * @package     rockar_bmw2
+ * @author      Ketevani Revazishvili <techteam@rockar.com>
+ * @copyright   Copyright (c) 2021 Rockar, Ltd (http://rockar.com)
+ */
+-->
+
+<layout version="0.1.0">
+    <rockar_youdrive_index_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/full-width.phtml</template>
+            </action>
+        </reference>
+        <reference name="breadcrumbs">
+            <action method="addCrumb">
+                <crumbname>Home</crumbname>
+                <crumbinfo>
+                    <label>Home</label>
+                    <title>Home</title>
+                    <link>/</link>
+                </crumbinfo>
+            </action>
+            <action method="addCrumb">
+                <crumbname>YouDrive</crumbname>
+                <crumbinfo>
+                    <label>YouDrive</label>
+                    <title>YouDrive</title>
+                </crumbinfo>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="rockar_youdrive/list" name="youdrive_list" template="rockar/youdrive/list.phtml">
+                <block type="cms/block" name="youdrive_hero" as="youdrive_hero">
+                    <action method="setBlockId">
+                        <block_id>youdrive_hero</block_id>
+                    </action>
+                </block>
+                <block type="cms/block" name="youdrive_online_booking_process" as="youdrive_online_booking_process">
+                    <action method="setBlockId">
+                        <block_id>youdrive_online_booking_process</block_id>
+                    </action>
+                </block>
+                <block type="cms/block" name="youdrive_your_details_statement" as="youdrive_your_details_statement">
+                    <action method="setBlockId">
+                        <block_id>youdrive-your-details-statement</block_id>
+                    </action>
+                </block>
+                <block type="cms/block" name="youdrive_description" as="youdrive_description">
+                    <action method="setBlockId">
+                        <block_id>you-drive-description-block</block_id>
+                    </action>
+                </block>
+                <block type="cms/block" name="youdrive_test_drive_tcs" as="youdrive_test_drive_tcs">
+                    <action method="setBlockId">
+                        <block_id>youdrive_test_drive_tcs</block_id>
+                    </action>
+                </block>
+                <block type="cms/block" name="youdrive_where_to_find_us" as="youdrive_where_to_find_us">
+                    <action method="setBlockId">
+                        <block_id>youdrive_where_to_find_us</block_id>
+                    </action>
+                </block>
+                <block type="customer/form_login" name="customer_form_login_login" as="login" template="persistent/customer/form/login/login.phtml" />
+                <block type="customer/form_register" name="customer_form_login_register" as="register" template="persistent/customer/form/login/register.phtml" />
+                <block type="core/messages" name="global_messages" as="global_messages" />
+                <block type="core/messages" name="messages" as="messages" />
+
+                <block type="core/template" name="logged_out_overlay" template="customer/account/loggedoutoverlay.phtml" />
+            </block>
+        </reference>
+    </rockar_youdrive_index_index>
+
+    <customer_account_index>
+        <reference name="dashboard_list">
+            <block type="rockar_youdrive/customer_list" name="customer_test_drives" as="test_drives" after="customer_saved_cars" template="rockar/customer/test_drives/list.phtml" />
+        </reference>
+    </customer_account_index>
+</layout>

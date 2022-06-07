@@ -1,0 +1,191 @@
+&-promotions,
+&-count {
+    @include display(flex);
+    align-items: center;
+    background-color: $base-background-color;
+    color: $black;
+    font-size: $f-size-xl;
+    font-weight: $fw-medium;
+    font-family: $brand-specific-font;
+    min-height: 52px;
+    text-transform: uppercase;
+    margin: 0;
+    width: 100%;
+    padding: 0 22px;
+
+    @include media($medium-screen-only) {
+        padding-bottom: $car-filter-heading-count-padding-medium-screen;
+        font-size: $car-filter-promotions-heading-font-size-medium-screen;
+    }
+
+    @include media($small-screen-down) {
+        padding-bottom: 5px;
+    }
+
+    @include media($small-screen-down) {
+        border-top: 1px solid $grey-3;
+        border-bottom: 1px solid $grey-3;
+        padding: 0 7px;
+
+        .checkbox-filter {
+            padding-bottom: 10px;
+        }
+
+        &-heading {
+            text-align: center;
+            padding-bottom: $car-finder-demonstrators-heading-padding-bottom-small-down;
+        }
+
+        .checkbox-filter-demonstrators {
+            width: 23px;
+            height: 23px;
+        }
+
+        &-info-container {
+            min-width: 116px;
+            margin-right: 0;
+        }
+
+        &-message {
+            font-size: $car-finder-demonstrators-message-font-size-small-down;
+        }
+
+        &-sub-message {
+            font-size: 9px;
+        }
+
+        &-info-container {
+            margin-right: 0;
+        }
+
+        input[type='radio'].radio-checkbox:checked + label span::after,
+        input[type='checkbox']:checked + label span::after {
+            top: 5px;
+            left: 0;
+        }
+    }
+
+    @include media($small-screen-up) {
+        .toggle-car-filter {
+            padding-bottom: 5px;
+        }
+    }
+
+    @include media($medium-screen-up) {
+        &-heading,
+        &-heading-you-drive {
+            padding-bottom: $car-finder-demonstrators-heading-padding-bottom-medium-up;
+        }
+
+        &-info-container {
+            min-width: 116px;
+        }
+    }
+
+    @include media($medium-screen-only) {
+        padding: 0;
+
+        &-info-container {
+            margin-left: $car-finder-demonstrators-info-container-margin-left-medium-only;
+            margin-right: $car-finder-demonstrators-info-container-margin-right-medium-only;
+            min-width: 115px;
+        }
+
+        &-heading,
+        &-heading-you-drive {
+            padding-bottom: $car-finder-demonstrators-heading-padding-bottom-medium-only;
+            min-width: $car-finder-demonstrators-heading-min-width-medium-only;
+        }
+    }
+
+    @include media($large-screen-up) {
+        padding: 0;
+    }
+
+    span {
+        line-height: 1;
+        display: block;
+
+        @include media($medium-screen-up) {
+            margin-right: 6%;
+        }
+
+        @include media($small-screen-down) {
+            margin-right: calc(1vw + 3%);
+        }
+    }
+
+    &-info-container {
+        margin-left: 6px;
+        letter-spacing: 2.4px;
+        line-height: 1.12;
+        margin-right: 0;
+    }
+
+    &-heading {
+        font-weight: $fw-semibold;
+        font-size: $car-finder-demonstrators-heading-font-size;
+        min-width: $car-finder-demonstrators-heading-min-width;
+        text-align: right;
+        padding-bottom: $car-finder-demonstrators-heading-bottom-padding;
+    }
+
+    &-heading-you-drive {
+        font-weight: $fw-semibold;
+        font-size: $car-finder-demonstrators-heading-font-size;
+        min-width: $car-finder-demonstrators-heading-min-width;
+        text-align: right;
+        padding-bottom: $car-finder-demonstrators-heading-bottom-padding;
+    }
+
+    &-message {
+        font-family: $brand-specific-font;
+        font-weight: $fw-light;
+        font-size: $car-finder-demonstrators-message-font-size;
+        letter-spacing: $car-finder-demonstrators-sub-message-letter-spacing;
+
+        @include media($medium-screen-only) {
+            font-size: $car-filter-promotions-message-font-size-medium-screen;
+        }
+    }
+
+    &-sub-message {
+        font-family: $brand-specific-font;
+        font-weight: $fw-bold;
+        font-size: $f-size-xs;
+        margin-top: 3px;
+        letter-spacing: $car-finder-demonstrators-sub-message-letter-spacing;
+
+        @include media($medium-screen-only) {
+            font-size: $car-filter-promotions-sub-message-font-size-medium-screen;
+        }
+    }
+
+    .checkbox-text {
+        font-size: $f-size-5xs;
+        padding-top: 10px;
+        font-family: $car-finder-demonstrators-checkbox-text-font-family;
+        font-weight: $car-finder-demonstrators-checkbox-text-font-weight;
+    }
+
+    .checkbox-filter-demonstrators {
+        margin-left: $car-finder-demonstrators-checkbox-margin-left;
+    }
+
+    .checkbox-wrapper {
+        width: $car-finder-demonstrators-checkbox-wrapper-width;
+        margin-bottom: $car-finder-demonstrators-checkbox-wrapper-margin-bottom;
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    &.mobile-borders {
+        border-top: 1px solid $grey-2;
+        border-bottom: 1px solid $grey-2;
+        display: none;
+
+        @include media($small-screen-down) {
+            @include display(flex);
+        }
+    }
+}

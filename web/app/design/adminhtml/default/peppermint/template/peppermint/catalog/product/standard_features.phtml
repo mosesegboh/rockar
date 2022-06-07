@@ -1,0 +1,211 @@
+<?php
+
+/**
+ * @category  Peppermint
+ * @package   Peppermint\Catalog
+ * @author    Lucaci Stefan <lucacistefan.alexandru@rockar.com>
+ * @copyright Copyright (c) 2019 Rockar Ltd (http://rockar.com)
+ */
+
+/**
+ * @var Rockar_Catalog_Block_Product_StandardFeatures $this
+ */
+
+$_htmlId = $this->getElement()->getHtmlId();
+$_htmlName = $this->getElement()->getName();
+$value = $this->getElement()->getValue();
+if (json_decode($value) === null) {
+    $value = '{}';
+}
+?>
+<tr>
+    <td class="label"><?php echo $this->getElement()->getLabel() ?></td>
+    <td class="value">
+        <ul id="<?php echo $_htmlId; ?>-container"></ul>
+        <input id="<?php echo $_htmlId ?>" name="<?php echo $_htmlName ?>" value="<?php echo htmlentities($value) ?>" type="hidden">
+        <style>
+            #<?php echo $_htmlId; ?>-container * {
+                box-sizing: border-box;
+            }
+
+            #<?php echo $_htmlId; ?>-container ul {
+                margin-left: 4em;
+            }
+
+            #<?php echo $_htmlId; ?>-container input {
+                width: 80%;
+                margin-right: 0.4em;
+            }
+        </style>
+        <script type="text/javascript">
+            (function() {
+                let attribute = $('<?php echo $_htmlId ?>');
+                let containerId = '<?php echo $_htmlId ?>-container';
+                let standardFeatures = <?php echo $value ?>;
+
+                function addSection(index, features) {
+                    let section = document.createElement('li');
+                    section.writeAttribute('data-section-idx', index);
+                    section.addClassName('features-section');
+                    section.insert(
+                        '<input class="feature-section" type="text">' +
+                        '<button class="scalable delete delete-section"><span><span><span><?php echo $this->__('Section') ?></span></span></span></button>'
+                    );
+                    section.down('.feature-section').value = index;
+
+                    let ul = document.createElement('ul');
+
+                    let addItem = document.createElement('li');
+                    addItem.insert('<button class="scalable add add-item"><span><span><span><?php echo $this->__('Item') ?></span></span></span></button>');
+                    ul.insert(addItem);
+
+                    for (let j = 0; j < features.length; j++) {
+                        ul.insertBefore(addSectionItem(j, features[j]), addItem);
+                    }
+
+                    section.insert(ul);
+
+                    return section;
+                }
+
+                function addSectionItem(index, value) {
+                    let sectionItem = document.createElement('li');
+                    sectionItem.addClassName('features-section-item');
+                    sectionItem.writeAttribute('data-item-idx', index);
+                    sectionItem.insert(
+                        '<input class="feature-item" type="text" style="width:60%">' +
+                        '<input class="feature-code" type="text"  style="width:19%">' +
+                        '<button class="scalable delete delete-item"><span><span><span><?php echo $this->__('Item') ?></span></span></span></button>'
+                    );
+                    if (value.description) {
+                        sectionItem.down('.feature-item').value = value.description;
+                        sectionItem.down('.feature-code').value = value.code;
+                    }
+
+                    return sectionItem;
+                }
+
+                function applyChanges(standardFeatures) {
+                    attribute.value = JSON.stringify(standardFeatures);
+                    attribute.setHasChanges();
+                }
+
+                document.observe('dom:loaded', function() {
+                    let dataList = $(containerId);
+
+                    let addButton = document.createElement('li');
+                    addButton.insert('<button class="scalable add add-section"><span><span><span><?php echo $this->__('Section') ?></span></span></span></button>');
+                    dataList.insert(addButton);
+
+                    for (let i in standardFeatures) {
+                        if (standardFeatures.hasOwnProperty(i)) {
+                            dataList.insertBefore(addSection(i, standardFeatures[i]), addButton);
+                        }
+                    }
+
+                    dataList.on('click', 'button.delete-item', function(e, el) {
+                        e.stop();
+
+                        let section = el.up('.features-section');
+                        let sectionId = section.readAttribute('data-section-idx');
+                        let itemId = el.up('.features-section-item').readAttribute('data-item-idx');
+
+                        standardFeatures[sectionId].splice(itemId, 1);
+                        section.replace(addSection(sectionId, standardFeatures[sectionId]));
+
+                        applyChanges(standardFeatures);
+                    });
+
+                    dataList.on('click', 'button.delete-section', function(e, el) {
+                        e.stop();
+
+                        let section = el.up('.features-section');
+                        let sectionId = section.readAttribute('data-section-idx');
+                        delete standardFeatures[sectionId];
+                        section.remove();
+
+                        applyChanges(standardFeatures);
+                    });
+
+                    let onItemChange = function(e, el) {
+                        let sectionId = el.up('.features-section').readAttribute('data-section-idx');
+                        let itemId = el.up('.features-section-item').readAttribute('data-item-idx');
+                        let item = {}
+
+                        if (el.readAttribute('class') == 'feature-item') {
+                            item = {
+                                code: el.nextSibling.value,
+                                description: el.value
+                            }
+                        } else {
+                            item = {
+                                code: el.value,
+                                description: el.previousSibling.value
+                            }
+                        }
+                        standardFeatures[sectionId][itemId] = item
+
+                        applyChanges(standardFeatures);
+                    };
+                    dataList.on('change', 'input.feature-item , input.feature-code', onItemChange);
+                    dataList.on('keyup', 'input.feature-item , input.feature-code', onItemChange);
+
+                    let onSectionChange = function(e, el) {
+                        let section = el.up('.features-section');
+                        let sectionId = section.readAttribute('data-section-idx');
+                        let newSectionId = el.value;
+
+                        if (sectionId !== newSectionId && standardFeatures.hasOwnProperty(newSectionId)) {
+                            el.addClassName('error');
+                            return;
+                        } else {
+                            el.removeClassName('error');
+                        }
+
+                        let newStandardFeatures = {};
+                        for (let i in standardFeatures) {
+                            if (standardFeatures.hasOwnProperty(i)) {
+                                if (i === sectionId) {
+                                    newStandardFeatures[newSectionId] = standardFeatures[i];
+                                } else {
+                                    newStandardFeatures[i] = standardFeatures[i];
+                                }
+                            }
+                        }
+                        standardFeatures = newStandardFeatures;
+
+                        section.writeAttribute('data-section-idx', newSectionId);
+
+                        applyChanges(standardFeatures);
+                    };
+                    dataList.on('change', 'input.feature-section', onSectionChange);
+                    dataList.on('keyup', 'input.feature-section', onSectionChange);
+
+                    dataList.on('click', 'button.add-item', function(e, el) {
+                        e.stop();
+
+                        let section = el.up('.features-section');
+                        let sectionId = section.readAttribute('data-section-idx');
+
+                        standardFeatures[sectionId].push('');
+                        section.replace(addSection(sectionId, standardFeatures[sectionId]));
+                    });
+
+                    dataList.on('click', 'button.add-section', function(e, el) {
+                        e.stop();
+
+                        standardFeatures[''] = [];
+                        dataList.insertBefore(addSection('', standardFeatures['']), el.up('li'));
+                    });
+                });
+            })();
+        </script>
+    </td>
+    <td class="scope-label">
+        <?php
+        if ($this->getElement()->getScope()) {
+            echo $this->getElement()->getScopeLabel();
+        }
+        ?>
+    </td>
+</tr>

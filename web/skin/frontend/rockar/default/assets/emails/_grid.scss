@@ -1,0 +1,43 @@
+#email-grid-table {
+  margin: -40px 0 50px;
+
+  td {
+    vertical-align: top;
+    padding: 40px 40px 0 0;
+    position: relative;
+
+    table {
+      margin: 0;
+
+      td {
+        padding-top: 0;
+      }
+    }
+
+    &.wide {
+
+      .bottom-link {
+        position: relative;
+      }
+
+      td {
+        padding-top: 0;
+      }
+    }
+  }
+
+  p.description {
+    margin-bottom: 2.5em;
+  }
+
+  p.title, img {
+    margin-bottom: 0.5em;
+  }
+
+  .bottom-link {
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}

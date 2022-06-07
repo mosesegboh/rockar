@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Admin
+ * @author    Ana-Maria Buliga <anamaria.buliga@rockar.com>
+ * @copyright Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+*/
+-->
+<config>
+    <modules>
+        <Peppermint_Admin>
+            <version>0.1.1</version>
+        </Peppermint_Admin>
+    </modules>
+    <global>
+        <resources>
+            <peppermint_admin_setup>
+                <setup>
+                    <module>Peppermint_Admin</module>
+                </setup>
+            </peppermint_admin_setup>
+        </resources>
+        <blocks>
+            <peppermint_admin>
+                <class>Peppermint_Admin_Block</class>
+            </peppermint_admin>
+        </blocks>
+        <helpers>
+            <peppermint_admin>
+                <class>Peppermint_Admin_Helper</class>
+            </peppermint_admin>
+        </helpers>
+        <models>
+            <peppermint_admin>
+                <class>Peppermint_Admin_Model</class>
+                <resourceModel>peppermint_admin_resource</resourceModel>
+            </peppermint_admin>
+            <peppermint_admin_resource>
+                <class>Peppermint_Admin_Model_Resource</class>
+                <entities>
+                    <role>
+                        <table>peppermint_admin_role</table>
+                    </role>
+                </entities>
+            </peppermint_admin_resource>
+        </models>
+    </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <peppermint_admin>
+                    <file>peppermint_admin.xml</file>
+                </peppermint_admin>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Peppermint_Admin>
+                    <files>
+                        <default>Peppermint_Admin.csv</default>
+                    </files>
+                </Peppermint_Admin>
+            </modules>
+        </translate>
+    </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <peppermint_admin before="Mage_Adminhtml">Peppermint_Admin_Adminhtml</peppermint_admin>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>

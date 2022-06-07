@@ -1,0 +1,76 @@
+$bmw: 'BMW-Regular', Arial, sans-serif;
+$bmw-bold: 'BMW-Bold', Arial Bold, sans-serif;
+$bmw-light: 'BMW-Light', Arial Narrow, sans-serif;
+
+$bmw-collection: woff, woff2;
+
+// BMW font family
+// Normal / 400
+@include font-face('BMW-Regular', '../../dsp2/fonts/bmw/BMWTypeNext-Regular', $fw-normal, normal, false, $bmw-collection);
+// Bold / 700
+@include font-face('BMW-Bold', '../../dsp2/fonts/bmw/BMWTypeNext-Bold', $fw-bold, normal, false, $bmw-collection);
+// Light / 300
+@include font-face('BMW-Light', '../../dsp2/fonts/bmw/BMWTypeNext-Light', $fw-bold, normal, false, $bmw-collection);
+
+$fw-light: 1;
+$fw-book: 1;
+$fw-normal: 1;
+$fw-medium: 1;
+$fw-semibold: 1;
+$fw-bold: 1;
+$fw-heavy: 1;
+$fw-black: 1;
+
+////// Font Sizes - 64px //////
+$dsp2-f-size-xxxxl: 4em;
+
+////// Font Sizes - 48px //////
+$dsp2-f-size-xxxl: 3em;
+
+////// Font Sizes - 36px //////
+$dsp2-f-size-36: 2.25em;
+
+////// Font Sizes - 32px //////
+$dsp2-f-size-xxl: 2em;
+
+////// Font Sizes - 24px //////
+$dsp2-f-size-xl: 1.5em;
+
+////// Font Sizes - 20px //////
+$dsp2-f-size-l: 1.25em;
+
+////// Font Sizes - 18px //////
+$dsp2-f-size-sl: 1.125em;
+
+////// Font Sizes - 16px //////
+$dsp2-f-size: 1em;
+
+////// Font Sizes - 14px //////
+$dsp2-f-size-s: 0.875em;
+
+////// Font Sizes - 13px //////
+$dsp2-f-size-13: 0.8125em;
+
+////// Font Sizes - 12px //////
+$dsp2-f-size-xs: 0.75em;
+
+////// Font Sizes - 10px //////
+$dsp2-f-size-xxs: 0.625em;
+
+////// Font Sizes - 8px //////
+$dsp2-f-size-xxxs: 0.5em;
+
+////// Line heights //////
+$dsp2-line-h-80: 80px;
+$dsp2-line-h-64: 64px;
+$dsp2-line-h-40: 40px;
+$dsp2-line-h-36: 36px;
+$dsp2-line-h-32: 32px;
+$dsp2-line-h-30: 30px;
+$dsp2-line-h-28: 28px;
+$dsp2-line-h-24: 24px;
+$dsp2-line-h-20: 20px;
+$dsp2-line-h-18: 18px;
+$dsp2-line-h-16: 16px;
+$dsp2-line-h-14: 14px;
+$dsp2-line-h-12: 12px;

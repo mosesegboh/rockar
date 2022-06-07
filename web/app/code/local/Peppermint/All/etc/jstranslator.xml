@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_All
+ * @author    Kalvis Ostrovskis <techteam@rockar.com>
+ * @copyright Copyright (c) 2021 Rockar Ltd (http://rockar.com)
+ */
+ -->
+<jstranslator>
+    <line-packages translate="message" module="peppermint_all">
+        <message>Line/Packages</message>
+    </line-packages>
+</jstranslator>

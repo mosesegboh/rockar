@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category Rockar
+ * @package Rockar\Setup
+ * @author Dmitrijs Sitovs <dmitrijssh@scandiweb.com / dsitovs@gmail.com>
+ * @copyright Copyright (c) 2017 Scandiweb, Ltd (http://scandiweb.com)
+ * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Rockar_Setup>
+            <version>0.1.0</version>
+        </Rockar_Setup>
+    </modules>
+    <global>
+        <resources>
+            <rockar_setup>
+                <setup>
+                    <module>Rockar_Setup</module>
+                    <class>Rockar_Setup_Model_Resource_Setup</class>
+                </setup>
+            </rockar_setup>
+        </resources>
+    </global>
+</config>

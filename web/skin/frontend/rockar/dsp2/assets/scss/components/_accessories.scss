@@ -1,0 +1,274 @@
+.accessories {
+    background: $white;
+    overflow: hidden;
+    margin: 0;
+
+    @include media($small-screen-down) {
+        margin: 0 -24px;
+    }
+
+    .accessories-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 30px 0;
+        flex-wrap: wrap;
+
+        @include media($small-screen-down) {
+            padding: 30px 50px 0;
+        }
+
+        .filter {
+            display: flex;
+            align-items: center;
+            padding: 10px 0 0;
+
+            .title {
+                margin: 0 15px 0 0;
+                font-family: $bmw;
+
+                @include media($small-screen-down) {
+                    font-size: $dsp2-f-size-xs;
+                }
+            }
+
+            select {
+                margin: 0;
+                padding: 6px;
+                border: solid 1px $c-grey-4;
+                color: $c-grey;
+                background: transparent;
+
+                option {
+                    &:checked {
+                        background: $c-grey-5;
+                    }
+
+                    @include media($small-screen-down) {
+                        font-size: $dsp2-f-size-xs;
+                    }
+                }
+            }
+        }
+
+        .accessories-title {
+            color: $c-grey;
+            font-size: $dsp2-f-size;
+            font-family: $bmw;
+            line-height: $dsp2-line-h-24;
+            text-transform: uppercase;
+            padding: 10px 10px 0 0;
+
+            @include media($small-screen-down) {
+                font-size: $dsp2-f-size-s;
+            }
+        }
+    }
+
+    .accessories-section-wrapper {
+        overflow: visible;
+
+        &.slick-slider {
+            width: calc(100% - 20px);
+            margin: 0 auto 45px;
+
+            @include media($small-screen-down) {
+                width: calc(100% - 55px);
+            }
+
+            .slick-list {
+                overflow: visible;
+                height: inherit !important; // override manually added height by slick.js
+                padding-left: 0 !important; // override manually added padding by slick.js for adding partial slide
+            }
+        }
+
+        .slick-arrow {
+            z-index: 1;
+
+            &.slick-prev,
+            &.slick-next {
+                &:before {
+                    height: 11px;
+                    width: 11px;
+                    border-right: 3px solid $c-grey;
+                    border-top: 3px solid $c-grey;
+                    transform-origin: 50% 0;
+                    top: 50%;
+                    opacity: 1;
+                }
+            }
+
+            &.slick-prev {
+                left: -10px;
+
+                @include media($small-screen-down) {
+                    left: 0;
+                }
+
+                &:before {
+                    transform: rotate(225deg) translateY(-50%);
+                }
+            }
+
+            &.slick-next {
+                right: -10px;
+
+                @include media($small-screen-down) {
+                    right: 0;
+                    background: $white-transparent-background;
+                    width: 24px;
+                    height: 24px;
+                }
+
+                &:before {
+                    transform: rotate(45deg) translateY(-50%);
+                }
+            }
+        }
+
+        .slick-track {
+            display: flex;
+
+            .slick-slide {
+                padding: 20px 10px;
+                height: inherit;
+
+                @include media($small-screen-down) {
+                    padding: 20px 0 20px 20px;
+                }
+            }
+        }
+
+        .slick-dots {
+            bottom: -30px;
+            left: 0;
+
+            li {
+                width: 8px;
+                height: 8px;
+                margin: 6px;
+
+                button {
+                    &:before {
+                        color: $c-grey-3;
+                        text-align: initial;
+                        width: 8px;
+                        height: 8px;
+                        opacity: 1;
+                    }
+                }
+
+                &.slick-active {
+                    width: 12px;
+                    height: 12px;
+
+                    button {
+                        &:before {
+                            font-size: 12px;
+                            width: 12px;
+                            height: 12px;
+                            color: $c-grey;
+                        }
+                    }
+                }
+            }
+        }
+
+        .carousel-block {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .15);
+            padding: 0;
+
+            .image-container {
+                overflow: hidden;
+                margin: 0 auto;
+                max-width: none;
+                max-height: none;
+
+                img {
+                    cursor: pointer;
+                }
+            }
+
+            .details {
+                color: $c-grey;
+                display: flex;
+                flex-direction: column;
+                padding: 15px 15px 0;
+                justify-content: space-between;
+
+                .title {
+                    .dsp2-label {
+                        font-family: $bmw;
+                        font-size: $dsp2-f-size-s;
+                        line-height: $dsp2-line-h-16;
+                        margin: 0;
+                        text-transform: none;
+
+                        @include media($small-screen-down) {
+                            line-height: $dsp2-line-h-14;
+                        }
+                    }
+                }
+
+                .group-title {
+                    p {
+                        font-family: $bmw-light;
+                        font-size: $dsp2-f-size-xxs;
+                        margin: 0;
+                    }
+                }
+            }
+
+            .content {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 0 15px 15px;
+
+                .accessory-add-item {
+                    color: $c-grey;
+                    font-family: $bmw-bold;
+                    position: relative;
+                    margin-left: 6px;
+                    border-bottom: solid 1px $c-grey-3;
+                    cursor: pointer;
+
+                    &:before {
+                        content: '';
+                        background-image: url('../images/svg/icon-close-black.svg');
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        height: 16px;
+                        width: 16px;
+                        position: absolute;
+                        top: 5px;
+                        left: -25px;
+                    }
+
+                    &.added {
+                        &:before {
+                            transform: rotate(45deg);
+                        }
+                    }
+                }
+
+                .accessory-price {
+                    color: $c-grey;
+                    font-family: $bmw;
+                    font-size: $dsp2-f-size-xs;
+                }
+            }
+        }
+    }
+
+    .popup-content {
+        @include media($small-screen-down) {
+            padding: 60px 25px 40px;
+        }
+    }
+}

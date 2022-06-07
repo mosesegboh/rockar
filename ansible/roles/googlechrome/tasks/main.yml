@@ -1,0 +1,13 @@
+---
+  - name: Install Google Chrome on Mac
+    homebrew_cask:
+      name: google-chrome
+      state: present
+      accept_external_apps: yes
+    when: ansible_os_family == 'Darwin'
+
+  - name: Install Google Chrome on Windows
+    win_chocolatey:
+      name: googlechrome
+      state: present
+    when: ansible_os_family == 'Windows'

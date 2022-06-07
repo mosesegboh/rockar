@@ -1,0 +1,91 @@
+#model-filter {
+    padding-bottom: 20px;
+
+    @include media($small-screen-down) {
+        width: 80%;
+        margin: 20px auto 0;
+    }
+
+    .model-list {
+        padding: 0 .8em;
+        display: table;
+        white-space: nowrap;
+    }
+
+    .model-navigation {
+        &-desktop {
+            border: solid $grey-3;
+            border-width: 1px 0;
+            display: flex;
+            padding: .5em 0;
+
+            @include media($small-screen-down) {
+                display: none;
+            }
+        }
+
+        &-mobile {
+            display: none;
+            margin-left: auto;
+            margin-right: auto;
+
+            @include media($small-screen-down) {
+                display: block;
+            }
+        }
+
+        &-title {
+            font-weight: bold;
+        }
+    }
+
+    .model-link {
+        color: $motorrad-text-color;
+        font-weight: $motorrad-fw-normal;
+        font-size: $f-size-xxl;
+        font-family: $motorrad;
+        line-height: $motorrad-line-height-46;
+        text-decoration: none;
+        vertical-align: middle;
+
+        &.active,
+        &.has-selected {
+            font-size: $f-size-5xl;
+        }
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+
+        .model-wrapper {
+            flex: 0 23.23176%;
+            margin-right: 1.5%;
+            margin-top: 1em;
+
+            @include media($small-screen-down) {
+                flex: 0 100%;
+                max-width: 320px;
+                margin: 1em auto 0;
+            }
+        }
+    }
+
+    .model-item {
+        img {
+            border: 0;
+            padding-bottom: 10px;
+        }
+
+        &.active {
+            img {
+                border-bottom: 4px solid $primary-color;
+                padding-bottom: 6px;
+            }
+        }
+    }
+
+    .model-empty {
+        padding: 15px;
+    }
+}

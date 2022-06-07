@@ -1,0 +1,24 @@
+.car-filter {
+    @import './car-filter/item';
+    @import './car-filter/wrapper';
+}
+
+.sort-filter {
+    .results {
+        span {
+            &:first-child {
+                font-family: $motorrad-bold;
+            }
+        }
+    }
+}
+
+#car-filter {
+    .car-filter-buttons {
+        .button {
+            @include media($medium-screen-down) {
+                background: $black;
+            }
+        }
+    }
+}

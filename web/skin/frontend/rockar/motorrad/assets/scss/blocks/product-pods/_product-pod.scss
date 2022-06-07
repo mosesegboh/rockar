@@ -1,0 +1,266 @@
+.product-pod {
+    .attributes-container {
+        @include display(flex);
+        padding: 0 1em 0.8em 1em;
+
+        .attributes {
+            @include display(flex);
+        }
+
+        .information-attribute {
+            margin-right: 1em;
+
+            .attribute-icon {
+                width: 30px;
+                vertical-align: bottom;
+            }
+
+            .title {
+                font-family: $motorrad
+            }
+
+            @include media($small-screen-down) {
+                @include display(flex);
+                @include align-items(center);
+                flex-direction: column;
+            }
+        }
+    }
+
+    .offertags-container {
+        @include display(inline-flex);
+
+        @include media($small-screen-down) {
+            margin: 0 0 0 -1.05rem;
+        }
+
+        &.mobile {
+            @include media($large-screen-up) {
+                display: none;
+            }
+        }
+
+        .offertags {
+            @include display(flex);
+            @include align-items(flex-start);
+            @include flex-direction(column);
+
+            .offertag-icon {
+                margin: .5rem 0;
+            }
+
+            .offertag-label {
+                letter-spacing: normal;
+                margin: 0 0 .2rem .5rem;
+                text-transform: uppercase;
+                font: {
+                    family: $motorrad-light;
+                    size: $f-size-xxxxs;
+                    weight: bold;
+                }
+            }
+        }
+
+        &.offertags-background {
+            margin: .5rem 0;
+
+            @include media($small-screen-down) {
+                margin: .5rem 0 .5rem -1.05rem;
+            }
+
+            .offertag-label {
+                background-color: $motorrad-blue;
+                color: $white;
+                padding: .57rem 1rem .4rem;
+                margin: 0;
+            }
+        }
+
+        &.offertags-blank {
+            @include media($small-screen-down) {
+                margin: unset;
+            }
+
+            .offertag-label {
+                margin: 0;
+                padding: .5rem 1rem;
+                font: {
+                    size: $f-size-xxxs;
+                    weight: unset;
+                }
+
+                @include media($small-screen-down) {
+                    padding: .5rem 1rem;
+                }
+            }
+        }
+
+        &.offertags-it {
+            .offertags {
+                @include align-items(center);
+
+                .offertag-icon {
+                    align-self: flex-start;
+                }
+
+                .offertag-label {
+                    margin: 0 0 .2rem 0;
+                    font: {
+                        size: $f-size-xxxs;
+                        weight: unset;
+                    }
+
+                    @include media($small-screen-down) {
+                        margin: 0 .5rem .2rem .5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.pod-caption {
+    @import 'pod/caption';
+    @include display(flex);
+    @include justify-content(space-between);
+    padding: .8em 1em;
+}
+
+.pod-content {
+    @include display(flex);
+
+    @include media($medium-screen-down) {
+        display: block;
+    }
+
+    .get-quote {
+        .actions-wrapper {
+            margin: 0;
+
+            .get-quote-icon-button {
+                height: unset;
+                margin: 0;
+                font-size: $f-size-5xs;
+                letter-spacing: normal;
+
+                .get-quote-cta-icon {
+                    font-family: $motorrad-light;
+                    text-transform: initial;
+                    &::after {
+                        @include sprite($sprite-get-quote);
+
+                        content: '';
+                        margin: auto;
+                        margin-top: 5px;
+                        display: block;
+                    }
+
+                    &::before {
+                        content: none;
+                    }
+                }
+
+                &:hover {
+                    border: 0;
+                }
+            }
+        }
+
+        .popup-content {
+            .content-wrapper {
+                .row {
+                    display: block;
+                    border: 0;
+
+                    &:last-of-type {
+                        height: 70px;
+                        border: 0;
+
+                        @include media($small-screen-down) {
+                            padding-top: 30px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .pod-images {
+        border-top: 1px solid $pod-border-color;
+        position: relative;
+        margin: 0;
+        width: 70%;
+        overflow: hidden;
+
+        @include media($medium-screen-down) {
+            border-top: 0;
+            width: 100%;
+        }
+
+        &.attributes-visible {
+            @include media($medium-screen-down) {
+                position: static;
+            }
+        }
+
+        @import 'pod/images';
+        @import 'pod/specification';
+    }
+
+    .pod-data {
+        @include display(flex);
+        @include flex-direction(column);
+        @include justify-content(space-between);
+        padding-bottom: 0;
+        width: 30%;
+
+        @include media($medium-screen-down) {
+            width: 100%;
+            border-left: none;
+        }
+
+        @include media($large-screen-up) {
+            border-left: 1px solid $pod-borders-color;
+        }
+
+        @import 'pod/prices';
+        @import 'pod/actions';
+
+        .offertags-container {
+            &.desktop {
+                @include media($medium-screen-down) {
+                    display: none;
+                }
+            }
+
+            .offertags {
+                .offertag-icon {
+                    margin: .5rem 0 .5rem -1px;
+                }
+
+                .offertag-label {
+                    margin: .2rem;
+                }
+            }
+
+            &.offertags-background {
+                margin: .5rem 0 .5rem -.3rem;
+            }
+
+            &.offertags-blank {
+                padding: 0 0 0 1rem;
+
+                .offertag-label {
+                    margin: .2rem .2rem .2rem 0;
+                    padding: unset;
+                }
+            }
+
+            &.offertags-it {
+                .offertag-label {
+                    margin: 0 0 .2rem 0;
+                }
+            }
+        }
+    }
+}

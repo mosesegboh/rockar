@@ -1,0 +1,27 @@
+.messages {
+    padding: 0;
+
+    li {
+        list-style: none;
+
+        ul {
+            padding: 0;
+        }
+    }
+}
+
+.warning-msg {
+    @include flash($notification-alert-color);
+}
+
+.error-msg {
+    @include flash($notification-error-color);
+}
+
+.notice-msg {
+    @include flash($notification-notice-color);
+}
+
+.success-msg {
+    @include flash($notification-success-color);
+}

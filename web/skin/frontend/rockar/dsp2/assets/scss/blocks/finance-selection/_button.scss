@@ -1,0 +1,20 @@
+button {
+    width: 100%;
+    margin: 0;
+    border: 0;
+    background: $transparent;
+    color: $c-grey;
+    padding: .5em 1.55em;
+    min-width: 285px;
+    height: 50px;
+    font-family: $bmw-bold;
+    font-size: $dsp2-f-size;
+    border-left: $bmw-nav;
+
+    &:hover,
+    &.selected {
+        background: $transparent;
+        color: $c-grey;
+        border-left: $bmw-active-nav;
+    }
+}

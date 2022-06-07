@@ -1,0 +1,61 @@
+.px-car-info {
+    background: $white;
+    border: 1px solid $c-grey-5;
+    display: block;
+    margin: 0;
+    max-width: $px-vrm-block-max-width;
+    padding: 10px;
+    margin-top: 20px;
+
+    @include media($small-screen-down) {
+        max-width: $px-vrm-block-max-width-s-screen;
+        margin-bottom: 21px;
+    }
+
+    &.mileage-error {
+        margin-left: 0;
+
+        @include media($small-screen-down) {
+            left: initial;
+            transform: translateX(0);
+            top: 10px;
+            width: 100%;
+        }
+    }
+
+    &::after {
+        @include sprite($sprite-dropdown-arrow-down);
+        border: 0;
+        height: 9px;
+        width: 14px;
+        right: 112px;
+        left: auto;
+        transform: rotate(180deg);
+        top: -9px;
+
+        @include media($small-screen-down) {
+            right: calc(50% - 7px);
+        }
+    }
+
+    p {
+        color: $c-grey;
+        font-size: $dsp2-f-size;
+    }
+
+    .px-car-name {
+        color: $px-vrm-color;
+        text-transform: none;
+    }
+
+    .px-link {
+        color: $c-grey;
+        font-size: $dsp2-f-size;
+        font-weight: $fw-book;
+        font-family: $bmw-bold;
+
+        &::before {
+            @include sprite($sprite-bmw-link);
+        }
+    }
+}

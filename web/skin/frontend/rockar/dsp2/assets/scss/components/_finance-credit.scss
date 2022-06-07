@@ -1,0 +1,113 @@
+.finance-credit {
+    body {
+        color: $c-grey;
+    }
+    button {
+        max-width: 285px;
+        font-size: $dsp2-f-size-s;
+        font-weight: $fw-black;
+        letter-spacing: 0;
+        height: $input-field-height;
+
+        @include media($medium-screen-down) {
+            font-size: $dsp2-f-size-s;
+            height: $input-field-height;
+            max-width: 100%;
+        }
+
+        &.button-disabled {
+            opacity: 0.5 !important; //Used to override inline styling
+
+            ~ .button-empty {
+                opacity: 1;
+            }
+        }
+
+        &:hover {
+            background-color: $c-blue-1;
+        }
+    }
+
+    .button-empty {
+        background: $c-grey-1;
+        color: $white;
+        border: 0;
+
+        &:hover {
+            background-color: $c-grey;
+        }
+    }
+
+    input[type='checkbox'] {
+
+        + label {
+
+            * {
+                display: initial;
+                vertical-align: baseline;
+            }
+        }
+    }
+
+    label {
+        font-size: $dsp2-f-size;
+    }
+
+    p {
+        font-size: $dsp2-f-size;
+        color: $c-grey;
+        font-family: $bmw-light;
+        letter-spacing: $base-letter-spacing;
+
+        &.required {
+            font-size: $dsp2-f-size-xs;
+        }
+    }
+
+    .h5,
+    h5 {
+        font-family: $bmw-light;
+        font-size: $checkout-details-font-size;
+    }
+
+    ol,
+    .confirm {
+        padding-left: $dsp2-left;
+        font-size: $dsp2-f-size;
+
+        li {
+            list-style: decimal;
+        }
+    }
+
+    .accept-terms {
+        padding-top: $dsp2-line-25;
+    }
+
+    .field-title {
+        font-family: $bmw-bold;
+        font-size: $dsp2-f-size-s;
+    }
+
+    .px-regular-heading {
+        font-size: $dsp2-f-size-s;
+        font-weight: normal;
+        font-family: $bmw-bold;
+    }
+
+    .final-valuation {
+        font-size: $f-size-9xl;
+        line-height: $dsp2-line-46;
+        font-family: $bmw-light;
+    }
+
+    .pad-bottom {
+        padding-bottom: $dsp2-line-25;
+    }
+
+    .section-action-buttons {
+        button {
+            max-width: 100%;
+        }
+    }
+}

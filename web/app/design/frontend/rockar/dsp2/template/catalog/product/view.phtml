@@ -1,0 +1,74 @@
+<?php
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Design
+ * @author    Ketevani Revazishvili <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+
+/** @var Peppermint_Catalog_Block_Product_View $this */
+$catalogHelper = Mage::helper('rockar_catalog');
+$financeQuoteData = $this->getFinanceQuoteData();
+$imagesList = $this->getAllCosyImagesAsJson($financeQuoteData);
+$carouselSettings = Mage::helper('rockar_all')->jsonEncode([
+    'slidesToShow' => 1,
+    'initialSlide' => 0,
+    'mobileNavigation' => 1,
+    'dots' => false,
+    'lazyload' => 'ondemand',
+    'infinite' => false,
+    'mobileFirst' => true,
+    'centerMode' => true,
+    'centerPadding' => '26%',
+    'responsive' => [
+        [
+            'breakpoint' => 1024,
+            'settings' => [
+                'centerPadding' => '46.5%'
+            ]
+        ]
+    ],
+    'speed' => 300
+]);
+?>
+
+<div class="messages-wrapper">
+    <div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
+</div>
+
+<?php if ($imagesList !== '[]') : ?>
+    <div class="cosy-view">
+        <app-cosy-views
+            :slides='<?php echo $imagesList; ?>'
+            :options='<?php echo $carouselSettings; ?>'
+            v-ref:cosy-view-carousel
+        ></app-cosy-views>
+    </div>
+<?php endif; ?>
+
+<app-configurator
+    product-type='<?php echo $this->getProduct()->getTypeId(); ?>'
+    :car-data='<?php echo $financeQuoteData['car_data'] ?>'
+    :product='<?php echo $this->getProductJson(); ?>'
+    :vehicles='<?php echo $this->getVehicleJson(); ?>'
+    :ext-carousel='<?php echo $this->getImagesAsJson(); ?>'
+    :int-carousel='<?php echo $this->getImagesAsJson(Rockar_Catalog_Helper_Images::IMAGE_TYPE_INTERIOR); ?>'
+    int-image='<?php echo $this->getFirstImage(Rockar_Catalog_Helper_Images::IMAGE_TYPE_INTERIOR) ?>'
+    ext-image='<?php echo $this->getFirstImage(); ?>'
+    :options='<?php echo $this->getConfiguratorOptions(); ?>'
+    :compare='<?php echo Mage::helper('rockar_compare')->getCompareData() ?>'
+    :technical-spec-items='<?php echo $this->getTechnicalSpecificationsJson(); ?>'
+    :standard-features='<?php echo $this->getStandardFeatures(); ?>'
+    :car-attributes='<?php echo $this->getCarAttributes(); ?>'
+    :colors='<?php echo $this->getColorJson() ?>'
+    :accessories='<?php echo $this->getAccessoriesJson() ?>'
+    :accessories-groups='<?php echo $this->getAccessoriesGroupJson() ?>'
+    add-accessories-url='<?php echo $this->getUrl('rockar_catalog/ajax/chooseVehicle') ?>'
+    part-exchange-notification='<?php echo Mage::getStoreConfig('extendedrules/future_value/pdp_notification')?>'
+    button-label='<?php echo Mage::helper('rockar_catalog')->getButtonLabel(); ?>'
+    :apr-value='<?php echo (float)$financeQuoteData['apr'] ?>'
+    :apr-config-enabled='<?php echo $catalogHelper->getAprConfigEnabled() ? 'true' : 'false' ?>'
+    v-ref:configurator
+>
+    <?php echo $this->getBlockHtml('get_quote_cta'); ?>
+</app-configurator>

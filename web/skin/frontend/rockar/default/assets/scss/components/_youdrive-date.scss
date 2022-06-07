@@ -1,0 +1,67 @@
+.you-drive-date {
+    .drive-car {
+        background: white;
+        padding: 1em;
+
+        .car-title {
+            margin-bottom: 0.25em;
+        }
+
+        .car-subtitle {
+            font-size: $f-size-s;
+        }
+    }
+
+    .drive-time {
+        @include media($medium-screen-up) {
+            padding-left: 1.75em;
+        }
+
+        .button-wrapper {
+            max-width: $you-drive-date-button-wrapper-max-width;
+            padding-right: 0.25em;
+            @include clearfix;
+
+            @include media($small-screen-down) {
+                padding: 0;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            button {
+                float: left;
+                width: 70%;
+
+                @include media($small-screen-down) {
+                    float: none;
+                    width: 100%;
+                    margin: .5em 0;
+                }
+
+                &:first-child {
+                    width: 25%;
+                    margin-right: 5%;
+
+                    @include media($small-screen-down) {
+                        margin: 0;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    #timepicker {
+        width: 100%;
+        max-width: 100%;
+
+        @include media($small-screen-down) {
+            margin: 1em 0 0 0;
+        }
+
+        .calendar {
+            margin: 0;
+            width: 100%;
+        }
+    }
+}

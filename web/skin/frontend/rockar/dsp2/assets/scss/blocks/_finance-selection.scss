@@ -1,0 +1,178 @@
+#finance-filter {
+    .finance-filter-sliders {
+        margin: 0 0 .5em 0;
+
+        @include media($medium-screen-up) {
+            margin: 1.5em 0;
+        }
+
+        @import 'finance-selection/range-sliders';
+
+        .mileage-filter {
+            margin-top: .8em;
+        }
+
+        .term-filter {
+            margin-top: .8em;
+        }
+    }
+
+    .finance-filter-wrapper {
+        padding: 30px 0 0;
+
+        .title-wrapper {
+            @include media($medium-screen-up) {
+                display: none;
+            }
+
+            .filter-title {
+                font-size: $dsp2-f-size-l;
+                margin: 99px 0 25px;
+                font-family: $bmw;
+                line-height: $dsp2-line-h-32;
+                color: $c-grey;
+                display: block;
+
+                &.active {
+                    margin: 19px 0 25px;
+                }
+            }
+        }
+
+        @include media($medium-screen-up) {
+            border: 1px solid $c-grey-4;
+            padding: 10px 21px;
+        }
+    }
+}
+
+.finance-selection {
+    .label {
+        margin-bottom: 1.5em;
+
+        @include media($small-screen-down) {
+            text-align: center;
+        }
+
+        p {
+            font-family: $bmw-bold;
+            font-size: $dsp2-f-size-s;
+            text-transform: none;
+            letter-spacing: 0;
+            color: $finance-selection-group-text-color-dark;
+
+            @include media($small-screen-down) {
+                font-weight: $fw-book;
+                font-size: $finance-selection-group-font-size-mobile;
+            }
+        }
+    }
+
+    .finance-options {
+        @import 'finance-selection/video';
+        @include display(flex);
+
+        .finance-groups {
+            display: inline-block;
+            margin-right: unset;
+            width: 100%;
+
+            .group-wrapper {
+                max-width: $finance-selection-max-width;
+
+                @include media($small-screen-down) {
+                    max-width: none;
+                }
+
+                .finance-group-accordion {
+                    @import 'finance-selection/accordion';
+                    border-top: solid 1px $c-grey-5;
+                    min-height: 50px;
+                }
+
+                .finance-group-button {
+                    @import 'finance-selection/button';
+                }
+
+                .js-accordion-trigger,
+                .finance-group-button {
+                    font-family: $bmw-bold;
+                    font-size: $dsp2-f-size-s;
+                    height: auto;
+                    min-height: 50px;
+                    letter-spacing: 0;
+                    margin-bottom: 0;
+                    border-bottom: solid 1px $c-grey-5;
+                    text-align: left;
+                }
+            }
+        }
+
+        .finance-video {
+            @include size($finance-video-width $finance-video-height);
+            display: inline-block;
+        }
+    }
+
+    .finance-options-mobile {
+        @import 'finance-selection/mobile-dropdown';
+        @import 'finance-selection/video';
+
+        @include media($medium-screen-up) {
+            display: none;
+        }
+    }
+
+    .finance-video {
+        // Need to hide non-video data in finance products video field
+        p:not(:last-of-type),
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            display: none;
+        }
+
+        .aspect-ratio-wrapper {
+            max-width: 384px; // 384, 216 = 16/9 aspect ratio
+            width: 100%;
+            height: 100%;
+            margin-left: 50%;
+            transform: translateX(-50%);
+            padding: 0;
+
+            .aspect-ratio-16-9 {
+                position: relative;
+                width: 100%;
+                padding-bottom: calc((9/16) * 100%);
+
+                .video-wrapper {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+
+                    .video-border {
+                        position: absolute;
+                        width: 100%;
+                        height: calc(100% + 2px);
+                        border: 1px solid $finance-video-border-color;
+
+                        .video {
+                            height: 100%;
+
+                            p {
+                                iframe {
+                                    max-width: 100%;
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

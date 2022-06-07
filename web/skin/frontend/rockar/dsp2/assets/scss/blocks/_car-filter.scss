@@ -1,0 +1,285 @@
+.car-filter-step {
+    float: left;
+    margin-top: 0;
+    width: 100%;
+
+    @include media($dsp2-medium-screen-up) {
+        margin-top: 40px;
+    }
+
+    @include media($small-screen-down) {
+        padding: 0;
+    }
+
+    @include media($dsp2-l-screen-up) {
+        margin-top: 50px;
+        padding: 0 6em;
+    }
+
+    .category-products {
+        @include media($small-screen-down) {
+            overflow-x: unset;
+        }
+    }
+}
+
+.sort-filter {
+    @import './car-filter/applied-filters';
+    @import './car-filter/sort';
+    display: none;
+    min-height: 70px;
+    background-color: $white;
+
+    &.mobile {
+        display: flex;
+        min-height: unset;
+
+        &.active {
+            display: none;
+        }
+
+        .applied-filters {
+            position: fixed;
+            margin: unset;
+            padding: 6px 25px 0;
+            z-index: 999;
+            background: $white;
+            left: 0;
+            border-top: 1px solid $c-grey-5;
+            border-bottom: 1px solid $c-grey-5;
+            height: 80px;
+            overflow-y: scroll;
+            top: 98px;
+            -webkit-overflow-scrolling: touch;
+        }
+    }
+
+    @include media($medium-screen-up) {
+        @include display(flex);
+    }
+
+    .results {
+        @include display(flex);
+        @include flex-direction(column);
+        @include align-items(center);
+        @include justify-content(center);
+        max-width: 69px;
+        width: 100%;
+        position: relative;
+        margin: 10px 0 12px;
+
+        &:after {
+            content: '';
+            height: 30px;
+            position: absolute;
+            background: $c-grey-5;
+            width: 1px;
+            right: 0;
+        }
+
+        span {
+            font-size: $dsp2-f-size-xs;
+
+            &:first-child {
+                font-family: $bmw-bold;
+                font-size: $dsp2-f-size-xl;
+                line-height: $dsp2-line-h-24;
+            }
+
+            &:nth-child(2) {
+                line-height: $dsp2-line-h-14;
+            }
+        }
+    }
+}
+
+.car-filter {
+    @import './car-filter/item';
+    @import './car-filter/model';
+    @import './car-filter/wrapper';
+    @import './car-filter/promotions';
+    @import './car-filter/list';
+    @import './car-filter/buttons';
+    @import './car-filter/blocks';
+
+    &-mobile {
+        @include display(flex);
+        @include justify-content(space-between);
+        font-size: 18px;
+        height: 3em;
+        line-height: 3em;
+        padding: 0 1em;
+        background-color: $white;
+        z-index: 80;
+
+        @include media($medium-screen-up) {
+            display: none !important;
+        }
+
+        .cancel,
+        .reset-all-filters {
+            color: $c-grey;
+            display: inline-block;
+            font-size: $dsp2-f-size-xxs;
+            letter-spacing: 0;
+            font-family: $bmw-bold;
+            text-transform: none;
+        }
+
+        .reset-all-filters {
+            position: relative;
+
+            &::before {
+                @include pseudo();
+                @include sprite($sprite-reset-icon);
+                top: 20px;
+                right: calc(100% + 8px);
+            }
+        }
+
+        .count {
+            font-size: .7em;
+            width: 100%;
+        }
+
+        .apply {
+            display: inline-block;
+            font-size: $dsp2-f-size;
+        }
+    }
+
+    &-desktop {
+        width: 100%;
+        margin-top: 10px;
+
+        @include media($small-screen-down) {
+            display: none;
+        }
+
+        .reset-all-filters {
+            padding-left: $dsp2-padding-45;
+            padding-right: $dsp2-padding-15;
+            padding-top: $dsp2-padding-15;
+            padding-bottom: $dsp2-padding-15;
+            margin-bottom: 2px;
+            height: $input-field-height;
+            line-height: 20px;
+            white-space: nowrap;
+            float: right;
+            z-index: 1;
+            background: transparent;
+            color: $c-grey;
+            font-size: $dsp2-f-size-xs;
+            letter-spacing: 2.5px;
+            font-family: $bmw-bold;
+            text-transform: none;
+            position: relative;
+            cursor: pointer;
+            border: 1px solid $c-grey-5;
+
+            @include media($medium-screen-only) {
+                margin-left: 58%;
+            }
+
+            &::before {
+                @include pseudo();
+                @include sprite($sprite-reset-icon);
+                top: 50%;
+                transform: translateY(-50%);
+                left: $dsp2-left;
+                cursor: pointer;
+            }
+
+            &::after {
+                clear: right;
+            }
+        }
+    }
+
+    .general-preloader {
+        z-index: 8;
+    }
+}
+
+.category-car-finder,
+.category-bike-finder {
+    .breadcrumbs-wrapper {
+        display: none;
+    }
+
+    &:not(.on-light) {
+        .car-filter-step {
+            @include media($dsp2-l-screen-up) {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+#car-filter {
+    @include media($medium-screen-up) {
+        margin-bottom: 100px;
+    }
+
+    .car-filter-buttons {
+        height: 100%;
+
+        .dsp2-money {
+            @include media($medium-screen-up) {
+                display: none;
+            }
+        }
+
+        @include media($small-screen-down) {
+            background: $white;
+            padding: 30px 25px;
+            height: 160px;
+            margin-top: 0;
+            z-index: 1;
+
+            .button {
+                background: $bmw-blue;
+                margin-top: 0;
+                min-height: 52px;
+
+                .title {
+                    font-size: $f-size-xl;
+                }
+            }
+
+            .reset-filters-section {
+                text-align: center;
+
+                .reset-all-filters {
+                    border-bottom: 1px solid $c-grey-3;
+                    font-size: $f-size;
+                    padding: 30px 25px;
+                    height: 160px;
+                    margin-top: 0;
+                    padding-bottom: 0;
+
+                    &::before {
+                        top: 16px;
+                        background-image: url('../images/svg/reset-icon.svg');
+                        height: 14px;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
+                }
+            }
+        }
+    }
+
+    .car-filter-list {
+        @include media($small-screen-down) {
+            max-height: unset;
+        }
+    }
+
+    .trade-in-block-wrapper {
+        .trade-in-get-started {
+            font-size: $dsp2-f-size-s;
+            line-height: $dsp2-line-h-20;
+        }
+    }
+}

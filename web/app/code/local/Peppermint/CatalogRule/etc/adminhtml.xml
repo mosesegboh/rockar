@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_CatalogRule
+ * @author    Igors Zhunins <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <menu>
+        <report>
+            <children>
+                <pricing translate="title" module="peppermint_catalogrule">
+                    <title>Pricing</title>
+                    <sort_order>1000</sort_order>
+                    <children>
+                        <product_applicable_rules translate="title" module="peppermint_catalogrule">
+                            <title>Products with Applicable Rules</title>
+                            <sort_order>0</sort_order>
+                            <action>adminhtml/report_applicableRules/</action>
+                        </product_applicable_rules>
+                        <rules_log translate="title" module="peppermint_catalogrule">
+                            <title>Price Rule Audit</title>
+                            <sort_order>20</sort_order>
+                            <action>adminhtml/report_rulesLog/</action>
+                        </rules_log>
+                    </children>
+                </pricing>
+            </children>
+        </report>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <promo>
+                        <children>
+                            <catalog>
+                                <children>
+                                    <actions translate="title">
+                                        <title>Actions</title>
+                                        <children>
+                                            <apply_rules translate="title">
+                                                <title>Apply Rules</title>
+                                            </apply_rules>
+                                            <add_new_rule translate="title">
+                                                <title>Add new rule</title>
+                                            </add_new_rule>
+                                            <reset translate="title">
+                                                <title>Reset</title>
+                                            </reset>
+                                            <delete translate="title">
+                                                <title>Delete</title>
+                                            </delete>
+                                            <save translate="title">
+                                                <title>Save</title>
+                                            </save>
+                                            <save_and_continue translate="title">
+                                                <title>Save and Continue Edit</title>
+                                            </save_and_continue>
+                                            <approve translate="title">
+                                                <title>Approve</title>
+                                            </approve>
+                                        </children>
+                                    </actions>
+                                </children>
+                            </catalog>
+                        </children>
+                    </promo>
+                    <report>
+                        <children>
+                            <pricing>
+                                <title>Pricing</title>
+                                <children>
+                                    <product_applicable_rules translate="title">
+                                        <title>Products with Applicable Rules</title>
+                                    </product_applicable_rules>
+                                    <rules_log translate="title">
+                                        <title>Price Rule Audit</title>
+                                    </rules_log>
+                                </children>
+                            </pricing>
+                        </children>
+                    </report>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

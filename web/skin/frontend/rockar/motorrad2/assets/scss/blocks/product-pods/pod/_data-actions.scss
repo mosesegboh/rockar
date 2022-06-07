@@ -1,0 +1,27 @@
+.pod-data-actions {
+    .pod-data-action {
+        .get-quote-cta-icon {
+            text-transform: capitalize;
+            color: $black;
+            font-family: $motorrad-bold;
+
+            @include media($medium-screen-down) {
+                text-transform: uppercase;
+                font-size: $dsp2-f-size-xs;
+                line-height: $dsp2-line-h-14;
+            }
+        }
+
+        .pod-finance-button {
+            text-transform: capitalize;
+            color: $black;
+            font-family: $motorrad-bold;
+
+            @include media($medium-screen-down) {
+                text-transform: uppercase;
+                font-size: $dsp2-f-size-xs;
+                line-height: $dsp2-line-h-14;
+            }
+        }
+    }
+}

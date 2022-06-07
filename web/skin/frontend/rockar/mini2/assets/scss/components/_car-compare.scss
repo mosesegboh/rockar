@@ -1,0 +1,538 @@
+#car-compare-component {
+    .toggle {
+        @include media($medium-screen-down) {
+            bottom: 147px;
+        }
+
+        @include media($large-screen-up) {
+            bottom: 150px;
+        }
+
+        &.active {
+            @include media($medium-screen-down) {
+                bottom: calc(75vh - 8px);
+            }
+
+            @include media($compare-desktop-mode) {
+                bottom: calc(95vh - 42px);
+            }
+        }
+
+        &-button {
+            background-color: $black;
+
+            .icon {
+                background-image: url('../images/svg/icon-arrow-down-slim.svg');
+            }
+
+            span {
+                font-family: $mini-sans-serif-regular;
+            }
+        }
+
+        &-button {
+            span {
+                text-transform: none;
+            }
+        }
+    }
+}
+
+#car-compare-wrapper {
+    @import '../blocks/car-compare/car-compare-clear';
+    border-top: 3px solid $c-mini-blue;
+    height: 160px;
+
+    &.active {
+        .mobile-wrapper {
+            margin: 10px 0 0;
+
+            .header {
+                margin: 4px 0 19px;
+
+                p {
+                    font-size: $dsp2-f-size-l;
+                }
+            }
+
+            .slick-nav {
+                top: 45%;
+            }
+        }
+
+        .car-compare {
+            .header {
+                padding-top: 76px;
+                height: 330px;
+            }
+
+            .selector {
+                > .clear {
+                    margin-top: -70px;
+                }
+            }
+        }
+    }
+
+    &:not(.active) {
+        .mobile-wrapper {
+            .header {
+                margin: 0 0 12px;
+            }
+
+            .slick-nav {
+                top: 30%;
+            }
+        }
+    }
+
+    .car-compare {
+        .selector {
+            max-height: 170px;
+            padding-left: calc(6em + 2%);
+
+            .selector-column {
+                .title {
+                    margin: 6px 0 23px;
+
+                    p {
+                        text-align: start;
+                    }
+
+                    .heading {
+                        font-family: $mini-serif-bold;
+                        line-height: $mini-line-h-38;
+                    }
+                }
+            }
+
+            > .clear {
+                margin-top: 0;
+            }
+
+            .car-column {
+                .title {
+                    margin: 0;
+                    text-transform: uppercase;
+                    font-family: $mini-sans-serif-bold;
+                    line-height: $dsp2-line-h-24;
+                    text-align: center;
+                }
+
+                .img-block {
+                    background: none;
+                    padding-top: 9%;
+
+                    img {
+                        transform: scale(.8);
+                    }
+
+                    .offertags-container {
+                        .offertags {
+                            .offertag-label {
+                                font-family: $mini-sans-serif-bold;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .choices {
+            margin: 6px 0 0;
+
+            button {
+                margin: 0;
+            }
+
+            .save-button {
+                margin: 5px 0 0;
+
+                p {
+                    &::before {
+                        margin: 8px 0 0 -20px;
+                    }
+
+                    span {
+                        font-family: $mini-sans-serif-bold;
+                        line-height: $dsp2-line-h-18;
+                        border-bottom: 2px solid $black;
+                    }
+                }
+            }
+        }
+
+        .details {
+            padding-top: 335px;
+
+            .category-title {
+                font-family: $mini-serif-bold;
+                line-height: $mini-line-h-38;
+            }
+
+            .category-price {
+                .car-column {
+                    .price-total-title {
+                        font-family: $mini-sans-serif-regular;
+                    }
+
+                    .price-total {
+                        font-family: $mini-sans-serif-regular;
+                    }
+
+                    .attribute-value {
+                        .price-main {
+                            font-family: $mini-serif-bold;
+                            font-size: $mini-f-size-38;
+                            line-height: $mini-line-h-38;
+                        }
+                    }
+                }
+            }
+
+            .category-subtitle {
+                font-family: $mini-serif-regular;
+                font-size: $dsp2-f-size-l;
+                line-height: $dsp2-line-h-28;
+            }
+
+            .category-technical {
+                .attribute-value {
+                    p {
+                        font-family: $mini-sans-serif-bold;
+                    }
+                }
+            }
+        }
+    }
+
+    .mobile-wrapper {
+        margin: 16px 0 0;
+
+        .header {
+            p {
+                margin: 0;
+                font-family: $mini-sans-serif-regular;
+            }
+        }
+    }
+
+    // styling of schrodingers-title (invisible titles) and its spacings/position
+    // should be same as per visible titles!!! for align proposes
+    .car-compare-mobile {
+        &-bottom {
+            padding: 190px 20px 0;
+        }
+
+        .selector {
+            .title {
+                text-align: center;
+                font-family: $mini-serif-bold;
+                font-size: $dsp2-f-size-xxs;
+                line-height: $dsp2-line-h-12;
+                border-bottom: 1px solid $c-mini-grey-1;
+                padding: 0 0 15px;
+            }
+
+            .top-navigation {
+                font-family: $mini-sans-serif-bold;
+                top: 25px;
+                right: 10px;
+            }
+
+            .img-block {
+                background-image: none;
+
+                .title {
+                    font-family: $mini-sans-serif-regular;
+                }
+
+                .offertags-container {
+                    .offertags {
+                        .offertag-label {
+                            font-family: $mini-sans-serif-regular;
+                        }
+                    }
+                }
+
+                .remove-car {
+                    top: 1px;
+                    right: 10px;
+
+                    .close-icon {
+                        background: url('../images/svg/icon-cross.svg') no-repeat center;
+                        transform: rotate(45deg);
+                    }
+                }
+            }
+        }
+
+        .slick-slider {
+            margin: -5px 0 0;
+        }
+
+        .slick-slide {
+            padding: 47px 0 0;
+        }
+
+        .slick-nav {
+            width: 25px;
+            height: 25px;
+        }
+
+        .slick-prev {
+            background-image: url('../images/svg/next-arrow.svg');
+            transform: rotate(180deg);
+        }
+
+        .slick-next {
+            background-image: url('../images/svg/next-arrow.svg');
+        }
+
+        .details {
+            .category {
+                > .schrodingers-title {
+                    p {
+                        font-family: $mini-serif-bold;
+                        font-size: $dsp2-f-size-xl;
+                        line-height: $dsp2-line-h-20;
+                    }
+                }
+            }
+
+            .category-body > .schrodingers-title,
+            .category .category-subtitle {
+                p {
+                    font-family: $mini-serif-regular;
+                    font-size: $dsp2-f-size;
+                    line-height: $dsp2-line-h-24;
+                }
+            }
+
+            .category-price > .schrodingers-title {
+                margin-bottom: 20px;
+            }
+
+            .attribute-value {
+                p {
+                    font-family: $mini-sans-serif-regular;
+                }
+            }
+
+            .category-technical {
+                .category-subtitle {
+                    p {
+                        font-family: $mini-serif-regular;
+                        font-size: $dsp2-f-size;
+                        line-height: $dsp2-line-h-24;
+                    }
+                }
+
+                .attribute-title {
+                    p {
+                        font-family: $mini-serif-regular;
+                        font-size: $dsp2-f-size;
+                        line-height: $dsp2-line-h-24;
+                    }
+                }
+
+                .attribute-value {
+                    p {
+                        font-family: $mini-sans-serif-bold;
+                    }
+                }
+            }
+
+            .category-price {
+                .attribute-value {
+                    border-top: 1px solid $c-grey-5;
+                    border-bottom: none;
+
+                    &:last-child {
+                        border-bottom: 1px solid $c-grey-5;
+                    }
+
+                    p {
+                        font-family: $mini-sans-serif-regular;
+                        line-height: $dsp2-line-h-16;
+
+                        &:first-child {
+                            font-family: $mini-sans-serif-regular;
+                            text-transform: uppercase;
+                        }
+                    }
+
+                    .price-main {
+                        font-family: $mini-serif-bold;
+                        font-size: $dsp2-f-size-l;
+                        line-height: $mini-line-h-22;
+                    }
+
+                    .price-total {
+                        font-family: $mini-sans-serif-bold;
+                        line-height: $dsp2-line-h-24;
+                    }
+                }
+            }
+        }
+
+        .choices {
+            margin: 6px 0 0;
+            height: 42px;
+
+            div[class$="-button"] {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+
+            .save-button {
+                border: none;
+                height: auto;
+                width: auto;
+                margin: 1px 0 0;
+            }
+
+            .checkout-button {
+                border: none;
+                background-color: transparent;
+                width: auto;
+                font-family: $mini-sans-serif-bold;
+                font-size: $dsp2-f-size-s;
+                line-height: $dsp2-line-h-18;
+
+                .checkout-icon {
+                    background-image: url('../images/svg/cart.svg');
+                    margin: 1px 5px 0;
+                }
+            }
+        }
+
+        // Visible titles that are on top of invisible schrodingers-title_s
+        &-bottom-titles {
+            .titles {
+                &.title {
+                    font-family: $mini-serif-bold;
+                    font-size: $dsp2-f-size-xl;
+                    line-height: $dsp2-line-h-20;
+                }
+
+                &.subtitle {
+                    font-family: $mini-serif-regular;
+                    font-size: $dsp2-f-size;
+                    line-height: $dsp2-line-h-24;
+                }
+
+                &.attribute-title {
+                    font-family: $mini-serif-regular;
+                    font-size: $dsp2-f-size;
+                    line-height: $dsp2-line-h-24;
+                }
+
+                &.attribute-subtitle {
+                    font-family: $mini-sans-serif-regular;
+                    font-size: $dsp2-f-size-xs;
+                    line-height: $dsp2-line-h-12;
+                }
+            }
+        }
+    }
+}
+
+// Reuseable mixins for compare limit popup to avoid duplicate scss
+@mixin popup-content-compare-limit {
+    @include media($medium-screen-down) {
+        padding: 26px 20px 32px;
+    }
+
+    .content-wrapper {
+        .compare-content {
+            font-size: initial;
+
+            @include media($medium-screen-down) {
+                margin-top: 25px;
+            }
+
+            p {
+                font-family: $mini-sans-serif-regular;
+                font-size: $dsp2-f-size;
+                line-height: $dsp2-line-h-24;
+
+                @include media($medium-screen-up) {
+                    font-size: $dsp2-f-size;
+                    line-height: $dsp2-line-h-24;
+                }
+
+                &.h1 {
+                    text-transform: uppercase;
+                    font-family: $mini-serif-bold;
+                    font-size: $dsp2-f-size-l;
+                    line-height: $mini-line-h-22;
+                    margin-bottom: 26px;
+
+                    @include media($medium-screen-up) {
+                        margin-bottom: 12px;
+                        font-size: $dsp2-f-size-xxl;
+                        line-height: $mini-line-h-38;
+                    }
+                }
+            }
+
+            button {
+                margin-top: 30px;
+
+                @include media($medium-screen-down) {
+                    margin-top: 12px;
+                }
+            }
+
+            .button {
+                float: none;
+            }
+        }
+    }
+}
+
+.popup {
+    &.car-compare-modal {
+        .popup-content {
+            @include popup-content-compare-limit;
+
+            .compare-add {
+                .compare-content {
+                    p {
+                        @include media($medium-screen-down) {
+                            padding: 0;
+                        }
+                    }
+
+                    .dsp2-money {
+                        @include media($medium-screen-down) {
+                            bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.car-compare {
+    .popup {
+        .popup-content {
+            @include popup-content-compare-limit;
+        }
+    }
+}
+
+.catalog-category-view {
+    .product-pod {
+        .car-compare {
+            .popup {
+                .popup-content {
+                    @include popup-content-compare-limit;
+                }
+            }
+        }
+    }
+}

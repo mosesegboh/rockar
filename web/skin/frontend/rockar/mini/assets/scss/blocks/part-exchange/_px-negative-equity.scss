@@ -1,0 +1,41 @@
+.px-option-height {
+  min-height: 450px;
+}
+
+.icon-min-height {
+  min-height: 95px;
+}
+
+//.icon-monthly-payment {
+//  @include sprite($sprite-negative-monthly);
+//  position: relative;
+//  display: inline-block;
+//}
+//
+//.icon-once-off {
+//  @include sprite($sprite-negative-once);
+//  position: relative;
+//  display: inline-block;
+//}
+//
+//.icon-remove-trade-in {
+//  @include sprite($sprite-negative-remove);
+//  position: relative;
+//  display: inline-block;
+//}
+
+.section-border {
+  border: 2px solid $grey-4;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.px-neg-content {
+  padding: 0 15px;
+}
+
+.px-neg-margin {
+  margin: 10% auto;
+}

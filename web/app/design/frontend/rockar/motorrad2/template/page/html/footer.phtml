@@ -1,0 +1,23 @@
+<?php
+/**
+ * @category  design
+ * @package   rockar_default
+ * @author    Moses Egboh <techteam@rockar.com>
+ * @copyright Copyright (c) 2021 Rockar, Ltd (https://rockar.com)
+ *
+ * @var $this Mage_Page_Block_Html_Footer
+ */
+?>
+<footer>
+    <div class="footer-wrapper">
+        <div class="upper-footer">
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_bottom_one')->toHtml(); ?>
+        </div>
+
+        <div class="lower-footer">
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_bottom_two')->toHtml(); ?>
+        </div>
+    </div>
+
+    <?php if (Mage::getIsDeveloperMode()) echo Mage::app()->getLayout()->createBlock('core/template')->setTemplate('dev/menu.phtml')->toHtml(); ?>
+</footer>

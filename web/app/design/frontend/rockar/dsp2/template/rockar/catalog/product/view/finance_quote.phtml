@@ -1,0 +1,110 @@
+<?php
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Catalog
+ * @author    Sykander Gul <Sykander.Gul@rockar.com>
+ * @copyright Copyright (c) 2018 Rockar Ltd (http://rockar.com)
+ *
+ * @var $this Rockar_FinancingOptions_Block_FinanceQuote
+ */
+
+$data = $this->getFinanceQuoteData();
+$product = Mage::getModel('catalog/product')->load($data['product_id']);
+$preSelectedAccessories = Mage::helper('peppermint_catalog')->getCustomOptionAccessories($product);
+$image = Mage::helper('peppermint_catalog/images')->getSmallImage($product);
+$wishlistHelper = Mage::helper('rockar_mysavedcars');
+$compareBlock = Mage::getBlockSingleton('rockar_compare/catalog_product_compare_list');
+$compareHelper = Mage::helper('peppermint_compare');
+$partExchangeData = $this->getPartExchangeData();
+$partExchangeAdditional = $this->getAdditionalPartExchangeDataNonJson();
+?>
+
+<app-product-page-overlay>
+    <app-configurator-finance-quote
+        slot="finance-quote"
+        v-ref:finance-quote
+        :active-payment="<?php echo htmlentities($data['active_payment']); ?>"
+        :car-data="<?php echo htmlentities($data['car_data']); ?>"
+        :cash-deposit='<?php echo $data['cash_deposit']; ?>'
+        :cashback='<?php echo $data['cashback']; ?>'
+        :custom-option-titles="<?php echo htmlentities($this->getCustomOptionTitles()); ?>"
+        :finance-params-origin="<?php echo htmlentities($data['finance_params']); ?>"
+        :finance-variables="<?php echo htmlentities($data['finance_variables']); ?>"
+        :hire-payments="<?php echo htmlentities(Mage::helper('rockar_all')->jsonEncode($data['hire_payments'])); ?>"
+        :is-hire='<?php echo (int) $data['is_hire']; ?>'
+        :monthly-price='<?php echo $data['monthly_price']; ?>'
+        :pay-in-full-payment="<?php echo htmlentities($data['pay_in_full_payment']); ?>"
+        :product-id="<?php echo $data['product_id']; ?>"
+        :rockar-price='<?php echo $data['rockar_price']; ?>'
+        progress-url='<?php echo Mage::getUrl('checkout/onepage_financing/progress', ['_secure' => true]); ?>'
+        image='<?php echo $image; ?>'
+        payment-save-url='<?php echo $data['payment_save_url']; ?>'
+        :finance-params-origin="<?php echo htmlentities($data['finance_params']); ?>"
+        :finance-slider-steps="<?php echo htmlentities($data['finance_slider_steps']); ?>"
+        :instalment-group-id='<?php echo $this->getInstalmentGroupId(); ?>'
+        :update-finance-quote='<?php echo 'true'; ?>'
+        calc-type='<?php echo Rockar_FinancingOptions_Model_Calculation_Type_Abstract::CALC_TYPE_PDP; ?>'
+        finance-url='<?php echo $data['finance_url']; ?>'
+        product-url='<?php echo $product->getUrlModel()->getUrl($product) ?: $data['finance_url']; ?>'
+        title='<?php echo json_decode($data['car_data'])[0]->label ?? ''; ?>'
+    >
+        <app-offer-tags
+            slot="offer-tags"
+            :offer-tag-data='<?php echo Mage::helper('peppermint_catalog')->getOfferTagData($product); ?>'
+        ></app-offer-tags>
+        <app-part-exchange-pdp
+            slot="part-exchange"
+            :active-condition='<?php echo $partExchangeData['activeCondition']; ?>'
+            :additional-info='<?php echo $this->getCheckboxes(); ?>'
+            :can-open-custom='<?php echo 'false'; ?>'
+            :car-conditions='<?php echo Mage::helper('rockar_partexchange/filters')->getConditionsSliderInfo(true); ?>'
+            :customer-is-logged-in='<?php echo Mage::helper('peppermint_partexchange')->getCustomerIsLoggedIn() ? 'true' : 'false'; ?>'
+            :is-px-removed='<?php echo Mage::helper('peppermint_partexchange')->getPxCurrentState(); ?>'
+            :pe-id='<?php echo $partExchangeData['pxId']; ?>'
+            :product-id='<?php echo $data['product_id']; ?>'
+            :saved-px='<?php echo $this->getCustomerPartExchange(); ?>'
+            :saved='<?php echo $this->getPartExchangeSaved(); ?>'
+            :temp-px='<?php echo Mage::helper('peppermint_partexchange')->getTemporaryPartExchangeJson(); ?>'
+            active-px-url="<?php echo $partExchangeAdditional['activePxUrl']; ?>"
+            car-alternative-details-url="<?php echo $partExchangeAdditional['carAlternativeDetailsUrl']; ?>"
+            car-details-url="<?php echo $partExchangeAdditional['carDetailsUrl']; ?>"
+            custom-car-url="<?php echo $partExchangeAdditional['customCarUrl']; ?>"
+            customer-account-url="<?php echo $this->getUrl('customer/account'); ?>"
+            explanatory-text="<?php echo htmlentities($partExchangeAdditional['explanatoryText']); ?>"
+            fuel-type-url="<?php echo $this->getUrl('partexchange/details/getFuelType'); ?>"
+            make-url="<?php echo $partExchangeAdditional['makeUrl']; ?>"
+            model-url="<?php echo $partExchangeAdditional['modelUrl']; ?>"
+            reset-url="<?php echo $partExchangeAdditional['resetUrl']; ?>"
+            save-to-session-url="<?php echo $partExchangeAdditional['saveToSessionUrl']; ?>"
+            save-valuation-url="<?php echo $partExchangeData['saveValuationUrl']; ?>"
+            settlement-quotes-url="<?php echo $this->getUrl('partexchange/autoSettlement/getSettlementQuotes'); ?>"
+            transmission-url="<?php echo $this->getUrl('partexchange/details/getTransmission'); ?>"
+            valuation-url="<?php echo $partExchangeData['valuationUrl']; ?>"
+            variant-url="<?php echo $this->getUrl('partexchange/details/getVariant'); ?>"
+            vehicle-type-url="<?php echo $this->getUrl('partexchange/details/getType'); ?>"
+            year-url="<?php echo $partExchangeAdditional['yearUrl']; ?>"
+            update-step-url="<?php echo Mage::getUrl('partexchange/ajax/updatePxState'); ?>"
+            est-value-disclaimer='<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('est_value_disclaimer')->toHtml(); ?>'
+            v-ref:part-exchange
+        ></app-part-exchange-pdp>
+        <?php echo $this->getBlockHtml('get_quote_cta'); ?>
+    </app-configurator-finance-quote>
+    <app-car-compare
+        slot="compare"
+        v-ref:car-compare
+        :compare-data-prop="<?php echo htmlentities($compareBlock->getCompareDataJson()); ?>"
+        :is-ajax-request='<?php echo Mage::getSingleton('customer/session')->isLoggedIn() ? 'true' : 'false'; ?>'
+        :show-as-link='false'
+        :visibility='true'
+        add-car-img='<?php echo $compareBlock->getSkinUrl('images/add-car.png'); ?>'
+        car-finder-url='<?php echo $compareBlock->getCarFinderUrl(); ?>'
+        compare-data-url='<?php echo $compareHelper->getCompareDataUrl(); ?>'
+        customer-name='<?php echo $wishlistHelper->getCustomerName(); ?>'
+        my-account-url='<?php echo $compareBlock->getUrl('customer/account'); ?>'
+        you-drive-url='<?php echo $compareBlock->getYouDriveLinkPlaceholder(); ?>'
+    ></app-car-compare>
+    <app-car-compare-clear
+        compare-clear-url="<?php echo $compareHelper->getClearUrl(); ?>"
+        slot="compare-clear"
+    ></app-car-compare-clear>
+</app-product-page-overlay>

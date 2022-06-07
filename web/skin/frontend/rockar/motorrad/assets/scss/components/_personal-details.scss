@@ -1,0 +1,282 @@
+.personal-details {
+    @include clearfix;
+
+    @include media($small-screen-down) {
+        .contact-block .button-wrapper,
+        .edit-block .selectbox,
+        .edit-block .customer-dob,
+        .edit-block .button-wrapper {
+            max-width: 100%;
+        }
+
+        .edit-block input,
+        .password-block input {
+            width: 100%;
+        }
+    }
+
+    .personal-details-heading {
+        margin-bottom: 1.5em;
+
+        @include media($large-screen-down) {
+            text-transform: none;
+        }
+    }
+
+    .customer-dob {
+        label {
+            @include media($small-screen-down) {
+                display: none;
+            }
+        }
+    }
+
+    hr {
+        border-color: $my-account-horizontal-break-color;
+    }
+
+    .button-wrapper {
+        margin-top: 2.65em;
+        max-width: $input-max-width;
+
+        button {
+            padding: $button-narrow-height-padding $button-width-padding $button-narrow-bottom-height-padding;
+            margin-bottom: .8em;
+
+            @include media($small-screen-down) {
+                padding: $button-narrow-height-padding $button-width-padding $button-narrow-bottom-height-padding;
+            }
+        }
+    }
+
+    .contact-block {
+        .side-label {
+            height: auto;
+            padding-top: 6px;
+            padding-bottom: 6px;
+            margin-bottom: 0.65em;
+            text-align: left;
+
+            &::after {
+                content: '';
+            }
+        }
+
+        .content-wrapper {
+            @include media($small-screen-down) {
+                padding: 0;
+            }
+
+            .button-wrapper {
+                @include media($small-screen-down) {
+                    @include display(flex);
+                    @include flex-direction(column);
+                    margin: 0;
+                }
+
+                @include media($medium-screen-up) {
+                    button:first-child {
+                        margin-right: 0.5em;
+                    }
+                }
+
+                button {
+                    @include media($small-screen-down) {
+                        @include flex(1 0 100%);
+                        margin: 0 0 1em;
+                    }
+
+                    &:last-child {
+                        @include media($small-screen-down) {
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+
+            &.notification-wrapper {
+                .row {
+                    @include media($small-screen-down) {
+                        @include display(flex);
+                    }
+
+                    .col-6 {
+                        @include media($small-screen-down) {
+                            @include flex(1 0 49%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .details-block {
+        color: $my-personal-details-color;
+
+        .content-wrapper {
+            @include media($small-screen-down) {
+                padding-left: 0;
+            }
+
+            .details-label {
+                @include media($small-screen-down) {
+                    text-transform: uppercase;
+                    margin: 10px 0 0;
+                    padding: 0;
+                }
+
+                p {
+                    @include media($small-screen-down) {
+                        margin: 0;
+                    }
+                }
+            }
+
+            p {
+                color: $my-personal-details-color;
+                font-weight: $fw-bold;
+                font-size: $f-size-s;
+                margin-bottom: 0.8em;
+            }
+
+            .col-9 {
+                .col-7 {
+                    @include media($small-screen-down) {
+                        padding: 0;
+                    }
+
+                    p {
+                        @include media($small-screen-down) {
+                            margin: 0;
+                            font-size: $f-size-xl;
+                        }
+                    }
+                }
+            }
+        }
+
+        .details-label {
+            p {
+                font-weight: $my-personal-details-label-fw;
+
+                &::after {
+                    content: ':';
+                }
+            }
+        }
+
+        address {
+            font-family: $motorrad-light;
+            font-style: normal;
+            font-weight: $motorrad-fw-normal;
+            font-size: $f-size-s;
+        }
+    }
+
+    .details-buttons {
+
+        button {
+            display: block;
+            margin: 0 0 1em auto;
+            width: 100%;
+            font-size: $f-size-xs;
+            font-weight: $fw-normal;
+            padding: 0.65em 0;
+            max-width: 230px;
+
+            @include media($large-screen-down) {
+                max-width: none;
+            }
+
+            @include media($medium-screen-down) {
+                padding: $button-narrow-height-padding $button-width-padding $button-narrow-bottom-height-padding;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .password-block {
+        .button-wrapper {
+            @include media($small-screen-down) {
+                @include display(flex);
+                @include flex-direction(column);
+                margin: 0;
+            }
+
+            @include media($medium-screen-up) {
+                button:first-child {
+                    margin-right: .5em;
+                }
+            }
+
+            button {
+                @include media($small-screen-down) {
+                    @include flex(1 0 100%);
+                    margin: 0 0 1em;
+                }
+
+                &:last-child {
+                    @include media($small-screen-down) {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .personal-details-desktop {
+        @include media($large-screen-down) {
+            display: none;
+        }
+
+        .button-wrapper {
+            button {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            button:first-child {
+                margin-right: 0.5em;
+            }
+        }
+    }
+
+    .personal-details-mobile {
+        display: none;
+
+        @include media($large-screen-down) {
+            display: block;
+        }
+
+        .button-wrapper {
+            @include display(flex);
+            @include flex-direction(column);
+            margin: 0;
+
+            .button {
+                @include flex(1 0 100%);
+                display: block;
+                margin: 0 0 1em;
+
+                &:last-child {
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    form {
+        .row {
+            .action-badge {
+                &.side-badge {
+                    @include media($small-screen-down) {
+                        margin: 0 0 0.5em 0.5em;
+                    }
+                }
+            }
+        }
+    }
+}

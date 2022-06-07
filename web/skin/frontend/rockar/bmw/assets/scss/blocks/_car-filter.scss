@@ -1,0 +1,135 @@
+.car-filter-step {
+    float: left;
+    width: 100%;
+
+    .filtering-sort {
+        @import './car-filter/applied-filters';
+        @import './car-filter/sort';
+
+        display: inline-block;
+        width: 100%;
+        margin: 1em 0 0;
+    }
+
+    .category-products {
+        @include media($small-screen-down) {
+            overflow-x: unset;
+        }
+    }
+}
+
+.car-filter {
+    @import './car-filter/item';
+    @import './car-filter/model';
+    @import './car-filter/wrapper';
+    @import './car-filter/promotions';
+    @import './car-filter/list';
+    @import './car-filter/buttons';
+    @import './car-filter/blocks';
+
+    &-mobile {
+        @include display(flex);
+        @include justify-content(space-between);
+        font-size: 18px;
+        height: 3em;
+        line-height: 3em;
+        padding: 0 1em;
+        background-color: $white;
+        z-index: 80;
+
+        @include media($medium-screen-up) {
+            display: none !important;
+        }
+
+        .cancel,
+        .reset-all-filters {
+            color: $grey-4;
+            display: inline-block;
+            font-size: $f-size-xxxs;
+            letter-spacing: 0px;
+            font-family: $primary-font-bold;
+            font-weight: $fw-bold;
+            text-transform: none;
+        }
+
+        .reset-all-filters {
+            position: relative;
+
+            &::before {
+                @include pseudo();
+                @include sprite($sprite-reset-icon);
+                top: 20px;
+                right: calc(100% + 8px);
+            }
+        }
+
+        .count {
+            font-size: .7em;
+            width: 100%;
+        }
+
+        .apply {
+            display: inline-block;
+            font-size: $f-size-xl;
+        }
+    }
+
+    &-desktop {
+        width: 100%;
+        margin-top: 10px;
+
+        @include media($small-screen-down) {
+            display: none;
+        }
+
+        .reset-all-filters {
+            padding-left: $bmw-padding-45;
+            padding-right: $bmw-padding-15;
+            padding-top: $bmw-padding-15;
+            padding-bottom: $bmw-padding-15;
+            margin-bottom: 2px;
+            height: $input-field-height;
+            line-height: 20px;
+            white-space: nowrap;
+            float: right;
+            z-index: 1;
+            background: transparent;
+            color: $grey-4;
+            font-size: $f-size-xs;
+            letter-spacing: 2.5px;
+            font-family: $primary-font-bold;
+            font-weight: $fw-bold;
+            text-transform: none;
+            position: relative;
+            cursor: pointer;
+            border: 1px solid $grey-2;
+
+            @include media($medium-screen-only) {
+                margin-left: 58%;
+            }
+
+            &::before {
+                @include pseudo();
+                @include sprite($sprite-reset-icon);
+                top: 50%;
+                transform: translateY(-50%);
+                left: $bmw-left;
+                cursor: pointer;
+            }
+
+            &::after {
+                clear: right;
+            }
+        }
+    }
+
+    .general-preloader {
+        z-index: 8;
+    }
+}
+
+.category-car-finder {
+    .breadcrumbs-wrapper {
+        display: none;
+    }
+}

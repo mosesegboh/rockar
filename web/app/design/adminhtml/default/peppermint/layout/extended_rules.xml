@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint\ExtendedRules
+ * @author       Razvan Zofota <razvan.zofota@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<layout>
+    <adminhtml_extendedrules_mileage_edit>
+        <reference name="content">
+            <block type="peppermint_extendedrules/adminhtml_rules_mileage_edit" name="extendedrules_rules_mileage_edit" />
+        </reference>
+    </adminhtml_extendedrules_mileage_edit>
+    <adminhtml_extendedrules_mileage_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="peppermint_extendedrules/adminhtml_rules_edit_tab_mileage" name="extendedrules_rules_edit_tab_mileage_grid"/>
+        </block>
+    </adminhtml_extendedrules_mileage_grid>
+    <default>
+        <reference name="head">
+            <action method="addJs">
+                <script>peppermint/adminhtml/extended-rules.js</script>
+            </action>
+        </reference>
+    </default>
+</layout>

@@ -1,0 +1,51 @@
+.substep-2 {
+    .px-popup-info-block {
+        padding: 0 0 22px;
+
+        p {
+            font-size: $dsp2-f-size-xs;
+            line-height: $dsp2-line-h-16;
+            margin-top: 4px;
+
+            @include media($small-screen-down) {
+                line-height: $dsp2-line-h-16;
+            }
+
+            @include media($medium-screen-up) {
+                font-size: initial;
+            }
+        }
+    }
+
+    .px-bottom {
+        float: right;
+
+        @include media($medium-screen-up) {
+            max-width: 46.9%;
+        }
+    }
+
+    .col-12 {
+        .col-6 {
+            padding: 0;
+
+            @include media($medium-screen-up) {
+                margin-right: 6.2%;
+                width: 46.9%;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+    hr {
+        display: none;
+
+        @include media($medium-screen-up) {
+            display: block;
+            margin: 0 0 .5em;
+        }
+    }
+}

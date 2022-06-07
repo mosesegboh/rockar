@@ -1,0 +1,20 @@
+.products-sort {
+    display: inline-block;
+    float: right;
+
+    .sort-button {
+        button {
+            font: {
+                family: $primary-font-bold;
+                weight: $fw-bold;
+                size: $bmw-button;
+            };
+            text-transform: none;
+            color: $grey-4;
+            letter-spacing: 0px;
+            padding: .75em 2em;
+            border: 1px solid $grey-2;
+            background: $white;
+        }
+    }
+}

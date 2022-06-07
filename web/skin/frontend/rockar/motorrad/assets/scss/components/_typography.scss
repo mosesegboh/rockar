@@ -1,0 +1,143 @@
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $motorrad;
+    font-weight: $motorrad-fw-normal;
+    color: $motorrad-text-color;
+    text-transform: none;
+    letter-spacing: normal;
+    margin: 0 0 2em;
+    padding: 0;
+
+    &.white {
+        color: $white;
+    }
+
+    &.center {
+        text-align: center;
+    }
+
+    &.left {
+        text-align: left;
+    }
+
+    &.right {
+        text-align: right;
+    }
+
+    &.gray {
+        color: $grey-2;
+    }
+
+    &.dove-gray {
+        color: $grey-4;
+    }
+
+    .bg-cool-grey & {
+        color: $grey-background-text-color;
+    }
+}
+
+.h1,
+h1 {
+    @include renderHeading($h1-mobile-font-size, $h1-font-size, $h1-mobile-brand-font-size, $h1-brand-font-size);
+    text-transform: none;
+
+    .shared-homepage & {
+        font-family: $shared-homepage-heading;
+        font-size: $motorrad-font-size-heading;
+        text-transform: none;
+        font-weight: $motorrad-fw-normal;
+    }
+}
+
+.h2,
+h2 {
+    @include renderHeading($h2-mobile-font-size, $h2-font-size, $h2-mobile-brand-font-size, $h2-brand-font-size);
+    text-transform: uppercase;
+}
+
+.h3,
+h3 {
+    @include renderHeading($h3-mobile-font-size, $h3-font-size, $h3-mobile-brand-font-size, $h3-brand-font-size);
+    text-transform: none;
+}
+
+.h4,
+h4 {
+    @include renderHeading($h4-mobile-font-size, $h4-font-size, $h4-mobile-brand-font-size, $h4-brand-font-size);
+    font-family: $motorrad;
+    text-transform: none;
+}
+
+.h5,
+h5 {
+    @include renderHeading($h5-mobile-font-size, $h5-font-size, $h5-mobile-brand-font-size, $h5-brand-font-size);
+    font-family: $primary-font-family;
+}
+
+.h6,
+h6 {
+    @include renderHeading($h6-mobile-font-size, $h6-font-size, $h6-mobile-brand-font-size, $h6-brand-font-size);
+}
+
+// Common heading
+.h-common {
+    text-transform: none;
+    font-size: $f-size-xxl;
+    font-family: $secondary-font-family;
+    font-weight: $h-common-fw;
+    margin: 0;
+    padding: 0;
+
+    &.h-small {
+        font-size: $f-size;
+    }
+
+    &.h-tiny {
+        font-size: $f-size-xs;
+    }
+
+    &.h-heavy {
+        font-weight: $h-common-heavy-fw;
+
+        @include media($small-screen-down) {
+            font-weight: $motorrad-fw-normal;
+        }
+    }
+}
+
+.payment-amount {
+    margin: 0;
+    color: $motorrad-text-color;
+    font-weight: $motorrad-fw-bold;
+    font-size: $f-size-xxl;
+    line-height: $f-size-xxl;
+    padding-bottom: 10px;
+}
+
+.payment-label {
+    margin: 0;
+    font-size: $f-size-xs;
+    line-height: $f-size-xs;
+    color: $payment-label-color;
+}
+
+.font-brand {
+    font-family: $base-font-family !important;
+}
+
+.action-text {
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-size: $f-size-s;
+}

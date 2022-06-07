@@ -1,0 +1,58 @@
+.sort {
+  @include display(flex);
+  @include flex-direction(column);
+  @include align-items(center);
+  @include justify-content(center);
+  max-width: 292px;
+  width: fit-content;
+  position: relative;
+  padding: 0 30px 0 15px;
+
+  @include media($large-screen-up) {
+    @include flex-direction(row);
+    @include justify-content(space-between);
+    width: 100%;
+  }
+
+  &:before {
+    content: '';
+    height: 30px;
+    position: absolute;
+    background: $c-grey-5;
+    width: 1px;
+    left: 0;
+  }
+
+  .title {
+    margin: 0;
+    font-size: $dsp2-f-size-xs;
+  }
+
+  .filter-options {
+    select {
+      border: 1px solid $c-grey-4;
+      background: $white;
+      width: 190px;
+      height: 36px;
+      margin: 0;
+      padding: 0 0 0 15px;
+      background: url('../images/svg/icon-arrow-down.svg') no-repeat, center;
+      background-position: right 14px top 51%, 0 0;
+      background-size: 12px auto, 100%;
+      cursor:pointer;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+
+      option {
+        &.active {
+          background: $c-grey-5;
+        }
+
+        &:disabled {
+          pointer-events: none
+        }
+      }
+    }
+  }
+}

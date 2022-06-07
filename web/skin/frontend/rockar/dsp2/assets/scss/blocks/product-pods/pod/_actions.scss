@@ -1,0 +1,174 @@
+.pod-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+
+    .pod-action {
+        color: $white;
+        font-family: $bmw-bold;
+        margin: 0;
+        padding: 15px 10px;
+        width: 100%;
+    }
+
+    .action-compare {
+        background: $c-grey-1;
+        border: 0;
+        padding: 15px 10px 15px 35px;
+        position: relative;
+
+        &.remove {
+            &::before {
+                background-image: url('../images/svg/icon-minus.svg');
+            }
+        }
+
+        &::before {
+            background-image: url('../images/svg/icon-plus.svg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            content: '';
+            height: 13px;
+            left: calc(50% - 45px);
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 13px;
+        }
+    }
+
+    .row {
+        @include display(flex);
+        border: none;
+        border-top: 1px solid $pod-borders-color;
+        height: 54px;
+        box-sizing: border-box;
+
+        @include media($small-screen-down) {
+            height: auto;
+            width: 50%;
+        }
+
+        @include media($medium-screen-down) {
+            @include flex-basis(50%);
+        }
+
+        &:first-of-type {
+            @include media($medium-screen-down) {
+                @include flex-direction(row-reverse);
+                border-right: 1px solid $pod-borders-color;
+            }
+
+            .pod-attribute {
+                @include media($medium-screen-down) {
+                    border-right: 1px solid $pod-borders-color;
+                    border-left: none;
+
+                    &:first-of-type {
+                        border-right: 0;
+                    }
+                }
+            }
+        }
+
+        &:last-of-type {
+            @include media($large-screen-up) {
+                border-bottom: 1px solid $pod-borders-color;
+            }
+        }
+
+        .pod-attribute {
+            @include flex-basis(50%);
+            text-transform: none;
+            font-weight: $fw-black;
+            padding: 5px;
+            text-align: center;
+            cursor: pointer;
+
+            @include media($small-screen-down) {
+                height: auto;
+            }
+
+            p {
+                font-size: $dsp2-f-size-xxs;
+                font-family: $bmw-light;
+                letter-spacing: 1px;
+                margin-bottom: 0;
+            }
+
+            &:first-of-type {
+                border-right: 1px solid $pod-borders-color;
+            }
+
+            &:last-of-type {
+                @include media($medium-screen-down) {
+                    border-right: none;
+                }
+            }
+
+            &::after {
+                @include pseudo();
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            &.attr-features {
+                &::after {
+                    @include size(16px 23px);
+                    background-image: url('../images/svg/specification.svg');
+                    position: relative;
+                }
+
+                &.active {
+                    background-color: $c-grey-5;
+                }
+            }
+
+            &.attr-compare {
+                &::after {
+                    @include size(27px 23px);
+                    background-image: url('../images/svg/compare.svg');
+                    position: relative;
+                }
+
+                @include media($medium-screen-down) {
+                    border-right: 1px solid $pod-borders-color;
+                }
+            }
+
+            &.attr-buy {
+                &:hover {
+                    background: $c-grey-5;
+                }
+
+                &::after {
+                    @include size(23px);
+                    background-image: url('../images/svg/buy-now.svg');
+                    position: relative;
+                }
+            }
+
+            &.attr-day {
+                cursor: auto;
+                display: block;
+
+                .attr-day-day {
+                    font-size: $dsp2-f-size-l;
+                    line-height: $dsp2-line-16;
+                }
+
+                span {
+                    font-size: $dsp2-f-size-xxs;
+                    display: block;
+                }
+            }
+
+            &:nth-child(even) {
+                @include media($medium-screen-down) {
+                    border-left: none;
+                }
+            }
+        }
+    }
+}

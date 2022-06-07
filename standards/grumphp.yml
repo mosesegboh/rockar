@@ -1,0 +1,76 @@
+parameters:
+    hide_circumvention_tip: true
+    ignore_unstaged_changes: false
+    process_async_limit: 20
+    process_async_wait: 1000
+    process_timeout: 120
+    tasks:
+        git_blacklist:
+            keywords:
+                - 'die'
+                - 'var_dump('
+                - 'exit'
+                - 'console.log('
+                - '<<<<<<<'
+                - '======='
+            whitelist_patterns: []
+            triggered_by: 
+                - 'php'
+                - 'phtml'
+                - 'js'
+        git_branch_name:
+            whitelist:
+                - '/PEP-\d+/'
+            additional_modifiers: ''
+            allow_detached_head: false
+        git_commit_message:
+            allow_empty_message: false
+            enforce_capitalized_subject: false
+            enforce_no_subject_punctuations: false
+            enforce_no_subject_trailing_period: true
+            enforce_single_lined_subject: false
+            type_scope_conventions: []
+            max_body_width: 100
+            max_subject_width: 100
+            matchers:
+                Must contain JIRA issue number: /PEP-\d+/
+                Must contain title: /^PEP-\d+\s-\s.*/
+            case_insensitive: true
+            multiline: true
+            additional_modifiers: ''
+        phpcs:
+            standard: 
+                - './standards/phpcs.xml'
+            tab_width: 4
+            warning_severity: 0
+            report: 'full'
+        phpcs_warning:
+            standard: 
+                - './standards/phpcs.xml'
+            tab_width: 4
+            error_severity: 0
+            report: 'full'
+            metadata:
+                blocking: false
+                priority: 0
+        phpcsfixer2:
+            allow_risky: true
+            cache_file: './standards/.php_cs.cache'
+            config: './standards/.php_cs'
+            using_cache: true
+            config_contains_finder: true
+            verbose: true
+            diff: false
+            triggered_by: 
+                - 'php'
+        phpversion:
+            project: '7.1'
+services:
+    task.phpcs_warning:
+        class: Rockar\Task\PhpcsWarning
+        arguments:
+            - '@config'
+            - '@process_builder'
+            - '@formatter.phpcs'
+        tags:
+            - {name: grumphp.task, config: phpcs_warning}

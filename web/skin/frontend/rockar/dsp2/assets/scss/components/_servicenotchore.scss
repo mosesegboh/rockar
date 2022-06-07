@@ -1,0 +1,23 @@
+.cms-service-not-chore {
+    #container-jlrsb {
+        &.jlrsb.v-wrap {
+            background: $c-grey-5;
+            max-width: 100%;
+        }
+
+        input {
+            display: initial;
+        }
+
+        .s-label span {
+            background-color: initial;
+            height: initial;
+            position: static;
+            width: initial;
+
+            &::after {
+                content: none;
+            }
+        }
+    }
+}

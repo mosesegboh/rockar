@@ -1,0 +1,47 @@
+.product-pod-attributes-overlay {
+    .attribute-close-mobile {
+        font-family: $mini-serif-bold;
+        font-size: $dsp2-f-size-l;
+        color: $black;
+    }
+
+    .attribute-section {
+        font-size: $dsp2-f-size;
+
+        .row {
+            .option-title {
+                font-family: $mini-sans-serif-regular;
+            }
+
+            .option-price {
+                font-family: $mini-sans-serif-bold;
+            }
+        }
+    }
+
+    .attribute-view-switcher {
+        .view-switch {
+            font-family: $mini-serif-regular;
+            font-size: $dsp2-f-size-s;
+            color: $black;
+            text-transform: capitalize;
+
+            &.active {
+                font-family: $mini-serif-bold;
+                box-shadow: inset 0 3px 0 0 $c-mini-blue;
+            }
+        }
+    }
+
+    .pod-specs-button {
+        &::before {
+            left: -26px;
+        }
+    }
+
+    .image-block {
+        @include media($medium-screen-up) {
+            overflow: hidden;
+        }
+    }
+}

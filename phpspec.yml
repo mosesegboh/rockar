@@ -1,0 +1,6 @@
+extensions: [MageTest\PhpSpec\MagentoExtension\Extension]
+mage_locator:
+  spec_prefix: 'spec'
+  src_path: 'web/app/code'
+  spec_path: 'spec/web/app/code'
+  code_pool: 'local'

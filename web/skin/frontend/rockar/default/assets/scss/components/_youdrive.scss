@@ -1,0 +1,308 @@
+.you-drive {
+    .row.inner-container {
+        position: relative;
+    }
+
+    .h-common {
+        font-family: $secondary-font-family;
+
+        &.h-small {
+            font-size: $f-size-s;
+        }
+    }
+
+    .greyed-text {
+        color: $you-drive-signup-text-color;
+        font-size: $f-size;
+        margin-bottom: 0;
+    }
+
+    .you-drive-section-heading {
+        color: $you-drive-section-heading-color;
+        font-weight: $you-drive-section-heading-fw;
+        font-family: $secondary-font-family;
+        margin-bottom: 2em;
+        text-align: center;
+    }
+
+    .map-wrapper {
+        width: 100%;
+        height: 800px;
+    }
+
+    .selectbox-select {
+        border-color: $grey;
+    }
+
+    .you-drive-steps {
+        @include display(flex);
+        @include flex-direction(row);
+        margin: 0 0 20px 0;
+
+        @include media($large-screen-down) {
+            @include flex-direction(column);
+        }
+
+        button {
+            @include flex(1 1 25%);
+
+            @include media($large-screen-down) {
+                width: 100%;
+                @include flex(1 0 100%);
+                margin: .25em 0;
+            }
+
+            &:first-child {
+                border-left: 0;
+            }
+
+            &:last-child {
+                border-right: 0;
+            }
+
+            &[disabled] {
+                opacity: 0.4;
+            }
+
+            &:active,
+            &:focus {
+                opacity: 1;
+
+                &:hover {
+                    opacity: .8;
+                }
+            }
+        }
+    }
+
+    .carousel-wrapper {
+        .slick-slide {
+            border: 1px solid transparent;
+        }
+
+        .slick-current.slick-center {
+            border: 1px solid $you-drive-carousel-selected-color;
+
+            .button-action {
+                button {
+                    display: block;
+                }
+            }
+        }
+
+        .button-action {
+            button {
+                display: none;
+            }
+        }
+    }
+
+    .car-model {
+        background: $you-drive-model-car-model-background;
+        padding: 1em;
+        margin-bottom: 1em;
+
+        .model-options {
+            .vehicle-options {
+                height: 165px;
+                overflow-y: auto;
+                overflow-x: hidden;
+
+                .vehicle-options-wrap {
+                    padding: 0 1em 0 0;
+                }
+            }
+
+            .car-details-wrapper {
+                @include clearfix;
+            }
+
+            .car-details {
+                font-size: $f-size-xxs;
+                font-family: $primary-font-family;
+                font-weight: $fw-book;
+                color: $you-drive-model-car-options-color;
+                float: left;
+                width: 30%;
+                margin-right: 3.333%;
+                border-right: 1px solid $you-drive-model-car-details-border;
+
+                &:nth-child(3n) {
+                    border: none;
+                    margin-right: 0;
+                }
+            }
+
+            .button-wrapper {
+                margin-top: 1.25em;
+
+                button {
+                    @include media($small-screen-down) {
+                        display: block;
+                        width: 100%;
+                        padding: 1em .5em;
+                    }
+                }
+            }
+        }
+    }
+
+    .back-button-header {
+        padding-bottom: 1.5em;
+        margin-bottom: 1.5em;
+        border-bottom: 1px solid $you-drive-horizontal-break-color;
+
+        p {
+            color: $you-drive-signup-text-color;
+            font-size: $f-size;
+            margin-bottom: 0;
+
+            &.date-time {
+                text-transform: uppercase;
+                font-weight: $fw-bold;
+                color: $you-drive-signup-date-time-color;
+                font-size: $f-size-s;
+            }
+        }
+
+        button {
+            @include media($large-screen-down) {
+                display: block;
+                width: 100%;
+            }
+        }
+    }
+
+    .you-drive-footer {
+        margin-top: 20px;
+
+        li,
+        p {
+            font-size: $f-size-s;
+            color: $you-drive-footer-text-color;
+            font-weight: $fw-book;
+        }
+
+        .where-to-find {
+            @include media($large-screen-up) {
+                padding: 0 1.25em 0 1em;
+            }
+        }
+    }
+
+    .car-name {
+        color: $you-drive-car-name-color;
+        line-height: 1.2;
+    }
+
+    .car-booked-header {
+        padding-bottom: 1em;
+        margin-bottom: 2.5em;
+        border-bottom: 1px solid $you-drive-horizontal-break-color;
+
+        .car-name {
+            padding-top: 0.25em;
+        }
+
+        .you-drive-section-heading {
+            margin-bottom: 0;
+        }
+
+        .booked-heading {
+            font-size: $f-size-xxl;
+            font-family: $secondary-font-family;
+            color: $you-drive-booked-header-heading-color;
+        }
+
+        .date-time {
+            padding-top: 0.25em;
+            font-weight: $you-drive-booked-header-date-time-fw;
+        }
+    }
+
+    .inner-container {
+        @include media($large-screen-down) {
+            padding: 0;
+        }
+    }
+
+    .slick-slider {
+        @include media($large-screen-down) {
+            width: 90%;
+        }
+    }
+
+    .top-wrapper {
+        margin-bottom: 20px;
+    }
+}
+
+.rockar-youdrive-index-index {
+    .wrapper {
+        position: relative;
+
+        .main-container .main > .grid {
+            position: absolute;
+            left: $you-drive-breadcrumb-left-position;
+            right: $you-drive-breadcrumb-right-position;
+            top: $you-drive-breadcrumb-top-position;
+
+            .breadcrumbs ul li span,
+            .breadcrumbs ul li strong,
+            a {
+                color: $white;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .breadcrumbs-wrapper {
+        padding: 0;
+    }
+
+    .grid {
+        overflow: auto;
+    }
+}
+
+#you-drive {
+    .you-drive-section-heading {
+        text-align: left;
+    }
+
+    .models {
+        .model-block {
+            border: 1px solid transparent;
+            position: relative;
+            z-index: 1;
+
+            .title {
+                margin: 10px 20px 0;
+                text-align: center;
+                text-transform: uppercase;
+            }
+            .model-image-wrapper {
+                height: 150px;
+                text-align: center;
+
+                img {
+                    height: 100%;
+                }
+            }
+
+            &:after {
+                @include position(absolute, 0 null null 0);
+                @include size(100%);
+                content: "";
+            }
+            &.active {
+                border: 1px solid $you-drive-model-active-border;
+
+                &:after {
+                    background-color: $you-drive-model-active-after-bg;
+                    opacity: 0.3;
+                }
+            }
+        }
+    }
+}

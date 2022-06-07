@@ -1,0 +1,5 @@
+.category-products {
+    &-list {
+        @import './product-pods/product-pod';
+    }
+}

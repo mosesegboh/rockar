@@ -1,0 +1,176 @@
+#finance-filter {
+    .finance-filter-sliders {
+        margin: 1.5em 0;
+
+        @import 'finance-selection/range-sliders';
+
+        .mileage-filter {
+            margin-top: 0.8em;
+        }
+
+        .term-filter {
+            margin-top: 0.8em;
+        }
+    }
+
+    .finance-filter-mobile {
+        @import 'finance-selection/mobile-filters';
+    }
+}
+
+.finance-selection {
+    .label {
+        margin-bottom: 0.5em;
+
+        @include media($small-screen-down) {
+            text-align: center;
+        }
+
+        p {
+            font-family: $finance-selection-group-font;
+            font-weight: $fw-bold;
+            font-size: $finance-selection-group-font-size;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: $finance-selection-group-text-color-dark;
+
+            @include media($small-screen-down) {
+                font-weight: $fw-book;
+                font-size: $finance-selection-group-font-size-mobile;
+                letter-spacing: 1.8px;
+            }
+        }
+    }
+
+    .finance-options {
+        @import 'finance-selection/video';
+
+        @include display(flex);
+
+        @include media($small-screen-down) {
+            display: none;
+        }
+
+        .finance-groups {
+            display: inline-block;
+            margin-right: -0.5em;
+            margin-left: 15px;
+
+            .group-wrapper {
+                max-width: $finance-selection-max-width;
+
+                @include media($small-screen-down) {
+                    max-width: none;
+                }
+
+                .finance-group-accordion {
+                    @import 'finance-selection/accordion';
+                }
+
+                .finance-group-button {
+                    @import 'finance-selection/button';
+                }
+
+                .js-accordion-trigger,
+                .finance-group-button {
+                    font-family: $mini;
+                    font-weight: $fw-bold;
+                    font-size: $f-size-xs;
+                    height: auto;
+                    min-height: 47px;
+                    letter-spacing: 1.2px;
+                    margin-bottom: -1px;
+                    text-align: left;
+                    width: 260px;
+                    margin-right: -30px;
+                }
+            }
+        }
+
+        .finance-video {
+            @include size($finance-video-width $finance-video-height);
+            display: inline-block;
+        }
+    }
+
+    .finance-options-mobile {
+        @import 'finance-selection/mobile-dropdown';
+        @import 'finance-selection/video';
+
+        @include media($medium-screen-up) {
+            display: none;
+        }
+    }
+
+    .finance-video {
+        // Need to hide non-video data in finance products video field
+        p:not(:last-of-type),
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            display: none;
+        }
+
+        .aspect-ratio-wrapper {
+            max-width: 384px; // 384, 216 = 16/9 aspect ratio
+            width: 100%;
+            height: 100%;
+            margin-left: 50%;
+            transform: translateX(-50%);
+            padding: 0;
+
+            .aspect-ratio-16-9 {
+                position: relative;
+                width: 120%;
+                padding-bottom: calc((9/16) * 100%);
+
+                .video-wrapper {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+
+                    .video-border {
+                        position: absolute;
+                        width: 100%;
+                        height: calc(100% + 2px);
+                        border: 1px solid $finance-video-border-color;
+
+                        .video {
+                            height: 100%;
+
+                            p {
+                                iframe {
+                                    max-width: 100%;
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.finance-selection .finance-options .finance-groups .group-wrapper .finance-group-button button:hover, .finance-selection .finance-options .finance-groups .group-wrapper .finance-group-button button.selected {
+    background: $white;
+    color: $black;
+    text-decoration: underline;
+}
+
+#finance-filter .finance-filter-sliders {
+    margin: 0px;
+}
+
+.finance-selection .label p {
+    font-family: $mini_heading;
+    font-weight: bold;
+    font-size: $f-size-header;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: $black;
+}

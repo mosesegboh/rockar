@@ -1,0 +1,51 @@
+<?php
+/**
+ * @category    design
+ * @package     rockar_bmw2
+ * @author      Ketevani Revazishvili <techteam@rockar.com>
+ * @copyright   Copyright (c) 2021 Rockar, Ltd (http://rockar.com)
+ *
+ *
+ * @var $this Rockar_Customer_Block_Account_Dashboard_Info
+ */
+
+$gdprInitialPreferencesPopup = $this->getChildHtml('gdpr_initial_preferences_popup');
+$gdprBankPreferencesPopup = $this->getChildHtml('gdpr_bank_preferences');
+?>
+
+<div class="row">
+    <div class="col-12">
+        <app-my-details
+            v-ref:my-details
+            :customer="<?php echo htmlentities($this->getCustomerDetailsJson()); ?>"
+            :notifications="<?php echo htmlentities($this->getNotificationPreferencesJson()); ?>"
+            :billing-address="<?php echo htmlentities($this->getAddressJson()); ?>"
+            :shipping-address="<?php echo htmlentities($this->getSecondaryAddressJson()); ?>"
+            edit-form="<?php echo $this->getEditSubmitUrl(); ?>"
+            notification-form="<?php echo $this->getNotificationSubmitUrl(); ?>"
+            password-form="<?php echo $this->getPasswordSubmitUrl(); ?>"
+            form-key="<?php echo Mage::getSingleton('core/session')->getFormKey(); ?>"
+            :available-countries="<?php echo htmlentities($this->getAvailableCountriesJson()); ?>"
+            default-country="<?php echo $this->getDefaultCountry(); ?>"
+            :driving-license-types="<?php echo htmlentities($this->getDrivingLicenseTypesJson()); ?>"
+            :dob="<?php echo htmlentities($this->getDobData()); ?>"
+            :prefix-options="<?php echo htmlentities(Mage::helper('rockar_checkout')->getPrefixOptionsJson()); ?>"
+            brand="<?php echo Mage::helper('rockar_checkout/confirmation')->getBoughtCarType(); ?>"
+            :split-addresses="<?php echo $this->helper('rockar_customer')->splitBillingShippingAddress(); ?>"
+            :is-groups-dropdown-enabled="<?php echo Mage::helper('rockar_customer/customerGroups')->isDropdownEnabled(Rockar_Customer_Helper_CustomerGroups::MY_ACCOUNT_PAGE) ? 'true' : 'false'; ?>"
+            :customer-groups="<?php echo htmlspecialchars(Mage::helper('rockar_all')->jsonEncode(Mage::helper('rockar_customer/customerGroups')->getVisibleCustomerGroups())); ?>"
+            :is-affiliate-code-enabled="<?php echo Mage::helper('rockar_customer/customerGroups')->isAffiliateCodeEnabled(Rockar_Customer_Helper_CustomerGroups::MY_ACCOUNT_PAGE) ? 'true' : 'false'; ?>"
+            :affiliate-codes="<?php echo htmlspecialchars(Mage::helper('rockar_all')->jsonEncode(Mage::helper('rockar_customer/customerGroups')->getAffiliateCodes())); ?>"
+            affiliate-code-dropdown-option="<?php echo Mage::helper('rockar_customer/customerGroups')->getAffiliateCodeDropdownOption(); ?>"
+            affiliate-code-tooltip-text="<?php echo Mage::helper('rockar_customer/customerGroups')->getAffiliateCodeTooltipText(); ?>"
+            gdpr-save-url="<?php echo Mage::helper('rockar_gdpr')->getCustomerOptionSaveUrl(); ?>"
+            :gdpr-channels="<?php echo htmlentities(Mage::helper('rockar_gdpr')->getActiveChannels(true)); ?>"
+            :gdpr-options="<?php echo htmlentities(Mage::helper('rockar_gdpr')->getActiveOptions(true)); ?>"
+            :gdpr-customer-options="<?php echo htmlentities(Mage::helper('rockar_gdpr')->getCurrentCustomerOptions(true)); ?>"
+            :gdpr-cms-blocks-enabled="<?php echo htmlentities(Mage::helper('rockar_gdpr')->getGdprCmsEnabled()); ?>"
+        >
+            <div slot="gdpr_initial_preferences_popup" class="vue-slot"><?php echo $gdprInitialPreferencesPopup; ?></div>
+            <div slot="gdpr_bank_preferences" class="vue-slot"><?php echo $gdprBankPreferencesPopup; ?></div>
+        </app-my-details>
+    </div>
+</div>

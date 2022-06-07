@@ -1,0 +1,165 @@
+.page-title-wrapper {
+    .cosy-background-mob {
+        background-image: none;
+    }
+
+    .car-hero {
+        .cloudimage-inner-box {
+            max-height: 600px;
+        }
+
+        &.interior {
+            height: 100%;
+
+            @include media($medium-screen-down) {
+                padding: 31px 0;
+            }
+
+            .slide360 {
+                &.interior {
+                    height: 100%;
+
+                    .carousel-wrapper {
+                        height: 100%;
+
+                        .slick-list {
+                            height: 100%;
+
+                            .slick-track {
+                                height: 100%;
+
+                                .slick-slide {
+                                    padding: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .image-type-switcher {
+            left: auto;
+            bottom: auto;
+            top: 25px;
+            right: 200px;
+
+            @include media($medium-screen-down) {
+                top: 22px;
+                right: 75px;
+            }
+
+            .actions-wrapper {
+                background-color: $white;
+
+                .switcher {
+                    background-size: 65%;
+
+                    &.active {
+                        border-bottom: 2px solid $black;
+                    }
+                }
+            }
+        }
+    }
+
+    .product-detailed-view {
+        &.row {
+            @include media($medium-screen-up) {
+                display: grid;
+                grid-template-columns: 445px 1fr;
+                gap: 50px;
+                margin: 0;
+                max-height: 600px;
+            }
+
+            .col-4,
+            .col-8 {
+                @include media($medium-screen-up) {
+                    max-width: none;
+                    width: auto;
+                    margin: 0;
+                    float: none;
+                    max-height: 600px;
+                }
+            }
+        }
+    }
+
+    .heading-container {
+        .product-headings {
+            margin: 0;
+
+            .main-heading {
+                color: $black;
+                font-family: $motorrad-bold;
+                font-size: $dsp2-f-size-xxl;
+                line-height: $motorrad-line-h-22;
+                text-transform: uppercase;
+                margin-bottom: 17px;
+
+                @include media($medium-screen-down) {
+                    font-size: $dsp2-f-size-xl;
+                    line-height: $motorrad-line-h-26;
+                    margin: 17px 0 6px;
+                }
+            }
+
+            .sub-heading {
+                color: $black;
+                font-family: $motorrad-regular;
+                font-size: $dsp2-f-size;
+                line-height: $motorrad-line-h-26;
+                text-transform: uppercase;
+                margin: 0;
+
+                @include media($medium-screen-down) {
+                    font-size: $dsp2-f-size-xs;
+                    line-height: $dsp2-line-h-14;
+                }
+            }
+
+            .attributes-container {
+                padding: 10px 0 20px;
+            }
+
+            .product-color-title {
+                color: $black;
+                font-family: $motorrad-regular;
+            }
+        }
+
+        .action-compare {
+            background-color: $black;
+            color: $white;
+        }
+
+        .test-drive-button {
+            border: 2px solid $black;
+
+            span {
+                &::before {
+                    background-image: url('../images/svg/test-drive.svg');
+                }
+            }
+
+            &:hover {
+                background-color: $c-motorrad-blue;
+                border: none;
+                color: $black;
+
+                span {
+                    filter: invert(1);
+                }
+            }
+        }
+
+        .product-detailed-view {
+            .col-8 {
+                @include media($medium-screen-down) {
+                    min-height: auto;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_FutureValue
+ * @author    Ausma Smite <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <sections>
+        <extendedrules translate="label" module="rockar_futurevalue">
+            <groups>
+                <future_value translate="label">
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <info_block translate="label">
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </info_block>
+                    </fields>
+                </future_value>
+            </groups>
+        </extendedrules>
+    </sections>
+</config>

@@ -1,0 +1,810 @@
+.my-orders {
+    margin-bottom: 20px;
+
+    &:last-of-type {
+        margin: 0;
+    }
+
+    .px-preloader {
+        @include position(absolute, 0 null null 0);
+        @include size(100%);
+        background: $preloader-bg;
+        z-index: 9999;
+
+        .show-loading {
+            @include position(absolute, 50% null null 50%);
+            margin: -25px 0 0 -25px;
+        }
+    }
+
+    .my-orders-bordered {
+        padding: 1em 0;
+    }
+
+    .order-images-actions {
+        button {
+            float: left;
+            padding: 0.5625em 1.25em;
+            width: 49%;
+
+            &:first-child {
+                margin-right: 2%;
+            }
+        }
+    }
+
+    .my-orders-tabs-section {
+        .my-orders-tabs-list {
+            position: relative;
+            z-index: 2;
+            @include display(flex);
+            @include flex-direction(row);
+
+            .my-orders-tab-title {
+                @include flex(1 0 auto);
+                text-align: center;
+                background: $my-orders-tab-title-background;
+                text-transform: uppercase;
+                font-size: $f-size-xxs;
+                border: 1px solid $my-orders-tab-title-border;
+                border-bottom-color: $my-orders-tab-title-bottom-border;
+                cursor: pointer;
+                font-weight: $fw-bold;
+                padding: .5em 0;
+                margin: 0 .3em;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                &.active {
+                    border: 1px solid $my-orders-tab-title-active-border;
+                    border-bottom: 1px solid $my-orders-tab-title-active-bottom-border;
+                    background: $my-orders-tab-title-active-background;
+                }
+            }
+        }
+
+        .my-orders-tabs-content {
+            @include position(relative, -1px null null null);
+            border: 1px solid $my-orders-tab-content-border;
+            padding: .5em;
+            z-index: 1;
+
+            .px-data-table {
+                margin-top: 0;
+            }
+
+            .table-borderless {
+                .option-price {
+                    width: 100px;
+                }
+
+                td {
+                    padding: 0.5em 0;
+                }
+            }
+
+            &.part-exchange {
+                font-size: $my-orders-tab-content-px-font-size;
+            }
+
+            table {
+                td, th {
+                    font-size: $my-orders-tab-content-px-font-size;
+                }
+            }
+        }
+    }
+
+    .px-additional-info-checkbox {
+        display: inline-block;
+        font-size: $my-orders-tab-content-px-additional-font-size;
+
+        .checkbox {
+            width: $my-orders-px-data-checkbox-width;
+            height: $my-orders-px-data-checkbox-height;
+            background-color: $my-orders-px-data-checkbox-color;
+            text-align: center;
+
+            &:after {
+                @include position(relative, 8px null null null);
+                content: '';
+                display: inline-block;
+                vertical-align: top;
+                @include sprite($sprite-check-icon);
+            }
+        }
+
+        .text {
+            font-size: $my-orders-tab-content-px-text-font-size;
+            padding-left: 7px;
+            width: calc(100% - #{$my-orders-px-data-checkbox-width});
+        }
+    }
+
+    .my-orders-block {
+        display: inline-block;
+        width: 100%;
+
+        &.car-details {
+            @include media($medium-screen-up) {
+                padding: 0 0 1em 0;
+            }
+        }
+
+        .accordion-tabs-minimal {
+            .tab-link {
+                font-size: $my-orders-tab-tab-link-font-size;
+            }
+        }
+
+        @include media($large-screen-up) {
+            clear: both;
+            padding: 1.6em 0;
+            border-bottom: 1px solid $my-account-horizontal-break-color;
+        }
+
+        .my-orders-heading {
+            font-size: $my-orders-heading-size;
+            text-transform: uppercase;
+
+            @include media($large-screen-up) {
+                font-size: $my-orders-heading-size-desktop;
+            }
+
+            &.title {
+                text-transform: none;
+            }
+        }
+
+        .my-orders-col {
+            width: 100%;
+
+            @include media($medium-screen-up) {
+                float: left;
+                width: 24%;
+            }
+
+            .my-orders-image {
+                width: 100%;
+                height: auto;
+
+                @include media($medium-screen-up) {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+
+        .my-orders-col-2 {
+            width: 100%;
+
+            @include media($medium-screen-up) {
+                float: left;
+                width: 33%;
+                padding: 0 1.5em;
+            }
+
+            .my-orders-p {
+                font-weight: $fw-light;
+            }
+
+            tr.delivery {
+                vertical-align: top;
+
+                td {
+                    vertical-align: top;
+                }
+            }
+        }
+
+        .my-orders-col-3 {
+            width: 100%;
+
+            @include media($medium-screen-up) {
+                float: left;
+                width: 43%;
+            }
+        }
+
+        .summary-link {
+            text-decoration: underline;
+            text-transform: uppercase;
+            font-family: $primary-font-family;
+            color: $my-orders-view-summary-color;
+            font-size: $my-orders-view-summary-font-size;
+            cursor: pointer;
+            margin-bottom: 0;
+        }
+
+        .my-orders-row {
+            margin-bottom: 15px;
+            @include clearfix;
+
+            @include media($medium-screen-up) {
+                width: 100%;
+            }
+
+            .my-orders-p {
+                float: right;
+                margin-bottom: 0;
+
+                @include media($medium-screen-up) {
+                    float: right;
+                    display: inline;
+                }
+            }
+        }
+
+        .my-orders-status {
+            @include media($medium-screen-up) {
+                margin: 4% 0 0;
+                width: 100%;
+            }
+
+            .my-orders-progress-bar-block {
+                position: relative;
+                @include flex-direction(row);
+                @include justify-content(space-between);
+
+                @include media($medium-screen-up) {
+                    @include display(flex);
+                }
+
+                .my-orders-progress-bar-list {
+                    width: 100%;
+
+                    @include media($medium-screen-up) {
+                        padding-bottom: 45px;
+                        margin-left: 1em;
+                    }
+
+                    .my-orders-progress-point {
+                        display: block;
+                        position: relative;
+                        height: 80px;
+                        padding: 0;
+
+                        @include media($medium-screen-up) {
+                            float: left;
+                        }
+
+                        &:before {
+                            @include position(absolute, null null 100% 11px);
+                            content: '';
+                            display: block;
+                            border: 1px solid $my-orders-progress-bar-border-color;
+                            border-top: none;
+                            border-bottom: none;
+                            width: 5px;
+                            background-color: $my-orders-progress-bar-color;
+                            height: 100%;
+                            z-index: 1;
+
+                            @include media($medium-screen-up) {
+                                border: none;
+                                border-bottom: 1px solid $my-orders-progress-bar-border-color;
+                                border-top: 1px solid $my-orders-progress-bar-border-color;
+                                height: 5px;
+                                width: 100%;
+                                right: 100%;
+                                top: 12px;
+                                left: auto;
+                                bottom: auto;
+                            }
+                        }
+
+                        &:first-child {
+                            &:before {
+                                display: none;
+                            }
+                        }
+
+                        .my-orders-progress-point-square {
+                            @include size(27px);
+                            background-color: $my-orders-progress-point-bg-color;
+                            position: relative;
+                            z-index: 2;
+                        }
+
+                        .my-orders-progress-text {
+                            @include position(3px null null 70px);
+                            display: inline-block;
+
+                            @include media($medium-screen-up) {
+                                @include position(relative, 20px null null 3%);
+                                display: block !important;
+                                float: left;
+                                width: 16%;
+                                text-align: center;
+                            }
+
+                            p {
+                                font-size: $my-orders-progress-text-font-size;
+                                font-weight: $fw-light;
+
+                                @include media($medium-screen-up) {
+                                    @include position(absolute, null null null -26px);
+                                    width: 74px;
+                                    margin: 0 auto;
+                                }
+                            }
+                        }
+
+                        &.active {
+                            .my-orders-progress-point-square {
+                                background-color: $my-orders-progress-point-bg-color-active;
+                                text-align: center;
+
+                                &:after {
+                                    @include position(relative, 8px null null null);
+                                    content: '';
+                                    display: inline-block;
+                                    vertical-align: top;
+                                    @include sprite($sprite-check-icon);
+                                }
+                            }
+
+                            &:before {
+                                border: 1px solid $my-orders-progress-point-bg-color-active;
+                                background-color: $my-orders-progress-point-bg-color-active;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .my-orders-status-text {
+            background-color: $my-orders-status-text-bg;
+            padding: 1em;
+
+            .my-orders-medium {
+                text-transform: none;
+                font-weight: $fw-medium;
+                margin-bottom: em(19);
+            }
+
+            .my-orders-p {
+                font-weight: $fw-light;
+                margin: 0;
+            }
+
+            @include media($medium-screen-up) {
+                width: 100%;
+            }
+        }
+
+        .my-orders-bolded {
+            font-weight: $fw-bold;
+            text-transform: uppercase;
+        }
+
+        .my-orders-steps-block {
+            tr {
+                td {
+                    &.nextstep-action {
+                        width: 40px;
+                    }
+
+                    .nextstep-checkbox {
+                        @include position(relative, 0 null null null);
+                        display: inline-block;
+                        cursor: pointer;
+                        @include sprite($sprite-red-x);
+
+                        &.checked {
+                            @include sprite($sprite-green-accept);
+                        }
+                    }
+
+                    .attachment-icon {
+                        @include sprite($sprite-alert-attach);
+                    }
+
+                    .attachment-download {
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+
+                    .nextstep-title {
+                        vertical-align: middle;
+                        word-break: break-word;
+                    }
+                }
+            }
+        }
+    }
+
+    .tab-content {
+        .my-orders-row {
+            float: left;
+            width: 100%;
+        }
+
+        .my-orders-p {
+            p {
+                color: $my-orders-tabs-p-font-color;
+                font-family: $helper-font-family;
+            }
+        }
+
+        .my-orders-car-options {
+            .my-orders-car-options-col {
+                display: block;
+                min-width: 30%;
+                text-align: center;
+                float: left;
+
+                .my-orders-car-options-images {
+                    .my-orders-car-options-img {
+                        border-radius: 50%;
+                        width: 50px;
+                    }
+                }
+
+                .my-orders-car-options-text {
+                    .my-orders-p {
+                        width: 50px;
+                        font-size: $my-orders-car-options-font-size;
+                    }
+                }
+            }
+
+            .my-orders-car-options-col-2 {
+                min-width: 30%;
+                margin: 1em 0 0 5%;
+                display: block;
+                float: left;
+
+                .my-orders-p {
+                    width: 100%;
+                    font-size: $my-orders-car-options-p-font-size;
+                }
+            }
+
+            .my-orders-row {
+                float: none;
+                width: 100%;
+            }
+        }
+    }
+
+    .my-orders-contacts {
+        padding: .5em;
+        background-color: $my-orders-contacts-bg;
+        width: 100%;
+
+        a {
+            text-decoration: underline;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+
+    .tab-link {
+        width: 100%;
+
+        @include media($large-screen-up) {
+            width: 32%;
+        }
+
+        &.is-active {
+            width: 100%;
+
+            @include media($large-screen-up) {
+                width: 32%;
+            }
+        }
+    }
+
+    .my-orders-table {
+        .my-orders-table-checkbox {
+            width: 40px;
+
+            label {
+                height: 27px;
+                width: 27px;
+                margin: 0;
+            }
+        }
+
+        .my-orders-table-date {
+            width: 90px;
+
+            &.bold {
+                font-weight: $fw-medium;
+            }
+        }
+
+        .my-orders-table-text {
+            word-break: break-word;
+
+            &.bold {
+                font-weight: $fw-medium;
+            }
+        }
+
+        .my-orders-heading {
+            @include media($large-screen-up) {
+                margin-top: 0;
+            }
+        }
+
+        tr {
+            td {
+                background-color: transparent;
+                vertical-align: middle;
+                height: 40px;
+                font-size: $my-orders-table-td-font-size;
+                font-weight: $fw-light;
+                padding: 17px 10px;
+
+                @include media($medium-screen-up) {
+                    padding: 10px;
+                }
+            }
+        }
+    }
+
+    @include media($small-screen-down) {
+        .my-orders-progress-point {
+            position: relative !important;
+        }
+        .my-orders-progress-text {
+            white-space: nowrap !important;
+        }
+    }
+
+    p {
+        columns: initial !important;
+        -moz-columns: initial !important;
+        -webkit-columns: initial !important;
+    }
+
+    .my-orders-clear {
+        clear: both;
+    }
+
+    > .my-orders-clear {
+        clear: both;
+        width: 100%;
+        height: 1px;
+        border-bottom: 1px solid $my-account-horizontal-break-color;
+        border-left: none;
+        border-right: none;
+    }
+}
+
+.my-orders-section {
+    .my-orders-wrapper {
+        @include media($large-screen-down) {
+            display: none;
+        }
+    }
+
+    .my-orders-mobile {
+        display: none;
+
+        @include media($large-screen-down) {
+            display: block;
+        }
+
+        .px-additional-info-checkbox {
+            width: 100%;
+        }
+
+        .hero-section {
+            background: $my-orders-hero-section-color;
+
+            .order-images-actions {
+                button {
+                    width: 49%;
+                    &:last-child {
+                        float: right;
+                    }
+                }
+            }
+
+            .hero-info {
+                .hero-content {
+                    table {
+                        font-size: $my-orders-hero-table-font-size;
+
+                        td {
+                            padding: .2em 0;
+                        }
+                    }
+                }
+
+                .my-orders-bolded {
+                    font-size: $my-orders-hero-bolded-font-size;
+                }
+
+                .hero-padding {
+                    padding: 1em;
+
+                    .hero-title {
+                        font-size: $my-orders-hero-title-font-size;
+                        text-transform: uppercase;
+                        font-weight: $fw-bold;
+                        margin: 0 0 .5em 0;
+                    }
+
+                    .hero-order {
+                        @include display(flex);
+                        @include flex-direction(row);
+                        @include flex-wrap(wrap);
+
+                        .hero-order-block {
+                            @include flex(1 0 49%);
+                            color: rgba(0, 0, 0, .5);
+                            margin: 0 0 .5em 0;
+                            font-size: $my-orders-hero-order-font-size;
+
+                            &.upper {
+                                text-transform: uppercase;
+                            }
+                        }
+                    }
+                }
+
+                .hero-tabs {
+                    border-top: 1px solid $my-orders-hero-tabs-border-color;
+
+                    .hero-tabs-list {
+                        @include display(flex);
+                        @include flex-direction(row);
+
+                        .hero-tab {
+                            @include flex(1 0 33%);
+                            text-transform: uppercase;
+                            text-align: center;
+                            color: $my-orders-hero-tab-color;
+                            font-size: $my-orders-hero-tab-font-size;
+                            padding: .5em 0;
+                            cursor: pointer;
+
+                            &.active {
+                                color: $my-orders-brand-accent-fg-color;
+                                background: $my-orders-brand-accent-color;
+                            }
+                        }
+                    }
+
+                    .hero-content {
+                        background: $my-orders-hero-content-bg-color;
+                        padding: 1em;
+
+                        .hero-payment-section {
+                            @include display(flex);
+                            @include flex-direction(row);
+                            @include flex-wrap(wrap);
+
+                            .hero-payment-block {
+                                @include flex(1 0 33%);
+                                margin: 1em 0;
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .my-orders-block {
+            .my-orders-heading {
+                text-transform: none;
+                margin: 0;
+            }
+
+            .my-orders-subheading {
+                text-transform: none;
+                font-size: $f-size-l;
+                font-weight: $fw-normal;
+            }
+
+            .my-orders-status .my-orders-progress-bar-block .my-orders-progress-bar-list .my-orders-progress-point {
+                height: 40px;
+
+                &.active {
+                    .my-orders-progress-text {
+                        p {
+                            color: $my-orders-hero-progress-text-color;
+                        }
+                    }
+                }
+
+                .my-orders-progress-text {
+                    @include media($small-screen-down) {
+                        left: 50px;
+                    }
+
+                    p {
+                        color: $my-orders-mobile-greyed-out-color;
+                    }
+                }
+            }
+        }
+
+        .my-orders-next-steps,
+        .my-orders-messages {
+            .my-orders-heading {
+                text-transform: none;
+            }
+
+            .table {
+                border: 0;
+
+                .my-orders-messages-block {
+                    tr {
+                        td {
+                            &:first-child {
+                                width: 35px;
+                            }
+                        }
+
+                        .bold {
+                            font-weight: $fw-bold;
+                            color: $my-orders-mobile-messages-bold-color;
+                        }
+                    }
+                }
+
+                .my-orders-steps-block,
+                .my-orders-messages-block {
+                    tr {
+                        background: transparent;
+                        border: 0;
+
+                        td {
+                            position: relative;
+                            background: transparent;
+                            padding: .5em 0;
+                            height: auto;
+                            color: $my-orders-mobile-greyed-out-color;
+                            border-bottom: 1px solid $my-orders-mobile-messages-border;
+
+                            &.checked {
+                                color: $my-orders-brand-accent-color;
+                            }
+
+                            .nextstep-checkbox {
+                                @include position(absolute, 50% 10px null null);
+                                margin-top: -6px;
+                                cursor: pointer;
+                                @include sprite($sprite-red-x);
+
+                                &.checked {
+                                    @include sprite($sprite-green-accept);
+                                }
+                            }
+
+                            .nextstep-title {
+                                vertical-align: middle;
+                                word-break: break-word;
+                            }
+
+                            &.nextstep-action {
+                                width: 40px;
+                            }
+                        }
+
+                        &:last-child {
+                            td {
+                                border-bottom: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

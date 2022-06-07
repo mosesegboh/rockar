@@ -1,0 +1,55 @@
+<?php
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Checkout
+ * @author Jevgenijs Goreliks <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar Ltd (http://rockar.com)
+ */
+
+/**
+ * @var $this Rockar2_Checkout_Block_Checkout_Onepage
+ */
+?>
+<app-checkout
+    :product='<?php echo $this->getProduct() ?>'
+    brand='<?php echo $this->getCarBrand() ?>'
+    validate-product-url='<?php echo $this->getValidateProductUrl() ?>'
+    car-finder-url='<?php echo $this->getCarFinderUrl(); ?>'
+>
+    <?php echo $this->getChildHtml('logged_out_overlay') ?>
+
+    <div id="checkout" class="row">
+        <?php if ($this->helper('customer')->isLoggedIn()): ?>
+            <div class="checkout-steps col-9 col-md-12">
+                <app-checkout-accordion-group active-step="<?php echo $this->getActiveStep(); ?>">
+                    <div class="accordion-group">
+                        <?php echo $this->getChildHtml('checkout_step_logged_in') ?>
+                        <?php echo $this->getChildHtml('checkout_step_address') ?>
+                        <?php echo $this->getChildHtml('checkout_step_delivery') ?>
+                        <?php echo $this->getChildHtml('checkout_step_part_exchange') ?>
+                        <?php echo $this->getChildHtml('checkout_step_finance') ?>
+                        <?php echo $this->getChildHtml('checkout_step_details') ?>
+                        <?php echo $this->getChildHtml('checkout_step_summary') ?>
+                        <ul class="accordion type-right-down accordion-light disabled">
+                            <li>
+                                <a href="#" class="js-accordion-trigger"><?php echo $this->__('Order Confirmation') ?></a>
+                            </li>
+                        </ul>
+                    </div>
+                </app-checkout-accordion-group>
+            </div>
+            <div class="checkout-quote col-3 col-md-12">
+                <?php echo $this->getChildHtml('checkout_finance_quote'); ?>
+            </div>
+        <?php else: ?>
+            <div class="checkout-steps col-12">
+                <div class="accordion-group">
+                    <?php echo $this->getChildHtml('checkout_step_login') ?>
+                    <script>
+                        pushTags('VirtualPageview', '/virtual/checkout/onepage/', 'Checkout - Login/Register');
+                    </script>
+                </div>
+            </div>
+        <?php endif; ?>
+    </div>
+</app-checkout>

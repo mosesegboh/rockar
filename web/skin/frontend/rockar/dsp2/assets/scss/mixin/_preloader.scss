@@ -1,0 +1,82 @@
+@mixin preloader {
+    margin: 100px auto;
+    font-size: 11px;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    position: relative;
+    text-indent: -9999em;
+    animation: load5 1.1s infinite ease;
+    transform: translateZ(0);
+    z-index: 1000000;
+
+    @-webkit-keyframes load5 {
+        0%,
+        100% {
+            box-shadow: 0 -2.6em 0 0 $bmw-blue, 1.8em -1.8em 0 0 transparentize($bmw-blue, .8), 2.5em 0 0 0 transparentize($bmw-blue, .8), 1.75em 1.75em 0 0 transparentize($bmw-blue, .8), 0 2.5em 0 0 transparentize($bmw-blue, .8), -1.8em 1.8em 0 0 transparentize($bmw-blue, .8), -2.6em 0 0 0 transparentize($bmw-blue, .5), -1.8em -1.8em 0 0 transparentize($bmw-blue, .3);
+        }
+
+        12.5% {
+            box-shadow: 0 -2.6em 0 0 transparentize($bmw-blue, .3), 1.8em -1.8em 0 0 $bmw-blue, 2.5em 0 0 0 transparentize($bmw-blue, .8), 1.75em 1.75em 0 0 transparentize($bmw-blue, .8), 0 2.5em 0 0 transparentize($bmw-blue, .8), -1.8em 1.8em 0 0 transparentize($bmw-blue, .8), -2.6em 0 0 0 transparentize($bmw-blue, .8), -1.8em -1.8em 0 0 transparentize($bmw-blue, .5);
+        }
+
+        25% {
+            box-shadow: 0 -2.6em 0 0 transparentize($bmw-blue, .5), 1.8em -1.8em 0 0 transparentize($bmw-blue, .3), 2.5em 0 0 0 $bmw-blue, 1.75em 1.75em 0 0 transparentize($bmw-blue, .8), 0 2.5em 0 0 transparentize($bmw-blue, .8), -1.8em 1.8em 0 0 transparentize($bmw-blue, .8), -2.6em 0 0 0 transparentize($bmw-blue, .8), -1.8em -1.8em 0 0 transparentize($bmw-blue, .8);
+        }
+
+        37.5% {
+            box-shadow: 0 -2.6em 0 0 transparentize($bmw-blue, .8), 1.8em -1.8em 0 0 transparentize($bmw-blue, .5), 2.5em 0 0 0 transparentize($bmw-blue, .3), 1.75em 1.75em 0 0 $bmw-blue, 0 2.5em 0 0 transparentize($bmw-blue, .8), -1.8em 1.8em 0 0 transparentize($bmw-blue, .8), -2.6em 0 0 0 transparentize($bmw-blue, .8), -1.8em -1.8em 0 0 transparentize($bmw-blue, .8);
+        }
+
+        50% {
+            box-shadow: 0 -2.6em 0 0 transparentize($bmw-blue, .8), 1.8em -1.8em 0 0 transparentize($bmw-blue, .8), 2.5em 0 0 0 transparentize($bmw-blue, .5), 1.75em 1.75em 0 0 transparentize($bmw-blue, .3), 0 2.5em 0 0 $bmw-blue, -1.8em 1.8em 0 0 transparentize($bmw-blue, .8), -2.6em 0 0 0 transparentize($bmw-blue, .8), -1.8em -1.8em 0 0 transparentize($bmw-blue, .8);
+        }
+
+        62.5% {
+            box-shadow: 0 -2.6em 0 0 transparentize($bmw-blue, .8), 1.8em -1.8em 0 0 transparentize($bmw-blue, .8), 2.5em 0 0 0 transparentize($bmw-blue, .8), 1.75em 1.75em 0 0 transparentize($bmw-blue, .5), 0 2.5em 0 0 transparentize($bmw-blue, .3), -1.8em 1.8em 0 0 $bmw-blue, -2.6em 0 0 0 transparentize($bmw-blue, .8), -1.8em -1.8em 0 0 transparentize($bmw-blue, .8);
+        }
+
+        75% {
+            box-shadow: 0 -2.6em 0 0 transparentize($bmw-blue, .8), 1.8em -1.8em 0 0 transparentize($bmw-blue, .8), 2.5em 0 0 0 transparentize($bmw-blue, .8), 1.75em 1.75em 0 0 transparentize($bmw-blue, .8), 0 2.5em 0 0 transparentize($bmw-blue, .5), -1.8em 1.8em 0 0 transparentize($bmw-blue, .3), -2.6em 0 0 0 $bmw-blue, -1.8em -1.8em 0 0 transparentize($bmw-blue, .8);
+        }
+
+        87.5% {
+            box-shadow: 0 -2.6em 0 0 transparentize($bmw-blue, .8), 1.8em -1.8em 0 0 transparentize($bmw-blue, .8), 2.5em 0 0 0 transparentize($bmw-blue, .8), 1.75em 1.75em 0 0 transparentize($bmw-blue, .8), 0 2.5em 0 0 transparentize($bmw-blue, .8), -1.8em 1.8em 0 0 transparentize($bmw-blue, .5), -2.6em 0 0 0 transparentize($bmw-blue, .3), -1.8em -1.8em 0 0 $bmw-blue;
+        }
+    }
+
+    @keyframes load5 {
+        0%,
+        100% {
+            box-shadow: 0 -2.6em 0 0 $bmw-blue, 1.8em -1.8em 0 0 transparentize($bmw-blue, .8), 2.5em 0 0 0 transparentize($bmw-blue, .8), 1.75em 1.75em 0 0 transparentize($bmw-blue, .8), 0 2.5em 0 0 transparentize($bmw-blue, .8), -1.8em 1.8em 0 0 transparentize($bmw-blue, .8), -2.6em 0 0 0 transparentize($bmw-blue, .5), -1.8em -1.8em 0 0 transparentize($bmw-blue, .3);
+        }
+
+        12.5% {
+            box-shadow: 0 -2.6em 0 0 transparentize($bmw-blue, .3), 1.8em -1.8em 0 0 $bmw-blue, 2.5em 0 0 0 transparentize($bmw-blue, .8), 1.75em 1.75em 0 0 transparentize($bmw-blue, .8), 0 2.5em 0 0 transparentize($bmw-blue, .8), -1.8em 1.8em 0 0 transparentize($bmw-blue, .8), -2.6em 0 0 0 transparentize($bmw-blue, .8), -1.8em -1.8em 0 0 transparentize($bmw-blue, .5);
+        }
+
+        25% {
+            box-shadow: 0 -2.6em 0 0 transparentize($bmw-blue, .5), 1.8em -1.8em 0 0 transparentize($bmw-blue, .3), 2.5em 0 0 0 $bmw-blue, 1.75em 1.75em 0 0 transparentize($bmw-blue, .8), 0 2.5em 0 0 transparentize($bmw-blue, .8), -1.8em 1.8em 0 0 transparentize($bmw-blue, .8), -2.6em 0 0 0 transparentize($bmw-blue, .8), -1.8em -1.8em 0 0 transparentize($bmw-blue, .8);
+        }
+
+        37.5% {
+            box-shadow: 0 -2.6em 0 0 transparentize($bmw-blue, .8), 1.8em -1.8em 0 0 transparentize($bmw-blue, .5), 2.5em 0 0 0 transparentize($bmw-blue, .3), 1.75em 1.75em 0 0 $bmw-blue, 0 2.5em 0 0 transparentize($bmw-blue, .8), -1.8em 1.8em 0 0 transparentize($bmw-blue, .8), -2.6em 0 0 0 transparentize($bmw-blue, .8), -1.8em -1.8em 0 0 transparentize($bmw-blue, .8);
+        }
+
+        50% {
+            box-shadow: 0 -2.6em 0 0 transparentize($bmw-blue, .8), 1.8em -1.8em 0 0 transparentize($bmw-blue, .8), 2.5em 0 0 0 transparentize($bmw-blue, .5), 1.75em 1.75em 0 0 transparentize($bmw-blue, .3), 0 2.5em 0 0 $bmw-blue, -1.8em 1.8em 0 0 transparentize($bmw-blue, .8), -2.6em 0 0 0 transparentize($bmw-blue, .8), -1.8em -1.8em 0 0 transparentize($bmw-blue, .8);
+        }
+
+        62.5% {
+            box-shadow: 0 -2.6em 0 0 transparentize($bmw-blue, .8), 1.8em -1.8em 0 0 transparentize($bmw-blue, .8), 2.5em 0 0 0 transparentize($bmw-blue, .8), 1.75em 1.75em 0 0 transparentize($bmw-blue, .5), 0 2.5em 0 0 transparentize($bmw-blue, .3), -1.8em 1.8em 0 0 $bmw-blue, -2.6em 0 0 0 transparentize($bmw-blue, .8), -1.8em -1.8em 0 0 transparentize($bmw-blue, .8);
+        }
+
+        75% {
+            box-shadow: 0 -2.6em 0 0 transparentize($bmw-blue, .8), 1.8em -1.8em 0 0 transparentize($bmw-blue, .8), 2.5em 0 0 0 transparentize($bmw-blue, .8), 1.75em 1.75em 0 0 transparentize($bmw-blue, .8), 0 2.5em 0 0 transparentize($bmw-blue, .5), -1.8em 1.8em 0 0 transparentize($bmw-blue, .3), -2.6em 0 0 0 $bmw-blue, -1.8em -1.8em 0 0 transparentize($bmw-blue, .8);
+        }
+
+        87.5% {
+            box-shadow: 0 -2.6em 0 0 transparentize($bmw-blue, .8), 1.8em -1.8em 0 0 transparentize($bmw-blue, .8), 2.5em 0 0 0 transparentize($bmw-blue, .8), 1.75em 1.75em 0 0 transparentize($bmw-blue, .8), 0 2.5em 0 0 transparentize($bmw-blue, .8), -1.8em 1.8em 0 0 transparentize($bmw-blue, .5), -2.6em 0 0 0 transparentize($bmw-blue, .3), -1.8em -1.8em 0 0 $bmw-blue;
+        }
+    }
+}

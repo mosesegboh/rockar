@@ -1,0 +1,140 @@
+.accessories {
+    .accordion.accordion-light.scroll ul.submenu.accordionSlide-transition {
+        margin: 0;
+        height: auto;
+        max-height: 650px;
+    }
+
+    .accessories-navigation {
+        margin: 0 0 20px 0;
+
+        .accessories-title {
+            text-align: center;
+            font-size: $f-size-l;
+            text-transform: uppercase;
+        }
+
+        button {
+            width: 100%;
+
+            &.button-narrow {
+                padding: $button-narrow-height-padding 0 $button-narrow-bottom-height-padding;
+            }
+        }
+
+        @include media($large-screen-up) {
+            margin-bottom: 1em;
+        }
+
+        .col-3 {
+            @include media($medium-screen-up) {
+                width: 200px;
+
+                &.right {
+                    float: right;
+                }
+            }
+        }
+    }
+
+    .row {
+        clear: both;
+    }
+
+    .accessories-section-wrapper {
+        overflow: hidden;
+
+        .accessories-title {
+            font-size: $f-size-l;
+            text-transform: uppercase;
+            font-family: $secondary-font-family;
+            font-weight: $fw-bold;
+        }
+
+        .accessories-block {
+            padding: 15px;
+            text-align: left;
+
+            h5 {
+                display: table-cell;
+                text-align: left;
+                text-transform: uppercase;
+                font-size: $f-size;
+                font-weight: $fw-normal;
+                font-family: $helper-font-family;
+                vertical-align: bottom;
+                height: 70px;
+                max-width: 190px;
+                padding-bottom: 24px;
+            }
+
+            .image-container {
+                overflow: hidden;
+                margin: 0 0 20px 0;
+                max-width: 190px;
+                max-height: 120px;
+
+                .accessory-image {
+                    width: 100%;
+                    padding-top: 76.55%;
+                    position: relative;
+                    overflow: hidden;
+
+                    img {
+                        width: 100%;
+                        top: 0;
+                        left: 0;
+                        position: absolute;
+                    }
+                }
+            }
+
+            h5 {
+                font-weight: $fw-bold;
+                font-size: $f-size-l;
+            }
+
+            div {
+                color: $black;
+                font-weight: $fw-bold;
+                font-size: $f-size-l;
+
+                span {
+                    color: $dark-grey;
+                    font-size: $f-size-xxs;
+                    font-weight: $fw-light;
+                }
+            }
+
+            button {
+                width: 100%;
+            }
+
+            @include media($small-screen-down) {
+                padding: 0 2em;
+
+                .item-grid {
+                    li {
+                        .accessories-block {
+                            text-align: center;
+                            margin-bottom: 1em;
+
+                            h5 {
+                                display: block;
+                                width: 100%;
+                                max-width: none;
+                                text-align: center;
+                                padding-bottom: .5em;
+                                height: auto;
+                            }
+
+                            .image-container {
+                                margin: 0 auto 1.5em auto;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

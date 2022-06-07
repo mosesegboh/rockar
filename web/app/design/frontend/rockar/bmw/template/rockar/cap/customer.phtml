@@ -1,0 +1,93 @@
+<?php
+/**
+ * @category  Rockar
+ * @package   BMW\Cap
+ * @author    Brandon Ho <brandon.ho@partner.bmw.co.za>
+ * @copyright Copyright (c) 2019 Rockar Ltd (http://rockar.com)
+ */
+?>
+
+<?php /** @var $this Rockar_PartExchange_Block_CustomerPartExchange */ ?>
+<div class="my-part-exchange part-exchange row">
+    <div class="col-12">
+        <app-accordion title="<?php echo $this->__('My Current Car'); ?>" class-name="accordion-light" type="right-down">
+            <li>
+                <div class="accordion-content">
+                    <div class="my-saved-cars-heading">
+                        <p class="my-account-heading h-common"><?php echo $this->__('My current car'); ?></p>
+                    </div>
+                    <div class="my-part-exchange">
+                        <?php if ($this->isPartExchangeAvailable()): ?>
+                            <?php foreach ($this->getUserParExchanges() as $partExchange): ?>
+                                <app-my-current-cars-cap
+                                    :px-id="<?php echo $this->getPartExchangeId($partExchange) ?>"
+                                    vrm="<?php echo $this->getVrm($partExchange) ?>"
+                                    title="<?php echo $this->getTitle($partExchange) ?>"
+                                    description="<?php echo $this->getDescription($partExchange) ?>"
+                                    :px-value="<?php echo $this->getPartExchangeValue($partExchange) ?>"
+                                    :outstanding-finance="<?php echo $this->getOutstandingFinance($partExchange) ?>"
+                                    :mileage="<?php echo $this->getMileage($partExchange) ?>"
+                                    remove-px-url="<?php echo $this->getUrl('partexchange/crud/reset', $this->getFilterResetParams()); ?>"
+                                    expire-date="<?php echo $this->getExpirationDate($partExchange) ?>"
+                                    :additional-info='<?php echo $this->getCheckboxes() ?>'
+                                    :car-conditions="<?php echo $this->getCarConditions(); ?>"
+                                    :active-condition="<?php echo $partExchange->getCarCondition() ?>"
+                                    make-url="<?php echo $this->getUrl('partexchange/details/getMake'); ?>"
+                                    range-url="<?php echo $this->getUrl('partexchange/details/getRange'); ?>"
+                                    model-url="<?php echo $this->getUrl('partexchange/details/getModel'); ?>"
+                                    year-url="<?php echo $this->getUrl('partexchange/details/getYear'); ?>"
+                                    colour-url="<?php echo $this->getUrl('partexchange/details/getColour'); ?>"
+                                    derivative-url="<?php echo $this->getUrl('partexchange/details/getDerivative'); ?>"
+                                    custom-car-url="<?php echo $this->getUrl('partexchange/details/customCar'); ?>"
+                                    active-px-url="<?php echo $this->getUrl('partexchange/switch/'); ?>"
+                                    car-alternative-details-url="<?php echo $this->getUrl('partexchange/alternatives'); ?>"
+                                    save-valuation-url="<?php echo $this->getUrl('partexchange/crud/save'); ?>"
+                                    save-to-session-url="<?php echo $this->getUrl('partexchange/crud/saveToSession'); ?>"
+                                    valuation-url="<?php echo $this->getUrl('partexchange/valuation'); ?>"
+                                    car-details-url="<?php echo $this->getUrl('partexchange/details'); ?>"
+                                    reset-url="<?php echo $this->getUrl('partexchange/crud/reset', $this->getFilterResetParams()); ?>"
+                                    :saved="<?php echo $this->getSavedStatus() ?>"
+                                    :saved-px-list="<?php echo $this->getAllPartExchanges() ?>"
+                                    :saved-px="<?php echo $this->getCustomerPartExchange($partExchange); ?>"
+                                    explanatory-text="<?php echo $this->getExplanatoryText(); ?>"
+                                    book-service-url="<?php echo Mage::getUrl('service-booking/index/preSelectCar'); ?>"
+                                ></app-my-current-cars-cap>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                        <button id="add-px" @click.prevent="openInModal('addPartExchangePopup')" class="<?php echo ($this->isPartExchangeAvailable()) ? 'hide-button' : ''; ?> button-narrow btn-mobile">
+                            <span class="plus-sign"></span><span><span><?php echo $this->__('Add new Trade-In'); ?></span></span>
+                        </button>
+                    </div>
+                </div>
+            </li>
+        </app-accordion>
+    </div>
+</div>
+
+<!-- Include documents upload form -->
+<app-modal testibility-class="px-close" v-ref:add-part-exchange-popup width="60%">
+    <div slot="content">
+        <app-account-part-exchange-cap
+            valuation-url="<?php echo $this->getUrl('partexchange/valuation'); ?>"
+            car-details-url="<?php echo $this->getUrl('partexchange/details'); ?>"
+            reset-url="<?php echo $this->getUrl('partexchange/crud/reset', $this->getFilterResetParams()); ?>"
+            :additional-info='<?php echo $this->getCheckboxes() ?>'
+            explanatory-text="<?php echo $this->getExplanatoryText(); ?>"
+            :car-conditions='<?php echo $this->getCarConditions(); ?>'
+            car-alternative-details-url="<?php echo $this->getUrl('partexchange/alternatives'); ?>"
+            save-valuation-url="<?php echo $this->getUrl('partexchange/crud/save'); ?>"
+            save-to-session-url="<?php echo $this->getUrl('partexchange/crud/saveToSession'); ?>"
+            :saved="<?php echo $this->getSavedStatus() ?>"
+            :saved-px-list="<?php echo $this->getAllPartExchanges() ?>"
+            make-url="<?php echo $this->getUrl('partexchange/details/getMake'); ?>"
+            range-url="<?php echo $this->getUrl('partexchange/details/getRange'); ?>"
+            model-url="<?php echo $this->getUrl('partexchange/details/getModel'); ?>"
+            year-url="<?php echo $this->getUrl('partexchange/details/getYear'); ?>"
+            colour-url="<?php echo $this->getUrl('partexchange/details/getColour'); ?>"
+            derivative-url="<?php echo $this->getUrl('partexchange/details/getDerivative'); ?>"
+            custom-car-url="<?php echo $this->getUrl('partexchange/details/customCar'); ?>"
+            active-px-url="<?php echo $this->getUrl('partexchange/switch/'); ?>"
+            :can-open-custom="false"
+        ></app-account-part-exchange-cap>
+    </div>
+</app-modal>

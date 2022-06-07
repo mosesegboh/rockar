@@ -1,0 +1,121 @@
+.dealers {
+    .dealer-box {
+        .details {
+            .row {
+                .heading-hours {
+                    color: $black;
+                    font-family: $mini-sans-serif-bold;
+                    text-transform: none;
+
+                    @include media($medium-screen-down) {
+                        font-size: $dsp2-f-size;
+                    }
+                }
+
+                .main-phone {
+                    .phone {
+                        color: $black;
+                        font-family: $mini-sans-serif-bold;
+                    }
+                }
+
+                .hours {
+                    p {
+                        font-family: $mini-sans-serif-regular;
+
+                        .hour {
+                            color: $black;
+                            font-family: $mini-sans-serif-bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .delivery-method {
+        &.home-delivery {
+            .info {
+                @include media($medium-screen-down) {
+                    border-top: 1px solid $c-grey-5;
+                }
+
+                p {
+                    font-family: $mini-sans-serif-regular;
+                }
+
+                .delivery-row {
+                    span {
+                        font-family: $mini-sans-serif-bold;
+                    }
+                }
+            }
+        }
+
+        .delivery-heading {
+            color: $black;
+            font-family: $mini-sans-serif-regular;
+
+            @include media($medium-screen-down) {
+                border-top: 1px solid $c-grey-5;
+                padding-top: 17px;
+            }
+        }
+    }
+}
+
+.dealer-list {
+    .dealer-preview-wrapper {
+        .dealer-preview {
+            .dealer-details {
+                border: none;
+
+                .details {
+                    .details-top-row {
+                        .store-details {
+                            .state {
+                                color: $c-grey-14;
+                                font-family: $mini-sans-serif-regular;
+                            }
+                        }
+
+                        .distance {
+                            @include oval();
+                            font-family: $mini-sans-serif-bold;
+                            font-size: $dsp2-f-size-xs;
+
+                            @include media($medium-screen-up) {
+                                font-size: $dsp2-f-size-s;
+                            }
+                        }
+                    }
+
+                    .name {
+                        color: $black;
+                        font-family: $mini-sans-serif-bold;
+
+                        @include media($medium-screen-up) {
+                            font-size: $dsp2-f-size;
+                        }
+                    }
+
+                    .address {
+                        color: $black;
+                        font-family: $mini-sans-serif-regular;
+                    }
+
+                    .title {
+                        color: $c-grey-14;
+                        font-family: $mini-sans-serif-regular;
+
+                        &.substep {
+                            @include media($medium-screen-up) {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

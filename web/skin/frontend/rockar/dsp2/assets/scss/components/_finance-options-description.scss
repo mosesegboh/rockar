@@ -1,0 +1,33 @@
+.catalog-category-view {
+    .finance-options {
+        @include flex-wrap(wrap);
+    }
+
+    #finance-filter > .finance-option-description {
+        @include media($small-screen-down) {
+            display: none;
+        }
+    }
+
+    .finance-option-description {
+        @include flex(0 0 100%);
+        margin-top: 27px;
+
+        @include media($small-screen-down) {
+            margin: 27px 36px 0 43px;
+        }
+
+        .finance-option-description-header {
+            font-size: $dsp2-f-size;
+        }
+
+        .finance-option-description-text {
+            font-size: $dsp2-f-size;
+            margin-top: 10px;
+        }
+    }
+
+    .field-title {
+        font-family: $bmw;
+    }
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="214px" height="104px" viewBox="0 0 214 104" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46 (44423) - http://www.bohemiancoding.com/sketch -->
+    <title>range-slider</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="range-slider" transform="translate(107.000000, 52.000000) scale(-1, 1) translate(-107.000000, -52.000000) " fill-rule="nonzero" fill="#FFFFFF">
+            <polygon id="Shape" points="52.1939978 0 0 52 52.1939978 104 67 89.2478386 29.6130514 52 67 14.7521614"></polygon>
+            <polygon id="Shape" transform="translate(180.500000, 52.000000) scale(-1, 1) translate(-180.500000, -52.000000) " points="199.193998 0 147 52 199.193998 104 214 89.2478386 176.613051 52 214 14.7521614"></polygon>
+        </g>
+    </g>
+</svg>

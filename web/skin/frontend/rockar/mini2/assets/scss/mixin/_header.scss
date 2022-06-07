@@ -1,0 +1,24 @@
+@mixin lightModeHeader() {
+    .nav-wrap {
+        .icon {
+            &.icon-account {
+                @include sprite($sprite-mini-user-light-bg);
+            }
+
+            &.icon-cart {
+                @include sprite($sprite-mini-cart-16-light-bg);
+            }
+
+            &.icon-location {
+                @include sprite($sprite-mini-location-16-light-bg);
+            }
+        }
+
+        .navigation-bar-mobile {
+            .mobile-top-section {
+                border-bottom: none;
+            }
+        }
+    }
+}
+

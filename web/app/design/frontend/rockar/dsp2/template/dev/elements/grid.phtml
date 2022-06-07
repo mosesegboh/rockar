@@ -1,0 +1,67 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th>Viewport</th>
+        <th>Margin</th>
+        <th>Gutter</th>
+        <th>Columns</th>
+        <th>Breakpoint</th>
+        <th>Container</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>320 x 568</td>
+        <td>24px</td>
+        <td>16px</td>
+        <td>4</td>
+        <td>0 - 599</td>
+        <td>Fluid</td>
+    </tr>
+    <tr>
+        <td>720 x 960</td>
+        <td>48px</td>
+        <td>16px</td>
+        <td>8</td>
+        <td>600 - 1023</td>
+        <td>Fluid</td>
+    </tr>
+    <tr>
+        <td>1368 x 840</td>
+        <td>96px</td>
+        <td>24px</td>
+        <td>12</td>
+        <td>1024 - 1759</td>
+        <td>Fluid</td>
+    </tr>
+    <tr>
+        <td>1760 x 960</td>
+        <td>auto</td>
+        <td>32px</td>
+        <td>12</td>
+        <td>1760 +</td>
+        <td>Fixed - 1504 px</td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="grid">
+    <div class="row" style="margin-bottom: 10px;">
+        <div style="padding: 10px; height: 70px; border: 1px solid #ccc;" class="col-12">col-12</div>
+    </div>
+    <?php for ($i = 1; $i <= 11; $i++): ?>
+        <div class="row" style="margin-bottom: 10px;">
+            <div style="padding: 10px; height: 70px; border: 1px solid #ccc;" class="col-<?php echo $i; ?>">
+                <div>col-<?php echo $i; ?></div>
+            </div>
+            <div style="padding: 10px; height: 70px; border: 1px solid #ccc;" class="col-<?php echo 12 - $i; ?>">
+                <div>col-<?php echo 12 - $i; ?></div>
+            </div>
+        </div>
+    <?php endfor; ?>
+    <h3>Dynamic columns</h3>
+    <div class="row" style="margin-bottom: 10px;">
+        <div style="padding: 10px; height: 70px; border: 1px solid #ccc;" class="col-10 col-md-4">col-10 col-md-4</div>
+        <div style="padding: 10px; height: 70px; border: 1px solid #ccc;" class="col-2 col-md-8">col-2 col-md-8</div>
+    </div>
+</div>

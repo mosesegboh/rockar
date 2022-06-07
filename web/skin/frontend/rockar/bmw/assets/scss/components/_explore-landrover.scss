@@ -1,0 +1,75 @@
+.cms-landrover-explore {
+    .widget-static-block-lr {
+        @include justify-content(center);
+        display: flex;
+        position: relative;
+        min-height: 10em;
+        font-weight: $fw-book;
+        padding: {
+            top: 2em;
+            bottom: 2em;
+        };
+        background: {
+            image: url('../images/block-bg-hd.jpg');
+            size: cover;
+            repeat: no-repeat;
+        };
+
+        @include media($medium-screen-down) {
+            background-image: url('../images/block-bg-mobile.jpg');
+
+            p {
+                margin: 0 1em;
+                font-size: $f-size-xxxxs;
+            }
+
+            h2 {
+                font-size: $f-size-xxl;
+            }
+        }
+
+        .inner-container-lr {
+            padding: 2em;
+            background: $white;
+            max-width: 60%;
+
+            @include media($medium-screen-down) {
+                padding: 1.5em;
+                width: 85%;
+                min-height: 75%;
+                max-width: none;
+            }
+
+            p {
+                font-family: $brand-specific-font;
+                text-transform: uppercase;
+                letter-spacing: .05em;
+            }
+        }
+    }
+
+    .explore-block-content {
+        background: $white;
+
+        .cms-heading-special {
+            line-height: 1.8;
+            height: 2em;
+            border-width: 1.7px;
+        }
+
+        .grid {
+            .col-4 {
+                width: 33.33%;
+
+                @include media($medium-screen-down) {
+                    width: 100%;
+                }
+
+                .link-more {
+                    font-weight: $fw-book;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}

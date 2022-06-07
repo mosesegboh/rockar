@@ -1,0 +1,231 @@
+#you-drive {
+    .summary-block {
+        .summary-title {
+            text-transform: uppercase;
+        }
+    }
+
+    .you-drive-step-title {
+        text-transform: uppercase;
+    }
+
+    .top-navigation-wrapper {
+        .navigation-steps-mobile-block-wrapper {
+            .content-card-header {
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .you-drive-signup {
+        .section-title {
+            text-transform: uppercase;
+        }
+    }
+
+    .navigation {
+        @import './navigation-steps/steps-block';
+        @import './navigation-steps/step';
+        @import './navigation-steps/buttons-wrapper';
+    }
+
+    .step-one {
+        .model-filter-carousel {
+            .carousel-wrapper {
+                .slick-track {
+                    .slick-slide {
+                        .carousel-block.car {
+                            .checkbox-values {
+                                label {
+                                    font-size: $dsp2-f-size;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .step-two {
+        .location-wrapper {
+            h3 {
+                text-transform: uppercase;
+            }
+
+            button {
+                text-transform: uppercase;
+            }
+
+            .button-default {
+                &:hover {
+                    background-color: $c-mini-blue;
+                }
+            }
+        }
+    }
+
+    .map-ui-wrapper {
+        .dealer-list {
+            .dealer-preview-wrapper {
+                &.active {
+                    border-left: 4px solid $c-mini-blue;
+                }
+
+                .dealer-preview {
+                    color: $black;
+
+                    .number {
+                        font-family: $mini-sans-serif-regular;
+                    }
+
+                    .details {
+                        .name,
+                        .address {
+                            font-family: $mini-sans-serif-regular;
+                        }
+
+                        .rating-distance-wrapper {
+                            .distance {
+                                font-family: $mini-sans-serif-regular;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .dealers {
+            .you-drive-model {
+                .car-model {
+                    .model-options {
+                        p {
+                            &.options-title {
+                                font-family: $mini-sans-serif-regular;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .bottom-navigation-wrapper {
+        .navigation-buttons-wrapper {
+            @include media($small-screen-down) {
+                border-top: 1px solid $c-mini-grey-1;
+                border-bottom: 1px solid $c-mini-grey-1;
+            }
+
+            button,
+            button.mobile-only {
+                font-family: $mini-sans-serif-regular;
+                border: 3px solid $c-mini-blue;
+                background: $c-mini-blue;
+
+                &:disabled {
+                    border: 3px solid $c-grey-9;
+                    background: $c-grey-9;
+                    color: $c-grey-14;
+                    opacity: 1 !important; // Overwritten because of dsp2 buttons styles
+
+                    &:hover {
+                        border: 3px solid $c-grey-9;
+                        background: $c-grey-9;
+                        color: $c-grey-14;
+                    }
+                }
+            }
+
+            button {
+                text-transform: uppercase;
+
+                &.mobile-only {
+                    background: $c-mini-blue;
+
+                    &.step-back {
+                        @include media($small-screen-down) {
+                            border: 0;
+                            border-right: 1px solid $c-mini-grey-1;
+                            background: $black;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .youdrive-bottom-disclaimer {
+        div {
+            strong {
+                font-family: $mini-sans-serif-regular;
+            }
+        }
+    }
+
+    .selectbox {
+        .selectbox-select {
+            &:active,
+            &:focus {
+                border-left: 4px solid $c-mini-blue;
+            }
+        }
+
+        &.open {
+            .selectbox-select {
+                border-left: 4px solid $c-mini-blue;
+            }
+        }
+
+        .selectbox-dropdown {
+            .dropdown-item {
+                &.selected {
+                    border-left: 4px solid $c-mini-blue;
+                }
+            }
+        }
+    }
+
+    #model-filter {
+        .slick-disabled {
+            visibility: visible;
+            opacity: .25;
+        }
+
+        .slick-prev,
+        .slick-next {
+            width: 24px;
+            height: 50%;
+
+            &::before {
+                transform: none;
+                background-size: auto;
+            }
+        }
+
+        .slick-next {
+            right: -72px;
+            background: transparent;
+
+            &::before {
+                right: 7px;
+                top: 9px;
+                border: 0;
+                @include sprite($sprite-nav-actions-next-light);
+            }
+        }
+
+        .slick-prev {
+            left: -72px;
+            background: transparent;
+
+            &::before {
+                border: 0;
+                @include sprite($sprite-nav-actions-back-light);
+            }
+        }
+    }
+
+    @import './timeselection';
+    @import './calendar';
+}

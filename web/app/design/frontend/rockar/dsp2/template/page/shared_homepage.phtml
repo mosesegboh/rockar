@@ -1,0 +1,28 @@
+<?php
+/**
+ * @category design
+ * @package rockar_default
+ * @author Dmitrijs Sitovs <dmitrijssh@scandiweb.com / dsitovs@gmail.com>
+ * @copyright Copyright (c) 2016 Scandiweb, Ltd (http://scandiweb.com)
+ * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
+ *
+ * @var $this Mage_Page_Block_Html
+ */
+?>
+<!DOCTYPE html>
+<html class="loading">
+<head>
+    <?php echo $this->getChildHtml('head') ?>
+</head>
+<body class="<?php echo $this->getBodyClass() ? $this->getBodyClass() :'' ?> shared-homepage" @click="closeDropDowns">
+<?php echo $this->getChildHtml('after_body_start') ?>
+
+<div class="main">
+    <?php echo $this->getChildHtml('content') ?>
+</div>
+
+<?php echo $this->getChildHtml('before_body_end') ?>
+<?php echo $this->getAbsoluteFooter() ?>
+<?php echo $this->getChildHtml('before_body_end_scripts') ?>
+</body>
+</html>

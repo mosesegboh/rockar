@@ -1,0 +1,47 @@
+.condition-info {
+    vertical-align: top;
+
+    .item {
+        display: inline-block;
+
+        .title {
+            font-family: $mini_heading;
+            font-size: 14px;
+            font-weight: $fw-semibold;
+            color: $black;
+            line-height: 28px;
+            display: inline-block;
+            margin: 0 5px 0 0;
+            width: 100%;
+        }
+
+        hr {
+            margin: 0 0 1em;
+            width: 90%;
+            float: left;
+        }
+
+        .title,
+        hr {
+            @include media($small-screen-down) {
+                display: none;
+            }
+        }
+
+        .description {
+            display: inline-block;
+            font-weight: $fw-book;
+            color: $black;
+            margin-bottom: 0;
+
+            @include media($small-screen-down) {
+                padding: 0 .5em;
+            }
+
+            p {
+                font-size: 12px;
+                font-weight: $fw-normal;
+            }
+        }
+    }
+}

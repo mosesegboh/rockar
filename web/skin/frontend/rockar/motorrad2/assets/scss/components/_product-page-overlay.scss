@@ -1,0 +1,38 @@
+#product-page-overlay {
+    &.double {
+        @include media($medium-screen-down) {
+            .product-page-overlay-top {
+                .toggle {
+                    .toggle-button {
+                        background-color: $black;
+                    }
+                }
+
+                .titles {
+                    div {
+                        &.selected {
+                            border-top: 2px solid $black;
+                        }
+                    }
+
+                    span {
+                        font-family: $motorrad-regular;
+                        font-weight: $fw-bold;
+                    }
+                }
+            }
+            .finance-quote-wrapper {
+                .finance-quote-bottom {
+                    .finance-payments {
+                        padding: 15px 0;
+                    }
+
+                    &.border {
+                        border-top: 3px solid $black;
+                        box-shadow: 0 -4px 20px rgba(0, 0, 0, .15);
+                    }
+                }
+            }
+        }
+    }
+}

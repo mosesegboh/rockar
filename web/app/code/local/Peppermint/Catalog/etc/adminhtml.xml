@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Catalog
+ * @author    Igors Zhunins <techteam@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <menu>
+        <catalog translate="title">
+            <children>
+                <manage_model_matrix translate="title" module="peppermint_catalog">
+                    <title>Manage Model Matrix</title>
+                    <action>adminhtml/modelMatrix/</action>
+                    <sort_order>10</sort_order>
+                </manage_model_matrix>
+            </children>
+        </catalog>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <catalog translate="title">
+                        <children>
+                            <manage_model_matrix translate="title">
+                                <title>Manage Model Matrix</title>
+                                <sort_order>10</sort_order>
+                            </manage_model_matrix>
+                        </children>
+                    </catalog>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

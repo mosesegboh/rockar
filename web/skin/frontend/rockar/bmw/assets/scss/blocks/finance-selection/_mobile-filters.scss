@@ -1,0 +1,20 @@
+.finance-filter-dropdown-input-wrapper {
+    &.maintenance-filter-wrapper {
+        label {
+            width: auto;
+            color: $grey-5;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            font: {
+                family: $finance-selection-group-font;
+                size: $finance-selection-group-font-size-mobile;
+                weight: $fw-book;
+            };
+
+            // Checkbox element
+            span {
+                margin-top: $finance-selection-maintenance-checkbox-mobile-margin;
+            }
+        }
+    }
+}

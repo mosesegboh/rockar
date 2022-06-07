@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint_Catalog
+ * @author       Dominic Sutton <dominic.sutton@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_Catalog>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Rockar2_Catalog/>
+                <Rockar_Catalog/>
+                <Peppermint_LeadTime/>
+            </depends>
+        </Peppermint_Catalog>
+    </modules>
+</config>

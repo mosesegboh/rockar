@@ -1,0 +1,152 @@
+.slider-color {
+    background-color: $white;
+    border: 1px solid $grey-2;
+    position: relative;
+    margin-bottom: $configurator-element-spacing;
+
+    @include media($small-screen-down) {
+        padding: 18px 30px 0;
+        border: 0;
+    }
+
+    .slides-wrapper {
+        padding: 8px 30px 13px;
+    }
+
+    .slick-slider {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .slider-arrow {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        padding: 5px;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &.slider-prev {
+            @include sprite($sprite-arrow-left-dark);
+            left: 10px;
+
+            @include media($small-screen-down) {
+                left: 0;
+            }
+        }
+
+        &.slider-next {
+            @include sprite($sprite-arrow-right-dark);
+            right: 10px;
+
+            @include media($small-screen-down) {
+                right: 0;
+            }
+        }
+    }
+
+    .slide-image {
+        margin: auto auto 10px;
+        width: 70px;
+
+        img {
+            border-radius: 0 4px 4px;
+        }
+    }
+
+    .slide-block {
+        text-align: center;
+        margin: 0 auto;
+        width: 72px;
+
+        &.active-color {
+            .slide-info {
+                .slide-description {
+                    .checkbox-item {
+                        span {
+                            background-color: $checkbox-checked-background-color;
+                            text-align: center;
+
+                            &::after {
+                                @include sprite($sprite-check-icon);
+                                @include size(12px);
+                                content: '';
+                                display: inline-block;
+                                vertical-align: top;
+                                position: relative;
+                                top: 3px;
+                                left: 1px;
+                                transform: scale(.75);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .slide-info {
+        color: $grey-4;
+
+        .slide-title {
+            font-size: $f-size-xxxs;
+            font-weight: $fw-black;
+        }
+
+        .slide-description {
+            @include display(flex);
+            padding: 7px 0;
+            border: {
+                top: 1px solid $grey-2;
+                bottom: 1px solid $grey-2;
+            }
+
+            .info {
+                font-size: $f-size-xxxs;
+                text-align: left;
+                width: 70%;
+
+                .car-count,
+                .lead-time {
+                    display: block;
+                }
+
+                .lead-time {
+                    font-weight: $fw-black;
+                }
+            }
+
+            .checkbox {
+                width: 30%;
+            }
+
+            .checkbox-item {
+                display: block;
+                position: relative;
+                height: 100%;
+
+                span {
+                    @include position(absolute, 0 0 0 0);
+                    @include size(18px);
+                    margin: auto 0 auto auto;
+                    background-color: $checkbox-unchecked-background-color;
+                    border-radius: 50%;
+                    border: 1px solid $checkbox-border-color;
+
+                    &:hover {
+                        cursor: pointer;
+                        opacity: .8;
+                    }
+                }
+
+                * {
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+}

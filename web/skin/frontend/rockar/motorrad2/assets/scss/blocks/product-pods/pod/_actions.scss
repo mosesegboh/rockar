@@ -1,0 +1,34 @@
+.pod-actions {
+    .pod-action {
+        font-family: $motorrad-bold;
+    }
+
+    .action-compare {
+        background: $white;
+        border: 3px solid $black;
+        color: $black;
+        padding: 0;
+
+        &:hover {
+            background: $c-motorrad-blue;
+            color: $white;
+            border: 3px solid $c-motorrad-blue;
+
+            &::before {
+                filter: invert(0);
+            }
+        }
+
+        &::before {
+            left: calc(50% - 60px);
+            filter: invert(1);
+        }
+    }
+
+    .action-buy {
+        &:hover {
+            background: $c-motorrad-blue;
+            border: 2px solid $c-motorrad-blue;
+        }
+    }
+}

@@ -1,0 +1,72 @@
+
+.navigation-bar-mobile .main-nav .right-nav-wrapper .navigation-bar-menu ul {
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    display: none;
+    background-color: $black;
+    width: 100%;
+    z-index: 999;
+}
+
+.navigation-bar-mobile .main-nav .right-nav-wrapper .navigation-bar-menu ul li a {
+    display: block;
+    padding: 1.5em 1.5em 1.5em 3em;
+    color: $white;
+    font-family: $mini;
+    font-size: $f-size-xxxs;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: $fw-black;
+}
+
+.navigation-bar .navigation-menu .custom-nav-wrapper ul.custom-nav > li.logotype {
+    padding: 0 2em 0 1em;
+    display: none;
+}
+
+.navigation-bar .navigation-menu .custom-nav-wrapper ul.custom-nav {
+    margin-right: 3%;
+}
+
+.part-exchange-conditions .input[type='checkbox'] + label span {
+    height: 30px;
+    width: 30px;
+    background-color: $white;
+    border-radius: 0;
+    border: 1px solid $black;
+}
+
+.navigation-bar .navigation-menu ul.navigation li span.text {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -ms-flex-align: center;
+    color: $black;
+    font-family: $mini;
+    font-size: $f-size-xxs;
+    font-weight: normal;;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding-left: 13px;
+    padding-right: 13px;
+    width: 100%;
+    height: 100%;
+}
+
+.navigation-bar {
+    .in-store-indicator {
+        margin-right: 20px;
+        color: $black;
+        font-family: $mini;
+        font-size: $f-size-xxs;
+        font-weight: $fw-black;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+
+        .dealer-id {
+            text-transform: uppercase;
+        }
+    }
+}

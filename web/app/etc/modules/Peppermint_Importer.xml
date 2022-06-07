@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint_Importer
+ * @author       Adrian Grigorita <adrian.grigorita@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_Importer>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Peppermint_Importer>
+    </modules>
+</config>

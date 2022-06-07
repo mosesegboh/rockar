@@ -1,0 +1,102 @@
+.px-vrm-block-input {
+    background: $white;
+    padding: 2px;
+    max-width: 335px;
+    margin: 0;
+    border-radius: 4px;
+
+    @include media($small-screen-down) {
+        margin: 0 auto 21px;
+        max-width: $px-vrm-block-max-width-s-screen;
+    }
+
+    input {
+        background: $white;
+        border: .6px solid $black;
+        border-radius: 0px;
+        color: $black;
+        font-family: $mini;
+        font-weight: $fw-hairline;
+        padding: 0;
+        width: 100%;
+        text-transform: uppercase;
+        letter-spacing: $px-input-letter-spacing;
+        height: 39px;
+        font-size: $f-size;
+        line-height: 39px;
+        margin: 0;
+        text-align: center;
+
+        @include media($small-screen-down) {
+            height: 51px;
+            font-size: $f-size-s;
+            line-height: 51px;
+            letter-spacing: $px-input-letter-spacing-s-screen;
+        }
+
+        &::placeholder {
+            color: $black;
+        }
+
+        &::-moz-placeholder,
+        ::-moz-placeholder {
+            opacity: 1;
+        }
+    }
+
+    button {
+        float: right;
+        font-size: 16px;
+        font-weight: $fw-light;
+        margin-left: 5px;
+
+        @include media($small-screen-down) {
+            line-height: 4px;
+        }
+
+        &.reset {
+            @include sprite($sprite-close-light-small);
+            background-size: 27px;
+        }
+    }
+
+    .selectbox {
+        max-width: 100%;
+        margin: 0;
+
+        .selectbox-dropdown {
+            .dropdown-item {
+                height: auto !important;
+                line-height: inherit !important;
+            }
+        }
+    }
+}
+
+.part-exchange .part-exchange-left .part-exchange-vrm-wrapper .px-vrm-block .px-car-info p {
+    color: $black;
+    font-size: $f-size-l;
+    font-family: $mini_heading;
+}
+
+.part-exchange .part-exchange-left .part-exchange-vrm-wrapper .px-vrm-block .px-vrm-block-input input {
+    background: $white;
+    border: 0.6px solid $black;
+    border-radius: 0;
+    color: $black !important; /// Used to overwrite in line styling
+    font-family: $mini;
+    font-weight: $fw-hairline;
+    padding: 17px 0px 5px 0px;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 0.075em;
+    height: 39px;
+    font-size: $f-size-xxxl;
+    line-height: $mini-line-height-39;
+    margin: 0;
+    text-align: center;
+}
+
+.part-exchange .part-exchange-left .part-exchange-vrm-wrapper .px-vrm-block .px-vrm-block-input {
+    max-width: 335px !important; //Used to override inline styling
+}

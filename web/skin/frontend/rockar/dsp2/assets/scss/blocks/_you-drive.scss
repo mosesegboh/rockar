@@ -1,0 +1,220 @@
+#you-drive {
+    .summary-block {
+        border: none;
+        margin-top: 0;
+        padding-top: 0;
+        text-align: center;
+
+        .summary-title {
+            font-size: $dsp2-f-size-l;
+            text-align: center;
+            text-transform: none;
+            width: 100%;
+
+            &:not(.location) {
+                font-size: $dsp2-f-size-l;
+            }
+        }
+
+        .address,
+        .your-test-drive {
+            span {
+                text-transform: none;
+            }
+        }
+
+        .drive-car {
+            &.local-store {
+                text-align: center;
+
+                .address {
+                    color: $c-grey;
+                }
+            }
+        }
+    }
+
+    #book-test-drive {
+        .buttons-set {
+            .button {
+                margin-top: 0;
+            }
+        }
+    }
+
+    .details-email {
+        position: relative;
+
+        .info-label-wrap {
+            &.edit-profile {
+                margin-top: -.5em;
+                padding: 0;
+                position: absolute;
+                right: 0;
+            }
+        }
+    }
+
+    .step-one {
+        margin-top: 4em;
+
+        .you-drive-step-title {
+            margin: 0 auto .8em;
+            max-width: 20em;
+        }
+
+        .mobile-table {
+            .description {
+                .more-info {
+                    &.header {
+                        display: block;
+                        margin-top: 2em;
+                    }
+
+                    &.content {
+                        p {
+                            text-transform: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        .model-filter-carousel {
+            .carousel-wrapper {
+                @include media($small-screen-down) {
+                    margin: 10px auto;
+                    width: calc(100% - 140px);
+                    max-width: none;
+                }
+            }
+        }
+    }
+
+    .step-two {
+        margin-top: 4em;
+
+        .location-wrapper {
+            h3 {
+                text-transform: none;
+            }
+        }
+    }
+
+    .step-three-no-inherit {
+        margin-top: 4em;
+
+        .you-drive-step-title {
+            margin: 0 auto 1.5em;
+            max-width: 30em;
+        }
+
+        .you-drive-disclaimer {
+            .you-drive-step-title {
+                margin: 0 auto .8em;
+                max-width: none;
+            }
+        }
+
+        .you-drive-signup {
+            margin-top: 2em;
+        }
+    }
+
+    .step-four {
+        margin-top: 4em;
+
+        .you-drive-confirmation {
+            text-align: center;
+
+            .you-drive-confirmation-header {
+                p {
+                    &.confirmed-text {
+                        font-family: $bmw-bold;
+                    }
+                }
+            }
+
+            .confirmation-block {
+                margin-top: 2em;
+
+                .youdrive-title,
+                .selected-car-title {
+                    font-family: $bmw-bold;
+                    text-transform: uppercase;
+                }
+
+                .your-test-drive {
+                    margin-top: 2em;
+                }
+            }
+
+            .your-test-drive-next-step {
+                margin-bottom: 2em;
+                margin-top: 4em;
+
+                .next-step-title {
+                    font-family: $bmw-bold;
+                }
+
+                .your-test-drive-next-buttons {
+                    margin-top: 2em;
+
+                    .button {
+                        line-height: 30px;
+                    }
+                }
+            }
+        }
+    }
+
+    .youdrive-bottom-disclaimer {
+        width: 100%;
+        flex: 1 1 100%;
+        justify-content: center;
+        display: flex;
+
+        @include media($small-screen-down) {
+            width: inherit;
+            margin: 10%;
+            display: block;
+        }
+
+        & div {
+            margin: 5%;
+            display: inline-block;
+            max-width: 450px;
+
+            @include media($small-screen-down) {
+                display: block;
+                margin: 0 auto 10% auto;
+            }
+
+            & p {
+                font-size: $dsp2-f-size;
+            }
+
+            & ul {
+                padding-left: 40px;
+                margin-bottom: $bmw-p-margin-bottom;
+                list-style-type: none;
+
+                & li {
+                    &::before {
+                        content: '-';
+                        position: absolute;
+                        transform: translateX(-10px);
+                    }
+                }
+            }
+
+            & strong {
+                font-family: $bmw-bold;
+                margin-bottom: $bmw-p-margin-bottom;
+            }
+        }
+    }
+
+    @import './you-drive/timeselection';
+    @import './you-drive/model-slider';
+}

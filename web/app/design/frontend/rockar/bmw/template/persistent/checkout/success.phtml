@@ -1,0 +1,75 @@
+<?php
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Checkout
+ * @author    Alexnder Metzgen <alexander.metzgen@rockar.com>
+ * @copyright Copyright (c) 2019 Rockar Ltd (http://rockar.com)
+ */
+
+$orderData = Mage::helper('rockar_checkout/confirmation')->getOrderData();
+$customerHelper = Mage::helper('customer');
+$rockarAllHelper = Mage::helper('rockar_all');
+$partExchangeValue = Mage::helper('rockar_partexchange')->loadPartExchangeFromSession(Rockar_PartExchange_Helper_Data::PART_EXCHANGE_SESSION_KEY)->getPartExchangeValue();
+?>
+<div id="checkout" class="row">
+    <div class="checkout-steps col-12">
+        <div class="accordion-group">
+            <ul class="accordion type-right-down accordion-light disabled">
+                <li>
+                    <a href="#" class="js-accordion-trigger"><?php echo $this->__('Login/Register'); ?></a>
+                </li>
+            </ul>
+            <ul class="accordion type-right-down accordion-light disabled">
+                <li>
+                    <a href="#" class="js-accordion-trigger"><?php echo $this->__('Your Details'); ?></a>
+                </li>
+            </ul>
+            <ul class="accordion type-right-down accordion-light disabled">
+                <li>
+                    <a href="#" class="js-accordion-trigger"><?php echo $this->__('Collection'); ?></a>
+                </li>
+            </ul>
+            <ul class="accordion type-right-down accordion-light disabled">
+                <li>
+                    <a href="#" class="js-accordion-trigger">
+                        <?php echo $partExchangeValue ? $this->__('Trade in') : $this->__('Swap Your Car For A New Car?'); ?>
+                    </a>
+                </li>
+            </ul>
+            <ul class="accordion type-right-down accordion-light disabled">
+                <li>
+                    <a href="#" class="js-accordion-trigger"><?php echo $this->__('Choose Your Payment Option'); ?></a>
+                </li>
+            </ul>
+            <ul class="accordion type-right-down accordion-light disabled">
+                <li>
+                    <a href="#" class="js-accordion-trigger"><?php echo $this->__('Credit Application'); ?></a>
+                </li>
+            </ul>
+            <ul class="accordion type-right-down accordion-light disabled">
+                <li>
+                    <a href="#" class="js-accordion-trigger"><?php echo $this->__('Summary'); ?></a>
+                </li>
+            </ul>
+            <app-checkout-accordion step-code="<?php echo Rockar_Checkout_Helper_Data::SUCCESS_STEP_CODE; ?>" title="<?php echo $this->__('Order Confirmation'); ?>" type="right-down" class-name="accordion-light" :open="true">
+                <li>
+                    <div class="accordion-content">
+                        <app-checkout-order-confirmation
+                            my-account-url='<?php echo $customerHelper->getAccountUrl(); ?>'
+                            logout-url='<?php echo $customerHelper->getLogoutUrl(); ?>'
+                            customer-support-email='<?php echo Mage::getStoreConfig('trans_email/ident_support/email'); ?>'
+                            customer-support-phone='<?php echo Mage::getStoreConfig('general/store_information/phone'); ?>'
+                            :order-data='<?php echo Mage::helper('rockar_checkout/confirmation')->getOrderDataJSON(); ?>'
+                            :in-store='<?php echo (int)$rockarAllHelper->checkIsInStore(); ?>'
+                            success-message='<?php echo $rockarAllHelper->jsonEncode($this->getChildHtml($orderData->getData('staticBlock'))); ?>'
+                            part-exchange-value='<?php echo $partExchangeValue ?>'
+                        ></app-checkout-order-confirmation>
+                    </div>
+                </li>
+            </app-checkout-accordion>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    const orderNumber = '<?php echo $orderData->getData('orderNumber'); ?>';
+</script>

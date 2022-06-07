@@ -1,0 +1,136 @@
+<?php
+/**
+ * @category  Peppermint
+ * @package   Peppermint_All
+ * @author    Ausma Smite <techteam@rockar.com>
+ * @copyright Copyright (c) 2021 Rockar Ltd (http://rockar.com)
+ *
+ */
+
+$brandColors = [
+    '$white' => ['#fff'],
+    '$black' => ['#000000']
+];
+
+$interfaceColors = [
+    '$c-mini-grey' => ['#F1F1F1'],
+    '$c-mini-grey-1' => ['#E5E5E5'],
+    '$c-grey-9' => ['#CBCBCB'],
+    '$c-mini-grey-3' => ['#4A4A4A'],
+    '$c-mini-grey-2' => ['#333333'],
+    '$c-mini-blue' => ['#0085AC'],
+    '$c-mini-orange' => ['#ED9300']
+];
+
+$signalColors = [
+    '$c-mini-red-1' => ['#CC0000', 'Alert'],
+    '$c-orange-2' => ['#FFE6BB', 'Warning Background Color'],
+    '$c-green-2' => ['#3DB014', 'Confirmation']
+];
+
+$additionalGreys = [
+    '$c-grey-13' => ['#7C7C7C'],
+    '$c-grey-14' => ['#999999']
+];
+?>
+
+<h3>
+    Brand Colors
+</h3>
+<p>
+    The primary MINI colours are black and white. These colours should not appear darkened, lightened or in any transparent variation.
+</p>
+<p>
+    The use of black and white as background colours or in images should be approximately 75:25 in white’s favour.
+</p>
+<p>
+    Content can be used with either a black or white background in order to make the separation of modules clearer – thus making content navigation easier for the user.
+</p>
+<p>
+    Note: images may also be placed on a black background to separate modules and enhance user orientation.
+</p>
+<p>
+    The overall appearance of the website should generally consist of a white background, with occasional black accents.
+</p>
+<h3>
+    Interface Colours
+</h3>
+<p>
+    Grey tones may be added to support the brand colours. These colours can be used to highlight parts within complex designs or lay special focus on particular content.
+    Primary Blue: the use of the primary colour for interactive elements such as buttons is permitted. Alert Colour: if text information is missing in an entry form, this is indicated in red.
+</p>
+<h3>
+    Signal Colours
+</h3>
+<p>
+    The primary MINI colours are black and white. These colours should not appear darkened, lightened or in any transparent variation.
+</p>
+
+<hr>
+
+<h3>Brand Colors</h3>
+<div class="color-container">
+    <?php foreach ($brandColors as $key => $value): ?>
+        <div class="palette">
+            <h4><?php echo ucfirst(str_replace(['$', '-'], ['', ' '], $key)) ?></h4>
+            <p class="palette-color" style="background-color: <?php echo $value[0] ?>; color: #000"></p>
+            <p><?php echo $value[0] ?></p>
+            <p><?php echo $key ?></p>
+            <p><?php echo $value[1] ?></p>
+        </div>
+    <?php endforeach ?>
+</div>
+
+<hr>
+
+<h3>Interface Colors</h3>
+<div class="color-container">
+    <?php foreach ($interfaceColors as $key => $value): ?>
+        <div class="palette">
+            <h4><?php echo ucfirst(str_replace(['$', '-'], ['', ' '], $key)) ?></h4>
+            <p class="palette-color" style="background-color: <?php echo $value[0] ?>; color: #000"></p>
+            <p><?php echo $value[0] ?></p>
+            <p><?php echo $key ?></p>
+            <p><?php echo $value[1] ?></p>
+        </div>
+    <?php endforeach ?>
+</div>
+
+<hr>
+
+<h3>Signal Colors</h3>
+<div class="color-container">
+    <?php foreach ($signalColors as $key => $value): ?>
+        <div class="palette">
+            <h4><?php echo ucfirst(str_replace(['$', '-'], ['', ' '], $key)) ?></h4>
+            <p class="palette-color" style="background-color: <?php echo $value[0] ?>; color: #000"></p>
+            <p><?php echo $value[0] ?></p>
+            <p><?php echo $key ?></p>
+            <p><?php echo $value[1] ?></p>
+        </div>
+    <?php endforeach ?>
+</div>
+
+<hr>
+
+<h3>Additional Greys</h3>
+<div class="color-container">
+    <?php foreach ($additionalGreys as $key => $value): ?>
+        <div class="palette">
+            <h4><?php echo ucfirst(str_replace(['$', '-'], ['', ' '], $key)) ?></h4>
+            <p class="palette-color" style="background-color: <?php echo $value[0] ?>; color: #000"></p>
+            <p><?php echo $value[0] ?></p>
+            <p><?php echo $key ?></p>
+        </div>
+    <?php endforeach ?>
+</div>
+
+<hr>
+
+<h3>Helper classes</h3>
+<p>There are available 2 types of helper classes that will work with all here defined colors</p>
+<p>.green-2 (color: $c-green-2)</p>
+<p>.bg-green-2 (background-color: $c-green-2)</p>
+<h5 class="green-2">I am green.</h5>
+<h5 class="bg-green-2">My background is green.</h5>
+

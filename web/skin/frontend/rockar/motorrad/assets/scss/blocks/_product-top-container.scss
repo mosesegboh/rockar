@@ -1,0 +1,219 @@
+.page-title-wrapper {
+    .page-title-content {
+        @include display(flex);
+
+        @include media($small-screen-down) {
+            flex-direction: column;
+        }
+
+        @include justify-content(space-between);
+        padding: 1.25em 3.06em 1.25em 1.81em;
+        max-width: $max-width;
+        margin: 0 auto;
+
+        @include media($medium-screen-down) {
+            padding: 1.25em 10px;
+        }
+
+        &.new-car-actions {
+            .heading-container {
+                width: 70%;
+
+                @include media($medium-screen-down) {
+                    width: 100%;
+                }
+
+                .main-heading,
+                .sub-heading {
+                    text-transform: uppercase;
+                    font-weight: $fw-bold;
+                }
+
+                .main-heading {
+                    font-size: $f-size-xxl;
+                    font-family: $configurator-main-heading-font;
+                    letter-spacing: $base-letter-spacing;
+                    text-transform: none;
+                }
+
+                .sub-heading {
+                    font-size: $f-size-xxxxs;
+                    font-family: $configurator-sub-heading-font;
+                    letter-spacing: .9px;
+                }
+            }
+        }
+
+        .product-actions {
+            @import 'product-top-container/actions';
+            @include media($medium-screen-down){
+                margin: 0 auto;
+                width: 50%;
+            }
+
+            @include media($small-screen-down) {
+                width: 100%;
+                display: none;
+            }
+
+            @include display(flex);
+            .finance-quote-block {
+                @include media($medium-screen-down) {
+                    border-right: solid $grey-2 1px;
+                }
+            }
+        }
+    }
+
+    .pdp-data-container {
+        .offertags-container {
+            display: none;
+        }
+
+        @include media($medium-screen-down) {
+            @include display(flex);
+            @include flex-direction(column);
+
+            .attributes-container {
+                width: 100%;
+            }
+
+            .offertags-container {
+                @include media($medium-screen-down) {
+                    @include display(inline-flex);
+                    @include align-items(center);
+
+                    .offertags {
+                        @include display(flex);
+                        @include align-items(flex-start);
+                        @include flex-direction(column);
+
+                        .offertag-icon {
+                            margin: .5rem 0;
+                        }
+
+                        .offertag-label {
+                            letter-spacing: normal;
+                            margin: 0 0 .2rem .5rem;
+                            text-transform: uppercase;
+                            font: {
+                                family: $motorrad-light;
+                                size: $f-size-xxxxs;
+                                weight: bold;
+                            }
+                        }
+                    }
+
+                    &.offertags-background {
+                        margin: .5rem 0;
+
+                        .offertag-label {
+                            background-color: $motorrad-blue;
+                            color: $white;
+                            padding: .57rem 1rem .4rem;
+                            margin: 0;
+                        }
+                    }
+
+                    &.offertags-blank {
+                        .offertag-label {
+                            margin: 0;
+                            padding: .5rem 1rem;
+                            font: {
+                                size: $f-size-xxxs;
+                                weight: unset;
+                            }
+                        }
+                    }
+
+                    &.offertags-it {
+                        .offertags {
+                            @include align-items(center);
+
+                            .offertag-icon {
+                                align-self: flex-start;
+                            }
+
+                            .offertag-label {
+                                margin: 0 0 .2rem 0;
+                                font: {
+                                    size: $f-size-xxxs;
+                                    weight: unset;
+                                }
+
+                                @include media($medium-screen-down) {
+                                    margin: 0 .5rem .2rem .5rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .attributes-container {
+        @include display(flex);
+        @include justify-content(space-between);
+        padding: 0 3.06em 1.25em 1.81em;
+        max-width: 80em;
+        margin: 0 auto;
+
+        @include media($medium-screen-down) {
+            padding: 0 10px 1.25em 10px;
+        }
+
+        .attributes {
+            @include display(flex);
+            padding-top: 15px;
+
+            .information-attribute {
+                @include align-items(flex-end);
+                @include display(flex);
+                margin-right: 1em;
+
+                .attribute-icon {
+                    width: 30px;
+                    vertical-align: bottom;
+                }
+
+                .title {
+                    font-family: $motorrad;
+                }
+
+                @include media($small-screen-down) {
+                    @include align-items(center);
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+}
+
+.product-actions-mobile {
+    .page-title-wrapper {
+        .page-title-content {
+            .product-actions {
+               display: none;
+
+                @include media($small-screen-down) {
+                    @include display(flex);
+
+                    .vue-slot {
+                        width: 100%;
+                    }
+                }
+
+                .share-product {
+                    &:not(.mobile) {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .main-heading {
+            display: none;
+        }
+    }
+}

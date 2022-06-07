@@ -1,0 +1,12 @@
+  - name: Install virtualbox on mac
+    homebrew_cask:
+      name: virtualbox
+      state: present
+      accept_external_apps: yes
+    when: ansible_os_family == 'Darwin'
+
+  - name: Install virtualbox on Windows
+    win_chocolatey:
+      name: virtualbox
+      state: present
+    when: ansible_os_family == 'Windows'

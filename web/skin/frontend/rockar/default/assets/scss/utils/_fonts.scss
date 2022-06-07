@@ -1,0 +1,92 @@
+// Font families
+$avenir: 'Avenir', Arial, sans-serif;
+$avenir-roman: 'Avenir Roman', Arial, sans-serif;
+$landrover: 'Land Rover', Arial, sans-serif;
+$proximanova: 'Proxima Nova', Arial, sans-serif;
+$myriad: 'Myriad Pro', Arial, sans-serif;
+$tinos: 'Tinos', Arial, sans-serif;
+$emeric: 'Emeric', Arial, sans-serif;
+
+$slick-collection: eot svg ttf woff;
+$avenir-collection: otf;
+$landrover-collection: eot otf svg ttf woff;
+$proximanova-collection: otf;
+$helvetica-collection: otf;
+$tinos-collection: ttf;
+$emeric-collection: otf;
+
+$fw-hairline: 100;
+$fw-light   : 200;
+$fw-book    : 300;
+$fw-normal  : 400;
+$fw-medium  : 500;
+$fw-semibold: 600;
+$fw-bold    : 700;
+$fw-heavy   : 800;
+$fw-black   : 900;
+
+// Avenir font family
+// Light
+@include font-face('Avenir', '../../default/fonts/avenir/AvenirLTStd-Light', $fw-light, normal, false, $avenir-collection);
+@include font-face('Avenir', '../../default/fonts/avenir/AvenirLTStd-LightOblique', $fw-light, italic, false, $avenir-collection);
+// Book
+@include font-face('Avenir', '../../default/fonts/avenir/AvenirLTStd-Book', $fw-book, normal, false, $avenir-collection);
+@include font-face('Avenir', '../../default/fonts/avenir/AvenirLTStd-BookOblique', $fw-book, italic, false, $avenir-collection);
+// Normal
+@include font-face('Avenir', '../../default/fonts/avenir/AvenirLTStd-Medium', $fw-normal, normal, false, $avenir-collection);
+@include font-face('Avenir', '../../default/fonts/avenir/AvenirLTStd-MediumOblique', $fw-normal, italic, false, $avenir-collection);
+// Medium
+@include font-face('Avenir', '../../default/fonts/avenir/AvenirLTStd-Medium', $fw-medium, normal, false, $avenir-collection);
+@include font-face('Avenir', '../../default/fonts/avenir/AvenirLTStd-MediumOblique', $fw-medium, italic, false, $avenir-collection);
+// Bold
+@include font-face('Avenir', '../../default/fonts/avenir/AvenirLTStd-Heavy', $fw-bold, normal, false, $avenir-collection);
+@include font-face('Avenir', '../../default/fonts/avenir/AvenirLTStd-HeavyOblique', $fw-bold, italic, false, $avenir-collection);
+// Heavy
+@include font-face('Avenir', '../../default/fonts/avenir/AvenirLTStd-Heavy', $fw-heavy, normal, false, $avenir-collection);
+@include font-face('Avenir', '../../default/fonts/avenir/AvenirLTStd-HeavyOblique', $fw-heavy, italic, false, $avenir-collection);
+// Black
+@include font-face('Avenir', '../../default/fonts/avenir/AvenirLTStd-Black', $fw-black, normal, false, $avenir-collection);
+@include font-face('Avenir', '../../default/fonts/avenir/AvenirLTStd-BlackOblique', $fw-black, italic, false, $avenir-collection);
+// Normal Roman
+@include font-face('Avenir Roman', '../../default/fonts/avenir/AvenirLTStd-Roman', $fw-normal, normal, false, $avenir-collection);
+
+// Proxima Nova font family
+// Light
+@include font-face('Proxima Nova', '../../default/fonts/proximanova/ProximaNova-Light', $fw-light, normal, false, $proximanova-collection);
+@include font-face('Proxima Nova', '../../default/fonts/proximanova/ProximaNova-LightIt', $fw-light, italic, false, $proximanova-collection);
+// Normal
+@include font-face('Proxima Nova', '../../default/fonts/proximanova/ProximaNova-Regular', $fw-normal, normal, false, $proximanova-collection);
+@include font-face('Proxima Nova', '../../default/fonts/proximanova/ProximaNova-RegularIt', $fw-normal, italic, false, $proximanova-collection);
+// Semibold
+@include font-face('Proxima Nova', '../../default/fonts/proximanova/ProximaNova-Semibold', $fw-semibold, normal, false, $proximanova-collection);
+@include font-face('Proxima Nova', '../../default/fonts/proximanova/ProximaNova-SemiboldIt', $fw-semibold, italic, false, $proximanova-collection);
+// Bold
+@include font-face('Proxima Nova', '../../default/fonts/proximanova/ProximaNova-Bold', $fw-bold, normal, false, $proximanova-collection);
+@include font-face('Proxima Nova', '../../default/fonts/proximanova/ProximaNova-BoldIt', $fw-bold, italic, false, $proximanova-collection);
+
+// Helvetica Neue font family
+// Light
+@include font-face('Helvetica Neue', '../../default/fonts/helvetica/HelveticaNeueCyr-Thin', $fw-light, normal, false, $helvetica-collection);
+@include font-face('Helvetica Neue', '../../default/fonts/helvetica/HelveticaNeueCyr-ThinItalic', $fw-light, italic, false, $helvetica-collection);
+// Normal
+@include font-face('Helvetica Neue', '../../default/fonts/helvetica/HelveticaNeueCyr-Roman', $fw-normal, normal, false, $helvetica-collection);
+@include font-face('Helvetica Neue', '../../default/fonts/helvetica/HelveticaNeueCyr-Italic', $fw-normal, italic, false, $helvetica-collection);
+// Bold
+@include font-face('Helvetica Neue', '../../default/fonts/helvetica/HelveticaNeueCyr-Bold', $fw-bold, normal, false, $helvetica-collection);
+@include font-face('Helvetica Neue', '../../default/fonts/helvetica/HelveticaNeueCyr-BoldItalic', $fw-bold, italic, false, $helvetica-collection);
+
+// Myriad Pro
+// Normal
+@include font-face('Myriad Pro', '../../default/fonts/myriad/MyriadPro-Regular', $fw-normal, normal, false, $helvetica-collection);
+
+// Tinos font family
+// Normal
+@include font-face('Tinos', '../../default/fonts/tinos/Tinos-Regular', $fw-normal, normal, false, $tinos-collection);
+@include font-face('Tinos', '../../default/fonts/tinos/Tinos-Italic', $fw-normal, italic, false, $tinos-collection);
+// Bold
+@include font-face('Tinos', '../../default/fonts/tinos/Tinos-Bold', $fw-bold, normal, false, $tinos-collection);
+@include font-face('Tinos', '../../default/fonts/tinos/Tinos-BoldItalic', $fw-bold, italic, false, $tinos-collection);
+
+// JLR Emeric font family
+@include font-face('Emeric', '../../default/fonts/emeric/JLREMERICWEB-SEMIBOLD', $fw-semibold, normal, false, $emeric-collection);
+@include font-face('Emeric', '../../default/fonts/emeric/JLREMERICWEB-EXTRALIGHT', $fw-normal, normal, false, $emeric-collection);

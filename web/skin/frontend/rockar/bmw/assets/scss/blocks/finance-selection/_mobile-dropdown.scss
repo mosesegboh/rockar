@@ -1,0 +1,86 @@
+.select-wrapper {
+    .selectbox {
+        max-width: none;
+
+        .selectbox-select {
+            background: transparent;
+            text-align: left;
+            border: solid 1px $grey-2;
+
+            .dropdown-caret {
+                background: transparent;
+                border-left: 1px solid $finance-selection-mobile-dropdown-caret-color;
+
+                &::after {
+                    @include sprite($sprite-arrow-down-dark);
+                }
+            }
+        }
+
+        &.open {
+            .selectbox-select {
+                .dropdown-caret {
+                    &::after {
+                        @include transform(rotate(180deg));
+                    }
+                }
+            }
+        }
+    }
+
+    &.selected {
+        position: relative;
+
+        .question-icon-wrapper {
+            position: absolute;
+            left: 0;
+            height: 46px;
+            width: 46px;
+            z-index: 10;
+
+            .icon-question {
+                @include sprite($sprite-question);
+                @include transform(scale(.5) translate(-100%, -100%));
+                display: inline-block;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+            }
+        }
+
+        .selectbox {
+            .selectbox-select {
+                padding: 17px 60px 14px 50px;
+
+                .dropdown-caret {
+                    background: transparent;
+
+                    &::after {
+                        @include sprite($sprite-arrow-down-dark);
+
+                        @include media($small-screen-down) {
+                            background-image: none;
+                            background-position: unset;
+                            width: 12px;
+                            height: 12px;
+                        }
+                    }
+                }
+            }
+
+            &.open {
+                .selectbox-select {
+                    .dropdown-caret {
+                        &::after {
+                            @include transform(rotate(0));
+
+                            @include media($small-screen-down) {
+                                transform: rotate(315deg) translateY(0%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Transactional
+ * @author    Donald Mailula <mailula.donald@partner.bmw.co.za>
+ * @copyright Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_Transactional>
+            <version>0.1.0</version>
+        </Peppermint_Transactional>
+    </modules>
+    <global>
+        <helpers>
+            <peppermint_transactional>
+                <class>Peppermint_Transactional_Helper</class>
+            </peppermint_transactional>
+        </helpers>
+
+        <models>
+            <peppermint_transactional>
+                <class>Peppermint_Transactional_Model</class>
+            </peppermint_transactional>
+        </models>
+
+        <events>
+            <peppermint_gcdm_customer_register_success>
+                <observers>
+                    <peppermint_transactional_customer_register_success_observer>
+                        <class>peppermint_transactional/observer</class>
+                        <method>transactRegistration</method>
+                    </peppermint_transactional_customer_register_success_observer>
+                </observers>
+            </peppermint_gcdm_customer_register_success>
+
+            <peppermint_gcdm_customer_login_success>
+                <observers>
+                    <peppermint_transactional_customer_login_success_observer>
+                        <class>peppermint_transactional/observer</class>
+                        <method>transactLogin</method>
+                    </peppermint_transactional_customer_login_success_observer>
+                </observers>
+            </peppermint_gcdm_customer_login_success>
+
+            <peppermint_part_exchange_customer_tradein_save>
+                <observers>
+                    <peppermint_transactional_rockar_partexchange_observer>
+                        <class>peppermint_transactional/observer</class>
+                        <method>transactTradeInSave</method>
+                    </peppermint_transactional_rockar_partexchange_observer>
+                </observers>
+            </peppermint_part_exchange_customer_tradein_save>
+
+            <peppermint_part_exchange_customer_tradein_edit>
+                <observers>
+                    <peppermint_transactional_rockar_partexchange_edit_observer>
+                        <class>peppermint_transactional/observer</class>
+                        <method>transactTradeInEdit</method>
+                    </peppermint_transactional_rockar_partexchange_edit_observer>
+                </observers>
+            </peppermint_part_exchange_customer_tradein_edit>
+
+            <rockar_part_exchange_customer_tradein_remove>
+                <observers>
+                    <rockar_part_exchange_customer_tradein_remove_observer>
+                        <class>peppermint_transactional/observer</class>
+                        <method>transactTradeInRemove</method>
+                    </rockar_part_exchange_customer_tradein_remove_observer>
+                </observers>
+            </rockar_part_exchange_customer_tradein_remove>
+
+            <wishlist_add_product>
+                <observers>
+                    <peppermint_transactional_wishlist_save_after_observer>
+                        <class>peppermint_transactional/observer</class>
+                        <method>transactWishlistSave</method>
+                    </peppermint_transactional_wishlist_save_after_observer>
+                </observers>
+            </wishlist_add_product>
+
+             <wishlist_update_item>
+                <observers>
+                    <peppermint_transactional_wishlist_edit_after_observer>
+                        <class>peppermint_transactional/observer</class>
+                        <method>transactWishlistEdit</method>
+                    </peppermint_transactional_wishlist_edit_after_observer>
+                </observers>
+            </wishlist_update_item>
+
+            <rockar_wishlist_remove_item>
+                <observers>
+                    <peppermint_transactional_wishlist_remove_observer>
+                        <class>peppermint_transactional/observer</class>
+                        <method>transactWishlistRemove</method>
+                    </peppermint_transactional_wishlist_remove_observer>
+                </observers>
+            </rockar_wishlist_remove_item>
+
+            <sales_convert_quote_item_to_order_item>
+                <observers>
+                    <peppermint_transactional_checkout_save_after_observer>
+                        <class>peppermint_transactional/observer</class>
+                        <method>transactCheckout</method>
+                    </peppermint_transactional_checkout_save_after_observer>
+                </observers>
+            </sales_convert_quote_item_to_order_item>
+
+            <sales_convert_quote_item_to_order_item>
+                <observers>
+                    <peppermint_transactional_finance_save_after_observer>
+                        <class>peppermint_transactional/observer</class>
+                        <method>transactFinanceSave</method>
+                    </peppermint_transactional_finance_save_after_observer>
+                </observers>
+            </sales_convert_quote_item_to_order_item>
+
+            <sales_order_save_after>
+                <observers>
+                    <peppermint_transactional_sales_order_save_after_observer>
+                        <class>peppermint_transactional/observer</class>
+                        <method>transactOrder</method>
+                    </peppermint_transactional_sales_order_save_after_observer>
+                </observers>
+            </sales_order_save_after>
+
+            <rockar_youdrive_save_booking_after>
+                <observers>
+                    <peppermint_transactional_transact_test_drive_save_booking_after_observer>
+                        <type>singleton</type>
+                        <class>peppermint_transactional/observer</class>
+                        <method>transactTestDrive</method>
+                    </peppermint_transactional_transact_test_drive_save_booking_after_observer>
+                </observers>
+            </rockar_youdrive_save_booking_after>
+            <rockar_youdrive_cancel_booking_after>
+                <observers>
+                    <peppermint_transactional_transact_test_cancel_booking_after_observer>
+                        <type>singleton</type>
+                        <class>peppermint_transactional/observer</class>
+                        <method>transactTestDrive</method>
+                    </peppermint_transactional_transact_test_cancel_booking_after_observer>
+                </observers>
+            </rockar_youdrive_cancel_booking_after>
+        </events>
+    </global>
+    <adminhtml>
+        <events>
+            <reorder_submit_after>
+                <observers>
+                    <peppermint_orderamend_dealer_id_save_order_amendment>
+                        <type>singleton</type>
+                        <class>peppermint_orderamend/observer</class>
+                        <method>saveDealerIdToChildOrder</method>
+                    </peppermint_orderamend_dealer_id_save_order_amendment>
+                </observers>
+            </reorder_submit_after>
+        </events>
+    </adminhtml>
+    <frontend>
+        <events>
+             <controller_action_predispatch>
+                <observers>
+                    <peppermint_transactional_controller_action_predispatch_observer>
+                        <class>peppermint_transactional/observer</class>
+                        <method>transactSaveCampaignId</method>
+                    </peppermint_transactional_controller_action_predispatch_observer>
+                </observers>
+            </controller_action_predispatch>
+        </events>
+    </frontend>
+    <default>
+        <peppermint_transactional>
+            <general>
+                <apigee_base_url><![CDATA[https://api-int.bmw.com/dvs/bmwza/nsc/customer/v1/crm/transactionaldata]]></apigee_base_url>
+                <enabled>0</enabled>
+            </general>
+        </peppermint_transactional>
+    </default>
+</config>

@@ -1,0 +1,60 @@
+.styleguide {
+    background: $white;
+
+    .sg-header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid $styleguide-border-color;
+        margin: 0 0 20px;
+
+        .sg-logotype {
+            flex: 0 0 90px;
+        }
+
+        .sg-title {
+            flex: 1 1 auto;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding-left: 20px;
+        }
+    }
+
+
+    .sg-content {
+        width: 1024px;
+        margin: 0 auto;
+
+        .sg-section {
+            margin: 100px 0;
+
+            header {
+                padding: 0 0 10px;
+                margin: 0 0 20px;
+                border-bottom: 1px solid $styleguide-border-color;
+
+                h2 {
+                    font-size: 18px;
+                    text-transform: none;
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+        }
+    }
+}
+
+.palette {
+    display: inline-block;
+    margin: 5px;
+    width: 30%;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.palette-color {
+    padding: 10px 20px;
+    border-radius: 30px;
+}

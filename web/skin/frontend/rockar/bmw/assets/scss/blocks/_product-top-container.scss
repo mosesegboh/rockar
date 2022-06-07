@@ -1,0 +1,176 @@
+.page-title-wrapper {
+    .page-title-content {
+        @include display(flex);
+
+        @include media($small-screen-down) {
+            flex-direction: column;
+        }
+
+        @include justify-content(space-between);
+        padding: 2.25em 3.06em 2.25em 1.81em;
+        max-width: $max-width;
+        margin: 0 auto;
+
+        @include media($medium-screen-down) {
+            padding: 1.25em 10px;
+        }
+
+        &.new-car-actions {
+            .heading-container {
+                max-width: 70%;
+
+                @include media($medium-screen-down) {
+                    max-width: unset;
+                }
+
+                .product-headings {
+                    @include media($medium-screen-down) {
+                        margin-bottom: 10px;
+                    }
+                }
+                .main-heading,
+                .sub-heading {
+                    text-transform: none;
+                    font-weight: $fw-bold;
+                }
+
+                .main-heading {
+                    font-size: $bmw-h3;
+                    text-transform: uppercase;
+                    font-family: $configurator-main-heading-font;
+                    letter-spacing: 3px;
+                }
+
+                .sub-heading {
+                    font-size: $bmw-p;
+                    font-family: $configurator-sub-heading-font;
+                    letter-spacing: .9px;
+                }
+            }
+        }
+
+        .product-actions {
+            @import 'product-top-container/actions';
+            @include display(flex);
+            max-height: 100px;
+
+            @include media($small-screen-down) {
+                display: none;
+            }
+        }
+    }
+
+    .pdp-data-container {
+        .offertags-container {
+            display: none;
+        }
+
+        @include media($medium-screen-down) {
+            @include display(flex);
+            @include flex-direction(column);
+
+            .attributes-container {
+                width: 100%;
+            }
+
+            .offertags-container {
+                @include media($medium-screen-down) {
+                    @include display(inline-flex);
+                    @include align-items(center);
+
+                    .offertags {
+                        @include display(flex);
+                        @include align-items(flex-start);
+                        @include flex-direction(column);
+
+                        .offertag-icon {
+                            margin: .5rem 0;
+                        }
+
+                        .offertag-label {
+                            letter-spacing: normal;
+                            margin: 0 0 .2rem .5rem;
+                            font: {
+                                size: $f-size-xl;
+                            }
+                        }
+                    }
+
+                    &.offertags-background {
+                        margin: .5rem 0;
+
+                        .offertag-label {
+                            background-color: $bmw-blue;
+                            color: $white;
+                            padding: .5rem 1rem .47rem;
+                            margin: 0;
+                        }
+                    }
+
+                    &.offertags-blank {
+                        .offertag-label {
+                            margin: 0;
+                            padding: .5rem 1rem;
+                            font: {
+                                weight: unset;
+                            }
+                        }
+                    }
+
+                    &.offertags-it {
+                        .offertags {
+                            @include align-items(center);
+
+                            .offertag-icon {
+                                align-self: flex-start;
+                            }
+
+                            .offertag-label {
+                                margin: 0 0 .2rem 0;
+                                font: {
+                                    size: $f-size-xl;
+                                    weight: unset;
+                                }
+
+                                @include media($medium-screen-down) {
+                                    margin: 0 .5rem .2rem .5rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .attributes-container {
+        @include display(flex);
+        @include justify-content(space-between);
+        padding: 0 3.06em 2.25em 1.81em;
+
+        @include media($medium-screen-down) {
+            padding: 0 10px 1.25em 10px;
+        }
+
+        .attributes {
+            @include display(flex);
+            padding-top: 15px;
+
+            .information-attribute {
+                @include align-items(flex-end);
+                @include display(flex);
+                margin-right: 1em;
+
+                .attribute-icon {
+                    width: 30px;
+                    vertical-align: bottom;
+                }
+
+                @include media($small-screen-down) {
+                    @include align-items(center);
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+}

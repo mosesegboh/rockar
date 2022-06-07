@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Importer
+ * @author    Adrian Grigorita <adrian.grigorita@rockar.com>
+ * @copyright Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_Importer>
+            <version>0.1.8</version>
+        </Peppermint_Importer>
+    </modules>
+    <frontend>
+        <routers>
+            <peppermint_importer>
+                <use>standard</use>
+                <args>
+                    <module>Peppermint_Importer</module>
+                    <frontName>peppermint_import</frontName>
+                </args>
+            </peppermint_importer>
+        </routers>
+    </frontend>
+    <global>
+        <models>
+            <peppermint_importer>
+                <class>Peppermint_Importer_Model</class>
+                <resourceModel>peppermint_importer_resource</resourceModel>
+            </peppermint_importer>
+            <peppermint_importer_resource>
+                <class>peppermint_importer_Model_Resource</class>
+                <entities>
+                    <product_fail>
+                        <table>peppermint_importer_product_fail</table>
+                    </product_fail>
+                    <accessories_missing>
+                        <table>peppermint_importer_accessories_missing</table>
+                    </accessories_missing>
+                </entities>
+            </peppermint_importer_resource>
+        </models>
+        <helpers>
+            <peppermint_importer>
+                <class>Peppermint_Importer_Helper</class>
+            </peppermint_importer>
+        </helpers>
+        <resources>
+            <peppermint_importer_setup>
+                <setup>
+                    <module>Peppermint_Importer</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+            </peppermint_importer_setup>
+        </resources>
+    </global>
+    <default>
+        <peppermint_import>
+            <general>
+                <rmq_host>rabbitmq</rmq_host>
+                <rmq_port>5672</rmq_port>
+                <rmq_user>guest</rmq_user>
+                <rmq_password>guest</rmq_password>
+                <rmq_vhost>/</rmq_vhost>
+                <rmq_products_queue>SPC-TO-DSP-SIMPLE-PRODUCTS</rmq_products_queue>
+                <rmq_products_delete_queue>SPC-TO-DSP-DELETE-PRODUCTS</rmq_products_delete_queue>
+                <rmq_attributes_queue>SPC-TO-DSP-ATTRIBUTES</rmq_attributes_queue>
+                <rmq_dealer_queue>SPC-TO-DSP-DEALERS</rmq_dealer_queue>
+                <rmq_order_queue>SPC-TO-DSP-ORDERS</rmq_order_queue>
+                <rmq_order_push_queue>DSP-TO-SPC-ORDERS</rmq_order_push_queue>
+                <rmq_sales_data_queue>SPC-TO-DSP-SALES-DATA</rmq_sales_data_queue>
+                <rmq_matrix_mapping_queue>SPC-TO-DSP-MODEL-MATRIX-MAPPING</rmq_matrix_mapping_queue>
+                <rmq_accessories_queue>SPC-TO-DSP-ACCESSORIES</rmq_accessories_queue>
+                <rmq_accessories_mapping_queue>SPC-TO-DSP-ACCESSORIES-MAPPING</rmq_accessories_mapping_queue>
+                <rmq_credit_app_queue>SPC-TO-DSP-CREDIT-APP</rmq_credit_app_queue>
+                <rmq_consumer_tag>consumer</rmq_consumer_tag>
+                <rmq_login_method>AMQPLAIN</rmq_login_method>
+                <rmq_locale>en_GB</rmq_locale>
+                <rmq_connection_timeout>10</rmq_connection_timeout>
+                <rmq_read_write_timeout>260</rmq_read_write_timeout>
+                <rmq_heartbeat>600</rmq_heartbeat>
+                <sleep_time>1000000</sleep_time>
+            </general>
+            <sap_log>
+                <cron_retry_limit>20</cron_retry_limit>
+            </sap_log>
+            <product_fail>
+                <cron_retry_limit>3</cron_retry_limit>
+            </product_fail>
+        </peppermint_import>
+    </default>
+    <crontab>
+        <jobs>
+            <peppermint_importer_product_fail_retry>
+                <schedule>
+            <!-- running this cron every 45 minute to avoid running this during order update or product queue from spc -->
+                    <cron_expr>45 * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>peppermint_importer/cron::productFailRun</model>
+                </run>
+            </peppermint_importer_product_fail_retry>
+        </jobs>
+    </crontab>
+</config>
+

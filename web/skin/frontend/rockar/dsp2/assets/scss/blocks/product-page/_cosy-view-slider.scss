@@ -1,0 +1,61 @@
+.cosy-view {
+    display: block;
+    margin: 0 -1.5em 20px;
+
+    @include media($dsp2-l-screen-up) {
+        margin: 0 0 20px;
+    }
+
+    .slick-slide {
+        padding: 0 10px 0 0;
+    }
+
+    .slick-list {
+        padding-left: 0 !important; // Is needed to override slick slider inline paddings
+    }
+
+    .slick-slider {
+        margin: 0;
+        width: 100%;
+    }
+
+    .slick-next,
+    .slick-prev {
+        background-color: transparentize($c-grey-12, .5);
+        position: absolute;
+        height: 24px;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 24px;
+        z-index: 1;
+
+        &::before {
+            background-image: url('../images/svg/icon-arrow.svg');
+            content: '';
+            height: 16px;
+            position: absolute;
+            right: 7px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+        }
+    }
+
+    .slick-prev {
+        left: 0;
+        right: unset;
+
+        &::before {
+            background-image: url('../images/svg/icon-arrow-left.svg');
+            left: 7px;
+            right: unset;
+        }
+    }
+
+    .slick-disabled {
+        &::before {
+            opacity: .5;
+        }
+    }
+}

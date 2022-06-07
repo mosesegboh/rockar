@@ -1,0 +1,62 @@
+.px-car-info {
+    background: $white;
+    border: 2px solid $grey-3;
+    display: block;
+    margin: 10px 0px;
+    max-width: $px-vrm-block-max-width;
+    padding: 5px;
+
+    @include media($small-screen-down) {
+        max-width: $px-vrm-block-max-width-s-screen;
+        margin-bottom: 21px;
+    }
+
+    &.mileage-error {
+        margin-left: 0;
+
+        @include media($small-screen-down) {
+            left: initial;
+            transform: translateX(0);
+            top: 10px;
+            width: 100%;
+        }
+    }
+
+    &::after {
+        @include sprite($sprite-dropdown-arrow-down);
+        border: 0;
+        height: 9px;
+        width: 14px;
+        right: 112px;
+        left: auto;
+        transform: rotate(180deg);
+        top: -9px;
+
+        @include media($small-screen-down) {
+            right: calc(50% - 7px);
+        }
+    }
+
+    p {
+        color: $motorrad-text-color;
+        font-size: $motorrad-subhead;
+        text-transform: uppercase;
+        font-family: $motorrad;
+        font-weight: $motorrad-fw-normal;
+    }
+
+    .px-car-name {
+        color: $motorrad-text-color;
+        font-weight: $motorrad-fw-normal;
+        text-transform: none;
+        font-family: $motorrad-light;
+        letter-spacing: normal
+    }
+
+    .px-link {
+        color: $px-vrm-color;
+        font-size: 12px;
+        font-weight: $fw-book;
+
+    }
+}

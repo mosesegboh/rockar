@@ -1,0 +1,36 @@
+.product-prices {
+    .item-details-price-block {
+        .item-details-price {
+            &.rockar-price {
+                .price-wrapper {
+                    .price {
+                        font-family: $mini-sans-serif-bold;
+
+                        @include media($medium-screen-down) {
+                            font-family: $mini-sans-serif-regular;
+                        }
+                    }
+                }
+            }
+
+            .price-wrapper {
+                .price {
+                    .price-value {
+                        font-family: $mini-serif-bold;
+                        font-size: $mini-f-size-52;
+                        line-height: $dsp2-line-h-36;
+
+                        @include media($medium-screen-down) {
+                            font-size: $dsp2-f-size-xl;
+                            line-height: $dsp2-line-h-20;
+                        }
+                    }
+                }
+
+                .label {
+                    font-family: $mini-sans-serif-regular;
+                }
+            }
+        }
+    }
+}

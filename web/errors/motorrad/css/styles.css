@@ -1,0 +1,163 @@
+@font-face {
+    font-family: 'BMW_Bold';
+    src: url("fonts/BMWMotorradW01-Bold.ttf");
+}
+
+@font-face {
+    font-family: 'BMW_Light';
+    src: url("fonts/BMWMotorradW05-Light.ttf");
+}
+
+@font-face {
+    font-family: 'BMW_Type';
+    src: url("fonts/BMWMotorradW05-Regular.ttf");
+}
+
+.container {
+    margin-bottom: 100px;
+}
+
+.container-fluid {
+    background-color: #2b2e33;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.navbar-default {
+    border-color: #bbb;
+    color: #fff;
+    height: 80px;
+}
+
+.navbar-header {
+    position: relative;
+    width: 100%;
+}
+
+#id-module {
+    margin-top: 80px;
+    z-index: 1000;
+    margin-left: -30px;
+    position: absolute;
+    width: 400px;
+}
+
+.bg-img {
+    width: 100%;
+    position: relative;
+    height: 650px;
+    background-repeat: no-repeat;
+    background-size: cover
+}
+
+.img-01 {
+    background-image: url("../imgs/BMW_MOT-maintenance-Banner.jpg");
+}
+
+body,
+p {
+    font-family: "BMW_Type";
+    color: #262626;
+    font-size: 14px;
+    width: 100%;
+}
+
+.header-p {
+    font-family: "BMW_Bold";
+    color: #fff;
+    font-size: 16px;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+a {
+    font-family: "BMW_Bold";
+    color: #262626;
+    font-weight: bolder;
+    text-decoration: none;
+    padding-left: 15px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.textblock {
+    background-color: #ffffff;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    width: 100%;
+    margin-top: -100px;
+    margin-bottom: 100px;
+    position: relative;
+}
+
+.title {
+    font-family: "BMW_Bold";
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    padding-left: 0px;
+    letter-spacing: .525px;
+    line-height: 1;
+    height: 40%;
+}
+
+.bannercopy {
+    margin-top: 300px;
+}
+
+.width {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 992px) {
+    .bg-img {
+	    height: 550px;
+	}
+}
+
+@media only screen and (max-width: 575px) {
+   .row {
+	    padding: 0px 15px;
+	    margin-top: -25px;
+	}
+	.bg-img {
+	   background-position-x: center;
+	}
+}
+
+.col-sm-12 {
+    margin-top: 45px;
+    box-sizing: border-box;
+    padding-top: 20px;
+    border-collapse: separate;
+}
+
+@media only screen and (min-width: 768px) {
+    .col-md-6 {
+	    max-width: 50%;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+    .col-lg-3 {
+	    max-width: 25%;
+	}
+}
+
+.aligntest {
+    margin-top: -10px;
+}
+
+.image {
+    width: 100%;
+    display: block;
+}
+
+.borderline {
+    border: 2px solid #919191;
+}

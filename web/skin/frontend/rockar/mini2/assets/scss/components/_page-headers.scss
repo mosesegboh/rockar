@@ -1,0 +1,25 @@
+#page-header {
+    .header-desktop {
+        .title {
+            font-family: $mini-serif-bold;
+            font-size: $mini-f-size-52;
+            line-height: $mini-line-h-52;
+
+            @include media($medium-screen-down) {
+                font-size: $dsp2-f-size-xl;
+            }
+        }
+
+        .previous {
+            span {
+                font-family: $mini-sans-serif-bold;
+            }
+        }
+    }
+
+    .header-mobile {
+        font-family: $mini-serif-bold;
+        font-size: $dsp2-f-size-l;
+        line-height: $dsp2-line-h-24;
+    }
+}

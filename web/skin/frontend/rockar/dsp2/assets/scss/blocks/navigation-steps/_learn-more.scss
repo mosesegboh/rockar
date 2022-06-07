@@ -1,0 +1,29 @@
+$navigation-learn-more-size: 89px;
+$navigation-learn-more-icon-size: 40px;
+
+&-learn-more {
+    position: relative;
+    text-align: center;
+
+    @include media($mobile-header-max) {
+        display: none;
+    }
+
+    &::before {
+        @include pseudo();
+
+        @include sprite($sprite-learn-more);
+        left: ($navigation-learn-more-size / 2) - ($navigation-learn-more-icon-size / 2);
+        top: ($navigation-learn-more-size / 2) - ($navigation-learn-more-icon-size / 2) + 3px;
+    }
+
+    span {
+        color: $black;
+        font-size: $dsp2-f-size-xxs;
+        font-weight: $fw-medium;
+        text-transform: uppercase;
+        position: relative;
+        top: $navigation-learn-more-size - 42px;
+        white-space: nowrap;
+    }
+}

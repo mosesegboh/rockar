@@ -1,0 +1,122 @@
+<div style="padding:10px;">
+
+    <p>For labeled input use:
+    <textarea name="" id="" cols="30" rows="7">
+        <div class="input-label-wrapper">
+        <input id="id1">
+        <label class="input-label" for="id1">
+            This is label
+        </label>
+        </div>
+    </textarea>
+    <p>To disable input field simply add <code>disabled="disabled"</code> to the field</p>
+
+    <hr>
+
+    <h3>Input fields and form</h3>
+
+    <form>
+        <div class="grid">
+            <div class="row">
+                <div class="col-4">
+                    <p class="side-label">
+                        Master input +  label
+                    </p>
+                </div>
+
+                <div class="col-8">
+                    <div class="input-label-wrapper">
+                        <input type="text" id="f1" class="required-entry">
+                        <label class="input-label" for="f1">
+                            This is label
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <br>
+
+            <div class="row">
+                <div class="col-4">
+                    <p class="side-label">
+                        Master input + placeholder
+                    </p>
+                </div>
+
+                <div class="col-8">
+                    <div class="input-label-wrapper">
+                        <input type="text" id="f2" placeholder="Lorem ipsum">
+                        <label class="input-label" for="f2">
+                            This is label
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <br>
+
+            <div class="row">
+                <div class="col-4">
+                    <p class="side-label">
+                        Master input + value
+                    </p>
+                </div>
+
+                <div class="col-8">
+                    <div class="input-label-wrapper">
+                        <input type="text" id="f3" value="Lorem ipsum">
+                        <label class="input-label" for="f3">
+                            This is label
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <br>
+
+            <div class="row">
+                <div class="col-4">
+                    <p class="side-label">
+                        Disabled input
+                    </p>
+                </div>
+
+                <div class="col-8">
+                    <div class="input-label-wrapper">
+                        <input type="text" id="f4" placeholder="Disabled" disabled>
+                        <label class="input-label" for="f4">
+                            This is label
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    <p class="side-label">
+                        Money input - class .keyboard-numbers
+                    </p>
+                    <input class="keyboard-numbers" type="text" id="f5" value="R 3 000 000">
+                    <label for="f5"></label>
+                </div>
+                <div class="col-4">
+                    <p class="side-label">
+                        Money input disabled
+                    </p>
+                    <input class="keyboard-numbers" type="text" id="f6" value="R 3 000 000" disabled>
+                    <label for="f6"></label>
+                </div>
+                <div class="col-4">
+                    <p class="side-label">
+                        Money input readonly
+                    </p>
+                    <input class="keyboard-numbers" type="text" id="f7" value="R 3 000 000" readonly>
+                    <label for="f7"></label>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

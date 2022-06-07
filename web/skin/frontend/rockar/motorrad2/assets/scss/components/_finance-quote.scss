@@ -1,0 +1,243 @@
+.finance-quote-wrapper {
+    .finance-quote-top {
+        .finance-quote-title {
+            font-family: $motorrad-bold;
+            font-size: $dsp2-f-size-l;
+
+            @include media($medium-screen-down) {
+                line-height: $dsp2-line-h-32;
+            }
+        }
+
+        .finance-calculator {
+            &-icon {
+                margin: 0 0 -2px 4px;
+            }
+
+            span {
+                font-family: $motorrad-bold;
+            }
+        }
+
+        .finance-quote {
+            .finance-quote-content {
+                line-height: $dsp2-line-h-18;
+
+                > .table {
+                    td {
+                        padding: .25em;
+                        font-family: $motorrad-bold;
+
+                        .variable-title {
+                            font-family: $motorrad-bold;
+                            font-size: $dsp2-f-size-s;
+
+                            @include media($medium-screen-down) {
+                                line-height: $motorrad-line-h-22;
+                                font-family: $motorrad-regular;
+                            }
+                        }
+
+                        .variable-value {
+                            font-family: $motorrad-regular;
+                            line-height: $dsp2-line-h-14;
+
+                            @include media($medium-screen-down) {
+                                line-height: $dsp2-line-h-16;
+                            }
+                        }
+                    }
+
+                    &.table-two {
+                        tr {
+                            &:not(:first-child) {
+                                .table-right {
+                                    line-height: $dsp2-line-h-14;
+                                }
+                            }
+                        }
+                    }
+
+                    tr {
+                        &:not(:first-child) {
+                            .table-right {
+                                font-family: $motorrad-bold;
+                                font-size: $dsp2-f-size-s;
+                                line-height: $dsp2-line-h-18;
+                            }
+                        }
+                    }
+                }
+
+                .fq-label-text {
+                    .variable-title {
+                        font-family: $motorrad-bold;
+                    }
+                }
+
+                tr {
+                    .table-right {
+                        font-family: $motorrad-bold;
+                        font-size: $dsp2-f-size-s;
+                        line-height: $dsp2-line-h-18;
+                    }
+                }
+            }
+
+            a {
+                &.collapse {
+                    background: url('../images/svg/icon-arrow-down.svg') no-repeat center;
+                    margin-top: 17px;
+                    width: 12px;
+                    height: 9px;
+
+                    @include media($medium-screen-down) {
+                        transform: rotate(-90deg);
+                    }
+                }
+
+                &.expand {
+                    background: url('../images/svg/icon-arrow-down.svg') no-repeat center;
+                    margin-top: 17px;
+                    width: 12px;
+                    height: 9px;
+
+                    @include media($medium-screen-down) {
+                        transform: rotate(0);
+                    }
+                }
+            }
+        }
+    }
+
+    &.active {
+        .toggle {
+            bottom: calc(75vh - 12px);
+
+            &-button {
+                .icon {
+                    transform: rotate(-90deg) !important; // Overrides dsp2 style finance-quote:42
+                }
+            }
+        }
+    }
+
+    .toggle {
+        border: none;
+        bottom: 130px;
+        padding: 0;
+
+        &-button {
+            background-color: $black;
+            border: none;
+            border-radius: 0;
+
+            .icon {
+                background-image: url('../images/svg/icon-arrow.svg');
+                transform: rotate(90deg);
+                filter: invert(1);
+                width: 12px;
+                background-size: contain;
+            }
+        }
+    }
+
+    .finance-quote-bottom {
+        @include media($medium-screen-down) {
+            border-top: 3px solid $c-motorrad-blue;
+        }
+    }
+}
+
+.get-quote-cta-icon {
+    letter-spacing: normal;
+
+    &::before {
+        background-image: url('../images/svg/icon-email-quote.svg');
+        top: 5px;
+    }
+}
+
+.catalog-product-view {
+    .finance-quote-configurator {
+        .finance-payments {
+            .payment {
+                .payment-amount {
+                    font-family: $motorrad-bold;
+                }
+
+                .payment-label {
+                    font-family: $motorrad-regular;
+                }
+
+                &.monthly-price {
+                    .payment-amount {
+                        font-family: $motorrad-bold;
+
+                        @include media($medium-screen-down) {
+                            line-height: $dsp2-line-h-20;
+                        }
+                    }
+                }
+
+                &.rockar-price {
+                    .payment-amount {
+                        font-family: $motorrad-regular;
+                    }
+                }
+            }
+        }
+    }
+
+    &.modal-open {
+        .finance-quote-wrapper {
+            .popup-content {
+                @include media($medium-screen-down) {
+                    padding: 27px 20px 30px;
+                }
+
+                .get-quote-popup,
+                .get-quote-popup-success {
+                    font-size: initial;
+
+                    .modal-header {
+                        margin: 0 0 15px;
+                        text-transform: uppercase;
+                        letter-spacing: initial;
+                        font-family: $motorrad-bold;
+                        font-size: $dsp2-f-size-xxl;
+
+                        @include media($medium-screen-down) {
+                            font-size: $dsp2-f-size-l;
+                            margin: 23px 0 30px;
+                        }
+                    }
+
+                    .row {
+                        > p {
+                            letter-spacing: initial;
+                            font-family: $motorrad-regular;
+                            font-size: $dsp2-f-size;
+                            line-height: $dsp2-line-h-24;
+
+                            @include media($medium-screen-down) {
+                                font-size: $dsp2-f-size-s;
+                                line-height: $dsp2-line-h-16;
+                            }
+
+                            .my-account-link {
+                                @include media($medium-screen-down) {
+                                    font-size: $dsp2-f-size;
+                                }
+                            }
+                        }
+
+                        @include media($medium-screen-down) {
+                            margin: 0 0 21px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

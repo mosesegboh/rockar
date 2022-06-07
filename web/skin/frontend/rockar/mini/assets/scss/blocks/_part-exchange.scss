@@ -1,0 +1,1366 @@
+.part-exchange {
+    @import './part-exchange/px-confirmation-popup';
+
+    // Fix for NUK keyboard to not skip PX
+    .nuc-hidden-button {
+        opacity: 0;
+        border: 0;
+        margin: 0;
+        padding: 0;
+    }
+
+    .part-exchange-negative-equity {
+        @import './part-exchange/_px-negative-equity';
+    }
+
+    .px-additional-info-block {
+        @import './part-exchange/px-additional-info-checkbox';
+
+        input[type='checkbox'] + label {
+            padding-top: em(10);
+            margin-top: em(4);
+            align-self: flex-start;
+        }
+
+        .px-additional-info-list {
+            @include display(flex);
+            width: 100%;
+            flex-direction: row;
+            align-items: center;
+
+            p {
+                flex: 1 100%;
+            }
+
+            .info-label-wrap {
+                display: flex;
+                flex-wrap: nowrap;
+                align-items: center;
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+    }
+
+    .mobile-divider {
+        width: 94vw;
+
+        @include media($medium-screen-up) {
+            display: none;
+        }
+
+        hr {
+            margin: 0 0 1em;
+        }
+    }
+
+    .part-exchange-regular {
+        .select-condition {
+            @import './part-exchange/button-wrapper';
+            @import './part-exchange/condition-info';
+            @import './part-exchange/conditions-labels';
+
+            .part-exchange-conditions {
+                @include media($small-screen-down) {
+                    display: none;
+                }
+            }
+
+            .part-exchange-conditions-mobile {
+                @include media($medium-screen-up) {
+                    display: none;
+                }
+
+                .selectbox {
+                    width: 100%;
+                    max-width: none;
+                    text-transform: uppercase;
+                    font-family: $px-input-font;
+
+                    .selectbox-select {
+                        width: 100%;
+                        color: $grey-5;
+                        font-size: $f-size-s;
+                        letter-spacing: 1.8px;
+                    }
+                }
+            }
+        }
+
+        &.substep-2 {
+            @include media($small-screen-down) {
+                padding: 0 1em 1em;
+            }
+        }
+
+        .substep-2-header {
+            @include media($small-screen-down) {
+                display: block;
+            }
+        }
+
+        .condition-more-info {
+            .more-info {
+                @include media($small-screen-down) {
+                    display: inline-block;
+                }
+
+                &.content {
+                    display: block;
+
+                    p {
+                        margin: .1em 0;
+
+                        &:first-of-type {
+                            margin: 0 0 .1em;
+                        }
+                    }
+
+                }
+
+                ul {
+                    @include media($small-screen-down) {
+                        color: $black;
+                        line-height: 1.7;
+                    }
+
+                    li {
+                        list-style: inherit;
+                        font-size: $f-size-xxxs;
+
+                        @include media($small-screen-down) {
+                            list-style-position: inside;
+                        }
+                    }
+                }
+            }
+        }
+
+        .divider {
+            display: inline-block;
+
+            @include media($small-screen-down) {
+                display: none;
+            }
+        }
+    }
+
+    .tooltip-wrapper {
+        display: inline-block;
+        margin-bottom: em(6);
+        margin-left: em(8);
+    }
+
+    .part-exchange-custom {
+        font-size: 1rem;
+
+        .px-selects {
+            input[type='text'] {
+                height: 46px;
+                padding: 0 1.4em;
+                text-align: left;
+                text-transform: none;
+
+                @include media($small-screen-down) {
+                    width: 100%;
+                }
+
+                &::placeholder {
+                    color: $input-color;
+                }
+            }
+
+            .selectbox {
+                @include media($small-screen-down) {
+                    max-width: 100%;
+                }
+
+                .selectbox-select {
+                    font-weight: $fw-book;
+                    overflow: hidden;
+                    text-align: left;
+                    text-transform: none;
+                    white-space: nowrap;
+                }
+            }
+        }
+
+        p {
+            font-weight: $fw-book;
+
+            &.reg-date-hint {
+                max-width: 365px;
+                margin-top: 20px;
+            }
+
+            &.custom-car-error {
+                color: $error-color;
+            }
+        }
+
+        .px-custom-actions {
+            max-width: 365px;
+
+            @include media($small-screen-down) {
+                max-width: 100%;
+            }
+        }
+    }
+
+    .px-input {
+        color: $px-input-text-color;
+        font-family: $px-input-font;
+        font-size: $f-size-xxxxl;
+        text-transform: inherit;
+
+        @include placeholder {
+            color: $grey-4;
+        }
+
+        &::-ms-clear {
+            display: none;
+        }
+    }
+
+    .part-exchange-wrapper {
+        @include display(flex);
+        @include media($small-screen-down) {
+            display: block;
+        }
+    }
+
+    .part-exchange-left,
+    .part-exchange-right {
+        width: calc(50% - 37.5px);
+        float: left;
+      //  margin-left: 110px;
+     // margin-right: -190px;
+
+        @include media($small-screen-down) {
+            padding: 0;
+            width: 100%;
+        }
+    }
+
+    .part-exchange-or {
+      position: relative;
+      height: 180px;
+      margin: auto;
+
+        @include media($small-screen-down) {
+            height: 56px;
+            width: 80%;
+        }
+
+        .or {
+            display: block;
+            text-align: center;
+            font-family: $primary-font-family;
+            font-weight: $fw-black;
+            color: $black;
+            background: $grey-2;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin: auto;
+            width: $px-divider-circle-size;
+            height: $px-divider-circle-size;
+            line-height: $px-divider-circle-size + 4px;
+            font-size: $f-size-xxl;
+        }
+
+        .hr {
+            border-left: 1px solid $grey-2;
+            height: 100%;
+            width: calc(50% - 1px);
+            margin-left: auto;
+
+            @include media($small-screen-down) {
+                border: {
+                    left: none;
+                    top: 1px solid $grey-2;
+                }
+                bottom: 0;
+                height: calc(50% - 1px);
+                margin-left: 0;
+                position: absolute;
+                width: 100%;
+            }
+        }
+    }
+
+    .part-exchange-skip-wrapper {
+        text-align: center;
+
+        @include media($small-screen-down) {
+            margin-top: 16px;
+        }
+
+        .skip-button {
+          width: $px-vrm-block-max-width;
+          height: 40px;
+          color: $black;
+          background: $white;
+          border: 0;
+          font-size: $f-size-s;
+          font-weight: $fw-hairline;
+          font-family: $primary-font-family;
+          padding: 0;
+          letter-spacing: $px-input-letter-spacing;
+          border: 1px solid $black;
+
+          &:hover {
+              color: $white;
+              background: $black;
+              border: 1px solid $black;
+          }
+
+            @include media($small-screen-down) {
+                color: $white;
+                background: $black;
+                height: 2.45em;
+                letter-spacing: $px-input-letter-spacing-s-screen;
+                width: $px-vrm-block-max-width-s-screen;
+                border: 1px solid $black;
+            }
+        }
+    }
+
+    .px-mileage-block {
+        margin-top: 45px;
+
+        @import 'part-exchange/px-mileage-block-wrapper';
+        @import 'part-exchange/px-car-info';
+
+        @include media($small-screen-down) {
+            margin-top: 0;
+        }
+
+        .px-car-info {
+            margin-left: 75px;
+            position: relative;
+
+            p {
+                padding: 8px;
+            }
+
+            &::after {
+                position: absolute;
+                content: '';
+            }
+
+            &.wide-info {
+                margin: 20px 0 30px;
+                max-width: calc(100% - 1px);
+                width: 100%;
+
+                &::after {
+                    right: 153px;
+                }
+            }
+        }
+    }
+
+    .part-exchange-valuation {
+        .px-car-worth {
+            .px-bold-heading {
+                font-weight: $fw-bold;
+                margin-bottom: 1em;
+            }
+
+            .h1 {
+                font-family: $primary-font-family;
+                font-weight: $fw-semibold;
+                padding: 10px 0;
+                color: $px-valuation-heading-color;
+                border: 2px solid $px-valuation-heading-color;
+            }
+        }
+
+        .px-outstanding-finance {
+            .px-bold-heading {
+                font-weight: $fw-bold;
+                margin-top: 1em;
+                text-align: center;
+
+                @include media($medium-screen-up) {
+                    margin-top: 0;
+                    text-align: left;
+                }
+            }
+
+            .keyboard-numbers {
+                @include media($medium-screen-only) {
+                    padding: 10px 5px;
+                }
+            }
+
+            .px-how-much {
+                color: $grey-4;
+                line-height: 1;
+
+                @include media($medium-screen-up) {
+                    line-height: 52px;
+                }
+            }
+        }
+
+        .px-result-actions {
+            button {
+                font-size: 16px;
+                font-weight: $fw-light;
+                text-align: center;
+                width: 100% !important; // Important, because need override !important styles :(
+                margin: 0 0 10px !important;
+
+                @include media($medium-screen-only) {
+                    font-size: em(17);
+                    padding: 1.05em 0;
+                }
+            }
+        }
+    }
+
+    .part-exchange-middle {
+        .px-condition-block {
+            .px-light-text {
+                color: $px-dark-color;
+                padding-top: em(2);
+
+                p {
+                    color: $px-dark-color;
+                }
+            }
+
+            .px-condition-title {
+                color: $px-regular-heading-color;
+                font-size: $f-size-xl;
+                font-weight: $fw-semibold;
+                text-transform: inherit;
+            }
+        }
+    }
+
+    .part-exchange-left {
+        .part-exchange-vrm-wrapper {
+            @include media($small-screen-down) {
+                margin-top: 24px;
+            }
+
+            .px-vrm-block {
+                @import './part-exchange/px-car-info';
+                @import './part-exchange/px-vrm-block-input';
+
+                .px-regular-heading {
+                    @include media($small-screen-down) {
+                        text-align: center;
+                        margin-bottom: em(15px);
+                    }
+                }
+            }
+        }
+
+        .px-vrm-block.inside-popup,
+        .px-vrm-block.inside-accordion {
+            @import './part-exchange/px-popup-vrm-block-input';
+            @import './part-exchange/px-car-info';
+
+            .px-car-info {
+                max-width: calc(100% - 1px);
+
+                @include media($small-screen-down) {
+                    margin-top: 20px;
+                    width: 100%;
+                }
+
+                &::after {
+                    right: calc(50% - 7px);
+                }
+            }
+        }
+    }
+
+    &.compact-px {
+        .part-exchange-left,
+        .part-exchange-right {
+            @include media($medium-screen-up) {
+                flex: 1 0 0;
+            }
+        }
+    }
+
+    .skip-heading {
+        margin-top: 26px;
+    }
+
+    .current-car {
+        background-color: $px-light-background-color;
+        padding: 10px;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: $primary-font-family;
+        margin-bottom: 1em;
+
+        @include media($small-screen-down) {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: $white;
+            margin-bottom: 0;
+        }
+
+        .col-12 {
+            @include media($small-screen-down) {
+                padding-bottom: 0;
+            }
+        }
+
+        .prop {
+            font-weight: $fw-normal;
+            font-size: 12px;
+            color: $grey-4;
+            vertical-align: top;
+            margin-right: 5px;
+
+            @include media($small-screen-down) {
+                display: block;
+                font-size: 14px;
+            }
+
+            @include media($large-screen-up) {
+                display: inline-block;
+            }
+        }
+
+        .values {
+            color: $black;
+            display: inline-block;
+            font-size: 12px;
+            vertical-align: top;
+            font-weight: $fw-book;
+
+            @include media($small-screen-down) {
+                display: block;
+                font-size: 14px;
+            }
+
+            @include media($large-screen-up) {
+                display: inline-block;
+            }
+
+            .main {
+                font-weight: normal;
+                font-size: 25px;
+                font-family: $mini_heading;
+            }
+
+            .main-description {
+                font-weight: $fw-bold;
+                font-family: $mini_heading;
+                font-size: 25px;
+            }
+
+        }
+
+        .px-not-your-car {
+            background: $base-background-color;
+            border: 0;
+            color: $black;
+            font: {
+                size: $px-not-your-car-button-font-size;
+                weight: $fw-black;
+            }
+            position: relative;
+            padding: 1.4em 1em 1.2em 3em;
+            float: right;
+            margin-top: $px-not-your-car-margin-top;
+
+            @include media($small-screen-down) {
+                float: none;
+                margin-top: 2em;
+            }
+
+            .question-icon {
+                &::before {
+                    @include sprite($sprite-question);
+                    content: '';
+                    display: inline-block;
+                    transform: scale(.4);
+                    position: absolute;
+                    top: -7px;
+                    left: -7px;
+                }
+            }
+        }
+    }
+
+    .px-outstanding-finance {
+        .col-6 {
+            .px-regular-heading {
+                line-height: 53px;
+            }
+        }
+    }
+
+    .px-regular-heading {
+        color: $px-regular-heading-color;
+        text-transform: uppercase;
+        font-size: $f-size-s;
+        font-family: $mini;
+        letter-spacing: em(1.7);
+        margin: 0 0 0 0;
+        text-align: left;
+    }
+
+    .px-small-heading {
+        font-size: 14px;
+        font-weight: $fw-semibold;
+        color: $black;
+        margin: 0 0 12px;
+    }
+
+    .part-exchange-title {
+        color: $px-regular-heading-color;
+        font-family: $primary-font-family;
+        font-size: 20px;
+        font-weight: $fw-book;
+        margin-bottom: 35px;
+        text-align: center;
+    }
+
+    .part-exchange-right {
+        .px-submit-block {
+            button {
+                font-weight: $fw-light;
+                padding: .845em 1.5em;
+                width: 100% !important; // Important, because need override !important styles :(
+                margin-left: 0 !important;
+            }
+        }
+
+        .px-terms-conditions {
+            text-align: left;
+
+            a {
+                color: $primary-color;
+            }
+        }
+    }
+
+    .accordion {
+        ul.submenu {
+            @include media($small-screen-down) {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .valuation-summary {
+        @include media($small-screen-down) {
+            padding-top: 26px;
+        }
+
+        @include media($large-screen-up) {
+            margin-top: 26px;
+        }
+
+        .final-valuation {
+            color: $black;
+            font-size: $f-size-9xl;
+            line-height: 45px;
+            font-weight: $fw-bold;
+            font-family: $brand-specific-font;
+
+            @include media($small-screen-down) {
+                margin-bottom: 0;
+            }
+        }
+
+        .px-regular-heading {
+            text-align: center;
+        }
+
+        .info {
+            @include media($small-screen-down) {
+                padding: 0 3em;
+                font-size: 14px;
+                font-weight: $fw-book;
+            }
+
+            @include media($large-screen-up) {
+                margin-top: 37px;
+            }
+        }
+
+        .future-value {
+            background: $white;
+
+            ul {
+                li {
+                    font-family: $brand-specific-font;
+                    font-size: $f-size-s;
+                    color: $grey-4;
+                    letter-spacing: 1.2px;
+
+                    strong {
+                        color: $black;
+                    }
+                }
+            }
+
+            &:not(.show-more) {
+                display: none;
+
+                @include media($medium-screen-up) {
+                    display: block;
+                }
+
+                .info-block {
+                    font-weight: $fw-light;
+                }
+
+                ul {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-top: 8px;
+
+                    li {
+                        flex: 1;
+                        justify-self: center;
+                        text-align: center;
+                    }
+
+                    li:not(:last-child) {
+                        border-right: 1px solid $grey-3;
+                    }
+                }
+            }
+
+            &.show-more {
+                background-color: $white;
+                border: 0;
+                display: none;
+                margin: 18px auto 0;
+                max-width: 240px;
+
+                @include media($small-screen-down) {
+                    display: block;
+                }
+
+                .info-block {
+                    display: none;
+                }
+
+                ul {
+                    text-align: center;
+                    list-style: none;
+
+                    li {
+                        padding: .75em 0;
+                        font-size: $px-future-value-more-info-font-size;
+
+                        &:not(:last-child) {
+                            border-bottom: 1px solid $grey-2;
+                            margin: auto;
+                        }
+                    }
+                }
+
+                .header {
+                    text-transform: uppercase;
+                    font-weight: $fw-bold;
+                    padding-left: 0;
+
+                    @include media($small-screen-down) {
+                        font-size: $f-size-xl;
+                    }
+
+                    div {
+                        padding-left: 31px;
+                    }
+                }
+            }
+        }
+
+        .auto-settlement {
+            clear: both;
+
+            p {
+                text-align: center;
+                margin: 0 0 16px;
+            }
+        }
+
+        .skip-px-container {
+            display: none;
+
+            @include media($small-screen-down) {
+                display: block;
+            }
+
+            .skip-px-info {
+                margin-bottom: 12px;
+                margin-top: 23px;
+            }
+
+            .button {
+                background-color: $grey-4;
+                color: $white;
+                font-weight: $fw-bold;
+                height: 50px;
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    .substep-3 {
+        hr {
+            @include media($small-screen-down) {
+                margin: 0;
+            }
+        }
+    }
+
+    .outstanding-finance {
+        @include media($small-screen-down) {
+            padding: 24px 0 1em !important;
+        }
+
+        @include media($large-screen-up) {
+            margin-top: 24px;
+        }
+
+        .title {
+            text-align: center;
+            font-weight: $fw-bold;
+            font-size: em(12);
+        }
+
+        .input-wrapper {
+            width: 250px;
+            height: 54px;
+            margin-left: auto;
+            margin-right: auto;
+
+            .px-input {
+                display: inline-block;
+                width: 100%;
+                float: left;
+                font: {
+                    size: $px-outstanding-finance-font-size;
+                    family: $px-outstanding-finance-font;
+                    weight: $fw-semibold;
+                }
+                color: $black;
+                border-width: 1px $grey-2;
+                height: 54px;
+                text-align: center;
+                background-color: inherit;
+
+                @include media($small-screen-down) {
+                    float: none;
+                    margin: 0 auto;
+                    display: block;
+                    width: 206px;
+                }
+            }
+        }
+    }
+
+    &.px-popup {
+        .px-regular-heading {
+            font-size: $f-size-xxs;
+            font-family: $primary-font-family;
+            text-align: left;
+            letter-spacing: .127em;
+            display: block;
+            font-weight: $fw-bold;
+            margin: 0;
+            line-height: 1.45;
+            text-transform: none;
+        }
+
+        .px-light-text {
+            margin: 1.273em 0 1.455em;
+            font-size: $f-size-xxs;
+            letter-spacing: .091em;
+        }
+
+        .part-exchange-regular {
+            .part-exchange-left {
+                .px-mileage-block,
+                .px-vrm-block-input {
+                    margin: 0;
+
+                    input {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        .px-input {
+            color: $black;
+            font-family: $brand-specific-font;
+            font-size: $f-size;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: $fw-black;
+            letter-spacing: .091em;
+            margin-bottom: 1.636em;
+            height: 2.5em;
+
+            @include placeholder {
+                color: $black;
+            }
+
+            &::placeholder {
+                font-size: $f-size;
+            }
+
+            &::-ms-clear {
+                display: none;
+            }
+        }
+
+        .button-wrap {
+            button {
+                width: 100%;
+                height: 2.95em;
+                font-size: $f-size-xxs;
+                line-height: 0;
+                letter-spacing: .1em;
+                font-weight: $fw-black;
+                border: 0;
+            }
+        }
+
+        .px-condition-block {
+            max-width: 100%;
+
+            .px-condition-title {
+                font-size: $f-size-xs;
+                font-weight: $fw-black;
+                line-height: 1.05;
+                letter-spacing: .083em;
+                padding-bottom: .833em;
+                border-bottom: 1px solid $grey-2;
+            }
+
+            .px-light-text:first-of-type {
+                font-weight: $fw-semibold;
+                margin: 2.091em 0 1.455em;
+            }
+
+            .px-light-text {
+                p {
+                    font-size: $f-size-xxxs;
+                    line-height: 1.4;
+                    letter-spacing: .04em;
+                    margin: 3em 0;
+                }
+            }
+
+            .range-slider {
+                margin: .313em 0 1.938em;
+
+                .ui-slider-range {
+                    outline: 4px solid $grey-1;
+                }
+            }
+        }
+
+        .px-additional-info-block {
+            margin-bottom: 2.087em;
+
+            .px-additional-info-checkbox {
+                @include display(flex);
+                flex-wrap: wrap;
+
+                p {
+                    font-size: $f-size-xxs;
+                }
+
+                .info-label-wrap {
+                    padding-right: 0;
+                    display: flex;
+                    width: calc(100% - 55px);
+                    align-items: center;
+
+                    .px-light-text {
+                        font-size: $f-size-xxs;
+                        margin: 0;
+                        width: calc(100% - 15px);
+                    }
+                }
+            }
+        }
+
+        .part-exchange-left {
+            @include media($small-screen-down) {
+                .button-wrap > button,
+                .px-input {
+                    max-width: 100%;
+                }
+            }
+
+            @include media($large-screen-up) {
+                padding: 0 5em 0 2em;
+                margin: 0 0 0 1.4em;
+                border-right: solid 1px $grey-2;
+            }
+
+            @include media($large-screen-down) {
+                padding-left: 0;
+            }
+
+            @include media($small-screen-down) {
+                padding-left: 0;
+            }
+
+            .px-vrm-block {
+                .px-vrm-block-input {
+                    max-width: 100%;
+                    display: flex;
+
+                    @include media($small-screen-down) {
+                        .px-input {
+                            padding: 0;
+                            max-width: 100%;
+                        }
+                    }
+
+                    .px-input {
+                        margin-right: 0;
+
+                        &.col-10 {
+                            width: 100%;
+                            min-width: 75%;
+                        }
+                    }
+
+                    .cancel-current-car {
+                        background: $black;
+                        width: 2.375em;
+                        height: 2.2em;
+
+                        span {
+                            @include sprite($sprite-close-light-small);
+                            display: inline-block;
+                            margin: 11px 14px;
+                        }
+                    }
+
+                    .selectbox {
+                        max-width: 100%;
+
+                        .selectbox-select {
+                            color: $black;
+                            background: $grey-2;
+                            padding: .5em 1.2em;
+                            line-height: inherit;
+                            min-height: initial;
+                        }
+
+                        ul {
+                            li {
+                                height: initial !important; //need !important to overwrite inline styling
+                                line-height: 1.5 !important; //need !important to overwrite inline styling
+                                padding: .5em 1.2em;
+                                font-size: $f-size-xl;
+                                color: $black;
+                                font-family: $brand-specific-font;
+                                font-weight: $fw-black;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .px-car-info {
+                max-width: 100%;
+                margin: auto;
+                background: $white;
+                padding: .625em;
+
+                @include media($small-screen-down) {
+                    max-width: 100%;
+                }
+
+                p {
+                    font-size: $f-size-xxxxs;
+                    line-height: 1.67;
+                    letter-spacing: .044em;
+                }
+
+                .px-car-name {
+                    font-size: $f-size-xxs;
+                    font-weight: $fw-black;
+                    line-height: 1.36;
+                    letter-spacing: .091em;
+                }
+            }
+        }
+
+        .part-exchange-right {
+            @include media($large-screen-up) {
+                padding-left: 5em;
+            }
+
+            @include media($large-screen-down) {
+                margin-left: 2em;
+                padding-left: 2em;
+            }
+
+            @include media($small-screen-down) {
+                padding-left: 0;
+                margin-left: 0;
+            }
+
+            .px-submit-block {
+                button:first-of-type {
+                    margin-bottom: 1em;
+                    background: $landrover-black-to-jaguar-red;
+                }
+
+                button {
+                    max-width: 33.182em;
+                    font-size: $f-size-xxs;
+                    font-weight: $fw-black;
+                    letter-spacing: .1em;
+                    height: 2.95em;
+
+                    @include media($medium-screen-down) {
+                        font-size: $f-size-5xs;
+                        height: 9em;
+                        max-width: 100%;
+                    }
+
+                    @include media($small-screen-down) {
+                        font-size: $f-size-5xs;
+                        max-width: 100%;
+                        height: 9em;
+
+                    }
+
+                    &.button-disabled {
+                        opacity: .5 !important;
+
+                        ~ .button-empty {
+                            opacity: .5;
+                        }
+                    }
+                }
+
+                .button-empty {
+                    background: $white;
+                    border: 1px solid $black;
+                    color: $black;
+
+                    &:hover{
+                      background: $black;
+                      color: $white;
+                    }
+                }
+            }
+
+            .part-exchange-valuation {
+                .px-car-worth {
+                    .px-bold-heading {
+                        font-size: $f-size-xs;
+                        text-align: center;
+                        text-transform: uppercase;
+                        font-weight: $fw-black;
+                        letter-spacing: .1em;
+                        max-width: 30.182em;
+                        border-top: 1px solid $grey-2;
+                        padding-top: 1.167em;
+
+                        @include media($small-screen-down) {
+                            max-width: 100%;
+                        }
+                    }
+
+                    .h1 {
+                        font-family: $brand-specific-font;
+                        font-size: $f-size-xl;
+                        max-width: 22.813em;
+                        text-align: center;
+                        color: $black;
+                        font-weight: $fw-black;
+                        letter-spacing: .091em;
+                        background: $grey-2;
+                        border: 0;
+                        padding: .5em 1.2em;
+
+                        @include media($small-screen-down) {
+                            max-width: 100%;
+                        }
+                    }
+                }
+
+                .px-outstanding-finance {
+                    .px-light-text {
+                        text-align: center;
+                        max-width: 35.182em;
+
+                        @include media($small-screen-down) {
+                            max-width: 100%;
+                        }
+                    }
+
+                    .px-input {
+                        border: 1px solid $black;
+                        width: 100%;
+
+                        @include media($medium-screen-up) {
+                            max-width: 365px;
+                        }
+                    }
+                }
+
+                .px-result-actions {
+                    button {
+                        font-size: $f-size-xxs;
+                        font-weight: $fw-black;
+                        line-height: 0;
+                        letter-spacing: .1em;
+                        height: 2.95em;
+                        max-width: 33.182em;
+
+                        @include media($medium-screen-down) {
+                            font-size: $f-size-xxxxs;
+                            height: 5em;
+                            max-width: 100%;
+                        }
+
+                        @include media($small-screen-down) {
+                            font-size: $f-size-5xs;
+                            max-width: 100%;
+                            height: 5em;
+                        }
+
+                        &.button-empty {
+                            background: $grey-2;
+                            border: 0;
+                        }
+                    }
+
+                    span {
+                        display: block;
+                        font-size: $f-size-xxs;
+                        text-align: center;
+                        max-width: 33.182em;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.car-finder-px-modal {
+    .px-input {
+        height: 2.3em;
+    }
+
+    .part-exchange {
+        .px-additional-info-checkbox {
+            @include display(flex);
+        }
+
+        .part-exchange-valuation {
+            .px-car-worth {
+                .h1 {
+                    padding: 10px 0 0 30px;
+                }
+            }
+        }
+    }
+
+    .range-slider-wrapper {
+        .ui-slider.show-steps {
+            .ui-slider-range {
+                outline: 4px solid $grey-1;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 46em){
+.part-exchange .part-exchange-skip-wrapper .skip-button:hover {
+    color: $black;
+    background: $white;
+    height: 2.45em;
+    letter-spacing: 0.125em;
+    width: 100%;
+    border: 1px solid $black;
+}
+}
+
+@media screen and (max-width: 46em){
+.part-exchange .part-exchange-or {
+    display: none;
+}
+}
+
+.selectbox .selectbox-select .dropdown-caret {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    width: 48px;
+    height: 100%;
+    background: $black;
+}
+
+.part-exchange.px-popup .part-exchange-right .px-submit-block button:first-of-type {
+    margin-bottom: 1em;
+    background: $mini-green;
+
+    &:hover {
+      background: $white;
+      border: 1px solid $black;
+      color: $black;
+    }
+}
+
+#checkout {
+    .part-exchange {
+        .part-exchange-right {
+            .auto-settlement {
+                margin: 0 0 10px 0;
+
+                .heading {
+                    font-size: $f-size-xxl;
+                }
+
+                button {
+                    height: 2.95em;
+                    font-size: $f-size-xxs;
+                    font-weight: $fw-black;
+                    line-height: 0;
+                    letter-spacing: .1em;
+                    width: 100%;
+
+                    @include media($medium-screen-down) {
+                        font-size: $f-size-xxxxs;
+                        max-width: 45.625em;
+                    }
+
+                    @include media($small-screen-down) {
+                        font-size: $f-size-5xs;
+                        max-width: 52.143em;
+                    }
+                }
+            }
+        }
+    }
+}

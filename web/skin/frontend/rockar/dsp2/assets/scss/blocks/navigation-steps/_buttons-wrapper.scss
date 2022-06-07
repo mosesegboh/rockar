@@ -1,0 +1,292 @@
+&-buttons-wrapper {
+    @include clearfix();
+    border-top: 1px solid $nv-bc;
+    padding: 10px 15px;
+
+    @include media($small-screen-down) {
+        border: 0;
+        margin: 0;
+        padding-bottom: 32px;
+    }
+
+    .navigation-outer-container {
+        justify-content: space-between;
+
+        @include media($small-screen-down) {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row-reverse;
+            justify-content: center;
+        }
+
+        @include media($small-screen-down) {
+            text-align: center;
+            display: block;
+        }
+
+        .button {
+
+            @include media($small-screen-down) {
+                padding: 1em;
+                margin: 0 auto 1em;
+                text-align: center;
+                width: 200px;
+                height: 48px;
+            }
+
+            &:hover {
+                opacity: 1;
+                background-color: $c-blue-1;
+            }
+
+            &:focus {
+                opacity: 1;
+            }
+
+            &.disabled {
+                cursor: not-allowed;
+                background-color: $bmw-blue;
+                opacity: 0.3;
+                border-color: $bmw-blue;
+
+                @include media($small-screen-down) {
+                    border-color: $bmw-blue;
+                    opacity: 0.3;
+                }
+            }
+
+            &.next-step {
+                float: right;
+
+                @include media($small-screen-down) {
+                    float: none;
+                    position: fixed;
+                    bottom: 0;
+                    right: 0;
+                    margin: 0;
+                    max-width: none;
+                    height: $car-finder-sub-nav-buttons-height-mobile;
+                    width: calc(100% - 55px);
+                    box-sizing: border-box;
+                    z-index: 2;
+
+                    &.disabled {
+                        opacity: 0.3;
+                    }
+
+                    &.full-width {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        .step-back {
+            @include media($small-screen-down) {
+                float: none;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                margin: 0;
+                height: $car-finder-sub-nav-buttons-height-mobile;
+                width: $dsp2-f-size-s-back-width;
+                background-color: $white;
+                z-index: 2;
+                border: 0;
+                border-top: 1px solid $c-grey-5;
+                box-sizing: border-box;
+
+                &::before {
+                    background-image: none;
+                    background-position: unset;
+                    border-right: 3px solid $white;
+                    border-top: 3px solid $white;
+                    transform: rotate(225deg) translateY(0%);
+                    margin: auto;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    width: 15px;
+                    height: 15px;
+                }
+            }
+        }
+
+        .get-valuation {
+            float: right;
+
+            @include media($small-screen-down) {
+                float: none;
+                position: fixed;
+                bottom: 0;
+                right: 0;
+                margin: 0;
+                height: $car-finder-sub-nav-buttons-height-mobile;
+                max-width: none;
+                width: calc(100% - 55px);
+                z-index: 2;
+            }
+        }
+
+        .px-buttons {
+            @include media($large-screen-up) {
+                display: inline-block;
+                vertical-align: bottom;
+                position: relative;
+                left: 13%;
+            }
+
+            @include media($small-screen-down) {
+                float: none;
+                margin: 0 auto;
+                display: block;
+                margin-bottom: 1em !important;
+                white-space: initial;
+            }
+        }
+
+        .continue-px {
+            padding-left: 2em;
+            padding-right: 2em;
+
+            @include media($small-screen-down) {
+                float: none;
+                white-space: nowrap;
+            }
+        }
+
+        .with-px {
+            margin-left: 1em;
+
+            @include media($small-screen-down) {
+                width: calc(100vw - 55px);
+                margin-left: 0;
+            }
+        }
+
+        .without-px {
+            background-color: $white;
+            border: none;
+
+            &::before {
+                @include sprite($sprite-bmw-link);
+                content: '';
+                display: inline-block;
+                transform: scale(1.2);
+                position: relative;
+                left: -5px;
+                top: 0;
+            }
+
+            &:hover{
+                background-color: $white;
+                color: $c-grey-1;
+            }
+        }
+
+        .skip-px {
+            @include media($medium-screen-up) {
+                float: right;
+                margin-right: 14px;
+                position: relative;
+                border: none;
+                background-color: $white;
+
+                &:hover {
+                    background-color: $white;
+                    color: $c-grey;
+                }
+
+                &::before {
+                    @include sprite($sprite-bmw-link);
+                    content: '';
+                    display: inline-block;
+                    transform: scale(1.2);
+                    position: absolute;
+                    left: 55px;
+                    top: 21px;
+                }
+            }
+
+            @include media($small-screen-down) {
+                width: 200px;
+                border: none;
+            }
+        }
+
+        .long-button {
+            @include media($small-screen-down) {
+                width: 80%;
+                max-width: 320px;
+            }
+
+            @include media($small-screen-down) {
+                width: 100%;
+                margin: {
+                    left: auto;
+                    right: auto;
+                }
+                padding: 0;
+                text-align: center;
+            }
+        }
+
+        .button-empty {
+            @include media($small-screen-down) {
+                border-width: 1px;
+            }
+        }
+    }
+
+    .validation-advice {
+        margin: 2em 0 0;
+        text-align: center;
+        padding: 1em 0;
+        color: $c-red-2;
+
+        @include media($small-screen-down) {
+            display: block;
+            margin: 0 auto;
+            text-align: left;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        a {
+            color: $c-red-2;
+        }
+    }
+
+    .invisible {
+        visibility: hidden;
+    }
+
+    .mobile-only {
+        display: none;
+
+        @include media($small-screen-down) {
+            display: block;
+        }
+    }
+
+    .mobile-tablet-only {
+        display: none;
+
+        @include media($small-screen-down) {
+            display: block;
+        }
+    }
+
+    .desktop-tablet-only {
+        @include media($small-screen-down) {
+            display: none;
+        }
+    }
+
+    .desktop-only {
+        @include media($small-screen-down) {
+            display: none;
+        }
+    }
+}

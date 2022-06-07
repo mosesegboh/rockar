@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_Admin
+ * @author    Lilian Codreanu <lilian.codreanu@rockar.com>
+ * @copyright Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_Admin>
+            <active>false</active>
+            <codePool>local</codePool>
+            <depends>
+                <Rockar_All/>
+                <Mage_Core/>
+            </depends>
+        </Peppermint_Admin>
+    </modules>
+</config>

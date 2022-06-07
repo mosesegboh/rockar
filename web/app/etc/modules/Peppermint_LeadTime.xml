@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint\LeadTime
+ * @author       Dumitru Mocanu <dumitru.mocanu@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_LeadTime>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Peppermint_YouDrive/>
+                <Rockar_LeadTime />
+            </depends>
+        </Peppermint_LeadTime>
+    </modules>
+</config>

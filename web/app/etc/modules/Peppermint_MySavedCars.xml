@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint\MySavedCars
+ * @author    Jiraphong Witthayathanakit <jiraphong.witthayathanakit@rockar.com>
+ * @copyright Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_MySavedCars>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Rockar2_MySavedCars/>
+                <Rockar_Configurator/>
+            </depends>
+        </Peppermint_MySavedCars>
+    </modules>
+</config>

@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint\MySavedCars
+ * @author    Jiraphong Witthayathanakit <jiraphong.witthayathanakit@rockar.com>
+ * @copyright Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_MySavedCars>
+            <version>0.1.0</version>
+        </Peppermint_MySavedCars>
+    </modules>
+    <global>
+        <blocks>
+            <peppermint_mysavedcars>
+                <class>Peppermint_MySavedCars_Block</class>
+            </peppermint_mysavedcars>
+            <rockar_mysavedcars>
+                <rewrite>
+                    <savedCars>Peppermint_MySavedCars_Block_SavedCars</savedCars>
+                </rewrite>
+            </rockar_mysavedcars>
+        </blocks>
+        <helpers>
+            <rockar_mysavedcars>
+                <rewrite>
+                    <data>Peppermint_MySavedCars_Helper_Data</data>
+                </rewrite>
+            </rockar_mysavedcars>
+        </helpers>
+    </global>
+    <frontend>
+        <routers>
+            <rockar_mysavedcars>
+                <use>standard</use>
+                <args>
+                    <modules>
+                        <peppermint_mysavedcars before="Rockar2_MySavedCars">Peppermint_MySavedCars</peppermint_mysavedcars>
+                    </modules>
+                </args>
+            </rockar_mysavedcars>
+        </routers>
+    </frontend>
+</config>

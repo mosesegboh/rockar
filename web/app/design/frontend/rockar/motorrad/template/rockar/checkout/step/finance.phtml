@@ -1,0 +1,36 @@
+<?php
+/**
+ * @category  Peppermint
+ * @package   Peppermint_FinancingOptions
+ * @author    Alexander Metzgen <alexander.metzgen@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar, Ltd (http://rockar.com)
+ */
+
+$data = $this->getFinanceQuoteData();
+$savedData = $this->getFinanceQuoteSavedData();
+$rockerAllHelper = Mage::helper('rockar_all');
+?>
+<app-checkout-accordion title="Choose Your Payment Option" type="right-down" class-name="accordion-light" step-code="<?php echo Rockar_FinancingOptions_Helper_Finance_Quote_Checkout::FINANCE_STEP_CODE; ?>">
+    <li>
+        <div class="accordion-content">
+            <app-checkout-finance-overlay
+                :product-id="<?php echo $data['product_id']; ?>"
+                finance-url="<?php echo $data['finance_url']; ?>"
+                :finance-params-origin='<?php echo $data['finance_params']; ?>'
+                :finance-slider-steps='<?php echo $data['finance_slider_steps']; ?>'
+                :pay-in-full-payment='<?php echo $data['pay_in_full_payment']; ?>'
+                :hire-payments='<?php echo $rockerAllHelper->jsonEncode($data['hire_payments']); ?>'
+                :active-payment='<?php echo $data['active_payment']; ?>'
+                payment-save-url='<?php echo $data['payment_save_url']; ?>'
+                :update-finance-quote="true";
+                calc-type="<?php echo Rockar_FinancingOptions_Model_Calculation_Type_Abstract::CALC_TYPE_QUOTE; ?>"
+                confirmation-overlay-content='<?php echo $rockerAllHelper->jsonEncode($this->getChildHtml('checkout_finance_confirmation')); ?>'
+                disagree-overlay-content='<?php echo $rockerAllHelper->jsonEncode($this->getChildHtml('checkout_finance_step_disagree')); ?>'
+                confirmation-url="<?php echo $this->getUrl('checkout/onepage_financing/checkoutFinanceStep'); ?>"
+                :finance-saved-data='<?php echo $savedData; ?>'
+                :skip-ready='<?php echo $savedData != '' ? 'true' : 'false'; ?>'
+                :instalment-group-id='<?php echo $this->getInstalmentGroupId(); ?>'
+                ></app-checkout-finance-overlay>
+        </div>
+    </li>
+</app-checkout-accordion>

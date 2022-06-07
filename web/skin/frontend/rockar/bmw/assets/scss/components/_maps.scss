@@ -1,0 +1,35 @@
+.map-wrapper {
+    height: 400px;
+
+    #map {
+        height: 100%;
+
+        a[href^="http://maps.google.com/maps"],
+        a[href^="https://maps.google.com/maps"] {
+            display: inline;
+        }
+
+        .gmnoprint {
+            a,
+            span {
+                display: inline;
+            }
+
+            button {
+                height: auto;
+                vertical-align: initial;
+            }
+        }
+
+        .gm-style-cc {
+            display: block;
+        }
+
+        div[aria-label="Keyboard shortcuts"] {
+            @include media($medium-screen-up) {
+                margin-left: 52%;
+                max-width: 46%;
+            }
+        }
+    }
+}

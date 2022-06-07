@@ -1,0 +1,42 @@
+/**
+Here we add variables that are unique to MINI. If a variable is not here but is on the Style guide,
+we can use the variable from Style guide - it is already included in the dsp2 theme
+ */
+
+$mini-sans-serif-bold: 'MINI-Sans-Serif-Bold', Arial, sans-serif;
+$mini-serif-bold: 'MINI-Serif-Bold', Georgia, serif;
+$mini-sans-serif-regular: 'MINI-Sans-Serif-Regular', Arial, sans-serif;
+$mini-serif-regular: 'MINI-Serif-Regular', Georgia, serif;
+
+$mini-collection: woff, woff2;
+
+// MINI font family
+// Bold Sans-serif/ 700
+@include font-face('MINI-Sans-Serif-Bold', '../../mini2/fonts/mini/MINISansSerif-Bold', $fw-normal, normal, false, $mini-collection);
+// Bold Serif/ 700
+@include font-face('MINI-Serif-Bold', '../../mini2/fonts/mini/MINISerif-Bold', $fw-normal, normal, false, $mini-collection);
+// Regular Sans-serif/ 400
+@include font-face('MINI-Sans-Serif-Regular', '../../mini2/fonts/mini/MINISansSerif-Regular', $fw-normal, normal, false, $mini-collection);
+// Regular Serif/ 400
+@include font-face('MINI-Serif-Regular', '../../mini2/fonts/mini/MINISerif-Regular', $fw-normal, normal, false, $mini-collection);
+
+////// Font Sizes - 52px //////
+$mini-f-size-52: 3.25em;
+
+////// Font Sizes - 70px //////
+$mini-f-size-70: 4.45em;
+
+////// Font Sizes - 38px //////
+$mini-f-size-38: 2.375em;
+
+////// Font Sizes - 22px //////
+$mini-f-size-22: 1.375em;
+
+////// Line heights //////
+$mini-line-h-75: 75px;
+$mini-line-h-74: 74px;
+$mini-line-h-52: 52px;
+$mini-line-h-38: 38px;
+$mini-line-h-26: 26px;
+$mini-line-h-22: 22px;
+$mini-line-h-21: 21px;

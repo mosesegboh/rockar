@@ -1,0 +1,1352 @@
+#car-compare-component {
+    .toggle {
+        position: fixed;
+        width: 100%;
+        cursor: pointer;
+        bottom: calc(19vh + 5px);
+        left: 0;
+        z-index: 1000;
+        transition: bottom 300ms 0s;
+
+        @include media($medium-screen-up) {
+            bottom: 178px;
+        }
+
+        @include media($large-screen-up) {
+            bottom: 169px;
+        }
+
+        &-button {
+            height: 50px;
+            width: 105px;
+            background-color: $bmw-blue;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            display: flex;
+            justify-content: space-around;
+
+            @include media($medium-screen-down) {
+                width: 65px;
+                height: 25px;
+            }
+
+            .icon {
+                background-image: url('../images/svg/icon-arrow-white.svg');
+                transform: rotate(180deg);
+                background-repeat: no-repeat;
+                height: 100%;
+                width: 16px;
+                background-position: center;
+                margin: 0;
+            }
+
+            span {
+                font-family: $bmw;
+                font-size: $dsp2-f-size-sl;
+                line-height: $dsp2-line-h-24;
+                color: $white;
+                display: block;
+                text-transform: uppercase;
+
+                @include media($medium-screen-down) {
+                    display: none;
+                }
+            }
+        }
+
+        &.active {
+            bottom: calc(75vh - 9px);
+            z-index: 9999;
+
+            @include media($medium-screen-down) {
+                bottom: calc(75vh - 1px);
+            }
+
+            @include media($compare-desktop-mode) {
+                bottom: calc(95vh - 40px);
+            }
+
+            .toggle-button {
+                .icon {
+                    transform: rotate(0deg);
+                }
+            }
+        }
+    }
+}
+
+#car-compare-wrapper {
+    position: fixed;
+    background-color: $white;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    border-top: 3px solid $bmw-blue;
+    height: 20vh;
+    transition: height 300ms 0s, box-shadow 100ms 200ms;
+    overflow: hidden;
+
+    @include media($medium-screen-up) {
+        height: 180px;
+    }
+
+    &.active {
+        box-shadow: 0 -200px 0 0 rgba(0, 0, 0, .8);
+        height: 75vh;
+        overflow-y: auto;
+
+        @include media($compare-desktop-mode) {
+            box-shadow: none;
+            height: 92vh;
+        }
+
+        .mobile-wrapper .header p {
+            font-size: $dsp2-f-size;
+        }
+
+        .car-compare {
+            overflow-y: auto;
+            height: 95vh;
+        }
+
+        .car-compare-mobile-bottom,
+        .car-compare-mobile-bottom-titles {
+            visibility: visible;
+        }
+    }
+
+    &:not(.active) {
+        transition: height 300ms 0s, box-shadow 0s;
+
+        .choices {
+            visibility: hidden;
+        }
+
+        .mobile-wrapper {
+            .header {
+                position: sticky;
+                top: 0;
+                margin: 0;
+            }
+
+            .car-compare-mobile {
+                &-top {
+                    position: sticky;
+                    top: 20px;
+
+                    .car-page {
+                        &.slick-slide {
+                            padding: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .schrodingers-title {
+        visibility: hidden;
+    }
+
+    .short-title {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        min-height: 48px;
+    }
+
+    .car-compare {
+        display: none;
+        //Added important to overwrite styles from default2 -> _car-compare.scss:18
+        padding: 0 !important;
+
+        @include media($compare-desktop-mode) {
+            display: block;
+        }
+
+        .left-column {
+            display: inline-block;
+            width: 20%;
+            margin-right: 2%;
+            vertical-align: top;
+
+            @include media($dsp2-xl-screen-up) {
+                margin-right: 1.7%;
+            }
+        }
+
+        .car-column {
+            vertical-align: top;
+            display: inline-block;
+            width: calc((78.3% / 3) - 1.5%);
+            margin-right: 2%;
+            line-height: 30px;
+            max-width: 352px;
+
+            &:last-of-type {
+                margin-right: 0;
+            }
+        }
+
+        .header {
+            width: 100%;
+            margin-bottom: 10px;
+            box-shadow: 0 1px 20px rgba(0, 0, 0, .1);
+            height: 265px;
+            text-align: center;
+            position: fixed;
+            background-color: $white;
+            z-index: 1;
+
+            &::after {
+                display: none;
+            }
+
+            .title {
+                font-family: $bmw-light;
+                font-size: $dsp2-f-size;
+            }
+        }
+
+        .selector {
+            display: inline-flex;
+            padding-left: calc(6em + 2.5%);
+            text-align: left;
+            position: relative;
+
+            @include media($dsp2-xl-screen-up) {
+                max-width: 95em;
+            }
+
+            .selector-column {
+                .title {
+                    background: $white;
+                    height: 39px;
+                    margin-top: 17px;
+                    margin-bottom: 23px;
+
+                    p {
+                        font-family: $bmw;
+                        line-height: $dsp2-line-h-40;
+                        font-size: $dsp2-f-size;
+                        font-weight: 400;
+                        letter-spacing: 0;
+                        text-align: end;
+                        position: relative;
+
+                        .heading {
+                            font-size: $dsp2-f-size-xxl;
+                        }
+
+                        .clear {
+                            right: 0;
+                            bottom: -10px;
+
+                            @include media($x-large-screen-up) {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+
+                p {
+                    font-family: $bmw-light;
+                    font-size: $dsp2-f-size-sl;
+                    letter-spacing: 0;
+                    text-align: left;
+                }
+            }
+
+            .car-column {
+                .title {
+                    text-transform: none;
+                    font-family: $bmw;
+                    font-size: $dsp2-f-size-sl;
+                    line-height: .83;
+                    letter-spacing: 0;
+                    text-align: left;
+                    color: $c-grey;
+                    display: block;
+                    margin: -5px 0 10px;
+                    position: relative;
+                }
+
+                .price {
+                    font-size: $dsp2-f-size;
+                    font-weight: $fw-black;
+                    letter-spacing: 0;
+                    text-align: left;
+                    color: $black;
+                    padding: 0 15px;
+                }
+
+                .img-block {
+                    position: relative;
+                    width: 100%;
+                    padding-top: 17%;
+                    padding-bottom: 30%;
+                    background-image: url('../images/exterior-bg.png');
+                    background-size: 100% 68%;
+                    background-position-y: 17px;
+                    background-repeat: no-repeat;
+
+                    .img-link {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        overflow: hidden;
+                    }
+
+                    img {
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        display: block;
+                        margin: auto;
+                    }
+
+                    .remove-car {
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        z-index: 20;
+
+                        .close-icon {
+                            background: url('../images/svg/icon-close-black.svg') no-repeat center;
+                            width: 16px;
+                            height: 16px;
+                        }
+                    }
+
+                    .offertags-container {
+                        position: absolute;
+                        top: 10px;
+                        padding: 0;
+
+                        .offertags {
+                            .offertag-label {
+                                font-family: $bmw-bold;
+                                font-size: $dsp2-f-size-xs;
+                                line-height: 35px;
+                                padding: 0 15px;
+                                background: $white;
+                                display: flex;
+
+                                &::after {
+                                    border-right: 25px solid transparent;
+                                    border-top: 35px solid $white;
+                                    content: '';
+                                    position: absolute;
+                                    right: -25px;
+                                    top: 0;
+                                }
+                            }
+
+                            .offertag-icon {
+                                max-height: 35px;
+                            }
+
+                            img {
+                                margin: 0;
+                                position: relative;
+
+                                @include media($dsp2-l-screen-down) {
+                                    width: unquote("clamp(min(100%, 35px), 9vw, 100%)");
+                                }
+                            }
+                        }
+
+                        &.offertags-background {
+                            .offertags {
+                                .offertag-label {
+                                    background: $c-grey;
+                                    color: $white;
+
+                                    &::after {
+                                        border-color: $c-grey;
+                                        border-right-color: transparent;
+                                    }
+                                }
+                            }
+                        }
+
+                        &.offertags-it {
+                            background: transparent;
+                            width: 100%;
+
+                            .offertags {
+                                @include display(flex);
+                                @include align-items(flex-start);
+                                @include flex-direction(row);
+
+                                .offertag-icon {
+                                    align-self: flex-start;
+
+                                    & ~ .offertag-label {
+                                        background-color: unset;
+                                    }
+                                }
+
+                                .offertag-label {
+                                    line-height: 1.2;
+                                    background: transparent;
+                                    margin: 0 0 0 5px;
+                                    padding: 0 10px;
+
+                                    &::after {
+                                        content: unset;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .add-car {
+                width: calc((78.3% / 3) - 1%);
+                background-color: $c-grey-11;
+                margin-top: 15px;
+                max-width: 352px;
+            }
+
+            > .clear {
+                display: none;
+                color: $c-grey;
+
+                @include media($x-large-screen-up) {
+                    display: block;
+                    top: 20px;
+                    right: calc(-7% - 6px);
+                }
+            }
+        }
+
+        .details {
+            margin: 0 auto;
+            padding-top: 270px;
+            display: block;
+            width: 100%;
+
+            @include media($dsp2-xl-screen-up) {
+                max-width: 95em;
+            }
+
+            .left-column {
+                margin-right: 1.7%;
+            }
+
+            .car-column {
+                width: calc((78.3% / 3) - 1.5%);
+            }
+
+            .category {
+                padding-bottom: 30px;
+                border-bottom: solid 1px $c-grey-5;
+                margin-left: calc(6em + 2.5%);
+
+                @include media($xx-large-screen-up) {
+                    margin-left: calc(6em + 3.5%);
+                }
+            }
+
+            .category-body {
+                border-top: solid 1px $c-grey-5;
+            }
+
+            .category-title {
+                font-family: $bmw;
+                font-size: $dsp2-f-size-xxl;
+                line-height: $dsp2-line-h-40;
+                text-transform: uppercase;
+                margin-top: 60px;
+                margin-bottom: 40px;
+
+                @include media($dsp2-xl-screen-up) {
+                    padding-left: 0;
+                }
+            }
+
+            .category-subtitle-wrapper {
+                margin-bottom: 20px;
+            }
+
+            .category-subtitle {
+                margin: 20px auto;
+                font-family: $bmw;
+                font-size: $dsp2-f-size;
+                text-transform: uppercase;
+
+                @include media($dsp2-xl-screen-up) {
+                    padding-left: 0;
+                }
+            }
+
+            .attribute-title,
+            .attribute-value {
+                border-bottom: solid 1px $c-grey-5;
+                padding-top: .75em;
+            }
+
+            .attribute-value {
+                font-family: $bmw-light;
+                font-size: $dsp2-f-size;
+            }
+
+            .category-price {
+                padding-bottom: 15px;
+
+                .category-title {
+                    margin-top: 0;
+                }
+
+                .left-column {
+                    height: 0;
+                }
+
+                .car-column {
+                    .attribute-value {
+                        &:first-child {
+                            padding-top: 5px;
+                        }
+
+                        .price-main {
+                            font-size: $dsp2-f-size-36;
+                            line-height: $dsp2-line-h-36;
+                        }
+                    }
+
+                    .price {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: flex-start;
+                        border-bottom: solid 1px $c-grey-5;
+                        font-family: $bmw;
+
+                        &-total {
+                            font-family: $bmw;
+                            font-size: $dsp2-f-size-xl;
+                            line-height: $dsp2-line-h-28;
+                            margin-bottom: 17px;
+
+                            &-title {
+                                font-size: $dsp2-f-size-s;
+                                line-height: $dsp2-line-h-16;
+                            }
+                        }
+
+                        &-per-month {
+                            font-family: $bmw;
+                            font-size: $dsp2-f-size-xxl;
+                            line-height: $dsp2-line-h-32;
+
+                            &-title {
+                                font-size: $dsp2-f-size-s;
+                                line-height: $dsp2-line-h-14;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .category-extra {
+                .category-title {
+                    width: 150px;
+                }
+
+                .category-body {
+                    &:not(:last-child) {
+                        padding-bottom: 20px;
+                    }
+
+                    .car-column {
+                        margin-top: 8px;
+                    }
+                }
+
+                .category-body-with-images {
+                    .interior-image {
+                        width: 90%;
+                        margin: 10px auto 0;
+
+                        + div {
+                            border-top: solid 1px $c-grey-5;
+                        }
+                    }
+
+                    .car-column {
+                        &:first-child {
+                            .attribute-value {
+                                margin: 20px auto 0;
+                            }
+                        }
+                    }
+
+                    .attribute-value {
+                        text-align: center;
+                        max-width: 292px;
+                        margin: 0 auto;
+                        padding-top: 0;
+
+                        p {
+                            line-height: $dsp2-line-h-20;
+                            margin-bottom: 0;
+                        }
+
+                        img {
+                            height: 90px;
+                            width: 90px;
+                            margin: 10px auto 20px;
+                            display: block;
+                        }
+                    }
+
+                    .no-border {
+                        border-bottom: none;
+                    }
+                }
+            }
+
+            .category-technical {
+                .car-column {
+                    > div {
+                        margin-bottom: 20px;
+                    }
+
+                    &:not(:last-child) {
+                        .attribute-value {
+                            margin-right: -30px;
+                        }
+                    }
+                }
+
+                .attribute-title {
+                    margin-right: -11%;
+                }
+
+                .attribute-value {
+                    text-align: center;
+
+                    p {
+                        font-family: $bmw-bold;
+                    }
+                }
+            }
+
+            .category-standard {
+                border-bottom: none;
+
+                .car-column {
+                    margin-top: 60px;
+                }
+            }
+        }
+
+        .choices {
+            margin-top: 2px;
+            width: 100%;
+            display: inline-flex;
+            padding-left: calc(6em + 2.5%);
+
+            @include media($dsp2-xl-screen-up) {
+                max-width: 95em;
+            }
+
+            .save-button {
+                text-align: center;
+
+                p {
+                    font-size: $dsp2-f-size-s;
+                    font-family: $bmw-bold;
+                    margin-left: 20px;
+                    cursor: pointer;
+                    letter-spacing: .5px;
+
+                    span {
+                        border-bottom: 1px solid $c-grey-3;
+                    }
+
+                    &::before {
+                        background-image: url('../images/svg/wishlist-icon.svg');
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        content: '';
+                        cursor: pointer;
+                        height: 12px;
+                        width: 12px;
+                        position: absolute;
+                        margin-top: 6px;
+                        margin-left: -20px;
+                    }
+
+                    &.added-to-wishlist {
+                        &::before {
+                            background-image: url('../images/svg/wishlist-added-icon.svg');
+                        }
+                    }
+                }
+            }
+
+            .choice {
+                height: 50px;
+                overflow: hidden;
+                background: $bmw-blue;
+                text-align: center;
+                cursor: pointer;
+                font-family: $bmw-bold;
+                letter-spacing: 0;
+                padding: $button-narrow-height-padding $button-width-padding $button-narrow-bottom-height-padding;
+                text-transform: none;
+                font-size: $dsp2-f-size;
+                color: $white;
+                line-height: $dsp2-line-30;
+                margin: 0 0 8px;
+
+                &:hover {
+                    background: $c-blue-1;
+                }
+
+                &.step-back {
+                    text-transform: none;
+                    color: $white;
+                    background: $c-grey-1;
+
+                    &:hover {
+                        background: $c-grey;
+                    }
+                }
+            }
+        }
+    }
+
+    .mobile-wrapper {
+        margin: 2px 0 0;
+        display: block;
+
+        @include media($compare-desktop-mode) {
+            display: none;
+        }
+
+        .header {
+            margin-bottom: 4px;
+            position: fixed;
+            z-index: 2;
+            height: 24px;
+            width: 100%;
+
+            p {
+                font-family: $bmw;
+                line-height: $dsp2-line-h-24;
+                font-size: $dsp2-f-size-sl;
+                text-transform: uppercase;
+                text-align: center;
+            }
+
+            .clear {
+                top: 5px;
+                right: 17px;
+            }
+        }
+
+        .car-compare-mobile-bottom-titles {
+            text-align: center;
+            width: 100%;
+            position: absolute;
+            margin-top: 50px;
+
+            @include media($small-screen-up-carousel) {
+                margin-top: 70px;
+            }
+        }
+    }
+
+    // styling of schrodingers-title_s(invisible titles) and its spacings/position
+    // should be same as per visible titles!!! for align proposes
+    .car-compare-mobile {
+        &-top {
+            box-shadow: 0 12px 20px rgba(0, 0, 0, .1);
+            width: 100%;
+            padding: 0 24px;
+            margin-bottom: 0;
+            position: fixed;
+            background-color: $white;
+            z-index: 1;
+        }
+
+        &-bottom {
+            padding: 145px 20px 0;
+            visibility: hidden;
+        }
+
+        // Visible titles that are on top of invisible schrodingers-title_s
+        &-bottom-titles {
+            visibility: hidden;
+
+            .titles {
+                position: relative;
+                // Overwriting inline property from js
+                left: 0 !important;
+
+                &.title {
+                    padding: 20px 0;
+                    border-top: solid 1px $c-grey-5;
+                    font-family: $bmw;
+                    font-size: $dsp2-f-size-xl;
+                    line-height: $dsp2-line-h-40;
+                    text-transform: uppercase;
+                    margin-bottom: 0;
+
+                    &.price {
+                        border: none;
+                        padding: 0;
+                    }
+                }
+
+                &.subtitle {
+                    padding: 10px 0;
+                    border-top: solid 1px $c-grey-5;
+                    border-bottom: solid 1px $c-grey-5;
+                    font-family: $bmw;
+                    font-size: $dsp2-f-size;
+                    line-height: $dsp2-line-h-24;
+                    margin-bottom: 0;
+                    text-transform: uppercase;
+                }
+
+                &.attribute-title {
+                    border-top: solid 1px $c-grey-5;
+                    border-bottom: solid 1px $c-grey-5;
+                    padding: 10px 0;
+                    font-family: $bmw;
+                    font-size: $dsp2-f-size;
+                    line-height: $dsp2-line-h-24;
+                    margin-bottom: 0;
+                    text-transform: uppercase;
+                }
+
+                &.attribute-subtitle {
+                    font-family: $bmw-light;
+                    font-size: $dsp2-f-size-xs;
+                    padding-top: 30px;
+                }
+
+                &.standard {
+                    border-bottom: solid 1px $c-grey-5;
+                }
+            }
+        }
+
+        .slick-slider {
+            display: block;
+            margin: -1px 0 0;
+            width: 100%;
+
+            @include media($compare-desktop-mode) {
+                display: none;
+            }
+        }
+
+        .slick-list {
+            margin-left: -20px;
+        }
+
+        .slick-slide {
+            margin-left: 20px;
+            padding: 24px 0 8px 0;
+        }
+
+        .slick-nav {
+            background-repeat: no-repeat;
+            background-position-x: center;
+            height: 16px;
+            width: 10px;
+            position: absolute;
+            top: 40%;
+            z-index: 2;
+            cursor: pointer;
+
+            &.slick-disabled {
+                // Overwriting inline styling by slick js
+                display: none !important;
+            }
+        }
+
+        .slick-prev {
+            background-image: url('../images/svg/icon-arrow-left.svg');
+            left: 8px;
+        }
+
+        .slick-next {
+            background-image: url('../images/svg/icon-arrow.svg');
+            right: 8px;
+        }
+
+        .car-page {
+            width: 100%;
+        }
+
+        .selector {
+            position: relative;
+            overflow: hidden;
+            display: block;
+            width: 100%;
+
+            .top-navigation {
+                position: absolute;
+                top: 8%;
+                right: 5%;
+                z-index: 1;
+
+                p {
+                    font-family: $bmw-bold;
+                    font-size: $dsp2-f-size-xxxs;
+                    line-height: $dsp2-line-h-12;
+                }
+            }
+
+            .img-block {
+                position: relative;
+                width: 100%;
+                padding-top: 55%;
+                overflow: hidden;
+                background-image: url('../images/exterior-bg.png');
+                background-repeat: no-repeat;
+                background-position-x: center;
+                background-position-y: 40%;
+                background-size: 100% 75%;
+
+                @include media($medium-screen-up) {
+                    padding-top: 40%;
+                }
+
+                .img-link {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                img {
+                    position: absolute;
+                    top: 10px;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    display: block;
+                    margin: auto;
+
+                    @include media($medium-screen-up) {
+                        top: 0;
+                    }
+                }
+
+                .title {
+                    line-height: $dsp2-line-h-18;
+                    font-size: $dsp2-f-size-xs;
+                }
+
+                .offertags-container {
+                    position: absolute;
+                    top: 0;
+                    padding: 0;
+
+                    .offertags {
+                        .offertag-label {
+                            font-family: $bmw-bold;
+                            font-size: $dsp2-f-size-xxxs;
+                            display: flex;
+                            line-height: 26px;
+                            padding: 0 15px;
+                            background: $white;
+                            top: 0;
+
+                            &::after {
+                                border-right: 25px solid transparent;
+                                border-top: 26px solid $white;
+                                content: '';
+                                position: absolute;
+                                right: -25px;
+                                top: 0;
+                            }
+                        }
+
+                        img {
+                            top: 0;
+                            margin: 0;
+                            position: relative;
+                            width: unquote("clamp(min(100%, 25px), 17vw, 100% - 20px)");
+
+                            @include media($dsp2-medium-screen-up) {
+                                width: unquote("clamp(min(100%, 50px), 17vw, 100% - 20px)");
+                            }
+                        }
+                    }
+
+                    &.offertags-background {
+                        .offertags {
+                            .offertag-label {
+                                color: $white;
+                                padding: 0 15px;
+                                background: $c-grey;
+
+                                &::after {
+                                    border-color: $c-grey;
+                                    border-right-color: transparent;
+                                }
+                            }
+                        }
+                    }
+
+                    &.offertags-it {
+                        background: transparent;
+                        width: calc(100% - 35px);
+
+                        .offertags {
+                            display: flex;
+                            align-items: center;
+
+                            .offertag-label {
+                                padding: 0 5px;
+                                background: transparent;
+                                white-space: nowrap;
+
+                                &::after {
+                                    content: none;
+                                }
+                            }
+
+                            img {
+                                top: 0;
+                                width: unquote("clamp(min(100%, 40px), 7vw, 100% - 20px)");
+                            }
+                        }
+                    }
+                }
+            }
+
+            p {
+                font-family: $bmw-light;
+                font-size: 10px;
+                letter-spacing: 0;
+                text-align: left;
+            }
+
+            .title {
+                text-transform: none;
+                font-family: $bmw;
+                font-size: $dsp2-f-size-xs;
+                line-height: $dsp2-line-h-18;
+                letter-spacing: 0;
+                text-align: left;
+                color: $c-grey;
+                font-weight: $fw-normal;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: block;
+                margin: 5px 0;
+            }
+        }
+
+        .details {
+            display: block;
+            width: 100%;
+            border-bottom: none;
+
+            &:first-of-type {
+                .technical-items {
+                    &.m-20 {
+                        margin-right: -20px;
+                    }
+                }
+            }
+
+            &:nth-of-type(2) {
+                .technical-items {
+                    margin: auto -20px;
+                }
+            }
+
+            &:nth-of-type(3) {
+                .technical-items {
+                    margin-left: -20px;
+                }
+            }
+
+            .category > .schrodingers-title {
+                padding: 20px 0;
+                border-top: solid 1px $c-grey-5;
+
+                p {
+                    font-family: $bmw;
+                    font-size: $dsp2-f-size-xl;
+                    line-height: $dsp2-line-h-40;
+                    text-transform: uppercase;
+                    margin-bottom: 0;
+                }
+            }
+
+            .category-body > .schrodingers-title {
+                p {
+                    margin-bottom: 0;
+                }
+            }
+
+            .category-body > .schrodingers-title,
+            .category .category-subtitle {
+                padding: 10px 0;
+                border-top: solid 1px $c-grey-5;
+                border-bottom: solid 1px $c-grey-5;
+
+                p {
+                    font-family: $bmw;
+                    font-size: $dsp2-f-size;
+                    line-height: $dsp2-line-h-24;
+                    text-transform: uppercase;
+                }
+            }
+
+            .category {
+                margin-bottom: 20px;
+            }
+
+            .category-body-with-images {
+                img {
+                    height: 50px;
+                    width: 50px;
+                    margin: 0 auto 20px;
+                }
+
+                .interior-image {
+                    margin-top: 10px;
+                    padding-bottom: 10px;
+
+                    img {
+                        height: auto;
+                        width: auto;
+                        margin: 0 auto;
+                    }
+                }
+
+                .attribute-value {
+                    margin-top: 20px;
+                    text-align: center;
+                    border-bottom: solid 1px $c-grey-5;
+                }
+
+                .no-border {
+                    border-bottom: none;
+                }
+            }
+
+            .attribute-value {
+                border-bottom: solid 1px $c-grey-5;
+
+                p {
+                    @extend .short-title;
+                    font-family: $bmw-light;
+                    font-size: $dsp2-f-size-xs;
+                    line-height: $dsp2-line-h-16;
+                    min-height: 32px;
+                    margin: .75em 0 .75em 0;
+                }
+            }
+
+            .category-body-line-packages,
+            .category-body-extra-options {
+                margin-top: 20px;
+
+                > .schrodingers-title {
+                    margin-bottom: 20px;
+                }
+
+                .attribute-value {
+                    &:first-child {
+                        border-top: solid 1px $c-grey-5;
+                    }
+                }
+            }
+
+            .schrodingers-title {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .category-technical {
+                .technical-items {
+                    .attribute-value {
+                        border-top: solid 1px $c-grey-5;
+                        border-bottom: solid 1px $c-grey-5;
+                    }
+                }
+
+                .car-column {
+                    div:first-of-type {
+                        > .category-subtitle {
+                            margin-top: 0;
+                        }
+                    }
+                }
+
+                .category-subtitle {
+                    margin-top: 30px;
+                    margin-bottom: 0;
+
+                    p {
+                        font-family: $bmw;
+                    }
+                }
+
+                .attribute-title {
+                    padding-top: 30px;
+
+                    p {
+                        font-family: $bmw-light;
+                        font-size: $dsp2-f-size-xs;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
+
+                .attribute-value {
+                    border: none;
+                    text-align: center;
+
+                    p {
+                        font-family: $bmw-bold;
+                        min-height: auto;
+                    }
+                }
+            }
+
+            .category-price {
+                .schrodingers-title {
+                    border: none;
+                    padding: 0;
+                }
+
+                .attribute-value {
+                    border-bottom: solid 1px $c-grey-5;
+
+                    &:first-child {
+                        border-top: solid 1px $c-grey-5;
+                    }
+
+                    p {
+                        font-family: $bmw;
+                        font-size: $dsp2-f-size;
+                        line-height: $dsp2-line-h-16;
+                        min-height: auto;
+
+                        &:first-child {
+                            font-family: $bmw-light;
+                            font-size: $dsp2-f-size-xs;
+                            line-height: $dsp2-line-h-14;
+                        }
+                    }
+
+                    .price-main {
+                        margin: 0 0 9px 0;
+                        font-size: $dsp2-f-size-xl;
+                        line-height: $dsp2-line-h-24;
+                    }
+                }
+            }
+
+            .category-standard {
+                > .schrodingers-title {
+                    border-bottom: solid 1px $c-grey-5;
+                    margin-bottom: 20px;
+                }
+
+                .attribute-value {
+                    &:first-child {
+                        border-top: solid 1px $c-grey-5;
+                    }
+                }
+            }
+        }
+
+        .choices {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            height: 37px;
+            padding: 1px;
+            margin: 4px 0 0;
+
+            div[class$="-button"] {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .remove-button {
+                background-color: $c-grey-1;
+                border-radius: 50%;
+                width: 35px;
+                height: 35px;
+            }
+
+            .checkout-button {
+                background-color: $bmw-blue;
+                border-radius: 20px;
+                width: 58px;
+                height: 35px;
+            }
+
+            .save-button {
+                border-radius: 50%;
+                border: 1px solid $c-grey-1;
+                width: 35px;
+                height: 35px;
+            }
+
+            span[class*="-icon"] {
+                display: block;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+                height: 12px;
+                width: 12px;
+            }
+
+            .remove-icon {
+                background-image: url('../images/svg/icon-close-white.svg');
+            }
+
+            .checkout-icon {
+                background-image: url('../images/svg/icon-cart.svg');
+            }
+
+            .save-icon {
+                background-image: url('../images/svg/wishlist-icon.svg');
+
+                &.added-to-wishlist {
+                    background-image: url('../images/svg/wishlist-added-icon.svg');
+                }
+            }
+        }
+    }
+
+    @import '../blocks/car-compare/car-compare-clear';
+}
+
+.catalog-product-compare-index {
+    .main.col-6 {
+        width: 100%;
+    }
+}

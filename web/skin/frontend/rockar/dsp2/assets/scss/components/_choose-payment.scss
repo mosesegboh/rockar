@@ -1,0 +1,924 @@
+#choose-payment {
+  .wrapper {
+    margin: 19px auto 0;
+  }
+
+  .step-header {
+    font-family: $bmw;
+    font-size: $dsp2-f-size-s;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: $dsp2-line-h-20;
+    display: block;
+    padding: 5px 0 9px;
+    border-bottom: 1px solid $c-grey-5;
+
+    @include media($medium-screen-up) {
+      display: none;
+    }
+  }
+
+  .content {
+    &-container {
+      &.first {
+        padding: 40px 0 15px;
+
+        button:first-child {
+            display: none;
+
+          @include media($medium-screen-up) {
+            display: block;
+          }
+        }
+
+        @include media($medium-screen-up) {
+          padding: 56px 40px 0 42px;
+          @include flex-direction(column);
+        }
+
+        @include media($large-screen-up) {
+          @include flex-direction(row);
+        }
+
+        .content {
+          &.options-container {
+            @include media($large-screen-up) {
+              width: 50%;
+              @include display(flex);
+              @include flex-direction(column);
+            }
+          }
+
+          .more-deposit {
+            margin: -11px 0px .75em 4px;
+            font-size: $dsp2-line-h-12;
+            color: $c-red-2;
+
+            @include media($medium-screen-up) {
+              margin: -25px 0px .75em 4px;
+            }
+          }
+        }
+      }
+
+      &.list {
+        @include media($medium-screen-up) {
+          padding: 40px 40px 10px 42px;
+        }
+
+        &.padding {
+          padding-bottom: 130px;
+        }
+
+        .content {
+          @include media($medium-screen-up) {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    &-table {
+      h5 {
+        display: none;
+
+        @include media($medium-screen-up) {
+          font-family: $bmw;
+          display: block;
+        }
+      }
+
+      table {
+        &.active {
+          tbody {
+            tr {
+              &:nth-child(3) {
+                td {
+                  background: none;
+                  border-bottom: 1px $c-grey-5 solid;
+                  padding: .75em 0;
+
+                  &.label {
+                    vertical-align: baseline;
+                  }
+
+                  &.value {
+                    & > p {
+                      font-family: $bmw-bold;
+                      font-size: $dsp2-f-size-s;
+                      text-align: right;
+                      margin: 0;
+                      line-height: $dsp2-line-h-32;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        tbody {
+          .label {
+            font-family: $bmw-light;
+            font-size: $dsp2-f-size-s;
+          }
+
+          .value {
+            & > p {
+              font-family: $bmw-bold;
+              font-size: $dsp2-f-size-s;
+              text-align: right;
+              margin: 0;
+              line-height: $dsp2-line-h-32;
+
+              &:after {
+                border-bottom: none;
+              }
+            }
+
+            .invalid {
+              padding: 0;
+              background: $transparent;
+              justify-content: flex-end;
+
+              p {
+                font-size: $dsp2-f-size-xs;
+                color: $c-grey;
+              }
+            }
+          }
+
+          tr {
+            &:nth-child(2) {
+              td {
+                background: $c-grey-6;
+                border-bottom: none;
+                position: relative;
+                padding: 19px 12px 13px;
+
+                &.label {
+                  vertical-align: top;
+                  line-height: $dsp2-line-h-32;
+
+                  &:after {
+                    content: '';
+                    position: absolute;
+                    left: 13px;
+                    bottom: 0;
+                    height: 1px;
+                    width: 100%;
+                    border-bottom: 1px $c-grey-5 solid;
+                  }
+                }
+
+                &.value {
+                  @include display(flex);
+                  @include justify-content(flex-end);
+                  white-space: nowrap;
+
+                  & > p {
+                    font-family: $bmw;
+                    font-size: $dsp2-f-size-xl;
+
+                    @include media($medium-screen-up) {
+                      font-size: $dsp2-f-size-xxl;
+                    }
+                  }
+
+                  &:after {
+                    content: '';
+                    position: absolute;
+                    left: -13px;
+                    bottom: 0;
+                    height: 1px;
+                    width: 100%;
+                    border-bottom: 1px $c-grey-5 solid;
+                  }
+                }
+              }
+            }
+
+            &:nth-child(3) {
+              td {
+                background: $c-grey-6;
+                border-bottom: none;
+                padding: 19px 12px 20px;
+
+                &.label {
+                  vertical-align: top;
+                }
+
+                &.value {
+                  @include display(flex);
+                  @include justify-content(flex-end);
+                  white-space: nowrap;
+
+                  & > p {
+                    font-family: $bmw;
+                    font-size: $dsp2-f-size-xl;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      @include media($large-screen-up) {
+        width: 50%;
+        margin: 0 0 0 25px;
+        border: 1px solid $c-grey-5;
+        padding: 23px 20px;
+      }
+    }
+
+    .continue-container {
+      @include media($medium-screen-up) {
+        display: none;
+      }
+
+      .dsp2-money {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .select {
+    padding: 0 0 10px;
+
+    .selectbox-dropdown {
+      .dropdown-item {
+        @include display(flex);
+        @include justify-content(space-between);
+
+        span {
+          font-family: $bmw-light;
+          font-size: $dsp2-line-h-12;
+          margin: 0 10px 0 0;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
+  .ffo-footer {
+    padding: 10px 0 144px;
+
+    & > p {
+      display: none;
+    }
+
+    div {
+      display: block;
+    }
+
+    @include media($medium-screen-up) {
+      top: 0;
+      left: 0;
+      padding: 10px 40px 20px;
+    }
+  }
+
+  .ffo-video {
+    margin: 40px 0 0;
+  }
+
+  .ffo-header {
+    h3 {
+      &:first-of-type {
+        @include media($medium-screen-up) {
+          display: none;
+        }
+      }
+    }
+
+    p,
+    ul,
+    ~ .ffo-video{
+      @include media($medium-screen-up) {
+        display: none;
+      }
+    }
+
+    &.show {
+      p,
+      ul,
+      ~ .ffo-video {
+        @include media($medium-screen-up) {
+          display: block;
+        }
+      }
+
+      ul, ~ .ffo-video {
+        @include media($medium-screen-up) {
+          padding: 0 0 0 15px;
+        }
+      }
+
+      h3 {
+        &:last-of-type {
+          &::before {
+            @include transform(rotate(224deg) translateY(-50%) scale(.85));
+            position: relative;
+            top: 13px;
+            left: -5px;
+          }
+
+          @include media($medium-screen-up) {
+            &::before {
+              @include transform(rotate(224deg) translateY(-50%) scale(.85));
+              top: 13px;
+              left: 5px;
+              position: absolute;
+            }
+          }
+        }
+      }
+    }
+
+    h3 {
+      &:last-of-type {
+        padding-left: 0;
+        @include display(flex);
+        @include justify-content(center);
+
+        &::before {
+          @include transform(rotate(45deg) translateY(-50%) scale(.85));
+          position: relative;
+          top: 16px;
+          left: -12px;
+        }
+
+        @include media($medium-screen-up) {
+          display: block;
+          cursor: pointer;
+          font-family: $bmw-bold;
+          font-size: $dsp2-f-size-s;
+          padding-left: 20px;
+          margin-bottom: 0;
+          text-decoration: underline;
+
+          &::before {
+            @include transform(rotate(45deg) translateY(-50%) scale(.85));
+            border-bottom: 2px solid $black;
+            border-right: 2px solid $black;
+            content: '';
+            height: 10px;
+            left: 0;
+            pointer-events: none;
+            width: 10px;
+
+            @include media($medium-screen-up) {
+              position: absolute;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .tabs {
+    section {
+      padding: 15px 8px 9px;
+      font-size: unset;
+    }
+
+    .group {
+      &-wrapper {
+        span {
+          font-family: $bmw-light;
+          font-size: $dsp2-f-size-xxs;
+        }
+
+        p {
+          margin: 0;
+          line-height: $dsp2-line-h-32;
+        }
+      }
+
+      &-title {
+        font-family: $bmw;
+        margin: 0 0 .25em;
+      }
+
+      &-finance {
+        font-family: $bmw;
+        font-size: $dsp2-f-size-xl;
+
+        &-wrapper {
+          @include display(flex);
+          @include justify-content(center);
+          @include align-items(baseline);
+        }
+      }
+    }
+  }
+
+  .options-container {
+    @include media($medium-screen-up) {
+      margin-top: 0;
+      padding-left: 0;
+      width: 100%;
+    }
+  }
+
+  .invalid {
+    @include display(flex);
+    @include justify-content(center);
+    @include align-items(center);
+    min-height: 34px;
+    background: $c-grey-6;
+    padding: 0 28px;
+    text-align: center;
+    position: relative;
+
+    p {
+      font-size: $dsp2-f-size-xs;
+      color: $c-grey-2;
+      margin: 0;
+    }
+
+    .icon-info-grey {
+      &::after {
+        content: '';
+        @include size(12px 12px);
+        display: inline-block;
+        background-image: url('../images/svg/icon-info.svg');
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 1em;
+
+        @include media($dsp2-medium-screen-up) {
+          left: 1em;
+        }
+      }
+    }
+  }
+
+  .finance-filter-overlay-video {
+    .popup-content {
+      padding: 0;
+
+      .popup-button-close {
+        top: 39px;
+        right: 40px;
+      }
+    }
+  }
+
+  .quote-tailor {
+    font-family: $bmw;
+    text-transform: uppercase;
+  }
+
+  .field-title {
+    margin-left: 4px;
+  }
+
+  .continue-container {
+    @include flex-direction(column);
+    @include justify-content(end);
+    height: 175px;
+    padding: 0 36px 25px;
+
+    &.active {
+      height: 147px;
+    }
+
+    .container-table {
+      table {
+        margin: 0;
+
+        tbody {
+          & tr:last-child td {
+            border-bottom: none;
+          }
+
+          tr {
+            .label {
+              font-size: $dsp2-f-size-s;
+              font-family: $bmw-light;
+            }
+
+            .value {
+              text-align: right;
+              white-space: nowrap;
+
+              &.deposit {
+                h4 {
+                  font-family: $bmw-bold;
+                  font-size: $dsp2-f-size-s;
+                }
+              }
+            }
+
+            &:nth-child(2) {
+              td {
+                padding: 8px 0 8px;
+
+                &.active,
+                .value {
+                  padding: 30px 0 7px;
+                }
+              }
+            }
+          }
+
+          td {
+            padding: 8px 0 8px;
+          }
+
+          h4 {
+            font-family: $bmw;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .vertical-tabs-container {
+    margin-bottom: 56px;
+
+    @include media($small-screen-down) {
+      display: none;
+    }
+
+    + .inner-container {
+      padding: 0 40px;
+
+      @include media($small-screen-down) {
+        padding: 0;
+      }
+
+      .option-footer-block {
+        font-family: $bmw;
+        font-size: $dsp2-f-size-xs;
+        line-height: $dsp2-line-h-16;
+
+        > p {
+          display: none;
+        }
+      }
+
+      .video-container {
+        @include media($medium-screen-up) {
+          display: none;
+        }
+
+        @include media($small-screen-down) {
+          width: 100%;
+          margin: 30px 0 40px;
+          position: relative;
+
+          video {
+            height: auto;
+            width: 100%;
+          }
+        }
+      }
+
+      .ffo-header {
+        position: relative;
+        margin: 51px 0 14px;
+
+        @include media($small-screen-down) {
+          margin-top: 6px;
+          margin-bottom: 18px;
+        }
+
+        &.show {
+          h3 {
+            &:last-of-type {
+              &::before {
+                @include media($small-screen-down) {
+                  @include transform(rotate(223deg) translateY(-50%) scale(.85));
+                  left: 5px;
+                  bottom: 2px;
+                }
+              }
+            }
+          }
+
+          p,
+          ul {
+            display: block;
+          }
+
+          +.video-container {
+            display: block;
+
+            @include media($medium-screen-up) {
+              display: none;
+            }
+          }
+        }
+
+        p,
+        ul,
+        +.video-container {
+          display: none;
+        }
+
+        h3 {
+          &:first-of-type {
+            display: none;
+          }
+
+          &:last-of-type {
+            @include media($small-screen-down) {
+              display: block;
+              cursor: pointer;
+              font-family: $bmw-bold;
+              font-size: $dsp2-f-size-s;
+              text-decoration: underline;
+              text-align: center;
+              margin-bottom: 11px;
+            }
+
+            &::before {
+              @include media($small-screen-down) {
+                @include transform(rotate(45deg) translateY(-50%) scale(.85));
+                display: inline-block;
+                border-bottom: 2px solid $black;
+                border-right: 2px solid $black;
+                content: '';
+                height: 10px;
+                pointer-events: none;
+                width: 10px;
+                position: relative;
+                top: unset;
+                left: unset;
+                margin-right: 11px;
+                right: 1px;
+              }
+            }
+          }
+        }
+
+        p {
+          font-family: $bmw;
+          font-size: $dsp2-f-size-s;
+          margin-bottom: 24px;
+
+          @include media($small-screen-down) {
+            font-size: $dsp2-f-size-xs;
+            margin-bottom: 15px;
+          }
+        }
+
+        ul {
+          @include media($medium-screen-up) {
+            font-family: $bmw-light;
+            font-size: $dsp2-f-size-s;
+            line-height: 20px;
+          }
+
+          li {
+            position: relative;
+
+            @include media($small-screen-down) {
+              font-family: $bmw-light;
+              font-size: $dsp2-f-size-xs;
+              margin-bottom: 15px;
+              padding-left: 30px;
+            }
+
+            @include media($medium-screen-up) {
+              display: flex;
+              margin-bottom: 20px;
+              width: 95%;
+            }
+
+            &::before {
+              flex-shrink: 0;
+              content: '';
+              display: inline-block;
+              @include size(16px);
+              background-image: url('../images/svg/icon-checkmark.svg');
+              background-repeat: no-repeat;
+              position: absolute;
+              left: 0;
+              top: 4px;
+
+              @include media($medium-screen-up) {
+                left: -13px;
+                position: relative;
+              }
+            }
+          }
+        }
+      }
+
+      .ffo-video {
+        @include media($small-screen-down) {
+          display: none;
+        }
+
+        @include media($small-screen-down) {
+          margin-bottom: 40px;
+        }
+
+        @include media($medium-screen-up) {
+          position: relative;
+          top: -3px;
+          left: -4px;
+          margin-bottom: 10px;
+
+          > span {
+            font-family: $bmw-bold;
+            font-size: $dsp2-f-size-s;
+            line-height: $dsp2-line-h-20;
+            text-decoration: underline;
+
+            &::before {
+              content: '';
+              display: inline-block;
+              background-image: url('../images/svg/caret-black-right.svg');
+              background-repeat: no-repeat;
+              @include size(9px 16px);
+              position: relative;
+              left: -7px;
+              top: 4px;
+            }
+          }
+        }
+
+        video {
+          @include media($small-screen-down) {
+            max-width: 100%;
+          }
+        }
+
+        span {
+          @include media($small-screen-down) {
+            display: none;
+          }
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .payment-methods-body-continue {
+        max-width: 446px;
+        margin-left: auto;
+        margin-top: 16px;
+        padding-bottom: 30px;
+        width: 100%;
+      }
+    }
+
+    .payment-methods {
+      width: 100%;
+
+      .payment-methods-tabs {
+        display: flex;
+
+        .payment-methods-tabs-block {
+          background: $c-grey-5;
+          border: 0;
+          margin-bottom: 0;
+          min-height: 90px;
+
+          &.active {
+            background: $white;
+            box-shadow: inset 0 3px 0 0 $bmw-blue;
+          }
+
+          .payment-methods-tabs-block-body {
+            min-height: 0;
+            text-align: center;
+
+            .h-common {
+              font-family: $bmw;
+              font-size: $dsp2-f-size-s;
+              line-height: $dsp2-line-h-16;
+
+              &:first-of-type {
+                margin-bottom: 7px;
+                margin-top: 20px;
+              }
+
+              &.price {
+                display: inline;
+                font-size: $dsp2-f-size-xl;
+                line-height: $dsp2-line-h-32;
+              }
+            }
+
+            .per-month {
+              display: inline;
+              position: relative;
+              left: -4px;
+              font-size: $dsp2-f-size-xxs;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .sliders-container {
+    display: flex;
+
+    @include media($small-screen-down) {
+      flex-direction: column;
+    }
+
+    .select-container {
+      margin-bottom: 8px;
+
+      @include media($medium-screen-up) {
+        display: none;
+      }
+    }
+
+    .image-container {
+      width: 52%;
+
+      @include media($small-screen-down) {
+        width: 100%;
+      }
+
+      img {
+        width: 100%;
+        transform: scale(1.2);
+
+        @include media($small-screen-down) {
+          transform: none;
+        }
+      }
+    }
+
+    .payment-settings {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+
+      .heading {
+        text-transform: uppercase;
+        font-family: $bmw;
+        font-size: $dsp2-f-size;
+        line-height: $dsp2-line-h-24;
+        margin-bottom: 40px;
+
+        @include media($small-screen-down) {
+          margin-bottom: 13px;
+        }
+      }
+
+      .payment-settings-block {
+        margin-bottom: 15px;
+
+        .h-common {
+          font-family: $bmw;
+          font-size: $dsp2-f-size-s;
+          line-height: $dsp2-line-h-16;
+        }
+
+        .range-sliders-container {
+          align-items: center;
+          display: flex;
+          justify-content: space-between;
+          margin-top: -8px;
+        }
+
+        .range-slider-wrapper {
+          display: inline-block;
+          width: 100%;
+          margin-right: 28px;
+
+          @include media($small-screen-down) {
+            margin-right: 24px;
+          }
+
+          .range-slider {
+            width: 100%;
+            margin: 0;
+          }
+        }
+
+        .payment-settings-block-title-input {
+          display: inline-block;
+          margin-top: 0;
+          position: relative;
+          top: 4px;
+
+          input {
+            font-size: $dsp2-f-size;
+            line-height: $dsp2-line-h-24;
+            font-family: $bmw;
+            text-align: right;
+            padding: 6px 10px 6px 0;
+            width: 100px;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+.my-build {
+    .specification-title {
+        padding-left: 1em;
+        color: $motorrad-text-color;
+        text-transform: none;
+        letter-spacing: $base-letter-spacing;
+        font: {
+            family: $motorrad;
+            weight: $motorrad-fw-normal;
+            size: $f-size-xxl;
+        };
+    }
+
+    .accordion {
+        .js-accordion-trigger {
+            color: $motorrad-dark-grey;
+        }
+
+        .submenu {
+            margin: 0;
+
+            .accordion-list {
+                padding: 0;
+                border: {
+                    left: 1px solid $configurator-features-border-color;
+                    right: 1px solid $configurator-features-border-color;
+                };
+
+                .features-item {
+                    padding: 1em 3em 1em 1.5rem;
+                    font-size: 12px;
+                    color: $motorrad-dark-grey;
+                    font-weight: $motorrad-fw-normal;
+                    letter-spacing: $base-letter-spacing;
+
+                    &:not(:last-of-type) {
+                        border-bottom: 1px solid $configurator-features-border-color;
+                    }
+                }
+            }
+        }
+
+        &:last-of-type {
+            .submenu {
+                border-bottom: 1px solid $configurator-features-border-color;
+            }
+        }
+    }
+
+    &.technical-features {
+        .submenu {
+            .accordion-list {
+                .features-item {
+                    @include display(flex);
+
+                    .label {
+                        @include flex(2);
+                    }
+
+                    .value {
+                        min-width: 6em;
+                    }
+
+                    &.section-subtitle {
+                        text-transform: none;
+                        font: {
+                            size: $f-size;
+                            weight: $motorrad-fw-bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

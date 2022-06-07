@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  design
+ * @package   rockar_default
+ * @author    Ausma Smite <techteam@rockar.com>
+ * @copyright Copyright (c) 2021 Rockar Ltd (http://rockar.com)
+ */
+-->
+
+<layout version="0.1.0">
+    <catalog_category_default>
+        <reference name="finance_filters">
+            <block type="rockar_partexchange/catalogWrapper" name="part_exchange_wrapper">
+                <block type="rockar_partexchange/filters" name="part_exchange_filters"/>
+            </block>
+        </reference>
+        <reference name="product_list">
+            <block type="cms/block" name="part_exchange_negative_equity_message">
+                <action method="setBlockId">
+                    <block_id>part_exchange_negative_equity_message</block_id>
+                </action>
+            </block>
+        </reference>
+        <reference name="car_pods_filters">
+            <block type="cms/block" name="part_exchange_negative_equity_message">
+                <action method="setBlockId">
+                    <block_id>part_exchange_negative_equity_message</block_id>
+                </action>
+            </block>
+        </reference>
+    </catalog_category_default>
+
+    <catalog_category_layered>
+        <reference name="finance_filters">
+            <block type="rockar_partexchange/catalogWrapper" name="part_exchange_wrapper">
+                <block type="rockar_partexchange/filters" name="part_exchange_filters"/>
+            </block>
+        </reference>
+    </catalog_category_layered>
+
+    <customer_account_index>
+        <reference name="dashboard_list">
+            <block type="rockar_partexchange/customerPartExchange" name="my_part_exchange" as="part_exchange" before="customer_order_list">
+                <block type="rockar_partexchange/filters" name="part_exchange_filters"/>
+            </block>
+        </reference>
+    </customer_account_index>
+
+    <customer_account_index>
+        <reference name="myaccount_trade_in">
+            <block type="rockar_partexchange/customerPartExchange" name="my_part_exchange_desktop" as="my_part_exchange_desktop" template="rockar/transunion/part_exchange_content.phtml">
+                <block type="rockar_partexchange/filters" name="part_exchange_filters"/>
+            </block>
+        </reference>
+    </customer_account_index>
+
+    <checkout_onepage_index>
+        <reference name="checkout.onepage">
+            <block type="rockar_partexchange/checkout" name="checkout.step.part.exchange" as="checkout_step_part_exchange" after="checkout_step_delivery"/>
+        </reference>
+    </checkout_onepage_index>
+</layout>

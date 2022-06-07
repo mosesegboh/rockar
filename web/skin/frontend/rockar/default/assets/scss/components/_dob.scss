@@ -1,0 +1,12 @@
+.customer-dob {
+    max-width: $input-max-width;
+
+    .custom-validation-advice {
+        clear: both;
+        margin-top: 0;
+    }
+
+    .validation-advice {
+        margin: 0;
+    }
+}

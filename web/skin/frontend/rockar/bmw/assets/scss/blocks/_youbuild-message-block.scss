@@ -1,0 +1,87 @@
+.you-build-action-wrapper {
+    border: 1px solid $grey-2;
+    background-color: $white;
+
+    .message {
+        text-transform: uppercase;
+
+        p {
+            font-family: $brand-specific-font;
+        }
+    }
+
+    .you-build-action-container {
+        @include display(flex);
+    }
+
+    .button {
+        font-family: $bmw-bold;
+        font-weight: normal;
+        letter-spacing: 0px;
+        padding: $button-narrow-height-padding $button-width-padding $button-narrow-bottom-height-padding;
+        text-transform: none;
+        font-size: $button-font-size;
+        color: $call-to-action-color;
+        background: $call-to-action-background-color2;
+        vertical-align: bottom;
+        line-height: 1;
+        height: 50px;
+        width: 285px;
+
+        &:hover {
+            background: $button-hover-color;
+        }
+    }
+
+    &.mobile-tablet {
+        cursor: pointer;
+        margin-top: 18px;
+
+        @include media($large-screen-up) {
+            display: none;
+        }
+
+        .you-build-action-container {
+            padding: .75em 1em;
+        }
+
+        .you-build-logo {
+            @include sprite($sprite-you-build-dark);
+            min-width: 28px; // need this due to sprite getting collapsed by neighbouring text
+            display: block;
+            margin-right: 20px;
+        }
+
+        .message {
+            p {
+                font-size: $f-size-xs;
+                font-weight: $fw-book;
+                letter-spacing: .21em;
+            }
+        }
+    }
+
+    &.desktop-only {
+        @include media($medium-screen-down) {
+            display: none;
+        }
+
+        .you-build-action-container {
+            @include justify-content(space-between);
+            padding: 17px 26px 18px 30px;
+        }
+
+        .message {
+            @include align-self(center);
+
+            p {
+                font-size: $bmw-h5;
+                line-height: 1.4;
+                margin: 0;
+                font-weight: $fw-bold;
+                letter-spacing: 0px;
+                vertical-align: center;
+            }
+        }
+    }
+}

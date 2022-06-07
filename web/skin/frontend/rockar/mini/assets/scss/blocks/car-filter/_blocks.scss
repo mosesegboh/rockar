@@ -1,0 +1,174 @@
+&-blocks {
+    @include media($medium-screen-up) {
+        display: block;
+        position: absolute;
+        left: calc(100% + 23px);
+        min-width: 416px;
+        z-index: 1000;
+        top: 0;
+        background-color: $white;
+        box-shadow: 0 2px 4px 0 $car-filter-blocks-box-shadow;
+        pointer-events: all;
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 50%;
+            transform: translateY(-50%) rotate(135deg);
+            height: 15px;
+            width: 15px;
+            background: $white;
+            border-bottom: inherit;
+            border-right: inherit;
+        }
+    }
+
+    .finance-header {
+        font-size: $f-size-xxl;
+        font-weight: $fw-bold;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        margin-top: 8px;
+        margin-bottom: 19px;
+    }
+
+    .finance-filter-slider {
+        @include display(flex);
+
+        .finance-filter-slider-input {
+            order: 2;
+            margin-left: 17px;
+        }
+
+        &.with-two-inputs {
+            @include flex-direction(column);
+
+            .range-slider-wrapper {
+                display: block;
+                width: 95%;
+            }
+
+            .finance-filter-slider-input {
+                margin-top: 15px;
+            }
+
+            .finance-filter-slider-input-wrapper {
+                @include display(flex);
+
+                input {
+                    &:first-of-type {
+                        margin-right: auto;
+                    }
+
+                    &:last-of-type {
+                        margin-left: auto;
+                    }
+                }
+            }
+        }
+    }
+
+    .car-filter-slider-block {
+        @include display(flex);
+        @include flex-direction(column);
+        width: calc(100% - 50px);
+        margin: auto;
+
+        .range-value-container {
+            @include display(flex);
+            @include flex-direction(row);
+            @include justify-content(space-between);
+
+            .value-wrapper {
+                padding-left: 7px;
+                padding-right: 5px;
+                padding-top: 5px;
+                width: 104px;
+                height: 28px;
+                background: $grey-2;
+                text-align: left;
+                font-weight: $fw-semibold;
+                font-size: $f-size-xs;
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    .car-filter-miles,
+    .car-filter-price {
+        .enscroll-track {
+            display: none;
+        }
+    }
+
+    .selectbox-select {
+        min-height: auto;
+        height: 28px;
+        background: $white;
+        font-size: $f-size-s;
+        padding: 7px 0 0 20px;
+        text-transform: uppercase;
+        font-weight: $fw-bold;
+        letter-spacing: 0.5px;
+        border: solid 1px $selectbox-item-background;
+
+        &:hover {
+            background: $white;
+        }
+
+        .dropdown-caret {
+            background: $white;
+            width: 38px;
+            border-left: solid 1px $grey-2;
+            top: 0;
+
+            &::after {
+                @include sprite($sprite-grey-arrow-down);
+            }
+        }
+    }
+
+    .selectbox {
+        .selectbox-select {
+            .dropdown-caret {
+                &::after {
+                    @include sprite($sprite-grey-arrow-down);
+                }
+            }
+        }
+    }
+
+    .actions {
+        @include display(flex);
+        @include justify-content(space-between);
+        margin-top: 10px;
+
+        .clear-button,
+        .go-button {
+            margin: 0;
+            border: 0;
+        }
+
+        .clear-button {
+            background: none;
+            color: $black;
+            font-size: $f-size-xxxxs;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .go-button {
+            text-transform: capitalize;
+            background: $car-filter-go-button;
+            width: 104px;
+            min-height: 28px;
+            padding: 0;
+        }
+
+    }
+
+    .selectbox-dropdown {
+        text-transform: uppercase;
+    }
+}

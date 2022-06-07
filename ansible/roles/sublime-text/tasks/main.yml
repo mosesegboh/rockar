@@ -1,0 +1,7 @@
+---
+  - name: Install Sublime text on Mac
+    homebrew_cask: 
+      name: sublime-text
+      state: present
+      accept_external_apps: yes
+    when: ansible_os_family == 'Darwin'

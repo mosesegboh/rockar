@@ -1,0 +1,97 @@
+&-wrapper {
+    @include flex(1 0 250px);
+
+    @include media($small-screen-up) {
+        top: 2%;
+        z-index: 12;
+    }
+
+    @include media($small-screen-down) {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        z-index: 90;
+        background-color: $white;
+        overflow-y: scroll;
+    }
+
+    &.show {
+        display: block;
+    }
+
+    .reset-filters-row {
+        background: transparent;
+
+        .popup-content {
+            padding: 52px 20px 40px;
+            min-height: auto;
+
+            @include media($medium-screen-up) {
+                padding: 30px 32px 50px;
+            }
+
+            .popup-button-close {
+                right: 20px;
+            }
+        }
+
+        .reset-filter-title {
+            font-family: $bmw;
+            font-size: $dsp2-f-size-l;
+            line-height: $dsp2-line-h-28;
+            margin-bottom: 20px;
+
+            @include media($medium-screen-up) {
+                margin-bottom: 10px;
+                font-size: $dsp2-f-size-xxl;
+                line-height: $dsp2-line-h-40;
+            }
+        }
+
+        p:not([class]) {
+            margin: 0;
+            font-size: $dsp2-f-size-xs;
+            line-height: $dsp2-line-h-16;
+
+            @include media($medium-screen-up) {
+                font-size: $dsp2-f-size;
+                line-height: $dsp2-line-h-24;
+            }
+        }
+
+        .reset-filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 40px;
+
+            @include media($medium-screen-up) {
+                margin-top: 65px;
+                flex-wrap: nowrap;
+            }
+
+            .button {
+                margin: 0;
+
+                span {
+                    line-height: $dsp2-line-h-24;
+                }
+
+                &:first-child {
+                    margin: 0 0 15px;
+
+                    @include media($medium-screen-up) {
+                        margin: 0 32px 0 0;
+                    }
+                }
+            }
+        }
+    }
+
+    input {
+        display: none;
+    }
+}

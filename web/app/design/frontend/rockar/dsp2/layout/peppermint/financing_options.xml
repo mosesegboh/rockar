@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_FinancingOptions
+ * @author    Jiraphong Witthayathanakit <jiraphong.witthayathanakit@rockar.com>
+ * @copyright Copyright (c) 2020 Rockar Ltd (http://rockar.com)
+ */
+-->
+<layout version="0.1.0">
+    <sales_quote_email_finance>
+        <block type="peppermint_financingoptions/quote_email_finance" name="finance" template="peppermint/email/quote/finance.phtml" />
+    </sales_quote_email_finance>
+</layout>

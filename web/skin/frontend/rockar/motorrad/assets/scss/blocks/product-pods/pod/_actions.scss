@@ -1,0 +1,142 @@
+.pod-actions {
+    @include media($small-screen-up) {
+        height: unset;
+    }
+
+    @include media($medium-screen-down) {
+        @include display(flex);
+    }
+
+    .row {
+        @include display(flex);
+        border: none;
+        border-top: 1px solid $pod-borders-color;
+        height: $motorrad-pod-action-row-height;
+        box-sizing: border-box;
+
+        @include media($small-screen-down) {
+            height: auto;
+            width: 50%;
+        }
+
+        @include media($medium-screen-down) {
+            @include flex-basis(50%);
+        }
+
+        &:first-of-type {
+            @include media($medium-screen-down) {
+                @include flex-direction(row-reverse);
+                border-right: 1px solid $pod-borders-color;
+            }
+
+            .pod-attribute {
+                @include media($medium-screen-down) {
+                    border-right: 1px solid $pod-borders-color;
+                    border-left: none;
+
+                    &:first-of-type {
+                        border-right: 0;
+                    }
+                }
+            }
+        }
+
+        &:last-of-type {
+            @include media($large-screen-up) {
+                border-bottom: 1px solid $pod-borders-color;
+            }
+        }
+
+        .pod-attribute {
+            @include flex-basis(50%);
+            text-transform: none;
+            font-weight: $motorrad-fw-normal;
+            padding: 5px;
+            text-align: center;
+            cursor: pointer;
+
+            @include media($small-screen-down) {
+                height: auto;
+            }
+
+            p {
+                font-size: $f-size-5xs;
+                letter-spacing: normal;
+            }
+
+            &:first-of-type {
+                border-right: 1px solid $pod-borders-color;
+            }
+
+            &:last-of-type {
+                @include media($medium-screen-down) {
+                    border-right: none;
+                }
+            }
+
+            &::after {
+                @include pseudo();
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            &.attr-features {
+                &::after {
+                    @include size(16px 23px);
+                    background-image: url('../images/svg/specification.svg');
+                    position: relative;
+                }
+
+                &.active {
+                    background-color: $grey-2;
+                }
+            }
+
+            &.attr-compare {
+                &::after {
+                    @include size(27px 23px);
+                    background-image: url('../images/svg/compare.svg');
+                    position: relative;
+                }
+
+                @include media($medium-screen-down) {
+                    border-right: 1px solid $pod-borders-color;
+                }
+            }
+
+            &.attr-buy {
+                &:hover {
+                    background: $motorrad-grey;
+                }
+
+                &::after {
+                    @include size(23px);
+                    background-image: url('../images/svg/buy-now.svg');
+                    position: relative;
+                }
+            }
+
+            &.attr-day {
+                display: block;
+
+                .attr-day-day {
+                    font-size: $f-size-xxxxl;
+                    line-height: 25px;
+                    font-style: italic;
+                    font-family: $motorrad;
+                }
+
+                span {
+                    font-size: $f-size-5xs;
+                    display: block;
+                }
+            }
+
+            &:nth-child(even) {
+                @include media($medium-screen-down) {
+                    border-left: none;
+                }
+            }
+        }
+    }
+}

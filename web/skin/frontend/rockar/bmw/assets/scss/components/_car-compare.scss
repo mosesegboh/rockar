@@ -1,0 +1,579 @@
+#car-compare-wrapper {
+    .car-compare {
+        display: none;
+
+        @include media($compare-desktop-mode) {
+            display: block;
+        }
+
+        .left-column {
+            display: inline-block;
+            width: 20%;
+            margin-right: 1%;
+            vertical-align: top;
+        }
+
+        .car-column {
+            vertical-align: top;
+            display: inline-block;
+            width: calc((79% / 3) - 1%);
+            margin-right: 1%;
+            line-height: 30px;
+
+            &:last-of-type {
+                margin-right: 0;
+            }
+        }
+
+        .header {
+            .title {
+                font-family: $brand-specific-font;
+                font-size: $car-compare-title-font-size;
+                font-weight: $fw-bold;
+                line-height: 0.28;
+                letter-spacing: 0;
+                text-align: center;
+                color: $black;
+                text-transform: uppercase;
+            }
+
+            .subtitle {
+                font-family: $secondary-font-family;
+                font-size: $f-size-xl;
+                line-height: 1.88;
+                letter-spacing: normal;
+                text-align: center;
+                color: $black;
+            }
+
+            &::after {
+                content: '';
+                display: block;
+                height: 46px;
+            }
+        }
+
+        .selector {
+            display: block;
+            width: 100%;
+
+            .selector-column {
+                .title {
+                    background: $white;
+                    height: 39px;
+                    line-height: $bmw-line-39;
+                    text-align: center;
+                    margin-bottom: 23px;
+
+                    p {
+                        font-family: $bmw-h5;
+                        font-size: $bmw-button;
+                        font-weight: $fw-bold;
+                        letter-spacing: 0;
+                        text-align: left;
+                        text-transform: none;
+                    }
+                }
+
+                .selectbox {
+                    margin-top: 35%;
+                    font-family: $secondary-font-family;
+                    font-size: $bmw-button;
+                    font-weight: $fw-black;
+                    background: $white;
+                    letter-spacing: 0;
+                    text-align: left;
+                    text-transform: none;
+                    border: 1px solid $grey-2;
+
+                    .selectbox-select {
+                        line-height: $bmw-line-46;
+                        padding: 0;
+                        color: $black;
+                        border-left: 4px solid $primary-color;
+                        padding-left: 20px;
+
+                        .dropdown-caret {
+                            display: none;
+                        }
+
+                        &::after {
+                            @include sprite($sprite-view-more-arrow);
+                            content: '';
+                            margin-left: 10px;
+                            display: inline-block;
+                            position: absolute;
+                            right: 20px;
+                            top: 20px;
+                        }
+                    }
+
+                    &.open {
+                        .selectbox-select {
+                            &::after {
+                                @include sprite($sprite-view-more-arrow);
+                                content: '';
+                                display: inline-block;
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+                }
+
+                p {
+                    font-family: $secondary-font-family;
+                    font-size: $bmw-button;
+                    letter-spacing: 0;
+                    text-align: left;
+                }
+            }
+
+            .car-column {
+                .title {
+                    text-transform: none;
+                    font-family: $brand-specific-font;
+                    font-size: $bmw-button;
+                    font-weight: $fw-bold;
+                    line-height: 0.83;
+                    letter-spacing: 0;
+                    text-align: left;
+                    color: $black;
+                    padding: 0px 15px;
+                }
+
+                .subtitle {
+                    text-transform: none;
+                    font-family: $car-compare-subtitle-font-family;
+                    font-size: $bmw-rem;
+                    letter-spacing: 0;
+                    text-align: left;
+                    color: $black;
+                    padding: 0px 15px;
+                }
+
+                .price {
+                    font-size: $bmw-rem;
+                    font-weight: $fw-black;
+                    letter-spacing: 0;
+                    text-align: left;
+                    color: $black;
+                    padding: 0px 15px;
+                }
+
+                .img-block {
+                    position: relative;
+                    width: 100%;
+                    padding-top: 41.4297319%;
+                    padding-bottom: 19%;
+
+                    .img-link {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        overflow: hidden;
+                    }
+
+                    img {
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        display: block;
+                        margin: auto;
+                    }
+
+                    .remove-car {
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        z-index: 20;
+                    }
+                }
+            }
+
+            .add-car {
+                img {
+                    width: 100%;
+                    margin-top: 20%;
+                }
+
+                button {
+                    margin-top: 10%;
+                    width: 100%;
+                    padding: $button-narrow-height-padding $button-width-padding $button-narrow-bottom-height-padding;
+                    border: 1px solid $bmw-blue;
+                    color: $bmw-blue;
+                }
+            }
+        }
+
+        .details {
+            display: block;
+            width: 100%;
+            border-bottom: solid 1px $grey-1;
+
+            &::after {
+                content: '';
+                display: block;
+                height: 46px;
+            }
+
+            .attribute-name-column {
+                p {
+                    font-family: $primary-font-bold;
+                }
+            }
+
+            .attribute-wrapper {
+                height: 65px;
+                line-height: 65px;
+                overflow: hidden;
+
+                &:nth-of-type(2n-1) {
+                    background: $white;
+                    border-bottom: 1px solid $grey-2;
+                    border-top: 1px solid $grey-2;
+                }
+
+                p {
+                    @include pre-wrap();
+                    letter-spacing: 0;
+                    font-family: $primary-font-family;
+                    text-align: left;
+                    padding-left: 15px;
+                    font-size: $bmw-info;
+                    font-weight: $fw-black;
+                    white-space: nowrap;
+                }
+            }
+        }
+
+        .choices {
+            margin-top: 35px;
+            display: block;
+            width: 100%;
+
+            .choice {
+                height: 50px;
+                overflow: hidden;
+                background: $primary-color;
+                letter-spacing: 0;
+                padding: 4%;
+                text-align: center;
+                font-weight: $fw-bold;
+                cursor: pointer;
+                font-family: $bmw-bold;
+                letter-spacing: 0px;
+                padding: $button-narrow-height-padding $button-width-padding $button-narrow-bottom-height-padding;
+                text-transform: none;
+                font-size: $button-font-size;
+                color: $white;
+                line-height: $bmw-line-30;
+
+                &:hover {
+                    background: $button-hover-color;
+                }
+
+                &.step-back {
+                    text-transform: none;
+                    color: $white;
+                    background: $button-grey;
+
+                    &:hover {
+                        background: $grey-button-hover-color;
+                    }
+                }
+            }
+        }
+    }
+
+    .car-compare-mobile {
+        &.slick-slider {
+            display: block;
+            margin: 0;
+            width: 100%;
+
+            @include media($compare-desktop-mode) {
+                display: none;
+            }
+        }
+
+        .slick-dots {
+            position: absolute;
+            height: 30px;
+            top: 0; // This value is overwritten component scripts
+
+            li button::before {
+                opacity: 0.9;
+            }
+
+            li.slick-active button::before {
+                opacity: 1;
+            }
+        }
+
+        .car-page {
+            width: 100%;
+
+            &.add-car {
+                height: 100%;
+                max-height: 100vh;
+
+                img {
+                    margin-top: 10%;
+                    width: 100%;
+                    padding: $bmw-padding-20;
+                }
+
+                .add-car-button {
+                    width: 100%;
+                    height: $bmw-button-height;
+                    letter-spacing: 0;
+                    font-family: $bmw-bold;
+                    text-align: center;
+                    font-size: $f-size-xs;
+                    font-weight: $fw-black;
+                    color: $white;
+                    display: inline-block;
+                    margin-bottom: 0;
+                    border: none;
+                    background-color: $bmw-blue;
+                    max-width: 100%;
+                }
+            }
+        }
+
+        .top-naviation {
+            height: 24px;
+            padding: $bmw-padding-20 $bmw-padding-mobile;
+
+            p {
+                width: 49%;
+                font-family: $brand-specific-font;
+                font-size: $f-size-xxxs;
+                line-height: $f-size-xxxxs;
+                font-weight: $bmw-fw-bold;
+                letter-spacing: 0;
+                display: inline-block;
+            }
+
+            .step-back {
+                text-align: center;
+                height: $bmw-button-mobile-back;
+                background-color: $bmw-button-grey;
+                color: $white;
+                padding-top: $bmw-padding-15;
+                font-size: $f-size-xxs;
+                font-family: $bmw-bold;
+            }
+
+            .compare-length {
+                text-align: right;
+            }
+        }
+
+        .selector {
+            display: block;
+            width: 100%;
+
+            .img-block {
+                position: relative;
+                width: 100%;
+                padding-top: 60%;
+                overflow: hidden;
+
+                .img-link {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                img {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    display: block;
+                    margin: auto;
+                }
+
+                .remove-car {
+                    position: absolute;
+                    top: $bmw-padding-35;
+                    right: $bmw-padding-mobile;
+                    z-index: 20;
+                }
+            }
+
+            .selectbox {
+                width: 100%;
+                max-width: 100%;
+                font-family: $secondary-font-family;
+                font-size: $f-size-xs;
+                background: $grey-2;
+                font-weight: $fw-black;
+                letter-spacing: 0;
+                text-align: center;
+                margin-bottom: 0;
+                text-transform: none;
+
+                .selectbox-select {
+                    line-height: $bmw-line-46;
+                    padding: 0;
+                    color: $black;
+
+                    .dropdown-caret {
+                        display: none;
+                    }
+
+                    &::after {
+                        @include sprite($sprite-view-more-arrow);
+                        content: '';
+                        margin-left: 10px;
+                        display: inline-block;
+                    }
+                }
+
+                &.open {
+                    .selectbox-select {
+                        &::after {
+                            @include sprite($sprite-view-more-arrow);
+                            content: '';
+                            margin-left: 10px;
+                            display: inline-block;
+                            transform: rotate(180deg);
+                        }
+                    }
+                }
+            }
+
+            p {
+                font-family: $secondary-font-family;
+                font-size: 10px;
+                letter-spacing: 0;
+                text-align: left;
+            }
+
+            .title {
+                text-transform: uppercase;
+                font-family: $brand-specific-font;
+                font-size: $f-size-xs;
+                font-weight: $bmw-fw-bold;
+                line-height: 0.83;
+                letter-spacing: 0;
+                text-align: left;
+                color: $black;
+            }
+
+            .subtitle {
+                text-transform: uppercase;
+                font-family: $brand-specific-font;
+                font-size: $f-size-xxxs;
+                letter-spacing: 0;
+                text-align: left;
+                color: $black;
+            }
+
+            .price {
+                font-size: $f-size-xxxl;
+                font-weight: $fw-bold;
+                letter-spacing: 0;
+                text-align: left;
+            }
+        }
+
+        .details {
+            display: block;
+            width: 100%;
+            border-bottom: solid 1px $grey-1;
+
+            .attribute-wrapper {
+                min-height: 46px;
+                max-height: 92px;
+                line-height: $bmw-line-46;
+                overflow: hidden;
+
+                &:nth-of-type(2n) {
+                    background: $grey-2;
+
+                    &:last-of-type {
+                        margin-bottom: 6.5px;
+                    }
+                }
+
+                p {
+                    letter-spacing: 0;
+                    font-family: $secondary-font-family;
+                    text-align: center;
+                    font-size: $f-size-xxxs;
+                    font-weight: $fw-black;
+                }
+
+                .attribute-title {
+                    border-right: 1px solid $grey-1;
+                    display: inline;
+                    margin-bottom: 0;
+                    float: left;
+                    max-width: 50%;
+                    width: 50%;
+                    text-align: center;
+                }
+
+                .attribute-value {
+                    margin-bottom: 0;
+                    float: right;
+                    max-width: 50%;
+                    width: 50%;
+                    text-align: center;
+                }
+
+                &::after {
+                    content: '';
+                    clear: both;
+                }
+            }
+        }
+
+        .choices {
+            display: block;
+            width: 100%;
+            padding: $bmw-padding-20 0;
+
+            .choice {
+                height: 46px;
+                width: 100%;
+                line-height: $bmw-line-46;
+                overflow: hidden;
+                background: $bmw-blue;
+                color: $white;
+                letter-spacing: 0;
+                font-family: $bmw-bold;
+                text-align: center;
+                font-size: $f-size-xs;
+                font-weight: $fw-black;
+                cursor: pointer;
+                text-transform: none;
+
+                &.step-back {
+                    text-transform: none;
+                    color: $white;
+                    background: $black;
+                }
+            }
+        }
+    }
+}
+
+.catalog-product-compare-index {
+    .main.col-6 {
+        width: 100%;
+    }
+}

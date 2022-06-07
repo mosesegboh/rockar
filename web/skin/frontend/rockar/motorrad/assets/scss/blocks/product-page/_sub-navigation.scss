@@ -1,0 +1,187 @@
+.sub-navigation {
+    &.desktop {
+        @include display(flex);
+
+        @include media($small-screen-down) {
+            display: none;
+        }
+
+        button {
+            @include flex(1 1);
+            height: $configurator-sub-nav-buttons-height;
+            font: {
+                family: $configurator-sub-nav-font;
+                weight: normal;
+            }
+
+            &.btn-back {
+                @include flex(0 0 $configurator-sub-nav-back-btn-width);
+                display: flex;
+                flex-direction: row;
+                padding: 0 5px;
+                align-items: center;
+                text-align: center;
+                position: relative;
+                font-size: $motorrad-subnavigation-button-font-size;
+                letter-spacing: $base-letter-spacing;
+
+                &::before {
+                    background-image: none;
+                    width: 15px;
+                    top: 0;
+                    left: 0;
+                    position: relative;
+                }
+            }
+
+            &.btn-sub-navigation {
+                padding: 1em;
+                font-size: $motorrad-subnavigation-button-font-size;
+                color: $configurator-sub-nav-color;
+                letter-spacing: $base-letter-spacing;
+                max-width: inherit;
+                margin-top: 10px;
+            }
+
+            &.car-extras-tab {
+                .view-more-arrow {
+                    display: none;
+                }
+            }
+
+            &.car-extras-tab-active {
+                color: $motorrad-text-color;
+
+                .view-more-arrow {
+                    display: none;
+                }
+            }
+
+            &.btn-features {
+                @include flex(2 1);
+
+                &:not(:last-of-type) {
+                    border-right: 1px solid $motorrad-white;
+                }
+            }
+        }
+    }
+
+    &.mobile {
+        display: none;
+        position: fixed;
+        z-index: 25;
+        left: 0;
+        bottom: 0;
+        height: $configurator-sub-nav-buttons-height-mobile;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 0;
+
+        @include media($small-screen-down) {
+            display: block;
+        }
+
+        .btn-back {
+            float: none;
+            position: relative;
+            bottom: 0;
+            left: 0;
+            margin: 0;
+            height: $car-finder-sub-nav-buttons-height-mobile;
+            width: 55px;
+            background-color: $white;
+            z-index: 2;
+            border: 0;
+            border-top: 1px solid $grey-1;
+            box-sizing: border-box;
+
+            &::before {
+                content: '<';
+                position: static;
+                display: inline-block;
+                margin: auto;
+                color: $motorrad-text-color;
+                font-weight: $motorrad-fw-normal;
+                font-size: $f-size-xl;
+                font-family: $motorrad;
+            }
+        }
+
+        .btn-continue {
+            width: calc(100% - 55px);
+            height: 100%;
+            float: right;
+            margin-top: 0;
+
+            .title {
+                @include v-center-font(Avenir, $f-size-s);
+                letter-spacing: $base-letter-spacing;
+            }
+        }
+
+        button {
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.configurator-mobile-actions-wrapper {
+    @include display(flex);
+    @include justify-content(space-between);
+    margin-bottom: $configurator-element-spacing;
+
+    @include media($medium-screen-up) {
+        display: none;
+    }
+
+    button {
+        @include flex(1 1);
+        letter-spacing: $base-letter-spacing;
+        color: $motorrad-text-color;
+        font: {
+            size: $f-size-xxs;
+            weight: $motorrad-fw-normal;
+        }
+
+        &.finance-edit-button {
+            border: 1px solid $finance-quote-border-color;
+            margin-right: 1em;
+            margin-top: 0;
+
+            &:hover {
+                border-color: $motorrad-text-color;
+            }
+        }
+    }
+}
+
+#configurator {
+    .configurator-nav .configurator-actions .nav-buttons {
+        display: none;
+
+        .button {
+            height: 50px;
+        }
+
+        @include media($small-screen-down) {
+            display: none;
+        }
+        .configurator-actions-desktop {
+            height: 100%;
+
+            @include media($small-screen-down) {
+                display: none;
+            }
+
+            &.col-3 {
+                .nav-arrow {
+                    position: absolute;
+                }
+            }
+
+        }
+    }
+}

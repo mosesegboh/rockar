@@ -1,0 +1,529 @@
+.part-exchange {
+    font-size: $f-size-s;
+
+    .part-exchange-left {
+
+        @include media($small-screen-down) {
+          margin-left: 0;
+        }
+
+        .px-vrm-block {
+            label {
+                margin: 10px 0;
+                text-transform: uppercase;
+                font-size: 0.8em;
+            }
+
+            .px-vrm-block-input {
+                input {
+                    width: 80%;
+                    margin: 0;
+                    display: inline-block;
+                    font-size: 14px;
+
+                    @include media($small-screen-down) {
+                        width: 80%;
+                    }
+
+                    &.full-width {
+                        width: 100%;
+                    }
+
+                    &::placeholder {
+                        font-size: 14px;
+                    }
+                }
+
+                .selectbox {
+                    font-size: $f-size-abs;
+
+                    .dropdown-item {
+                        font-size: $f-size-abs;
+                        height: auto !important;
+                        line-height: inherit !important;
+                    }
+                }
+
+                button {
+                    width: 20%;
+                    display: inline-block;
+                    padding: 4% 5%;
+                    font-size: 14px;
+                    height: 53px;
+                    text-align: center;
+                    margin-left: 0;
+
+                    &.cancel {
+                        padding: 0 6.5%;
+                    }
+
+                    @include media($small-screen-down) {
+                        width: 20%;
+                        padding: 1.25em .5em;
+                    }
+
+                    &.close {
+                        position: relative;
+                        color: $px-input-color;
+                        text-indent: -99999px;
+
+                        &::after {
+                            @include position(absolute, 0 0 0 0);
+                            content: '';
+                            margin: auto;
+                            @include sprite($sprite-close-light);
+                        }
+                    }
+                }
+            }
+
+            .px-car-info {
+                position: relative;
+                margin: 0 0 20px 0;
+                background: $px-active-info-background;
+                padding: 8px;
+                text-align: right;
+                width: 100%;
+
+                p {
+                    margin: 0;
+                    color: $px-car-worth-notification-color;
+                    text-align: left;
+                }
+
+                &.not-found {
+                    p {
+                        color: $px-active-info-error;
+                    }
+                }
+
+                .px-car-name {
+                    font-size: $f-size-xxl;
+                    color: $px-car-worth-car-name-color;
+                    margin: 0;
+                }
+
+                &::after {
+                    @include position(absolute, 100% null null 50%);
+                    @include triangle(16px 6px, $px-active-info-background, down);
+                    content: '';
+                    margin-left: -40px;
+                }
+            }
+        }
+
+        .px-mileage-block {
+            margin-top: 25px;
+            width: 100%;
+
+            .px-regular-heading {
+                text-align: left;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .part-exchange-middle {
+        @include media($medium-screen-only) {
+            margin-right: 0;
+        }
+
+        .px-condition-block {
+            .px-condition-title {
+                font-weight: $fw-bold;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .part-exchange-right {
+        @include media($medium-screen-only) {
+            margin-top: 20px;
+        }
+
+        .px-submit-block {
+            text-align: right;
+            margin-top: 20px;
+
+            @include media($small-screen-down) {
+                @include display(flex);
+                @include flex-direction(row);
+                @include flex-wrap(wrap);
+            }
+
+            button {
+                font-size: $px-submit-button-font-size;
+
+                @include media($small-screen-down) {
+                    @include flex(1 0 100%);
+                    margin-bottom: 5px;
+                }
+            }
+
+            .px-expired-msg {
+                text-align: center;
+                border: 2px solid $px-car-worth-value-color;
+                padding: 20px;
+                text-transform: uppercase;
+                font-weight: bold;
+                margin: 0 0 20px 0;
+                color: $px-active-info-error;
+                width: 100%;
+            }
+        }
+    }
+
+    .part-exchange-custom {
+        .px-selects {
+            .selectbox, input {
+                max-width: 100%;
+                width: 100%;
+
+                @include media($medium-screen-up) {
+                    max-width: $input-max-width;
+                }
+            }
+
+            .selectbox {
+                margin: 0 0 5px 0;
+
+                &.disabled {
+                    opacity: .5;
+                }
+
+                .selectbox-select {
+                    text-align: center;
+                    font-weight: $fw-bold;
+                    text-transform: uppercase;
+                }
+            }
+
+            input[type="text"] {
+                text-transform: uppercase;
+                background: $px-input-text-background;
+                color: $px-input-text-color;
+                text-align: center;
+
+                @include placeholder() {
+                    color: $px-input-text-color;
+                }
+            }
+        }
+
+        .px-custom-actions {
+            @include media($medium-screen-up) {
+                max-width: $input-max-width;
+            }
+        }
+
+        .row {
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            background: $px-second-input-background;
+            height: 50px;
+            color: $px-second-input-color;
+
+            @include placeholder() {
+                color: $px-second-input-color;
+            }
+        }
+    }
+
+    .part-exchange-valuation {
+        margin-top: 20px;
+        border-top: 1px solid $px-valuation-border-color;
+        padding-top: 20px;
+
+        .px-car-worth {
+            text-align: center;
+
+            p {
+                margin: 0;
+            }
+
+            .h4 {
+                font-weight: $fw-bold;
+                margin: 0;
+            }
+
+            .h1 {
+                font-weight: $px-car-worth-value-fw;
+                font-family: $primary-font-family;
+                margin: 0;
+                background-color: $px-second-input-color;
+                color: $px-car-worth-value-color;
+                border: 2px solid $px-car-worth-value-color;
+                padding: 10px 0;
+            }
+        }
+
+        .px-outstanding-finance {
+            .px-how-much {
+                line-height: $button-line-height;
+            }
+        }
+
+        .px-result-actions {
+            button {
+                display: block;
+                width: 100%;
+                margin: 0 0 10px 0;
+
+            }
+
+            span {
+                color: $px-error-color;
+
+                a {
+                    color: $px-error-color;
+                    text-decoration: underline;
+                }
+            }
+
+            @include media(min-width $medium-screen max-width $large-screen, 12) {
+                .col-7 {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .px-regular-heading {
+        font-weight: $fw-hairline;
+        color: $px-regular-heading-color;
+        margin-bottom: .2em;
+    }
+
+    .px-bold-heading {
+        text-transform: uppercase;
+    }
+
+    .px-light-text {
+        color: $black;
+    }
+
+    .px-link {
+        color: $px-link-color;
+        text-decoration: underline;
+    }
+
+    .px-error {
+        color: $px-error-color;
+
+        a {
+            color: $px-error-color;
+        }
+    }
+
+    .px-input {
+        text-align: center;
+        font-weight: $fw-bold;
+        color: $black;
+        font-family:  $primary-font-family;
+        text-transform: uppercase;
+        padding: 10px;
+        height: 53px;
+        font-size: $f-size-xxl;
+        width: 100%;
+
+        @include placeholder() {
+            color: $px-input-color;
+            font-size: $f-size-xxl;
+        }
+    }
+
+    #my-current-car-px {
+        .part-exchange-left {
+            .px-vrm-block {
+                .px-vrm-block-input {
+                    input {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    &.my-part-exchange {
+        font-size: inherit;
+    }
+
+    &.compact-px {
+        position: relative;
+        padding: 2em;
+
+        @include media($small-screen-down) {
+            padding: 2em 0;
+        }
+
+        .part-exchange-valuation {
+            padding-top: 0;
+            border: none;
+        }
+
+        .part-exchange-regular {
+            @include display(flex);
+            @include flex-direction(row);
+            @include align-content(stretch);
+
+            @include media($small-screen-down) {
+                @include flex-wrap(wrap);
+            }
+        }
+
+        .px-submit-block {
+            button {
+                display: block;
+                width: 100%;
+                margin-bottom: 10px;
+                margin-left: 0;
+            }
+        }
+
+        .part-exchange-left {
+            padding-right: 4.2em;
+            @include flex(1 0 50%);
+
+            @include media($small-screen-down) {
+                padding-right: 0;
+            }
+
+            .px-mileage-block,
+            .px-condition-block {
+                margin-top: 35px;
+            }
+
+            .px-mileage-block {
+                width: 100%;
+            }
+            .px-condition-block {
+                width: 95%;
+            }
+        }
+
+        .part-exchange-right {
+            @include flex(1 0 50%);
+            margin-left: 0;
+            padding-left: 4.75em;
+            border-left: 1px solid $my-current-cars-px-border-color;
+            position: relative;
+
+            @include media($small-screen-down) {
+                border-left: 0;
+                border-top: 1px solid $my-current-cars-px-border-color;
+                padding-left: 0;
+                padding-top: 2.5em;
+            }
+
+            .px-submit-block,
+            .px-result-actions {
+                margin-top: 1.5em;
+                @include media($small-screen-down) {
+                    padding-left: 0;
+                }
+            }
+        }
+
+        .px-light-text {
+            text-align: left;
+            font-size: $f-size-xxxl;
+        }
+
+        .px-condition-title {
+            text-align: left;
+            font-weight: $fw-bold;
+            font-size: $f-size-xxxl;
+        }
+
+        .px-additional-info-checkbox {
+            .info-label-wrap {
+                margin-left: 12px;
+            }
+
+            .px-light-text {
+                line-height: 26px;
+                font-size: $f-size-l;
+            }
+
+            p {
+                margin: 20px 0 10px;
+            }
+        }
+
+        .px-car-worth {
+            margin-top: 35px;
+
+            .h1 {
+                padding: 15px 0;
+            }
+        }
+    }
+}
+
+.px-additional-info-block {
+    .px-additional-info-checkbox {
+        margin-bottom: 20px;
+
+        input[type="checkbox"] {
+
+            & + label {
+                float: left;
+                padding: 0;
+            }
+        }
+
+        .info-label-wrap {
+            position: relative;
+            left: 40px;
+            margin-right: 40px;
+
+            @include media($small-screen-down) {
+                padding-right: 25px;
+            }
+
+            .action-badge {
+                @include media($small-screen-down) {
+                    @include position(absolute, 0 10px null null);
+                    margin: 0;
+                }
+            }
+        }
+
+        .px-light-text {
+            display: inline;
+        }
+
+        .action-badge {
+            margin-left: 7px;
+        }
+
+        p {
+            margin: 10px 0;
+            color: $px-active-info-error;
+
+            &.warning {
+                color: $px-active-info-warning;
+            }
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.more-info .content ul li {
+    color: $black;
+}
+
+#checkout {
+    .part-exchange.px-popup {
+        .part-exchange-left {
+            @include media($large-screen-up) {
+                padding: 0 4rem 0 0;
+            }
+        }
+    }
+}

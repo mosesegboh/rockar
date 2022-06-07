@@ -1,0 +1,43 @@
+.substep-0 {
+    .px-popup-info-block {
+        padding: 0 0 28px 0;
+
+        p {
+            font-size: $dsp2-f-size-xs;
+
+            @include media($small-screen-down) {
+                line-height: $dsp2-line-h-16;
+            }
+
+            @include media($medium-screen-up) {
+                font-size: initial;
+            }
+        }
+    }
+
+    .px-mileage {
+        @include media($large-screen-up) {
+            margin: 40px 0 0 0;
+        }
+    }
+
+    .px-bottom {
+        float: right;
+
+        @include media($large-screen-up) {
+            max-width: 446px;
+        }
+
+        .dsp2-money {
+            margin: 0;
+        }
+    }
+
+    hr {
+        display: none;
+
+        @include media($medium-screen-up) {
+            display: block;
+        }
+    }
+}

@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category     Peppermint
+ * @package      Peppermint\Transunion
+ * @author       Dumitru Mocanu <dumitru.mocanu@rockar.com>
+ * @copyright    Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_Transunion>
+            <version>0.1.1</version>
+        </Peppermint_Transunion>
+    </modules>
+    
+    <global>
+        <helpers>
+            <peppermint_transunion>
+                <class>Peppermint_Transunion_Helper</class>
+            </peppermint_transunion>
+        </helpers>
+        <models>
+            <peppermint_transunion>
+                <class>Peppermint_Transunion_Model</class>
+                <resourceModel>peppermint_transunion_resource</resourceModel>
+            </peppermint_transunion>
+        </models>
+    </global>
+
+    <adminhtml>
+        <events>
+            <adminhtml_init_system_config>
+                <observers>
+                    <peppermint_hide_cap_network_tab>
+                        <class>peppermint_transunion/observer</class>
+                        <type>singleton</type>
+                        <method>hideCapNetworkTab</method>
+                    </peppermint_hide_cap_network_tab>
+                </observers>
+            </adminhtml_init_system_config>
+            <rockar_partexchange_source_model_detail_init>
+                <observers>
+                    <peppermint_register_details_api>
+                        <class>peppermint_transunion/observer</class>
+                        <type>singleton</type>
+                        <method>registerTransApiDetailsProvider</method>
+                    </peppermint_register_details_api>
+                </observers>
+            </rockar_partexchange_source_model_detail_init>
+            <rockar_partexchange_source_model_valuation_init>
+                <observers>
+                    <peppermint_register_valuation_api>
+                        <class>peppermint_transunion/observer</class>
+                        <type>singleton</type>
+                        <method>registerTransApiValuationProvider</method>
+                    </peppermint_register_valuation_api>
+                </observers>
+            </rockar_partexchange_source_model_valuation_init>
+            <controller_action_predispatch_adminhtml_extendedrules_exceptionBrand_getModels>
+                <observers>
+                    <intercept_extendedrules_controller_action>
+                        <class>peppermint_transunion/observer</class>
+                        <method>printModelListJson</method>
+                    </intercept_extendedrules_controller_action>
+                </observers>
+            </controller_action_predispatch_adminhtml_extendedrules_exceptionBrand_getModels>
+        </events>
+    </adminhtml>
+
+    <frontend>
+        <routers>
+            <rockar_partexchange>
+                <use>standard</use>
+                <args>
+                    <modules>
+                        <peppermint_transunion before="Rockar2_PartExchange">Peppermint_Transunion</peppermint_transunion>
+                    </modules>
+                </args>
+            </rockar_partexchange>
+        </routers>
+    </frontend>
+
+    <default>
+        <peppermint_transunion>
+            <api>
+                <url><![CDATA[https://apim-alpha-dev.bmwgroup.com/dvs/bmwza/nsc/tradein/v1/transunion]]></url>
+                <cache_expire>0</cache_expire>
+                <cache_enabled>1</cache_enabled>
+            </api>
+        </peppermint_transunion>
+    </default>
+</config>

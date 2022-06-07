@@ -1,0 +1,141 @@
+<?php
+
+$designColors = [
+    '$white' => ['#fff', 'Icons inside button with 70% opacity'],
+    '$c-grey' => ['#262626', 'Secondary Button Hover,  Text body, Icon Hover'],
+    '$c-grey-1' => ['#4D4D4D', 'Secondary Button Default'],
+    '$c-grey-2' => ['#666', 'Background icons hover, Illustrative icons'],
+    '$c-grey-3' => ['#8E8E8E', 'Secondary Button, Footer'],
+    '$c-grey-4' => ['#BBBB', 'Disabled/HoverLine of separation, Functional icons'],
+    '$c-grey-5' => ['#E6E6E6', 'Dividing line, Table background, Special text, Footer'],
+    '$c-grey-6' => ['#F2F2F2', 'Gradient, Backgrounds']
+];
+
+$signalColors = [
+    '$c-red-1' => ['#AF1523', ''],
+    '$c-red-2' => ['#D20000', 'Error message'],
+    '$c-red-3' => ['#F7E7E9', ''],
+    '$c-orange-1' => ['#FFAD1F', 'Warning Icon Color'],
+    '$c-orange-2' => ['#FFE6BB', 'Warning Background Color'],
+    '$c-green-1' => ['#1B7B3A', ''],
+    '$c-green-2' => ['#3DB014', 'Confirmation'],
+    '$c-green-3' => ['#E8F2EB', '']
+];
+
+$interactionColors = [
+    '$c-blue-1' => ['#0653B6', 'Button Hover, UI Hover, Functional icons'],
+    '$bmw-blue' => ['#1C69D4', 'Button Default, Hover icons and UI, Highlight info'],
+    '$c-blue-2' => ['#BBD2F3', 'Button Disabled'],
+    '$c-blue-3' => ['#0066B1', ''],
+    '$c-blue-4' => ['#DDE8F9', '']
+];
+
+$additionalGreys = [
+    '$c-grey-7' => ['#D8D5D8', ''],
+    '$c-grey-8' => ['#F5F5F5', ''],
+    '$c-grey-9' => ['#CBCBCB', ''],
+    '$c-grey-10' => ['#D8D5D5', '']
+];
+
+?>
+
+<p>
+    Colors are key to express the brand and therefore the following examples are a direct interpretation of the BMW brand colors. They have been adapted to the specific requirements of Web (e.g. for alert notifications), where they help us to communicate a hierarchy in the interface.
+</p>
+<h3>
+    Color usage distribution
+</h3>
+<p>
+    BMW is primarily white while the main font color is a dark grey. We use the primary blue rarely only for the absolute highest prioritized call to actions in order to draw attention. The light grey is used sporadically in order to structure or highlight certain areas.
+</p>
+<h3>
+    Primary Color Usage
+</h3>
+<p>
+   <strong>If everything is important, nothing is.</strong>
+</p>
+<p>
+    Inflationary usage of the primary color leads to primary actions getting less important, and valuable actions getting less valuable. To increase the value and exclusivity of primary actions and colors, please follow these instructions:
+</p>
+<p>
+    1. Don’t use the primary color for “active/focused” states
+</p>
+<p>
+    2. Use only one Primary-Button per page. If the action of the Primary-Button is exactly the same, it can be used multiple times, but never in the same viewport
+</p>
+<h3>
+    Accessibility
+</h3>
+<p>
+    The BMW color palette offers a range of accessible combinations of text color and background color which always meet at least the WCAG AA contrast ratio success criteria.
+</p>
+
+<hr>
+
+<h3>Design Colors</h3>
+<div class="color-container">
+    <?php foreach ($designColors as $key => $value): ?>
+        <div class="palette">
+            <h4><?php echo ucfirst(str_replace(['$', '-'], ['', ' '], $key)) ?></h4>
+            <p class="palette-color" style="background-color: <?php echo $value[0] ?>; color: #000"></p>
+            <p><?php echo $value[0] ?></p>
+            <p><strong><?php echo $key ?></strong></p>
+            <p><?php echo $value[1] ?></p>
+        </div>
+    <?php endforeach ?>
+</div>
+
+<hr>
+
+<h3>Additional Greys</h3>
+<div class="color-container">
+    <?php foreach ($additionalGreys as $key => $value): ?>
+        <div class="palette">
+            <h4><?php echo ucfirst(str_replace(['$', '-'], ['', ' '], $key)) ?></h4>
+            <p class="palette-color" style="background-color: <?php echo $value[0] ?>; color: #000"></p>
+            <p><?php echo $value[0] ?></p>
+            <p><strong><?php echo $key ?></strong></p>
+            <p><?php echo $value[1] ?></p>
+        </div>
+    <?php endforeach ?>
+</div>
+
+<hr>
+
+<h3>Signal Colors</h3>
+<div class="color-container">
+    <?php foreach ($signalColors as $key => $value): ?>
+        <div class="palette">
+            <h4><?php echo ucfirst(str_replace(['$', '-'], ['', ' '], $key)) ?></h4>
+            <p class="palette-color" style="background-color: <?php echo $value[0] ?>; color: #000"></p>
+            <p><?php echo $value[0] ?></p>
+            <p><strong><?php echo $key ?></strong></p>
+            <p><?php echo $value[1] ?></p>
+        </div>
+    <?php endforeach ?>
+</div>
+
+<hr>
+
+<h3>Interaction Colors</h3>
+<div class="color-container">
+    <?php foreach ($interactionColors as $key => $value): ?>
+        <div class="palette">
+            <h4><?php echo ucfirst(str_replace(['$', '-'], ['', ' '], $key)) ?></h4>
+            <p class="palette-color" style="background-color: <?php echo $value[0] ?>; color: #000"></p>
+            <p><?php echo $value[0] ?></p>
+            <p><strong><?php echo $key ?></strong></p>
+            <p><?php echo $value[1] ?></p>
+        </div>
+    <?php endforeach ?>
+</div>
+
+<hr>
+
+<h3>Helper classes</h3>
+<p>There are available 2 types of helper classes that will work with all here defined colors</p>
+<p>.green-2 (color: $c-green-2)</p>
+<p>.bg-green-2 (background-color: $c-green-2)</p>
+<h5 class="green-2">I am green.</h5>
+<h5 class="bg-green-2">My background is green.</h5>
+

@@ -1,0 +1,113 @@
+&-buttons {
+    @include display(flex);
+    @include justify-content(space-between);
+    border: 0;
+    right: 0;
+    height: 42px;
+    width: 50%;
+
+    .step-back {
+        background-color: $call-to-action-background-color;
+        color: $white;
+        display: block;
+        font-size: $f-size-xs;
+        font-weight: $fw-bold;
+        line-height: 42px;
+        height: 42px;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        position: relative;
+        padding-left: 12px;
+        width: 100%;
+        text-align: center;
+
+        @include media($small-screen-down) {
+            display: none;
+        }
+
+        &.ie-11 {
+            line-height: $mini-line-height-20;
+        }
+
+        &::before {
+            @include pseudo();
+            @include sprite($sprite-numbered-navigation-prev);
+            top: 5px;
+            left: 0;
+        }
+    }
+
+    &-mobile {
+        margin-top: 8px;
+        display: none;
+        width: 100vw;
+        height: 55px;
+        position: fixed;
+        bottom: 0;
+
+        @include media($small-screen-down) {
+            @include display(flex);
+        }
+
+        .apply {
+            box-sizing: border-box;
+            width: calc(100% - 55px);
+            color: $white;
+            background-color: $call-to-action-background-color;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            text-align: center;
+            padding: 0;
+            height: 100%;
+
+            .title {
+                @include v-center-font(Avenir, $f-size-xl);
+                margin: auto;
+            }
+        }
+
+        .compare-link-content,
+        .button {
+            width: 100%;
+            background: $grey-1;
+            border: 0;
+            margin-bottom: 2px;
+            min-height: 45px;
+
+            &:hover {
+                background: $grey-3;
+                color: $white;
+            }
+        }
+
+        .step-back {
+            display: block;
+            font-size: $f-size-xs;
+            background-color: $white;
+            border: 0;
+            color: $black;
+            width: 55px;
+            height: 100%;
+            text-transform: uppercase;
+            position: relative;
+            font-weight: $fw-bold;
+            letter-spacing: 2.5px;
+
+            &::before {
+                @include pseudo();
+                @include sprite($sprite-nav-actions-back-light);
+                margin: auto;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+        }
+
+        a {
+            padding: 10px 0;
+            text-align: center;
+            line-height: 22px;
+        }
+    }
+}

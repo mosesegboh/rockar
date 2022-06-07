@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint\Checkout
+ * @author    Razvan Zofota <razvan.zofota@rockar.com>
+ * @copyright Copyright (c) 2019 Rockar, Ltd (http://rockar.com)
+ */
+-->
+<layout version="0.1.0">
+    <adminhtml_sales_order_view>
+        <reference name="sales_order_tabs">
+            <block type="rockar_checkout/adminhtml_order_view_tab_customer_additional" name="order_view_tab_customer_additional_information" template="rockar/order/view/tab/customer/additional.phtml">
+                <block type="peppermint_checkout/adminhtml_order_view_customer_additional" name="customer_additional_details" template="peppermint/order/view/tab/customer/additional/form.phtml"/>
+            </block>
+            <block type="rockar_checkout/adminhtml_order_view_tab_company_additional" name="order_view_tab_company_additional_information" template="rockar/order/view/tab/customer/additional.phtml">
+                <block type="rockar_checkout/adminhtml_order_view_company_additional" name="company_additional_details" template="peppermint/order/view/tab/company/additional/form.phtml"/>
+            </block>
+            <action method="addTab">
+                <name>customer_additional_information_tab</name>
+                <block>order_view_tab_customer_additional_information</block>
+            </action>
+            <action method="addTab">
+                <name>company_additional_information_tab</name>
+                <block>order_view_tab_company_additional_information</block>
+            </action>
+        </reference>
+        <reference name="order_info">
+            <action method="setTemplate">
+                <template>peppermint/sales/order/view/info.phtml</template>
+            </action>
+        </reference>
+    </adminhtml_sales_order_view>
+</layout>

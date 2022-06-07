@@ -1,0 +1,10 @@
+&-steps {
+    @include display(flex);
+    counter-reset: navigation-steps 5;
+    flex-direction: row-reverse;
+    width: 100%;
+
+    &.summary {
+        pointer-events: none;
+    }
+}

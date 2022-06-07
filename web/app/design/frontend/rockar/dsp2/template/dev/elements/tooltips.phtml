@@ -1,0 +1,37 @@
+<span>I have tooltip on my left.</span>
+<app-tooltip :tooltip-position="'top-right'">
+    <span class="icon-info" slot="tooltipElement"></span>
+
+    <div slot="tooltipContent">
+        <p>First tooltip contents are here</p>
+    </div>
+</app-tooltip>
+
+<br>
+<br>
+
+<span>I have tooltip on my right.</span>
+<app-tooltip :tooltip-position="'top-left'">
+    <span class="icon-info" slot="tooltipElement"></span>
+
+    <div slot="tooltipContent">
+        <p>Second tooltip contents are here</p>
+    </div>
+</app-tooltip>
+
+<br>
+<br>
+
+<span>I have centered tooltip.</span>
+<app-tooltip :tooltip-position="'top'">
+    <span class="icon-info" slot="tooltipElement"></span>
+
+    <div slot="tooltipContent">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+</app-tooltip>
+
+<br>
+<br>
+
+<p>Tooltip arrow placement is determined by :tooltip-position.</p>

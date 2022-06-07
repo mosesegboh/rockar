@@ -1,0 +1,419 @@
+.dashboard {
+    .welcome-msg {
+        .col-5 {
+            text-align: right;
+
+            span {
+                font-size: $bmw-button;
+                font-family: $primary-font-bold;
+                color: $bmw-blue;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.my-account {
+
+    @include media($small-screen-down) {
+        padding-top: $bmw-padding-35;
+    }
+
+    .my-account-header {
+        margin: 0 0 20px;
+    }
+
+    .part-exchange {
+        .accordion {
+            ul {
+                &.submenu {
+                    padding: 0;
+                }
+            }
+        }
+    }
+
+    .my-account-subheading,
+    .my-account-heading {
+        display: inline-block;
+        vertical-align: bottom;
+        margin-bottom: 0;
+        line-height: 1;
+        font-size: $bmw-button;
+        font-family: $primary-font-bold;
+    }
+
+    .my-account-subheading {
+        font-size: $bmw-button;
+        margin-left: 1em;
+        color: $my-account-subheading-color;
+        font-family: $primary-font-family;
+
+        @include media($small-screen-down) {
+            margin: .5em 0;
+            width: 100%;
+        }
+    }
+
+    .car-extras {
+        float: left;
+        clear: both;
+
+        .options-item {
+            list-style: disc inside none;
+            font-weight: $fw-light;
+            padding: 0;
+            font-size: $f-size-l;
+            color: $my-account-car-extras-color;
+        }
+
+        .car-extra-group {
+            margin-bottom: 0.5em;
+
+            .block-title {
+                margin-bottom: 0.5em;
+            }
+
+            .car-extras-list {
+                font-size: 0.9em;
+                padding-left: 1em;
+            }
+        }
+
+        .accordion-group {
+            padding-left: 20px;
+
+            .extras-price {
+                float: right;
+            }
+        }
+    }
+
+    .block-title {
+        font-family: $secondary-font-family;
+        font-weight: $my-account-block-title-fw;
+        text-transform: uppercase;
+        margin-bottom: 0.5em;
+    }
+
+    .car-cover {
+        @include media($medium-screen-up) {
+            padding-right: 0.25em;
+        }
+    }
+
+    .car-plate {
+        @include word-wrap();
+        background: $white;
+        padding: 0.725em;
+        margin-bottom: 0.5em;
+        text-align: center;
+        color: $grey-4;
+        font-family: $secondary-font-family;
+        font-weight: $fw-bold;
+        text-transform: none;
+        font-size: $f-size-xxxl;
+        width: 100%;
+        border: 1px solid $grey-4;
+    }
+
+    button.button-empty-light {
+        background-color: $button-grey;
+        border: 1px solid $cool-grey;
+        color: $white;
+
+        &:hover {
+            background-color: $grey-button-hover-color;
+        }
+    }
+}
+
+.accordion ul.submenu > li:focus,
+.accordion ul.submenu > li:hover,
+.accordion ul.submenu > li:first-child:focus,
+.accordion ul.submenu > li:first-child:hover {
+    background-color: $base-background-color;
+}
+
+.accordion {
+    .accordion-content {
+        padding: 2.5em;
+        background: transparent;
+
+        @include media($small-screen-down) {
+            padding: 1em;
+        }
+    }
+}
+
+.customer-account-index {
+    .dashboard > .page-title > h1 {
+        font-family: $basic-store-font;
+    }
+
+    .details-block,
+    .contact-block {
+        div.content-wrapper {
+            padding: 0 2.25em;
+            padding-left: 0em;
+        }
+    }
+
+    .accordion:last-child {
+        border: 0;
+
+        .js-accordion-trigger {
+            font-size: $bmw-rem;
+        }
+    }
+
+    .popup {
+        .popup-button-close {
+            @include sprite($sprite-close-dark-small);
+            padding-bottom: 0;
+        }
+
+        .popup-overlay {
+            background-color: $black;
+            opacity: 0.67;
+        }
+
+        .popup-content {
+            font-size: 16px;
+            background: $white;
+
+            @include media($large-screen-down) {
+                width: 100% !important; //Need to overwrite inline styling
+                max-width: 1000px;
+            }
+
+            .button {
+                font-size: 0.8125em;
+            }
+
+            .my-account-preferences {
+                .title {
+                    font-weight: $bmw-fw-900;
+                    font-size: 0.875em;
+                }
+
+                .subtitle {
+                    font-weight: $bmw-fw-300;
+                    font-size: 0.875em;
+                    text-transform: none;
+                }
+            }
+
+            .compact-px {
+                .button {
+                    font-size: $f-size-xxs;
+                }
+
+                .part-exchange-left {
+                    @include media($large-screen-up) {
+                        padding: 2.5em 4em 0 0;
+                    }
+
+                    .px-condition-block {
+                        .range-slider {
+                            .ui-slider-range {
+                                outline: 4px solid $white;
+                            }
+                        }
+                    }
+                }
+
+                .part-exchange-right {
+                    margin-left: 0;
+
+                    @include media($large-screen-up) {
+                        padding-left: 4em;
+                        padding-top: 2.5em;
+                    }
+
+                    @include media($medium-screen-down) {
+                        padding-left: 2em;
+                    }
+
+                    @include media($small-screen-down) {
+                        width: initial;
+                        padding-left: 0;
+                    }
+
+                    .px-additional-info-checkbox {
+                        p {
+                            margin-top: 1em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .customer-documents {
+        .confirmation-popup {
+            .popup-container {
+                .popup-content {
+                    .content-wrapper {
+                        button.button-narrow {
+                            width: auto;
+                            padding: 1.45em 1.55em;
+                        }
+
+                        button.button-empty-blue-lagoon {
+                            background-color: transparent;
+                            border-color: $grey-3;
+
+                            span {
+                                color: $cool-grey;
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .popup {
+            .popup-content {
+                @include media($large-screen-up) {
+                    width: 50%;
+                }
+
+                .modal-header {
+                    p {
+                        font-family: $basic-store-font;
+                    }
+
+                    p:nth-child(2) {
+                        text-transform: none;
+                    }
+                }
+
+                .modal-body {
+                    .document-upload {
+                        .button {
+                            padding: $button-narrow-height-padding $button-width-padding;
+                            padding-top: 17px;
+                        }
+                    }
+
+                    .buttons-set {
+                        button.upload-form {
+                            padding: $button-narrow-height-padding $button-width-padding;
+                        }
+                    }
+                }
+
+                label.side-label {
+                    color: $black;
+                }
+            }
+        }
+
+        div.my-documents {
+            .my-account-content,
+            .my-documents-table {
+                table.table {
+                    td {
+                        background-color: transparent;
+                    }
+
+                    thead:nth-child(1n),
+                    tr {
+                        th {
+                            font-family: $primary-font-family;
+                        }
+                    }
+
+                    tbody:nth-child(1n) {
+                        tr:nth-child(odd) {
+                            background-color: $base-background-color;
+                        }
+
+                        tr:nth-child(even) {
+                            background-color: $grey-2;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .my-orders > .my-orders-wrapper {
+        .my-orders-heading {
+            letter-spacing: 0;
+        }
+
+        .my-orders-tabs-section .my-orders-tabs-content table th {
+            text-transform: none;
+        }
+
+        .my-orders-tabs-content {
+            border: 1px solid $bmw-light-grey;
+        }
+
+        .my-orders-tabs-list {
+            .my-orders-tab-title {
+                background: $white;
+                border-bottom: 1px solid $bmw-light-grey;
+                color: $bmw-dark-grey;
+                height: $bmw-table-tab-height;
+                padding-top: $bmw-padding-17;
+            }
+
+            div.active {
+                background-color: $white;
+                border: 1px solid $bmw-light-grey;
+                border-bottom: 0;
+            }
+        }
+
+        .my-orders-document-label {
+            padding-top: 1.5em;
+        }
+
+        .my-orders-bordered {
+            .my-orders-status-text {
+                background-color: $white;
+                border: 1px solid $bmw-light-grey;
+            }
+        }
+
+        .my-orders-steps-block {
+            tr > td {
+                span > .tooltip-wrapper {
+                    display: inline-block;
+                }
+
+                .table-zebra tr:nth-child(e) td:first-child {
+                    background: $grey-2;
+                }
+
+                .table-zebra tr:nth-child(odd) td:first-child {
+                    background: transparent;
+                }
+            }
+        }
+    }
+
+    .my-orders-mobile {
+        .my-orders-subheading {
+            letter-spacing: 0;
+        }
+    }
+}
+
+.info-label-wrap {
+    &.edit-profile {
+        position: absolute;
+        padding: 1% 10%;
+
+        @include media($medium-screen-down) {
+            margin-top: -0.3em;
+            padding: 0 1em;
+            right: 0;
+        }
+    }
+}

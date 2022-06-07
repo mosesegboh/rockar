@@ -1,0 +1,386 @@
+#choose-payment {
+    font-family: $primary-font-family;
+    font-weight: 200;
+
+    iframe {
+        @include media($small-screen-down) {
+            width: 100%;
+        }
+    }
+
+    .px-preloader {
+        @include position(absolute,0 null null 0);
+        @include size(100%);
+        background: $payment-methods-preloader-color;
+        z-index: 9999;
+
+        .show-loading {
+            @include position(absolute, 50% null null 50%);
+            margin: -25px 0 0 -25px;
+        }
+    }
+
+    .payment-title {
+        font-family: $secondary-font-family;
+    }
+
+    .payment-subtitle {
+        font-size: $f-size-s;
+        color: $payment-methods-subtitle-color;
+    }
+
+    .payment-settings {
+        @include display(flex);
+        @include flex-direction(row);
+
+        @include media($small-screen-down) {
+            @include flex-direction(column);
+        }
+
+        .payment-settings-block {
+            @include flex(1 0 30%);
+            float: none;
+
+            @include media($small-screen-down) {
+                @include flex-basis(auto);
+                padding: 0;
+                margin: 10px 0;
+            }
+
+            &.settings-block-middle {
+                @include media($small-screen-down) {
+                    padding: 0;
+                }
+            }
+
+            .payment-settings-block-title-input {
+                margin-top: -6px;
+
+                strong {
+                    margin: 6px 5px 0 0;
+                }
+
+                input {
+                    padding: .5em .5em .3em;
+                }
+            }
+        }
+
+        .payment-settings-block {
+            @include flex(1 0 30%);
+            float: none;
+
+            @include media($medium-screen-up) {
+                margin: 0;
+            }
+
+            &.settings-block-left {
+                strong {
+                    margin: 8px 5px 0 0;
+                }
+
+                input[type=text],
+                input {
+                    margin: 0;
+                    width: 100%;
+                    background: $white;
+                    height: auto;
+                    text-align: left;
+                    font-weight: 400;
+                    font-family: $primary-font-family;
+                    font-size: 1em;
+                    padding: 0.5em;
+                    color: inherit;
+                    line-height: 1;
+                }
+            }
+
+            &.settings-block-left.flb {
+                @include display(flex);
+                @include flex-direction(row);
+                @include flex-wrap(wrap);
+
+                .payment-settings-block-title {
+                    @include flex(1 0 20%);
+                }
+
+                .range-slider-wrapper {
+                    @include flex(1 0 75%);
+                    padding: 0 0 0 10px;
+                    margin-top: 29px;
+                }
+            }
+
+            &.settings-block-middle {
+                padding: 0 25px;
+            }
+
+            .payment-settings-block-title {
+                > div {
+                    font-size: $f-size-l;
+
+                    span {
+                        float: right;
+                        font-weight: $fw-normal;
+                        @include display(flex);
+                    }
+                }
+            }
+        }
+    }
+
+    .vertical-tabs-container {
+        border: none;
+        display: table;
+
+        @include media($small-screen-down) {
+            @include display(flex);
+            @include flex-direction(row);
+            @include flex-wrap(wrap);
+            width: 100%;
+        }
+
+        @include media($medium-screen-up) {
+            display: block;
+        }
+
+        .vertical-tab-content-container {
+            @include size(100% 100%);
+            position: relative;
+            margin: 0 auto;
+            z-index: 9;
+
+            @include media($medium-screen-up) {
+                display: table-cell;
+                vertical-align: top;
+                overflow: hidden;
+                @include size(70% 100%);
+            }
+
+            table {
+                font-family: $primary-font-family;
+                margin: 0;
+                border: 1px solid $finance-overlay-border-color;
+
+                @include media($small-screen-down) {
+                    display: block;
+                }
+
+                tr {
+                    @include media($small-screen-down) {
+                        @include clearfix;
+                    }
+
+                    &:nth-child(even) {
+                        background: $payment-methods-row-bg;
+                    }
+
+                    td {
+                        word-break: keep-all;
+                        background: transparent;
+
+                        @include media($small-screen-down) {
+                            width: 50%;
+                            float: left;
+                        }
+
+                        &:nth-child(2) {
+                            text-align: right;
+                            @include media($small-screen-down) {
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .payment-methods-title-block {
+        margin: 10px 0;
+        @include clearfix;
+
+        .option-header-block {
+            font-family: $secondary-font-family;
+        }
+
+        .text-block {
+            width: 100%;
+            border: none;
+            float: left;
+            margin: 0;
+
+            h3 {
+                font-weight: $fw-bold;
+                font-size: $f-size-xxl;
+                font-family: $secondary-font-family;
+            }
+
+            @include media($small-screen-down) {
+                text-align: center;
+            }
+        }
+
+        .payment-methods-body-continue {
+            border: none;
+            width: 100%;
+            text-align: right;
+            float: right;
+
+            @include media($small-screen-down) {
+                button {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .payment-methods {
+        position: relative;
+        width: 100%;
+        display: block;
+        float: left;
+        border-right: none;
+        height: 100%;
+        z-index: 2;
+
+        @include media($medium-screen-up) {
+            display: table-cell;
+            float: none;
+            vertical-align: top;
+            width: 30%;
+        }
+
+        .payment-methods-tabs {
+            display: block;
+            font-weight: $fw-bold;
+            margin-right: -1px;
+            overflow: hidden;
+
+            @include media($small-screen-down) {
+                margin-right: 0;
+            }
+        }
+
+        .payment-methods-tabs {
+            .payment-methods-tabs-block {
+                @include transition (opacity 0.2s ease-in-out);
+                display: block;
+                background: $finance-overlay-tabs-bg;
+                margin-bottom: 2px;
+                border-right: 1px solid $finance-overlay-border-color;
+
+
+                @include media($small-screen-down) {
+                    border-right: 1px solid transparent;
+                }
+
+                .h-common {
+                    opacity: .8;
+                    color: $finance-overlay-color;
+
+                    &.h-heavy {
+                        opacity: .7;
+                        color: $finance-overlay-color;
+                    }
+                }
+
+                &.active {
+                    background: $finance-overlay-tabs-active-bg;
+                    border: 1px solid $finance-overlay-border-color;
+
+                    @include media($small-screen-down) {
+                        border-right-color: $px-input-color;
+                    }
+
+                    .payment-methods-tabs-block-body {
+                        @include media($small-screen-down) {
+                            width: 100%;
+                        }
+
+                        .h-common {
+                            opacity: 1;
+                        }
+                    }
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+
+                    @include media($small-screen-down) {
+                        border-bottom: 0;
+                    }
+                }
+
+                @include media($medium-screen-up) {
+                    width: 100%;
+                    float: left;
+                }
+
+                .payment-methods-tabs-block-body {
+                    border-bottom: 0;
+                    padding: 5px 10px;
+                    cursor: pointer;
+                    min-height: 120px;
+                    height: auto;
+
+                    p {
+                        font-size: $f-size-s;
+                        font-weight: $fw-normal;
+                    }
+                }
+            }
+        }
+    }
+
+    .payment-methods-body {
+        ul, p {
+            font-size: $f-size;
+            margin: 0 0 2em;
+        }
+
+        ul li {
+            list-style: disc inside;
+        }
+
+        .payment-methods-body-continue {
+            margin-top: 30px;
+            width: 100%;
+            text-align: right;
+
+            @include media($small-screen-down) {
+                text-align: center;
+            }
+
+            button  {
+                margin: 10px 20px 10px 0;
+
+                @include media($small-screen-down) {
+                    display: block;
+                    width: 100%;
+                }
+            }
+        }
+
+        .h5 {
+            font-weight: $fw-bold;
+            padding: 0 10px;
+        }
+
+        table {
+            margin-bottom: 0;
+
+            tr {
+                td {
+                    &:last-child {
+                        width: auto;
+
+                        @include media($medium-screen-up) {
+                            width: 130px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

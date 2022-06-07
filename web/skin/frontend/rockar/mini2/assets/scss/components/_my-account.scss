@@ -1,0 +1,50 @@
+.my-account {
+    .page-title {
+        @include media($medium-screen-up) {
+            width: 100vw;
+        }
+    }
+
+    .accordion-group {
+        & > .row {
+            .accordion {
+                li {
+                    & > a {
+                        &.js-accordion-trigger {
+                            font-family: $mini-serif-regular;
+                            color: $black;
+
+                            @include media($medium-screen-down) {
+                                text-transform: uppercase;
+                                font-size: $dsp2-f-size-sl;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .my-orders,
+    .my-orders-mobile {
+        .my-orders-block {
+            .image-type-switcher {
+                .actions-wrapper {
+                    background-color: $white;
+
+                    .switcher {
+                        &.exterior-switch,
+                        &.interior-switch {
+                            opacity: 1;
+
+                            &.active {
+                                background-color: $c-mini-blue;
+                                border-bottom: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

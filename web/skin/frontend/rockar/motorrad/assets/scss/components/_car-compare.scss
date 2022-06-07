@@ -1,0 +1,547 @@
+#car-compare-wrapper {
+    .car-compare {
+        display: none;
+
+        @include media($compare-desktop-mode) {
+            display: block;
+        }
+
+        .left-column {
+            display: inline-block;
+            width: 20%;
+            margin-right: 1%;
+            vertical-align: top;
+        }
+
+        .car-column {
+            vertical-align: top;
+            display: inline-block;
+            width: calc((79% / 3) - 1%);
+            margin-right: 1%;
+
+            &:last-of-type {
+                margin-right: 0;
+            }
+        }
+
+        .header {
+            .title {
+                font-family: $motorrad;
+                font-size: $car-compare-title-font-size;
+                font-weight: $motorrad-fw-normal;
+                line-height: 0.28;
+                letter-spacing: normal;
+                text-align: left;
+                color: $motorrad-text-color;
+                text-transform: none;
+            }
+
+            .subtitle {
+                font-family: $motorrad-light;
+                font-size: $f-size-xl;
+                line-height: 1.88;
+                letter-spacing: normal;
+                text-align: left;
+                color: $motorrad-text-color;
+            }
+
+            &::after {
+                content: '';
+                display: block;
+                height: 46px;
+            }
+        }
+
+        .selector {
+            display: block;
+            width: 100%;
+
+            .selector-column {
+                .title {
+                    background: $motorrad-white;
+                    border-bottom:1px solid $motorrad-light-grey;
+                    height: 39px;
+                    line-height: $motorrad-line-height-39;
+                    text-align: left;
+                    margin-bottom: 23px;
+
+                    p {
+                        font-family: $motorrad;
+                        font-size: $f-size-xxl;
+                        font-weight: $motorrad-fw-normal;
+                        letter-spacing: normal;
+                        text-align: left;
+                        text-transform: none;
+                    }
+                }
+
+                .selectbox {
+                    margin-top: 35%;
+                    font-family: $motorrad-light;
+                    font-size: $f-size-s;
+                    font-weight: $motorrad-fw-normal;
+                    background: $motorrad-light-grey;
+                    letter-spacing: normal;
+                    text-align: center;
+                    text-transform: uppercase;
+
+                    .selectbox-select {
+                        line-height: $motorrad-line-height-46;
+                        padding: 0;
+                        color: $motorrad-text-color;
+
+                        .dropdown-caret {
+                            display: none;
+                        }
+
+                        &::after {
+                            @include sprite($sprite-view-more-arrow);
+                            content: '';
+                            margin-left: 10px;
+                            display: inline-block;
+                        }
+                    }
+
+                    &.open {
+                        .selectbox-select {
+                            &::after {
+                                @include sprite($sprite-view-more-arrow);
+                                content: '';
+                                display: inline-block;
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+                }
+
+                p {
+                    font-family: $motorrad-light;
+                    font-size: $f-size-xxxs;
+                    letter-spacing: normal;
+                    text-align: left;
+                }
+            }
+
+            .car-column {
+                .title {
+                    text-transform: uppercase;
+                    font-family: $motorrad;
+                    font-size: $f-size-xs;
+                    font-weight: $motorrad-fw-normal;
+                    line-height: 0.83;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: $motorrad-text-color;
+                }
+
+                .subtitle {
+                    text-transform: uppercase;
+                    font-family: $motorrad-light;
+                    font-size: $f-size-xs;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: $motorrad-text-color;
+                }
+
+                .price {
+                    font-size: $f-size-xs;
+                    font-weight: $motorrad-fw-bold;
+                    letter-spacing: normal;
+                    text-align: left;
+                    color: $motorrad-text-color;
+                }
+
+                .img-block {
+                    position: relative;
+                    width: 100%;
+                    padding-top: 41.4297319%;
+
+                    .img-link {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        overflow: hidden;
+                    }
+
+                    img {
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        display: block;
+                        margin: auto;
+                    }
+
+                    .remove-car {
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        z-index: 20;
+                    }
+                }
+            }
+
+            .add-car {
+                img {
+                    width: 100%;
+                    margin-top: 20%;
+                }
+
+                button {
+                    margin-top: 10%;
+                    width: 100%;
+                    padding: $button-narrow-height-padding $button-width-padding $button-narrow-bottom-height-padding;
+                }
+            }
+        }
+
+        .details {
+            display: block;
+            width: 100%;
+            border-bottom: solid 1px $grey-1;
+
+            &::after {
+                content: '';
+                display: block;
+                height: 46px;
+            }
+
+            .attribute-wrapper {
+                height: 46px;
+                line-height: $motorrad-line-height-46;
+                overflow: hidden;
+                padding-left: 15px;
+                background: $motorrad-light-grey;
+                border-top: 1px solid $motorrad-white;
+
+                &:nth-of-type(2n-1) {
+                    background: $motorrad-light-grey;
+                    padding-left:15px;
+                }
+
+                p {
+                    @include pre-wrap();
+                    letter-spacing: normal;
+                    font-family: $motorrad;
+                    text-align: left;
+                    font-size: $f-size-xxxxs;
+                    font-weight: $motorrad-fw-normal;
+                    white-space: nowrap;
+                }
+            }
+        }
+
+        .choices {
+            margin-top: 2vh;
+            display: block;
+            width: 100%;
+
+            .choice {
+                height: 50px;
+                overflow: hidden;
+                background: $motorrad-dark-grey;
+                letter-spacing: normal;
+                padding-top: 15px;
+                font-family: $motorrad;
+                text-align: center;
+                font-size: $motorrad-button-font-size;
+                font-weight: $motorrad-fw-normal;
+                cursor: pointer;
+                text-transform: none;
+
+
+                &.step-back {
+                    text-transform: uppercase;
+                    color: $motorrad-white;
+                    background: $motorrad-dark-grey;
+                }
+            }
+        }
+    }
+
+    .car-compare-mobile {
+        &.slick-slider {
+            display: block;
+            margin: 0;
+            width: 100%;
+
+            @include media($compare-desktop-mode) {
+                display: none;
+            }
+        }
+
+        .slick-dots {
+            position: absolute;
+            height: 30px;
+            top: 0; // This value is overwritten component scripts
+
+            li button::before {
+                opacity: 0.9;
+            }
+
+            li.slick-active button::before {
+                opacity: 1;
+            }
+        }
+
+        .car-page {
+            width: 100%;
+
+            &.add-car {
+                height: 100%;
+                max-height: 100vh;
+
+                img {
+                    margin-top: 10%;
+                    width: 85%;
+                    margin-left: 1.5em;
+                }
+
+                .add-car-button {
+                    width: 100%;
+                    height: 41px;
+                    letter-spacing: 2.7px;
+                    font-family: $black;
+                    text-align: center;
+                    font-size: $f-size-xxxxs;
+                    font-weight: $fw-black;
+                    display: inline-block;
+                    margin-bottom: 0;
+                    margin-left: 1.5em;
+                    margin-top: 1em;
+                }
+            }
+        }
+
+        .top-naviation {
+            height: 40px;
+            padding-left: 1em;
+            padding-top: 1em;
+            padding-right: 1em;
+
+            p {
+                width: 49%;
+                font-family: $motorrad;
+                font-size: 8px;
+                line-height: 8px;
+                font-weight: $motorrad-fw-normal;
+                letter-spacing: $base-letter-spacing;
+                display: inline-block;
+            }
+
+            .step-back {
+                text-align: left;
+            }
+
+            .compare-length {
+                text-align: right;
+            }
+        }
+
+        .selector {
+            display: block;
+            width: 100%;
+
+            .img-block {
+                position: relative;
+                width: 100%;
+                padding-top: 41.4297319%;
+                overflow: hidden;
+
+                .img-link {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                img {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    display: block;
+                    margin: auto;
+                }
+
+                .remove-car {
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    z-index: 20;
+                }
+            }
+
+            .selectbox {
+                width: 90%;
+                max-width: 100%;
+                font-family: $motorrad;
+                font-size: $f-size-xxxxs;
+                background: $motorrad-text-color;
+                font-weight: $motorrad-fw-normal;
+                letter-spacing: $base-letter-spacing;
+                text-align: center;
+                margin-bottom: 0;
+                text-transform: uppercase;
+                margin-left: 1.5em;
+
+                .selectbox-select {
+                    line-height: 46px;
+                    padding: 0;
+                    color: $black;
+
+                    .dropdown-caret {
+                        display: none;
+                    }
+
+                    &::after {
+                        @include sprite($sprite-view-more-arrow);
+                        content: '';
+                        margin-left: 10px;
+                        display: inline-block;
+                    }
+                }
+
+                &.open {
+                    .selectbox-select {
+                        &::after {
+                            @include sprite($sprite-view-more-arrow);
+                            content: '';
+                            margin-left: 10px;
+                            display: inline-block;
+                            transform: rotate(180deg);
+                        }
+                    }
+                }
+            }
+
+            p {
+                font-family: $secondary-font-family;
+                font-size: 10px;
+                letter-spacing: $base-letter-spacing;
+                text-align: left;
+            }
+
+            .title {
+                text-transform: uppercase;
+                font-family: $motorrad-light;
+                font-size: $f-size-xs;
+                font-weight: $motorrad-fw-bold;
+                line-height: 0.83;
+                letter-spacing: $base-letter-spacing;
+                text-align: left;
+                color: $black;
+            }
+
+            .subtitle {
+                text-transform: uppercase;
+                font-family: $motorrad;
+                font-size: $f-size-xxxxs;
+                letter-spacing: $base-letter-spacing;
+                text-align: left;
+                color: $black;
+            }
+
+            .price {
+                font-size: $f-size-xs;
+                font-weight: $motorrad-fw-bold;
+                letter-spacing: $base-letter-spacing;
+                text-align: left;
+            }
+        }
+
+        .details {
+            display: block;
+            width: 90%;
+            border-bottom: solid 1px $grey-1;
+            margin-left:1.2em;
+
+            .attribute-wrapper {
+                min-height: 46px;
+                max-height: calc(46px * 2);
+                line-height: $motorrad-line-height-46;
+                overflow: hidden;
+
+                &:nth-of-type(2n) {
+                    background: $grey-2;
+
+                    &:last-of-type {
+                        margin-bottom: 6.5px;
+                    }
+                }
+
+                p {
+                    letter-spacing: $base-letter-spacing;
+                    font-family: $motorrad;
+                    text-align: center;
+                    font-size: $f-size-xxxxs;
+                    font-weight: $motorrad-fw-normal;
+                }
+
+                .attribute-title {
+                    border-right: 1px solid $grey-1;
+                    display: inline;
+                    margin-bottom: 0;
+                    float: left;
+                    max-width: 50%;
+                    width: 50%;
+                    text-align: center;
+                }
+
+                .attribute-value {
+                    margin-bottom: 0;
+                    float: right;
+                    max-width: 50%;
+                    width: 50%;
+                    text-align: center;
+                }
+
+                &::after {
+                    content: '';
+                    clear: both;
+                }
+            }
+        }
+
+        .choices {
+            display: block;
+            width: 100%;
+
+            .choice {
+                height: 46px;
+                width: 90%;
+                line-height: $motorrad-line-height-46;
+                overflow: hidden;
+                background: $grey-2;
+                letter-spacing: $base-letter-spacing;
+                font-family: $motorrad;
+                text-align: center;
+                font-size: $f-size-xxxxs;
+                font-weight: $motorrad-fw-normal;
+                cursor: pointer;
+                text-transform: uppercase;
+                margin-left: 1.5em;
+                margin-top: 2em;
+
+                &.step-back {
+                    text-transform: uppercase;
+                    color: $white;
+                    background: $black;
+                }
+            }
+        }
+    }
+}
+
+.catalog-product-compare-index {
+    .main.col-6 {
+        width: 100%;
+    }
+}

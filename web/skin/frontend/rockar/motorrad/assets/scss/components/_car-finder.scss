@@ -1,0 +1,84 @@
+#car-finder {
+    .model-build {
+        border: 1px solid $motorrad-grey;
+        padding: 17px 26px 18px 30px;
+        margin-bottom: 40px;
+    }
+
+    .model-build-text {
+        font-size: $f-size-xl;
+        color: $motorrad-text-color;
+        font-weight: $motorrad-fw-normal;
+        padding-top:15px;
+    }
+
+    @include clearfix;
+
+    > .car-finder-filters {
+        @include clearfix;
+        margin-top: 56px;
+
+        @include media($small-screen-down) {
+            margin: 0;
+        }
+
+        .car-filter-step {
+            .car-compare {
+                .compare-content-link {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .substep-1 {
+            margin-bottom: 110px;
+
+            @include media($small-screen-down) {
+                margin-bottom: initial;
+            }
+        }
+
+        div.substep-2-main {
+            margin-bottom: 32px;
+
+            @include media($small-screen-down) {
+                margin-bottom: initial;
+            }
+        }
+    }
+
+    .separation-line {
+        width: 100vw;
+        border-top: 1px solid #919191;
+    }
+
+    .navigation-buttons-wrapper {
+
+        position: sticky;
+        position: -webkit-sticky;
+        margin-left: calc(-50vw + 50%);
+        bottom: 0;
+        background: $base-background-color;
+        z-index: 10;
+
+        &.footer-margin {
+            margin-top: 150px;
+        }
+
+        &.js-is-sticky {
+            left: calc(-50vw + 50%);
+        }
+
+        .navigation-outer-container {
+            max-width: 76.1em;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        &.px-second-step {
+            @include media($small-screen-down) {
+                bottom: auto;
+            }
+        }
+    }
+}

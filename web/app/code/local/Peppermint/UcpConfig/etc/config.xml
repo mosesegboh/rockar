@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  Peppermint
+ * @package   Peppermint_UcpConfig
+ * @copyright Copyright (c) 2021 Rockar Ltd (http://rockar.com)
+ */
+-->
+<config>
+    <modules>
+        <Peppermint_UcpConfig>
+            <version>0.0.1</version>
+        </Peppermint_UcpConfig>
+    </modules>
+    <global>
+        <helpers>
+            <Peppermint_UcpConfig>
+                <class>Peppermint_UcpConfig_Helper</class>
+            </Peppermint_UcpConfig>
+        </helpers>
+        <models>
+            <peppermint_ucpconfig>
+                <class>Peppermint_UcpConfig_Model</class>
+            </peppermint_ucpconfig>
+        </models>
+    </global>
+    <frontend>
+        <events>
+            <rockar_catalog_product_list_collection_prepare>
+                <observers>
+                    <peppermint_ucpconfig_adjustments>
+                        <class>peppermint_ucpconfig/observer</class>
+                        <type>singleton</type>
+                        <method>modifyCollection</method>
+                    </peppermint_ucpconfig_adjustments>
+                </observers>
+            </rockar_catalog_product_list_collection_prepare>
+            <controller_action_predispatch_catalog_category_view>
+                <observers>
+                    <peppermint_ucpconfig_generate_url>
+                        <type>singleton</type>
+                        <class>peppermint_ucpconfig/observer</class>
+                        <method>generateUrl</method>
+                    </peppermint_ucpconfig_generate_url>
+                </observers>
+            </controller_action_predispatch_catalog_category_view>
+        </events>
+    </frontend>
+</config>
